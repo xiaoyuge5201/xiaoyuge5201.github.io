@@ -26,7 +26,7 @@
 <meta property="og:description" content="1. shutdown命令shutdown会给系统计划一个时间关机。它可以被用于停止、关机、重启机器。你可以指定一个时间字符串（通常是 now或者用hh:mm 指定小时&#x2F;分钟）作为第一个参数。 shutdown命令示例： 12345678910111213shutdownshutdown now  #立即关机shutdown 13:20  # 下午13：20关机shutdown -p now  #">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-02T03:39:17.000Z">
-<meta property="article:modified_time" content="2021-10-10T09:46:13.046Z">
+<meta property="article:modified_time" content="2021-10-10T10:06:06.098Z">
 <meta property="article:author" content="小余哥">
 <meta property="article:tag" content="shutdown">
 <meta name="twitter:card" content="summary">
@@ -398,7 +398,7 @@
 <h3 id="4-reboot-命令"><a href="#4-reboot-命令" class="headerlink" title="4.reboot 命令"></a>4.reboot 命令</h3><p>reboot 通知系统重启。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reboot           ### 重启机器</span><br><span class="line"></span><br><span class="line">reboot --halt    ### 停止机器</span><br><span class="line"></span><br><span class="line">reboot -p        ### 关闭机器</span><br></pre></td></tr></table></figure>
 
-<p>###5. init 命令<br>一. init是Linux系统操作中不可缺少的程序之一。<br>所谓的init进程，它是一个由内核启动的用户级进程。<br>内核自行启动（已经被载入内存，开始运行，并已初始化所有的设备驱动程序和数据结构等）之后，就通过启动一个用户级程序init的方式，完成引导进程。所以,init始终是第一个进程（其进程编号始终为1）。<br>内核会在过去曾使用过init的几个地方查找它，它的正确位置（对Linux系统来说）是/sbin/init。如果内核找不到init，它就会试着运行/bin/sh，如果运行失败，系统的启动也会失败。</p>
+<h3 id="5-init-命令"><a href="#5-init-命令" class="headerlink" title="5. init 命令"></a>5. init 命令</h3><p>一. init是Linux系统操作中不可缺少的程序之一。<br>所谓的init进程，它是一个由内核启动的用户级进程。<br>内核自行启动（已经被载入内存，开始运行，并已初始化所有的设备驱动程序和数据结构等）之后，就通过启动一个用户级程序init的方式，完成引导进程。所以,init始终是第一个进程（其进程编号始终为1）。<br>内核会在过去曾使用过init的几个地方查找它，它的正确位置（对Linux系统来说）是/sbin/init。如果内核找不到init，它就会试着运行/bin/sh，如果运行失败，系统的启动也会失败。</p>
 <p>二. init一共分为7个级别，这7个级别的所代表的含义如下</p>
 <p>0：停机或者关机（千万不能将initdefault设置为0）</p>
 <p>1：单用户模式，只root用户进行维护</p>
