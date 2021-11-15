@@ -18,12 +18,12 @@
   
   
   <title>mysql事务 | 小余哥</title>
-  <meta name="description" content="事务的定义 事务是数据管理系统DBMS执行过程中的一个逻辑单位，有一个有限的数据库操作序列构成  事务四大特性  原子性atomicity：依赖undo log做到全部失败 隔离性isolation：实现方式LBCC 和 MVCC 持久性durability ：实现方式redo log和double write 一致性consistency：通过上面的三种方式实现  数据恢复：  redo lo">
+  <meta name="description" content="事务的定义事务是数据管理系统DBMS执行过程中的一个逻辑单位，有一个有限的数据库操作序列构成 事务四大特性  原子性atomicity：依赖undo log做到全部失败  隔离性isolation：实现方式LBCC 和 MVCC  持久性durability ：实现方式redo log和double write  一致性consistency：通过上面的三种方式实现  数据恢复：    redo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql事务">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/2021/07/23/mysql-transcation/index.html">
 <meta property="og:site_name" content="小余哥">
-<meta property="og:description" content="事务的定义 事务是数据管理系统DBMS执行过程中的一个逻辑单位，有一个有限的数据库操作序列构成  事务四大特性  原子性atomicity：依赖undo log做到全部失败 隔离性isolation：实现方式LBCC 和 MVCC 持久性durability ：实现方式redo log和double write 一致性consistency：通过上面的三种方式实现  数据恢复：  redo lo">
+<meta property="og:description" content="事务的定义事务是数据管理系统DBMS执行过程中的一个逻辑单位，有一个有限的数据库操作序列构成 事务四大特性  原子性atomicity：依赖undo log做到全部失败  隔离性isolation：实现方式LBCC 和 MVCC  持久性durability ：实现方式redo log和double write  一致性consistency：通过上面的三种方式实现  数据恢复：    redo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/2021/07/23/mysql-transcation/image-20201202210510525.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/2021/07/23/mysql-transcation/image-20201202210235089.png">
@@ -235,7 +235,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/Thread/">Thread</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E9%9D%A2%E8%AF%95/">面试</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/nginx/">nginx</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/list/">list</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/">redis</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/springboot/">springboot</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mvcc/">mvcc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/tidb/">tidb</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7/">自定义工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B6%A3%E5%91%B3/">趣味</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E7%82%B9/">问题点</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E7%82%B9/sprigCloud/">sprigCloud</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/Thread/">Thread</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/%E9%9D%A2%E8%AF%95/">面试</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/linux/nginx/">nginx</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/list/">list</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/">redis</a><span class="category-list-count">3</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Vue/">Vue</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/springboot/">springboot</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mvcc/">mvcc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/tidb/">tidb</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B7%A5%E5%85%B7/">自定义工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B6%A3%E5%91%B3/">趣味</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E7%82%B9/">问题点</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E7%82%B9/sprigCloud/">sprigCloud</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -245,7 +245,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ClassLoader/" rel="tag">ClassLoader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lock/" rel="tag">lock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/" rel="tag">mycat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shutdown/" rel="tag">shutdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidb/" rel="tag">tidb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" rel="tag">内存溢出</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E7%82%B9/" rel="tag">问题点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ClassLoader/" rel="tag">ClassLoader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos/" rel="tag">centos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lock/" rel="tag">lock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/" rel="tag">mycat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shutdown/" rel="tag">shutdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidb/" rel="tag">tidb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" rel="tag">内存溢出</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AE%E9%A2%98%E7%82%B9/" rel="tag">问题点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -264,7 +264,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -276,6 +276,21 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled no-thumbnail">
         
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/11/15/mysql-column/" class="title">Mysql添加、修改、删除字段</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-11-15T13:13:42.000Z" itemprop="datePublished">2021-11-15</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-inner">
@@ -336,21 +351,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/java/">java</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/09/25/locksupport/" class="title">LockSupport 一个很灵活的线程工具类</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-09-25T04:59:36.000Z" itemprop="datePublished">2021-09-25</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -404,81 +404,58 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="事务的定义"><a class="markdownIt-Anchor" href="#事务的定义"></a> 事务的定义</h2>
-<p>事务是数据管理系统DBMS执行过程中的一个<strong>逻辑单位</strong>，有一个有限的数据库<strong>操作序列</strong>构成</p>
-<h2 id="事务四大特性"><a class="markdownIt-Anchor" href="#事务四大特性"></a> 事务四大特性</h2>
-<ol>
-<li>原子性atomicity：依赖undo log做到全部失败</li>
-<li>隔离性isolation：实现方式LBCC 和 MVCC</li>
-<li>持久性durability ：实现方式redo log和double write</li>
-<li>一致性consistency：通过上面的三种方式实现</li>
+        <h2 id="事务的定义"><a href="#事务的定义" class="headerlink" title="事务的定义"></a>事务的定义</h2><p>事务是数据管理系统DBMS执行过程中的一个<strong>逻辑单位</strong>，有一个有限的数据库<strong>操作序列</strong>构成</p>
+<h2 id="事务四大特性"><a href="#事务四大特性" class="headerlink" title="事务四大特性"></a>事务四大特性</h2><ol>
+<li> 原子性atomicity：依赖undo log做到全部失败</li>
+<li> 隔离性isolation：实现方式LBCC 和 MVCC</li>
+<li> 持久性durability ：实现方式redo log和double write</li>
+<li> 一致性consistency：通过上面的三种方式实现</li>
 </ol>
 <p>数据恢复：</p>
 <ul>
-<li>redo log 崩溃恢复</li>
-<li>双写缓冲（double write）</li>
+<li>  redo log 崩溃恢复</li>
+<li>  双写缓冲（double write）</li>
 </ul>
 <p>Mysql中insert、delete、update 自带事务</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> veriables <span class="keyword">like</span> ‘autocommit’;</span><br><span class="line"><span class="keyword">set</span> session autocommit <span class="operator">=</span> <span class="keyword">on</span>;</span><br><span class="line">update xxx <span class="keyword">where</span> <span class="keyword">set</span> xx <span class="operator">=</span><span class="number">1</span> ;</span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+
 <p>结束事务两种方式：rollback     commit</p>
-<h2 id="事务并发的三大问题"><a class="markdownIt-Anchor" href="#事务并发的三大问题"></a> 事务并发的三大问题</h2>
-<p>数据并发的三大问题其实都是数据库读一致性问题，必须有数据库提供一定的事务隔离机制来解决。</p>
-<h3 id="脏读"><a class="markdownIt-Anchor" href="#脏读"></a> 脏读</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202210510525.png" alt="image-20200727224117281"></p>
-<h3 id="不可重复读"><a class="markdownIt-Anchor" href="#不可重复读"></a> 不可重复读</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202210235089.png" alt="image-20200727224117281"></p>
-<h3 id="幻读"><a class="markdownIt-Anchor" href="#幻读"></a> 幻读</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202210357906.png" alt="image-20200727224117281"></p>
-<h2 id="事务隔离级别"><a class="markdownIt-Anchor" href="#事务隔离级别"></a> 事务隔离级别</h2>
-<p><a target="_blank" rel="noopener" href="http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt">http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt</a><br>
-<img src="/2021/07/23/mysql-transcation/image-20201202210817094.png" alt="image-20200727224117281"><br>
-<img src="/2021/07/23/mysql-transcation/image-20201202211406282.png" alt="image-20200727224117281"></p>
+<h2 id="事务并发的三大问题"><a href="#事务并发的三大问题" class="headerlink" title="事务并发的三大问题"></a>事务并发的三大问题</h2><p>数据并发的三大问题其实都是数据库读一致性问题，必须有数据库提供一定的事务隔离机制来解决。</p>
+<h3 id="脏读"><a href="#脏读" class="headerlink" title="脏读"></a>脏读</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202210510525.png" alt="image-20200727224117281"></p>
+<h3 id="不可重复读"><a href="#不可重复读" class="headerlink" title="不可重复读"></a>不可重复读</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202210235089.png" alt="image-20200727224117281"></p>
+<h3 id="幻读"><a href="#幻读" class="headerlink" title="幻读"></a>幻读</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202210357906.png" alt="image-20200727224117281"></p>
+<h2 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h2><p><a target="_blank" rel="noopener" href="http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt">http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt</a><br><img src="/2021/07/23/mysql-transcation/image-20201202210817094.png" alt="image-20200727224117281"><br><img src="/2021/07/23/mysql-transcation/image-20201202211406282.png" alt="image-20200727224117281"></p>
 <p><img src="/2021/07/23/mysql-transcation/image-20201202211752764.png" alt="image-20201202211752764"></p>
-<h3 id="mvcc思想"><a class="markdownIt-Anchor" href="#mvcc思想"></a> MVCC思想</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202212103393.png" alt="image-20201202212103393"></p>
-<h4 id="read-view一致性试图"><a class="markdownIt-Anchor" href="#read-view一致性试图"></a> Read View（一致性试图）</h4>
-<p>存储内容</p>
+<h3 id="MVCC思想"><a href="#MVCC思想" class="headerlink" title="MVCC思想"></a>MVCC思想</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202212103393.png" alt="image-20201202212103393"></p>
+<h4 id="Read-View（一致性试图）"><a href="#Read-View（一致性试图）" class="headerlink" title="Read View（一致性试图）"></a>Read View（一致性试图）</h4><p>存储内容</p>
 <p><img src="/2021/07/23/mysql-transcation/image-20201202213520136.png" alt="image-20201202213520136"></p>
-<h4 id="read-view判断规则"><a class="markdownIt-Anchor" href="#read-view判断规则"></a> Read View判断规则</h4>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202213757692.png" alt="image-20201202213757692"></p>
-<h4 id="rc与rr-read-view-的区别"><a class="markdownIt-Anchor" href="#rc与rr-read-view-的区别"></a> RC与RR read View 的区别</h4>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202214418001.png" alt="image-20201202214418001"></p>
+<h4 id="Read-View判断规则"><a href="#Read-View判断规则" class="headerlink" title="Read View判断规则"></a>Read View判断规则</h4><p><img src="/2021/07/23/mysql-transcation/image-20201202213757692.png" alt="image-20201202213757692"></p>
+<h4 id="RC与RR-read-View-的区别"><a href="#RC与RR-read-View-的区别" class="headerlink" title="RC与RR read View 的区别"></a>RC与RR read View 的区别</h4><p><img src="/2021/07/23/mysql-transcation/image-20201202214418001.png" alt="image-20201202214418001"></p>
 <p>所以RC解决不了脏读的问题</p>
-<h1 id="mysql-innodb所得基本类型"><a class="markdownIt-Anchor" href="#mysql-innodb所得基本类型"></a> Mysql InnoDb所得基本类型</h1>
-<p>InnoDB支持行锁</p>
+<h1 id="Mysql-InnoDb所得基本类型"><a href="#Mysql-InnoDb所得基本类型" class="headerlink" title="Mysql InnoDb所得基本类型"></a>Mysql InnoDb所得基本类型</h1><p>InnoDB支持行锁</p>
 <p>MyiSAM支持行锁</p>
 <p>表锁和行锁的区别</p>
 <ul>
-<li>锁力度：表锁 &gt; 行锁</li>
-<li>加锁效率：表锁 &gt; 行锁</li>
-<li>冲突概率：表锁 &gt; 行锁</li>
-<li>并发性能：表锁 &lt; 行锁</li>
+<li>  锁力度：表锁 &gt; 行锁</li>
+<li>  加锁效率：表锁 &gt; 行锁</li>
+<li>  冲突概率：表锁 &gt; 行锁</li>
+<li>  并发性能：表锁 &lt; 行锁</li>
 </ul>
-<h2 id="表锁"><a class="markdownIt-Anchor" href="#表锁"></a> 表锁</h2>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202214957559.png" alt="image-20201202214957559"></p>
+<h2 id="表锁"><a href="#表锁" class="headerlink" title="表锁"></a>表锁</h2><p><img src="/2021/07/23/mysql-transcation/image-20201202214957559.png" alt="image-20201202214957559"></p>
 <p>一个事务能够给一张表加上锁的前提是：没有其他任何一个事务锁定了这张表的任意一行数据。如果没有意向锁的话，那么加表锁需要扫描表中的每行数据，大大的浪费时间；</p>
 <p>如果在添加行锁的时候，会在表上添加意向锁，那么在添加表锁的时候就不需要去扫描所有表数据了，只需要看下表上是否由意向锁就可；</p>
-<h2 id="行锁"><a class="markdownIt-Anchor" href="#行锁"></a> 行锁</h2>
-<h3 id="共享锁shared-locks"><a class="markdownIt-Anchor" href="#共享锁shared-locks"></a> 共享锁shared locks</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202215350319.png" alt="image-20201202215350319"></p>
-<h3 id="排它锁exclusive-locks"><a class="markdownIt-Anchor" href="#排它锁exclusive-locks"></a> 排它锁Exclusive locks</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202215717524.png" alt="image-20201202215717524"></p>
-<h3 id="innodb行锁锁定的是什么"><a class="markdownIt-Anchor" href="#innodb行锁锁定的是什么"></a> Innodb行锁锁定的是什么</h3>
-<p>锁定的是index索引，如果表中没有索引，那么Innodb会把隐藏列DB_ROW_ID当作聚集索引</p>
+<h2 id="行锁"><a href="#行锁" class="headerlink" title="行锁"></a>行锁</h2><h3 id="共享锁shared-locks"><a href="#共享锁shared-locks" class="headerlink" title="共享锁shared locks"></a>共享锁shared locks</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202215350319.png" alt="image-20201202215350319"></p>
+<h3 id="排它锁Exclusive-locks"><a href="#排它锁Exclusive-locks" class="headerlink" title="排它锁Exclusive locks"></a>排它锁Exclusive locks</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202215717524.png" alt="image-20201202215717524"></p>
+<h3 id="Innodb行锁锁定的是什么"><a href="#Innodb行锁锁定的是什么" class="headerlink" title="Innodb行锁锁定的是什么"></a>Innodb行锁锁定的是什么</h3><p>锁定的是index索引，如果表中没有索引，那么Innodb会把隐藏列DB_ROW_ID当作聚集索引</p>
 <p>加锁一定要加上条件，不然会锁表</p>
 <p><img src="/2021/07/23/mysql-transcation/image-20201202222250939.png" alt="image-20201202222250939"></p>
-<h3 id="记录锁rcord-lock-锁定记录"><a class="markdownIt-Anchor" href="#记录锁rcord-lock-锁定记录"></a> 记录锁Rcord Lock 锁定记录</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202222823984.png" alt="image-20201202222823984"></p>
-<h3 id="间隙锁gap-lock-锁定范围"><a class="markdownIt-Anchor" href="#间隙锁gap-lock-锁定范围"></a> 间隙锁Gap Lock 锁定范围</h3>
-<p>专门用于阻塞插入，间隙锁如果没有命中的话，会锁定最后一个值到正无穷，那么在最后一个值和正无穷之间的插入都不能成功。</p>
+<h3 id="记录锁Rcord-Lock-锁定记录"><a href="#记录锁Rcord-Lock-锁定记录" class="headerlink" title="记录锁Rcord Lock 锁定记录"></a>记录锁Rcord Lock 锁定记录</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202222823984.png" alt="image-20201202222823984"></p>
+<h3 id="间隙锁Gap-Lock-锁定范围"><a href="#间隙锁Gap-Lock-锁定范围" class="headerlink" title="间隙锁Gap Lock 锁定范围"></a>间隙锁Gap Lock 锁定范围</h3><p>专门用于阻塞插入，间隙锁如果没有命中的话，会锁定最后一个值到正无穷，那么在最后一个值和正无穷之间的插入都不能成功。</p>
 <p><img src="/2021/07/23/mysql-transcation/image-20201202222914087.png" alt="image-20201202222914087"></p>
-<h3 id="临健锁next-key-lock-锁定范围加记录"><a class="markdownIt-Anchor" href="#临健锁next-key-lock-锁定范围加记录"></a> 临健锁Next-key Lock ：锁定范围加记录</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202223655445.png" alt="image-20201202223655445"></p>
+<h3 id="临健锁Next-key-Lock-：锁定范围加记录"><a href="#临健锁Next-key-Lock-：锁定范围加记录" class="headerlink" title="临健锁Next-key Lock ：锁定范围加记录"></a>临健锁Next-key Lock ：锁定范围加记录</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202223655445.png" alt="image-20201202223655445"></p>
 <p><strong>为了解决幻读的问题</strong></p>
-<h3 id="事务隔离级别的实现"><a class="markdownIt-Anchor" href="#事务隔离级别的实现"></a> 事务隔离级别的实现</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202224136052.png" alt="image-20201202224136052"></p>
-<h3 id="事务隔离级别的选择"><a class="markdownIt-Anchor" href="#事务隔离级别的选择"></a> 事务隔离级别的选择</h3>
-<p><img src="/2021/07/23/mysql-transcation/image-20201202224412832.png" alt="image-20201202224412832"></p>
+<h3 id="事务隔离级别的实现"><a href="#事务隔离级别的实现" class="headerlink" title="事务隔离级别的实现"></a>事务隔离级别的实现</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202224136052.png" alt="image-20201202224136052"></p>
+<h3 id="事务隔离级别的选择"><a href="#事务隔离级别的选择" class="headerlink" title="事务隔离级别的选择"></a>事务隔离级别的选择</h3><p><img src="/2021/07/23/mysql-transcation/image-20201202224412832.png" alt="image-20201202224412832"></p>
 
       
     </div>
