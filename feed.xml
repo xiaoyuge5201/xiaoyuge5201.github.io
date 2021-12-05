@@ -15,14 +15,59 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 05 Dec 2021 08:27:07 GMT</pubDate>
+    <pubDate>Sun, 05 Dec 2021 09:32:53 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Nginx基础篇（二）-安装</title>
+      <title>Nginx基础篇（四）Nginx实现反向代理</title>
+      <link>https://xiaoyuge5201.github.io/2021/12/05/nginx-04/</link>
+      <guid>https://xiaoyuge5201.github.io/2021/12/05/nginx-04/</guid>
+      <pubDate>Sun, 05 Dec 2021 08:52:42 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-正向代理和反向代理&quot;&gt;&lt;a href=&quot;#1-正向代理和反向代理&quot; class=&quot;headerlink&quot; title=&quot;1. 正向代理和反向代理&quot;&gt;&lt;/a&gt;1. 正向代理和反向代理&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;正向代理：&lt;br&gt;正向代理类似一个跳板机，代理</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>Nginx基础篇（三）实现虚拟主机</title>
+      <link>https://xiaoyuge5201.github.io/2021/12/05/nginx-03/</link>
+      <guid>https://xiaoyuge5201.github.io/2021/12/05/nginx-03/</guid>
+      <pubDate>Sun, 05 Dec 2021 08:31:25 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-虚拟主机Virtual-Host&quot;&gt;&lt;a href=&quot;#1-虚拟主机Virtual-Host&quot; class=&quot;headerlink&quot; title=&quot;1. 虚拟主机Virtual Host&quot;&gt;&lt;/a&gt;1. 虚拟主机Virtual Host&lt;/h3&gt;&lt;p&gt;一种在单</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>Nginx基础篇（二）安装</title>
       <link>https://xiaoyuge5201.github.io/2021/12/05/nginx-02/</link>
       <guid>https://xiaoyuge5201.github.io/2021/12/05/nginx-02/</guid>
-      <pubDate>Sun, 05 Dec 2021 08:40:44 GMT</pubDate>
+      <pubDate>Sun, 05 Dec 2021 08:10:44 GMT</pubDate>
       
         
         
@@ -33,9 +78,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/linux/nginx/">nginx</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
@@ -44,7 +87,7 @@
     </item>
     
     <item>
-      <title>Nginx基础篇（一）-扫盲</title>
+      <title>Nginx基础篇（一）扫盲</title>
       <link>https://xiaoyuge5201.github.io/2021/12/05/nginx-md/</link>
       <guid>https://xiaoyuge5201.github.io/2021/12/05/nginx-md/</guid>
       <pubDate>Sun, 05 Dec 2021 06:56:36 GMT</pubDate>
@@ -198,7 +241,9 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">-java -多线程</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
