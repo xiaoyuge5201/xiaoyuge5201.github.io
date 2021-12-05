@@ -15,8 +15,57 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Mon, 15 Nov 2021 13:59:58 GMT</pubDate>
+    <pubDate>Sun, 05 Dec 2021 08:27:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Nginx基础篇（二）-安装</title>
+      <link>https://xiaoyuge5201.github.io/2021/12/05/nginx-02/</link>
+      <guid>https://xiaoyuge5201.github.io/2021/12/05/nginx-02/</guid>
+      <pubDate>Sun, 05 Dec 2021 08:40:44 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-Nginx安装&quot;&gt;&lt;a href=&quot;#1-Nginx安装&quot; class=&quot;headerlink&quot; title=&quot;1.Nginx安装&quot;&gt;&lt;/a&gt;1.Nginx安装&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装nginx前首先要确认系统中是否安装了gcc 、pcre-de</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/nginx/">nginx</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>Nginx基础篇（一）-扫盲</title>
+      <link>https://xiaoyuge5201.github.io/2021/12/05/nginx-md/</link>
+      <guid>https://xiaoyuge5201.github.io/2021/12/05/nginx-md/</guid>
+      <pubDate>Sun, 05 Dec 2021 06:56:36 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-Nginx发展史&quot;&gt;&lt;a href=&quot;#1-Nginx发展史&quot; class=&quot;headerlink&quot; title=&quot;1.Nginx发展史&quot;&gt;&lt;/a&gt;1.Nginx发展史&lt;/h3&gt;&lt;p&gt;作者：logo Sysoev&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2000年地洞，c语</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
+      
+      
+    </item>
     
     <item>
       <title>Mysql添加、修改、删除字段</title>
@@ -134,7 +183,7 @@
     </item>
     
     <item>
-      <title>LockSupport 一个很灵活的线程工具类</title>
+      <title>LockSupport一个很灵活的线程工具类</title>
       <link>https://xiaoyuge5201.github.io/2021/09/25/locksupport/</link>
       <guid>https://xiaoyuge5201.github.io/2021/09/25/locksupport/</guid>
       <pubDate>Sat, 25 Sep 2021 04:59:36 GMT</pubDate>
@@ -149,9 +198,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/java/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">-java -多线程</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
@@ -629,33 +676,6 @@
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/ELK/">ELK</category>
-      
-      
-    </item>
-    
-    <item>
-      <title>nginx安装</title>
-      <link>https://xiaoyuge5201.github.io/2021/07/23/nginx/</link>
-      <guid>https://xiaoyuge5201.github.io/2021/07/23/nginx/</guid>
-      <pubDate>Fri, 23 Jul 2021 03:40:44 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h1 id=&quot;Nginx简介&quot;&gt;&lt;a href=&quot;#Nginx简介&quot; class=&quot;headerlink&quot; title=&quot;Nginx简介&quot;&gt;&lt;/a&gt;Nginx简介&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;2000年地洞，c语言编写&lt;/li&gt;
-&lt;li&gt;2004年开源&lt;/li&gt;
-&lt;li&gt;2011</description>
-        
-      
-      
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/linux/nginx/">nginx</category>
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
       
       
     </item>
