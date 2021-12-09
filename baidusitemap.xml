@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xiaoyuge5201.github.io/2021/12/09/docker-nginx/</loc>
+    <lastmod>2021-12-09</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/2021/12/09/docker-mysql/</loc>
+    <lastmod>2021-12-09</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/2021/12/09/docker-01/</loc>
+    <lastmod>2021-12-09</lastmod>
+  </url>
+  <url>
     <loc>https://xiaoyuge5201.github.io/2021/12/05/nginx-02/</loc>
     <lastmod>2021-12-05</lastmod>
   </url>
