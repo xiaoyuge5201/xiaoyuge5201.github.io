@@ -15,7 +15,7 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Tue, 22 Mar 2022 02:56:54 GMT</pubDate>
+    <pubDate>Tue, 22 Mar 2022 06:22:49 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -32,7 +32,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/Linux/">Linux</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/Linux/">Linux</category>
@@ -54,7 +54,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/Linux/">Linux</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/Linux/">Linux</category>
@@ -189,7 +189,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/Linux/">Linux</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
@@ -301,7 +301,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/Linux/">Linux</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/shutdown/">shutdown</category>
@@ -324,7 +324,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/Linux/">Linux</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/Centos/">Centos</category>
@@ -802,7 +802,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/Linux/">Linux</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/ELK/">ELK</category>
@@ -960,7 +960,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/Linux/">Linux</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/redis/">redis</category>
