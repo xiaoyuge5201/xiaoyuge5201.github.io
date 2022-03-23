@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Tue, 22 Mar 2022 08:34:35 GMT</pubDate>
+    <pubDate>Wed, 23 Mar 2022 03:28:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>分布式消息中间件设计</title>
+      <link>https://xiaoyuge5201.github.io/message-oriented-middleware/</link>
+      <guid>https://xiaoyuge5201.github.io/message-oriented-middleware/</guid>
+      <pubDate>Tue, 22 Mar 2022 08:56:31 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-消息中间件概述&quot;&gt;&lt;a href=&quot;#1-消息中间件概述&quot; class=&quot;headerlink&quot; title=&quot;1. 消息中间件概述&quot;&gt;&lt;/a&gt;1. 消息中间件概述&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;什么是分布式消息中间件&lt;/p&gt;
+&lt;p&gt; 利用高效可靠的消息传递</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">消息中间件</category>
+      
+      
+    </item>
     
     <item>
       <title>MinIO简介以及Linux安装MinIO</title>

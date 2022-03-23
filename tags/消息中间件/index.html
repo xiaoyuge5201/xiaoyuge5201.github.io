@@ -17,21 +17,19 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Java内部类初始化 | 小余哥</title>
-  <meta name="description" content="1. 在同个java文件中，但不是内部类1234567public class C &amp;#123;&amp;#125;&#x2F;&#x2F;在同一个Java文件中只能存在一个public类，除内部类外&#x2F;&#x2F;只允许使用“public”、“abstract”和“final”。class D&amp;#123;    &amp;#125; 1234&#x2F;&#x2F;实例化public static void main(String[] args) &amp;#123;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java内部类初始化">
-<meta property="og:url" content="https://xiaoyuge5201.github.io/java-inner-class-01/index.html">
+  <title>标签: 消息中间件 | 小余哥</title>
+  <meta name="description" content="小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小余哥|猿无忧">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 在同个java文件中，但不是内部类1234567public class C &amp;#123;&amp;#125;&#x2F;&#x2F;在同一个Java文件中只能存在一个public类，除内部类外&#x2F;&#x2F;只允许使用“public”、“abstract”和“final”。class D&amp;#123;    &amp;#125; 1234&#x2F;&#x2F;实例化public static void main(String[] args) &amp;#123;">
+<meta property="og:description" content="小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-31T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-22T04:02:11.274Z">
 <meta property="article:author" content="小余哥|猿无忧">
-<meta property="article:tag" content="内部类">
+<meta property="article:tag" content="小余哥，猿无忧，余歌先生，小余">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://xiaoyuge5201.github.io/java-inner-class-01/index.html">
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/index.html">
   
     <link rel="alternate" href="/atom.xml" title="小余哥|猿无忧" type="application/atom+xml">
   
@@ -341,185 +339,102 @@
 </aside>
 
   
-  
-<main class="main" role="main">
-  <div class="content">
-  <article id="post-java-inner-class-01" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <main class="main" role="main">
+  <article class="content article article-tags post-type-list" itemscope="">
+    <header class="article-header">
+      <h1 itemprop="name" class="hidden-xs">标签: 消息中间件</h1>
+      <p class="text-muted hidden-xs">共 1 篇文章</p>
+      <nav role="navigation" id="nav-main" class="okayNav">
+        <ul>
+          <li><a href="/tags">All</a></li>
+          
+          <li><a href="/tags/algorithm/">algorithm</a></li>
+          
+          <li><a href="/tags/mysql/">mysql</a></li>
+          
+          <li><a href="/tags/tidb/">tidb</a></li>
+          
+          <li><a href="/tags/线程/">线程</a></li>
+          
+          <li><a href="/tags/Centos/">Centos</a></li>
+          
+          <li><a href="/tags/集合/">集合</a></li>
+          
+          <li><a href="/tags/shutdown/">shutdown</a></li>
+          
+          <li><a href="/tags/Java/">Java</a></li>
+          
+          <li><a href="/tags/ELK/">ELK</a></li>
+          
+          <li><a href="/tags/SpringCloud/">SpringCloud</a></li>
+          
+          <li><a href="/tags/redis/">redis</a></li>
+          
+          <li><a href="/tags/ClassLoader/">ClassLoader</a></li>
+          
+          <li><a href="/tags/hexo/">hexo</a></li>
+          
+          <li><a href="/tags/内部类/">内部类</a></li>
+          
+          <li><a href="/tags/java/">java</a></li>
+          
+          <li><a href="/tags/lock/">lock</a></li>
+          
+          <li><a href="/tags/内存溢出/">内存溢出</a></li>
+          
+          <li><a href="/tags/springboot/">springboot</a></li>
+          
+          <li><a href="/tags/守护线程/">守护线程</a></li>
+          
+          <li><a href="/tags/个人工具/">个人工具</a></li>
+          
+          <li><a href="/tags/docker/">docker</a></li>
+          
+          <li><a href="/tags/nginx/">nginx</a></li>
+          
+          <li><a href="/tags/Linux/">Linux</a></li>
+          
+          <li><a href="/tags/消息中间件/">消息中间件</a></li>
+          
+          <li><a href="/tags/mycat/">mycat</a></li>
+          
+          <li><a href="/tags/vue/">vue</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+    <!-- /header -->
+    <div class="article-body">
+      <div class="row">
+        
+<div class="col-md-6">
     
-    <div class="article-header">
-      
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Java内部类初始化
-    </h1>
-  
-
-      
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/java-inner-class-01/" class="article-date">
-	  <time datetime="2021-05-31T16:00:00.000Z" itemprop="datePublished">2021-06-01</time>
-	</a>
-</span>
-        
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </span>
-
-        
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a>
-  </span>
-
-
-        
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/java-inner-class-01/#comments" class="article-comment-link">评论</a></span>
-        
-      </div>
-    </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      
-        <h3 id="1-在同个java文件中，但不是内部类"><a href="#1-在同个java文件中，但不是内部类" class="headerlink" title="1. 在同个java文件中，但不是内部类"></a>1. 在同个java文件中，但不是内部类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//在同一个Java文件中只能存在一个public类，除内部类外</span></span><br><span class="line"><span class="comment">//只允许使用“public”、“abstract”和“final”。</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实例化</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    D d = <span class="keyword">new</span> D();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-常规内部类"><a href="#2-常规内部类" class="headerlink" title="2. 常规内部类"></a>2. 常规内部类</h3><p>要实例化内部类对象，必须先有外部类对象，通过外部类对象.new 内部类();来实例化内部类对象，在其他文件或者其他包内都是这样，只是要能在其他包实例化的话，内部类Inner还得加上修饰符public。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Outter</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Outter out = <span class="keyword">new</span> Outter();</span><br><span class="line">        Outter.Inner in = out.<span class="function">new <span class="title">Inner</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//第二种情况：通过提供方法来获取实例对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="number">111</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> B <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> B();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A a = <span class="keyword">new</span> A();</span><br><span class="line">        B b = a.getInstance();</span><br><span class="line">        b.test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-静态内部类"><a href="#3-静态内部类" class="headerlink" title="3. 静态内部类"></a>3. 静态内部类</h3><p>实例化静态内部类和实例化常规内部类有类似的地方，而不同之处在与静态内部类由于是静态的，所以不需要外部类对象就可以实例化，如上例Outter.Inner in = new Outter.Inner();<br>在其他Java文件也是这么实例化的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outter</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Outter.Inner in = <span class="keyword">new</span> Outter.Inner();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-局部内部类"><a href="#4-局部内部类" class="headerlink" title="4. 局部内部类"></a>4. 局部内部类</h3><p>局部内部类是定义在一个方法或者一个作用域里面的类，它和成员内部类的区别在于局部内部类的访问仅限于方法内或者该作用域内，所以只能在方法或者该作用域内实例化,局部内部类不能有访问说明符,因为它不是外围类的一部分,但是可以访问当前代码块的常量,以及此外围类的所有成员</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pint</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">new</span> C();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pint</span><span class="params">(<span class="keyword">boolean</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (b) &#123;</span><br><span class="line">            <span class="class"><span class="keyword">class</span> <span class="title">D</span> </span>&#123;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">new</span> D();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-匿名内部类"><a href="#5-匿名内部类" class="headerlink" title="5. 匿名内部类"></a>5. 匿名内部类</h3><p>匿名内部类可以继承一个类或实现一个接口，这里的ClassOrInterfaceName是匿名内部类所继承的类名或实现的接口名。但匿名内部类不能同时实现一个接口和继承一个类，也不能实现多个接口。如果实现了一个接口，该类是Object类的直接子类，匿名类继承一个类或实现一个接口，不需要extends和implements关键字</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;() &#123;&#123;</span><br><span class="line">        add(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">        add(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">        add(<span class="string">&quot;C&quot;</span>);</span><br><span class="line">&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Thread(</span><br><span class="line">        <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line">        &#125;</span><br><span class="line">).start();</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="https://xiaoyuge5201.github.io/java-inner-class-01/" title="Java内部类初始化" target="_blank" rel="external">https://xiaoyuge5201.github.io/java-inner-class-01/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！本博客如有侵权，请联系删除！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
+<article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
-        <div>致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</div>
-      </div>
-    </figure>
-  </div>
+     <div class="article-meta">
+       <time datetime="2022-03-22T08:56:31.000Z" itemprop="datePublished">2022-03-22</time>
+     </div>
+     <h3 class="article-title" itemprop="name">
+       <a class="article-link" href="/message-oriented-middleware/">分布式消息中间件设计</a>
+     </h3>
+   </div>
+   
+   <div class="panel-footer">
+     
+      <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="label label-default mb">消息中间件</a>
+     
+     
+   </div>
+   
+</article>
+
+
 </div>
 
-
+      </div>
     </div>
   </article>
-  
-    
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/interest/" title="面试常见的趣味题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
-    
-    <li class="next">
-      <a href="/redis_install/" title="Linux环境下安装Redis"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
-    
-    
-  </ul>
-  
-  
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
-  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
-    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
-  </div> -->
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
-<!-- Modal -->
-<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content donate">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <div class="modal-body">
-        <div class="donate-box">
-          <div class="donate-head">
-            <p>感谢您的支持，我会继续努力的!</p>
-          </div>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
-              <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
-            </div>
-            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
-              <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
-              </div>
-              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
-              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
-            </div>
-          </div>
-          <div class="donate-footer">
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
-              </li>
-              <li role="presentation" class="">
-                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
+   
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -574,10 +489,6 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
-
-
-
-   
 
 
 
