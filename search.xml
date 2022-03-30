@@ -28,73 +28,74 @@
       </tags>
   </entry>
   <entry>
-    <title>转换成小写字母</title>
-    <url>/algoright-2/</url>
-    <content><![CDATA[<p>实现函数 ToLowerCase()，该函数接收一个字符串参数 str，并将该字符串中的大写字母转换成小写字母，之后返回新的字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">示例 1：</span><br><span class="line">输入: &quot;Hello&quot;</span><br><span class="line">输出: &quot;hello&quot;</span><br><span class="line"></span><br><span class="line">示例2：</span><br><span class="line">输入: &quot;LOVELY&quot;</span><br><span class="line">输出: &quot;lovely&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="方法一：-ASCCII码"><a href="#方法一：-ASCCII码" class="headerlink" title="方法一： ASCCII码"></a>方法一： ASCCII码</h3><p><strong>解题思路：通过ascii码表操作字符串即可,a和A相差32；</strong></p>
-<ul>
-<li>a-z: 97 - 122</li>
-<li>A-Z: 65 - 90</li>
-<li>0-9: 48 - 57<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> ch : str.toCharArray()) &#123;</span><br><span class="line">        <span class="comment">// a-z：97-122  A-Z：65-90  0-9：48-57</span></span><br><span class="line">        <span class="keyword">if</span> (ch &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            sb.append((<span class="keyword">char</span>)(ch + <span class="number">32</span>));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sb.append(ch);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-或者：<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] ch = str.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ch[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; ch[i] &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            ch[i] += <span class="number">32</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+    <title>Linux安装mysql8</title>
+    <url>/mysql-install/</url>
+    <content><![CDATA[<h3 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h3><ul>
+<li>下载地址：<a href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a></li>
+<li>百度网盘链接: <a href="https://pan.baidu.com/s/1BkOuYlz2Ef7KRe9gikDUCg">https://pan.baidu.com/s/1BkOuYlz2Ef7KRe9gikDUCg</a>  密码: 0l15</li>
+<li>Linux镜像下载  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/src/</span><br><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.27-linux-glibc2.12-x86_64.tar.gz</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="方法二：-位运算"><a href="#方法二：-位运算" class="headerlink" title="方法二： 位运算"></a>方法二： 位运算</h3><p><strong>解题思路：</strong></p>
-<ul>
-<li>大写变小写、小写变大写：字符 ^= 32;</li>
-<li>大写变小写、小写变小写：字符 |= 32;</li>
-<li>大写变大写、小写变大写：字符 &amp;= 33;</li>
-</ul>
-<p>ASCII码表中大写的A是65，小写的a是97，它们的差是32<br>65 | 32 转为二进制（按8位来算）可以得到 0100 0001 | 0010 0000 = 0110 0001 = 97 = a</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] ch = str.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">        ch[i] |= <span class="number">32</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-卸载mariadb"><a href="#2-卸载mariadb" class="headerlink" title="2.卸载mariadb"></a>2.卸载mariadb</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看mariadb 的安装包</span></span><br><span class="line">rpm -qa | grep mariadb</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">卸载 mariadb</span></span><br><span class="line">rpm -e mariadb-libs-5.5.68-1.el7.x86_64 --nodeps</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">卸载验证</span></span><br><span class="line">rpm -qa | grep mariadb</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysqldumpslow分析慢查询日志</title>
-    <url>/mysqldumpslow%E5%88%86%E6%9E%90%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/</url>
-    <content><![CDATA[<p>按照平均查询输出5行慢查询记录</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysqldumpslow -s at -t 5 /phpstudy/data/slowquery.log</span><br></pre></td></tr></table></figure>
-<ul>
-<li>-s   排序方式，可选值有c（记录次数）、t（查询时间）、l（锁定时间）、r（返回记录）、a（平均）</li>
-<li>-t    显示的记录数Spawn failed解决方式</li>
-<li>-g   后面跟正则表达式（如 left join），不区分大小写。</li>
-<li>-r   正序排序，即从小到大排序。</li>
-<li>-d  调试 debug</li>
-<li>-v   查看版本</li>
-</ul>
-<p>按照平均查询时间排序且只显示含有left join的记录</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysqldumpslow -s at -g &#x27;left join&#x27; /phpstudy/data/slowquery.log</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mysql行列转置</title>
-    <url>/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/</url>
-    <content><![CDATA[<p>数据表：<br><img src="/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/01.png" alt="原始数据"></p>
-<p>行转列结果为：<br><img src="/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/02.png" alt="转置后结果"><br>数据库表语句：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_score(</span><br><span class="line">    id <span class="type">int</span> <span class="keyword">primary</span> key auto_increment,</span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span>,  #名字</span><br><span class="line">    Subject <span class="type">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="keyword">null</span>, #科目</span><br><span class="line">    Fraction <span class="keyword">double</span> <span class="keyword">default</span> <span class="number">0</span>  #分数</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t_score`(name,Subject,Fraction) <span class="keyword">VALUES</span></span><br><span class="line">     (<span class="string">&#x27;王海&#x27;</span>, <span class="string">&#x27;语文&#x27;</span>, <span class="number">86</span>),</span><br><span class="line">     (<span class="string">&#x27;王海&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="number">83</span>),</span><br><span class="line">     (<span class="string">&#x27;王海&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>, <span class="number">93</span>),</span><br><span class="line">     (<span class="string">&#x27;陶俊&#x27;</span>, <span class="string">&#x27;语文&#x27;</span>, <span class="number">88</span>),</span><br><span class="line">     (<span class="string">&#x27;陶俊&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="number">84</span>),</span><br><span class="line">     (<span class="string">&#x27;陶俊&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>, <span class="number">94</span>),</span><br><span class="line">     (<span class="string">&#x27;刘可&#x27;</span>, <span class="string">&#x27;语文&#x27;</span>, <span class="number">80</span>),</span><br><span class="line">     (<span class="string">&#x27;刘可&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="number">86</span>),</span><br><span class="line">     (<span class="string">&#x27;刘可&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>, <span class="number">88</span>),</span><br><span class="line">     (<span class="string">&#x27;李春&#x27;</span>, <span class="string">&#x27;语文&#x27;</span>, <span class="number">89</span>),</span><br><span class="line">     (<span class="string">&#x27;李春&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="number">80</span>),</span><br><span class="line">     (<span class="string">&#x27;李春&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>, <span class="number">87</span>);</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>方法一：使用if <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    name <span class="keyword">as</span> 名字 ,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;语文&#x27;</span>,Fraction,<span class="number">0</span>)) <span class="keyword">as</span> 语文,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;数学&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 数学, </span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;英语&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 英语,</span><br><span class="line">    round(<span class="built_in">AVG</span>(Fraction),<span class="number">2</span>) <span class="keyword">as</span> 平均分,</span><br><span class="line">    <span class="built_in">SUM</span>(Fraction) <span class="keyword">as</span> 总分</span><br><span class="line"><span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> name</span><br><span class="line"><span class="comment">-- 如果不用求总分的话，不需要下面的union</span></span><br><span class="line"><span class="keyword">union</span>(</span><br><span class="line">    <span class="keyword">select</span> name <span class="keyword">as</span> 名字 , <span class="built_in">sum</span>(语文) Chinese,<span class="built_in">sum</span>(数学) Math,<span class="built_in">sum</span>(英语) English,round(<span class="built_in">AVG</span>(总分),<span class="number">2</span>)<span class="keyword">as</span> 平均分,<span class="built_in">sum</span>(总分) score  <span class="keyword">from</span>(</span><br><span class="line">        <span class="keyword">select</span> <span class="string">&#x27;TOTAL&#x27;</span> <span class="keyword">as</span> name,</span><br><span class="line">        <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;语文&#x27;</span>,Fraction,<span class="number">0</span>)) <span class="keyword">as</span> 语文,</span><br><span class="line">        <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;数学&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 数学, </span><br><span class="line">        <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;英语&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 英语,</span><br><span class="line">        <span class="built_in">SUM</span>(Fraction) <span class="keyword">as</span> 总分</span><br><span class="line">        <span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> Subject </span><br><span class="line">    )t <span class="keyword">GROUP</span> <span class="keyword">BY</span> t.`name`</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li>方法二：使用case <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> name,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;语文&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> Chinese,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;数学&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> Math,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;英语&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> English,</span><br><span class="line"><span class="built_in">sum</span>(fraction)<span class="keyword">as</span> score</span><br><span class="line"><span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> name</span><br><span class="line"><span class="comment">-- 如果不用求总分的话，不需要下面的union</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">select</span> name <span class="keyword">as</span> Name,<span class="built_in">sum</span>(Chinese) <span class="keyword">as</span> Chinese,<span class="built_in">sum</span>(Math) <span class="keyword">as</span> Math,<span class="built_in">sum</span>(English) <span class="keyword">as</span> English,<span class="built_in">sum</span>(score) <span class="keyword">as</span> score <span class="keyword">from</span>(</span><br><span class="line">    <span class="keyword">select</span> <span class="string">&#x27;TOTAL&#x27;</span> <span class="keyword">as</span> name,</span><br><span class="line">    <span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;语文&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> Chinese,</span><br><span class="line">    <span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;数学&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> Math,</span><br><span class="line">    <span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;英语&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> English,</span><br><span class="line">    <span class="built_in">sum</span>(fraction)<span class="keyword">as</span> score</span><br><span class="line">    <span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> Subject,name)t <span class="keyword">GROUP</span> <span class="keyword">BY</span> t.`name`</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-<li>方法三：使用with rollup<br>在group分组字段的基础上在进行统计数据； <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="comment">-- coalesce(name,&#x27;TOTAL&#x27;) name,</span></span><br><span class="line">    ifnull(name,<span class="string">&#x27;TOTAL&#x27;</span>) name,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;语文&#x27;</span>,Fraction,<span class="number">0</span>)) <span class="keyword">as</span> 语文,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;英语&#x27;</span>,Fraction,<span class="number">0</span>)) <span class="keyword">as</span> 英语,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;数学&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 数学,</span><br><span class="line">    <span class="built_in">sum</span>(Fraction) 总分</span><br><span class="line"><span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> name <span class="keyword">with</span> <span class="keyword">rollup</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h3><ol>
+<li><p>解压安装包</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta"> #</span><span class="bash"> 进入下载目录</span></span><br><span class="line"> cd /usr/local/src/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">解压， 如果是.tar则用 tar -zxvf解压， 我下载的是.tar.xz包，使用的是tar -xcJf</span></span><br><span class="line"> tar -xvJf node-v8.11.1-linux-x64.tar.xz</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 移动解压后的文件夹至/usr/<span class="built_in">local</span></span></span><br><span class="line"> mv /usr/local/src/mysql-8.0.28-linux-glibc2.17-x86_64-minimal /usr/local/</span><br><span class="line"> cd /usr/local/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> 重命名</span></span><br><span class="line"> mv mv ./mysql-8.0.28-linux-glibc2.17-x86_64-minimal mysql8.0</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"> #</span><span class="bash"> 创建文件夹data,存储文件;</span></span><br><span class="line"> cd /usr/local/mysql8.0/</span><br><span class="line"> mkdir ./data</span><br></pre></td></tr></table></figure></li>
+<li><p>创建用户以及用户组</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 用户组</span></span><br><span class="line">groupadd mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 用户 （用户名/密码）</span></span><br><span class="line">useradd -g mysql mysql</span><br></pre></td></tr></table></figure></li>
+<li><p>授权</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chown -R mysql.mysql /usr/local/mysql8.0/ </span><br><span class="line"><span class="meta">#</span><span class="bash">或</span></span><br><span class="line">chown -R mysql .</span><br><span class="line">chgrp -R mysql .</span><br></pre></td></tr></table></figure></li>
+<li><p>初始化数据库</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看当前所在目录</span></span><br><span class="line">pwd # 若显示/usr/local/mysql-8.0,请继续执行，否则请先进入此目录/usr/local/mysql-8.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化 注意查看是否存在相关目录,若不存在,请新建</span></span><br><span class="line">./bin/mysqld --user=mysql --basedir=/usr/local/mysql8.0/ --datadir=/usr/local/mysql8.0/data/ --initialize ; # 亲测</span><br><span class="line"><span class="meta">#</span><span class="bash">或</span></span><br><span class="line">./bin/mysql --user=mysql --basedir=/usr/local/mysql8.0/ --datadir=/usr/local/mysql8.0/data/ --initialize ;</span><br></pre></td></tr></table></figure>
+<p><img src="/mysql-install/3.png"><br> 注意：后面白色高亮选中的是初始密码！！！！</p>
 </li>
+<li><p>配置my.cnf</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp /usr/local/mysql8.0/support-files/mysql.server /etc/init.d/mysqld</span><br><span class="line">vim /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p>在配置中键入如下内容：</p>
+ <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">[mysqld]</span></span><br><span class="line"><span class="attr">basedir</span> = <span class="string">/usr/local/mysql8.0</span></span><br><span class="line"><span class="attr">datadir</span> = <span class="string">/usr/local/mysql8.0/data</span></span><br><span class="line"><span class="attr">socket</span> = <span class="string">/usr/local/mysql8.0/mysql.sock</span></span><br><span class="line"><span class="comment">#character-set-server=utf8</span></span><br><span class="line"><span class="attr">port</span> = <span class="string">3306</span></span><br><span class="line"><span class="attr">default_authentication_plugin</span>=<span class="string">mysql_native_password</span></span><br><span class="line"><span class="attr">sql_mode</span>=<span class="string">NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span></span><br><span class="line"><span class="comment">#数据库默认字符集,主流字符集支持一些特殊表情符号（特殊表情符占用4个字节）</span></span><br><span class="line"><span class="meta">character-set-server</span>=<span class="string">utf8mb4</span></span><br><span class="line"><span class="comment">##数据库字符集对应一些排序等规则，注意要和character-set-server对应</span></span><br><span class="line"><span class="meta">collation-server</span>=<span class="string">utf8mb4_general_ci</span></span><br><span class="line"><span class="comment">##设置client连接mysql时的字符集,防止乱码</span></span><br><span class="line"><span class="comment">##init_connect=&#x27;SET NAMES utf8mb4&#x27;</span></span><br><span class="line"><span class="comment">##是否对sql语句大小写敏感，1表示不敏感</span></span><br><span class="line"><span class="comment">#lower_case_table_names=1</span></span><br><span class="line"><span class="comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span></span><br><span class="line"><span class="meta">symbolic-links</span>=<span class="string">0</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[client]</span></span><br><span class="line"><span class="attr">socket</span>=<span class="string">/usr/local/mysql8.0/mysql.sock</span></span><br><span class="line"><span class="comment">#character-set-server=utf8</span></span><br><span class="line"></span><br><span class="line"><span class="attr">[mysqld_safe]</span></span><br><span class="line"><span class="comment">#自定义日志输出</span></span><br><span class="line"><span class="meta">log-error</span>=<span class="string">/usr/local/mysql8.0/log/error.log</span></span><br><span class="line"><span class="comment"># include all files from the config directory</span></span><br><span class="line"><span class="comment">!includedir /etc/my.cnf.d</span></span><br></pre></td></tr></table></figure></li>
+<li><p>创建日志文件夹</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/usr/local/mysql8.0/</span><br><span class="line">mkdir log</span><br><span class="line">chmod 777 ./log/</span><br><span class="line">touch /usr/local/mysql8.0/log/error.log</span><br><span class="line">chown mysql /usr/local/mysql8.0/log/error.log </span><br></pre></td></tr></table></figure></li>
+<li><p>建立Mysql服务</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp -a ./support-files/mysql.server /etc/init.d/mysql</span><br><span class="line">chmod +x /etc/init.d/mysql</span><br><span class="line">chkconfig --add mysql</span><br><span class="line">chkconfig --list mysql</span><br></pre></td></tr></table></figure>
+<p><img src="/mysql-install/4.png"></p>
+</li>
+<li><p>启动Mysql服务</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 启动</span></span><br><span class="line">service mysql start;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看启动状态</span></span><br><span class="line">service mysql status;</span><br></pre></td></tr></table></figure>
+<p>如果提示： -bash: mysql: command not found</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln -s /usr/local/mysql8.0/bin/mysql /usr/bin</span><br></pre></td></tr></table></figure></li>
+<li><p>登录Mysql</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysql -uroot -p</span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入<span class="string">&quot;初始化数据库&quot;</span>操作时的<span class="string">&quot;临时密码&quot;</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="/mysql-install/5.png"></p>
+<p> 修改密码：</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;新密码&#x27;;</span><br></pre></td></tr></table></figure></li>
+<li><p>远程连接</p>
+<ol>
+<li>在my.cnf的mysqld下增加 <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">default_authentication_plugin</span>=<span class="string">mysql_native_password</span></span><br></pre></td></tr></table></figure></li>
+<li>进入mysql命令行 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">use mysql</span><br><span class="line">update user set host =&#x27;%&#x27; where user=&#x27;root&#x27;;</span><br><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;root&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+<img src="/mysql-install/7.png"></li>
+</ol>
+</li>
+<li><p>检查端口</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">检查3306端口是否开放</span></span><br><span class="line">netstat -nupl|grep 3306</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">开放3306端口</span></span><br><span class="line">firewall -cmd --permanent --add-prot=3306/tcp</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">重启防火墙</span></span><br><span class="line">firewall -cmd --reload</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-常见问题"><a href="#4-常见问题" class="headerlink" title="4. 常见问题"></a>4. 常见问题</h3><ol>
+<li>The server quit without updating PID file<ul>
+<li>第一，权限的问题，在出这个错误的时候，我所说的权限是mysq.cnf和所定义的mysql数据库存放目录的权限，要保证是mysql用户的权限，如果启动mysql还有问题，那么需要考虑提高权限了。<br>说人话， 数据库存放目录必须是mysql这个用户的属组(通常的，安装MySQL的时候建立的用户为mysql，不建议使用别的用户），mysql的启动脚本必须有执行权限。赋予权限的命令为：chown -R mysql. /usr/local/mysql,假设我的mysql是安装在  /usr/local/mysql目录，数据库存放目录为 /usr/local/mysql/data/</li>
+<li>第二，进程中有mysql的进程，上次的退出并没有自动结束该pid，导致新的进程无法启动，毕竟，mysql每次启动系统只会给分配一个pid号，再启动，系统也不可能给你分配pid号了。运行命令 ps -ef |grep mysql  找到mysql的进程结束它，然后在启动mysql。</li>
+<li>第三，进入mysql数据库的存放目录，如果有mysql-bin.index这样的文件，删除它，在启动mysql，该文件产生的原因不详，不过删除必定没影响，或者另一个binlog.index也删除，两个index后缀的都删除也可以。</li>
+<li>第四，my.cnf 这个配置文件内容不对，检查有没有skip-federated这个字段，如果有注释或者删除。<br>检查是否定义了数据库存放目录，如果没有定义，请立刻定义。</li>
+<li>第五，错误日志目录不存在解决方法：使用“chown” “chmod”命令赋予mysql目录所有者及权限。</li>
+<li>第六，my.cnf文件内存在lower_case_table_names=1 字段，注释掉它。（这个选项是1表示不区分大小写）。具体原因不详。</li>
+</ul>
+ 总结：mysql说好安装也好安装，说难也难，难点在于权限的配置，给高了不安全，给低了有可能启动出问题，如果启动出问题了，首先第一件事就是检查目录权限，第二就是检查my.cnf这个配置文件，skip-federated，lower_case_table_names=1 ，这样的字段注释掉，第三，清除旧的mysql进程，如果有就清除掉，旧的不去新的不来，就这么一个道理。第四，进入mysql数据库存放目录删除index后缀的文件。下面，给张图，详细的权限慢慢体会 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls -al /etc/init.d/mysql</span><br></pre></td></tr></table></figure></li>
+<li>Can ‘t connect to local MySQL server through socket ‘/tmp/mysql.sock 连接localhost通常通过一个Unix域套接字文件进行，一般是/tmp/mysql.sock。如果套接字文件被删除了，本地客户就不能连接。这可能发生在你的系统运行一个cron任务删除了/tmp下的临时文件。<br> 如果你因为丢失套接字文件而不能连接，你可以简单地通过重启服务器重新创建得到它。因为服务器在启动时重新创建它。<br> 如果和我一样，重启服务器还是没有任何变化，你可以先执行下面的语句<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysql -uroot -h 127.0.0.1 -p</span><br></pre></td></tr></table></figure>
+解决方式：<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo mkdir /var/run/mysqld/</span><br><span class="line">sudo ln -s /tmp/mysql.sock /var/run/mysqld/mysqld.sock</span><br></pre></td></tr></table></figure></li>
+<li>however file don’t exists. Create writable for user ‘mysql’<br> 问题描述： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@test2 my57_3307]# /usr/local/mysql57/bin/mysqld_safe  --defaults-file=/dbdata/mysql/my57_3307/my57_3307.cnf  --ledir=/usr/local/mysql57/bin</span><br><span class="line">2018-08-26T14:12:45.459798Z mysqld_safe error: log-error set to &#x27;/var/log/mysqld/my57_3307.log&#x27;, however file don&#x27;t exists. Create writable for user &#x27;mysql&#x27;.</span><br></pre></td></tr></table></figure>
+解决方式： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">touch /usr/local/mysql8.0/log/error.log</span><br><span class="line">chown mysql /usr/local/mysql8.0/log/error.log</span><br><span class="line">/usr/local/mysql8.0/bin/mysqld_safe  --defaults-file=/etc/my.cnf  --ledir=/usr/local/mysql8.0/bin</span><br></pre></td></tr></table></figure></li>
+<li>cannot open shared object file: No such file or directory <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">需要安装 libnuma</span></span><br><span class="line">yum install libnuma</span><br><span class="line">yum -y install  numactl</span><br><span class="line">yum install libaio1 libaio-dev</span><br></pre></td></tr></table></figure></li>
 </ol>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>linux</category>
       </categories>
       <tags>
         <tag>mysql</tag>
@@ -316,6 +317,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo部署出现错误Error Spawn failed解决方式</title>
+    <url>/hexo-spawn-failed/</url>
+    <content><![CDATA[<p>部署过程中可能会出现错误:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br><span class="line">remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.</span><br><span class="line">fatal: unable to access &#x27;https://github.com/xiaoyuge5201/xiaoyuge5201.github.io.git/&#x27;: The requested URL returned error: 403</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/Users/xiaoyuge/workspace/mybolg/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:315:20)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br><span class="line">xiaoyuge@xiaoyugedeMacBook-Pro mybolg % hexo clean</span><br></pre></td></tr></table></figure>
+<p>####解决方式一：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#进入站点根目录</span></span></span><br><span class="line">cd cd /Users/xiaoyuge/workspace/mybolg</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#删除git提交内容文件夹</span></span></span><br><span class="line">rm -rf .deploy_git/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#执行</span></span></span><br><span class="line">git config --global core.autocrlf false</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#最后</span></span></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<p>####解决方式二：<br>有可能是你的git repo配置地址不正确,可以将http方式变更为ssh方式（我的就是这个问题）<br>github在2021-08-13正式启用personal access token后，原来的用户名+密码方式部署会报错，需要采用最新的token登录方式进行部署 。<br>具体方式参考：<a href="https://cloud.tencent.com/developer/article/1861466">https://cloud.tencent.com/developer/article/1861466</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br></pre></td></tr></table></figure>
+<p>查看_config.yml文件，</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="comment">#repo:https://github.com/xiaoyuge5201/xiaoyuge5201.github.io.git  这是原来的路径，现在改成了下面这种</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xiaoyuge5201/xiaoyuge5201.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>踩坑记录</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JAVA类加载过程</title>
     <url>/classLoad/</url>
     <content><![CDATA[<h2 id="1-类加载机制"><a href="#1-类加载机制" class="headerlink" title="1.类加载机制"></a>1.类加载机制</h2><p>JVM将类描述数据从.class文件中加载到内存，并对数据进行解析、初始化，最终形成被JVM直接使用的Java类型；类从被加载到JVM中开始，到卸载为止，<br>整个生命周期包括：<strong>加载、验证、准备、解析、初始化、使用和卸载</strong>7个阶段<br><img src="/classLoad/01.png" alt="完整的类加载过程"></p>
@@ -392,24 +411,6 @@
       </categories>
       <tags>
         <tag>ClassLoader</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo部署出现错误Error Spawn failed解决方式</title>
-    <url>/hexo-spawn-failed/</url>
-    <content><![CDATA[<p>部署过程中可能会出现错误:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br><span class="line">remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.</span><br><span class="line">fatal: unable to access &#x27;https://github.com/xiaoyuge5201/xiaoyuge5201.github.io.git/&#x27;: The requested URL returned error: 403</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (/Users/xiaoyuge/workspace/mybolg/node_modules/hexo-util/lib/spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (events.js:315:20)</span><br><span class="line">      at Process.ChildProcess._handle.onexit (internal/child_process.js:277:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br><span class="line">xiaoyuge@xiaoyugedeMacBook-Pro mybolg % hexo clean</span><br></pre></td></tr></table></figure>
-<p>####解决方式一：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#进入站点根目录</span></span></span><br><span class="line">cd cd /Users/xiaoyuge/workspace/mybolg</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#删除git提交内容文件夹</span></span></span><br><span class="line">rm -rf .deploy_git/</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#执行</span></span></span><br><span class="line">git config --global core.autocrlf false</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#最后</span></span></span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<p>####解决方式二：<br>有可能是你的git repo配置地址不正确,可以将http方式变更为ssh方式（我的就是这个问题）<br>github在2021-08-13正式启用personal access token后，原来的用户名+密码方式部署会报错，需要采用最新的token登录方式进行部署 。<br>具体方式参考：<a href="https://cloud.tencent.com/developer/article/1861466">https://cloud.tencent.com/developer/article/1861466</a></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.</span><br></pre></td></tr></table></figure>
-<p>查看_config.yml文件，</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="comment">#repo:https://github.com/xiaoyuge5201/xiaoyuge5201.github.io.git  这是原来的路径，现在改成了下面这种</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xiaoyuge5201/xiaoyuge5201.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>踩坑记录</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1131,26 +1132,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux环境下安装Redis</title>
-    <url>/redis_install/</url>
-    <content><![CDATA[<h5 id="1-安装gcc"><a href="#1-安装gcc" class="headerlink" title="1. 安装gcc"></a>1. 安装gcc</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install gcc gcc-c++</span><br></pre></td></tr></table></figure>
-<h5 id="2-下载安装包"><a href="#2-下载安装包" class="headerlink" title="2. 下载安装包"></a>2. 下载安装包</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://download.redis.io/redis-stable.tar.gz </span><br></pre></td></tr></table></figure>
-<h5 id="3-解压"><a href="#3-解压" class="headerlink" title="3. 解压"></a>3. 解压</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar xvzf redis-stable.tar.gz</span><br></pre></td></tr></table></figure>
-<h5 id="4-编译"><a href="#4-编译" class="headerlink" title="4. 编译"></a>4. 编译</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//如果使用make失败，那么就加上参数，因为jemalloc重载了Linux下的ANSI C的malloc和free函数</span><br><span class="line">make MALLOC=libc</span><br><span class="line">//make之后如果出现Hint: To run &#x27;make test&#x27; is a good idea ;</span><br><span class="line">//运行make test, 会提示需要安装tcl,执行yum install tcl</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-配置密码以及允许外网ip访问"><a href="#5-配置密码以及允许外网ip访问" class="headerlink" title="5. 配置密码以及允许外网ip访问"></a>5. 配置密码以及允许外网ip访问</h5>   <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在redis.conf中配置requirepass 密码以及port端口号（非必须）</span></span><br><span class="line"><span class="attr">requirepass</span> <span class="string">xxx</span></span><br><span class="line"><span class="attr">port</span> <span class="string">6379 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#开启redis允许外网ip访问，在 Linux 中安装了redis 服务，当在客户端通过远程连接的方式连接时，报could not connect错误。错误的原因为：redis采用的安全策略，默认会只准许本地访问。</span></span><br><span class="line"><span class="comment">#将所有的bing信息全部屏蔽</span></span><br><span class="line"><span class="comment">#bind 192.168.1.100 10.0.0.1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#配置redis后台启动，如果不配置的话可以使用hohup启动</span></span><br><span class="line"><span class="attr">daemonize</span> <span class="string">yes</span></span><br></pre></td></tr></table></figure>
-<h5 id="6-启动redis服务"><a href="#6-启动redis服务" class="headerlink" title="6. 启动redis服务"></a>6. 启动redis服务</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ./src</span><br><span class="line">nohup ./redis-server ../redis.conf &amp;</span><br></pre></td></tr></table></figure>
-<h5 id="7-查看redis进程"><a href="#7-查看redis进程" class="headerlink" title="7. 查看redis进程"></a>7. 查看redis进程</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost redis]# pstree</span><br></pre></td></tr></table></figure>
-<p>   <img src="/redis_install/image-20201201155441018.png" alt="image-20201210103251475"></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>redis</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>springboot读取yml配置的方式</title>
     <url>/springboot-yml/</url>
     <content><![CDATA[<p>springboot项目中默认的配置文件是application.properties；</p>
@@ -1194,6 +1175,59 @@
       </categories>
       <tags>
         <tag>springboot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux环境下安装Redis</title>
+    <url>/redis_install/</url>
+    <content><![CDATA[<h5 id="1-安装gcc"><a href="#1-安装gcc" class="headerlink" title="1. 安装gcc"></a>1. 安装gcc</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install gcc gcc-c++</span><br></pre></td></tr></table></figure>
+<h5 id="2-下载安装包"><a href="#2-下载安装包" class="headerlink" title="2. 下载安装包"></a>2. 下载安装包</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://download.redis.io/redis-stable.tar.gz </span><br></pre></td></tr></table></figure>
+<h5 id="3-解压"><a href="#3-解压" class="headerlink" title="3. 解压"></a>3. 解压</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar xvzf redis-stable.tar.gz</span><br></pre></td></tr></table></figure>
+<h5 id="4-编译"><a href="#4-编译" class="headerlink" title="4. 编译"></a>4. 编译</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//如果使用make失败，那么就加上参数，因为jemalloc重载了Linux下的ANSI C的malloc和free函数</span><br><span class="line">make MALLOC=libc</span><br><span class="line">//make之后如果出现Hint: To run &#x27;make test&#x27; is a good idea ;</span><br><span class="line">//运行make test, 会提示需要安装tcl,执行yum install tcl</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-配置密码以及允许外网ip访问"><a href="#5-配置密码以及允许外网ip访问" class="headerlink" title="5. 配置密码以及允许外网ip访问"></a>5. 配置密码以及允许外网ip访问</h5>   <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在redis.conf中配置requirepass 密码以及port端口号（非必须）</span></span><br><span class="line"><span class="attr">requirepass</span> <span class="string">xxx</span></span><br><span class="line"><span class="attr">port</span> <span class="string">6379 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#开启redis允许外网ip访问，在 Linux 中安装了redis 服务，当在客户端通过远程连接的方式连接时，报could not connect错误。错误的原因为：redis采用的安全策略，默认会只准许本地访问。</span></span><br><span class="line"><span class="comment">#将所有的bing信息全部屏蔽</span></span><br><span class="line"><span class="comment">#bind 192.168.1.100 10.0.0.1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#配置redis后台启动，如果不配置的话可以使用hohup启动</span></span><br><span class="line"><span class="attr">daemonize</span> <span class="string">yes</span></span><br></pre></td></tr></table></figure>
+<h5 id="6-启动redis服务"><a href="#6-启动redis服务" class="headerlink" title="6. 启动redis服务"></a>6. 启动redis服务</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ./src</span><br><span class="line">nohup ./redis-server ../redis.conf &amp;</span><br></pre></td></tr></table></figure>
+<h5 id="7-查看redis进程"><a href="#7-查看redis进程" class="headerlink" title="7. 查看redis进程"></a>7. 查看redis进程</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost redis]# pstree</span><br></pre></td></tr></table></figure>
+<p>   <img src="/redis_install/image-20201201155441018.png" alt="image-20201210103251475"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java守护线程和非守护线程</title>
+    <url>/thread-01/</url>
+    <content><![CDATA[<p>用户线程：我们平常创建的普通线程。</p>
+<p>守护线程：用来服务于用户线程；不需要上层逻辑介入</p>
+<p>java线程分为守护线程和非守护线程，当java jvm检测主线程或其他子线程执行完之后，守护线程也会马上停止执行，我们可以使用Thread.setDaemon(ture或false)来设置一个线程是守护线程还是非守护线程，默认为false，可以通过Thread.isDaemon()方法查询该线程是否是守护线程</p>
+<p>守护线程是所有的用户线程结束生命周期，守护线程才会结束生命周期，只要有一个用户线程存在，那么守护线程就不会结束，例如Java中的垃圾 回收器就是一个守护线程，只有应用程序中所有的线程结束，它才会结束。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DaemonThread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(DaemonThread::print);</span><br><span class="line">        thread.setDaemon(<span class="keyword">true</span>);</span><br><span class="line">        thread.start();</span><br><span class="line">        System.out.println(<span class="string">&quot;主线程main 结束&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//写一个死循环的方法来测试</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Counter:&quot;</span> + counter++);</span><br><span class="line">                Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">主线程main 结束</span><br><span class="line">Counter:1</span><br></pre></td></tr></table></figure>
+<p>如果我们将daemon设置为非守护线程，代码如下:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">thread.setDaemon(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
+<p>这个时候就不会退出while(true)循环了，会一直执行下去，结果如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">主线程main 结束</span><br><span class="line">Counter:1</span><br><span class="line">Counter:2</span><br><span class="line">Counter:3</span><br><span class="line">Counter:4</span><br><span class="line">Counter:5</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：守护线程是为用户线程服务的，当用户线程全部结束，守护线程会自动结束。</strong></p>
+<p><strong>注意事项：</strong></p>
+<ol>
+<li>thread.setDaemon(true)必须在thread.start()之前设置，否则会跑出一个IllegalThreadStateException异常。你不能把正在运行的常规线程设置为守护线程。</li>
+<li>在Daemon线程中产生的新线程也是Daemon的。</li>
+<li>守护线程不能用于去访问固有资源，比如读写操作或者计算逻辑。因为它会在任何时候甚至在一个操作的中间发生中断。</li>
+<li>Java自带的多线程框架，比如ExecutorService，会将守护线程转换为用户线程，所以如果要使用后台线程就不能用Java的线程池。</li>
+</ol>
+<p><strong>意义以及应用场景:</strong></p>
+<p>当主线程结束时，结束其余的子线程（守护线程）自动关闭，就免去了还要继续关闭子线程的麻烦。如：Java垃圾回收线程就是一个典型的守护线程；内存资源或者线程的管理，但是非守护线程也可以。</p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>守护线程</tag>
       </tags>
   </entry>
   <entry>
@@ -1259,39 +1293,6 @@
       </categories>
       <tags>
         <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java守护线程和非守护线程</title>
-    <url>/thread-01/</url>
-    <content><![CDATA[<p>用户线程：我们平常创建的普通线程。</p>
-<p>守护线程：用来服务于用户线程；不需要上层逻辑介入</p>
-<p>java线程分为守护线程和非守护线程，当java jvm检测主线程或其他子线程执行完之后，守护线程也会马上停止执行，我们可以使用Thread.setDaemon(ture或false)来设置一个线程是守护线程还是非守护线程，默认为false，可以通过Thread.isDaemon()方法查询该线程是否是守护线程</p>
-<p>守护线程是所有的用户线程结束生命周期，守护线程才会结束生命周期，只要有一个用户线程存在，那么守护线程就不会结束，例如Java中的垃圾 回收器就是一个守护线程，只有应用程序中所有的线程结束，它才会结束。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DaemonThread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(DaemonThread::print);</span><br><span class="line">        thread.setDaemon(<span class="keyword">true</span>);</span><br><span class="line">        thread.start();</span><br><span class="line">        System.out.println(<span class="string">&quot;主线程main 结束&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> counter = <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//写一个死循环的方法来测试</span></span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Counter:&quot;</span> + counter++);</span><br><span class="line">                Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">主线程main 结束</span><br><span class="line">Counter:1</span><br></pre></td></tr></table></figure>
-<p>如果我们将daemon设置为非守护线程，代码如下:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">thread.setDaemon(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
-<p>这个时候就不会退出while(true)循环了，会一直执行下去，结果如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">主线程main 结束</span><br><span class="line">Counter:1</span><br><span class="line">Counter:2</span><br><span class="line">Counter:3</span><br><span class="line">Counter:4</span><br><span class="line">Counter:5</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
-
-<p><strong>总结：守护线程是为用户线程服务的，当用户线程全部结束，守护线程会自动结束。</strong></p>
-<p><strong>注意事项：</strong></p>
-<ol>
-<li>thread.setDaemon(true)必须在thread.start()之前设置，否则会跑出一个IllegalThreadStateException异常。你不能把正在运行的常规线程设置为守护线程。</li>
-<li>在Daemon线程中产生的新线程也是Daemon的。</li>
-<li>守护线程不能用于去访问固有资源，比如读写操作或者计算逻辑。因为它会在任何时候甚至在一个操作的中间发生中断。</li>
-<li>Java自带的多线程框架，比如ExecutorService，会将守护线程转换为用户线程，所以如果要使用后台线程就不能用Java的线程池。</li>
-</ol>
-<p><strong>意义以及应用场景:</strong></p>
-<p>当主线程结束时，结束其余的子线程（守护线程）自动关闭，就免去了还要继续关闭子线程的麻烦。如：Java垃圾回收线程就是一个典型的守护线程；内存资源或者线程的管理，但是非守护线程也可以。</p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>守护线程</tag>
       </tags>
   </entry>
   <entry>
@@ -1406,6 +1407,79 @@
       </tags>
   </entry>
   <entry>
+    <title>转换成小写字母</title>
+    <url>/algoright-2/</url>
+    <content><![CDATA[<p>实现函数 ToLowerCase()，该函数接收一个字符串参数 str，并将该字符串中的大写字母转换成小写字母，之后返回新的字符串。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">示例 1：</span><br><span class="line">输入: &quot;Hello&quot;</span><br><span class="line">输出: &quot;hello&quot;</span><br><span class="line"></span><br><span class="line">示例2：</span><br><span class="line">输入: &quot;LOVELY&quot;</span><br><span class="line">输出: &quot;lovely&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="方法一：-ASCCII码"><a href="#方法一：-ASCCII码" class="headerlink" title="方法一： ASCCII码"></a>方法一： ASCCII码</h3><p><strong>解题思路：通过ascii码表操作字符串即可,a和A相差32；</strong></p>
+<ul>
+<li>a-z: 97 - 122</li>
+<li>A-Z: 65 - 90</li>
+<li>0-9: 48 - 57<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> ch : str.toCharArray()) &#123;</span><br><span class="line">        <span class="comment">// a-z：97-122  A-Z：65-90  0-9：48-57</span></span><br><span class="line">        <span class="keyword">if</span> (ch &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            sb.append((<span class="keyword">char</span>)(ch + <span class="number">32</span>));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sb.append(ch);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+或者：<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] ch = str.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ch[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; ch[i] &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            ch[i] += <span class="number">32</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="方法二：-位运算"><a href="#方法二：-位运算" class="headerlink" title="方法二： 位运算"></a>方法二： 位运算</h3><p><strong>解题思路：</strong></p>
+<ul>
+<li>大写变小写、小写变大写：字符 ^= 32;</li>
+<li>大写变小写、小写变小写：字符 |= 32;</li>
+<li>大写变大写、小写变大写：字符 &amp;= 33;</li>
+</ul>
+<p>ASCII码表中大写的A是65，小写的a是97，它们的差是32<br>65 | 32 转为二进制（按8位来算）可以得到 0100 0001 | 0010 0000 = 0110 0001 = 97 = a</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] ch = str.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">        ch[i] |= <span class="number">32</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysqldumpslow分析慢查询日志</title>
+    <url>/mysqldumpslow%E5%88%86%E6%9E%90%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/</url>
+    <content><![CDATA[<p>按照平均查询输出5行慢查询记录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysqldumpslow -s at -t 5 /phpstudy/data/slowquery.log</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-s   排序方式，可选值有c（记录次数）、t（查询时间）、l（锁定时间）、r（返回记录）、a（平均）</li>
+<li>-t    显示的记录数Spawn failed解决方式</li>
+<li>-g   后面跟正则表达式（如 left join），不区分大小写。</li>
+<li>-r   正序排序，即从小到大排序。</li>
+<li>-d  调试 debug</li>
+<li>-v   查看版本</li>
+</ul>
+<p>按照平均查询时间排序且只显示含有left join的记录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysqldumpslow -s at -g &#x27;left join&#x27; /phpstudy/data/slowquery.log</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql行列转置</title>
+    <url>/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/</url>
+    <content><![CDATA[<p>数据表：<br><img src="/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/01.png" alt="原始数据"></p>
+<p>行转列结果为：<br><img src="/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/02.png" alt="转置后结果"><br>数据库表语句：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> t_score(</span><br><span class="line">    id <span class="type">int</span> <span class="keyword">primary</span> key auto_increment,</span><br><span class="line">    name <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span>,  #名字</span><br><span class="line">    Subject <span class="type">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="keyword">null</span>, #科目</span><br><span class="line">    Fraction <span class="keyword">double</span> <span class="keyword">default</span> <span class="number">0</span>  #分数</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `t_score`(name,Subject,Fraction) <span class="keyword">VALUES</span></span><br><span class="line">     (<span class="string">&#x27;王海&#x27;</span>, <span class="string">&#x27;语文&#x27;</span>, <span class="number">86</span>),</span><br><span class="line">     (<span class="string">&#x27;王海&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="number">83</span>),</span><br><span class="line">     (<span class="string">&#x27;王海&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>, <span class="number">93</span>),</span><br><span class="line">     (<span class="string">&#x27;陶俊&#x27;</span>, <span class="string">&#x27;语文&#x27;</span>, <span class="number">88</span>),</span><br><span class="line">     (<span class="string">&#x27;陶俊&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="number">84</span>),</span><br><span class="line">     (<span class="string">&#x27;陶俊&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>, <span class="number">94</span>),</span><br><span class="line">     (<span class="string">&#x27;刘可&#x27;</span>, <span class="string">&#x27;语文&#x27;</span>, <span class="number">80</span>),</span><br><span class="line">     (<span class="string">&#x27;刘可&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="number">86</span>),</span><br><span class="line">     (<span class="string">&#x27;刘可&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>, <span class="number">88</span>),</span><br><span class="line">     (<span class="string">&#x27;李春&#x27;</span>, <span class="string">&#x27;语文&#x27;</span>, <span class="number">89</span>),</span><br><span class="line">     (<span class="string">&#x27;李春&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="number">80</span>),</span><br><span class="line">     (<span class="string">&#x27;李春&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>, <span class="number">87</span>);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>方法一：使用if <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">    name <span class="keyword">as</span> 名字 ,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;语文&#x27;</span>,Fraction,<span class="number">0</span>)) <span class="keyword">as</span> 语文,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;数学&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 数学, </span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;英语&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 英语,</span><br><span class="line">    round(<span class="built_in">AVG</span>(Fraction),<span class="number">2</span>) <span class="keyword">as</span> 平均分,</span><br><span class="line">    <span class="built_in">SUM</span>(Fraction) <span class="keyword">as</span> 总分</span><br><span class="line"><span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> name</span><br><span class="line"><span class="comment">-- 如果不用求总分的话，不需要下面的union</span></span><br><span class="line"><span class="keyword">union</span>(</span><br><span class="line">    <span class="keyword">select</span> name <span class="keyword">as</span> 名字 , <span class="built_in">sum</span>(语文) Chinese,<span class="built_in">sum</span>(数学) Math,<span class="built_in">sum</span>(英语) English,round(<span class="built_in">AVG</span>(总分),<span class="number">2</span>)<span class="keyword">as</span> 平均分,<span class="built_in">sum</span>(总分) score  <span class="keyword">from</span>(</span><br><span class="line">        <span class="keyword">select</span> <span class="string">&#x27;TOTAL&#x27;</span> <span class="keyword">as</span> name,</span><br><span class="line">        <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;语文&#x27;</span>,Fraction,<span class="number">0</span>)) <span class="keyword">as</span> 语文,</span><br><span class="line">        <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;数学&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 数学, </span><br><span class="line">        <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;英语&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 英语,</span><br><span class="line">        <span class="built_in">SUM</span>(Fraction) <span class="keyword">as</span> 总分</span><br><span class="line">        <span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> Subject </span><br><span class="line">    )t <span class="keyword">GROUP</span> <span class="keyword">BY</span> t.`name`</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li>方法二：使用case <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> name,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;语文&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> Chinese,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;数学&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> Math,</span><br><span class="line"><span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;英语&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> English,</span><br><span class="line"><span class="built_in">sum</span>(fraction)<span class="keyword">as</span> score</span><br><span class="line"><span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> name</span><br><span class="line"><span class="comment">-- 如果不用求总分的话，不需要下面的union</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">select</span> name <span class="keyword">as</span> Name,<span class="built_in">sum</span>(Chinese) <span class="keyword">as</span> Chinese,<span class="built_in">sum</span>(Math) <span class="keyword">as</span> Math,<span class="built_in">sum</span>(English) <span class="keyword">as</span> English,<span class="built_in">sum</span>(score) <span class="keyword">as</span> score <span class="keyword">from</span>(</span><br><span class="line">    <span class="keyword">select</span> <span class="string">&#x27;TOTAL&#x27;</span> <span class="keyword">as</span> name,</span><br><span class="line">    <span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;语文&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> Chinese,</span><br><span class="line">    <span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;数学&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> Math,</span><br><span class="line">    <span class="built_in">sum</span>(<span class="keyword">case</span> <span class="keyword">when</span> Subject <span class="operator">=</span> <span class="string">&#x27;英语&#x27;</span> <span class="keyword">then</span> Fraction <span class="keyword">end</span>) <span class="keyword">as</span> English,</span><br><span class="line">    <span class="built_in">sum</span>(fraction)<span class="keyword">as</span> score</span><br><span class="line">    <span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> Subject,name)t <span class="keyword">GROUP</span> <span class="keyword">BY</span> t.`name`</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li>方法三：使用with rollup<br>在group分组字段的基础上在进行统计数据； <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span></span><br><span class="line">    <span class="comment">-- coalesce(name,&#x27;TOTAL&#x27;) name,</span></span><br><span class="line">    ifnull(name,<span class="string">&#x27;TOTAL&#x27;</span>) name,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;语文&#x27;</span>,Fraction,<span class="number">0</span>)) <span class="keyword">as</span> 语文,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;英语&#x27;</span>,Fraction,<span class="number">0</span>)) <span class="keyword">as</span> 英语,</span><br><span class="line">    <span class="built_in">sum</span>(if(Subject<span class="operator">=</span><span class="string">&#x27;数学&#x27;</span>,Fraction,<span class="number">0</span>))<span class="keyword">as</span> 数学,</span><br><span class="line">    <span class="built_in">sum</span>(Fraction) 总分</span><br><span class="line"><span class="keyword">from</span> t_score <span class="keyword">group</span> <span class="keyword">by</span> name <span class="keyword">with</span> <span class="keyword">rollup</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LockSupport一个很灵活的线程工具类</title>
     <url>/locksupport/</url>
     <content><![CDATA[<p>LockSupport是一个编程工具类， 主要是为了阻塞和唤醒线程用的。所有的方法都是静态方法，可以让线程在任意位置阻塞，也可以在任意位置唤醒</p>
@@ -1430,6 +1504,326 @@
       </categories>
       <tags>
         <tag>线程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MinIO简介以及Linux安装MinIO</title>
+    <url>/linux-minio/</url>
+    <content><![CDATA[<h2 id="1-什么是对象存储"><a href="#1-什么是对象存储" class="headerlink" title="1. 什么是对象存储"></a>1. 什么是对象存储</h2><p>对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，<strong>适合存放任意类型的文件</strong>。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。</p>
+<p>最大的优势：可以存储大量的非结构话数据，例如：图片、视频、日志文件、备份数据和容器/虚拟机镜像等。</p>
+<h2 id="2-MinIO"><a href="#2-MinIO" class="headerlink" title="2. MinIO"></a>2. MinIO</h2><p>MinIO 是个基于Golang编写的开源对象存储套件，基于Apache License V2.0开源协议，虽然轻量，却拥有不错的性能，兼容亚马逊S3云存储服务接口。可以很简单的和其他应用结合使用，例如：NodeJS、Redis、mysql等</p>
+<p>中文文档： <a href="http://docs.minio.org.cn/docs/master/minio-monitoring-guide">http://docs.minio.org.cn/docs/master/minio-monitoring-guide</a></p>
+<h3 id="2-1-MinIO应用场景"><a href="#2-1-MinIO应用场景" class="headerlink" title="2.1 MinIO应用场景"></a>2.1 MinIO应用场景</h3><p>可以作为私有云的对象存储服务来使用，也可以作为云对象存储的网关层，无缝对接Amazon S3 或者 MicroSoft Azure 。<br><img src="/linux-minio/1.png" alt="应用场景"></p>
+<h3 id="2-2-MinIO特点"><a href="#2-2-MinIO特点" class="headerlink" title="2.2 MinIO特点"></a>2.2 MinIO特点</h3><ul>
+<li><p>高性能</p>
+<p>  作为一款高性能存储，在标准硬件条件下，其读写速率分别可以达到55Gb/s和 35Gb/s。并且MinIO支持一个对象文件是任意大小（几KB到最大5T不等）</p>
+</li>
+<li><p>可扩展</p>
+<p>  不同MinIO集群可以组成联邦，并形成一个全局的命名空间，并且支持跨越多个数据中心</p>
+</li>
+<li><p>云原生</p>
+<p>  容器化、基于K8S的编排、多租户支持</p>
+</li>
+<li><p>Amazon S3兼容</p>
+<p>  使用Amazon S3 V2/V4 API。可以使用Minio SDK，Minio Client，AWS SDK 和 AWS CLI 访问Minio服务器。</p>
+</li>
+<li><p>可对接多种后端存储</p>
+<p>除了Minio自己的文件系统，还支持 DAS、 JBODs、NAS、Google云存储和 Azure Blob存储。</p>
+</li>
+<li><p>SDK支持</p>
+<p>GO SDK： <a href="https://github.com/minio/minio-go">https://github.com/minio/minio-go</a></p>
+<p>JavaSDK： <a href="https://github.com/minio/minio-java">https://github.com/minio/minio-java</a></p>
+<p>PythonSDK： <a href="https://github.com/minio/minio-py">https://github.com/minio/minio-py</a></p>
+</li>
+</ul>
+<ul>
+<li><p>Lambda计算</p>
+<p>Minio服务器通过其兼容AWS SNS / SQS的事件通知服务触发Lambda功能。支持的目标是消息队列，如Kafka，NATS，AMQP，MQTT，Webhooks以及Elasticsearch，Redis，Postgres和MySQL等数据库</p>
+</li>
+<li><p>图形化界面</p>
+<p>  有操作页面</p>
+</li>
+<li><p>功能简单</p>
+<p>  不容易出错，快速启动</p>
+</li>
+<li><p>支持纠删码</p>
+<p>MinIO使用纠删码、Checksum来防止硬件错误和静默数据污染。在最高冗余度配置下，即使丢失1/2的磁盘也能恢复数据</p>
+</li>
+</ul>
+<h3 id="2-3-存储机制"><a href="#2-3-存储机制" class="headerlink" title="2.3 存储机制"></a>2.3 存储机制</h3><p>MinIO 使用纠删码erasure code、校验和checksum。 即使丢一半数据（N/2）的鹰派，仍然可以恢复数据。</p>
+<ul>
+<li><p>校验和checksum</p>
+<p>  保护数据免受硬件故障和无声数据损坏</p>
+</li>
+<li><p>纠删码erasure code</p>
+<p>  纠删码是一种恢复丢失和损坏数据的数据算法，目前纠删码技术在分布式存储系统中的应用主要有三类：阵列纠删码（Array Code : RAID5、RAID6等）、RS（Reed-Solomon）里德-所罗门类纠删码和LDPC（LowDensity Parity Check Code）<br>  低密度奇偶校验纠删码。</p>
+<p>  Erasure code 是一种编码技术，他可以将N份原始数据，增加m份数据，并通过n+m 份中的任意n份数据，还原为原始数据。即如果有任意小于等于m份的数据失效，仍然能通过剩下的数据还原出来。<br>MinIO 采用Reed-Solomon code将对象拆分成N/2数据和N/2奇偶校验快，这就意味着如果是12块盘，一个对象会分成6个数据块、6个奇偶校验块；可以丢失任意6块盘（不管是存放的数据块还是奇偶校验块），仍可以通过剩下的盘进行数据恢复</p>
+</li>
+</ul>
+<h2 id="3-安装和使用MinIO"><a href="#3-安装和使用MinIO" class="headerlink" title="3. 安装和使用MinIO"></a>3. 安装和使用MinIO</h2><h3 id="3-1-Linux安装MinIO"><a href="#3-1-Linux安装MinIO" class="headerlink" title="3.1 Linux安装MinIO"></a>3.1 Linux安装MinIO</h3><ol>
+<li>下载（<a href="https://min.io/download#/linux%EF%BC%89">https://min.io/download#/linux）</a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.min.io/server/minio/release/linux-amd64/minio</span><br></pre></td></tr></table></figure>
+</li>
+<li>运行 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> chmod +x minio</span><br><span class="line"> ./minio server /usr/software/minio/data      #将/usr/software/minio/data 替换为您希望 MinIO 存储数据的驱动器或目录的路径。</span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"> #</span><span class="bash">后台启动</span></span><br><span class="line">nohup ./minio server /usr/software/minio/data  &gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin nohup ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data&gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br></pre></td></tr></table></figure>
+<img src="/linux-minio/8.png"></li>
+<li>设置启动脚本（建议） <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch minio.sh</span><br><span class="line">   </span><br><span class="line">vi minio.sh</span><br></pre></td></tr></table></figure>
+在sh文件中添加以下内容 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">指定登录用户名</span></span><br><span class="line">export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line">export MINIO_SECRET_KEY=password</span><br><span class="line"><span class="meta">#</span><span class="bash">指定端口以及存储文件夹，并启动服务 9000访问端口， 9001 控制台界面访问端口, 这里0.0.0.0可以设置为具体的服务器IP</span></span><br><span class="line">nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure>
+给当前用户加上执行权限 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod u+x  *.sh</span><br><span class="line">  </span><br><span class="line"><span class="meta"> #</span><span class="bash">启动</span></span><br><span class="line">sh minio.sh</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-2-安装客户端-可选"><a href="#3-2-安装客户端-可选" class="headerlink" title="3.2 安装客户端(可选)"></a>3.2 安装客户端(可选)</h3><ol>
+<li>安装 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.min.io/client/mc/release/linux-amd64/mc</span><br><span class="line">chmod +x mc</span><br><span class="line">./mc --help</span><br></pre></td></tr></table></figure></li>
+<li>使用命令给客户端添加一个服务端 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc alias set minio http://172.21.0.7:9000 minioadmin minioadmin</span><br></pre></td></tr></table></figure></li>
+<li>创建bucket，并查询所有bucket <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[root@ww xiaoyuge]# ./mc mb minio/mybucket</span><br><span class="line">Bucket created successfully `minio/mybucket`</span><br><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[2020-09-02 03:02:36 CST]      0B mybucket/</span><br><span class="line">[root@ww xiaoyuge]# </span><br></pre></td></tr></table></figure></li>
+<li>页面查询bucket <img src="/linux-minio/6.png"></li>
+<li>创建用户 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc admin user add minio root rootroot</span><br></pre></td></tr></table></figure></li>
+<li>给用户赋予权限 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc admin policy set minio readwrite user=root</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-3-使用MinIO"><a href="#3-3-使用MinIO" class="headerlink" title="3.3 使用MinIO"></a>3.3 使用MinIO</h3><ol>
+<li><p>启动</p>
+<p> 在浏览器输入： <a href="http://localhost:9000/">http://localhost:9000</a><br> <img src="/linux-minio/2.png"><br>在输入控制打印的默认的AccessKey和SecretKey：</p>
+<p> <strong>AccessKey:</strong> minioadmin</p>
+<p> <strong>SecretKey（默认）:</strong> minioadmin</p>
+<p> 使用AccessKey 和 SecretKey 登录后台。</p>
+</li>
+<li><p>进入系统后，我们先要点击右上角的“+”按钮，创建一个文件桶（输入名称后，回车即可），在上传文件到这个文件桶中。Create bucket（创建文件桶），然后输入bucket名称为 <strong>test</strong>, 创建成功后再Upload file（上传文件）。<br><img src="/linux-minio/3.png"><img src="/linux-minio/3_1.png"><img src="/linux-minio/3_2.png"><img src="/linux-minio/4.png"></p>
+<p>现在我们去服务器，我们启动时指定的目录去看看，可以看到一个新建的test文件目录（文件桶相当于文件目录），这里没有使用纠删码的模式，所以直接就是源文件了。当我们线上运行的项目已经有源文件了，在使用minio的时候，可以直接指定该目录为minio的文件目录就行了。<br><img src="/linux-minio/5.png"><img src="/linux-minio/7.png"></p>
+</li>
+<li><p>分享文件，也可以设置文件分享有效日期<br> <img src="/linux-minio/11.png"><img src="/linux-minio/12.png" alt="img_1.png"><br>访问连接会出现如下界面：<br><img src="/linux-minio/13.png" alt="img_1.png"></p>
+</li>
+</ol>
+<h3 id="3-4-mioIO常见启动问题"><a href="#3-4-mioIO常见启动问题" class="headerlink" title="3.4 mioIO常见启动问题"></a>3.4 mioIO常见启动问题</h3><ol>
+<li>启动报错“WARNING: Console endpoint is listening on a dynamic port…”<br> <img src="/linux-minio/9.png" alt="img_1.png"><br>错误提示很明显，需要to choose a static port。<br>写了一个shell启动MinIO，在shell中使用–console-address ‘部署minio的ip:希望通过什么端口打开minio console页面’ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line"> export MINIO_SECRET_KEY=password</span><br><span class="line"> nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="4-SpringBoot-集成minIO"><a href="#4-SpringBoot-集成minIO" class="headerlink" title="4. SpringBoot 集成minIO"></a>4. SpringBoot 集成minIO</h2><p>项目源代码地址：<a href="https://gitee.com/xiaoyuge520/minio-demo%EF%BC%8C">https://gitee.com/xiaoyuge520/minio-demo，</a> 下面是应用主要功能截图展示：<br><img src="/linux-minio/14.png" alt="img14.png"><br>在minIO的控制台界面选择对应的bucket可以查看到刚提交的内容<br><img src="/linux-minio/15.png" alt="img14.png"></p>
+<p>同理，删除也是一样！！！<br><img src="/linux-minio/16.png" alt="img14.png"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统下查找文件命令总结</title>
+    <url>/linux-search-file/</url>
+    <content><![CDATA[<h3 id="1-which查命令绝对路径"><a href="#1-which查命令绝对路径" class="headerlink" title="1. which查命令绝对路径"></a>1. which查命令绝对路径</h3><p><strong>which</strong> 从环境变量PATH中定位/返回与指定名字相匹配的可执行文件所在的路径<br><img src="/linux-search-file/1.png" alt="which命令"></p>
+<p><strong>原理</strong>：执行<strong>which</strong>命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径，<br>否则依次返回满足条件的所有可执行文件的路径名</p>
+<p><strong>适用场合：</strong> 一般用于查找命令/可执行文件所在的路径。有时候可能在多个路径下存在相同的命令，该命令可用于查找当前所执行的命令到底是哪一个位置处的命令。</p>
+<h3 id="2-whereis查找特定文件"><a href="#2-whereis查找特定文件" class="headerlink" title="2. whereis查找特定文件"></a>2. whereis查找特定文件</h3><p><strong>whereis</strong> 命令用来定位指令的二进制程序、源代码文件和man手册页等相关文件的路径， 该命令只能用于程序名的搜索</p>
+<ol>
+<li>- b   #定位可执行文件</li>
+<li>- m   #定位帮助文件</li>
+<li>- s   定位源代码文件 </li>
+<li>- u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件</li>
+<li>- B   指定搜索可执行文件的路径。</li>
+<li>- M   指定搜索帮助文件的路径。</li>
+<li>- S   指定搜索源代码文件的路径<br><img src="/linux-search-file/2.png" alt="whereis命令"></li>
+</ol>
+<p><strong>原理：</strong> whereis命令首先会去掉filename中的前缀空格和以.开头的任何字符，然后再在数据库（var/lib/slocate/slocate.db）中查找与上述处理后的filename相匹配的二进制文件、源文件和帮助手册文件,使用之前可以使用<strong>updatedb</strong>命令手动更新数据库。</p>
+<p><strong>适用场合：</strong> 二进制文件、源文件和帮助手册文件路径的查找。<br>和<strong>find</strong> 相比，Whereis 查找的速度非常快，这是因为Linux系统会将系统内的所有文件都记录在一个数据库文件中，当使用<strong>whereis (或者locate)</strong><br>会从数据库查找数据，而不是像find命令那样，通过遍历硬盘来查找文件，效率更高！</p>
+<h3 id="3-locate缓存查找文件"><a href="#3-locate缓存查找文件" class="headerlink" title="3. locate缓存查找文件"></a>3. locate缓存查找文件</h3><p><strong>locate</strong> 搜素一个数据库（/var/lib/mlocate/mlocate.db）,这个数据库中国呢包含本地所有文件信息，Linux系统自动创建这个数据库，并且每天更新依次，所以使用locate命令查不到最新变动过的文件，为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库，updatedb命令会根据/etc/updatedb.conf来更新文件。</p>
+<p><strong>原理：</strong> 默认情况下(当filename中不包含通配符*)，locate会给出所有与 * filename*相匹配的文件的路径。<br><strong>适用场合：</strong> 没有文件类型性质的模糊查找（你只记得某个文件的部分名称）。<br><img src="/linux-search-file/3.png" alt="locate命令"><br><img src="/linux-search-file/4.png" alt="locate命令"><br><img src="/linux-search-file/5.png" alt="locate命令"><br><img src="/linux-search-file/6.png" alt="locate命令"></p>
+<h3 id="4-find-遍历文件查找"><a href="#4-find-遍历文件查找" class="headerlink" title="4. find 遍历文件查找"></a>4. find 遍历文件查找</h3><p>语法：</p>
+<ul>
+<li><p>-name                    #按文件名查找(find /etc/ -name “??????” 查找/etc目录下，开头是6个任意字符的文件， *.log以log结尾的文件；”[1-3].txt”指定范围以txt结尾的文件（包括 1.txt,2.txt,3.txt）)</p>
+</li>
+<li><p>-size                    #按大小查找（find /etc/ -size +1M 查询大于1M的文件(find /etc/ -size -10K)，注意：如果没有+ -， 则是精确到1M,加上+ - 表示范围； find /etc/ -size +1k -a -size -10k 查找1-10K的文件）</p>
+</li>
+<li><p>-user                    #按属主查找（find /opt/ -user xiaoyuge 查找/opt属于xiaoyuge用户的文件；注意，系统要存在该用户，否则会报错）</p>
+</li>
+<li><p>-perm                    #按权限查找（find /opt/ -perm 0644 查找/opt目录权限是644文件）</p>
+</li>
+<li><p>-type                    #按类型查找（find /usr/bin/ -type f 查找/usr/bin下类型是二进制文件）</p>
+</li>
+<li><p>-time                    #按天查找</p>
+<ul>
+<li><p>atime n                    #将n*24小时内访问过的文件列出(access)</p>
+</li>
+<li><p>ctime n                    #将n*24小时内状态发生改变的文件列出（change） find /etc/ -ctime +7 在7天之前,属性被修改过的文件</p>
+</li>
+<li><p>mtime n                    #将n*24小时内被修改过的文件列出(modify)</p>
+</li>
+<li><p>newer file                 #把比file还要心的文件列出</p>
+</li>
+<li><p>amin n                     #将n 分钟内访问过的文件列出(access)   find /etc/ -mmin -120 在120分钟内，内容被修改的文件</p>
+</li>
+<li><p>cmin n                     #将n 分钟内状态发生改变的文件列出（change）</p>
+</li>
+<li><p>mmin n                     #将n 分钟内被修改过的文件列出(modify)</p>
+</li>
+</ul>
+</li>
+<li><p>-inum                    #按i节点查找 有一些文件的硬链接数量很多，有相同的i节点，查找其中一个文件的i节点号，一次性删除。</p>
+</li>
+<li><p>-exec                    #查找后执行命令</p>
+</li>
+</ul>
+<p><strong>原理：</strong> 遍历当前工作目录及其子目录，find命令是在硬盘上遍历查找，非常耗硬盘资源，查找效率相比whereis和locate较低。<br><strong>适用场合：</strong> 能用which、whereis和locate的时候尽量不要用find.</p>
+<h3 id="4中命令对比"><a href="#4中命令对比" class="headerlink" title="4中命令对比"></a>4中命令对比</h3><p><img src="/linux-search-file/7.png" alt="对比"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式消息中间件设计</title>
+    <url>/message-oriented-middleware/</url>
+    <content><![CDATA[<h2 id="1-消息中间件概述"><a href="#1-消息中间件概述" class="headerlink" title="1. 消息中间件概述"></a>1. 消息中间件概述</h2><ol>
+<li><p>什么是分布式消息中间件</p>
+<p> 利用高效可靠的消息传递机制进行平台无关的数据交流；<br> 并基于数据通信来进行分布式系统的集成；<br> 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。</p>
+</li>
+<li><p>消息中间件的应用场景</p>
+<p> 跨系统数据传递、高并发流量削峰、数据异步处理……</p>
+</li>
+<li><p>常用的消息中间件</p>
+<p> ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ</p>
+</li>
+<li><p>本质</p>
+<p> 一种具备接受请求、保存数据、发送数据等功能的网络应用。和一般的网络应用程序的区别是它主要负责数据的接收和传递，所以性能一般高于普通程序</p>
+</li>
+<li><p>5大核心组成</p>
+<ul>
+<li>协议</li>
+<li>持久性机制</li>
+<li>消息分布机制</li>
+<li>高可用设计</li>
+<li>高可靠设计</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-1-协议"><a href="#1-1-协议" class="headerlink" title="1.1 协议"></a>1.1 协议</h3><p>协议是计算机之间通信时共同遵守的一组约定，确保计算机之间能够相互交流；是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述</p>
+<p>三大要素：</p>
+<ul>
+<li>语法：即数据和控制信息的结构或格式</li>
+<li>语义：即需要发出何种控制信息，完成何种动作以及作出何种响应</li>
+<li>时序：即时间实现顺序的详细说明</li>
+</ul>
+<p>消息中间件常用协议：openWire、AMQP、MQTT（物流网，快，不能持久化）、Kafka、OpenMessage等；<br>不能用http协议的原因是：http每次请求必须要有响应，性能不高；</p>
+<h4 id="1-1-AMQP协议"><a href="#1-1-AMQP协议" class="headerlink" title="1.1 AMQP协议"></a>1.1 AMQP协议</h4><p>AMQP（Advanced Message Queuing Protocol）是高级消息队列协议；04年JPMorgan Chase(摩根大通集团)联合其他公司共同设计</p>
+<ul>
+<li>特性：事物支持、持久化支持，出生金融行业，在可靠性消息处理上具备天然的优势</li>
+<li>优秀产品 RabbitMQ、 Apache ACTIVEMQ</li>
+</ul>
+<h4 id="1-2-MQTT协议"><a href="#1-2-MQTT协议" class="headerlink" title="1.2 MQTT协议"></a>1.2 MQTT协议</h4><p>MQTT（Message Queuing Telemetry Transport）消息队列遥测传输<br>是IBM开发的一个即时通讯协议，物联网系统架构中的重要组成部分；</p>
+<ul>
+<li>特性：轻量、结构简单、传输快、没有事务支持、没有持久化相关设计</li>
+<li>应用场景：适用于计算能力有限、低宽带、网络不稳定的场景</li>
+<li>优秀产品：RabbitMQ、 Apache ACTIVEMQ</li>
+</ul>
+<h4 id="1-3-Open-Message协议"><a href="#1-3-Open-Message协议" class="headerlink" title="1.3 Open Message协议"></a>1.3 Open Message协议</h4><p>OpenMessaging 是近几年有阿里发起，与雅虎、滴滴出行、Streamlio等公司共同参数传里的分布式消息中间件、流处理领域的开发应用标准。<br>是国内首个在全球范围内发起的分布式消息领域国际标准</p>
+<ul>
+<li>特性：结构简单、解析快、有事务设计、有持久化设计</li>
+<li>优秀产品：Apache RocketMQ</li>
+</ul>
+<h4 id="1-4-Kafka协议"><a href="#1-4-Kafka协议" class="headerlink" title="1.4 Kafka协议"></a>1.4 Kafka协议</h4><p>Kafka协议是基于TCP的二进制协议。消息内部是通过长度来分割，由一些基本数据类型组成</p>
+<ul>
+<li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
+<li>优秀产品：Apache Kafka</li>
+</ul>
+<h4 id="1-55-OpenWire协议"><a href="#1-55-OpenWire协议" class="headerlink" title="1.55 OpenWire协议"></a>1.55 OpenWire协议</h4><p>开放链接，ActiveMQ自定义的一种协议，ActiveMQ默认链接方式，它提供一种高效率的二进制格式来使消息高速传输</p>
+<ul>
+<li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
+<li>优秀产品：Apache ActiveMQ</li>
+</ul>
+<h3 id="1-2-持久化"><a href="#1-2-持久化" class="headerlink" title="1.2 持久化"></a>1.2 持久化</h3><p>简单来说就是将数据存入磁盘，而不是存在内存中岁服务重启而消失，使数据能够永久保存叫做持久化</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">ActiveMQ</th>
+<th align="center">RabbitMQ</th>
+<th align="center">Kafka</th>
+<th align="center">RocketMQ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件系统</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td>数据库</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="1-3-消息分发"><a href="#1-3-消息分发" class="headerlink" title="1.3 消息分发"></a>1.3 消息分发</h3><table>
+<thead>
+<tr>
+<th></th>
+<th align="center">ActiveMQ</th>
+<th align="center">RabbitMQ</th>
+<th align="center">Kafka</th>
+<th align="center">RocketMQ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>发布订阅</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td>轮询分发</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td>公平分发</td>
+<td align="center">-</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td>重发</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td>消息拉取</td>
+<td align="center">-</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+</tr>
+</tbody></table>
+<h3 id="1-4-高可用"><a href="#1-4-高可用" class="headerlink" title="1.4 高可用"></a>1.4 高可用</h3><p>高可用性是指产品在规定的条件和规定的时刻或时间区间内处于可执行规定功能状态的能力；<br>当业务量大时，一台消息中间件服务器可能无法满足需求，所以需要消息中间件能够集群部署，来达到高可用的目的。</p>
+<h4 id="1-4-1-Master-Slave主从共享数据的部署方式"><a href="#1-4-1-Master-Slave主从共享数据的部署方式" class="headerlink" title="1.4.1 Master-Slave主从共享数据的部署方式"></a>1.4.1 Master-Slave主从共享数据的部署方式</h4><p>当Master收到客户端的消息后，放到共享的文件系统/数据库； 客户端访问的是Master节点，Slave节点只做备份；<br><img src="/message-oriented-middleware/2.png" alt="Master-Slave主从共享数据的部署方式"></p>
+<h4 id="1-4-2-Master-Slave主从同步部署方式"><a href="#1-4-2-Master-Slave主从同步部署方式" class="headerlink" title="1.4.2 Master-Slave主从同步部署方式"></a>1.4.2 Master-Slave主从同步部署方式</h4><p>当Master收到客户端的消息后，发给其他broker同步。<br><img src="/message-oriented-middleware/3.png" alt="Master-Slave主从同步部署方式"></p>
+<h4 id="1-4-3-Broker-Cluster多主集群同步部署方式"><a href="#1-4-3-Broker-Cluster多主集群同步部署方式" class="headerlink" title="1.4.3 Broker-Cluster多主集群同步部署方式"></a>1.4.3 Broker-Cluster多主集群同步部署方式</h4><p>一部分消息放在broker1 ,一部分放在broker2<br><img src="/message-oriented-middleware/4.png" alt="Broker-Cluster多主集群同步部署方式"></p>
+<h4 id="1-4-4-Broker-Cluster多主集群转发部署方式"><a href="#1-4-4-Broker-Cluster多主集群转发部署方式" class="headerlink" title="1.4.4 Broker-Cluster多主集群转发部署方式"></a>1.4.4 Broker-Cluster多主集群转发部署方式</h4><p>转发数据或转发请求<br><img src="/message-oriented-middleware/5.png" alt="Broker-Cluster多主集群转发部署方式"></p>
+<h4 id="1-4-5-Master-slave与Broker-Cluster结合"><a href="#1-4-5-Master-slave与Broker-Cluster结合" class="headerlink" title="1.4.5 Master-slave与Broker-Cluster结合"></a>1.4.5 Master-slave与Broker-Cluster结合</h4><p><img src="/message-oriented-middleware/6.png" alt="Master-slave与Broker-Cluster结合"></p>
+<h3 id="1-5-高可靠"><a href="#1-5-高可靠" class="headerlink" title="1.5 高可靠"></a>1.5 高可靠</h3><p>高可靠性是指系统可以无故障地持续运行。比如一个系统从来不崩溃、报错，或者崩溃、报错的几率较低，那就是高可靠。<br>保证消息中间件的高可靠行，可以从一下几方面考虑</p>
+<ul>
+<li>消息传输可靠： 通过协议来保证系统件数据解析的正确性</li>
+<li>消息存储可靠： 通过持久化来保证消息存储可靠性</li>
+</ul>
+]]></content>
+      <categories>
+        <category>中间件</category>
+      </categories>
+      <tags>
+        <tag>消息中间件</tag>
       </tags>
   </entry>
   <entry>
@@ -1544,148 +1938,6 @@
       </categories>
       <tags>
         <tag>shutdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>二分法查找题</title>
-    <url>/algorithm-dinary-search/</url>
-    <content><![CDATA[<h3 id="1-第一个错误的版本"><a href="#1-第一个错误的版本" class="headerlink" title="1. 第一个错误的版本"></a>1. 第一个错误的版本</h3><h3 id="1-1-题目描述"><a href="#1-1-题目描述" class="headerlink" title="1.1 题目描述"></a>1.1 题目描述</h3><p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。<br>假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。<br>你可以通过调用bool isBadVersion(version)接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。<br>示例</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 5, bad = 4</span><br><span class="line">输出：4</span><br><span class="line">解释：</span><br><span class="line">    调用 isBadVersion(3) -&gt; false </span><br><span class="line">    调用 isBadVersion(5) -&gt; true </span><br><span class="line">    调用 isBadVersion(4) -&gt; true</span><br><span class="line">所以，4 是第一个错误的版本</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-解题思路"><a href="#1-2-解题思路" class="headerlink" title="1.2 解题思路"></a>1.2 解题思路</h3><p>当一个版本为正确版本，则该版本之前的所有版本均为正确版本；当一个版本为错误版本，则该版本之后的所有版本均为错误版本。我们可以利用这个性质进行二分查找。</p>
-<p>具体地，将左右边界分别初始化为 1和 n ，其中 n 是给定的版本数量。设定左右边界之后，每次我们都依据左右边界找到其中间的版本，检查其是否为正确版本。如果该版本为正确版本，那么第一个错误的版本必然位于该版本的右侧，我们缩紧左边界；否则第一个错误的版本必然位于该版本及该版本的左侧，我们缩紧右边界。<br>这样我们每判断一次都可以缩紧一次边界，而每次缩紧时两边界距离将变为原来的一半，因此我们至多只需要缩紧 O(logn) 次。</p>
-<h3 id="1-3-代码"><a href="#1-3-代码" class="headerlink" title="1.3 代码"></a>1.3 代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">1</span>, right = n;</span><br><span class="line">    <span class="keyword">while</span> (left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;    <span class="comment">// 防止计算时溢出</span></span><br><span class="line">        <span class="keyword">if</span> (isBadVersion(mid))&#123;</span><br><span class="line">            <span class="comment">// 答案在区间 [left, mid] 中</span></span><br><span class="line">           right = mid; <span class="comment">//如果中间版本是错误的版本，那么它之后的都是错误的;</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 答案在区间 [mid+1, right] 中</span></span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//此时有 left == right,退出了while循环</span></span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mysql添加/修改/删除字段</title>
-    <url>/mysql-column/</url>
-    <content><![CDATA[<h3 id="1-添加字段"><a href="#1-添加字段" class="headerlink" title="1. 添加字段"></a>1. 添加字段</h3><h4 id="1-1-在末尾添加字段"><a href="#1-1-在末尾添加字段" class="headerlink" title="1.1 在末尾添加字段"></a>1.1 在末尾添加字段</h4><p>1）语法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件];</span><br></pre></td></tr></table></figure>
-<p>语法格式的说明：</p>
-<ul>
-<li>&lt;表名&gt; 为数据表的名字；</li>
-<li>&lt;字段名&gt; 为所要添加的字段的名字；</li>
-<li>&lt;数据类型&gt; 为所要添加的字段能存储数据的数据类型；</li>
-<li>[约束条件] 是可选的，用来对添加的字段进行约束。</li>
-<li>这种语法格式默认在表的最后位置（最后一列的后面）添加新字段</li>
-</ul>
-<p>2）示例：在user表末尾添加字段phone</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> phone <span class="type">VARCHAR</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;电话号码&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="1-2-在开头添加字段"><a href="#1-2-在开头添加字段" class="headerlink" title="1.2 在开头添加字段"></a>1.2 在开头添加字段</h4><p>1）语法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件] <span class="keyword">FIRST</span>;</span><br></pre></td></tr></table></figure>
-<p>FIRST 关键字一般放在语句的末尾<br>2）示例：在user表开头添加字段user_id</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> user_id <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户主键&#x27;</span> <span class="keyword">FIRST</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="1-3-在中间添加字段"><a href="#1-3-在中间添加字段" class="headerlink" title="1.3 在中间添加字段"></a>1.3 在中间添加字段</h4><p>1）语法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件] AFTER <span class="operator">&lt;</span>已经存在的字段名<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
-<p>AFTER 的作用是将新字段添加到某个已有字段后面。<br>注意：只能在某个已有字段的后面添加新字段，不能在它的前面添加新字段</p>
-<p>2）示例：在user表的user_id字段后添加username字段</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> username <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户名&#x27;</span> AFTER `user_id`;</span><br></pre></td></tr></table></figure>
-<h3 id="2-修改字段"><a href="#2-修改字段" class="headerlink" title="2. 修改字段"></a>2. 修改字段</h3><h4 id="2-1-修改字段属性"><a href="#2-1-修改字段属性" class="headerlink" title="2.1 修改字段属性"></a>2.1 修改字段属性</h4><p>1）语法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> MODIFY <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件];</span><br></pre></td></tr></table></figure>
-<p>2）示例1：修改字段属性</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 将email字段VARCHAR(50)修改成VARCHAR(200)</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> MODIFY email <span class="type">VARCHAR</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;email@163.com&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p>注意：修改时如果不带完整性约束条件，原有的约束条件将丢失，如果想保留修改时就得带上完整性约束条件</p>
-<p>3）示例2： 将email移到phone后面</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> MODIFY email <span class="type">VARCHAR</span>(<span class="number">50</span>) AFTER `phone`;</span><br></pre></td></tr></table></figure>
-<p>4）示例3：放置第一个，保留原完成性约束条件</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span>`MODIFY email <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;test@163.com&#x27;</span> <span class="keyword">FIRST</span>;</span><br></pre></td></tr></table></figure>
-<p>5）示例4：修改成大小写敏感，即查询区分大小写</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> MODIFY username <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="type">BINARY</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户名&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="2-2-修改字段名称和属性"><a href="#2-2-修改字段名称和属性" class="headerlink" title="2.2 修改字段名称和属性"></a>2.2 修改字段名称和属性</h4><p>1）语法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> CHANGE <span class="operator">&lt;</span>原字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>新字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件];</span><br></pre></td></tr></table></figure>
-<p>2）示例：将username字段修改成user_name</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> CHANGE username user_name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户名&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-3-添加、删除默认值"><a href="#2-3-添加、删除默认值" class="headerlink" title="2.3 添加、删除默认值"></a>2.3 添加、删除默认值</h4><p>1）语法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 添加默认值</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="operator">&lt;</span>默认值<span class="operator">&gt;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除默认值</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="keyword">DROP</span> <span class="keyword">DEFAULT</span>;</span><br></pre></td></tr></table></figure>
-<p>2）示例：给sex添加默认值</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">USER</span> <span class="keyword">ALTER</span> sex <span class="keyword">SET</span> <span class="keyword">DEFAULT</span>  <span class="string">&#x27;难&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p>3）示例：删除sex默认值</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ALTER</span> sex <span class="keyword">DROP</span> <span class="keyword">DEFAULT</span>;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-4-添加、删除主键"><a href="#2-4-添加、删除主键" class="headerlink" title="2.4 添加、删除主键"></a>2.4 添加、删除主键</h4><ol>
-<li>语法：<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 添加主键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> [<span class="keyword">CONSTRAINT</span> <span class="operator">&lt;</span>约束名<span class="operator">&gt;</span>] <span class="keyword">PRIMARY</span> KEY (<span class="operator">&lt;</span>字段名称,...<span class="operator">&gt;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除主键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">DROP</span> <span class="keyword">PRIMARY</span> KEY;</span><br></pre></td></tr></table></figure>
-2）示例：添加主键<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> <span class="keyword">PRIMARY</span>  KEY (user_id)</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>3）示例：添加复合主键</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span>  user_role <span class="keyword">ADD</span> <span class="keyword">PRIMARY</span> KEY (user_id, role_id);</span><br></pre></td></tr></table></figure>
-<p>4）示例：删除主键</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">DROP</span> <span class="keyword">PRIMARY</span> KEY;</span><br></pre></td></tr></table></figure>
-<p>5）示例：删除带自增长属性的主键</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 先用MODIFY删除自增长属性，注意MODIFY不能去掉主键属性</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> test MODIFY id <span class="type">INT</span> UNSIGNED;</span><br><span class="line"><span class="comment">-- 再来删除主键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> test <span class="keyword">DROP</span> <span class="keyword">PRIMARY</span> KEY;</span><br></pre></td></tr></table></figure>
-<h4 id="2-5-添加、删除唯一索引"><a href="#2-5-添加、删除唯一索引" class="headerlink" title="2.5 添加、删除唯一索引"></a>2.5 添加、删除唯一索引</h4><p>1）语法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 添加唯一性约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> [CONSTANT <span class="operator">&lt;</span>约束名<span class="operator">&gt;</span>] <span class="keyword">UNIQUE</span> [INDEX <span class="operator">|</span> KEY] [索引名称](<span class="operator">&lt;</span>字段名称,...<span class="operator">&gt;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除唯一性约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">DROP</span> [INDEX <span class="operator">|</span> KEY] [索引名称];</span><br></pre></td></tr></table></figure>
-<p>2）示例：为username添加唯一性约束，如果没有指定索引名称，系统会以字段名建立索引</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span>(username);</span><br></pre></td></tr></table></figure>
-<p>3）示例：为username添加唯一性约束，并指定索引名称</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> <span class="keyword">UNION</span> KEY uni_username(username);</span><br></pre></td></tr></table></figure>
-<p>4）示例：查看索引</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
-<p>5）示例：添加联合UNIQUE</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> INDEX uni_nickname_username(nickname, username);</span><br></pre></td></tr></table></figure>
-<p>6）示例：删除索引</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">DROP</span> INDEX username;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">DROP</span> KEY uni_username;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">DROP</span> INDEX uni_nickname_username;</span><br></pre></td></tr></table></figure>
-<h4 id="2-6-修改表的存储引擎"><a href="#2-6-修改表的存储引擎" class="headerlink" title="2.6 修改表的存储引擎"></a>2.6 修改表的存储引擎</h4><p>1）语法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> ENGINE<span class="operator">=</span><span class="operator">&lt;</span>存储引擎名称<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2）示例：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> ENGINE<span class="operator">=</span>MyISAM;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> ENGINE<span class="operator">=</span>INNODB;</span><br></pre></td></tr></table></figure>
-<h4 id="2-7-修改自增长值"><a href="#2-7-修改自增长值" class="headerlink" title="2.7 修改自增长值"></a>2.7 修改自增长值</h4><p>1）语法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> AUTO_INCREMENT<span class="operator">=</span>[值];</span><br></pre></td></tr></table></figure>
-<p>2）示例：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> AUTO_INCREMENT<span class="operator">=</span> <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-
-
-<p>博客原文链接：<a href="https://www.cnblogs.com/Jimc/p/12979319.html">https://www.cnblogs.com/Jimc/p/12979319.html</a><br>如有侵权，请联系删除！</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TIDB设置sql_mode</title>
-    <url>/sql-model/</url>
-    <content><![CDATA[<h3 id="1-使用命令查询当前sql-mode"><a href="#1-使用命令查询当前sql-mode" class="headerlink" title="1. 使用命令查询当前sql_mode"></a>1. 使用命令查询当前sql_mode</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> @<span class="variable">@sql</span>_mode</span><br><span class="line"><span class="comment">-- 或者</span></span><br><span class="line"><span class="keyword">select</span> @<span class="variable">@GLOBAL</span>.sql_mode</span><br></pre></td></tr></table></figure>
-<p><img src="/sql-model/1.png" alt="sql_mode"></p>
-<h5 id="sql-mode常用值："><a href="#sql-mode常用值：" class="headerlink" title="sql_mode常用值："></a>sql_mode常用值：</h5><ul>
-<li><p>ONLY_FULL_GROUP_BY<br>对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中</p>
-</li>
-<li><p>NO_AUTO_VALUE_ON_ZERO<br>该值影响自增长列的插入。默认设置下，插入0或NULL代表生成下一个自增长值。如果用户希望插入的值为0，而该列又是自增长的，那么这个选项就有用了。</p>
-</li>
-<li><p>STRICT_TRANS_TABLES<br>在该模式下，如果一个值不能插入到一个事务中，则中断当前的操作，对非事务表不做限制</p>
-</li>
-<li><p>NO_ZERO_IN_DATE<br>在严格模式下，不允许日期和月份为零</p>
-</li>
-<li><p>NO_ZERO_DATE<br>设置该值，mysql数据库不允许插入零日期，插入零日期会抛出错误而不是警告</p>
-</li>
-<li><p>ERROR_FOR_DIVISION_BY_ZERO<br>在insert或update过程中，如果数据被零除，则产生错误而非警告。如果未给出该模式，那么数据被零除时Mysql返回NULL</p>
-</li>
-<li><p>NO_AUTO_CREATE_USER<br>禁止GRANT创建密码为空的用户</p>
-</li>
-<li><p>NO_ENGINE_SUBSTITUTION<br>如果需要的存储引擎被禁用或未编译，那么抛出错误。不设置此值时，用默认的存储引擎替代，并抛出一个异常</p>
-</li>
-<li><p>PIPES_AS_CONCAT<br>将”||”视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样是，也和字符串的拼接函数Concat想类似</p>
-</li>
-<li><p>ANSI_QUOTES<br>启用ANSI_QUOTES后，不能用双引号来引用字符串，因为它被解释为识别符</p>
-</li>
-</ul>
-<h3 id="2-临时设置（新session仍然使用之前的sql-mode）"><a href="#2-临时设置（新session仍然使用之前的sql-mode）" class="headerlink" title="2. 临时设置（新session仍然使用之前的sql_mode）"></a>2. 临时设置（新session仍然使用之前的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> sql_mode<span class="operator">=</span>‘ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES’;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-全局设置（新session仍然使用修改后的sql-mode）"><a href="#3-全局设置（新session仍然使用修改后的sql-mode）" class="headerlink" title="3. 全局设置（新session仍然使用修改后的sql_mode）"></a>3. 全局设置（新session仍然使用修改后的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> @<span class="variable">@global</span>.sql_mode<span class="operator">=</span><span class="string">&#x27;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE‘；</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>tidb</tag>
       </tags>
   </entry>
   <entry>
@@ -2144,323 +2396,145 @@
       </tags>
   </entry>
   <entry>
-    <title>MinIO简介以及Linux安装MinIO</title>
-    <url>/linux-minio/</url>
-    <content><![CDATA[<h2 id="1-什么是对象存储"><a href="#1-什么是对象存储" class="headerlink" title="1. 什么是对象存储"></a>1. 什么是对象存储</h2><p>对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，<strong>适合存放任意类型的文件</strong>。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。</p>
-<p>最大的优势：可以存储大量的非结构话数据，例如：图片、视频、日志文件、备份数据和容器/虚拟机镜像等。</p>
-<h2 id="2-MinIO"><a href="#2-MinIO" class="headerlink" title="2. MinIO"></a>2. MinIO</h2><p>MinIO 是个基于Golang编写的开源对象存储套件，基于Apache License V2.0开源协议，虽然轻量，却拥有不错的性能，兼容亚马逊S3云存储服务接口。可以很简单的和其他应用结合使用，例如：NodeJS、Redis、mysql等</p>
-<p>中文文档： <a href="http://docs.minio.org.cn/docs/master/minio-monitoring-guide">http://docs.minio.org.cn/docs/master/minio-monitoring-guide</a></p>
-<h3 id="2-1-MinIO应用场景"><a href="#2-1-MinIO应用场景" class="headerlink" title="2.1 MinIO应用场景"></a>2.1 MinIO应用场景</h3><p>可以作为私有云的对象存储服务来使用，也可以作为云对象存储的网关层，无缝对接Amazon S3 或者 MicroSoft Azure 。<br><img src="/linux-minio/1.png" alt="应用场景"></p>
-<h3 id="2-2-MinIO特点"><a href="#2-2-MinIO特点" class="headerlink" title="2.2 MinIO特点"></a>2.2 MinIO特点</h3><ul>
-<li><p>高性能</p>
-<p>  作为一款高性能存储，在标准硬件条件下，其读写速率分别可以达到55Gb/s和 35Gb/s。并且MinIO支持一个对象文件是任意大小（几KB到最大5T不等）</p>
-</li>
-<li><p>可扩展</p>
-<p>  不同MinIO集群可以组成联邦，并形成一个全局的命名空间，并且支持跨越多个数据中心</p>
-</li>
-<li><p>云原生</p>
-<p>  容器化、基于K8S的编排、多租户支持</p>
-</li>
-<li><p>Amazon S3兼容</p>
-<p>  使用Amazon S3 V2/V4 API。可以使用Minio SDK，Minio Client，AWS SDK 和 AWS CLI 访问Minio服务器。</p>
-</li>
-<li><p>可对接多种后端存储</p>
-<p>除了Minio自己的文件系统，还支持 DAS、 JBODs、NAS、Google云存储和 Azure Blob存储。</p>
-</li>
-<li><p>SDK支持</p>
-<p>GO SDK： <a href="https://github.com/minio/minio-go">https://github.com/minio/minio-go</a></p>
-<p>JavaSDK： <a href="https://github.com/minio/minio-java">https://github.com/minio/minio-java</a></p>
-<p>PythonSDK： <a href="https://github.com/minio/minio-py">https://github.com/minio/minio-py</a></p>
-</li>
-</ul>
-<ul>
-<li><p>Lambda计算</p>
-<p>Minio服务器通过其兼容AWS SNS / SQS的事件通知服务触发Lambda功能。支持的目标是消息队列，如Kafka，NATS，AMQP，MQTT，Webhooks以及Elasticsearch，Redis，Postgres和MySQL等数据库</p>
-</li>
-<li><p>图形化界面</p>
-<p>  有操作页面</p>
-</li>
-<li><p>功能简单</p>
-<p>  不容易出错，快速启动</p>
-</li>
-<li><p>支持纠删码</p>
-<p>MinIO使用纠删码、Checksum来防止硬件错误和静默数据污染。在最高冗余度配置下，即使丢失1/2的磁盘也能恢复数据</p>
-</li>
-</ul>
-<h3 id="2-3-存储机制"><a href="#2-3-存储机制" class="headerlink" title="2.3 存储机制"></a>2.3 存储机制</h3><p>MinIO 使用纠删码erasure code、校验和checksum。 即使丢一半数据（N/2）的鹰派，仍然可以恢复数据。</p>
-<ul>
-<li><p>校验和checksum</p>
-<p>  保护数据免受硬件故障和无声数据损坏</p>
-</li>
-<li><p>纠删码erasure code</p>
-<p>  纠删码是一种恢复丢失和损坏数据的数据算法，目前纠删码技术在分布式存储系统中的应用主要有三类：阵列纠删码（Array Code : RAID5、RAID6等）、RS（Reed-Solomon）里德-所罗门类纠删码和LDPC（LowDensity Parity Check Code）<br>  低密度奇偶校验纠删码。</p>
-<p>  Erasure code 是一种编码技术，他可以将N份原始数据，增加m份数据，并通过n+m 份中的任意n份数据，还原为原始数据。即如果有任意小于等于m份的数据失效，仍然能通过剩下的数据还原出来。<br>MinIO 采用Reed-Solomon code将对象拆分成N/2数据和N/2奇偶校验快，这就意味着如果是12块盘，一个对象会分成6个数据块、6个奇偶校验块；可以丢失任意6块盘（不管是存放的数据块还是奇偶校验块），仍可以通过剩下的盘进行数据恢复</p>
-</li>
-</ul>
-<h2 id="3-安装和使用MinIO"><a href="#3-安装和使用MinIO" class="headerlink" title="3. 安装和使用MinIO"></a>3. 安装和使用MinIO</h2><h3 id="3-1-Linux安装MinIO"><a href="#3-1-Linux安装MinIO" class="headerlink" title="3.1 Linux安装MinIO"></a>3.1 Linux安装MinIO</h3><ol>
-<li>下载（<a href="https://min.io/download#/linux%EF%BC%89">https://min.io/download#/linux）</a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.min.io/server/minio/release/linux-amd64/minio</span><br></pre></td></tr></table></figure>
-</li>
-<li>运行 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> chmod +x minio</span><br><span class="line"> ./minio server /usr/software/minio/data      #将/usr/software/minio/data 替换为您希望 MinIO 存储数据的驱动器或目录的路径。</span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"> #</span><span class="bash">后台启动</span></span><br><span class="line">nohup ./minio server /usr/software/minio/data  &gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin nohup ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data&gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br></pre></td></tr></table></figure>
-<img src="/linux-minio/8.png"></li>
-<li>设置启动脚本（建议） <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch minio.sh</span><br><span class="line">   </span><br><span class="line">vi minio.sh</span><br></pre></td></tr></table></figure>
-在sh文件中添加以下内容 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">指定登录用户名</span></span><br><span class="line">export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line">export MINIO_SECRET_KEY=password</span><br><span class="line"><span class="meta">#</span><span class="bash">指定端口以及存储文件夹，并启动服务 9000访问端口， 9001 控制台界面访问端口, 这里0.0.0.0可以设置为具体的服务器IP</span></span><br><span class="line">nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure>
-给当前用户加上执行权限 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod u+x  *.sh</span><br><span class="line">  </span><br><span class="line"><span class="meta"> #</span><span class="bash">启动</span></span><br><span class="line">sh minio.sh</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="3-2-安装客户端-可选"><a href="#3-2-安装客户端-可选" class="headerlink" title="3.2 安装客户端(可选)"></a>3.2 安装客户端(可选)</h3><ol>
-<li>安装 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.min.io/client/mc/release/linux-amd64/mc</span><br><span class="line">chmod +x mc</span><br><span class="line">./mc --help</span><br></pre></td></tr></table></figure></li>
-<li>使用命令给客户端添加一个服务端 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc alias set minio http://172.21.0.7:9000 minioadmin minioadmin</span><br></pre></td></tr></table></figure></li>
-<li>创建bucket，并查询所有bucket <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[root@ww xiaoyuge]# ./mc mb minio/mybucket</span><br><span class="line">Bucket created successfully `minio/mybucket`</span><br><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[2020-09-02 03:02:36 CST]      0B mybucket/</span><br><span class="line">[root@ww xiaoyuge]# </span><br></pre></td></tr></table></figure></li>
-<li>页面查询bucket <img src="/linux-minio/6.png"></li>
-<li>创建用户 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc admin user add minio root rootroot</span><br></pre></td></tr></table></figure></li>
-<li>给用户赋予权限 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc admin policy set minio readwrite user=root</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="3-3-使用MinIO"><a href="#3-3-使用MinIO" class="headerlink" title="3.3 使用MinIO"></a>3.3 使用MinIO</h3><ol>
-<li><p>启动</p>
-<p> 在浏览器输入： <a href="http://localhost:9000/">http://localhost:9000</a><br> <img src="/linux-minio/2.png"><br>在输入控制打印的默认的AccessKey和SecretKey：</p>
-<p> <strong>AccessKey:</strong> minioadmin</p>
-<p> <strong>SecretKey（默认）:</strong> minioadmin</p>
-<p> 使用AccessKey 和 SecretKey 登录后台。</p>
-</li>
-<li><p>进入系统后，我们先要点击右上角的“+”按钮，创建一个文件桶（输入名称后，回车即可），在上传文件到这个文件桶中。Create bucket（创建文件桶），然后输入bucket名称为 <strong>test</strong>, 创建成功后再Upload file（上传文件）。<br><img src="/linux-minio/3.png"><img src="/linux-minio/3_1.png"><img src="/linux-minio/3_2.png"><img src="/linux-minio/4.png"></p>
-<p>现在我们去服务器，我们启动时指定的目录去看看，可以看到一个新建的test文件目录（文件桶相当于文件目录），这里没有使用纠删码的模式，所以直接就是源文件了。当我们线上运行的项目已经有源文件了，在使用minio的时候，可以直接指定该目录为minio的文件目录就行了。<br><img src="/linux-minio/5.png"><img src="/linux-minio/7.png"></p>
-</li>
-<li><p>分享文件，也可以设置文件分享有效日期<br> <img src="/linux-minio/11.png"><img src="/linux-minio/12.png" alt="img_1.png"><br>访问连接会出现如下界面：<br><img src="/linux-minio/13.png" alt="img_1.png"></p>
-</li>
-</ol>
-<h3 id="3-4-mioIO常见启动问题"><a href="#3-4-mioIO常见启动问题" class="headerlink" title="3.4 mioIO常见启动问题"></a>3.4 mioIO常见启动问题</h3><ol>
-<li>启动报错“WARNING: Console endpoint is listening on a dynamic port…”<br> <img src="/linux-minio/9.png" alt="img_1.png"><br>错误提示很明显，需要to choose a static port。<br>写了一个shell启动MinIO，在shell中使用–console-address ‘部署minio的ip:希望通过什么端口打开minio console页面’ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line"> export MINIO_SECRET_KEY=password</span><br><span class="line"> nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="4-SpringBoot-集成minIO"><a href="#4-SpringBoot-集成minIO" class="headerlink" title="4. SpringBoot 集成minIO"></a>4. SpringBoot 集成minIO</h2><p>项目源代码地址：<a href="https://gitee.com/xiaoyuge520/minio-demo%EF%BC%8C">https://gitee.com/xiaoyuge520/minio-demo，</a> 下面是应用主要功能截图展示：<br><img src="/linux-minio/14.png" alt="img14.png"><br>在minIO的控制台界面选择对应的bucket可以查看到刚提交的内容<br><img src="/linux-minio/15.png" alt="img14.png"></p>
-<p>同理，删除也是一样！！！<br><img src="/linux-minio/16.png" alt="img14.png"></p>
+    <title>二分法查找题</title>
+    <url>/algorithm-dinary-search/</url>
+    <content><![CDATA[<h3 id="1-第一个错误的版本"><a href="#1-第一个错误的版本" class="headerlink" title="1. 第一个错误的版本"></a>1. 第一个错误的版本</h3><h3 id="1-1-题目描述"><a href="#1-1-题目描述" class="headerlink" title="1.1 题目描述"></a>1.1 题目描述</h3><p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。<br>假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。<br>你可以通过调用bool isBadVersion(version)接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。<br>示例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 5, bad = 4</span><br><span class="line">输出：4</span><br><span class="line">解释：</span><br><span class="line">    调用 isBadVersion(3) -&gt; false </span><br><span class="line">    调用 isBadVersion(5) -&gt; true </span><br><span class="line">    调用 isBadVersion(4) -&gt; true</span><br><span class="line">所以，4 是第一个错误的版本</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-解题思路"><a href="#1-2-解题思路" class="headerlink" title="1.2 解题思路"></a>1.2 解题思路</h3><p>当一个版本为正确版本，则该版本之前的所有版本均为正确版本；当一个版本为错误版本，则该版本之后的所有版本均为错误版本。我们可以利用这个性质进行二分查找。</p>
+<p>具体地，将左右边界分别初始化为 1和 n ，其中 n 是给定的版本数量。设定左右边界之后，每次我们都依据左右边界找到其中间的版本，检查其是否为正确版本。如果该版本为正确版本，那么第一个错误的版本必然位于该版本的右侧，我们缩紧左边界；否则第一个错误的版本必然位于该版本及该版本的左侧，我们缩紧右边界。<br>这样我们每判断一次都可以缩紧一次边界，而每次缩紧时两边界距离将变为原来的一半，因此我们至多只需要缩紧 O(logn) 次。</p>
+<h3 id="1-3-代码"><a href="#1-3-代码" class="headerlink" title="1.3 代码"></a>1.3 代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">firstBadVersion</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">1</span>, right = n;</span><br><span class="line">    <span class="keyword">while</span> (left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = left + (right - left) / <span class="number">2</span>;    <span class="comment">// 防止计算时溢出</span></span><br><span class="line">        <span class="keyword">if</span> (isBadVersion(mid))&#123;</span><br><span class="line">            <span class="comment">// 答案在区间 [left, mid] 中</span></span><br><span class="line">           right = mid; <span class="comment">//如果中间版本是错误的版本，那么它之后的都是错误的;</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 答案在区间 [mid+1, right] 中</span></span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//此时有 left == right,退出了while循环</span></span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
-    <title>Linux系统下查找文件命令总结</title>
-    <url>/linux-search-file/</url>
-    <content><![CDATA[<h3 id="1-which查命令绝对路径"><a href="#1-which查命令绝对路径" class="headerlink" title="1. which查命令绝对路径"></a>1. which查命令绝对路径</h3><p><strong>which</strong> 从环境变量PATH中定位/返回与指定名字相匹配的可执行文件所在的路径<br><img src="/linux-search-file/1.png" alt="which命令"></p>
-<p><strong>原理</strong>：执行<strong>which</strong>命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径，<br>否则依次返回满足条件的所有可执行文件的路径名</p>
-<p><strong>适用场合：</strong> 一般用于查找命令/可执行文件所在的路径。有时候可能在多个路径下存在相同的命令，该命令可用于查找当前所执行的命令到底是哪一个位置处的命令。</p>
-<h3 id="2-whereis查找特定文件"><a href="#2-whereis查找特定文件" class="headerlink" title="2. whereis查找特定文件"></a>2. whereis查找特定文件</h3><p><strong>whereis</strong> 命令用来定位指令的二进制程序、源代码文件和man手册页等相关文件的路径， 该命令只能用于程序名的搜索</p>
-<ol>
-<li>- b   #定位可执行文件</li>
-<li>- m   #定位帮助文件</li>
-<li>- s   定位源代码文件 </li>
-<li>- u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件</li>
-<li>- B   指定搜索可执行文件的路径。</li>
-<li>- M   指定搜索帮助文件的路径。</li>
-<li>- S   指定搜索源代码文件的路径<br><img src="/linux-search-file/2.png" alt="whereis命令"></li>
+    <title>Mysql添加/修改/删除字段</title>
+    <url>/mysql-column/</url>
+    <content><![CDATA[<h3 id="1-添加字段"><a href="#1-添加字段" class="headerlink" title="1. 添加字段"></a>1. 添加字段</h3><h4 id="1-1-在末尾添加字段"><a href="#1-1-在末尾添加字段" class="headerlink" title="1.1 在末尾添加字段"></a>1.1 在末尾添加字段</h4><p>1）语法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件];</span><br></pre></td></tr></table></figure>
+<p>语法格式的说明：</p>
+<ul>
+<li>&lt;表名&gt; 为数据表的名字；</li>
+<li>&lt;字段名&gt; 为所要添加的字段的名字；</li>
+<li>&lt;数据类型&gt; 为所要添加的字段能存储数据的数据类型；</li>
+<li>[约束条件] 是可选的，用来对添加的字段进行约束。</li>
+<li>这种语法格式默认在表的最后位置（最后一列的后面）添加新字段</li>
+</ul>
+<p>2）示例：在user表末尾添加字段phone</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> phone <span class="type">VARCHAR</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;电话号码&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-在开头添加字段"><a href="#1-2-在开头添加字段" class="headerlink" title="1.2 在开头添加字段"></a>1.2 在开头添加字段</h4><p>1）语法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件] <span class="keyword">FIRST</span>;</span><br></pre></td></tr></table></figure>
+<p>FIRST 关键字一般放在语句的末尾<br>2）示例：在user表开头添加字段user_id</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> user_id <span class="type">VARCHAR</span>(<span class="number">32</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户主键&#x27;</span> <span class="keyword">FIRST</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="1-3-在中间添加字段"><a href="#1-3-在中间添加字段" class="headerlink" title="1.3 在中间添加字段"></a>1.3 在中间添加字段</h4><p>1）语法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件] AFTER <span class="operator">&lt;</span>已经存在的字段名<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
+<p>AFTER 的作用是将新字段添加到某个已有字段后面。<br>注意：只能在某个已有字段的后面添加新字段，不能在它的前面添加新字段</p>
+<p>2）示例：在user表的user_id字段后添加username字段</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> username <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户名&#x27;</span> AFTER `user_id`;</span><br></pre></td></tr></table></figure>
+<h3 id="2-修改字段"><a href="#2-修改字段" class="headerlink" title="2. 修改字段"></a>2. 修改字段</h3><h4 id="2-1-修改字段属性"><a href="#2-1-修改字段属性" class="headerlink" title="2.1 修改字段属性"></a>2.1 修改字段属性</h4><p>1）语法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> MODIFY <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件];</span><br></pre></td></tr></table></figure>
+<p>2）示例1：修改字段属性</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 将email字段VARCHAR(50)修改成VARCHAR(200)</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> MODIFY email <span class="type">VARCHAR</span>(<span class="number">200</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;email@163.com&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>注意：修改时如果不带完整性约束条件，原有的约束条件将丢失，如果想保留修改时就得带上完整性约束条件</p>
+<p>3）示例2： 将email移到phone后面</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> MODIFY email <span class="type">VARCHAR</span>(<span class="number">50</span>) AFTER `phone`;</span><br></pre></td></tr></table></figure>
+<p>4）示例3：放置第一个，保留原完成性约束条件</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span>`MODIFY email <span class="type">VARCHAR</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;test@163.com&#x27;</span> <span class="keyword">FIRST</span>;</span><br></pre></td></tr></table></figure>
+<p>5）示例4：修改成大小写敏感，即查询区分大小写</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> MODIFY username <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="type">BINARY</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_bin <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户名&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-修改字段名称和属性"><a href="#2-2-修改字段名称和属性" class="headerlink" title="2.2 修改字段名称和属性"></a>2.2 修改字段名称和属性</h4><p>1）语法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> CHANGE <span class="operator">&lt;</span>原字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>新字段名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span> [约束条件];</span><br></pre></td></tr></table></figure>
+<p>2）示例：将username字段修改成user_name</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> CHANGE username user_name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户名&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-添加、删除默认值"><a href="#2-3-添加、删除默认值" class="headerlink" title="2.3 添加、删除默认值"></a>2.3 添加、删除默认值</h4><p>1）语法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 添加默认值</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="keyword">SET</span> <span class="keyword">DEFAULT</span> <span class="operator">&lt;</span>默认值<span class="operator">&gt;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除默认值</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="operator">&lt;</span>字段名<span class="operator">&gt;</span> <span class="keyword">DROP</span> <span class="keyword">DEFAULT</span>;</span><br></pre></td></tr></table></figure>
+<p>2）示例：给sex添加默认值</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">USER</span> <span class="keyword">ALTER</span> sex <span class="keyword">SET</span> <span class="keyword">DEFAULT</span>  <span class="string">&#x27;难&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>3）示例：删除sex默认值</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ALTER</span> sex <span class="keyword">DROP</span> <span class="keyword">DEFAULT</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-添加、删除主键"><a href="#2-4-添加、删除主键" class="headerlink" title="2.4 添加、删除主键"></a>2.4 添加、删除主键</h4><ol>
+<li>语法：<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 添加主键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> [<span class="keyword">CONSTRAINT</span> <span class="operator">&lt;</span>约束名<span class="operator">&gt;</span>] <span class="keyword">PRIMARY</span> KEY (<span class="operator">&lt;</span>字段名称,...<span class="operator">&gt;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除主键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">DROP</span> <span class="keyword">PRIMARY</span> KEY;</span><br></pre></td></tr></table></figure>
+2）示例：添加主键<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> <span class="keyword">PRIMARY</span>  KEY (user_id)</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p><strong>原理：</strong> whereis命令首先会去掉filename中的前缀空格和以.开头的任何字符，然后再在数据库（var/lib/slocate/slocate.db）中查找与上述处理后的filename相匹配的二进制文件、源文件和帮助手册文件,使用之前可以使用<strong>updatedb</strong>命令手动更新数据库。</p>
-<p><strong>适用场合：</strong> 二进制文件、源文件和帮助手册文件路径的查找。<br>和<strong>find</strong> 相比，Whereis 查找的速度非常快，这是因为Linux系统会将系统内的所有文件都记录在一个数据库文件中，当使用<strong>whereis (或者locate)</strong><br>会从数据库查找数据，而不是像find命令那样，通过遍历硬盘来查找文件，效率更高！</p>
-<h3 id="3-locate缓存查找文件"><a href="#3-locate缓存查找文件" class="headerlink" title="3. locate缓存查找文件"></a>3. locate缓存查找文件</h3><p><strong>locate</strong> 搜素一个数据库（/var/lib/mlocate/mlocate.db）,这个数据库中国呢包含本地所有文件信息，Linux系统自动创建这个数据库，并且每天更新依次，所以使用locate命令查不到最新变动过的文件，为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库，updatedb命令会根据/etc/updatedb.conf来更新文件。</p>
-<p><strong>原理：</strong> 默认情况下(当filename中不包含通配符*)，locate会给出所有与 * filename*相匹配的文件的路径。<br><strong>适用场合：</strong> 没有文件类型性质的模糊查找（你只记得某个文件的部分名称）。<br><img src="/linux-search-file/3.png" alt="locate命令"><br><img src="/linux-search-file/4.png" alt="locate命令"><br><img src="/linux-search-file/5.png" alt="locate命令"><br><img src="/linux-search-file/6.png" alt="locate命令"></p>
-<h3 id="4-find-遍历文件查找"><a href="#4-find-遍历文件查找" class="headerlink" title="4. find 遍历文件查找"></a>4. find 遍历文件查找</h3><p>语法：</p>
-<ul>
-<li><p>-name                    #按文件名查找(find /etc/ -name “??????” 查找/etc目录下，开头是6个任意字符的文件， *.log以log结尾的文件；”[1-3].txt”指定范围以txt结尾的文件（包括 1.txt,2.txt,3.txt）)</p>
-</li>
-<li><p>-size                    #按大小查找（find /etc/ -size +1M 查询大于1M的文件(find /etc/ -size -10K)，注意：如果没有+ -， 则是精确到1M,加上+ - 表示范围； find /etc/ -size +1k -a -size -10k 查找1-10K的文件）</p>
-</li>
-<li><p>-user                    #按属主查找（find /opt/ -user xiaoyuge 查找/opt属于xiaoyuge用户的文件；注意，系统要存在该用户，否则会报错）</p>
-</li>
-<li><p>-perm                    #按权限查找（find /opt/ -perm 0644 查找/opt目录权限是644文件）</p>
-</li>
-<li><p>-type                    #按类型查找（find /usr/bin/ -type f 查找/usr/bin下类型是二进制文件）</p>
-</li>
-<li><p>-time                    #按天查找</p>
-<ul>
-<li><p>atime n                    #将n*24小时内访问过的文件列出(access)</p>
-</li>
-<li><p>ctime n                    #将n*24小时内状态发生改变的文件列出（change） find /etc/ -ctime +7 在7天之前,属性被修改过的文件</p>
-</li>
-<li><p>mtime n                    #将n*24小时内被修改过的文件列出(modify)</p>
-</li>
-<li><p>newer file                 #把比file还要心的文件列出</p>
-</li>
-<li><p>amin n                     #将n 分钟内访问过的文件列出(access)   find /etc/ -mmin -120 在120分钟内，内容被修改的文件</p>
-</li>
-<li><p>cmin n                     #将n 分钟内状态发生改变的文件列出（change）</p>
-</li>
-<li><p>mmin n                     #将n 分钟内被修改过的文件列出(modify)</p>
-</li>
-</ul>
-</li>
-<li><p>-inum                    #按i节点查找 有一些文件的硬链接数量很多，有相同的i节点，查找其中一个文件的i节点号，一次性删除。</p>
-</li>
-<li><p>-exec                    #查找后执行命令</p>
-</li>
-</ul>
-<p><strong>原理：</strong> 遍历当前工作目录及其子目录，find命令是在硬盘上遍历查找，非常耗硬盘资源，查找效率相比whereis和locate较低。<br><strong>适用场合：</strong> 能用which、whereis和locate的时候尽量不要用find.</p>
-<h3 id="4中命令对比"><a href="#4中命令对比" class="headerlink" title="4中命令对比"></a>4中命令对比</h3><p><img src="/linux-search-file/7.png" alt="对比"></p>
+<p>3）示例：添加复合主键</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span>  user_role <span class="keyword">ADD</span> <span class="keyword">PRIMARY</span> KEY (user_id, role_id);</span><br></pre></td></tr></table></figure>
+<p>4）示例：删除主键</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">DROP</span> <span class="keyword">PRIMARY</span> KEY;</span><br></pre></td></tr></table></figure>
+<p>5）示例：删除带自增长属性的主键</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 先用MODIFY删除自增长属性，注意MODIFY不能去掉主键属性</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> test MODIFY id <span class="type">INT</span> UNSIGNED;</span><br><span class="line"><span class="comment">-- 再来删除主键</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> test <span class="keyword">DROP</span> <span class="keyword">PRIMARY</span> KEY;</span><br></pre></td></tr></table></figure>
+<h4 id="2-5-添加、删除唯一索引"><a href="#2-5-添加、删除唯一索引" class="headerlink" title="2.5 添加、删除唯一索引"></a>2.5 添加、删除唯一索引</h4><p>1）语法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 添加唯一性约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">ADD</span> [CONSTANT <span class="operator">&lt;</span>约束名<span class="operator">&gt;</span>] <span class="keyword">UNIQUE</span> [INDEX <span class="operator">|</span> KEY] [索引名称](<span class="operator">&lt;</span>字段名称,...<span class="operator">&gt;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 删除唯一性约束</span></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> <span class="keyword">DROP</span> [INDEX <span class="operator">|</span> KEY] [索引名称];</span><br></pre></td></tr></table></figure>
+<p>2）示例：为username添加唯一性约束，如果没有指定索引名称，系统会以字段名建立索引</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span>(username);</span><br></pre></td></tr></table></figure>
+<p>3）示例：为username添加唯一性约束，并指定索引名称</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> <span class="keyword">UNION</span> KEY uni_username(username);</span><br></pre></td></tr></table></figure>
+<p>4）示例：查看索引</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
+<p>5）示例：添加联合UNIQUE</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> INDEX uni_nickname_username(nickname, username);</span><br></pre></td></tr></table></figure>
+<p>6）示例：删除索引</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">DROP</span> INDEX username;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">DROP</span> KEY uni_username;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> <span class="keyword">DROP</span> INDEX uni_nickname_username;</span><br></pre></td></tr></table></figure>
+<h4 id="2-6-修改表的存储引擎"><a href="#2-6-修改表的存储引擎" class="headerlink" title="2.6 修改表的存储引擎"></a>2.6 修改表的存储引擎</h4><p>1）语法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> ENGINE<span class="operator">=</span><span class="operator">&lt;</span>存储引擎名称<span class="operator">&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2）示例：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> ENGINE<span class="operator">=</span>MyISAM;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> ENGINE<span class="operator">=</span>INNODB;</span><br></pre></td></tr></table></figure>
+<h4 id="2-7-修改自增长值"><a href="#2-7-修改自增长值" class="headerlink" title="2.7 修改自增长值"></a>2.7 修改自增长值</h4><p>1）语法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span> AUTO_INCREMENT<span class="operator">=</span>[值];</span><br></pre></td></tr></table></figure>
+<p>2）示例：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> <span class="keyword">user</span> AUTO_INCREMENT<span class="operator">=</span> <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+
+<p>博客原文链接：<a href="https://www.cnblogs.com/Jimc/p/12979319.html">https://www.cnblogs.com/Jimc/p/12979319.html</a><br>如有侵权，请联系删除！</p>
 ]]></content>
       <categories>
-        <category>linux</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
-    <title>分布式消息中间件设计</title>
-    <url>/message-oriented-middleware/</url>
-    <content><![CDATA[<h2 id="1-消息中间件概述"><a href="#1-消息中间件概述" class="headerlink" title="1. 消息中间件概述"></a>1. 消息中间件概述</h2><ol>
-<li><p>什么是分布式消息中间件</p>
-<p> 利用高效可靠的消息传递机制进行平台无关的数据交流；<br> 并基于数据通信来进行分布式系统的集成；<br> 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。</p>
+    <title>TIDB设置sql_mode</title>
+    <url>/sql-model/</url>
+    <content><![CDATA[<h3 id="1-使用命令查询当前sql-mode"><a href="#1-使用命令查询当前sql-mode" class="headerlink" title="1. 使用命令查询当前sql_mode"></a>1. 使用命令查询当前sql_mode</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> @<span class="variable">@sql</span>_mode</span><br><span class="line"><span class="comment">-- 或者</span></span><br><span class="line"><span class="keyword">select</span> @<span class="variable">@GLOBAL</span>.sql_mode</span><br></pre></td></tr></table></figure>
+<p><img src="/sql-model/1.png" alt="sql_mode"></p>
+<h5 id="sql-mode常用值："><a href="#sql-mode常用值：" class="headerlink" title="sql_mode常用值："></a>sql_mode常用值：</h5><ul>
+<li><p>ONLY_FULL_GROUP_BY<br>对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中</p>
 </li>
-<li><p>消息中间件的应用场景</p>
-<p> 跨系统数据传递、高并发流量削峰、数据异步处理……</p>
+<li><p>NO_AUTO_VALUE_ON_ZERO<br>该值影响自增长列的插入。默认设置下，插入0或NULL代表生成下一个自增长值。如果用户希望插入的值为0，而该列又是自增长的，那么这个选项就有用了。</p>
 </li>
-<li><p>常用的消息中间件</p>
-<p> ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ</p>
+<li><p>STRICT_TRANS_TABLES<br>在该模式下，如果一个值不能插入到一个事务中，则中断当前的操作，对非事务表不做限制</p>
 </li>
-<li><p>本质</p>
-<p> 一种具备接受请求、保存数据、发送数据等功能的网络应用。和一般的网络应用程序的区别是它主要负责数据的接收和传递，所以性能一般高于普通程序</p>
+<li><p>NO_ZERO_IN_DATE<br>在严格模式下，不允许日期和月份为零</p>
 </li>
-<li><p>5大核心组成</p>
-<ul>
-<li>协议</li>
-<li>持久性机制</li>
-<li>消息分布机制</li>
-<li>高可用设计</li>
-<li>高可靠设计</li>
-</ul>
+<li><p>NO_ZERO_DATE<br>设置该值，mysql数据库不允许插入零日期，插入零日期会抛出错误而不是警告</p>
 </li>
-</ol>
-<h3 id="1-1-协议"><a href="#1-1-协议" class="headerlink" title="1.1 协议"></a>1.1 协议</h3><p>协议是计算机之间通信时共同遵守的一组约定，确保计算机之间能够相互交流；是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述</p>
-<p>三大要素：</p>
-<ul>
-<li>语法：即数据和控制信息的结构或格式</li>
-<li>语义：即需要发出何种控制信息，完成何种动作以及作出何种响应</li>
-<li>时序：即时间实现顺序的详细说明</li>
+<li><p>ERROR_FOR_DIVISION_BY_ZERO<br>在insert或update过程中，如果数据被零除，则产生错误而非警告。如果未给出该模式，那么数据被零除时Mysql返回NULL</p>
+</li>
+<li><p>NO_AUTO_CREATE_USER<br>禁止GRANT创建密码为空的用户</p>
+</li>
+<li><p>NO_ENGINE_SUBSTITUTION<br>如果需要的存储引擎被禁用或未编译，那么抛出错误。不设置此值时，用默认的存储引擎替代，并抛出一个异常</p>
+</li>
+<li><p>PIPES_AS_CONCAT<br>将”||”视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样是，也和字符串的拼接函数Concat想类似</p>
+</li>
+<li><p>ANSI_QUOTES<br>启用ANSI_QUOTES后，不能用双引号来引用字符串，因为它被解释为识别符</p>
+</li>
 </ul>
-<p>消息中间件常用协议：openWire、AMQP、MQTT（物流网，快，不能持久化）、Kafka、OpenMessage等；<br>不能用http协议的原因是：http每次请求必须要有响应，性能不高；</p>
-<h4 id="1-1-AMQP协议"><a href="#1-1-AMQP协议" class="headerlink" title="1.1 AMQP协议"></a>1.1 AMQP协议</h4><p>AMQP（Advanced Message Queuing Protocol）是高级消息队列协议；04年JPMorgan Chase(摩根大通集团)联合其他公司共同设计</p>
-<ul>
-<li>特性：事物支持、持久化支持，出生金融行业，在可靠性消息处理上具备天然的优势</li>
-<li>优秀产品 RabbitMQ、 Apache ACTIVEMQ</li>
-</ul>
-<h4 id="1-2-MQTT协议"><a href="#1-2-MQTT协议" class="headerlink" title="1.2 MQTT协议"></a>1.2 MQTT协议</h4><p>MQTT（Message Queuing Telemetry Transport）消息队列遥测传输<br>是IBM开发的一个即时通讯协议，物联网系统架构中的重要组成部分；</p>
-<ul>
-<li>特性：轻量、结构简单、传输快、没有事务支持、没有持久化相关设计</li>
-<li>应用场景：适用于计算能力有限、低宽带、网络不稳定的场景</li>
-<li>优秀产品：RabbitMQ、 Apache ACTIVEMQ</li>
-</ul>
-<h4 id="1-3-Open-Message协议"><a href="#1-3-Open-Message协议" class="headerlink" title="1.3 Open Message协议"></a>1.3 Open Message协议</h4><p>OpenMessaging 是近几年有阿里发起，与雅虎、滴滴出行、Streamlio等公司共同参数传里的分布式消息中间件、流处理领域的开发应用标准。<br>是国内首个在全球范围内发起的分布式消息领域国际标准</p>
-<ul>
-<li>特性：结构简单、解析快、有事务设计、有持久化设计</li>
-<li>优秀产品：Apache RocketMQ</li>
-</ul>
-<h4 id="1-4-Kafka协议"><a href="#1-4-Kafka协议" class="headerlink" title="1.4 Kafka协议"></a>1.4 Kafka协议</h4><p>Kafka协议是基于TCP的二进制协议。消息内部是通过长度来分割，由一些基本数据类型组成</p>
-<ul>
-<li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
-<li>优秀产品：Apache Kafka</li>
-</ul>
-<h4 id="1-55-OpenWire协议"><a href="#1-55-OpenWire协议" class="headerlink" title="1.55 OpenWire协议"></a>1.55 OpenWire协议</h4><p>开放链接，ActiveMQ自定义的一种协议，ActiveMQ默认链接方式，它提供一种高效率的二进制格式来使消息高速传输</p>
-<ul>
-<li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
-<li>优秀产品：Apache ActiveMQ</li>
-</ul>
-<h3 id="1-2-持久化"><a href="#1-2-持久化" class="headerlink" title="1.2 持久化"></a>1.2 持久化</h3><p>简单来说就是将数据存入磁盘，而不是存在内存中岁服务重启而消失，使数据能够永久保存叫做持久化</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th align="center">ActiveMQ</th>
-<th align="center">RabbitMQ</th>
-<th align="center">Kafka</th>
-<th align="center">RocketMQ</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>文件系统</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-</tr>
-<tr>
-<td>数据库</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h3 id="1-3-消息分发"><a href="#1-3-消息分发" class="headerlink" title="1.3 消息分发"></a>1.3 消息分发</h3><table>
-<thead>
-<tr>
-<th></th>
-<th align="center">ActiveMQ</th>
-<th align="center">RabbitMQ</th>
-<th align="center">Kafka</th>
-<th align="center">RocketMQ</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>发布订阅</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-</tr>
-<tr>
-<td>轮询分发</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td>公平分发</td>
-<td align="center">-</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td>重发</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-<td align="center">支持</td>
-</tr>
-<tr>
-<td>消息拉取</td>
-<td align="center">-</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-</tr>
-</tbody></table>
-<h3 id="1-4-高可用"><a href="#1-4-高可用" class="headerlink" title="1.4 高可用"></a>1.4 高可用</h3><p>高可用性是指产品在规定的条件和规定的时刻或时间区间内处于可执行规定功能状态的能力；<br>当业务量大时，一台消息中间件服务器可能无法满足需求，所以需要消息中间件能够集群部署，来达到高可用的目的。</p>
-<h4 id="1-4-1-Master-Slave主从共享数据的部署方式"><a href="#1-4-1-Master-Slave主从共享数据的部署方式" class="headerlink" title="1.4.1 Master-Slave主从共享数据的部署方式"></a>1.4.1 Master-Slave主从共享数据的部署方式</h4><p>当Master收到客户端的消息后，放到共享的文件系统/数据库； 客户端访问的是Master节点，Slave节点只做备份；<br><img src="/message-oriented-middleware/2.png" alt="Master-Slave主从共享数据的部署方式"></p>
-<h4 id="1-4-2-Master-Slave主从同步部署方式"><a href="#1-4-2-Master-Slave主从同步部署方式" class="headerlink" title="1.4.2 Master-Slave主从同步部署方式"></a>1.4.2 Master-Slave主从同步部署方式</h4><p>当Master收到客户端的消息后，发给其他broker同步。<br><img src="/message-oriented-middleware/3.png" alt="Master-Slave主从同步部署方式"></p>
-<h4 id="1-4-3-Broker-Cluster多主集群同步部署方式"><a href="#1-4-3-Broker-Cluster多主集群同步部署方式" class="headerlink" title="1.4.3 Broker-Cluster多主集群同步部署方式"></a>1.4.3 Broker-Cluster多主集群同步部署方式</h4><p>一部分消息放在broker1 ,一部分放在broker2<br><img src="/message-oriented-middleware/4.png" alt="Broker-Cluster多主集群同步部署方式"></p>
-<h4 id="1-4-4-Broker-Cluster多主集群转发部署方式"><a href="#1-4-4-Broker-Cluster多主集群转发部署方式" class="headerlink" title="1.4.4 Broker-Cluster多主集群转发部署方式"></a>1.4.4 Broker-Cluster多主集群转发部署方式</h4><p>转发数据或转发请求<br><img src="/message-oriented-middleware/5.png" alt="Broker-Cluster多主集群转发部署方式"></p>
-<h4 id="1-4-5-Master-slave与Broker-Cluster结合"><a href="#1-4-5-Master-slave与Broker-Cluster结合" class="headerlink" title="1.4.5 Master-slave与Broker-Cluster结合"></a>1.4.5 Master-slave与Broker-Cluster结合</h4><p><img src="/message-oriented-middleware/6.png" alt="Master-slave与Broker-Cluster结合"></p>
-<h3 id="1-5-高可靠"><a href="#1-5-高可靠" class="headerlink" title="1.5 高可靠"></a>1.5 高可靠</h3><p>高可靠性是指系统可以无故障地持续运行。比如一个系统从来不崩溃、报错，或者崩溃、报错的几率较低，那就是高可靠。<br>保证消息中间件的高可靠行，可以从一下几方面考虑</p>
-<ul>
-<li>消息传输可靠： 通过协议来保证系统件数据解析的正确性</li>
-<li>消息存储可靠： 通过持久化来保证消息存储可靠性</li>
-</ul>
-]]></content>
+<h3 id="2-临时设置（新session仍然使用之前的sql-mode）"><a href="#2-临时设置（新session仍然使用之前的sql-mode）" class="headerlink" title="2. 临时设置（新session仍然使用之前的sql_mode）"></a>2. 临时设置（新session仍然使用之前的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> sql_mode<span class="operator">=</span>‘ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES’;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-全局设置（新session仍然使用修改后的sql-mode）"><a href="#3-全局设置（新session仍然使用修改后的sql-mode）" class="headerlink" title="3. 全局设置（新session仍然使用修改后的sql_mode）"></a>3. 全局设置（新session仍然使用修改后的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> @<span class="variable">@global</span>.sql_mode<span class="operator">=</span><span class="string">&#x27;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE‘；</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>中间件</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>消息中间件</tag>
+        <tag>tidb</tag>
       </tags>
   </entry>
   <entry>
