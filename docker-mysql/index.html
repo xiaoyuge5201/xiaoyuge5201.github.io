@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://xiaoyuge5201.github.io/docker-mysql/3.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/docker-mysql/4.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/docker-mysql/5.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/docker-mysql/6.png">
 <meta property="article:published_time" content="2021-12-09T13:32:36.000Z">
-<meta property="article:modified_time" content="2022-03-27T14:06:03.435Z">
+<meta property="article:modified_time" content="2022-04-02T07:38:17.182Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
@@ -459,7 +460,7 @@
 <p><img src="/docker-mysql/3.png" alt="启动创建容器"><br>执行上述命令后，执行查询容器的命令就可以看到创建的mysql容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
 <p><img src="/docker-mysql/4.png" alt="启动创建容器"></p>
-<h5 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h5><p>上述虽然安装好了mysql，但是使用远程的Navicat连接时提示错误，不能正确连接mysql，此时需要修改按照下面说的步骤修改一下mysql的密码模式以及主机等内容才可以。<br>修改mysql密码以及可访问主机</p>
+<h5 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h5><h6 id="1-远程无法链接"><a href="#1-远程无法链接" class="headerlink" title="1.远程无法链接"></a>1.远程无法链接</h6><p>上述虽然安装好了mysql，但是使用远程的Navicat连接时提示错误，不能正确连接mysql，此时需要修改按照下面说的步骤修改一下mysql的密码模式以及主机等内容才可以。<br>修改mysql密码以及可访问主机</p>
 <ol>
 <li>进入容器内部 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql /bin/bash</span><br></pre></td></tr></table></figure></li>
 <li>连接mysql <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></li>
@@ -468,7 +469,10 @@
 <li>刷新 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br><span class="line"></span><br><span class="line">exit;</span><br></pre></td></tr></table></figure></li>
 <li>远程使用Navicat连接数据库<br><img src="/docker-mysql/5.png" alt="连接"></li>
 </ol>
-
+<h6 id="2-docker启动mysql容器报错"><a href="#2-docker启动mysql容器报错" class="headerlink" title="2.docker启动mysql容器报错"></a>2.docker启动mysql容器报错</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart=unless-stopped -d --name mysql -v /usr/mysql/conf/my.cnf:/etc/mysql/my.cnf -v /usr/mysql/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=xiaoyuge mysql</span><br></pre></td></tr></table></figure>
+<p>启动时提示：Error response from daemon: OCI runtime create failed: container_linux.go:380: starting container process caused: process_linux.go:545: container init caused: Running hook #0:: error running hook: signal: segmentation fault (core dumped), stdout: , stderr:: unknown</p>
+<p><img src="/docker-mysql/6.png"><br>解决方式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum upgrade</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
