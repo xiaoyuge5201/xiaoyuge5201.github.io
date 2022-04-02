@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/docker-01/</loc>
+    
+    <lastmod>2022-04-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/mysql-install/</loc>
     
     <lastmod>2022-04-02</lastmod>
@@ -434,15 +443,6 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/docker-01/</loc>
-    
-    <lastmod>2022-03-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/404.html</loc>
     
     <lastmod>2022-03-27</lastmod>
@@ -538,13 +538,6 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/%E7%BA%BF%E7%A8%8B/</loc>
-    <lastmod>2022-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/tags/algorithm/</loc>
     <lastmod>2022-04-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -552,28 +545,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/linux/</loc>
-    <lastmod>2022-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/%E9%9B%86%E5%90%88/</loc>
-    <lastmod>2022-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/shutdown/</loc>
-    <lastmod>2022-04-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/ELK/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/%E7%BA%BF%E7%A8%8B/</loc>
     <lastmod>2022-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -581,6 +553,13 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/Java/</loc>
+    <lastmod>2022-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/ELK/</loc>
     <lastmod>2022-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -664,14 +643,14 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/docker/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
     <lastmod>2022-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/docker/</loc>
     <lastmod>2022-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -685,7 +664,21 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/Linux/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/linux/</loc>
+    <lastmod>2022-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/%E9%9B%86%E5%90%88/</loc>
+    <lastmod>2022-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/shutdown/</loc>
     <lastmod>2022-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -693,6 +686,13 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <lastmod>2022-04-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/Linux/</loc>
     <lastmod>2022-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -722,14 +722,14 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
     <lastmod>2022-04-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
