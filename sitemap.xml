@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/swagger/</loc>
+    
+    <lastmod>2022-04-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/export-database-file/</loc>
     
     <lastmod>2022-04-17</lastmod>
@@ -556,7 +565,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/java/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/mysql/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -570,7 +579,14 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/mysql/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/java/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -661,14 +677,21 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/docker/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/linux/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/nginx/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -689,21 +712,14 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/docker/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/linux/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/nginx/</loc>
-    <lastmod>2022-04-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/swagger/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -740,7 +756,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/mysql/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -754,7 +770,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/mysql/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -783,6 +799,13 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/categories/nginx/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/categories/swagger/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
