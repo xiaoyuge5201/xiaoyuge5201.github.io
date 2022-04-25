@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 17 Apr 2022 10:49:31 GMT</pubDate>
+    <pubDate>Mon, 25 Apr 2022 12:21:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>认识UML之类图</title>
+      <link>https://xiaoyuge5201.github.io/uml/</link>
+      <guid>https://xiaoyuge5201.github.io/uml/</guid>
+      <pubDate>Mon, 25 Apr 2022 06:58:59 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-什么是UML&quot;&gt;&lt;a href=&quot;#1-什么是UML&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是UML&quot;&gt;&lt;/a&gt;1. 什么是UML&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;统一建模语言（Unified Modeling Language）是一种</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/UML/">UML</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/uml/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>常见的接口测试工具</title>
@@ -1050,7 +1074,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/vue/">vue</category>
