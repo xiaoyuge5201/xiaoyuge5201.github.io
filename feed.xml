@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Mon, 25 Apr 2022 12:26:03 GMT</pubDate>
+    <pubDate>Thu, 05 May 2022 01:42:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Hexo博客加密</title>
+      <link>https://xiaoyuge5201.github.io/hexo-encrypt/</link>
+      <guid>https://xiaoyuge5201.github.io/hexo-encrypt/</guid>
+      <pubDate>Thu, 05 May 2022 01:28:20 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-概述&quot;&gt;&lt;a href=&quot;#1-概述&quot; class=&quot;headerlink&quot; title=&quot;1.概述&quot;&gt;&lt;/a&gt;1.概述&lt;/h3&gt;&lt;p&gt;Hexo编写Markdown文章后生成的静态页面默认是公开不加密的，所有人都可以访问，如果希望某些文章需要访问者只有输入正确</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/hexo/">hexo</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/hexo/">hexo</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/hexo-encrypt/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>认识UML之类图</title>
@@ -24,10 +48,7 @@
       <guid>https://xiaoyuge5201.github.io/uml/</guid>
       <pubDate>Mon, 25 Apr 2022 06:58:59 GMT</pubDate>
       
-        
-        
-      <description>&lt;h2 id=&quot;1-什么是UML&quot;&gt;&lt;a href=&quot;#1-什么是UML&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是UML&quot;&gt;&lt;/a&gt;1. 什么是UML&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;统一建模语言（Unified Modeling Language）是一种</description>
-        
+      <description>文章已被加密，需要输入密码查看，如需查看请联系博主！</description>
       
       
       
@@ -704,7 +725,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/hexo/">hexo</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/hexo/">hexo</category>
@@ -901,7 +922,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/hexo/">hexo</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/hexo/">hexo</category>
