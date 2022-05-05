@@ -18,12 +18,12 @@
   
   
   <title>mysql数据库锁 | 小余哥</title>
-  <meta name="description" content="当数据库有事物的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；锁的作用：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。##1. 不同引擎的锁以及锁分类Mysql数据库中，InnoDB支持表、行级锁，而MyISAM支持表级锁Mysql大致可以归纳为以下3种锁：  表级锁：开销小，加锁块，不会出现死锁，发生锁冲突的概率最高，并发度最低。 行级锁：开销大，">
+  <meta name="description" content="当数据库有事物的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制； 锁的作用：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。 ##1. 不同引擎的锁以及锁分类 Mysql数据库中，InnoDB支持表、行级锁，而MyISAM支持表级锁  Mysql大致可以归纳为以下3种锁：  表级锁：开销小，加锁块，不会出现死锁，发生锁冲突的概率最高，并发度最低。 行级锁">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql数据库锁">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="当数据库有事物的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；锁的作用：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。##1. 不同引擎的锁以及锁分类Mysql数据库中，InnoDB支持表、行级锁，而MyISAM支持表级锁Mysql大致可以归纳为以下3种锁：  表级锁：开销小，加锁块，不会出现死锁，发生锁冲突的概率最高，并发度最低。 行级锁：开销大，">
+<meta property="og:description" content="当数据库有事物的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制； 锁的作用：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。 ##1. 不同引擎的锁以及锁分类 Mysql数据库中，InnoDB支持表、行级锁，而MyISAM支持表级锁  Mysql大致可以归纳为以下3种锁：  表级锁：开销小，加锁块，不会出现死锁，发生锁冲突的概率最高，并发度最低。 行级锁">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-24T08:57:10.000Z">
 <meta property="article:modified_time" content="2022-04-06T09:51:44.964Z">
@@ -438,7 +438,12 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>当数据库有事物的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；<br><strong>锁的作用</strong>：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。<br>##1. 不同引擎的锁以及锁分类<br><strong>Mysql数据库中，InnoDB支持表、行级锁，而MyISAM支持表级锁</strong><br><br><br>Mysql大致可以归纳为以下3种锁：</p>
+        <p>当数据库有事物的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；<br>
+<strong>锁的作用</strong>：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。<br>
+##1. 不同引擎的锁以及锁分类<br>
+<strong>Mysql数据库中，InnoDB支持表、行级锁，而MyISAM支持表级锁</strong><br>
+<br><br>
+Mysql大致可以归纳为以下3种锁：</p>
 <ul>
 <li>表级锁：开销小，加锁块，不会出现死锁，发生锁冲突的概率最高，并发度最低。</li>
 <li>行级锁：开销大，加锁慢，会出现死锁，发生锁冲突的概率最低，并发度最高。</li>
@@ -448,9 +453,12 @@
 <ul>
 <li>对一个表的读操作，不会阻塞其他用户对同一表请求，但会阻塞对同一表的写请求；</li>
 <li>对MyISAM的写操作，则会则色其他用户对同一表的读和写操作；</li>
-<li>MyISAM表的读操作和写操作之间，以及写操作之间是串行的。<br>当一个线程获得对一个表的写锁后，只有持有锁的线程可以对表进行更新操作，其他线程的读、写操作都会等待。</li>
+<li>MyISAM表的读操作和写操作之间，以及写操作之间是串行的。<br>
+当一个线程获得对一个表的写锁后，只有持有锁的线程可以对表进行更新操作，其他线程的读、写操作都会等待。</li>
 </ul>
-<p>##2.加表级锁<br>MyISAM在执行查询语句（SELECT）前，会自动给涉及的所有表加读锁，在执行更新操作（UPDATE、DELETE、INSERT等）前，会自动给涉及的表加写锁，这个过程并不需要用户干预，因此用户一般不需要直接用LOCK TABLE命令给MyISAM表显式加锁。<br>给MyISAM表显式加锁，一般是为了一定程度模拟事务操作，实现对某一时间点多个表的一致性读取。例如，有一个订单表orders，其中记录有订单的总金额total，同时还有一个订单明细表order_detail，其中记录有订单每一产品的金额小计subtotal，假设我们需要检查这两个表的金额合计是否相等，可能就需要执行如下两条SQL</p>
+<p>##2.加表级锁<br>
+MyISAM在执行查询语句（SELECT）前，会自动给涉及的所有表加读锁，在执行更新操作（UPDATE、DELETE、INSERT等）前，会自动给涉及的表加写锁，这个过程并不需要用户干预，因此用户一般不需要直接用LOCK TABLE命令给MyISAM表显式加锁。<br>
+给MyISAM表显式加锁，一般是为了一定程度模拟事务操作，实现对某一时间点多个表的一致性读取。例如，有一个订单表orders，其中记录有订单的总金额total，同时还有一个订单明细表order_detail，其中记录有订单每一产品的金额小计subtotal，假设我们需要检查这两个表的金额合计是否相等，可能就需要执行如下两条SQL</p>
 
       
     </div>
