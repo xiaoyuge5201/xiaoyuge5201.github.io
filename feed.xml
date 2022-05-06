@@ -15,8 +15,29 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Thu, 05 May 2022 05:52:39 GMT</pubDate>
+    <pubDate>Fri, 06 May 2022 14:20:47 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>jstack命令</title>
+      <link>https://xiaoyuge5201.github.io/jstack/</link>
+      <guid>https://xiaoyuge5201.github.io/jstack/</guid>
+      <pubDate>Fri, 06 May 2022 13:09:27 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/jstack/">jstack</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/jstack/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Hexo博客加密</title>
