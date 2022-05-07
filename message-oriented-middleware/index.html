@@ -18,12 +18,12 @@
   
   
   <title>分布式消息中间件设计 | 小余哥</title>
-  <meta name="description" content="1. 消息中间件概述   什么是分布式消息中间件 利用高效可靠的消息传递机制进行平台无关的数据交流； 并基于数据通信来进行分布式系统的集成； 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。   消息中间件的应用场景 跨系统数据传递、高并发流量削峰、数据异步处理…   常用的消息中间件 ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ   本质 一种具">
+  <meta name="description" content="1. 消息中间件概述 什么是分布式消息中间件  利用高效可靠的消息传递机制进行平台无关的数据交流； 并基于数据通信来进行分布式系统的集成； 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。  消息中间件的应用场景  跨系统数据传递、高并发流量削峰、数据异步处理……  常用的消息中间件  ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ  本质  一种具备">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式消息中间件设计">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/message-oriented-middleware/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 消息中间件概述   什么是分布式消息中间件 利用高效可靠的消息传递机制进行平台无关的数据交流； 并基于数据通信来进行分布式系统的集成； 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。   消息中间件的应用场景 跨系统数据传递、高并发流量削峰、数据异步处理…   常用的消息中间件 ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ   本质 一种具">
+<meta property="og:description" content="1. 消息中间件概述 什么是分布式消息中间件  利用高效可靠的消息传递机制进行平台无关的数据交流； 并基于数据通信来进行分布式系统的集成； 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。  消息中间件的应用场景  跨系统数据传递、高并发流量削峰、数据异步处理……  常用的消息中间件  ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ  本质  一种具备">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/message-oriented-middleware/2.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/message-oriented-middleware/3.png">
@@ -247,7 +247,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -280,31 +280,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2022-05-06T13:09:27.000Z" itemprop="datePublished">2022-05-06</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/hexo-encrypt/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/hexo/">hexo</a>
-              </p>
-              <p class="item-title">
-                <a href="/hexo-encrypt/" class="title">Hexo博客加密</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-05-05T01:28:20.000Z" itemprop="datePublished">2022-05-05</time>
               </p>
             </div>
           </li>
@@ -384,6 +359,31 @@
             </div>
           </li>
           
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/lambda/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/lambda/" class="title">java8的lambda表达式语法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-04-13T12:32:44.000Z" itemprop="datePublished">2022-04-13</time>
+              </p>
+            </div>
+          </li>
+          
       </ul>
     </div>
   </div>
@@ -444,28 +444,20 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="1-消息中间件概述"><a class="markdownIt-Anchor" href="#1-消息中间件概述"></a> 1. 消息中间件概述</h2>
-<ol>
-<li>
-<p>什么是分布式消息中间件</p>
-<p>利用高效可靠的消息传递机制进行平台无关的数据交流；<br>
-并基于数据通信来进行分布式系统的集成；<br>
-通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。</p>
+        <h2 id="1-消息中间件概述"><a href="#1-消息中间件概述" class="headerlink" title="1. 消息中间件概述"></a>1. 消息中间件概述</h2><ol>
+<li><p>什么是分布式消息中间件</p>
+<p> 利用高效可靠的消息传递机制进行平台无关的数据交流；<br> 并基于数据通信来进行分布式系统的集成；<br> 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。</p>
 </li>
-<li>
-<p>消息中间件的应用场景</p>
-<p>跨系统数据传递、高并发流量削峰、数据异步处理…</p>
+<li><p>消息中间件的应用场景</p>
+<p> 跨系统数据传递、高并发流量削峰、数据异步处理……</p>
 </li>
-<li>
-<p>常用的消息中间件</p>
-<p>ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ</p>
+<li><p>常用的消息中间件</p>
+<p> ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ</p>
 </li>
-<li>
-<p>本质</p>
-<p>一种具备接受请求、保存数据、发送数据等功能的网络应用。和一般的网络应用程序的区别是它主要负责数据的接收和传递，所以性能一般高于普通程序</p>
+<li><p>本质</p>
+<p> 一种具备接受请求、保存数据、发送数据等功能的网络应用。和一般的网络应用程序的区别是它主要负责数据的接收和传递，所以性能一般高于普通程序</p>
 </li>
-<li>
-<p>5大核心组成</p>
+<li><p>5大核心组成</p>
 <ul>
 <li>协议</li>
 <li>持久性机制</li>
@@ -475,147 +467,126 @@
 </ul>
 </li>
 </ol>
-<h3 id="11-协议"><a class="markdownIt-Anchor" href="#11-协议"></a> 1.1 协议</h3>
-<p>协议是计算机之间通信时共同遵守的一组约定，确保计算机之间能够相互交流；是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述</p>
+<h3 id="1-1-协议"><a href="#1-1-协议" class="headerlink" title="1.1 协议"></a>1.1 协议</h3><p>协议是计算机之间通信时共同遵守的一组约定，确保计算机之间能够相互交流；是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述</p>
 <p>三大要素：</p>
 <ul>
 <li>语法：即数据和控制信息的结构或格式</li>
 <li>语义：即需要发出何种控制信息，完成何种动作以及作出何种响应</li>
 <li>时序：即时间实现顺序的详细说明</li>
 </ul>
-<p>消息中间件常用协议：openWire、AMQP、MQTT（物流网，快，不能持久化）、Kafka、OpenMessage等；<br>
-不能用http协议的原因是：http每次请求必须要有响应，性能不高；</p>
-<h4 id="11-amqp协议"><a class="markdownIt-Anchor" href="#11-amqp协议"></a> 1.1 AMQP协议</h4>
-<p>AMQP（Advanced Message Queuing Protocol）是高级消息队列协议；04年JPMorgan Chase(摩根大通集团)联合其他公司共同设计</p>
+<p>消息中间件常用协议：openWire、AMQP、MQTT（物流网，快，不能持久化）、Kafka、OpenMessage等；<br>不能用http协议的原因是：http每次请求必须要有响应，性能不高；</p>
+<h4 id="1-1-AMQP协议"><a href="#1-1-AMQP协议" class="headerlink" title="1.1 AMQP协议"></a>1.1 AMQP协议</h4><p>AMQP（Advanced Message Queuing Protocol）是高级消息队列协议；04年JPMorgan Chase(摩根大通集团)联合其他公司共同设计</p>
 <ul>
 <li>特性：事物支持、持久化支持，出生金融行业，在可靠性消息处理上具备天然的优势</li>
 <li>优秀产品 RabbitMQ、 Apache ACTIVEMQ</li>
 </ul>
-<h4 id="12-mqtt协议"><a class="markdownIt-Anchor" href="#12-mqtt协议"></a> 1.2 MQTT协议</h4>
-<p>MQTT（Message Queuing Telemetry Transport）消息队列遥测传输<br>
-是IBM开发的一个即时通讯协议，物联网系统架构中的重要组成部分；</p>
+<h4 id="1-2-MQTT协议"><a href="#1-2-MQTT协议" class="headerlink" title="1.2 MQTT协议"></a>1.2 MQTT协议</h4><p>MQTT（Message Queuing Telemetry Transport）消息队列遥测传输<br>是IBM开发的一个即时通讯协议，物联网系统架构中的重要组成部分；</p>
 <ul>
 <li>特性：轻量、结构简单、传输快、没有事务支持、没有持久化相关设计</li>
 <li>应用场景：适用于计算能力有限、低宽带、网络不稳定的场景</li>
 <li>优秀产品：RabbitMQ、 Apache ACTIVEMQ</li>
 </ul>
-<h4 id="13-open-message协议"><a class="markdownIt-Anchor" href="#13-open-message协议"></a> 1.3 Open Message协议</h4>
-<p>OpenMessaging 是近几年有阿里发起，与雅虎、滴滴出行、Streamlio等公司共同参数传里的分布式消息中间件、流处理领域的开发应用标准。<br>
-是国内首个在全球范围内发起的分布式消息领域国际标准</p>
+<h4 id="1-3-Open-Message协议"><a href="#1-3-Open-Message协议" class="headerlink" title="1.3 Open Message协议"></a>1.3 Open Message协议</h4><p>OpenMessaging 是近几年有阿里发起，与雅虎、滴滴出行、Streamlio等公司共同参数传里的分布式消息中间件、流处理领域的开发应用标准。<br>是国内首个在全球范围内发起的分布式消息领域国际标准</p>
 <ul>
 <li>特性：结构简单、解析快、有事务设计、有持久化设计</li>
 <li>优秀产品：Apache RocketMQ</li>
 </ul>
-<h4 id="14-kafka协议"><a class="markdownIt-Anchor" href="#14-kafka协议"></a> 1.4 Kafka协议</h4>
-<p>Kafka协议是基于TCP的二进制协议。消息内部是通过长度来分割，由一些基本数据类型组成</p>
+<h4 id="1-4-Kafka协议"><a href="#1-4-Kafka协议" class="headerlink" title="1.4 Kafka协议"></a>1.4 Kafka协议</h4><p>Kafka协议是基于TCP的二进制协议。消息内部是通过长度来分割，由一些基本数据类型组成</p>
 <ul>
 <li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
 <li>优秀产品：Apache Kafka</li>
 </ul>
-<h4 id="155-openwire协议"><a class="markdownIt-Anchor" href="#155-openwire协议"></a> 1.55 OpenWire协议</h4>
-<p>开放链接，ActiveMQ自定义的一种协议，ActiveMQ默认链接方式，它提供一种高效率的二进制格式来使消息高速传输</p>
+<h4 id="1-55-OpenWire协议"><a href="#1-55-OpenWire协议" class="headerlink" title="1.55 OpenWire协议"></a>1.55 OpenWire协议</h4><p>开放链接，ActiveMQ自定义的一种协议，ActiveMQ默认链接方式，它提供一种高效率的二进制格式来使消息高速传输</p>
 <ul>
 <li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
 <li>优秀产品：Apache ActiveMQ</li>
 </ul>
-<h3 id="12-持久化"><a class="markdownIt-Anchor" href="#12-持久化"></a> 1.2 持久化</h3>
-<p>简单来说就是将数据存入磁盘，而不是存在内存中岁服务重启而消失，使数据能够永久保存叫做持久化</p>
+<h3 id="1-2-持久化"><a href="#1-2-持久化" class="headerlink" title="1.2 持久化"></a>1.2 持久化</h3><p>简单来说就是将数据存入磁盘，而不是存在内存中岁服务重启而消失，使数据能够永久保存叫做持久化</p>
 <table>
 <thead>
 <tr>
 <th></th>
-<th style="text-align:center">ActiveMQ</th>
-<th style="text-align:center">RabbitMQ</th>
-<th style="text-align:center">Kafka</th>
-<th style="text-align:center">RocketMQ</th>
+<th align="center">ActiveMQ</th>
+<th align="center">RabbitMQ</th>
+<th align="center">Kafka</th>
+<th align="center">RocketMQ</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>文件系统</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
 </tr>
 <tr>
 <td>数据库</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
 </tr>
-</tbody>
-</table>
-<h3 id="13-消息分发"><a class="markdownIt-Anchor" href="#13-消息分发"></a> 1.3 消息分发</h3>
-<table>
+<tr>
+<td></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="1-3-消息分发"><a href="#1-3-消息分发" class="headerlink" title="1.3 消息分发"></a>1.3 消息分发</h3><table>
 <thead>
 <tr>
 <th></th>
-<th style="text-align:center">ActiveMQ</th>
-<th style="text-align:center">RabbitMQ</th>
-<th style="text-align:center">Kafka</th>
-<th style="text-align:center">RocketMQ</th>
+<th align="center">ActiveMQ</th>
+<th align="center">RabbitMQ</th>
+<th align="center">Kafka</th>
+<th align="center">RocketMQ</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>发布订阅</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
 </tr>
 <tr>
 <td>轮询分发</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">-</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">-</td>
 </tr>
 <tr>
 <td>公平分发</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">-</td>
+<td align="center">-</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">-</td>
 </tr>
 <tr>
 <td>重发</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+<td align="center">支持</td>
 </tr>
 <tr>
 <td>消息拉取</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
-<td style="text-align:center">支持</td>
+<td align="center">-</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
 </tr>
-</tbody>
-</table>
-<h3 id="14-高可用"><a class="markdownIt-Anchor" href="#14-高可用"></a> 1.4 高可用</h3>
-<p>高可用性是指产品在规定的条件和规定的时刻或时间区间内处于可执行规定功能状态的能力；<br>
-当业务量大时，一台消息中间件服务器可能无法满足需求，所以需要消息中间件能够集群部署，来达到高可用的目的。</p>
-<h4 id="141-master-slave主从共享数据的部署方式"><a class="markdownIt-Anchor" href="#141-master-slave主从共享数据的部署方式"></a> 1.4.1 Master-Slave主从共享数据的部署方式</h4>
-<p>当Master收到客户端的消息后，放到共享的文件系统/数据库； 客户端访问的是Master节点，Slave节点只做备份；<br>
-<img src="/message-oriented-middleware/2.png" alt="Master-Slave主从共享数据的部署方式"></p>
-<h4 id="142-master-slave主从同步部署方式"><a class="markdownIt-Anchor" href="#142-master-slave主从同步部署方式"></a> 1.4.2 Master-Slave主从同步部署方式</h4>
-<p>当Master收到客户端的消息后，发给其他broker同步。<br>
-<img src="/message-oriented-middleware/3.png" alt="Master-Slave主从同步部署方式"></p>
-<h4 id="143-broker-cluster多主集群同步部署方式"><a class="markdownIt-Anchor" href="#143-broker-cluster多主集群同步部署方式"></a> 1.4.3 Broker-Cluster多主集群同步部署方式</h4>
-<p>一部分消息放在broker1 ,一部分放在broker2<br>
-<img src="/message-oriented-middleware/4.png" alt="Broker-Cluster多主集群同步部署方式"></p>
-<h4 id="144-broker-cluster多主集群转发部署方式"><a class="markdownIt-Anchor" href="#144-broker-cluster多主集群转发部署方式"></a> 1.4.4 Broker-Cluster多主集群转发部署方式</h4>
-<p>转发数据或转发请求<br>
-<img src="/message-oriented-middleware/5.png" alt="Broker-Cluster多主集群转发部署方式"></p>
-<h4 id="145-master-slave与broker-cluster结合"><a class="markdownIt-Anchor" href="#145-master-slave与broker-cluster结合"></a> 1.4.5 Master-slave与Broker-Cluster结合</h4>
-<p><img src="/message-oriented-middleware/6.png" alt="Master-slave与Broker-Cluster结合"></p>
-<h3 id="15-高可靠"><a class="markdownIt-Anchor" href="#15-高可靠"></a> 1.5 高可靠</h3>
-<p>高可靠性是指系统可以无故障地持续运行。比如一个系统从来不崩溃、报错，或者崩溃、报错的几率较低，那就是高可靠。<br>
-保证消息中间件的高可靠行，可以从一下几方面考虑</p>
+</tbody></table>
+<h3 id="1-4-高可用"><a href="#1-4-高可用" class="headerlink" title="1.4 高可用"></a>1.4 高可用</h3><p>高可用性是指产品在规定的条件和规定的时刻或时间区间内处于可执行规定功能状态的能力；<br>当业务量大时，一台消息中间件服务器可能无法满足需求，所以需要消息中间件能够集群部署，来达到高可用的目的。</p>
+<h4 id="1-4-1-Master-Slave主从共享数据的部署方式"><a href="#1-4-1-Master-Slave主从共享数据的部署方式" class="headerlink" title="1.4.1 Master-Slave主从共享数据的部署方式"></a>1.4.1 Master-Slave主从共享数据的部署方式</h4><p>当Master收到客户端的消息后，放到共享的文件系统/数据库； 客户端访问的是Master节点，Slave节点只做备份；<br><img src="/message-oriented-middleware/2.png" alt="Master-Slave主从共享数据的部署方式"></p>
+<h4 id="1-4-2-Master-Slave主从同步部署方式"><a href="#1-4-2-Master-Slave主从同步部署方式" class="headerlink" title="1.4.2 Master-Slave主从同步部署方式"></a>1.4.2 Master-Slave主从同步部署方式</h4><p>当Master收到客户端的消息后，发给其他broker同步。<br><img src="/message-oriented-middleware/3.png" alt="Master-Slave主从同步部署方式"></p>
+<h4 id="1-4-3-Broker-Cluster多主集群同步部署方式"><a href="#1-4-3-Broker-Cluster多主集群同步部署方式" class="headerlink" title="1.4.3 Broker-Cluster多主集群同步部署方式"></a>1.4.3 Broker-Cluster多主集群同步部署方式</h4><p>一部分消息放在broker1 ,一部分放在broker2<br><img src="/message-oriented-middleware/4.png" alt="Broker-Cluster多主集群同步部署方式"></p>
+<h4 id="1-4-4-Broker-Cluster多主集群转发部署方式"><a href="#1-4-4-Broker-Cluster多主集群转发部署方式" class="headerlink" title="1.4.4 Broker-Cluster多主集群转发部署方式"></a>1.4.4 Broker-Cluster多主集群转发部署方式</h4><p>转发数据或转发请求<br><img src="/message-oriented-middleware/5.png" alt="Broker-Cluster多主集群转发部署方式"></p>
+<h4 id="1-4-5-Master-slave与Broker-Cluster结合"><a href="#1-4-5-Master-slave与Broker-Cluster结合" class="headerlink" title="1.4.5 Master-slave与Broker-Cluster结合"></a>1.4.5 Master-slave与Broker-Cluster结合</h4><p><img src="/message-oriented-middleware/6.png" alt="Master-slave与Broker-Cluster结合"></p>
+<h3 id="1-5-高可靠"><a href="#1-5-高可靠" class="headerlink" title="1.5 高可靠"></a>1.5 高可靠</h3><p>高可靠性是指系统可以无故障地持续运行。比如一个系统从来不崩溃、报错，或者崩溃、报错的几率较低，那就是高可靠。<br>保证消息中间件的高可靠行，可以从一下几方面考虑</p>
 <ul>
 <li>消息传输可靠： 通过协议来保证系统件数据解析的正确性</li>
 <li>消息存储可靠： 通过持久化来保证消息存储可靠性</li>
