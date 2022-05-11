@@ -15,8 +15,29 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sat, 07 May 2022 00:08:28 GMT</pubDate>
+    <pubDate>Wed, 11 May 2022 06:40:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>设计模式 - 七大软件设计原则</title>
+      <link>https://xiaoyuge5201.github.io/design-principle/</link>
+      <guid>https://xiaoyuge5201.github.io/design-principle/</guid>
+      <pubDate>Wed, 11 May 2022 06:39:16 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/design-principle/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>jstack命令</title>
