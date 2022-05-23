@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/swagger/</loc>
+    
+    <lastmod>2022-05-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/Apache-Http-Server/</loc>
     
     <lastmod>2022-05-23</lastmod>
@@ -66,15 +75,6 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/uml/</loc>
-    
-    <lastmod>2022-05-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/swagger/</loc>
     
     <lastmod>2022-05-05</lastmod>
     
@@ -596,7 +596,7 @@
 
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/algorithm/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
     <lastmod>2022-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -610,7 +610,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/algorithm/</loc>
     <lastmod>2022-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -729,6 +729,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
+    <lastmod>2022-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/tags/docker/</loc>
     <lastmod>2022-05-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -757,7 +764,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
     <lastmod>2022-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -779,13 +786,6 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/jstack/</loc>
-    <lastmod>2022-05-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
     <lastmod>2022-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -815,6 +815,13 @@
 
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/categories/linux/</loc>
+    <lastmod>2022-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-05-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -823,13 +830,6 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/categories/mysql/</loc>
-    <lastmod>2022-05-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/categories/linux/</loc>
     <lastmod>2022-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
