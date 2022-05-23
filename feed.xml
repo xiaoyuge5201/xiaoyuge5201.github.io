@@ -15,8 +15,29 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 22 May 2022 03:48:03 GMT</pubDate>
+    <pubDate>Mon, 23 May 2022 04:50:27 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux安装Apache Http Server</title>
+      <link>https://xiaoyuge5201.github.io/Apache-Http-Server/</link>
+      <guid>https://xiaoyuge5201.github.io/Apache-Http-Server/</guid>
+      <pubDate>Mon, 23 May 2022 04:14:00 GMT</pubDate>
+      
+      <description>Here&#39;s something encrypted, password is required to continue reading.</description>
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/Apache/">Apache</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/Apache-Http-Server/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>设计模式 - 七大软件设计原则</title>
