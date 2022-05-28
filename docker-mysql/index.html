@@ -18,12 +18,12 @@
   
   
   <title>docker安装mysql | 小余哥</title>
-  <meta name="description" content="1.查看所有的镜像1docker search mysql  2.拉取最新版本的镜像1234docker pull mysql#或者指定版本docker pull mysql:8.0.16  3.创建数据目录和配置文件123mkdir -p &#x2F;usr&#x2F;mysql&#x2F;conf &#x2F;usr&#x2F;mysql&#x2F;datachmod -R 777 &#x2F;usr&#x2F;mysql&#x2F; 4.创建配置文件在上面创建的配置文件目录&#x2F;us">
+  <meta name="description" content="1.查看所有的镜像 1docker search mysql   2.拉取最新版本的镜像 1234docker pull mysql#或者指定版本docker pull mysql:8.0.16   3.创建数据目录和配置文件 123mkdir -p &#x2F;usr&#x2F;mysql&#x2F;conf &#x2F;usr&#x2F;mysql&#x2F;datachmod -R 777 &#x2F;usr&#x2F;mysql&#x2F;  4.创建配置文件 在上面创建的配">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker安装mysql">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/docker-mysql/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1.查看所有的镜像1docker search mysql  2.拉取最新版本的镜像1234docker pull mysql#或者指定版本docker pull mysql:8.0.16  3.创建数据目录和配置文件123mkdir -p &#x2F;usr&#x2F;mysql&#x2F;conf &#x2F;usr&#x2F;mysql&#x2F;datachmod -R 777 &#x2F;usr&#x2F;mysql&#x2F; 4.创建配置文件在上面创建的配置文件目录&#x2F;us">
+<meta property="og:description" content="1.查看所有的镜像 1docker search mysql   2.拉取最新版本的镜像 1234docker pull mysql#或者指定版本docker pull mysql:8.0.16   3.创建数据目录和配置文件 123mkdir -p &#x2F;usr&#x2F;mysql&#x2F;conf &#x2F;usr&#x2F;mysql&#x2F;datachmod -R 777 &#x2F;usr&#x2F;mysql&#x2F;  4.创建配置文件 在上面创建的配">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/docker-mysql/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/docker-mysql/2.png">
@@ -445,33 +445,50 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h5 id="1-查看所有的镜像"><a href="#1-查看所有的镜像" class="headerlink" title="1.查看所有的镜像"></a>1.查看所有的镜像</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure>
-<p><img src="/docker-mysql/1.png"></p>
-<h5 id="2-拉取最新版本的镜像"><a href="#2-拉取最新版本的镜像" class="headerlink" title="2.拉取最新版本的镜像"></a>2.拉取最新版本的镜像</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定版本</span></span><br><span class="line">docker pull mysql:8.0.16</span><br></pre></td></tr></table></figure>
-<p><img src="/docker-mysql/2.png"></p>
-<h5 id="3-创建数据目录和配置文件"><a href="#3-创建数据目录和配置文件" class="headerlink" title="3.创建数据目录和配置文件"></a>3.创建数据目录和配置文件</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/mysql/conf /usr/mysql/data</span><br><span class="line"></span><br><span class="line">chmod -R 777 /usr/mysql/</span><br></pre></td></tr></table></figure>
-<h5 id="4-创建配置文件"><a href="#4-创建配置文件" class="headerlink" title="4.创建配置文件"></a>4.创建配置文件</h5><p>在上面创建的配置文件目录/usr/mysql/conf下创建MySQL的配置文件my.cnf</p>
+        <h5 id="1查看所有的镜像"><a class="markdownIt-Anchor" href="#1查看所有的镜像"></a> 1.查看所有的镜像</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search mysql</span><br></pre></td></tr></table></figure>
+<p><img src="/docker-mysql/1.png" alt></p>
+<h5 id="2拉取最新版本的镜像"><a class="markdownIt-Anchor" href="#2拉取最新版本的镜像"></a> 2.拉取最新版本的镜像</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定版本</span></span><br><span class="line">docker pull mysql:8.0.16</span><br></pre></td></tr></table></figure>
+<p><img src="/docker-mysql/2.png" alt></p>
+<h5 id="3创建数据目录和配置文件"><a class="markdownIt-Anchor" href="#3创建数据目录和配置文件"></a> 3.创建数据目录和配置文件</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/mysql/conf /usr/mysql/data</span><br><span class="line"></span><br><span class="line">chmod -R 777 /usr/mysql/</span><br></pre></td></tr></table></figure>
+<h5 id="4创建配置文件"><a class="markdownIt-Anchor" href="#4创建配置文件"></a> 4.创建配置文件</h5>
+<p>在上面创建的配置文件目录/usr/mysql/conf下创建MySQL的配置文件my.cnf</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touch my.cnf;</span><br><span class="line"></span><br><span class="line">vim /usr/mysql/conf/my.cnf;</span><br></pre></td></tr></table></figure>
 <p>添加以下内容到上述创建的配置文件中</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">[client]</span></span><br><span class="line"><span class="comment">#socket = /usr/mysql/mysqld.sock</span></span><br><span class="line"><span class="meta">default-character-set</span> = <span class="string">utf8mb4</span></span><br><span class="line"><span class="attr">[mysqld]</span></span><br><span class="line"><span class="comment">#pid-file        = /var/run/mysqld/mysqld.pid</span></span><br><span class="line"><span class="comment">#socket          = /var/run/mysqld/mysqld.sock</span></span><br><span class="line"><span class="comment">#datadir         = /var/lib/mysql</span></span><br><span class="line"><span class="comment">#socket = /usr/mysql/mysqld.sock</span></span><br><span class="line"><span class="comment">#pid-file = /usr/mysql/mysqld.pid</span></span><br><span class="line"><span class="attr">datadir</span> = <span class="string">/usr/mysql/data</span></span><br><span class="line"><span class="attr">character_set_server</span> = <span class="string">utf8mb4</span></span><br><span class="line"><span class="attr">collation_server</span> = <span class="string">utf8mb4_bin</span></span><br><span class="line"><span class="meta">secure-file-priv</span>= <span class="string">NULL</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span></span><br><span class="line"><span class="meta">symbolic-links</span>=<span class="string">0</span></span><br><span class="line"><span class="comment"># Custom config should go here</span></span><br><span class="line"><span class="comment">!includedir /etc/mysql/conf.d/</span></span><br></pre></td></tr></table></figure>
-<h5 id="5-启动创建容器"><a href="#5-启动创建容器" class="headerlink" title="5.启动创建容器"></a>5.启动创建容器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart=unless-stopped -d --name mysql -v /usr/mysql/conf/my.cnf:/etc/mysql/my.cnf -v /usr/mysql/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=xiaoyuge mysql</span><br></pre></td></tr></table></figure>
+<h5 id="5启动创建容器"><a class="markdownIt-Anchor" href="#5启动创建容器"></a> 5.启动创建容器</h5>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart=unless-stopped -d --name mysql -v /usr/mysql/conf/my.cnf:/etc/mysql/my.cnf -v /usr/mysql/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=xiaoyuge mysql</span><br></pre></td></tr></table></figure>
 <p>参数解释：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">–name mysql5.7 容器别名</span><br><span class="line">-p 3307:3306 映射容器端口号和宿主机端口号（本机3307端口映射容器3306端口）</span><br><span class="line">-v /data/mysql/datadir:/var/lib/mysql 目录映射（挂载宿主机目录和 docker容器中的目录，前面是宿主机目录，后面是容器内部目录）</span><br><span class="line">-v /data/mysql/conf.d:/etc/mysql/conf.d 目录映射（mysql配置目录）</span><br><span class="line">-d 后台运行</span><br><span class="line">-e 环境参数，MYSQL_ROOT_PASSWORD设置root用户的密码</span><br></pre></td></tr></table></figure>
-<p><img src="/docker-mysql/3.png" alt="启动创建容器"><br>执行上述命令后，执行查询容器的命令就可以看到创建的mysql容器</p>
+<p><img src="/docker-mysql/3.png" alt="启动创建容器"><br>
+执行上述命令后，执行查询容器的命令就可以看到创建的mysql容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
 <p><img src="/docker-mysql/4.png" alt="启动创建容器"></p>
-<h5 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h5><h6 id="1-远程无法链接"><a href="#1-远程无法链接" class="headerlink" title="1.远程无法链接"></a>1.远程无法链接</h6><p>上述虽然安装好了mysql，但是使用远程的Navicat连接时提示错误，不能正确连接mysql，此时需要修改按照下面说的步骤修改一下mysql的密码模式以及主机等内容才可以。<br>修改mysql密码以及可访问主机</p>
+<h5 id="常见问题"><a class="markdownIt-Anchor" href="#常见问题"></a> 常见问题</h5>
+<h6 id="1远程无法链接"><a class="markdownIt-Anchor" href="#1远程无法链接"></a> 1.远程无法链接</h6>
+<p>上述虽然安装好了mysql，但是使用远程的Navicat连接时提示错误，不能正确连接mysql，此时需要修改按照下面说的步骤修改一下mysql的密码模式以及主机等内容才可以。<br>
+修改mysql密码以及可访问主机</p>
 <ol>
-<li>进入容器内部 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql /bin/bash</span><br></pre></td></tr></table></figure></li>
-<li>连接mysql <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></li>
-<li>使用mysql库 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure></li>
-<li>修改访问主机以及密码等，设置为所有主机可访问 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;新密码&#x27;;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">注意： mysql_native_password，mysql8.x版本必须使用这种模式，否则navicate无法正确连接</span></span><br></pre></td></tr></table></figure></li>
-<li>刷新 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br><span class="line"></span><br><span class="line">exit;</span><br></pre></td></tr></table></figure></li>
-<li>远程使用Navicat连接数据库<br><img src="/docker-mysql/5.png" alt="连接"></li>
+<li>进入容器内部 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql /bin/bash</span><br></pre></td></tr></table></figure>
+</li>
+<li>连接mysql <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
+</li>
+<li>使用mysql库 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure>
+</li>
+<li>修改访问主机以及密码等，设置为所有主机可访问 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;新密码&#x27;;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">注意： mysql_native_password，mysql8.x版本必须使用这种模式，否则navicate无法正确连接</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>刷新 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br><span class="line"></span><br><span class="line">exit;</span><br></pre></td></tr></table></figure>
+</li>
+<li>远程使用Navicat连接数据库<br>
+<img src="/docker-mysql/5.png" alt="连接"></li>
 </ol>
-<h6 id="2-docker启动mysql容器报错"><a href="#2-docker启动mysql容器报错" class="headerlink" title="2.docker启动mysql容器报错"></a>2.docker启动mysql容器报错</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart=unless-stopped -d --name mysql -v /usr/mysql/conf/my.cnf:/etc/mysql/my.cnf -v /usr/mysql/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=xiaoyuge mysql</span><br></pre></td></tr></table></figure>
+<h6 id="2docker启动mysql容器报错"><a class="markdownIt-Anchor" href="#2docker启动mysql容器报错"></a> 2.docker启动mysql容器报错</h6>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart=unless-stopped -d --name mysql -v /usr/mysql/conf/my.cnf:/etc/mysql/my.cnf -v /usr/mysql/data:/var/lib/mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=xiaoyuge mysql</span><br></pre></td></tr></table></figure>
 <p>启动时提示：Error response from daemon: OCI runtime create failed: container_linux.go:380: starting container process caused: process_linux.go:545: container init caused: Running hook #0:: error running hook: signal: segmentation fault (core dumped), stdout: , stderr:: unknown</p>
-<p><img src="/docker-mysql/6.png"><br>解决方式：</p>
+<p><img src="/docker-mysql/6.png" alt><br>
+解决方式：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum upgrade</span><br></pre></td></tr></table></figure>
 <p>或者可以试下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /usr/mysql/conf/my.cnf</span><br><span class="line">touch /usr/mysql/conf/my.cnf</span><br><span class="line">vim my.cnf</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">然后重新配置一下</span></span><br></pre></td></tr></table></figure>
