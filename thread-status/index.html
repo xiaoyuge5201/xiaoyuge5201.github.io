@@ -18,12 +18,12 @@
   
   
   <title>Java线程的声明周期状态 | 小余哥</title>
-  <meta name="description" content="新建(NEW)：新创建了一个线程对象。   可运行(RUNNABLE)：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。   运行(RUNNING)：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。   阻塞(BLOCKED)：阻塞状态是指">
+  <meta name="description" content="**新建(NEW)**：新创建了一个线程对象。  **可运行(RUNNABLE)**：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。  **运行(RUNNING)**：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。  **阻塞(BLOCK">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java线程的声明周期状态">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/thread-status/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="新建(NEW)：新创建了一个线程对象。   可运行(RUNNABLE)：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。   运行(RUNNING)：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。   阻塞(BLOCKED)：阻塞状态是指">
+<meta property="og:description" content="**新建(NEW)**：新创建了一个线程对象。  **可运行(RUNNABLE)**：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。  **运行(RUNNING)**：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。  **阻塞(BLOCK">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/thread-status/01.jpg">
 <meta property="article:published_time" content="2020-06-02T08:04:02.000Z">
@@ -442,25 +442,20 @@
       
         <p><img src="/thread-status/01.jpg" alt="线程的状态"></p>
 <ol>
-<li>
-<p><strong>新建(NEW)</strong>：新创建了一个线程对象。</p>
+<li><p>**新建(NEW)**：新创建了一个线程对象。</p>
 </li>
-<li>
-<p><strong>可运行(RUNNABLE)</strong>：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。</p>
+<li><p>**可运行(RUNNABLE)**：线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权 。</p>
 </li>
-<li>
-<p><strong>运行(RUNNING)</strong>：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。</p>
+<li><p>**运行(RUNNING)**：可运行状态(runnable)的线程获得了cpu 时间片（timeslice） ，执行程序代码。</p>
 </li>
-<li>
-<p><strong>阻塞(BLOCKED)</strong>：阻塞状态是指线程因为某种原因放弃了cpu 使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有机会再次获得cpu timeslice 转到运行(running)状态。阻塞的情况分三种：</p>
+<li><p>**阻塞(BLOCKED)**：阻塞状态是指线程因为某种原因放弃了cpu 使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有机会再次获得cpu timeslice 转到运行(running)状态。阻塞的情况分三种： </p>
 <ul>
 <li><strong>等待阻塞</strong>：运行(running)的线程执行o.wait()方法，JVM会把该线程放入等待队列(waitting queue)中。</li>
 <li><strong>同步阻塞</strong>：运行(running)的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池(lock pool)中。</li>
 <li><strong>其他阻塞</strong>：运行(running)的线程执行Thread.sleep(long ms)或t.join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入可运行(runnable)状态。</li>
 </ul>
 </li>
-<li>
-<p><strong>死亡(DEAD)</strong>：线程run()、main() 方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期。死亡的线程不可再次复生。</p>
+<li><p>**死亡(DEAD)**：线程run()、main() 方法执行结束，或者因异常退出了run()方法，则该线程结束生命周期。死亡的线程不可再次复生。</p>
 </li>
 </ol>
 
@@ -612,9 +607,9 @@
         </div>
     </div>
 </footer>
-  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
 <script>
-window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 </script>
 
 <script src="/js/plugin.min.js"></script>
