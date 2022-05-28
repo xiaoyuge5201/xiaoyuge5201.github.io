@@ -605,49 +605,7 @@
 
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/Apache/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/jstack/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/gitlab/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/Linux/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/algorithm/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -661,7 +619,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/%E7%BA%BF%E7%A8%8B/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/algorithm/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -717,14 +675,14 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/java/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/lock/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/lock/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/java/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -752,14 +710,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/linux/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/%E7%BA%BF%E7%A8%8B/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -773,6 +724,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/tags/linux/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/tags/shutdown/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -780,14 +738,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -802,6 +753,55 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/nginx/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/Linux/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/Apache/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/gitlab/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/jstack/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -838,27 +838,6 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-05-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/categories/mysql/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -866,7 +845,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -881,6 +860,20 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -902,6 +895,13 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/categories/nginx/</loc>
+    <lastmod>2022-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
