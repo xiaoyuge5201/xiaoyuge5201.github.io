@@ -605,13 +605,6 @@
 
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
-    <lastmod>2022-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/tags/mysql/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -717,7 +710,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/%E9%9B%86%E5%90%88/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -731,14 +724,14 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/%E9%9B%86%E5%90%88/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/shutdown/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/shutdown/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -753,6 +746,20 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/nginx/</loc>
+    <lastmod>2022-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
+    <lastmod>2022-05-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -801,13 +808,6 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
-    <lastmod>2022-05-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/tags/mycat/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -831,7 +831,7 @@
 
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/linux/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/mysql/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -845,14 +845,14 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/mysql/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/linux/</loc>
     <lastmod>2022-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
