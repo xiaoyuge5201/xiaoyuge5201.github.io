@@ -1419,11 +1419,7 @@
       
         
         
-      <description>&lt;p&gt;&lt;img src=&quot;/thread-status/01.jpg&quot; alt=&quot;线程的状态&quot;&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;**新建(NEW)**：新创建了一个线程对象。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;**可运行(RUNNABLE)**：线程对象创建后，其他线程(比如m</description>
+      <description>&lt;h2 id=&quot;1-Java线程分类&quot;&gt;&lt;a href=&quot;#1-Java线程分类&quot; class=&quot;headerlink&quot; title=&quot;1. Java线程分类&quot;&gt;&lt;/a&gt;1. Java线程分类&lt;/h2&gt;&lt;p&gt;在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 T</description>
         
       
       
