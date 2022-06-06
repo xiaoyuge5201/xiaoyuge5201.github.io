@@ -611,7 +611,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/%E7%BA%BF%E7%A8%8B/">线程</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/thread/">thread</category>
       
       
       <comments>https://xiaoyuge5201.github.io/locksupport/#disqus_thread</comments>
@@ -909,7 +909,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/%E7%BA%BF%E7%A8%8B/">线程</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/thread/">thread</category>
       
       
       <comments>https://xiaoyuge5201.github.io/volatile/#disqus_thread</comments>
@@ -1412,7 +1412,7 @@
     </item>
     
     <item>
-      <title>Java线程的声明周期状态</title>
+      <title>Java线程的生命周期状态</title>
       <link>https://xiaoyuge5201.github.io/thread-status/</link>
       <guid>https://xiaoyuge5201.github.io/thread-status/</guid>
       <pubDate>Tue, 02 Jun 2020 08:04:02 GMT</pubDate>
@@ -1428,7 +1428,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/%E7%BA%BF%E7%A8%8B/">线程</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/thread/">thread</category>
       
       
       <comments>https://xiaoyuge5201.github.io/thread-status/#disqus_thread</comments>

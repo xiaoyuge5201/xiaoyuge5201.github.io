@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xiaoyuge5201.github.io/volatile/</loc>
+    <lastmod>2022-06-06</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/locksupport/</loc>
+    <lastmod>2022-06-06</lastmod>
+  </url>
+  <url>
     <loc>https://xiaoyuge5201.github.io/thread-status/</loc>
-    <lastmod>2022-06-01</lastmod>
+    <lastmod>2022-06-06</lastmod>
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/jstack/</loc>
@@ -173,10 +181,6 @@
     <lastmod>2022-03-27</lastmod>
   </url>
   <url>
-    <loc>https://xiaoyuge5201.github.io/locksupport/</loc>
-    <lastmod>2022-03-27</lastmod>
-  </url>
-  <url>
     <loc>https://xiaoyuge5201.github.io/algoright-2/</loc>
     <lastmod>2022-03-27</lastmod>
   </url>
@@ -202,10 +206,6 @@
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/nginx-md/</loc>
-    <lastmod>2022-03-27</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/volatile/</loc>
     <lastmod>2022-03-27</lastmod>
   </url>
   <url>
