@@ -15,8 +15,52 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Mon, 06 Jun 2022 07:36:56 GMT</pubDate>
+    <pubDate>Mon, 20 Jun 2022 01:22:34 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>分库分表之 ShardingSphere-JDBC</title>
+      <link>https://xiaoyuge5201.github.io/sharding-jdbc/</link>
+      <guid>https://xiaoyuge5201.github.io/sharding-jdbc/</guid>
+      <pubDate>Sat, 18 Jun 2022 06:52:23 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-动态数据源解决方案&quot;&gt;&lt;a href=&quot;#1-动态数据源解决方案&quot; class=&quot;headerlink&quot; title=&quot;1. 动态数据源解决方案&quot;&gt;&lt;/a&gt;1. 动态数据源解决方案&lt;/h2&gt;&lt;p&gt;随着业务数据量逐渐增大，带来存储的瓶颈以及查询瓶颈，那么我们可以</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>vue_1</title>
+      <link>https://xiaoyuge5201.github.io/vue-1/</link>
+      <guid>https://xiaoyuge5201.github.io/vue-1/</guid>
+      <pubDate>Sat, 11 Jun 2022 14:12:58 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-什么是vue&quot;&gt;&lt;a href=&quot;#1-什么是vue&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是vue&quot;&gt;&lt;/a&gt;1. 什么是vue&lt;/h2&gt;&lt;p&gt;vue 官网：&lt;a href=&quot;https://cn.vuejs.org/&quot;&gt;https</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/vue/">vue</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/vue/">vue</category>
+      
+      
+    </item>
     
     <item>
       <title>SpringBoot参数校验</title>
@@ -1067,30 +1111,6 @@
     </item>
     
     <item>
-      <title>mysql知识总结</title>
-      <link>https://xiaoyuge5201.github.io/mysql/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql/</guid>
-      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h1 id=&quot;mysql-初识&quot;&gt;&lt;a href=&quot;#mysql-初识&quot; class=&quot;headerlink&quot; title=&quot;mysql 初识&quot;&gt;&lt;/a&gt;mysql 初识&lt;/h1&gt;&lt;h2 id=&quot;1-版本历史&quot;&gt;&lt;a href=&quot;#1-版本历史&quot; class=&quot;headerli</description>
-        
-      
-      
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
-      
-      
-      <comments>https://xiaoyuge5201.github.io/mysql/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>mysql事务</title>
       <link>https://xiaoyuge5201.github.io/mysql-transcation/</link>
       <guid>https://xiaoyuge5201.github.io/mysql-transcation/</guid>
@@ -1111,6 +1131,30 @@
       
       
       <comments>https://xiaoyuge5201.github.io/mysql-transcation/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>mysql知识总结</title>
+      <link>https://xiaoyuge5201.github.io/mysql/</link>
+      <guid>https://xiaoyuge5201.github.io/mysql/</guid>
+      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;mysql-初识&quot;&gt;&lt;a href=&quot;#mysql-初识&quot; class=&quot;headerlink&quot; title=&quot;mysql 初识&quot;&gt;&lt;/a&gt;mysql 初识&lt;/h1&gt;&lt;h2 id=&quot;1-版本历史&quot;&gt;&lt;a href=&quot;#1-版本历史&quot; class=&quot;headerli</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/mysql/#disqus_thread</comments>
       
     </item>
     
