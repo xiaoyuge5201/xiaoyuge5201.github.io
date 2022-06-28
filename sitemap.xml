@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/Apache-archiva/</loc>
+    
+    <lastmod>2022-06-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/tomcat/</loc>
     
     <lastmod>2022-06-28</lastmod>
@@ -641,14 +650,14 @@
 
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/mysql/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/mysql/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/jdk/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -676,13 +685,6 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/ClassLoader/</loc>
-    <lastmod>2022-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/tags/SpringCloud/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -691,6 +693,13 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/redis/</loc>
+    <lastmod>2022-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/ClassLoader/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -781,14 +790,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/docker/</loc>
-    <lastmod>2022-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/nginx/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -803,6 +805,20 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <lastmod>2022-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/docker/</loc>
+    <lastmod>2022-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/nginx/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -838,13 +854,6 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/vue/</loc>
-    <lastmod>2022-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -895,13 +904,6 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
-    <lastmod>2022-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -910,6 +912,13 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <lastmod>2022-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -930,6 +939,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/categories/Docker/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -944,7 +960,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/apache/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -965,14 +981,14 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/ShardingSphere-jdbc/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/tomcat/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/tomcat/</loc>
+    <loc>https://xiaoyuge5201.github.io/categories/ShardingSphere-jdbc/</loc>
     <lastmod>2022-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
