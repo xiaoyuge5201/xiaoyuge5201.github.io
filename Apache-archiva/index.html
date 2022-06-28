@@ -18,12 +18,12 @@
   
   
   <title>Maven 私有仓库搭建 Apache archiva | 小余哥</title>
-  <meta name="description" content="1. 搭建 环境准备  JDK 1.8 Apache Archiva 2.2.8  Apache-maven 3.6.3 （ https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ）      Apache Archiva安装文件下载   123456archiva官网地址：https:&#x2F;&#x2F;archiva.apache.org&#x2F;index.cgi#a		下载地址：https:">
+  <meta name="description" content="1. 搭建 环境准备  JDK 1.8 Apache Archiva 2.2.8  Apache-maven 3.6.3 （ https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ）      Apache Archiva安装文件下载   123456archiva官网地址：https:&#x2F;&#x2F;archiva.apache.org&#x2F;index.cgi#a下载地址：https:&#x2F;&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven 私有仓库搭建 Apache archiva">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/Apache-archiva/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 搭建 环境准备  JDK 1.8 Apache Archiva 2.2.8  Apache-maven 3.6.3 （ https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ）      Apache Archiva安装文件下载   123456archiva官网地址：https:&#x2F;&#x2F;archiva.apache.org&#x2F;index.cgi#a		下载地址：https:">
+<meta property="og:description" content="1. 搭建 环境准备  JDK 1.8 Apache Archiva 2.2.8  Apache-maven 3.6.3 （ https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ）      Apache Archiva安装文件下载   123456archiva官网地址：https:&#x2F;&#x2F;archiva.apache.org&#x2F;index.cgi#a下载地址：https:&#x2F;&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/Apache-archiva/image-20220628112607703.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/Apache-archiva/image-20220628111905504.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://xiaoyuge5201.github.io/Apache-archiva/image-20220628141000055.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/Apache-archiva/image-20220628141111292.png">
 <meta property="article:published_time" content="2022-06-28T03:49:42.000Z">
-<meta property="article:modified_time" content="2022-06-28T06:17:43.463Z">
+<meta property="article:modified_time" content="2022-06-28T06:25:31.260Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -452,7 +452,7 @@
 <p>  <img src="/Apache-archiva/image-20220628112607703.png" alt="image-20220628112607703"></p>
 </li>
 <li><p>Apache Archiva安装文件下载</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">archiva官网地址：https://archiva.apache.org/index.cgi#a</span><br><span class="line">		下载地址：https://archiva.apache.org/download.cgi  （这个太慢了，几K/s，坑）</span><br><span class="line"></span><br><span class="line">镜像仓库：https://mirrors.tuna.tsinghua.edu.cn/apache/archiva</span><br><span class="line"></span><br><span class="line">建议从镜像仓库拉取！！！</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">archiva官网地址：https://archiva.apache.org/index.cgi#a</span><br><span class="line">下载地址：https://archiva.apache.org/download.cgi  （这个太慢了，几K/s，坑）</span><br><span class="line"></span><br><span class="line">镜像仓库：https://mirrors.tuna.tsinghua.edu.cn/apache/archiva</span><br><span class="line"></span><br><span class="line">建议从镜像仓库拉取！！！</span><br></pre></td></tr></table></figure>
 
 <p>  <img src="/Apache-archiva/image-20220628111905504.png" alt="image-20220628111905504"></p>
 </li>
@@ -469,16 +469,20 @@
 <p>  <img src="/Apache-archiva/image-20220628114117703.png" alt="image-20220628114117703"></p>
 <p>  各版本操作系统下详细安装及服务注册参照：<a target="_blank" rel="noopener" href="http://archiva.apache.org/docs/2.2.8/adminguide/standalone.html">http://archiva.apache.org/docs/2.2.8/adminguide/standalone.html</a></p>
 </li>
+</ol>
+<ol start="7">
+<li><p>将 <code>archiva</code>在Centos中安装成服务(root执行)</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /Users/xiaoyuge/maven/apache-archiva-2.2.8/bin/archiva /etc/init.d/archiva</span><br></pre></td></tr></table></figure>
+
+<p>  这样就可以通过<code>service</code>启动</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service archiva start</span><br><span class="line">service archiva stop</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ol start="8">
 <li><p>启动成功，访问<code>maven</code>服务器地址: <a target="_blank" rel="noopener" href="http://ip:8080/">http://ip:8080</a></p>
 <p>  <img src="/Apache-archiva/image-20220628114324543.png" alt="image-20220628114324543"></p>
 </li>
 <li><p>  点击右上角的<code>Create Admin User</code>创建管理员账号</p>
 </li>
-<li><p>将archiva 在Centos中安装成服务(root执行)</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /Users/xiaoyuge/maven/apache-archiva-2.2.8/bin/archiva /etc/init.d/archiva</span><br></pre></td></tr></table></figure>
-
-<p>  这样就可以通过<code>service</code>启动</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service archiva start</span><br><span class="line">service archiva stop</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="2-上传私有jar包"><a href="#2-上传私有jar包" class="headerlink" title="2. 上传私有jar包"></a>2. 上传私有jar包</h2><ol>
 <li><p>访问：<a target="_blank" rel="noopener" href="http://localhost:8080/#upload%EF%BC%8C%E4%B8%8A%E4%BC%A0%E7%A7%81%E6%9C%89jar%E5%8C%85%E5%88%B0%E4%BB%93%E5%BA%93">http://localhost:8080/#upload，上传私有jar包到仓库</a></p>
