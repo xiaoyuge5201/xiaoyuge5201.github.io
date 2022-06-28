@@ -15,14 +15,37 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Fri, 24 Jun 2022 11:05:19 GMT</pubDate>
+    <pubDate>Tue, 28 Jun 2022 03:10:01 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>深入Tomcat源码学习</title>
+      <link>https://xiaoyuge5201.github.io/tomcat/</link>
+      <guid>https://xiaoyuge5201.github.io/tomcat/</guid>
+      <pubDate>Sun, 26 Jun 2022 01:48:09 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-tomcat简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-tomcat简介&quot;&gt;&lt;/a&gt; 1. Tomcat简介&lt;/h2&gt;
+&lt;p&gt;Apache是web服务器，Tomcat是应用服务器，apache tomcat只是一个ser</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/tomcat/">tomcat</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/Apache/">Apache</category>
+      
+      
+    </item>
     
     <item>
       <title>分库分表之 ShardingSphere-JDBC</title>
       <link>https://xiaoyuge5201.github.io/sharding-jdbc/</link>
       <guid>https://xiaoyuge5201.github.io/sharding-jdbc/</guid>
-      <pubDate>Sat, 18 Jun 2022 06:52:23 GMT</pubDate>
+      <pubDate>Sat, 25 Jun 2022 06:52:23 GMT</pubDate>
       
         
         
@@ -49,8 +72,7 @@
       
         
         
-      <description>&lt;h2 id=&quot;1-什么是vue&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-什么是vue&quot;&gt;&lt;/a&gt; 1. 什么是vue&lt;/h2&gt;
-&lt;p&gt;vue 官网：&lt;a href=&quot;https://cn.vuejs.org/&quot;&gt;https://cn.vue</description>
+      <description>&lt;h2 id=&quot;1-什么是vue&quot;&gt;&lt;a href=&quot;#1-什么是vue&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是vue&quot;&gt;&lt;/a&gt;1. 什么是vue&lt;/h2&gt;&lt;p&gt;vue 官网：&lt;a href=&quot;https://cn.vuejs.org/&quot;&gt;https</description>
         
       
       
