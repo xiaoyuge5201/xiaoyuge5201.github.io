@@ -18,12 +18,12 @@
   
   
   <title>二分查找 | 小余哥</title>
-  <meta name="description" content="二分法查找是一种基于比较目标值和数组中间元素的算法  如果目标值 &#x3D; 中间值，则找到目标值 如果目标值 &lt; 中间值，则在左侧继续搜索 如果目标值 &gt; 中间值，则在右侧继续搜索  解题思路：  初始化指针left &#x3D; 0, right&#x3D;n-1; 当left &lt;&#x3D; right：  比较中间元素nums[pivot]和目标值target1.target &#x3D; nums[pivot], 返">
+  <meta name="description" content="二分法查找是一种基于比较目标值和数组中间元素的算法  如果目标值 &#x3D; 中间值，则找到目标值 如果目标值 &lt; 中间值，则在左侧继续搜索 如果目标值 &gt; 中间值，则在右侧继续搜索   解题思路：  初始化指针left &#x3D; 0, right&#x3D;n-1; 当left &lt;&#x3D; right：  比较中间元素nums[pivot]和目标值target 1.target &#x3D; nums[pivot],">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二分查找">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/algorithm/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="二分法查找是一种基于比较目标值和数组中间元素的算法  如果目标值 &#x3D; 中间值，则找到目标值 如果目标值 &lt; 中间值，则在左侧继续搜索 如果目标值 &gt; 中间值，则在右侧继续搜索  解题思路：  初始化指针left &#x3D; 0, right&#x3D;n-1; 当left &lt;&#x3D; right：  比较中间元素nums[pivot]和目标值target1.target &#x3D; nums[pivot], 返">
+<meta property="og:description" content="二分法查找是一种基于比较目标值和数组中间元素的算法  如果目标值 &#x3D; 中间值，则找到目标值 如果目标值 &lt; 中间值，则在左侧继续搜索 如果目标值 &gt; 中间值，则在右侧继续搜索   解题思路：  初始化指针left &#x3D; 0, right&#x3D;n-1; 当left &lt;&#x3D; right：  比较中间元素nums[pivot]和目标值target 1.target &#x3D; nums[pivot],">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/algorithm/01.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/algorithm/02.png">
@@ -439,20 +439,27 @@
 <ul>
 <li>如果目标值 = 中间值，则找到目标值</li>
 <li>如果目标值 &lt; 中间值，则在左侧继续搜索</li>
-<li>如果目标值 &gt; 中间值，则在右侧继续搜索<br><img src="/algorithm/01.png" alt="二分查找"></li>
+<li>如果目标值 &gt; 中间值，则在右侧继续搜索<br>
+<img src="/algorithm/01.png" alt="二分查找"></li>
 </ul>
 <p><strong>解题思路：</strong></p>
 <ul>
 <li>初始化指针left = 0, right=n-1;</li>
-<li>当left &lt;= right： <ul>
-<li>比较中间元素nums[pivot]和目标值target<br>1.target = nums[pivot], 返回pivot<br>2.target &gt; nums[pivot], 则在右侧继续搜索left = pivot+1<br>3.target &lt; nums[pivot], 则在左侧继续搜索right = pivot+1<br><img src="/algorithm/02.png"><br><img src="/algorithm/03.png"></li>
+<li>当left &lt;= right：
+<ul>
+<li>比较中间元素nums[pivot]和目标值target<br>
+1.target = nums[pivot], 返回pivot<br>
+2.target &gt; nums[pivot], 则在右侧继续搜索left = pivot+1<br>
+3.target &lt; nums[pivot], 则在左侧继续搜索right = pivot+1<br>
+<img src="/algorithm/02.png" alt><br>
+<img src="/algorithm/03.png" alt></li>
 </ul>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，</span></span><br><span class="line"><span class="comment"> * 写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。</span></span><br><span class="line"><span class="comment"> * 输入: nums = [-1,0,3,5,9,12], target = 9</span></span><br><span class="line"><span class="comment"> * 输出: 4</span></span><br><span class="line"><span class="comment"> * 解释: 9 出现在 nums 中并且下标为 4</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pivot, left =<span class="number">0</span>, right = nums.length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (left &lt;= right)&#123;</span><br><span class="line">        pivot = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[pivot] == target)&#123;</span><br><span class="line">            <span class="keyword">return</span> pivot;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span> (nums[pivot] &lt; target)&#123;</span><br><span class="line">            left = pivot + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">            right = pivot - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>复杂度分析：</strong></p>
 <ul>
-<li>时间复杂度：O(logN) </li>
+<li>时间复杂度：O(logN)</li>
 <li>空间复杂度：O(1)</li>
 </ul>
 
