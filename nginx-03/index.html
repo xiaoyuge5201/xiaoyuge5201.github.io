@@ -18,12 +18,12 @@
   
   
   <title>Nginx基础篇（三）实现虚拟主机 | 小余哥</title>
-  <meta name="description" content="1. 虚拟主机Virtual Host 一种在单一主机或主机群上，实现多网域服务的方法，可以运行多个网站或服务的技术，虚拟主机之间完全独立，并可由用户自行管理虚拟并非指不存在，而是指空间是由实体的服务器延伸而来，其硬件系统可以是基于服务器群，或者单个服务器 使用域名访问虚拟主机，虚拟主机会给一个文件路径，然后部署自己的内容；访问域名时就会访问改文件夹下的某 个资源  2. 使用Nginx配置虚拟">
+  <meta name="description" content="1. 虚拟主机Virtual Host一种在单一主机或主机群上，实现多网域服务的方法，可以运行多个网站或服务的技术，虚拟主机之间完全独立，并可由用户自行管理虚拟并非指不存在，而是指空间是由实体的服务器延伸而来，其硬件系统可以是基于服务器群，或者单个服务器 使用域名访问虚拟主机，虚拟主机会给一个文件路径，然后部署自己的内容；访问域名时就会访问改文件夹下的某 个资源 2. 使用Nginx配置虚拟主机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx基础篇（三）实现虚拟主机">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/nginx-03/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 虚拟主机Virtual Host 一种在单一主机或主机群上，实现多网域服务的方法，可以运行多个网站或服务的技术，虚拟主机之间完全独立，并可由用户自行管理虚拟并非指不存在，而是指空间是由实体的服务器延伸而来，其硬件系统可以是基于服务器群，或者单个服务器 使用域名访问虚拟主机，虚拟主机会给一个文件路径，然后部署自己的内容；访问域名时就会访问改文件夹下的某 个资源  2. 使用Nginx配置虚拟">
+<meta property="og:description" content="1. 虚拟主机Virtual Host一种在单一主机或主机群上，实现多网域服务的方法，可以运行多个网站或服务的技术，虚拟主机之间完全独立，并可由用户自行管理虚拟并非指不存在，而是指空间是由实体的服务器延伸而来，其硬件系统可以是基于服务器群，或者单个服务器 使用域名访问虚拟主机，虚拟主机会给一个文件路径，然后部署自己的内容；访问域名时就会访问改文件夹下的某 个资源 2. 使用Nginx配置虚拟主机">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-05T08:31:25.000Z">
 <meta property="article:modified_time" content="2022-03-27T14:06:03.463Z">
@@ -270,7 +270,7 @@
                 <a class="category-link" href="/categories/apache/">apache</a>
               </p>
               <p class="item-title">
-                <a href="/Apache-archiva/" class="title">Maven 私有仓库搭建 Apache archiva</a>
+                <a href="/Apache-archiva/" class="title">Apache archiva Maven私有仓库搭建</a>
               </p>
               <p class="item-date">
                 <time datetime="2022-06-28T03:49:42.000Z" itemprop="datePublished">2022-06-28</time>
@@ -425,26 +425,25 @@
 
         
 
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/nginx-03/" class="leancloud_visitors"  data-flag-title="Nginx基础篇（三）实现虚拟主机">0</span>
+    </span>
+
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/nginx-03/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-虚拟主机virtual-host"><a class="markdownIt-Anchor" href="#1-虚拟主机virtual-host"></a> 1. 虚拟主机Virtual Host</h3>
-<p>一种在单一主机或主机群上，实现多网域服务的方法，可以运行多个网站或服务的技术，虚拟主机之间完全独立，并可由用户自行管理虚拟并非指不存在，而是指空间是由实体的服务器延伸而来，其硬件系统可以是基于服务器群，或者单个服务器</p>
+        <h3 id="1-虚拟主机Virtual-Host"><a href="#1-虚拟主机Virtual-Host" class="headerlink" title="1. 虚拟主机Virtual Host"></a>1. 虚拟主机Virtual Host</h3><p>一种在单一主机或主机群上，实现多网域服务的方法，可以运行多个网站或服务的技术，虚拟主机之间完全独立，并可由用户自行管理虚拟并非指不存在，而是指空间是由实体的服务器延伸而来，其硬件系统可以是基于服务器群，或者单个服务器</p>
 <p>使用域名访问虚拟主机，虚拟主机会给一个文件路径，然后部署自己的内容；访问域名时就会访问改文件夹下的某 个资源</p>
-<h3 id="2-使用nginx配置虚拟主机"><a class="markdownIt-Anchor" href="#2-使用nginx配置虚拟主机"></a> 2. 使用Nginx配置虚拟主机</h3>
-<ol>
-<li>
-<p>在nginx下建立一个ygb的文件夹，里面新建一个index.html</p>
+<h3 id="2-使用Nginx配置虚拟主机"><a href="#2-使用Nginx配置虚拟主机" class="headerlink" title="2. 使用Nginx配置虚拟主机"></a>2. 使用Nginx配置虚拟主机</h3><ol>
+<li><p>在nginx下建立一个ygb的文件夹，里面新建一个index.html</p>
 </li>
-<li>
-<p>在nginx.conf配置下http -&gt; server块内配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    #监听端口为 80</span><br><span class="line">    listen       80;</span><br><span class="line">    #设置主机域名</span><br><span class="line">    server_name  www.xiaoyuge.work;</span><br><span class="line">    #设置访问的语言编码</span><br><span class="line">    #charset koi8-r;</span><br><span class="line">    #设置虚拟主机访问日志的存放路径及日志的格式为main</span><br><span class="line">    #access_log  logs/host.access.log  main;</span><br><span class="line">   </span><br><span class="line">    #    这个是域名反问的虚拟主机的文件路径</span><br><span class="line">    root  /usr/local/nginx/data/ygb</span><br><span class="line">    #设置虚拟主机的基本信息</span><br><span class="line">    location / &#123;</span><br><span class="line">        #设置虚拟主机默认访问的网页</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>启动,然后在浏览器访问域名www.xiaoyuge.work</p>
+<li><p>在nginx.conf配置下http -&gt; server块内配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    #监听端口为 80</span><br><span class="line">    listen       80;</span><br><span class="line">    #设置主机域名</span><br><span class="line">    server_name  www.xiaoyuge.work;</span><br><span class="line">    #设置访问的语言编码</span><br><span class="line">    #charset koi8-r;</span><br><span class="line">    #设置虚拟主机访问日志的存放路径及日志的格式为main</span><br><span class="line">    #access_log  logs/host.access.log  main;</span><br><span class="line">   </span><br><span class="line">    #    这个是域名反问的虚拟主机的文件路径</span><br><span class="line">    root  /usr/local/nginx/data/ygb</span><br><span class="line">    #设置虚拟主机的基本信息</span><br><span class="line">    location / &#123;</span><br><span class="line">        #设置虚拟主机默认访问的网页</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">    error_page   500 502 503 504  /50x.html;</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>启动,然后在浏览器访问域名<a target="_blank" rel="noopener" href="http://www.xiaoyuge.work/">www.xiaoyuge.work</a></p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./nginx -c ./nginx.conf</span><br></pre></td></tr></table></figure></li>
 </ol>
 
@@ -489,6 +488,8 @@
     
   <section id="comments">
   	
+      <div id="vcomments"></div>
+    
   </section>
 
 
@@ -645,6 +646,31 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 
 
    
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'xFplHSjJmKwRjEGsbOR06sEO-gzGzoHsz',
+    appKey: 'yc4h9va7ydDYXdHbtAYAGUHX',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
 
 
 
@@ -656,8 +682,8 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
     </div>
         <style type="text/css">
         #go-top {
-            width:48px;
-            height:48px;
+            width:32px;
+            height:32px;
             position:relative;
             border-radius:2px;
             position:fixed;
@@ -671,6 +697,9 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
             content:url("/images/ico-to-top.png");
             position:absolute;
             left:0;
+            width: 32px;
+            height: 32px;
+            background-size: contain;
         }
 
         </style>

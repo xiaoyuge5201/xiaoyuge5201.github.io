@@ -270,7 +270,7 @@
                 <a class="category-link" href="/categories/apache/">apache</a>
               </p>
               <p class="item-title">
-                <a href="/Apache-archiva/" class="title">Maven 私有仓库搭建 Apache archiva</a>
+                <a href="/Apache-archiva/" class="title">Apache archiva Maven私有仓库搭建</a>
               </p>
               <p class="item-date">
                 <time datetime="2022-06-28T03:49:42.000Z" itemprop="datePublished">2022-06-28</time>
@@ -425,6 +425,11 @@
 
         
 
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/thread-01/" class="leancloud_visitors"  data-flag-title="Java守护线程和非守护线程">0</span>
+    </span>
+
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/thread-01/#comments" class="article-comment-link">评论</a></span>
         
       </div>
@@ -442,6 +447,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">thread.setDaemon(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
 <p>这个时候就不会退出while(true)循环了，会一直执行下去，结果如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">主线程main 结束</span><br><span class="line">Counter:1</span><br><span class="line">Counter:2</span><br><span class="line">Counter:3</span><br><span class="line">Counter:4</span><br><span class="line">Counter:5</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
 <p><strong>总结：守护线程是为用户线程服务的，当用户线程全部结束，守护线程会自动结束。</strong></p>
 <p><strong>注意事项：</strong></p>
 <ol>
@@ -494,6 +500,8 @@
     
   <section id="comments">
   	
+      <div id="vcomments"></div>
+    
   </section>
 
 
@@ -650,6 +658,31 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 
 
    
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'xFplHSjJmKwRjEGsbOR06sEO-gzGzoHsz',
+    appKey: 'yc4h9va7ydDYXdHbtAYAGUHX',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
 
 
 
@@ -661,8 +694,8 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
     </div>
         <style type="text/css">
         #go-top {
-            width:48px;
-            height:48px;
+            width:32px;
+            height:32px;
             position:relative;
             border-radius:2px;
             position:fixed;
@@ -676,6 +709,9 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
             content:url("/images/ico-to-top.png");
             position:absolute;
             left:0;
+            width: 32px;
+            height: 32px;
+            background-size: contain;
         }
 
         </style>

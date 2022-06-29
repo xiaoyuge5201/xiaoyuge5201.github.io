@@ -268,7 +268,7 @@
                 <a class="category-link" href="/categories/apache/">apache</a>
               </p>
               <p class="item-title">
-                <a href="/Apache-archiva/" class="title">Maven 私有仓库搭建 Apache archiva</a>
+                <a href="/Apache-archiva/" class="title">Apache archiva Maven私有仓库搭建</a>
               </p>
               <p class="item-date">
                 <time datetime="2022-06-28T03:49:42.000Z" itemprop="datePublished">2022-06-28</time>
@@ -413,6 +413,11 @@
 
         
 
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/404.html" class="leancloud_visitors"  data-flag-title="404 Not Found：该页无法显示">0</span>
+    </span>
+
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/404.html#comments" class="article-comment-link">评论</a></span>
         
       </div>
@@ -462,6 +467,8 @@
     
   <section id="comments">
   	
+      <div id="vcomments"></div>
+    
   </section>
 
 
@@ -600,6 +607,31 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 
 
    
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'xFplHSjJmKwRjEGsbOR06sEO-gzGzoHsz',
+    appKey: 'yc4h9va7ydDYXdHbtAYAGUHX',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
 
 
 
@@ -611,8 +643,8 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
     </div>
         <style type="text/css">
         #go-top {
-            width:48px;
-            height:48px;
+            width:32px;
+            height:32px;
             position:relative;
             border-radius:2px;
             position:fixed;
@@ -626,6 +658,9 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
             content:url("/images/ico-to-top.png");
             position:absolute;
             left:0;
+            width: 32px;
+            height: 32px;
+            background-size: contain;
         }
 
         </style>
