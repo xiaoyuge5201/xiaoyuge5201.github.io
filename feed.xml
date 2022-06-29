@@ -67,6 +67,54 @@
     </item>
     
     <item>
+      <title>Docker安装RabbitMQ集群</title>
+      <link>https://xiaoyuge5201.github.io/rabbitmq/</link>
+      <guid>https://xiaoyuge5201.github.io/rabbitmq/</guid>
+      <pubDate>Sat, 25 Jun 2022 08:53:22 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-安装-Docker&quot;&gt;&lt;a href=&quot;#1-安装-Docker&quot; class=&quot;headerlink&quot; title=&quot;1. 安装 Docker&quot;&gt;&lt;/a&gt;1. 安装 Docker&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;更新yum源（如果你的网速慢这一步就别做了） &lt;fi</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/MQ/">MQ</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/rabbitMQ/">rabbitMQ</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>CentOS7安装RabbitMQ单机版</title>
+      <link>https://xiaoyuge5201.github.io/rabbitmq-standalone/</link>
+      <guid>https://xiaoyuge5201.github.io/rabbitmq-standalone/</guid>
+      <pubDate>Sat, 25 Jun 2022 08:12:12 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-软件安装方式&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-软件安装方式&quot;&gt;&lt;/a&gt; 1. 软件安装方式&lt;/h2&gt;
+&lt;p&gt;同一个软件有很多种不同的安装方式，Linux操作系统中安装软件有几种常见方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/MQ/">MQ</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/rabbitMQ/">rabbitMQ</category>
+      
+      
+    </item>
+    
+    <item>
       <title>分库分表之 ShardingSphere-JDBC</title>
       <link>https://xiaoyuge5201.github.io/sharding-jdbc/</link>
       <guid>https://xiaoyuge5201.github.io/sharding-jdbc/</guid>

@@ -2711,6 +2711,200 @@
       </tags>
   </entry>
   <entry>
+    <title>CentOS7安装RabbitMQ单机版</title>
+    <url>/rabbitmq-standalone/</url>
+    <content><![CDATA[<h2 id="1-软件安装方式"><a class="markdownIt-Anchor" href="#1-软件安装方式"></a> 1. 软件安装方式</h2>
+<p>同一个软件有很多种不同的安装方式，Linux操作系统中安装软件有几种常见方式：</p>
+<ol>
+<li>源码编译安装：一般需要解压然后用make 、make install等命令，这种方式步骤比较复杂，编译时间长，而且结果不可控</li>
+<li>RPM（RedHat Package Manager）是一个软件管理包，安装卸载变得简单了，但是无法解决软件包之间的依赖关系问题</li>
+<li>YUM（Yellow dog Updater, Modified）是一个RPM的前端程序，可以自动解决软件的依赖关系。但是要注意版本的问题，默认从仓库中获取安装的不一定是最新版本</li>
+<li>不需要安装只要配置环境变量的（解压就可以使用）</li>
+</ol>
+<p>CentOS是RedHat的分支，所以rpm和yum都可以使用</p>
+<h2 id="2-版本关系"><a class="markdownIt-Anchor" href="#2-版本关系"></a> 2. 版本关系</h2>
+<p>在RabbitMQ中需要注意两点：<br>
+1、RabbitMQ依赖于Erlang，需要先安装Erlang<br>
+2、Erlang和RabbitMQ版本有对应关系: <a href="http://www.rabbitmq.com/which-erlang.html">http://www.rabbitmq.com/which-erlang.html</a></p>
+<h2 id="3-安装erlang-25"><a class="markdownIt-Anchor" href="#3-安装erlang-25"></a> 3. 安装Erlang 25</h2>
+<ol>
+<li>
+<p>安装依赖</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install gcc glibc-devel make ncurses-devel openssl-devel xmlto perl wget</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>下载Erlang 25</p>
+<p>下载地址：<a href="https://www.erlang.org/downloads/25%EF%BC%8C">https://www.erlang.org/downloads/25，</a> 如果下载太慢了，可以把地址贴到迅雷里面，下载到本机，再上传到服务器</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://erlang.org/download/otp_src_25.0.tar.gz</span><br><span class="line">tar -xvf otp_src_25.0.tar.gz</span><br><span class="line">cd otp_src_25.0</span><br><span class="line">./configure --prefix=/usr/local/erlang</span><br></pre></td></tr></table></figure>
+<p>configure的过程如果有err，要解决依赖的问题。<br>
+如果有APPLICATIONS INFORMATION，DOCUMENTATION INFORMATION，没有影响。</p>
+</li>
+<li>
+<p>安装</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<p>如果提示缺少socat</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y socat</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>配置Erlang环境变量</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>加一行</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">erlang的安装目录</span></span><br><span class="line">export PATH=$PATH:/usr/local/erlang/bin</span><br></pre></td></tr></table></figure>
+<p><img src="/rabbitmq-standalone/1.png" alt></p>
+<p>编译生效</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>验证Erlang是否安装成功</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">erl</span><br></pre></td></tr></table></figure>
+<p>输入erl，会出现版本信息，即安装成功<br>
+<img src="/rabbitmq-standalone/2.png" alt></p>
+</li>
+</ol>
+<h2 id="4-安装rabbitmq-3105"><a class="markdownIt-Anchor" href="#4-安装rabbitmq-3105"></a> 4. 安装RabbitMQ 3.10.5</h2>
+<p>gitHub：<a href="https://github.com/rabbitmq/rabbitmq-server/releases">https://github.com/rabbitmq/rabbitmq-server/releases</a></p>
+<ol>
+<li>
+<p>下载</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.10.5/rabbitmq-server-generic-unix-3.10.5.tar.xz</span><br><span class="line">xz -d rabbitmq-server-generic-unix-3.10.5.tar.xz</span><br><span class="line">tar -xvf rabbitmq-server-generic-unix-3.10.5.tar</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>配置环境变量</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>添加一行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export PATH=$PATH:/opt/rabbitmq_server-3.10.5/sbin</span><br></pre></td></tr></table></figure>
+<p>编译生效</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启动RabbitMQ</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 后台启动rabbitmq服务</span></span><br><span class="line">cd /opt/rabbitmq_server-3.10.5/sbin</span><br><span class="line">./rabbitmq-server -detached</span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者</span></span><br><span class="line">./rabbitmq-server start</span><br><span class="line"><span class="meta">#</span><span class="bash">或者</span></span><br><span class="line">service rabbitmq-server start</span><br></pre></td></tr></table></figure>
+<p>启动的常见问题是端口被占用，kill rabbitmq 重启即可</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep rabbit</span><br><span class="line">kill -9 进程号</span><br><span class="line">./rabbitmq-server start</span><br></pre></td></tr></table></figure>
+<p>如果启动报以下错误，且ps查看并没有相关进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">could not bind to distribution port 25672, it is in use by another node:</span><br></pre></td></tr></table></figure>
+<p>可以先停止，在重启</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./rabbitmqctl stop</span><br><span class="line">./rabbitmq-server start</span><br></pre></td></tr></table></figure>
+<p>出现以下界面，表示启动成功<br>
+<img src="/rabbitmq-standalone/3.png" alt></p>
+</li>
+<li>
+<p>添加用户</p>
+<p>因为guest用户只能在本机访问，添加一个admin用户，密码也是admin</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./rabbitmqctl add_user admin admin</span><br><span class="line">./rabbitmqctl set_user_tags admin administrator</span><br><span class="line">./rabbitmqctl set_permissions -p / admin &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="/rabbitmq-standalone/4.png" alt></p>
+</li>
+<li>
+<p>启动管理插件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./rabbitmq-plugins enable rabbitmq_management</span><br></pre></td></tr></table></figure>
+<p><img src="/rabbitmq-standalone/5.png" alt></p>
+</li>
+<li>
+<p>访问 <a href="http://ip:15672">http://ip:15672</a>， 出现如下界面表示成功！<br>
+<img src="/rabbitmq-standalone/6.png" alt><br>
+输入管理员账号密码<br>
+<img src="/rabbitmq-standalone/7.png" alt></p>
+</li>
+</ol>
+<h2 id="5-常见问题"><a class="markdownIt-Anchor" href="#5-常见问题"></a> 5. 常见问题</h2>
+<ol>
+<li>
+<p>服务无法启动（5672端口未启动）<br>
+RabbitMQ的服务是默认开机自启动的</p>
+<ul>
+<li>
+<p>用不同方式启动RabbitMQ服务，命令行或者Windows本地服务管理<br>
+比如windows： 在cmd中进入sbin目录（不要用powershell）,先停再起</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./rabbitmq-server.bat stop</span><br><span class="line"> ./rabbitmq-server.bat start</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>可能是版本问题，注意Erlang和RabbitMQ版本要对应。 高版本的RabbitMQ无法安装在低版本的Erlang环境之上。 卸载重装，或者降低RabbitMQ版本</p>
+</li>
+<li>
+<p>Erlang环境变量没有配置，erl命令没有结果。配置环境变量。</p>
+</li>
+<li>
+<p>可能是启动的用户没有管理员权限问题，以管理员启动</p>
+</li>
+<li>
+<p>windows下重启失败可能是cmd没有管理员运行。</p>
+</li>
+<li>
+<p>端口启动了，服务没有启动</p>
+</li>
+</ul>
+</li>
+<li>
+<p>管理界面不能访问 15672端口未启动</p>
+<ul>
+<li>
+<p>先确定端口是否启动正常</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">Linux命令</span></span><br><span class="line">netstat -an|grep 15672</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">windows cmd命令</span></span><br><span class="line">netstat -an|findstr 15672</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>guest用户默认只能在本机访问，如果是本机访问虚拟机的服务，需要添加其他用户（比如admin），分配vhost权限才能远程访问</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./rabbitmqctl add_user admin admin</span><br><span class="line"> ./rabbitmqctl set_user_tags admin administrator</span><br><span class="line"> ./rabbitmqctl set_permissions -p / admin &quot;.*&quot; &quot;.*&quot; &quot;.*&quot; </span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li>
+<p>加入集群失败</p>
+<ul>
+<li>主节点是否启动成功，网络连接是否正常，ping hostname能不能ping通？</li>
+<li>25672端口，防火墙是否允许</li>
+<li>erlang.cookie是否一致</li>
+</ul>
+</li>
+<li>
+<p>添加用户失败<br>
+<img src="/rabbitmq-standalone/8.png" alt><br>
+根据提示，可能有几个原因：<br>
+1）hostname配置有问题<br>
+2）erlang.cookie有问题<br>
+3）服务没启动成功</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>MQ</category>
+      </categories>
+      <tags>
+        <tag>rabbitMQ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker安装RabbitMQ集群</title>
+    <url>/rabbitmq/</url>
+    <content><![CDATA[<h3 id="1-安装-Docker"><a href="#1-安装-Docker" class="headerlink" title="1. 安装 Docker"></a>1. 安装 Docker</h3><ol>
+<li>更新yum源（如果你的网速慢这一步就别做了） <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo yum update</span><br></pre></td></tr></table></figure></li>
+<li>添加仓库 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure></li>
+<li>查看最新版本 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">如果之前安装了docker，需要卸载旧版本</span></span><br><span class="line">yum list docker-ce --showduplicates | sort -r</span><br></pre></td></tr></table></figure></li>
+<li>安装Docker CE版本 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install docker-ce -y </span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-安装-RabbitMQ"><a href="#2-安装-RabbitMQ" class="headerlink" title="2. 安装 RabbitMQ"></a>2. 安装 RabbitMQ</h3><p>1个磁盘节点+2个内存节点</p>
+<ol>
+<li>拉取RabbitMQ镜像（带managment） <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull rabbitmq:3.7.17-management</span><br></pre></td></tr></table></figure></li>
+<li>创建docker网络（让容器可以和主机通信） <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker network create rabbitmqnet</span><br></pre></td></tr></table></figure></li>
+<li>创建三个容器，端口分别是 5673 5674 5675 ，管理端口是 15673 15674 15675 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">英文引号</span></span><br><span class="line">docker run -d \</span><br><span class="line"> --name=rabbitmq1 \</span><br><span class="line"> -p 5673:5672 \</span><br><span class="line"> -p 15673:15672 \</span><br><span class="line"> -e RABBITMQ_NODENAME=rabbitmq1 \</span><br><span class="line"> -e RABBITMQ_ERLANG_COOKIE=&#x27;GUPAOEDUFORBETTERYOU&#x27; \</span><br><span class="line"> -h rabbitmq1 \</span><br><span class="line"> --net=rabbitmqnet \</span><br><span class="line"> rabbitmq:management</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line"> --name=rabbitmq2 \</span><br><span class="line"> -p 5674:5672 \</span><br><span class="line"> -p 15674:15672 \</span><br><span class="line"> -e RABBITMQ_NODENAME=rabbitmq1 \</span><br><span class="line"> -e RABBITMQ_ERLANG_COOKIE=&#x27;GUPAOEDUFORBETTERYOU&#x27; \</span><br><span class="line"> -h rabbitmq2 \</span><br><span class="line"> --net=rabbitmqnet \</span><br><span class="line"> rabbitmq:management</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line"> --name=rabbitmq3 \</span><br><span class="line"> -p 5675:5672 \</span><br><span class="line"> -p 15675:15672 \</span><br><span class="line"> -e RABBITMQ_NODENAME=rabbitmq1 \</span><br><span class="line"> -e RABBITMQ_ERLANG_COOKIE=&#x27;GUPAOEDUFORBETTERYOU&#x27; \</span><br><span class="line"> -h rabbitmq3 \</span><br><span class="line"> --net=rabbitmqnet \</span><br><span class="line"> rabbitmq:management</span><br></pre></td></tr></table></figure></li>
+<li>后两个节点作为内存节点加入集群 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it rabbitmq2 /bin/bash       #进入容器内部</span><br><span class="line">rabbitmqctl stop_app              #停止rabbitmq 服务 </span><br><span class="line">rabbitmqctl reset           #重置rabbitmq </span><br><span class="line">rabbitmqctl join_cluster --ram rabbitmq1@rabbitmq1          #加入集群</span><br><span class="line">rabbitmqctl start_app         #启动服务</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker exec -it rabbitmq3 /bin/bash</span><br><span class="line">rabbitmqctl stop_app</span><br><span class="line">rabbitmqctl reset</span><br><span class="line">rabbitmqctl join_cluster --ram rabbitmq1@rabbitmq1</span><br><span class="line">rabbitmqctl start_app</span><br></pre></td></tr></table></figure></li>
+<li>访问： <a href="http://ip:15673/">http://ip:15673/</a>; guest/guest登录<br> <img src="/rabbitmq/1.png"></li>
+</ol>
+<h3 id="3-常见问题"><a href="#3-常见问题" class="headerlink" title="3. 常见问题"></a>3. 常见问题</h3><ol>
+<li>[error] Bad characters in cookie <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">到创建容器的时候，docker run -d --name=rabbitmq1 -p 5673:5672 -p 15673:15672 -e RABBITMQ_NODENAME=rabbitmq1 -e RABBITMQ_ERLANG_COOKIE=‘GoodGoodStudyDayDayUp’ -h rabbitmq1 --net=rabbitmqnet rabbitmq:management</span><br><span class="line">由于Cookie的引号是中文引号，所以docker ps -a 时看到Status为Exited</span><br></pre></td></tr></table></figure>
+解决方法：移除容器，把cookie的引号改为英文引号再执行就可以了</li>
+</ol>
+]]></content>
+      <categories>
+        <category>MQ</category>
+      </categories>
+      <tags>
+        <tag>rabbitMQ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringBoot参数校验</title>
     <url>/springboot-validate-params/</url>
     <content><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>在控制器类的方法里自己写校验逻辑代码也可以，只是不够优美，业界有更好的处理方法，主要有以下几种。</p>
