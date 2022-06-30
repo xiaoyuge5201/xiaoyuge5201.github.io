@@ -17,23 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>锁优化 | 小余哥</title>
-  <meta name="description" content="1. 优化思路以及方法 减少锁持有时间 减小锁粒度 锁分离 锁粗化 锁消除  1.1 减少锁持有时间12345public synchronized void syncMethod()&amp;#123;    othercode1();    mutextMethod();    othercode2();&amp;#125;  像上述代码，在进入方法前就要得到锁，其他线程就要在外面等待。 分析：锁里面的资源在">
+  <title>kafka常用命令 | 小余哥</title>
+  <meta name="description" content="1. 脚本概览bin目录下的脚本作用    脚本 作用    connect-distributed.sh 用于启动多节点的Distributed模式的Kafka Connect组件   connect-standalone.sh 用于启动单节点的Standalone模式的Kafka Connect组件   kafka-acls.sh 用于设置Kafka权限，比如设置哪些用户可以访问Kafka的哪">
 <meta property="og:type" content="article">
-<meta property="og:title" content="锁优化">
-<meta property="og:url" content="https://xiaoyuge5201.github.io/lock01/index.html">
+<meta property="og:title" content="kafka常用命令">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/kafka-command/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 优化思路以及方法 减少锁持有时间 减小锁粒度 锁分离 锁粗化 锁消除  1.1 减少锁持有时间12345public synchronized void syncMethod()&amp;#123;    othercode1();    mutextMethod();    othercode2();&amp;#125;  像上述代码，在进入方法前就要得到锁，其他线程就要在外面等待。 分析：锁里面的资源在">
+<meta property="og:description" content="1. 脚本概览bin目录下的脚本作用    脚本 作用    connect-distributed.sh 用于启动多节点的Distributed模式的Kafka Connect组件   connect-standalone.sh 用于启动单节点的Standalone模式的Kafka Connect组件   kafka-acls.sh 用于设置Kafka权限，比如设置哪些用户可以访问Kafka的哪">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/images/read_writer_Lock1.png">
-<meta property="article:published_time" content="2021-07-23T06:04:02.000Z">
-<meta property="article:modified_time" content="2022-03-27T14:06:03.480Z">
+<meta property="article:published_time" content="2022-06-23T06:57:03.000Z">
+<meta property="article:modified_time" content="2022-06-30T07:05:22.039Z">
 <meta property="article:author" content="小余哥|猿无忧">
-<meta property="article:tag" content="lock">
+<meta property="article:tag" content="kafka">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xiaoyuge5201.github.io/images/read_writer_Lock1.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://xiaoyuge5201.github.io/lock01/index.html">
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/kafka-command/index.html">
   
   
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -393,14 +391,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-lock01" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-kafka-command" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      锁优化
+      kafka常用命令
     </h1>
   
 
@@ -408,88 +406,202 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/lock01/" class="article-date">
-	  <time datetime="2021-07-23T06:04:02.000Z" itemprop="datePublished">2021-07-23</time>
+	<a href="/kafka-command/" class="article-date">
+	  <time datetime="2022-06-23T06:57:03.000Z" itemprop="datePublished">2022-06-23</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/java/">java</a>
+    <a class="article-category-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/lock/" rel="tag">lock</a>
+	<a class="article-tag-link-link" href="/tags/kafka/" rel="tag">kafka</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/lock01/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/kafka-command/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="1-优化思路以及方法"><a href="#1-优化思路以及方法" class="headerlink" title="1. 优化思路以及方法"></a>1. 优化思路以及方法</h2><ul>
-<li>减少锁持有时间</li>
-<li>减小锁粒度</li>
-<li>锁分离</li>
-<li>锁粗化</li>
-<li>锁消除</li>
+        <h3 id="1-脚本概览"><a href="#1-脚本概览" class="headerlink" title="1. 脚本概览"></a>1. 脚本概览</h3><p>bin目录下的脚本作用</p>
+<table>
+<thead>
+<tr>
+<th align="left">脚本</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">connect-distributed.sh</td>
+<td align="left">用于启动多节点的Distributed模式的Kafka Connect组件</td>
+</tr>
+<tr>
+<td align="left">connect-standalone.sh</td>
+<td align="left">用于启动单节点的Standalone模式的Kafka Connect组件</td>
+</tr>
+<tr>
+<td align="left">kafka-acls.sh</td>
+<td align="left">用于设置Kafka权限，比如设置哪些用户可以访问Kafka的哪些TOPIC的权限</td>
+</tr>
+<tr>
+<td align="left">kafka-broker-api-versions.sh</td>
+<td align="left">主要用于验证不同Kafka版本之间服务器和客户端的适配性</td>
+</tr>
+<tr>
+<td align="left">kafka-configs.sh</td>
+<td align="left">配置管理脚本</td>
+</tr>
+<tr>
+<td align="left">kafka-console-consumer.sh</td>
+<td align="left">kafka消费者控制台</td>
+</tr>
+<tr>
+<td align="left">kafka-console-producer.sh</td>
+<td align="left">kafka生产者控制台</td>
+</tr>
+<tr>
+<td align="left">kafka-consumer-groups.sh</td>
+<td align="left">kafka消费者组相关信息</td>
+</tr>
+<tr>
+<td align="left">kafka-consumer-perf-test.sh</td>
+<td align="left">kafka消费者性能测试脚本</td>
+</tr>
+<tr>
+<td align="left">kafka-delegation-tokens.sh</td>
+<td align="left">用于管理Delegation Token。基于Delegation Token的认证是一种轻量级的认证机制，是对SASL认证机制的补充。</td>
+</tr>
+<tr>
+<td align="left">kafka-delete-records.sh</td>
+<td align="left">用于删除Kafka的分区消息</td>
+</tr>
+<tr>
+<td align="left">kafka-dump-log.sh</td>
+<td align="left">用于查看Kafka消息文件的内容</td>
+</tr>
+<tr>
+<td align="left">kafka-log-dirs.sh</td>
+<td align="left">用于查询各个Broker上的各个日志路径的磁盘占用情况</td>
+</tr>
+<tr>
+<td align="left">kafka-mirror-maker.sh</td>
+<td align="left">用于在Kafka集群间实现数据镜像</td>
+</tr>
+<tr>
+<td align="left">kafka-preferred-replica-election.sh</td>
+<td align="left">用于执行Preferred Leader选举，可以为指定的主题执行更换Leader的操作</td>
+</tr>
+<tr>
+<td align="left">kafka-producer-perf-test.sh</td>
+<td align="left">kafka生产者性能测试脚本</td>
+</tr>
+<tr>
+<td align="left">kafka-reassign-partitions.sh</td>
+<td align="left">用于执行分区副本迁移以及副本文件路径迁移。</td>
+</tr>
+<tr>
+<td align="left">kafka-replica-verification.sh</td>
+<td align="left">复制进度验证脚本</td>
+</tr>
+<tr>
+<td align="left">kafka-run-class.sh</td>
+<td align="left">用于执行任何带main方法的Kafka类</td>
+</tr>
+<tr>
+<td align="left">kafka-server-start.sh</td>
+<td align="left">启动kafka服务</td>
+</tr>
+<tr>
+<td align="left">kafka-server-stop.sh</td>
+<td align="left">停止kafka服务</td>
+</tr>
+<tr>
+<td align="left">kafka-streams-application-reset.sh</td>
+<td align="left">用于给Kafka Streams应用程序重设位移，以便重新消费数据</td>
+</tr>
+<tr>
+<td align="left">kafka-topics.sh</td>
+<td align="left">topic管理脚本</td>
+</tr>
+<tr>
+<td align="left">kafka-verifiable-consumer.sh</td>
+<td align="left">可检验的kafka消费者</td>
+</tr>
+<tr>
+<td align="left">kafka-verifiable-producer.sh</td>
+<td align="left">可检验的kafka生产者</td>
+</tr>
+<tr>
+<td align="left">trogdor.sh</td>
+<td align="left">Kafka的测试框架，用于执行各种基准测试和负载测试</td>
+</tr>
+<tr>
+<td align="left">zookeeper-server-start.sh</td>
+<td align="left">启动zk服务</td>
+</tr>
+<tr>
+<td align="left">zookeeper-server-stop.sh</td>
+<td align="left">停止zk服务</td>
+</tr>
+<tr>
+<td align="left">zookeeper-shell.sh</td>
+<td align="left">zk客户端</td>
+</tr>
+</tbody></table>
+<h3 id="2-Broker服务"><a href="#2-Broker服务" class="headerlink" title="2. Broker服务"></a>2. Broker服务</h3><p>1、启动服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-server-start.sh ../config/server.properties</span><br></pre></td></tr></table></figure>
+<p>2、后台启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-server-start.sh -daemon ../config/server.properties</span><br></pre></td></tr></table></figure>
+<p>3、停止服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-server-stop.sh ../config/server.properties</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-元数据"><a href="#3-元数据" class="headerlink" title="3. 元数据"></a>3. 元数据</h3><p>1、创建topic</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic my-test-topic</span><br></pre></td></tr></table></figure>
+<p>2、查看所有topic</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-topics.sh --bootstrap-server localhost:9092 --list</span><br></pre></td></tr></table></figure>
+
+
+<p>从Kafka 2.2版本开始，Kafka社区推荐用–bootstrap-server参数替换–zookeeper参数用于指定Kafka Broker。集群的多个IP端口用逗号,隔开</p>
+<p>3、查看topic详细信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kafka-topics.sh --bootstrap-server localhost:9092 --describe --topic topic_name</span><br></pre></td></tr></table></figure>
+<p>4、给topic增加分区（只能增加不能减少）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic my-test-topic --partitions 10</span><br></pre></td></tr></table></figure>
+<p>5、删除topic（标记删除）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic my-test-topic</span><br></pre></td></tr></table></figure>
+<p>6、永久删除需要修改配置文件：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">delete.topic.enable</span>=<span class="string">true</span></span><br></pre></td></tr></table></figure>
+
+<p>7、强制删除TOPIC的方法：</p>
+<ul>
+<li>手动删除ZooKeeper节点/admin/delete_topics下以待删除TOPIC为名的znode。 </li>
+<li>手动删除TOPIC在磁盘上的分区目录。</li>
+<li>在ZooKeeper中执行rmr /controller，触发Controller重选举，刷新Controller缓存。可能会造成大面积的分区Leader重选举。可以不执行，只是Controller缓存中没有清空待删除TOPIC，不影响使用。</li>
 </ul>
-<h3 id="1-1-减少锁持有时间"><a href="#1-1-减少锁持有时间" class="headerlink" title="1.1 减少锁持有时间"></a>1.1 减少锁持有时间</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">syncMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">    othercode1();</span><br><span class="line">    mutextMethod();</span><br><span class="line">    othercode2();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>8、修改partition副本数：</p>
+<pre><code>先配置一个reassign.json文件，内容：
+例如my-test-topic有3个分区，原来只有一个副本，增加到2个副本
+</code></pre>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;version&quot;</span>:<span class="number">1</span>, <span class="attr">&quot;partitions&quot;</span>:[</span><br><span class="line">&#123;<span class="attr">&quot;topic&quot;</span>:<span class="string">&quot;my-test-topic&quot;</span>,<span class="attr">&quot;partition&quot;</span>:<span class="number">0</span>,<span class="attr">&quot;replicas&quot;</span>:[<span class="number">0</span>,<span class="number">1</span>]&#125;,</span><br><span class="line">&#123;<span class="attr">&quot;topic&quot;</span>:<span class="string">&quot;my-test-topic&quot;</span>,<span class="attr">&quot;partition&quot;</span>:<span class="number">1</span>,<span class="attr">&quot;replicas&quot;</span>:[<span class="number">1</span>,<span class="number">2</span>]&#125;,</span><br><span class="line">&#123;<span class="attr">&quot;topic&quot;</span>:<span class="string">&quot;my-test-topic&quot;</span>,<span class="attr">&quot;partition&quot;</span>:<span class="number">2</span>,<span class="attr">&quot;replicas&quot;</span>:[<span class="number">2</span>,<span class="number">0</span>]&#125;</span><br><span class="line">]&#125;</span><br></pre></td></tr></table></figure>
+<p>执行kafka-reassign-partitions脚本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-reassign-partitions.sh --zookeeper localhost:2181 --reassignment-json-file reassign.json --execute</span><br></pre></td></tr></table></figure>
+<h3 id="4-生产者"><a href="#4-生产者" class="headerlink" title="4. 生产者"></a>4. 生产者</h3><p>1、发送消息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-console-producer.sh --broker-list localhost:9092 --topic my-test-topic</span><br></pre></td></tr></table></figure>
 
-<p>像上述代码，在进入方法前就要得到锁，其他线程就要在外面等待。</p>
-<p>分析：锁里面的资源在同一时间只允许一个线程执行，我们不仅要减少其他线程等待的时间，也要尽力减少线程在锁里面的执行时间，所以，尽量只有在有线程安全要求的程序代码上加锁。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">syncMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">    othercode1();</span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line">        metextMethod();</span><br><span class="line">    &#125;</span><br><span class="line">    othercode2();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-2-减小锁粒度"><a href="#1-2-减小锁粒度" class="headerlink" title="1.2 减小锁粒度"></a>1.2 减小锁粒度</h3><p>将大对象（这个对象可能会被很多线程访问）拆成小对象，大大增加并行度。</p>
-<p>降低锁竞争，那么偏向锁、轻量级锁成功率才会提高。</p>
-<p>最最典型的减小锁粒度的案例就是ConcurrentHashMap。在HashMap的基础上进行优化，使用了cas与synchronized来确保安全性，在保证安全性的基础上为了充分利用线程资源，更是巧妙的设计了多线程同扩容的模式。</p>
-<h3 id="1-3-锁分离"><a href="#1-3-锁分离" class="headerlink" title="1.3 锁分离"></a>1.3 锁分离</h3><p>最常见的锁分离就是读写锁ReadWriteLock，根据功能进行分离成读锁和写锁。这样读读不互斥，读写互斥，写写互斥。既保证了线程安全，又提高了性能。</p>
-<p>分析：读写分离这种思想可以延伸到我们其他的设计中，只要操作上互不影响，那锁就可以进行分离，比如：LinkedBlockingQueue</p>
-<img src="..\images/read_writer_Lock1.png" alt="read_writer_Lock1" style="zoom: 67%;">
+<h3 id="5-消费者"><a href="#5-消费者" class="headerlink" title="5. 消费者"></a>5. 消费者</h3><p>1、消费消息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic my-test-topic</span><br></pre></td></tr></table></figure>
 
-<p>从头部获取数据，从尾部放入数据，使用两把锁。</p>
-<h3 id="1-4-锁粗化"><a href="#1-4-锁粗化" class="headerlink" title="1.4 锁粗化"></a>1.4 锁粗化</h3><p>通常情况下，为了保证多线程间的有效并发，会要求每个线程持有锁的时间尽量短，即在使用完公共资源后，应该立即释放锁，只有这样，等待在这个锁上的其他线程才能尽早的获取资源执行任务；但是凡事都有一个度，如果对同一个锁不停的进行请求、同步和释放，其本身也会消耗系统宝贵的资源，反而不利于性能的优化。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demoMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>&#123;</span><br><span class="line">    	<span class="comment">//dow sth.</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//....做其他不需要同步的工作，但能很快执行完毕</span></span><br><span class="line">    <span class="keyword">synchronized</span>&#123;</span><br><span class="line">        <span class="comment">//do sth.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这种情况，根据锁粗化的思想，应该合并：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demoMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//整合成一次锁请求,前提时中间哪些不需要同步的工作很快就执行完成</span></span><br><span class="line">    <span class="keyword">synchronized</span>(lock)&#123;</span><br><span class="line">        <span class="comment">//do sth.</span></span><br><span class="line">        <span class="comment">//....做其他不需要同步的工作，但能很快执行完毕</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再举一个极端的例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i &lt; circle; i++)&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(lock)&#123;</span><br><span class="line">        <span class="comment">//.....</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在一个循环内不同得获得锁。虽然JDK内部会对这个代码做些优化，但是还不如直接写成：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(lock)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i &lt; circle; i++)&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当然如果有需求说，这样的循环太久，需要给其他线程不要等待太久，那只能写成上面那种。如果没有这样类似的需求，还是直接写成后者那种比较好。<br><strong>分析</strong>: 锁粗化是JVM默认启动的一种机制，锁粗化针对的是对连续的区域进行分段加锁这种场景，JVM会自发进行优化。但作为开发者而言在满足业务的情况下，应该减少锁的使用。</p>
-<h3 id="1-5-锁消除"><a href="#1-5-锁消除" class="headerlink" title="1.5 锁消除"></a>1.5 锁消除</h3><p>锁消除是在编译器级别的事情。在即时编译器(JIT)时，如果发现不可能被共享的对象，则可以消除这些对象的锁操作。也许你会觉得奇怪，既然有些对象不可能被多线程访问，那为什么要加锁呢？写代码时直接不加锁不就好了。<br>但是有时，这些锁并不是程序员所写的，有的是JDK实现中就有锁的，比如Vector和StringBuffer这样的类，它们中的很多方法都是有锁的。当我们在一些不会有线程安全的情况下使用这些类的方法时，达到某些条件时，编译器会将锁消除来提高性能。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> InterrruptedException</span>&#123;</span><br><span class="line">    <span class="keyword">long</span> start = System.currentTimeTimeMillis();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">20000</span>; i++)&#123;</span><br><span class="line">        createStringBuffer(<span class="string">&quot;JVM&quot;</span>,<span class="string">&quot;asdfasdfasdf&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> bufferCost = System.currentTimeTimeMillis() - start;</span><br><span class="line">    System.out.println(<span class="string">&quot;createStringBuffer:&quot;</span>+bufferCost+<span class="string">&quot;ms&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">createStringBuffer</span><span class="params">(String s1, String s2)</span></span>&#123;</span><br><span class="line">    StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">    sb.append(s1);</span><br><span class="line">    sb.append(s2);</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上述代码中的StringBuffer.append是一个同步操作，但是StringBuffer却是一个局部变量，并且方法也并没有把StringBuffer返回，所以不可能会有多线程去访问它。那么此时StringBuffer中的同步操作就是没有意义的。<br>开启锁消除是在JVM参数上设置的，当然需要在server模式下：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-server -XX:+DoEscapeAnalysis -XX:+EliminateLocks</span><br></pre></td></tr></table></figure>
-
-<p>并且要开启逃逸分析。 逃逸分析的作用呢，就是看看变量是否有可能逃出作用域的范围。<br>比如上述的StringBuffer，上述代码中craeteStringBuffer的返回是一个String，所以这个局部变量StringBuffer在其他地方都不会被使用。如果将craeteStringBuffer改成</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> StringBuffer <span class="title">createStringBuffer</span><span class="params">(String s1, String s2)</span></span>&#123;</span><br><span class="line">    StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">    sb.append(s1);</span><br><span class="line">    sb.append(s2);</span><br><span class="line">    <span class="keyword">return</span> sb;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>那么这个 StringBuffer被返回后，是有可能被任何其他地方所使用的（譬如被主函数将返回结果put进map啊等等）。那么JVM的逃逸分析可以分析出，这个局部变量 StringBuffer逃出了它的作用域。<br>所以基于逃逸分析，JVM可以判断，如果这个局部变量StringBuffer并没有逃出它的作用域，那么可以确定这个StringBuffer并不会被多线程所访问，那么就可以把这些多余的锁给去掉来提高性能。<br>当JVM参数为：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-server -XX:+DoEscapeAnalysis -XX:+EliminateLocks</span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">createStringBuffer: 302ms</span><br></pre></td></tr></table></figure>
-
-<p>JVM参数为：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-server -XX:+DoEscapeAnalysis -XX:-EliminateLocks</span><br></pre></td></tr></table></figure>
-
-<p>输出：</p>
-<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">createStringBuffer: 660ms</span><br></pre></td></tr></table></figure>
-
-<p>显然，锁消除的效果还是很明显的。</p>
-
+<p>2、查看消费者组提交的位移数据:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic __consumer_offsets --formatter &quot;kafka.coordinator.group.GroupMetadataManager\$OffsetsMessageFormatter&quot; --from-beginning</span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">
@@ -498,7 +610,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://xiaoyuge5201.github.io/lock01/" title="锁优化" target="_blank" rel="external">https://xiaoyuge5201.github.io/lock01/</a>
+      <a href="https://xiaoyuge5201.github.io/kafka-command/" title="kafka常用命令" target="_blank" rel="external">https://xiaoyuge5201.github.io/kafka-command/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -529,10 +641,6 @@
   </article>
   
     
-  <section id="comments">
-  	
-  </section>
-
 
   
 </div>
@@ -543,12 +651,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/mysql/" title="mysql知识总结"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/sharding-jdbc/" title="分库分表之 ShardingSphere-JDBC"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/ElasticSearch/" title="ElasticSearch安装"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/kafka-install/" title="CentOS安装kafka 2.5.0单机版"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -685,8 +793,6 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 
 
 
-
-   
 
 
 
