@@ -135,6 +135,28 @@
     </item>
     
     <item>
+      <title>CentOS安装Zookeeper 3.7.1单节点</title>
+      <link>https://xiaoyuge5201.github.io/zookeeper-install/</link>
+      <guid>https://xiaoyuge5201.github.io/zookeeper-install/</guid>
+      <pubDate>Fri, 24 Jun 2022 07:12:42 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-JDK依赖&quot;&gt;&lt;a href=&quot;#1-JDK依赖&quot; class=&quot;headerlink&quot; title=&quot;1. JDK依赖&quot;&gt;&lt;/a&gt;1. JDK依赖&lt;/h3&gt;&lt;p&gt;请参考这篇博客：&lt;a href=&quot;https://xiaoyuge.work/jdk-insta</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/Zookeeper/">Zookeeper</category>
+      
+      
+    </item>
+    
+    <item>
       <title>kafka常用命令</title>
       <link>https://xiaoyuge5201.github.io/kafka-command/</link>
       <guid>https://xiaoyuge5201.github.io/kafka-command/</guid>

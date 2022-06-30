@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Linux安装JDK以及配置</title>
-    <url>/jdk-install/</url>
-    <content><![CDATA[<h3 id="1-安装包安装"><a href="#1-安装包安装" class="headerlink" title="1. 安装包安装"></a>1. 安装包安装</h3><ol>
-<li><p>下载jdk安装包（<a href="https://www.oracle.com/cn/java/technologies/javase/downloads/#java8%EF%BC%89">https://www.oracle.com/cn/java/technologies/javase/downloads/#java8）</a><br> <img src="/jdk-install/1.png"></p>
-</li>
-<li><p>上传并解压</p>
-</li>
-</ol>
-<ul>
-<li>在/usr/local/目录下新建文件夹：java</li>
-<li>上传介质到/usr/local/java/</li>
-<li>解压：tar -zxvf jdk-8u311-linux-x64.tar.gz</li>
-</ul>
-<ol start="3">
-<li>配置环境变量 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编辑配置文件</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在末尾追加</span></span><br><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_311</span><br><span class="line">export JRE_HOME=/usr/local/java/jdk1.8.0_311/jre</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使配置文件生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></li>
-<li>测试 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 测试版本号</span></span><br><span class="line">java -version</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">java version &quot;1.8.0_311&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_311-b10)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.291-b10, mixed mode)</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询JAVA_HOME</span></span><br><span class="line">echo $JAVA_HOME</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">/usr/local/java/jdk1.8.0_311</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="2-yum源安装"><a href="#2-yum源安装" class="headerlink" title="2. yum源安装"></a>2. yum源安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 检查是否已经存在java相关命令</span></span><br><span class="line">rpm -qa|grep java</span><br><span class="line">rpm -qa|grep jdk</span><br><span class="line">rpm -qa|grep gcj</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果需要卸载</span></span><br><span class="line">rpm -qa | grep java | xargs rpm -e --nodeps</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 检索Java1.8源列表</span></span><br><span class="line">yum list java-1.8*</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装Java1.8</span></span><br><span class="line">yum install java-1.8.0-openjdk* -y</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询JAVA_HOME</span></span><br><span class="line">which java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">/usr/bin/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ls -l命令</span></span><br><span class="line">ls -l /usr/bin/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">lrwxrwxrwx 1 root root 22 Nov 13 14:37 /usr/bin/java -&gt; /etc/alternatives/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ls -l命令</span></span><br><span class="line">ls -l /etc/alternatives/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">lrwxrwxrwx 1 root root 73 Nov 13 14:37 /etc/alternatives/java -&gt; /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.272.b10-1.el7_9.x86_64/jre/bin/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 则JAVA_HOME路径为：/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.272.b10-1.el7_9.x86_64</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>jdk</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux安装mysql8</title>
     <url>/mysql-install/</url>
     <content><![CDATA[<h3 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h3><ul>
@@ -110,32 +83,30 @@
       </tags>
   </entry>
   <entry>
-    <title>转换成小写字母</title>
-    <url>/algoright-2/</url>
-    <content><![CDATA[<p>实现函数 ToLowerCase()，该函数接收一个字符串参数 str，并将该字符串中的大写字母转换成小写字母，之后返回新的字符串。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">示例 1：</span><br><span class="line">输入: &quot;Hello&quot;</span><br><span class="line">输出: &quot;hello&quot;</span><br><span class="line"></span><br><span class="line">示例2：</span><br><span class="line">输入: &quot;LOVELY&quot;</span><br><span class="line">输出: &quot;lovely&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="方法一：-ASCCII码"><a href="#方法一：-ASCCII码" class="headerlink" title="方法一： ASCCII码"></a>方法一： ASCCII码</h3><p><strong>解题思路：通过ascii码表操作字符串即可,a和A相差32；</strong></p>
+    <title>Linux安装JDK以及配置</title>
+    <url>/jdk-install/</url>
+    <content><![CDATA[<h3 id="1-安装包安装"><a href="#1-安装包安装" class="headerlink" title="1. 安装包安装"></a>1. 安装包安装</h3><ol>
+<li><p>下载jdk安装包（<a href="https://www.oracle.com/cn/java/technologies/javase/downloads/#java8%EF%BC%89">https://www.oracle.com/cn/java/technologies/javase/downloads/#java8）</a><br> <img src="/jdk-install/1.png"></p>
+</li>
+<li><p>上传并解压</p>
+</li>
+</ol>
 <ul>
-<li>a-z: 97 - 122</li>
-<li>A-Z: 65 - 90</li>
-<li>0-9: 48 - 57<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> ch : str.toCharArray()) &#123;</span><br><span class="line">        <span class="comment">// a-z：97-122  A-Z：65-90  0-9：48-57</span></span><br><span class="line">        <span class="keyword">if</span> (ch &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            sb.append((<span class="keyword">char</span>)(ch + <span class="number">32</span>));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sb.append(ch);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-或者：<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] ch = str.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ch[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; ch[i] &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            ch[i] += <span class="number">32</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在/usr/local/目录下新建文件夹：java</li>
+<li>上传介质到/usr/local/java/</li>
+<li>解压：tar -zxvf jdk-8u311-linux-x64.tar.gz</li>
 </ul>
-<h3 id="方法二：-位运算"><a href="#方法二：-位运算" class="headerlink" title="方法二： 位运算"></a>方法二： 位运算</h3><p><strong>解题思路：</strong></p>
-<ul>
-<li>大写变小写、小写变大写：字符 ^= 32;</li>
-<li>大写变小写、小写变小写：字符 |= 32;</li>
-<li>大写变大写、小写变大写：字符 &amp;= 33;</li>
-</ul>
-<p>ASCII码表中大写的A是65，小写的a是97，它们的差是32<br>65 | 32 转为二进制（按8位来算）可以得到 0100 0001 | 0010 0000 = 0110 0001 = 97 = a</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] ch = str.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">        ch[i] |= <span class="number">32</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<ol start="3">
+<li>配置环境变量 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 编辑配置文件</span></span><br><span class="line">vim /etc/profile</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在末尾追加</span></span><br><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_311</span><br><span class="line">export JRE_HOME=/usr/local/java/jdk1.8.0_311/jre</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib:$CLASSPATH</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使配置文件生效</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure></li>
+<li>测试 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 测试版本号</span></span><br><span class="line">java -version</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">java version &quot;1.8.0_311&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_311-b10)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.291-b10, mixed mode)</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询JAVA_HOME</span></span><br><span class="line">echo $JAVA_HOME</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">/usr/local/java/jdk1.8.0_311</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="2-yum源安装"><a href="#2-yum源安装" class="headerlink" title="2. yum源安装"></a>2. yum源安装</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 检查是否已经存在java相关命令</span></span><br><span class="line">rpm -qa|grep java</span><br><span class="line">rpm -qa|grep jdk</span><br><span class="line">rpm -qa|grep gcj</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果需要卸载</span></span><br><span class="line">rpm -qa | grep java | xargs rpm -e --nodeps</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 检索Java1.8源列表</span></span><br><span class="line">yum list java-1.8*</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装Java1.8</span></span><br><span class="line">yum install java-1.8.0-openjdk* -y</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询JAVA_HOME</span></span><br><span class="line">which java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">/usr/bin/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ls -l命令</span></span><br><span class="line">ls -l /usr/bin/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">lrwxrwxrwx 1 root root 22 Nov 13 14:37 /usr/bin/java -&gt; /etc/alternatives/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> ls -l命令</span></span><br><span class="line">ls -l /etc/alternatives/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回</span></span><br><span class="line">lrwxrwxrwx 1 root root 73 Nov 13 14:37 /etc/alternatives/java -&gt; /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.272.b10-1.el7_9.x86_64/jre/bin/java</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 则JAVA_HOME路径为：/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.272.b10-1.el7_9.x86_64</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>linux</category>
       </categories>
       <tags>
-        <tag>algorithm</tag>
+        <tag>jdk</tag>
       </tags>
   </entry>
   <entry>
@@ -162,30 +133,32 @@
       </tags>
   </entry>
   <entry>
-    <title>LockSupport一个很灵活的线程工具类</title>
-    <url>/locksupport/</url>
-    <content><![CDATA[<p>LockSupport是一个编程工具类， 主要是为了阻塞和唤醒线程用的。所有的方法都是静态方法，可以让线程在任意位置阻塞，也可以在任意位置唤醒</p>
-<p>主要的方法： park(阻塞线程)  和  unpark(启动唤醒线程)</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//源码</span></span><br><span class="line"><span class="keyword">package</span> java.util.concurrent.locks;</span><br><span class="line"><span class="keyword">import</span> sun.misc.Unsafe;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockSupport</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LockSupport</span><span class="params">()</span> </span>&#123;&#125; <span class="comment">// Cannot be instantiated.</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setBlocker</span><span class="params">(Thread t, Object arg)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Even though volatile, hotspot doesn&#x27;t need a write barrier here.</span></span><br><span class="line">        UNSAFE.putObject(t, parkBlockerOffset, arg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> thread the thread to unpark, or &#123;<span class="doctag">@code</span> null&#125;, in which case</span></span><br><span class="line"><span class="comment">     *        this operation has no effect</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">unpark</span><span class="params">(Thread thread)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (thread != <span class="keyword">null</span>)</span><br><span class="line">            UNSAFE.unpark(thread);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 阻塞当前线程</span></span><br><span class="line"><span class="comment">     * blocker是用来记录线程被阻塞时被谁阻塞的。用于线程监控和分析工具来定位原因的。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> blocker the synchronization object responsible for this</span></span><br><span class="line"><span class="comment">     *        thread parking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.6</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">park</span><span class="params">(Object blocker)</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        <span class="comment">//setBlocker作用是记录t线程是被broker阻塞的</span></span><br><span class="line">        setBlocker(t, blocker);</span><br><span class="line">        <span class="comment">//UNSAFE是一个非常强大的类，他的的操作是基于底层的</span></span><br><span class="line">        UNSAFE.park(<span class="keyword">false</span>, <span class="number">0L</span>);</span><br><span class="line">        setBlocker(t, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 暂停当前线程，有超时时间</span></span><br><span class="line"><span class="comment">     * blocker是用来记录线程被阻塞时被谁阻塞的。用于线程监控和分析工具来定位原因的。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> blocker the synchronization object responsible for this</span></span><br><span class="line"><span class="comment">     *        thread parking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nanos the maximum number of nanoseconds to wait</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.6</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">parkNanos</span><span class="params">(Object blocker, <span class="keyword">long</span> nanos)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nanos &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            Thread t = Thread.currentThread();</span><br><span class="line">            setBlocker(t, blocker);</span><br><span class="line">            UNSAFE.park(<span class="keyword">false</span>, nanos);</span><br><span class="line">            setBlocker(t, <span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 暂停当前线程，知道某个时间</span></span><br><span class="line"><span class="comment">     * blocker是用来记录线程被阻塞时被谁阻塞的。用于线程监控和分析工具来定位原因的。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> blocker the synchronization object responsible for this</span></span><br><span class="line"><span class="comment">     *        thread parking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> deadline the absolute time, in milliseconds from the Epoch,</span></span><br><span class="line"><span class="comment">     *        to wait until</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.6</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">parkUntil</span><span class="params">(Object blocker, <span class="keyword">long</span> deadline)</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        setBlocker(t, blocker);</span><br><span class="line">        UNSAFE.park(<span class="keyword">true</span>, deadline);</span><br><span class="line">        setBlocker(t, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the blocker object supplied to the most recent</span></span><br><span class="line"><span class="comment">     * invocation of a park method that has not yet unblocked, or null</span></span><br><span class="line"><span class="comment">     * if not blocked.  The value returned is just a momentary</span></span><br><span class="line"><span class="comment">     * snapshot -- the thread may have since unblocked or blocked on a</span></span><br><span class="line"><span class="comment">     * different blocker object.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> t the thread</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> the blocker</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> NullPointerException if argument is null</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.6</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getBlocker</span><span class="params">(Thread t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        <span class="keyword">return</span> UNSAFE.getObjectVolatile(t, parkBlockerOffset);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 无期限暂停当前线程</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">park</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UNSAFE.park(<span class="keyword">false</span>, <span class="number">0L</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 暂停当前线程，不过有超时时间限制</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">parkNanos</span><span class="params">(<span class="keyword">long</span> nanos)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nanos &gt; <span class="number">0</span>)</span><br><span class="line">            UNSAFE.park(<span class="keyword">false</span>, nanos);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 暂停当前线程，知道某个时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> deadline 暂停结束时间</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">parkUntil</span><span class="params">(<span class="keyword">long</span> deadline)</span> </span>&#123;</span><br><span class="line">        UNSAFE.park(<span class="keyword">true</span>, deadline);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the pseudo-randomly initialized or updated secondary seed.</span></span><br><span class="line"><span class="comment">     * Copied from ThreadLocalRandom due to package access restrictions.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">nextSecondarySeed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> r;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        <span class="keyword">if</span> ((r = UNSAFE.getInt(t, SECONDARY)) != <span class="number">0</span>) &#123;</span><br><span class="line">            r ^= r &lt;&lt; <span class="number">13</span>;   <span class="comment">// xorshift</span></span><br><span class="line">            r ^= r &gt;&gt;&gt; <span class="number">17</span>;</span><br><span class="line">            r ^= r &lt;&lt; <span class="number">5</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((r = java.util.concurrent.ThreadLocalRandom.current().nextInt()) == <span class="number">0</span>)</span><br><span class="line">            r = <span class="number">1</span>; <span class="comment">// avoid zero</span></span><br><span class="line">        UNSAFE.putInt(t, SECONDARY, r);</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Hotspot implementation via intrinsics API</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> sun.misc.Unsafe UNSAFE;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> parkBlockerOffset;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> SEED;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> PROBE;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> SECONDARY;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            UNSAFE = sun.misc.Unsafe.getUnsafe();</span><br><span class="line">            Class&lt;?&gt; tk = Thread.class;</span><br><span class="line">            parkBlockerOffset = UNSAFE.objectFieldOffset</span><br><span class="line">                (tk.getDeclaredField(<span class="string">&quot;parkBlocker&quot;</span>));</span><br><span class="line">            SEED = UNSAFE.objectFieldOffset</span><br><span class="line">                (tk.getDeclaredField(<span class="string">&quot;threadLocalRandomSeed&quot;</span>));</span><br><span class="line">            PROBE = UNSAFE.objectFieldOffset</span><br><span class="line">                (tk.getDeclaredField(<span class="string">&quot;threadLocalRandomProbe&quot;</span>));</span><br><span class="line">            SECONDARY = UNSAFE.objectFieldOffset</span><br><span class="line">                (tk.getDeclaredField(<span class="string">&quot;threadLocalRandomSecondarySeed&quot;</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception ex) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Error(ex); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="与wait-notify对比"><a href="#与wait-notify对比" class="headerlink" title="与wait / notify对比"></a>与wait / notify对比</h3><p>LockSupport是用来阻塞和环线线程的，wait/notify同样也是，那么两者的区别是什么？</p>
+    <title>转换成小写字母</title>
+    <url>/algoright-2/</url>
+    <content><![CDATA[<p>实现函数 ToLowerCase()，该函数接收一个字符串参数 str，并将该字符串中的大写字母转换成小写字母，之后返回新的字符串。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">示例 1：</span><br><span class="line">输入: &quot;Hello&quot;</span><br><span class="line">输出: &quot;hello&quot;</span><br><span class="line"></span><br><span class="line">示例2：</span><br><span class="line">输入: &quot;LOVELY&quot;</span><br><span class="line">输出: &quot;lovely&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="方法一：-ASCCII码"><a href="#方法一：-ASCCII码" class="headerlink" title="方法一： ASCCII码"></a>方法一： ASCCII码</h3><p><strong>解题思路：通过ascii码表操作字符串即可,a和A相差32；</strong></p>
 <ul>
-<li>wait和notify都是Object中的方法，在调用这两个方法前必须获得锁对象，但是park不需要获取某个对象的锁就可以锁住线程</li>
-<li>notify只能随机选择一个线程唤醒，无法唤醒指定的线程，unpark可以唤醒一个指定的线程</li>
+<li>a-z: 97 - 122</li>
+<li>A-Z: 65 - 90</li>
+<li>0-9: 48 - 57<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">char</span> ch : str.toCharArray()) &#123;</span><br><span class="line">        <span class="comment">// a-z：97-122  A-Z：65-90  0-9：48-57</span></span><br><span class="line">        <span class="keyword">if</span> (ch &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            sb.append((<span class="keyword">char</span>)(ch + <span class="number">32</span>));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sb.append(ch);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+或者：<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] ch = str.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ch[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; ch[i] &lt;= <span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            ch[i] += <span class="number">32</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="LockSupport使用"><a href="#LockSupport使用" class="headerlink" title="LockSupport使用"></a>LockSupport使用</h3><h4 id="1-先interrupt在park"><a href="#1-先interrupt在park" class="headerlink" title="1. 先interrupt在park"></a>1. 先interrupt在park</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockSupportTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span>  <span class="title">Thread</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(getName() + <span class="string">&quot;进入线程&quot;</span>);</span><br><span class="line">            LockSupport.park();</span><br><span class="line">            System.out.println(<span class="string">&quot;运行结束&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;是否中断：&quot;</span>+Thread.currentThread().isInterrupted());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread thread = <span class="keyword">new</span> MyThread();</span><br><span class="line">        thread.start();</span><br><span class="line">        System.out.println(<span class="string">&quot;线程启动了，但是在内部进行了park&quot;</span>);</span><br><span class="line">        thread.interrupt();</span><br><span class="line">        System.out.println(<span class="string">&quot;main 线程结束&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="comment">//       线程启动了，但是在内部进行了park</span></span><br><span class="line"><span class="comment">//       main 线程结束</span></span><br><span class="line"><span class="comment">//       Thread-0进入线程</span></span><br><span class="line"><span class="comment">//       运行结束</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-先park在interrupt"><a href="#2-先park在interrupt" class="headerlink" title="2. 先park在interrupt"></a>2. 先park在interrupt</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span>  <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(getName() + <span class="string">&quot;进入线程&quot;</span>);</span><br><span class="line">        LockSupport.park();</span><br><span class="line">        System.out.println(<span class="string">&quot;运行结束&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 输出：</span></span><br><span class="line"><span class="comment"> * 线程启动了，但是在内部进行了park</span></span><br><span class="line"><span class="comment"> * main 线程结束</span></span><br><span class="line"><span class="comment"> * Thread-0进入线程</span></span><br><span class="line"><span class="comment"> * 运行结束</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="趣味题"><a href="#趣味题" class="headerlink" title="趣味题"></a>趣味题</h3><p>用两个线程，一个输出字母，一个输出数字交替输出如：1A2B3C4D…</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadDemoTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> Thread t1 = <span class="keyword">null</span>, t2 = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] a = <span class="string">&quot;1234567&quot;</span>.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] b = <span class="string">&quot;ABCDEFG&quot;</span>.toCharArray();</span><br><span class="line"></span><br><span class="line">        t1 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> i : a) &#123;</span><br><span class="line">                System.out.print(i);</span><br><span class="line">                LockSupport.unpark(t2);</span><br><span class="line">                LockSupport.park();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">&quot;t1&quot;</span>);</span><br><span class="line"></span><br><span class="line">        t2 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> i : b) &#123;</span><br><span class="line">                LockSupport.park();</span><br><span class="line">                System.out.print(i);</span><br><span class="line">                LockSupport.unpark(t1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">&quot;t1&quot;</span>);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出：  1A2B3C4D5E6F7G</span></span><br></pre></td></tr></table></figure>
-<p>使用自旋锁也可以实现上面的结果</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CasTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义枚举，包含两个变量</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">ReadyToRun</span></span>&#123;T1, T2&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">volatile</span> ReadyToRun r = ReadyToRun.T1;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] a = <span class="string">&quot;1234567&quot;</span>.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] b = <span class="string">&quot;ABCDEFG&quot;</span>.toCharArray();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : a)&#123;</span><br><span class="line">                <span class="comment">//当r不为T1时， 空转占着cpu等待，然后输出字符，将r的值设置为T2</span></span><br><span class="line">                <span class="keyword">while</span> (r != ReadyToRun.T1)&#123;&#125;</span><br><span class="line">                System.out.print(c+<span class="string">&quot; &quot;</span>);</span><br><span class="line">                r = ReadyToRun.T2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;t1&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : b)&#123;</span><br><span class="line">                <span class="keyword">while</span> (r != ReadyToRun.T2)&#123;&#125;</span><br><span class="line">                System.out.print(c+<span class="string">&quot; &quot;</span>);</span><br><span class="line">                r = ReadyToRun.T1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;t2&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方法二：-位运算"><a href="#方法二：-位运算" class="headerlink" title="方法二： 位运算"></a>方法二： 位运算</h3><p><strong>解题思路：</strong></p>
+<ul>
+<li>大写变小写、小写变大写：字符 ^= 32;</li>
+<li>大写变小写、小写变小写：字符 |= 32;</li>
+<li>大写变大写、小写变大写：字符 &amp;= 33;</li>
+</ul>
+<p>ASCII码表中大写的A是65，小写的a是97，它们的差是32<br>65 | 32 转为二进制（按8位来算）可以得到 0100 0001 | 0010 0000 = 0110 0001 = 97 = a</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toLowerCase</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] ch = str.toCharArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.length(); i++) &#123;</span><br><span class="line">        ch[i] |= <span class="number">32</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> String.valueOf(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
-        <category>java</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>thread</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -397,6 +370,17 @@
       </tags>
   </entry>
   <entry>
+    <title>java缓存一致性问题</title>
+    <url>/cache-consistency/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>中间件</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>springCloud之FeignClient访问微服务接口缓慢</title>
     <url>/bug-sprigCloud/</url>
     <content><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：<br>程序启动第一次访问初始化1.2秒左右，还可以理解。<br>但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。<br>但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。</p>
@@ -411,17 +395,6 @@
       </categories>
       <tags>
         <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java缓存一致性问题</title>
-    <url>/cache-consistency/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>中间件</category>
-      </categories>
-      <tags>
-        <tag>redis</tag>
       </tags>
   </entry>
   <entry>
@@ -1084,30 +1057,6 @@
       </tags>
   </entry>
   <entry>
-    <title>mysql数据库锁</title>
-    <url>/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/</url>
-    <content><![CDATA[<p>当数据库有事物的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；<br><strong>锁的作用</strong>：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。<br>##1. 不同引擎的锁以及锁分类<br><strong>Mysql数据库中，InnoDB支持表、行级锁，而MyISAM支持表级锁</strong><br><br><br>Mysql大致可以归纳为以下3种锁：</p>
-<ul>
-<li>表级锁：开销小，加锁块，不会出现死锁，发生锁冲突的概率最高，并发度最低。</li>
-<li>行级锁：开销大，加锁慢，会出现死锁，发生锁冲突的概率最低，并发度最高。</li>
-<li>页面锁：开销和加锁的时间介于表级锁和行级锁之间，会出现死锁，锁粒度介于两者之间；并发度一般，一次锁定相邻一组记录</li>
-</ul>
-<p>Mysql表级锁两种模式: <strong>表共享锁（Table Read Lock）和 表独占写锁（Table Write Lock）</strong>，表现如下：</p>
-<ul>
-<li>对一个表的读操作，不会阻塞其他用户对同一表请求，但会阻塞对同一表的写请求；</li>
-<li>对MyISAM的写操作，则会则色其他用户对同一表的读和写操作；</li>
-<li>MyISAM表的读操作和写操作之间，以及写操作之间是串行的。<br>当一个线程获得对一个表的写锁后，只有持有锁的线程可以对表进行更新操作，其他线程的读、写操作都会等待。</li>
-</ul>
-<p>##2.加表级锁<br>MyISAM在执行查询语句（SELECT）前，会自动给涉及的所有表加读锁，在执行更新操作（UPDATE、DELETE、INSERT等）前，会自动给涉及的表加写锁，这个过程并不需要用户干预，因此用户一般不需要直接用LOCK TABLE命令给MyISAM表显式加锁。<br>给MyISAM表显式加锁，一般是为了一定程度模拟事务操作，实现对某一时间点多个表的一致性读取。例如，有一个订单表orders，其中记录有订单的总金额total，同时还有一个订单明细表order_detail，其中记录有订单每一产品的金额小计subtotal，假设我们需要检查这两个表的金额合计是否相等，可能就需要执行如下两条SQL</p>
-]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java内存泄漏排查</title>
     <url>/outOfMemoryError/</url>
     <content><![CDATA[<h2 id="1-内存溢出"><a href="#1-内存溢出" class="headerlink" title="1.内存溢出"></a>1.内存溢出</h2><p>java.lang.OutOfMemoryError：是指程序在申请内存是，没有足够的内存克难攻坚供其使用，出现OutOfMemoryError</p>
@@ -1168,6 +1117,50 @@
       </categories>
       <tags>
         <tag>内存溢出</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql数据库锁</title>
+    <url>/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/</url>
+    <content><![CDATA[<p>当数据库有事物的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；<br><strong>锁的作用</strong>：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。<br>##1. 不同引擎的锁以及锁分类<br><strong>Mysql数据库中，InnoDB支持表、行级锁，而MyISAM支持表级锁</strong><br><br><br>Mysql大致可以归纳为以下3种锁：</p>
+<ul>
+<li>表级锁：开销小，加锁块，不会出现死锁，发生锁冲突的概率最高，并发度最低。</li>
+<li>行级锁：开销大，加锁慢，会出现死锁，发生锁冲突的概率最低，并发度最高。</li>
+<li>页面锁：开销和加锁的时间介于表级锁和行级锁之间，会出现死锁，锁粒度介于两者之间；并发度一般，一次锁定相邻一组记录</li>
+</ul>
+<p>Mysql表级锁两种模式: <strong>表共享锁（Table Read Lock）和 表独占写锁（Table Write Lock）</strong>，表现如下：</p>
+<ul>
+<li>对一个表的读操作，不会阻塞其他用户对同一表请求，但会阻塞对同一表的写请求；</li>
+<li>对MyISAM的写操作，则会则色其他用户对同一表的读和写操作；</li>
+<li>MyISAM表的读操作和写操作之间，以及写操作之间是串行的。<br>当一个线程获得对一个表的写锁后，只有持有锁的线程可以对表进行更新操作，其他线程的读、写操作都会等待。</li>
+</ul>
+<p>##2.加表级锁<br>MyISAM在执行查询语句（SELECT）前，会自动给涉及的所有表加读锁，在执行更新操作（UPDATE、DELETE、INSERT等）前，会自动给涉及的表加写锁，这个过程并不需要用户干预，因此用户一般不需要直接用LOCK TABLE命令给MyISAM表显式加锁。<br>给MyISAM表显式加锁，一般是为了一定程度模拟事务操作，实现对某一时间点多个表的一致性读取。例如，有一个订单表orders，其中记录有订单的总金额total，同时还有一个订单明细表order_detail，其中记录有订单每一产品的金额小计subtotal，假设我们需要检查这两个表的金额合计是否相等，可能就需要执行如下两条SQL</p>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux环境下安装Redis</title>
+    <url>/redis_install/</url>
+    <content><![CDATA[<h5 id="1-安装gcc"><a href="#1-安装gcc" class="headerlink" title="1. 安装gcc"></a>1. 安装gcc</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install gcc gcc-c++</span><br></pre></td></tr></table></figure>
+<h5 id="2-下载安装包"><a href="#2-下载安装包" class="headerlink" title="2. 下载安装包"></a>2. 下载安装包</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://download.redis.io/redis-stable.tar.gz </span><br></pre></td></tr></table></figure>
+<h5 id="3-解压"><a href="#3-解压" class="headerlink" title="3. 解压"></a>3. 解压</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar xvzf redis-stable.tar.gz</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">移动redis目录，一般都会将redis目录放置到 /usr/<span class="built_in">local</span>/redis目录</span></span><br><span class="line">mv redis-6.2.6 /usr/local/redis</span><br></pre></td></tr></table></figure>
+<h5 id="4-编译"><a href="#4-编译" class="headerlink" title="4. 编译"></a>4. 编译</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/redis</span><br><span class="line">make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果执行make命令报错：cc 未找到命令，原因是虚拟机系统中缺少gcc，执行下面命令安装gcc：yum -y install gcc automake autoconf libtool make</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">如果使用make失败，致命错误:jemalloc/jemalloc.h: 没有那个文件或目录，则需要在make指定分配器为libc make MALLOC=libc</span></span><br><span class="line">//make之后如果出现Hint: To run &#x27;make test&#x27; is a good idea ;</span><br><span class="line">//运行make test, 会提示需要安装tcl,执行yum install tcl</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">执行下面命令安装redis，并指定安装目录</span></span><br><span class="line">make install PREFIX=/usr/local/redis</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-配置密码以及允许外网ip访问"><a href="#5-配置密码以及允许外网ip访问" class="headerlink" title="5. 配置密码以及允许外网ip访问"></a>5. 配置密码以及允许外网ip访问</h5>   <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在redis.conf中配置requirepass 密码以及port端口号（非必须）</span></span><br><span class="line"><span class="attr">requirepass</span> <span class="string">xxx</span></span><br><span class="line"><span class="attr">port</span> <span class="string">6379 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#开启redis允许外网ip访问，在 Linux 中安装了redis 服务，当在客户端通过远程连接的方式连接时，报could not connect错误。错误的原因为：redis采用的安全策略，默认会只准许本地访问。</span></span><br><span class="line"><span class="comment">#将所有的bing信息全部屏蔽</span></span><br><span class="line"><span class="comment">#bind 192.168.1.100 10.0.0.1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#配置redis后台启动，如果不配置的话可以使用hohup启动</span></span><br><span class="line"><span class="attr">daemonize</span> <span class="string">yes</span></span><br></pre></td></tr></table></figure>
+<h5 id="6-启动redis服务"><a href="#6-启动redis服务" class="headerlink" title="6. 启动redis服务"></a>6. 启动redis服务</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ./src</span><br><span class="line">nohup ./redis-server ../redis.conf &amp;</span><br></pre></td></tr></table></figure>
+<h5 id="7-查看redis进程"><a href="#7-查看redis进程" class="headerlink" title="7. 查看redis进程"></a>7. 查看redis进程</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost redis]# pstree</span><br></pre></td></tr></table></figure>
+<p>   <img src="/redis_install/image-20201201155441018.png" alt="image-20201210103251475"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
       </tags>
   </entry>
   <entry>
@@ -1260,26 +1253,6 @@
 ]]></content>
       <categories>
         <category>中间件</category>
-      </categories>
-      <tags>
-        <tag>redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux环境下安装Redis</title>
-    <url>/redis_install/</url>
-    <content><![CDATA[<h5 id="1-安装gcc"><a href="#1-安装gcc" class="headerlink" title="1. 安装gcc"></a>1. 安装gcc</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install gcc gcc-c++</span><br></pre></td></tr></table></figure>
-<h5 id="2-下载安装包"><a href="#2-下载安装包" class="headerlink" title="2. 下载安装包"></a>2. 下载安装包</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget http://download.redis.io/redis-stable.tar.gz </span><br></pre></td></tr></table></figure>
-<h5 id="3-解压"><a href="#3-解压" class="headerlink" title="3. 解压"></a>3. 解压</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar xvzf redis-stable.tar.gz</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">移动redis目录，一般都会将redis目录放置到 /usr/<span class="built_in">local</span>/redis目录</span></span><br><span class="line">mv redis-6.2.6 /usr/local/redis</span><br></pre></td></tr></table></figure>
-<h5 id="4-编译"><a href="#4-编译" class="headerlink" title="4. 编译"></a>4. 编译</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/redis</span><br><span class="line">make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果执行make命令报错：cc 未找到命令，原因是虚拟机系统中缺少gcc，执行下面命令安装gcc：yum -y install gcc automake autoconf libtool make</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">如果使用make失败，致命错误:jemalloc/jemalloc.h: 没有那个文件或目录，则需要在make指定分配器为libc make MALLOC=libc</span></span><br><span class="line">//make之后如果出现Hint: To run &#x27;make test&#x27; is a good idea ;</span><br><span class="line">//运行make test, 会提示需要安装tcl,执行yum install tcl</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">执行下面命令安装redis，并指定安装目录</span></span><br><span class="line">make install PREFIX=/usr/local/redis</span><br></pre></td></tr></table></figure>
-
-<h5 id="5-配置密码以及允许外网ip访问"><a href="#5-配置密码以及允许外网ip访问" class="headerlink" title="5. 配置密码以及允许外网ip访问"></a>5. 配置密码以及允许外网ip访问</h5>   <figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment">#在redis.conf中配置requirepass 密码以及port端口号（非必须）</span></span><br><span class="line"><span class="attr">requirepass</span> <span class="string">xxx</span></span><br><span class="line"><span class="attr">port</span> <span class="string">6379 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#开启redis允许外网ip访问，在 Linux 中安装了redis 服务，当在客户端通过远程连接的方式连接时，报could not connect错误。错误的原因为：redis采用的安全策略，默认会只准许本地访问。</span></span><br><span class="line"><span class="comment">#将所有的bing信息全部屏蔽</span></span><br><span class="line"><span class="comment">#bind 192.168.1.100 10.0.0.1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#配置redis后台启动，如果不配置的话可以使用hohup启动</span></span><br><span class="line"><span class="attr">daemonize</span> <span class="string">yes</span></span><br></pre></td></tr></table></figure>
-<h5 id="6-启动redis服务"><a href="#6-启动redis服务" class="headerlink" title="6. 启动redis服务"></a>6. 启动redis服务</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ./src</span><br><span class="line">nohup ./redis-server ../redis.conf &amp;</span><br></pre></td></tr></table></figure>
-<h5 id="7-查看redis进程"><a href="#7-查看redis进程" class="headerlink" title="7. 查看redis进程"></a>7. 查看redis进程</h5>   <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost redis]# pstree</span><br></pre></td></tr></table></figure>
-<p>   <img src="/redis_install/image-20201201155441018.png" alt="image-20201210103251475"></p>
-]]></content>
-      <categories>
-        <category>linux</category>
       </categories>
       <tags>
         <tag>redis</tag>
@@ -1512,6 +1485,33 @@
       </tags>
   </entry>
   <entry>
+    <title>LockSupport一个很灵活的线程工具类</title>
+    <url>/locksupport/</url>
+    <content><![CDATA[<p>LockSupport是一个编程工具类， 主要是为了阻塞和唤醒线程用的。所有的方法都是静态方法，可以让线程在任意位置阻塞，也可以在任意位置唤醒</p>
+<p>主要的方法： park(阻塞线程)  和  unpark(启动唤醒线程)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//源码</span></span><br><span class="line"><span class="keyword">package</span> java.util.concurrent.locks;</span><br><span class="line"><span class="keyword">import</span> sun.misc.Unsafe;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockSupport</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">LockSupport</span><span class="params">()</span> </span>&#123;&#125; <span class="comment">// Cannot be instantiated.</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setBlocker</span><span class="params">(Thread t, Object arg)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Even though volatile, hotspot doesn&#x27;t need a write barrier here.</span></span><br><span class="line">        UNSAFE.putObject(t, parkBlockerOffset, arg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> thread the thread to unpark, or &#123;<span class="doctag">@code</span> null&#125;, in which case</span></span><br><span class="line"><span class="comment">     *        this operation has no effect</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">unpark</span><span class="params">(Thread thread)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (thread != <span class="keyword">null</span>)</span><br><span class="line">            UNSAFE.unpark(thread);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 阻塞当前线程</span></span><br><span class="line"><span class="comment">     * blocker是用来记录线程被阻塞时被谁阻塞的。用于线程监控和分析工具来定位原因的。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> blocker the synchronization object responsible for this</span></span><br><span class="line"><span class="comment">     *        thread parking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.6</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">park</span><span class="params">(Object blocker)</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        <span class="comment">//setBlocker作用是记录t线程是被broker阻塞的</span></span><br><span class="line">        setBlocker(t, blocker);</span><br><span class="line">        <span class="comment">//UNSAFE是一个非常强大的类，他的的操作是基于底层的</span></span><br><span class="line">        UNSAFE.park(<span class="keyword">false</span>, <span class="number">0L</span>);</span><br><span class="line">        setBlocker(t, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 暂停当前线程，有超时时间</span></span><br><span class="line"><span class="comment">     * blocker是用来记录线程被阻塞时被谁阻塞的。用于线程监控和分析工具来定位原因的。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> blocker the synchronization object responsible for this</span></span><br><span class="line"><span class="comment">     *        thread parking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> nanos the maximum number of nanoseconds to wait</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.6</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">parkNanos</span><span class="params">(Object blocker, <span class="keyword">long</span> nanos)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nanos &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            Thread t = Thread.currentThread();</span><br><span class="line">            setBlocker(t, blocker);</span><br><span class="line">            UNSAFE.park(<span class="keyword">false</span>, nanos);</span><br><span class="line">            setBlocker(t, <span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 暂停当前线程，知道某个时间</span></span><br><span class="line"><span class="comment">     * blocker是用来记录线程被阻塞时被谁阻塞的。用于线程监控和分析工具来定位原因的。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> blocker the synchronization object responsible for this</span></span><br><span class="line"><span class="comment">     *        thread parking</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> deadline the absolute time, in milliseconds from the Epoch,</span></span><br><span class="line"><span class="comment">     *        to wait until</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.6</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">parkUntil</span><span class="params">(Object blocker, <span class="keyword">long</span> deadline)</span> </span>&#123;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        setBlocker(t, blocker);</span><br><span class="line">        UNSAFE.park(<span class="keyword">true</span>, deadline);</span><br><span class="line">        setBlocker(t, <span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the blocker object supplied to the most recent</span></span><br><span class="line"><span class="comment">     * invocation of a park method that has not yet unblocked, or null</span></span><br><span class="line"><span class="comment">     * if not blocked.  The value returned is just a momentary</span></span><br><span class="line"><span class="comment">     * snapshot -- the thread may have since unblocked or blocked on a</span></span><br><span class="line"><span class="comment">     * different blocker object.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> t the thread</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> the blocker</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> NullPointerException if argument is null</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 1.6</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">getBlocker</span><span class="params">(Thread t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        <span class="keyword">return</span> UNSAFE.getObjectVolatile(t, parkBlockerOffset);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 无期限暂停当前线程</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">park</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UNSAFE.park(<span class="keyword">false</span>, <span class="number">0L</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 暂停当前线程，不过有超时时间限制</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">parkNanos</span><span class="params">(<span class="keyword">long</span> nanos)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nanos &gt; <span class="number">0</span>)</span><br><span class="line">            UNSAFE.park(<span class="keyword">false</span>, nanos);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 暂停当前线程，知道某个时间</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> deadline 暂停结束时间</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">parkUntil</span><span class="params">(<span class="keyword">long</span> deadline)</span> </span>&#123;</span><br><span class="line">        UNSAFE.park(<span class="keyword">true</span>, deadline);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the pseudo-randomly initialized or updated secondary seed.</span></span><br><span class="line"><span class="comment">     * Copied from ThreadLocalRandom due to package access restrictions.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">nextSecondarySeed</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> r;</span><br><span class="line">        Thread t = Thread.currentThread();</span><br><span class="line">        <span class="keyword">if</span> ((r = UNSAFE.getInt(t, SECONDARY)) != <span class="number">0</span>) &#123;</span><br><span class="line">            r ^= r &lt;&lt; <span class="number">13</span>;   <span class="comment">// xorshift</span></span><br><span class="line">            r ^= r &gt;&gt;&gt; <span class="number">17</span>;</span><br><span class="line">            r ^= r &lt;&lt; <span class="number">5</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((r = java.util.concurrent.ThreadLocalRandom.current().nextInt()) == <span class="number">0</span>)</span><br><span class="line">            r = <span class="number">1</span>; <span class="comment">// avoid zero</span></span><br><span class="line">        UNSAFE.putInt(t, SECONDARY, r);</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Hotspot implementation via intrinsics API</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> sun.misc.Unsafe UNSAFE;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> parkBlockerOffset;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> SEED;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> PROBE;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> SECONDARY;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            UNSAFE = sun.misc.Unsafe.getUnsafe();</span><br><span class="line">            Class&lt;?&gt; tk = Thread.class;</span><br><span class="line">            parkBlockerOffset = UNSAFE.objectFieldOffset</span><br><span class="line">                (tk.getDeclaredField(<span class="string">&quot;parkBlocker&quot;</span>));</span><br><span class="line">            SEED = UNSAFE.objectFieldOffset</span><br><span class="line">                (tk.getDeclaredField(<span class="string">&quot;threadLocalRandomSeed&quot;</span>));</span><br><span class="line">            PROBE = UNSAFE.objectFieldOffset</span><br><span class="line">                (tk.getDeclaredField(<span class="string">&quot;threadLocalRandomProbe&quot;</span>));</span><br><span class="line">            SECONDARY = UNSAFE.objectFieldOffset</span><br><span class="line">                (tk.getDeclaredField(<span class="string">&quot;threadLocalRandomSecondarySeed&quot;</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception ex) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> Error(ex); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="与wait-notify对比"><a href="#与wait-notify对比" class="headerlink" title="与wait / notify对比"></a>与wait / notify对比</h3><p>LockSupport是用来阻塞和环线线程的，wait/notify同样也是，那么两者的区别是什么？</p>
+<ul>
+<li>wait和notify都是Object中的方法，在调用这两个方法前必须获得锁对象，但是park不需要获取某个对象的锁就可以锁住线程</li>
+<li>notify只能随机选择一个线程唤醒，无法唤醒指定的线程，unpark可以唤醒一个指定的线程</li>
+</ul>
+<h3 id="LockSupport使用"><a href="#LockSupport使用" class="headerlink" title="LockSupport使用"></a>LockSupport使用</h3><h4 id="1-先interrupt在park"><a href="#1-先interrupt在park" class="headerlink" title="1. 先interrupt在park"></a>1. 先interrupt在park</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LockSupportTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span>  <span class="title">Thread</span></span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(getName() + <span class="string">&quot;进入线程&quot;</span>);</span><br><span class="line">            LockSupport.park();</span><br><span class="line">            System.out.println(<span class="string">&quot;运行结束&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;是否中断：&quot;</span>+Thread.currentThread().isInterrupted());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyThread thread = <span class="keyword">new</span> MyThread();</span><br><span class="line">        thread.start();</span><br><span class="line">        System.out.println(<span class="string">&quot;线程启动了，但是在内部进行了park&quot;</span>);</span><br><span class="line">        thread.interrupt();</span><br><span class="line">        System.out.println(<span class="string">&quot;main 线程结束&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出</span></span><br><span class="line"><span class="comment">//       线程启动了，但是在内部进行了park</span></span><br><span class="line"><span class="comment">//       main 线程结束</span></span><br><span class="line"><span class="comment">//       Thread-0进入线程</span></span><br><span class="line"><span class="comment">//       运行结束</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-先park在interrupt"><a href="#2-先park在interrupt" class="headerlink" title="2. 先park在interrupt"></a>2. 先park在interrupt</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span>  <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(getName() + <span class="string">&quot;进入线程&quot;</span>);</span><br><span class="line">        LockSupport.park();</span><br><span class="line">        System.out.println(<span class="string">&quot;运行结束&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 输出：</span></span><br><span class="line"><span class="comment"> * 线程启动了，但是在内部进行了park</span></span><br><span class="line"><span class="comment"> * main 线程结束</span></span><br><span class="line"><span class="comment"> * Thread-0进入线程</span></span><br><span class="line"><span class="comment"> * 运行结束</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="趣味题"><a href="#趣味题" class="headerlink" title="趣味题"></a>趣味题</h3><p>用两个线程，一个输出字母，一个输出数字交替输出如：1A2B3C4D…</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadDemoTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> Thread t1 = <span class="keyword">null</span>, t2 = <span class="keyword">null</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] a = <span class="string">&quot;1234567&quot;</span>.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] b = <span class="string">&quot;ABCDEFG&quot;</span>.toCharArray();</span><br><span class="line"></span><br><span class="line">        t1 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> i : a) &#123;</span><br><span class="line">                System.out.print(i);</span><br><span class="line">                LockSupport.unpark(t2);</span><br><span class="line">                LockSupport.park();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">&quot;t1&quot;</span>);</span><br><span class="line"></span><br><span class="line">        t2 = <span class="keyword">new</span> Thread(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> i : b) &#123;</span><br><span class="line">                LockSupport.park();</span><br><span class="line">                System.out.print(i);</span><br><span class="line">                LockSupport.unpark(t1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="string">&quot;t1&quot;</span>);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出：  1A2B3C4D5E6F7G</span></span><br></pre></td></tr></table></figure>
+<p>使用自旋锁也可以实现上面的结果</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CasTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//定义枚举，包含两个变量</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">ReadyToRun</span></span>&#123;T1, T2&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">volatile</span> ReadyToRun r = ReadyToRun.T1;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] a = <span class="string">&quot;1234567&quot;</span>.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] b = <span class="string">&quot;ABCDEFG&quot;</span>.toCharArray();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : a)&#123;</span><br><span class="line">                <span class="comment">//当r不为T1时， 空转占着cpu等待，然后输出字符，将r的值设置为T2</span></span><br><span class="line">                <span class="keyword">while</span> (r != ReadyToRun.T1)&#123;&#125;</span><br><span class="line">                System.out.print(c+<span class="string">&quot; &quot;</span>);</span><br><span class="line">                r = ReadyToRun.T2;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;t1&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : b)&#123;</span><br><span class="line">                <span class="keyword">while</span> (r != ReadyToRun.T2)&#123;&#125;</span><br><span class="line">                System.out.print(c+<span class="string">&quot; &quot;</span>);</span><br><span class="line">                r = ReadyToRun.T1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;t2&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>thread</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二分法查找题</title>
     <url>/algorithm-dinary-search/</url>
     <content><![CDATA[<h3 id="1-第一个错误的版本"><a href="#1-第一个错误的版本" class="headerlink" title="1. 第一个错误的版本"></a>1. 第一个错误的版本</h3><h3 id="1-1-题目描述"><a href="#1-1-题目描述" class="headerlink" title="1.1 题目描述"></a>1.1 题目描述</h3><p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。<br>假设你有 n 个版本 [1, 2, …, n]，你想找出导致之后所有版本出错的第一个错误的版本。<br>你可以通过调用bool isBadVersion(version)接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。<br>示例</p>
@@ -1526,43 +1526,6 @@
       </categories>
       <tags>
         <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TIDB设置sql_mode</title>
-    <url>/sql-model/</url>
-    <content><![CDATA[<h3 id="1-使用命令查询当前sql-mode"><a href="#1-使用命令查询当前sql-mode" class="headerlink" title="1. 使用命令查询当前sql_mode"></a>1. 使用命令查询当前sql_mode</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> @<span class="variable">@sql</span>_mode</span><br><span class="line"><span class="comment">-- 或者</span></span><br><span class="line"><span class="keyword">select</span> @<span class="variable">@GLOBAL</span>.sql_mode</span><br></pre></td></tr></table></figure>
-<p><img src="/sql-model/1.png" alt="sql_mode"></p>
-<h5 id="sql-mode常用值："><a href="#sql-mode常用值：" class="headerlink" title="sql_mode常用值："></a>sql_mode常用值：</h5><ul>
-<li><p>ONLY_FULL_GROUP_BY<br>对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中</p>
-</li>
-<li><p>NO_AUTO_VALUE_ON_ZERO<br>该值影响自增长列的插入。默认设置下，插入0或NULL代表生成下一个自增长值。如果用户希望插入的值为0，而该列又是自增长的，那么这个选项就有用了。</p>
-</li>
-<li><p>STRICT_TRANS_TABLES<br>在该模式下，如果一个值不能插入到一个事务中，则中断当前的操作，对非事务表不做限制</p>
-</li>
-<li><p>NO_ZERO_IN_DATE<br>在严格模式下，不允许日期和月份为零</p>
-</li>
-<li><p>NO_ZERO_DATE<br>设置该值，mysql数据库不允许插入零日期，插入零日期会抛出错误而不是警告</p>
-</li>
-<li><p>ERROR_FOR_DIVISION_BY_ZERO<br>在insert或update过程中，如果数据被零除，则产生错误而非警告。如果未给出该模式，那么数据被零除时Mysql返回NULL</p>
-</li>
-<li><p>NO_AUTO_CREATE_USER<br>禁止GRANT创建密码为空的用户</p>
-</li>
-<li><p>NO_ENGINE_SUBSTITUTION<br>如果需要的存储引擎被禁用或未编译，那么抛出错误。不设置此值时，用默认的存储引擎替代，并抛出一个异常</p>
-</li>
-<li><p>PIPES_AS_CONCAT<br>将”||”视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样是，也和字符串的拼接函数Concat想类似</p>
-</li>
-<li><p>ANSI_QUOTES<br>启用ANSI_QUOTES后，不能用双引号来引用字符串，因为它被解释为识别符</p>
-</li>
-</ul>
-<h3 id="2-临时设置（新session仍然使用之前的sql-mode）"><a href="#2-临时设置（新session仍然使用之前的sql-mode）" class="headerlink" title="2. 临时设置（新session仍然使用之前的sql_mode）"></a>2. 临时设置（新session仍然使用之前的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> sql_mode<span class="operator">=</span>‘ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES’;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-全局设置（新session仍然使用修改后的sql-mode）"><a href="#3-全局设置（新session仍然使用修改后的sql-mode）" class="headerlink" title="3. 全局设置（新session仍然使用修改后的sql_mode）"></a>3. 全局设置（新session仍然使用修改后的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> @<span class="variable">@global</span>.sql_mode<span class="operator">=</span><span class="string">&#x27;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE‘；</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>mysql</category>
-      </categories>
-      <tags>
-        <tag>tidb</tag>
       </tags>
   </entry>
   <entry>
@@ -1651,6 +1614,43 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TIDB设置sql_mode</title>
+    <url>/sql-model/</url>
+    <content><![CDATA[<h3 id="1-使用命令查询当前sql-mode"><a href="#1-使用命令查询当前sql-mode" class="headerlink" title="1. 使用命令查询当前sql_mode"></a>1. 使用命令查询当前sql_mode</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> @<span class="variable">@sql</span>_mode</span><br><span class="line"><span class="comment">-- 或者</span></span><br><span class="line"><span class="keyword">select</span> @<span class="variable">@GLOBAL</span>.sql_mode</span><br></pre></td></tr></table></figure>
+<p><img src="/sql-model/1.png" alt="sql_mode"></p>
+<h5 id="sql-mode常用值："><a href="#sql-mode常用值：" class="headerlink" title="sql_mode常用值："></a>sql_mode常用值：</h5><ul>
+<li><p>ONLY_FULL_GROUP_BY<br>对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中</p>
+</li>
+<li><p>NO_AUTO_VALUE_ON_ZERO<br>该值影响自增长列的插入。默认设置下，插入0或NULL代表生成下一个自增长值。如果用户希望插入的值为0，而该列又是自增长的，那么这个选项就有用了。</p>
+</li>
+<li><p>STRICT_TRANS_TABLES<br>在该模式下，如果一个值不能插入到一个事务中，则中断当前的操作，对非事务表不做限制</p>
+</li>
+<li><p>NO_ZERO_IN_DATE<br>在严格模式下，不允许日期和月份为零</p>
+</li>
+<li><p>NO_ZERO_DATE<br>设置该值，mysql数据库不允许插入零日期，插入零日期会抛出错误而不是警告</p>
+</li>
+<li><p>ERROR_FOR_DIVISION_BY_ZERO<br>在insert或update过程中，如果数据被零除，则产生错误而非警告。如果未给出该模式，那么数据被零除时Mysql返回NULL</p>
+</li>
+<li><p>NO_AUTO_CREATE_USER<br>禁止GRANT创建密码为空的用户</p>
+</li>
+<li><p>NO_ENGINE_SUBSTITUTION<br>如果需要的存储引擎被禁用或未编译，那么抛出错误。不设置此值时，用默认的存储引擎替代，并抛出一个异常</p>
+</li>
+<li><p>PIPES_AS_CONCAT<br>将”||”视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样是，也和字符串的拼接函数Concat想类似</p>
+</li>
+<li><p>ANSI_QUOTES<br>启用ANSI_QUOTES后，不能用双引号来引用字符串，因为它被解释为识别符</p>
+</li>
+</ul>
+<h3 id="2-临时设置（新session仍然使用之前的sql-mode）"><a href="#2-临时设置（新session仍然使用之前的sql-mode）" class="headerlink" title="2. 临时设置（新session仍然使用之前的sql_mode）"></a>2. 临时设置（新session仍然使用之前的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> sql_mode<span class="operator">=</span>‘ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES’;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-全局设置（新session仍然使用修改后的sql-mode）"><a href="#3-全局设置（新session仍然使用修改后的sql-mode）" class="headerlink" title="3. 全局设置（新session仍然使用修改后的sql_mode）"></a>3. 全局设置（新session仍然使用修改后的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> @<span class="variable">@global</span>.sql_mode<span class="operator">=</span><span class="string">&#x27;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE‘；</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>tidb</tag>
       </tags>
   </entry>
   <entry>
@@ -1768,168 +1768,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MinIO简介以及Linux安装MinIO</title>
-    <url>/linux-minio/</url>
-    <content><![CDATA[<h2 id="1-什么是对象存储"><a href="#1-什么是对象存储" class="headerlink" title="1. 什么是对象存储"></a>1. 什么是对象存储</h2><p>对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，<strong>适合存放任意类型的文件</strong>。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。</p>
-<p>最大的优势：可以存储大量的非结构话数据，例如：图片、视频、日志文件、备份数据和容器/虚拟机镜像等。</p>
-<h2 id="2-MinIO"><a href="#2-MinIO" class="headerlink" title="2. MinIO"></a>2. MinIO</h2><p>MinIO 是个基于Golang编写的开源对象存储套件，基于Apache License V2.0开源协议，虽然轻量，却拥有不错的性能，兼容亚马逊S3云存储服务接口。可以很简单的和其他应用结合使用，例如：NodeJS、Redis、mysql等</p>
-<p>中文文档： <a href="http://docs.minio.org.cn/docs/master/minio-monitoring-guide">http://docs.minio.org.cn/docs/master/minio-monitoring-guide</a></p>
-<h3 id="2-1-MinIO应用场景"><a href="#2-1-MinIO应用场景" class="headerlink" title="2.1 MinIO应用场景"></a>2.1 MinIO应用场景</h3><p>可以作为私有云的对象存储服务来使用，也可以作为云对象存储的网关层，无缝对接Amazon S3 或者 MicroSoft Azure 。<br><img src="/linux-minio/1.png" alt="应用场景"></p>
-<h3 id="2-2-MinIO特点"><a href="#2-2-MinIO特点" class="headerlink" title="2.2 MinIO特点"></a>2.2 MinIO特点</h3><ul>
-<li><p>高性能</p>
-<p>  作为一款高性能存储，在标准硬件条件下，其读写速率分别可以达到55Gb/s和 35Gb/s。并且MinIO支持一个对象文件是任意大小（几KB到最大5T不等）</p>
-</li>
-<li><p>可扩展</p>
-<p>  不同MinIO集群可以组成联邦，并形成一个全局的命名空间，并且支持跨越多个数据中心</p>
-</li>
-<li><p>云原生</p>
-<p>  容器化、基于K8S的编排、多租户支持</p>
-</li>
-<li><p>Amazon S3兼容</p>
-<p>  使用Amazon S3 V2/V4 API。可以使用Minio SDK，Minio Client，AWS SDK 和 AWS CLI 访问Minio服务器。</p>
-</li>
-<li><p>可对接多种后端存储</p>
-<p>除了Minio自己的文件系统，还支持 DAS、 JBODs、NAS、Google云存储和 Azure Blob存储。</p>
-</li>
-<li><p>SDK支持</p>
-<p>GO SDK： <a href="https://github.com/minio/minio-go">https://github.com/minio/minio-go</a></p>
-<p>JavaSDK： <a href="https://github.com/minio/minio-java">https://github.com/minio/minio-java</a></p>
-<p>PythonSDK： <a href="https://github.com/minio/minio-py">https://github.com/minio/minio-py</a></p>
-</li>
-</ul>
-<ul>
-<li><p>Lambda计算</p>
-<p>Minio服务器通过其兼容AWS SNS / SQS的事件通知服务触发Lambda功能。支持的目标是消息队列，如Kafka，NATS，AMQP，MQTT，Webhooks以及Elasticsearch，Redis，Postgres和MySQL等数据库</p>
-</li>
-<li><p>图形化界面</p>
-<p>  有操作页面</p>
-</li>
-<li><p>功能简单</p>
-<p>  不容易出错，快速启动</p>
-</li>
-<li><p>支持纠删码</p>
-<p>MinIO使用纠删码、Checksum来防止硬件错误和静默数据污染。在最高冗余度配置下，即使丢失1/2的磁盘也能恢复数据</p>
-</li>
-</ul>
-<h3 id="2-3-存储机制"><a href="#2-3-存储机制" class="headerlink" title="2.3 存储机制"></a>2.3 存储机制</h3><p>MinIO 使用纠删码erasure code、校验和checksum。 即使丢一半数据（N/2）的鹰派，仍然可以恢复数据。</p>
-<ul>
-<li><p>校验和checksum</p>
-<p>  保护数据免受硬件故障和无声数据损坏</p>
-</li>
-<li><p>纠删码erasure code</p>
-<p>  纠删码是一种恢复丢失和损坏数据的数据算法，目前纠删码技术在分布式存储系统中的应用主要有三类：阵列纠删码（Array Code : RAID5、RAID6等）、RS（Reed-Solomon）里德-所罗门类纠删码和LDPC（LowDensity Parity Check Code）<br>  低密度奇偶校验纠删码。</p>
-<p>  Erasure code 是一种编码技术，他可以将N份原始数据，增加m份数据，并通过n+m 份中的任意n份数据，还原为原始数据。即如果有任意小于等于m份的数据失效，仍然能通过剩下的数据还原出来。<br>MinIO 采用Reed-Solomon code将对象拆分成N/2数据和N/2奇偶校验快，这就意味着如果是12块盘，一个对象会分成6个数据块、6个奇偶校验块；可以丢失任意6块盘（不管是存放的数据块还是奇偶校验块），仍可以通过剩下的盘进行数据恢复</p>
-</li>
-</ul>
-<h2 id="3-安装和使用MinIO"><a href="#3-安装和使用MinIO" class="headerlink" title="3. 安装和使用MinIO"></a>3. 安装和使用MinIO</h2><h3 id="3-1-Linux安装MinIO"><a href="#3-1-Linux安装MinIO" class="headerlink" title="3.1 Linux安装MinIO"></a>3.1 Linux安装MinIO</h3><ol>
-<li>下载（<a href="https://min.io/download#/linux%EF%BC%89">https://min.io/download#/linux）</a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.min.io/server/minio/release/linux-amd64/minio</span><br></pre></td></tr></table></figure>
-</li>
-<li>运行 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> chmod +x minio</span><br><span class="line"> ./minio server /usr/software/minio/data      #将/usr/software/minio/data 替换为您希望 MinIO 存储数据的驱动器或目录的路径。</span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"> #</span><span class="bash">后台启动</span></span><br><span class="line">nohup ./minio server /usr/software/minio/data  &gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin nohup ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data&gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br></pre></td></tr></table></figure>
-<img src="/linux-minio/8.png"></li>
-<li>设置启动脚本（建议） <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch minio.sh</span><br><span class="line">   </span><br><span class="line">vi minio.sh</span><br></pre></td></tr></table></figure>
-在sh文件中添加以下内容 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">指定登录用户名</span></span><br><span class="line">export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line">export MINIO_SECRET_KEY=password</span><br><span class="line"><span class="meta">#</span><span class="bash">指定端口以及存储文件夹，并启动服务 9000访问端口， 9001 控制台界面访问端口, 这里0.0.0.0可以设置为具体的服务器IP</span></span><br><span class="line">nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure>
-给当前用户加上执行权限 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod u+x  *.sh</span><br><span class="line">  </span><br><span class="line"><span class="meta"> #</span><span class="bash">启动</span></span><br><span class="line">sh minio.sh</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="3-2-安装客户端-可选"><a href="#3-2-安装客户端-可选" class="headerlink" title="3.2 安装客户端(可选)"></a>3.2 安装客户端(可选)</h3><ol>
-<li>安装 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.min.io/client/mc/release/linux-amd64/mc</span><br><span class="line">chmod +x mc</span><br><span class="line">./mc --help</span><br></pre></td></tr></table></figure></li>
-<li>使用命令给客户端添加一个服务端 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc alias set minio http://172.21.0.7:9000 minioadmin minioadmin</span><br></pre></td></tr></table></figure></li>
-<li>创建bucket，并查询所有bucket <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[root@ww xiaoyuge]# ./mc mb minio/mybucket</span><br><span class="line">Bucket created successfully `minio/mybucket`</span><br><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[2020-09-02 03:02:36 CST]      0B mybucket/</span><br><span class="line">[root@ww xiaoyuge]# </span><br></pre></td></tr></table></figure></li>
-<li>页面查询bucket <img src="/linux-minio/6.png"></li>
-<li>创建用户 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc admin user add minio root rootroot</span><br></pre></td></tr></table></figure></li>
-<li>给用户赋予权限 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc admin policy set minio readwrite user=root</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="3-3-使用MinIO"><a href="#3-3-使用MinIO" class="headerlink" title="3.3 使用MinIO"></a>3.3 使用MinIO</h3><ol>
-<li><p>启动</p>
-<p> 在浏览器输入： <a href="http://localhost:9000/">http://localhost:9000</a><br> <img src="/linux-minio/2.png"><br>在输入控制打印的默认的AccessKey和SecretKey：</p>
-<p> <strong>AccessKey:</strong> minioadmin</p>
-<p> <strong>SecretKey（默认）:</strong> minioadmin</p>
-<p> 使用AccessKey 和 SecretKey 登录后台。</p>
-</li>
-<li><p>进入系统后，我们先要点击右上角的“+”按钮，创建一个文件桶（输入名称后，回车即可），在上传文件到这个文件桶中。Create bucket（创建文件桶），然后输入bucket名称为 <strong>test</strong>, 创建成功后再Upload file（上传文件）。<br><img src="/linux-minio/3.png"><img src="/linux-minio/3_1.png"><img src="/linux-minio/3_2.png"><img src="/linux-minio/4.png"></p>
-<p>现在我们去服务器，我们启动时指定的目录去看看，可以看到一个新建的test文件目录（文件桶相当于文件目录），这里没有使用纠删码的模式，所以直接就是源文件了。当我们线上运行的项目已经有源文件了，在使用minio的时候，可以直接指定该目录为minio的文件目录就行了。<br><img src="/linux-minio/5.png"><img src="/linux-minio/7.png"></p>
-</li>
-<li><p>分享文件，也可以设置文件分享有效日期<br> <img src="/linux-minio/11.png"><img src="/linux-minio/12.png" alt="img_1.png"><br>访问连接会出现如下界面：<br><img src="/linux-minio/13.png" alt="img_1.png"></p>
-</li>
-</ol>
-<h3 id="3-4-mioIO常见启动问题"><a href="#3-4-mioIO常见启动问题" class="headerlink" title="3.4 mioIO常见启动问题"></a>3.4 mioIO常见启动问题</h3><ol>
-<li>启动报错“WARNING: Console endpoint is listening on a dynamic port…”<br> <img src="/linux-minio/9.png" alt="img_1.png"><br>错误提示很明显，需要to choose a static port。<br>写了一个shell启动MinIO，在shell中使用–console-address ‘部署minio的ip:希望通过什么端口打开minio console页面’ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line"> export MINIO_SECRET_KEY=password</span><br><span class="line"> nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="4-SpringBoot-集成minIO"><a href="#4-SpringBoot-集成minIO" class="headerlink" title="4. SpringBoot 集成minIO"></a>4. SpringBoot 集成minIO</h2><p>项目源代码地址：<a href="https://gitee.com/xiaoyuge520/minio-demo%EF%BC%8C">https://gitee.com/xiaoyuge520/minio-demo，</a> 下面是应用主要功能截图展示：<br><img src="/linux-minio/14.png" alt="img14.png"><br>在minIO的控制台界面选择对应的bucket可以查看到刚提交的内容<br><img src="/linux-minio/15.png" alt="img14.png"></p>
-<p>同理，删除也是一样！！！<br><img src="/linux-minio/16.png" alt="img14.png"></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux系统下查找文件命令总结</title>
-    <url>/linux-search-file/</url>
-    <content><![CDATA[<h3 id="1-which查命令绝对路径"><a href="#1-which查命令绝对路径" class="headerlink" title="1. which查命令绝对路径"></a>1. which查命令绝对路径</h3><p><strong>which</strong> 从环境变量PATH中定位/返回与指定名字相匹配的可执行文件所在的路径<br><img src="/linux-search-file/1.png" alt="which命令"></p>
-<p><strong>原理</strong>：执行<strong>which</strong>命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径，<br>否则依次返回满足条件的所有可执行文件的路径名</p>
-<p><strong>适用场合：</strong> 一般用于查找命令/可执行文件所在的路径。有时候可能在多个路径下存在相同的命令，该命令可用于查找当前所执行的命令到底是哪一个位置处的命令。</p>
-<h3 id="2-whereis查找特定文件"><a href="#2-whereis查找特定文件" class="headerlink" title="2. whereis查找特定文件"></a>2. whereis查找特定文件</h3><p><strong>whereis</strong> 命令用来定位指令的二进制程序、源代码文件和man手册页等相关文件的路径， 该命令只能用于程序名的搜索</p>
-<ol>
-<li>- b   #定位可执行文件</li>
-<li>- m   #定位帮助文件</li>
-<li>- s   定位源代码文件 </li>
-<li>- u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件</li>
-<li>- B   指定搜索可执行文件的路径。</li>
-<li>- M   指定搜索帮助文件的路径。</li>
-<li>- S   指定搜索源代码文件的路径<br><img src="/linux-search-file/2.png" alt="whereis命令"></li>
-</ol>
-<p><strong>原理：</strong> whereis命令首先会去掉filename中的前缀空格和以.开头的任何字符，然后再在数据库（var/lib/slocate/slocate.db）中查找与上述处理后的filename相匹配的二进制文件、源文件和帮助手册文件,使用之前可以使用<strong>updatedb</strong>命令手动更新数据库。</p>
-<p><strong>适用场合：</strong> 二进制文件、源文件和帮助手册文件路径的查找。<br>和<strong>find</strong> 相比，Whereis 查找的速度非常快，这是因为Linux系统会将系统内的所有文件都记录在一个数据库文件中，当使用<strong>whereis (或者locate)</strong><br>会从数据库查找数据，而不是像find命令那样，通过遍历硬盘来查找文件，效率更高！</p>
-<h3 id="3-locate缓存查找文件"><a href="#3-locate缓存查找文件" class="headerlink" title="3. locate缓存查找文件"></a>3. locate缓存查找文件</h3><p><strong>locate</strong> 搜素一个数据库（/var/lib/mlocate/mlocate.db）,这个数据库中国呢包含本地所有文件信息，Linux系统自动创建这个数据库，并且每天更新依次，所以使用locate命令查不到最新变动过的文件，为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库，updatedb命令会根据/etc/updatedb.conf来更新文件。</p>
-<p><strong>原理：</strong> 默认情况下(当filename中不包含通配符*)，locate会给出所有与 * filename*相匹配的文件的路径。<br><strong>适用场合：</strong> 没有文件类型性质的模糊查找（你只记得某个文件的部分名称）。<br><img src="/linux-search-file/3.png" alt="locate命令"><br><img src="/linux-search-file/4.png" alt="locate命令"><br><img src="/linux-search-file/5.png" alt="locate命令"><br><img src="/linux-search-file/6.png" alt="locate命令"></p>
-<h3 id="4-find-遍历文件查找"><a href="#4-find-遍历文件查找" class="headerlink" title="4. find 遍历文件查找"></a>4. find 遍历文件查找</h3><p>语法：</p>
-<ul>
-<li><p>-name                    #按文件名查找(find /etc/ -name “??????” 查找/etc目录下，开头是6个任意字符的文件， *.log以log结尾的文件；”[1-3].txt”指定范围以txt结尾的文件（包括 1.txt,2.txt,3.txt）)</p>
-</li>
-<li><p>-size                    #按大小查找（find /etc/ -size +1M 查询大于1M的文件(find /etc/ -size -10K)，注意：如果没有+ -， 则是精确到1M,加上+ - 表示范围； find /etc/ -size +1k -a -size -10k 查找1-10K的文件）</p>
-</li>
-<li><p>-user                    #按属主查找（find /opt/ -user xiaoyuge 查找/opt属于xiaoyuge用户的文件；注意，系统要存在该用户，否则会报错）</p>
-</li>
-<li><p>-perm                    #按权限查找（find /opt/ -perm 0644 查找/opt目录权限是644文件）</p>
-</li>
-<li><p>-type                    #按类型查找（find /usr/bin/ -type f 查找/usr/bin下类型是二进制文件）</p>
-</li>
-<li><p>-time                    #按天查找</p>
-<ul>
-<li><p>atime n                    #将n*24小时内访问过的文件列出(access)</p>
-</li>
-<li><p>ctime n                    #将n*24小时内状态发生改变的文件列出（change） find /etc/ -ctime +7 在7天之前,属性被修改过的文件</p>
-</li>
-<li><p>mtime n                    #将n*24小时内被修改过的文件列出(modify)</p>
-</li>
-<li><p>newer file                 #把比file还要心的文件列出</p>
-</li>
-<li><p>amin n                     #将n 分钟内访问过的文件列出(access)   find /etc/ -mmin -120 在120分钟内，内容被修改的文件</p>
-</li>
-<li><p>cmin n                     #将n 分钟内状态发生改变的文件列出（change）</p>
-</li>
-<li><p>mmin n                     #将n 分钟内被修改过的文件列出(modify)</p>
-</li>
-</ul>
-</li>
-<li><p>-inum                    #按i节点查找 有一些文件的硬链接数量很多，有相同的i节点，查找其中一个文件的i节点号，一次性删除。</p>
-</li>
-<li><p>-exec                    #查找后执行命令</p>
-</li>
-</ul>
-<p><strong>原理：</strong> 遍历当前工作目录及其子目录，find命令是在硬盘上遍历查找，非常耗硬盘资源，查找效率相比whereis和locate较低。<br><strong>适用场合：</strong> 能用which、whereis和locate的时候尽量不要用find.</p>
-<h3 id="5-4种命令对比"><a href="#5-4种命令对比" class="headerlink" title="5. 4种命令对比"></a>5. 4种命令对比</h3><p><img src="/linux-search-file/7.png" alt="对比"></p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>docker安装</title>
     <url>/docker-01/</url>
     <content><![CDATA[<p>新的服务器没有安装docker，使用docker命令时提示：docker: command not found错误信息</p>
@@ -1950,164 +1788,6 @@
       </categories>
       <tags>
         <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>分布式消息中间件设计</title>
-    <url>/message-oriented-middleware/</url>
-    <content><![CDATA[<h2 id="1-消息中间件概述"><a href="#1-消息中间件概述" class="headerlink" title="1. 消息中间件概述"></a>1. 消息中间件概述</h2><ol>
-<li><p>什么是分布式消息中间件</p>
-<p> 利用高效可靠的消息传递机制进行平台无关的数据交流；<br> 并基于数据通信来进行分布式系统的集成；<br> 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。</p>
-</li>
-<li><p>消息中间件的应用场景</p>
-<p> 跨系统数据传递、高并发流量削峰、数据异步处理……</p>
-</li>
-<li><p>常用的消息中间件</p>
-<p> ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ</p>
-</li>
-<li><p>本质</p>
-<p> 一种具备接受请求、保存数据、发送数据等功能的网络应用。和一般的网络应用程序的区别是它主要负责数据的接收和传递，所以性能一般高于普通程序</p>
-</li>
-<li><p>5大核心组成</p>
-<ul>
-<li>协议</li>
-<li>持久性机制</li>
-<li>消息分布机制</li>
-<li>高可用设计</li>
-<li>高可靠设计</li>
-</ul>
-</li>
-</ol>
-<h3 id="1-1-协议"><a href="#1-1-协议" class="headerlink" title="1.1 协议"></a>1.1 协议</h3><p>协议是计算机之间通信时共同遵守的一组约定，确保计算机之间能够相互交流；是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述</p>
-<p>三大要素：</p>
-<ul>
-<li>语法：即数据和控制信息的结构或格式</li>
-<li>语义：即需要发出何种控制信息，完成何种动作以及作出何种响应</li>
-<li>时序：即时间实现顺序的详细说明</li>
-</ul>
-<p>消息中间件常用协议：openWire、AMQP、MQTT（物流网，快，不能持久化）、Kafka、OpenMessage等；<br>不能用http协议的原因是：http每次请求必须要有响应，性能不高；</p>
-<h4 id="1-1-AMQP协议"><a href="#1-1-AMQP协议" class="headerlink" title="1.1 AMQP协议"></a>1.1 AMQP协议</h4><p>AMQP（Advanced Message Queuing Protocol）是高级消息队列协议；04年JPMorgan Chase(摩根大通集团)联合其他公司共同设计</p>
-<ul>
-<li>特性：事物支持、持久化支持，出生金融行业，在可靠性消息处理上具备天然的优势</li>
-<li>优秀产品 RabbitMQ、 Apache ACTIVEMQ</li>
-</ul>
-<h4 id="1-2-MQTT协议"><a href="#1-2-MQTT协议" class="headerlink" title="1.2 MQTT协议"></a>1.2 MQTT协议</h4><p>MQTT（Message Queuing Telemetry Transport）消息队列遥测传输<br>是IBM开发的一个即时通讯协议，物联网系统架构中的重要组成部分；</p>
-<ul>
-<li>特性：轻量、结构简单、传输快、没有事务支持、没有持久化相关设计</li>
-<li>应用场景：适用于计算能力有限、低宽带、网络不稳定的场景</li>
-<li>优秀产品：RabbitMQ、 Apache ACTIVEMQ</li>
-</ul>
-<h4 id="1-3-Open-Message协议"><a href="#1-3-Open-Message协议" class="headerlink" title="1.3 Open Message协议"></a>1.3 Open Message协议</h4><p>OpenMessaging 是近几年有阿里发起，与雅虎、滴滴出行、Streamlio等公司共同参数传里的分布式消息中间件、流处理领域的开发应用标准。<br>是国内首个在全球范围内发起的分布式消息领域国际标准</p>
-<ul>
-<li>特性：结构简单、解析快、有事务设计、有持久化设计</li>
-<li>优秀产品：Apache RocketMQ</li>
-</ul>
-<h4 id="1-4-Kafka协议"><a href="#1-4-Kafka协议" class="headerlink" title="1.4 Kafka协议"></a>1.4 Kafka协议</h4><p>Kafka协议是基于TCP的二进制协议。消息内部是通过长度来分割，由一些基本数据类型组成</p>
-<ul>
-<li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
-<li>优秀产品：Apache Kafka</li>
-</ul>
-<h4 id="1-55-OpenWire协议"><a href="#1-55-OpenWire协议" class="headerlink" title="1.55 OpenWire协议"></a>1.55 OpenWire协议</h4><p>开放链接，ActiveMQ自定义的一种协议，ActiveMQ默认链接方式，它提供一种高效率的二进制格式来使消息高速传输</p>
-<ul>
-<li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
-<li>优秀产品：Apache ActiveMQ</li>
-</ul>
-<h3 id="1-2-持久化"><a href="#1-2-持久化" class="headerlink" title="1.2 持久化"></a>1.2 持久化</h3><p>简单来说就是将数据存入磁盘，而不是存在内存中岁服务重启而消失，使数据能够永久保存叫做持久化</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th align="center">ActiveMQ</th>
-<th align="center">RabbitMQ</th>
-<th align="center">Kafka</th>
-<th align="center">RocketMQ</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>文件系统</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-</tr>
-<tr>
-<td>数据库</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h3 id="1-3-消息分发"><a href="#1-3-消息分发" class="headerlink" title="1.3 消息分发"></a>1.3 消息分发</h3><table>
-<thead>
-<tr>
-<th></th>
-<th align="center">ActiveMQ</th>
-<th align="center">RabbitMQ</th>
-<th align="center">Kafka</th>
-<th align="center">RocketMQ</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>发布订阅</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-</tr>
-<tr>
-<td>轮询分发</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td>公平分发</td>
-<td align="center">-</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-</tr>
-<tr>
-<td>重发</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-<td align="center">支持</td>
-</tr>
-<tr>
-<td>消息拉取</td>
-<td align="center">-</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-</tr>
-</tbody></table>
-<h3 id="1-4-高可用"><a href="#1-4-高可用" class="headerlink" title="1.4 高可用"></a>1.4 高可用</h3><p>高可用性是指产品在规定的条件和规定的时刻或时间区间内处于可执行规定功能状态的能力；<br>当业务量大时，一台消息中间件服务器可能无法满足需求，所以需要消息中间件能够集群部署，来达到高可用的目的。</p>
-<h4 id="1-4-1-Master-Slave主从共享数据的部署方式"><a href="#1-4-1-Master-Slave主从共享数据的部署方式" class="headerlink" title="1.4.1 Master-Slave主从共享数据的部署方式"></a>1.4.1 Master-Slave主从共享数据的部署方式</h4><p>当Master收到客户端的消息后，放到共享的文件系统/数据库； 客户端访问的是Master节点，Slave节点只做备份；<br><img src="/message-oriented-middleware/2.png" alt="Master-Slave主从共享数据的部署方式"></p>
-<h4 id="1-4-2-Master-Slave主从同步部署方式"><a href="#1-4-2-Master-Slave主从同步部署方式" class="headerlink" title="1.4.2 Master-Slave主从同步部署方式"></a>1.4.2 Master-Slave主从同步部署方式</h4><p>当Master收到客户端的消息后，发给其他broker同步。<br><img src="/message-oriented-middleware/3.png" alt="Master-Slave主从同步部署方式"></p>
-<h4 id="1-4-3-Broker-Cluster多主集群同步部署方式"><a href="#1-4-3-Broker-Cluster多主集群同步部署方式" class="headerlink" title="1.4.3 Broker-Cluster多主集群同步部署方式"></a>1.4.3 Broker-Cluster多主集群同步部署方式</h4><p>一部分消息放在broker1 ,一部分放在broker2<br><img src="/message-oriented-middleware/4.png" alt="Broker-Cluster多主集群同步部署方式"></p>
-<h4 id="1-4-4-Broker-Cluster多主集群转发部署方式"><a href="#1-4-4-Broker-Cluster多主集群转发部署方式" class="headerlink" title="1.4.4 Broker-Cluster多主集群转发部署方式"></a>1.4.4 Broker-Cluster多主集群转发部署方式</h4><p>转发数据或转发请求<br><img src="/message-oriented-middleware/5.png" alt="Broker-Cluster多主集群转发部署方式"></p>
-<h4 id="1-4-5-Master-slave与Broker-Cluster结合"><a href="#1-4-5-Master-slave与Broker-Cluster结合" class="headerlink" title="1.4.5 Master-slave与Broker-Cluster结合"></a>1.4.5 Master-slave与Broker-Cluster结合</h4><p><img src="/message-oriented-middleware/6.png" alt="Master-slave与Broker-Cluster结合"></p>
-<h3 id="1-5-高可靠"><a href="#1-5-高可靠" class="headerlink" title="1.5 高可靠"></a>1.5 高可靠</h3><p>高可靠性是指系统可以无故障地持续运行。比如一个系统从来不崩溃、报错，或者崩溃、报错的几率较低，那就是高可靠。<br>保证消息中间件的高可靠行，可以从一下几方面考虑</p>
-<ul>
-<li>消息传输可靠： 通过协议来保证系统件数据解析的正确性</li>
-<li>消息存储可靠： 通过持久化来保证消息存储可靠性</li>
-</ul>
-]]></content>
-      <categories>
-        <category>中间件</category>
-      </categories>
-      <tags>
-        <tag>消息中间件</tag>
       </tags>
   </entry>
   <entry>
@@ -2546,6 +2226,326 @@
       </categories>
       <tags>
         <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MinIO简介以及Linux安装MinIO</title>
+    <url>/linux-minio/</url>
+    <content><![CDATA[<h2 id="1-什么是对象存储"><a href="#1-什么是对象存储" class="headerlink" title="1. 什么是对象存储"></a>1. 什么是对象存储</h2><p>对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，<strong>适合存放任意类型的文件</strong>。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。</p>
+<p>最大的优势：可以存储大量的非结构话数据，例如：图片、视频、日志文件、备份数据和容器/虚拟机镜像等。</p>
+<h2 id="2-MinIO"><a href="#2-MinIO" class="headerlink" title="2. MinIO"></a>2. MinIO</h2><p>MinIO 是个基于Golang编写的开源对象存储套件，基于Apache License V2.0开源协议，虽然轻量，却拥有不错的性能，兼容亚马逊S3云存储服务接口。可以很简单的和其他应用结合使用，例如：NodeJS、Redis、mysql等</p>
+<p>中文文档： <a href="http://docs.minio.org.cn/docs/master/minio-monitoring-guide">http://docs.minio.org.cn/docs/master/minio-monitoring-guide</a></p>
+<h3 id="2-1-MinIO应用场景"><a href="#2-1-MinIO应用场景" class="headerlink" title="2.1 MinIO应用场景"></a>2.1 MinIO应用场景</h3><p>可以作为私有云的对象存储服务来使用，也可以作为云对象存储的网关层，无缝对接Amazon S3 或者 MicroSoft Azure 。<br><img src="/linux-minio/1.png" alt="应用场景"></p>
+<h3 id="2-2-MinIO特点"><a href="#2-2-MinIO特点" class="headerlink" title="2.2 MinIO特点"></a>2.2 MinIO特点</h3><ul>
+<li><p>高性能</p>
+<p>  作为一款高性能存储，在标准硬件条件下，其读写速率分别可以达到55Gb/s和 35Gb/s。并且MinIO支持一个对象文件是任意大小（几KB到最大5T不等）</p>
+</li>
+<li><p>可扩展</p>
+<p>  不同MinIO集群可以组成联邦，并形成一个全局的命名空间，并且支持跨越多个数据中心</p>
+</li>
+<li><p>云原生</p>
+<p>  容器化、基于K8S的编排、多租户支持</p>
+</li>
+<li><p>Amazon S3兼容</p>
+<p>  使用Amazon S3 V2/V4 API。可以使用Minio SDK，Minio Client，AWS SDK 和 AWS CLI 访问Minio服务器。</p>
+</li>
+<li><p>可对接多种后端存储</p>
+<p>除了Minio自己的文件系统，还支持 DAS、 JBODs、NAS、Google云存储和 Azure Blob存储。</p>
+</li>
+<li><p>SDK支持</p>
+<p>GO SDK： <a href="https://github.com/minio/minio-go">https://github.com/minio/minio-go</a></p>
+<p>JavaSDK： <a href="https://github.com/minio/minio-java">https://github.com/minio/minio-java</a></p>
+<p>PythonSDK： <a href="https://github.com/minio/minio-py">https://github.com/minio/minio-py</a></p>
+</li>
+</ul>
+<ul>
+<li><p>Lambda计算</p>
+<p>Minio服务器通过其兼容AWS SNS / SQS的事件通知服务触发Lambda功能。支持的目标是消息队列，如Kafka，NATS，AMQP，MQTT，Webhooks以及Elasticsearch，Redis，Postgres和MySQL等数据库</p>
+</li>
+<li><p>图形化界面</p>
+<p>  有操作页面</p>
+</li>
+<li><p>功能简单</p>
+<p>  不容易出错，快速启动</p>
+</li>
+<li><p>支持纠删码</p>
+<p>MinIO使用纠删码、Checksum来防止硬件错误和静默数据污染。在最高冗余度配置下，即使丢失1/2的磁盘也能恢复数据</p>
+</li>
+</ul>
+<h3 id="2-3-存储机制"><a href="#2-3-存储机制" class="headerlink" title="2.3 存储机制"></a>2.3 存储机制</h3><p>MinIO 使用纠删码erasure code、校验和checksum。 即使丢一半数据（N/2）的鹰派，仍然可以恢复数据。</p>
+<ul>
+<li><p>校验和checksum</p>
+<p>  保护数据免受硬件故障和无声数据损坏</p>
+</li>
+<li><p>纠删码erasure code</p>
+<p>  纠删码是一种恢复丢失和损坏数据的数据算法，目前纠删码技术在分布式存储系统中的应用主要有三类：阵列纠删码（Array Code : RAID5、RAID6等）、RS（Reed-Solomon）里德-所罗门类纠删码和LDPC（LowDensity Parity Check Code）<br>  低密度奇偶校验纠删码。</p>
+<p>  Erasure code 是一种编码技术，他可以将N份原始数据，增加m份数据，并通过n+m 份中的任意n份数据，还原为原始数据。即如果有任意小于等于m份的数据失效，仍然能通过剩下的数据还原出来。<br>MinIO 采用Reed-Solomon code将对象拆分成N/2数据和N/2奇偶校验快，这就意味着如果是12块盘，一个对象会分成6个数据块、6个奇偶校验块；可以丢失任意6块盘（不管是存放的数据块还是奇偶校验块），仍可以通过剩下的盘进行数据恢复</p>
+</li>
+</ul>
+<h2 id="3-安装和使用MinIO"><a href="#3-安装和使用MinIO" class="headerlink" title="3. 安装和使用MinIO"></a>3. 安装和使用MinIO</h2><h3 id="3-1-Linux安装MinIO"><a href="#3-1-Linux安装MinIO" class="headerlink" title="3.1 Linux安装MinIO"></a>3.1 Linux安装MinIO</h3><ol>
+<li>下载（<a href="https://min.io/download#/linux%EF%BC%89">https://min.io/download#/linux）</a> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.min.io/server/minio/release/linux-amd64/minio</span><br></pre></td></tr></table></figure>
+</li>
+<li>运行 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> chmod +x minio</span><br><span class="line"> ./minio server /usr/software/minio/data      #将/usr/software/minio/data 替换为您希望 MinIO 存储数据的驱动器或目录的路径。</span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"> #</span><span class="bash">后台启动</span></span><br><span class="line">nohup ./minio server /usr/software/minio/data  &gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin nohup ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data&gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br></pre></td></tr></table></figure>
+<img src="/linux-minio/8.png"></li>
+<li>设置启动脚本（建议） <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch minio.sh</span><br><span class="line">   </span><br><span class="line">vi minio.sh</span><br></pre></td></tr></table></figure>
+在sh文件中添加以下内容 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">指定登录用户名</span></span><br><span class="line">export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line">export MINIO_SECRET_KEY=password</span><br><span class="line"><span class="meta">#</span><span class="bash">指定端口以及存储文件夹，并启动服务 9000访问端口， 9001 控制台界面访问端口, 这里0.0.0.0可以设置为具体的服务器IP</span></span><br><span class="line">nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure>
+给当前用户加上执行权限 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod u+x  *.sh</span><br><span class="line">  </span><br><span class="line"><span class="meta"> #</span><span class="bash">启动</span></span><br><span class="line">sh minio.sh</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-2-安装客户端-可选"><a href="#3-2-安装客户端-可选" class="headerlink" title="3.2 安装客户端(可选)"></a>3.2 安装客户端(可选)</h3><ol>
+<li>安装 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dl.min.io/client/mc/release/linux-amd64/mc</span><br><span class="line">chmod +x mc</span><br><span class="line">./mc --help</span><br></pre></td></tr></table></figure></li>
+<li>使用命令给客户端添加一个服务端 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc alias set minio http://172.21.0.7:9000 minioadmin minioadmin</span><br></pre></td></tr></table></figure></li>
+<li>创建bucket，并查询所有bucket <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[root@ww xiaoyuge]# ./mc mb minio/mybucket</span><br><span class="line">Bucket created successfully `minio/mybucket`</span><br><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[2020-09-02 03:02:36 CST]      0B mybucket/</span><br><span class="line">[root@ww xiaoyuge]# </span><br></pre></td></tr></table></figure></li>
+<li>页面查询bucket <img src="/linux-minio/6.png"></li>
+<li>创建用户 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc admin user add minio root rootroot</span><br></pre></td></tr></table></figure></li>
+<li>给用户赋予权限 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./mc admin policy set minio readwrite user=root</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-3-使用MinIO"><a href="#3-3-使用MinIO" class="headerlink" title="3.3 使用MinIO"></a>3.3 使用MinIO</h3><ol>
+<li><p>启动</p>
+<p> 在浏览器输入： <a href="http://localhost:9000/">http://localhost:9000</a><br> <img src="/linux-minio/2.png"><br>在输入控制打印的默认的AccessKey和SecretKey：</p>
+<p> <strong>AccessKey:</strong> minioadmin</p>
+<p> <strong>SecretKey（默认）:</strong> minioadmin</p>
+<p> 使用AccessKey 和 SecretKey 登录后台。</p>
+</li>
+<li><p>进入系统后，我们先要点击右上角的“+”按钮，创建一个文件桶（输入名称后，回车即可），在上传文件到这个文件桶中。Create bucket（创建文件桶），然后输入bucket名称为 <strong>test</strong>, 创建成功后再Upload file（上传文件）。<br><img src="/linux-minio/3.png"><img src="/linux-minio/3_1.png"><img src="/linux-minio/3_2.png"><img src="/linux-minio/4.png"></p>
+<p>现在我们去服务器，我们启动时指定的目录去看看，可以看到一个新建的test文件目录（文件桶相当于文件目录），这里没有使用纠删码的模式，所以直接就是源文件了。当我们线上运行的项目已经有源文件了，在使用minio的时候，可以直接指定该目录为minio的文件目录就行了。<br><img src="/linux-minio/5.png"><img src="/linux-minio/7.png"></p>
+</li>
+<li><p>分享文件，也可以设置文件分享有效日期<br> <img src="/linux-minio/11.png"><img src="/linux-minio/12.png" alt="img_1.png"><br>访问连接会出现如下界面：<br><img src="/linux-minio/13.png" alt="img_1.png"></p>
+</li>
+</ol>
+<h3 id="3-4-mioIO常见启动问题"><a href="#3-4-mioIO常见启动问题" class="headerlink" title="3.4 mioIO常见启动问题"></a>3.4 mioIO常见启动问题</h3><ol>
+<li>启动报错“WARNING: Console endpoint is listening on a dynamic port…”<br> <img src="/linux-minio/9.png" alt="img_1.png"><br>错误提示很明显，需要to choose a static port。<br>写了一个shell启动MinIO，在shell中使用–console-address ‘部署minio的ip:希望通过什么端口打开minio console页面’ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"> export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line"> export MINIO_SECRET_KEY=password</span><br><span class="line"> nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="4-SpringBoot-集成minIO"><a href="#4-SpringBoot-集成minIO" class="headerlink" title="4. SpringBoot 集成minIO"></a>4. SpringBoot 集成minIO</h2><p>项目源代码地址：<a href="https://gitee.com/xiaoyuge520/minio-demo%EF%BC%8C">https://gitee.com/xiaoyuge520/minio-demo，</a> 下面是应用主要功能截图展示：<br><img src="/linux-minio/14.png" alt="img14.png"><br>在minIO的控制台界面选择对应的bucket可以查看到刚提交的内容<br><img src="/linux-minio/15.png" alt="img14.png"></p>
+<p>同理，删除也是一样！！！<br><img src="/linux-minio/16.png" alt="img14.png"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux系统下查找文件命令总结</title>
+    <url>/linux-search-file/</url>
+    <content><![CDATA[<h3 id="1-which查命令绝对路径"><a href="#1-which查命令绝对路径" class="headerlink" title="1. which查命令绝对路径"></a>1. which查命令绝对路径</h3><p><strong>which</strong> 从环境变量PATH中定位/返回与指定名字相匹配的可执行文件所在的路径<br><img src="/linux-search-file/1.png" alt="which命令"></p>
+<p><strong>原理</strong>：执行<strong>which</strong>命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径，<br>否则依次返回满足条件的所有可执行文件的路径名</p>
+<p><strong>适用场合：</strong> 一般用于查找命令/可执行文件所在的路径。有时候可能在多个路径下存在相同的命令，该命令可用于查找当前所执行的命令到底是哪一个位置处的命令。</p>
+<h3 id="2-whereis查找特定文件"><a href="#2-whereis查找特定文件" class="headerlink" title="2. whereis查找特定文件"></a>2. whereis查找特定文件</h3><p><strong>whereis</strong> 命令用来定位指令的二进制程序、源代码文件和man手册页等相关文件的路径， 该命令只能用于程序名的搜索</p>
+<ol>
+<li>- b   #定位可执行文件</li>
+<li>- m   #定位帮助文件</li>
+<li>- s   定位源代码文件 </li>
+<li>- u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件</li>
+<li>- B   指定搜索可执行文件的路径。</li>
+<li>- M   指定搜索帮助文件的路径。</li>
+<li>- S   指定搜索源代码文件的路径<br><img src="/linux-search-file/2.png" alt="whereis命令"></li>
+</ol>
+<p><strong>原理：</strong> whereis命令首先会去掉filename中的前缀空格和以.开头的任何字符，然后再在数据库（var/lib/slocate/slocate.db）中查找与上述处理后的filename相匹配的二进制文件、源文件和帮助手册文件,使用之前可以使用<strong>updatedb</strong>命令手动更新数据库。</p>
+<p><strong>适用场合：</strong> 二进制文件、源文件和帮助手册文件路径的查找。<br>和<strong>find</strong> 相比，Whereis 查找的速度非常快，这是因为Linux系统会将系统内的所有文件都记录在一个数据库文件中，当使用<strong>whereis (或者locate)</strong><br>会从数据库查找数据，而不是像find命令那样，通过遍历硬盘来查找文件，效率更高！</p>
+<h3 id="3-locate缓存查找文件"><a href="#3-locate缓存查找文件" class="headerlink" title="3. locate缓存查找文件"></a>3. locate缓存查找文件</h3><p><strong>locate</strong> 搜素一个数据库（/var/lib/mlocate/mlocate.db）,这个数据库中国呢包含本地所有文件信息，Linux系统自动创建这个数据库，并且每天更新依次，所以使用locate命令查不到最新变动过的文件，为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库，updatedb命令会根据/etc/updatedb.conf来更新文件。</p>
+<p><strong>原理：</strong> 默认情况下(当filename中不包含通配符*)，locate会给出所有与 * filename*相匹配的文件的路径。<br><strong>适用场合：</strong> 没有文件类型性质的模糊查找（你只记得某个文件的部分名称）。<br><img src="/linux-search-file/3.png" alt="locate命令"><br><img src="/linux-search-file/4.png" alt="locate命令"><br><img src="/linux-search-file/5.png" alt="locate命令"><br><img src="/linux-search-file/6.png" alt="locate命令"></p>
+<h3 id="4-find-遍历文件查找"><a href="#4-find-遍历文件查找" class="headerlink" title="4. find 遍历文件查找"></a>4. find 遍历文件查找</h3><p>语法：</p>
+<ul>
+<li><p>-name                    #按文件名查找(find /etc/ -name “??????” 查找/etc目录下，开头是6个任意字符的文件， *.log以log结尾的文件；”[1-3].txt”指定范围以txt结尾的文件（包括 1.txt,2.txt,3.txt）)</p>
+</li>
+<li><p>-size                    #按大小查找（find /etc/ -size +1M 查询大于1M的文件(find /etc/ -size -10K)，注意：如果没有+ -， 则是精确到1M,加上+ - 表示范围； find /etc/ -size +1k -a -size -10k 查找1-10K的文件）</p>
+</li>
+<li><p>-user                    #按属主查找（find /opt/ -user xiaoyuge 查找/opt属于xiaoyuge用户的文件；注意，系统要存在该用户，否则会报错）</p>
+</li>
+<li><p>-perm                    #按权限查找（find /opt/ -perm 0644 查找/opt目录权限是644文件）</p>
+</li>
+<li><p>-type                    #按类型查找（find /usr/bin/ -type f 查找/usr/bin下类型是二进制文件）</p>
+</li>
+<li><p>-time                    #按天查找</p>
+<ul>
+<li><p>atime n                    #将n*24小时内访问过的文件列出(access)</p>
+</li>
+<li><p>ctime n                    #将n*24小时内状态发生改变的文件列出（change） find /etc/ -ctime +7 在7天之前,属性被修改过的文件</p>
+</li>
+<li><p>mtime n                    #将n*24小时内被修改过的文件列出(modify)</p>
+</li>
+<li><p>newer file                 #把比file还要心的文件列出</p>
+</li>
+<li><p>amin n                     #将n 分钟内访问过的文件列出(access)   find /etc/ -mmin -120 在120分钟内，内容被修改的文件</p>
+</li>
+<li><p>cmin n                     #将n 分钟内状态发生改变的文件列出（change）</p>
+</li>
+<li><p>mmin n                     #将n 分钟内被修改过的文件列出(modify)</p>
+</li>
+</ul>
+</li>
+<li><p>-inum                    #按i节点查找 有一些文件的硬链接数量很多，有相同的i节点，查找其中一个文件的i节点号，一次性删除。</p>
+</li>
+<li><p>-exec                    #查找后执行命令</p>
+</li>
+</ul>
+<p><strong>原理：</strong> 遍历当前工作目录及其子目录，find命令是在硬盘上遍历查找，非常耗硬盘资源，查找效率相比whereis和locate较低。<br><strong>适用场合：</strong> 能用which、whereis和locate的时候尽量不要用find.</p>
+<h3 id="5-4种命令对比"><a href="#5-4种命令对比" class="headerlink" title="5. 4种命令对比"></a>5. 4种命令对比</h3><p><img src="/linux-search-file/7.png" alt="对比"></p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式消息中间件设计</title>
+    <url>/message-oriented-middleware/</url>
+    <content><![CDATA[<h2 id="1-消息中间件概述"><a href="#1-消息中间件概述" class="headerlink" title="1. 消息中间件概述"></a>1. 消息中间件概述</h2><ol>
+<li><p>什么是分布式消息中间件</p>
+<p> 利用高效可靠的消息传递机制进行平台无关的数据交流；<br> 并基于数据通信来进行分布式系统的集成；<br> 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。</p>
+</li>
+<li><p>消息中间件的应用场景</p>
+<p> 跨系统数据传递、高并发流量削峰、数据异步处理……</p>
+</li>
+<li><p>常用的消息中间件</p>
+<p> ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ</p>
+</li>
+<li><p>本质</p>
+<p> 一种具备接受请求、保存数据、发送数据等功能的网络应用。和一般的网络应用程序的区别是它主要负责数据的接收和传递，所以性能一般高于普通程序</p>
+</li>
+<li><p>5大核心组成</p>
+<ul>
+<li>协议</li>
+<li>持久性机制</li>
+<li>消息分布机制</li>
+<li>高可用设计</li>
+<li>高可靠设计</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-1-协议"><a href="#1-1-协议" class="headerlink" title="1.1 协议"></a>1.1 协议</h3><p>协议是计算机之间通信时共同遵守的一组约定，确保计算机之间能够相互交流；是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述</p>
+<p>三大要素：</p>
+<ul>
+<li>语法：即数据和控制信息的结构或格式</li>
+<li>语义：即需要发出何种控制信息，完成何种动作以及作出何种响应</li>
+<li>时序：即时间实现顺序的详细说明</li>
+</ul>
+<p>消息中间件常用协议：openWire、AMQP、MQTT（物流网，快，不能持久化）、Kafka、OpenMessage等；<br>不能用http协议的原因是：http每次请求必须要有响应，性能不高；</p>
+<h4 id="1-1-AMQP协议"><a href="#1-1-AMQP协议" class="headerlink" title="1.1 AMQP协议"></a>1.1 AMQP协议</h4><p>AMQP（Advanced Message Queuing Protocol）是高级消息队列协议；04年JPMorgan Chase(摩根大通集团)联合其他公司共同设计</p>
+<ul>
+<li>特性：事物支持、持久化支持，出生金融行业，在可靠性消息处理上具备天然的优势</li>
+<li>优秀产品 RabbitMQ、 Apache ACTIVEMQ</li>
+</ul>
+<h4 id="1-2-MQTT协议"><a href="#1-2-MQTT协议" class="headerlink" title="1.2 MQTT协议"></a>1.2 MQTT协议</h4><p>MQTT（Message Queuing Telemetry Transport）消息队列遥测传输<br>是IBM开发的一个即时通讯协议，物联网系统架构中的重要组成部分；</p>
+<ul>
+<li>特性：轻量、结构简单、传输快、没有事务支持、没有持久化相关设计</li>
+<li>应用场景：适用于计算能力有限、低宽带、网络不稳定的场景</li>
+<li>优秀产品：RabbitMQ、 Apache ACTIVEMQ</li>
+</ul>
+<h4 id="1-3-Open-Message协议"><a href="#1-3-Open-Message协议" class="headerlink" title="1.3 Open Message协议"></a>1.3 Open Message协议</h4><p>OpenMessaging 是近几年有阿里发起，与雅虎、滴滴出行、Streamlio等公司共同参数传里的分布式消息中间件、流处理领域的开发应用标准。<br>是国内首个在全球范围内发起的分布式消息领域国际标准</p>
+<ul>
+<li>特性：结构简单、解析快、有事务设计、有持久化设计</li>
+<li>优秀产品：Apache RocketMQ</li>
+</ul>
+<h4 id="1-4-Kafka协议"><a href="#1-4-Kafka协议" class="headerlink" title="1.4 Kafka协议"></a>1.4 Kafka协议</h4><p>Kafka协议是基于TCP的二进制协议。消息内部是通过长度来分割，由一些基本数据类型组成</p>
+<ul>
+<li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
+<li>优秀产品：Apache Kafka</li>
+</ul>
+<h4 id="1-55-OpenWire协议"><a href="#1-55-OpenWire协议" class="headerlink" title="1.55 OpenWire协议"></a>1.55 OpenWire协议</h4><p>开放链接，ActiveMQ自定义的一种协议，ActiveMQ默认链接方式，它提供一种高效率的二进制格式来使消息高速传输</p>
+<ul>
+<li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
+<li>优秀产品：Apache ActiveMQ</li>
+</ul>
+<h3 id="1-2-持久化"><a href="#1-2-持久化" class="headerlink" title="1.2 持久化"></a>1.2 持久化</h3><p>简单来说就是将数据存入磁盘，而不是存在内存中岁服务重启而消失，使数据能够永久保存叫做持久化</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">ActiveMQ</th>
+<th align="center">RabbitMQ</th>
+<th align="center">Kafka</th>
+<th align="center">RocketMQ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件系统</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td>数据库</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="1-3-消息分发"><a href="#1-3-消息分发" class="headerlink" title="1.3 消息分发"></a>1.3 消息分发</h3><table>
+<thead>
+<tr>
+<th></th>
+<th align="center">ActiveMQ</th>
+<th align="center">RabbitMQ</th>
+<th align="center">Kafka</th>
+<th align="center">RocketMQ</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>发布订阅</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td>轮询分发</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td>公平分发</td>
+<td align="center">-</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td>重发</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">-</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td>消息拉取</td>
+<td align="center">-</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+<td align="center">支持</td>
+</tr>
+</tbody></table>
+<h3 id="1-4-高可用"><a href="#1-4-高可用" class="headerlink" title="1.4 高可用"></a>1.4 高可用</h3><p>高可用性是指产品在规定的条件和规定的时刻或时间区间内处于可执行规定功能状态的能力；<br>当业务量大时，一台消息中间件服务器可能无法满足需求，所以需要消息中间件能够集群部署，来达到高可用的目的。</p>
+<h4 id="1-4-1-Master-Slave主从共享数据的部署方式"><a href="#1-4-1-Master-Slave主从共享数据的部署方式" class="headerlink" title="1.4.1 Master-Slave主从共享数据的部署方式"></a>1.4.1 Master-Slave主从共享数据的部署方式</h4><p>当Master收到客户端的消息后，放到共享的文件系统/数据库； 客户端访问的是Master节点，Slave节点只做备份；<br><img src="/message-oriented-middleware/2.png" alt="Master-Slave主从共享数据的部署方式"></p>
+<h4 id="1-4-2-Master-Slave主从同步部署方式"><a href="#1-4-2-Master-Slave主从同步部署方式" class="headerlink" title="1.4.2 Master-Slave主从同步部署方式"></a>1.4.2 Master-Slave主从同步部署方式</h4><p>当Master收到客户端的消息后，发给其他broker同步。<br><img src="/message-oriented-middleware/3.png" alt="Master-Slave主从同步部署方式"></p>
+<h4 id="1-4-3-Broker-Cluster多主集群同步部署方式"><a href="#1-4-3-Broker-Cluster多主集群同步部署方式" class="headerlink" title="1.4.3 Broker-Cluster多主集群同步部署方式"></a>1.4.3 Broker-Cluster多主集群同步部署方式</h4><p>一部分消息放在broker1 ,一部分放在broker2<br><img src="/message-oriented-middleware/4.png" alt="Broker-Cluster多主集群同步部署方式"></p>
+<h4 id="1-4-4-Broker-Cluster多主集群转发部署方式"><a href="#1-4-4-Broker-Cluster多主集群转发部署方式" class="headerlink" title="1.4.4 Broker-Cluster多主集群转发部署方式"></a>1.4.4 Broker-Cluster多主集群转发部署方式</h4><p>转发数据或转发请求<br><img src="/message-oriented-middleware/5.png" alt="Broker-Cluster多主集群转发部署方式"></p>
+<h4 id="1-4-5-Master-slave与Broker-Cluster结合"><a href="#1-4-5-Master-slave与Broker-Cluster结合" class="headerlink" title="1.4.5 Master-slave与Broker-Cluster结合"></a>1.4.5 Master-slave与Broker-Cluster结合</h4><p><img src="/message-oriented-middleware/6.png" alt="Master-slave与Broker-Cluster结合"></p>
+<h3 id="1-5-高可靠"><a href="#1-5-高可靠" class="headerlink" title="1.5 高可靠"></a>1.5 高可靠</h3><p>高可靠性是指系统可以无故障地持续运行。比如一个系统从来不崩溃、报错，或者崩溃、报错的几率较低，那就是高可靠。<br>保证消息中间件的高可靠行，可以从一下几方面考虑</p>
+<ul>
+<li>消息传输可靠： 通过协议来保证系统件数据解析的正确性</li>
+<li>消息存储可靠： 通过持久化来保证消息存储可靠性</li>
+</ul>
+]]></content>
+      <categories>
+        <category>中间件</category>
+      </categories>
+      <tags>
+        <tag>消息中间件</tag>
       </tags>
   </entry>
   <entry>
@@ -3577,6 +3577,35 @@
       </categories>
       <tags>
         <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CentOS安装Zookeeper 3.7.1单节点</title>
+    <url>/zookeeper-install/</url>
+    <content><![CDATA[<h3 id="1-JDK依赖"><a href="#1-JDK依赖" class="headerlink" title="1. JDK依赖"></a>1. JDK依赖</h3><p>请参考这篇博客：<a href="https://xiaoyuge.work/jdk-install/">Linux安装JDK以及配置</a></p>
+<h3 id="2-下载Zookeeper"><a href="#2-下载Zookeeper" class="headerlink" title="2. 下载Zookeeper"></a>2. 下载Zookeeper</h3><p>下载连接：<a href="https://zookeeper.apache.org/releases.html">https://zookeeper.apache.org/releases.html</a>,  找到版本3.7.1下载二进制版本，不需要编译<br><img src="/zookeeper-install/2.png"><br>以安装路径 /usr/local/tools 为例</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/tools</span><br><span class="line">wget https://dlcdn.apache.org/zookeeper/zookeeper-3.7.1/apache-zookeeper-3.7.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<p>如果上面的地址下载比较慢的话，可以试下在apache仓库里面找（<a href="https://archive.apache.org/dist/zookeeper/%EF%BC%89">https://archive.apache.org/dist/zookeeper/）</a><br><img src="/zookeeper-install/1.png"></p>
+<h3 id="3-解压"><a href="#3-解压" class="headerlink" title="3. 解压"></a>3. 解压</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -xzvf apache-zookeeper-3.7.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4. 修改配置文件"></a>4. 修改配置文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd apache-zookeeper-3.7.1-bin/conf</span><br><span class="line">cp zoo_sample.cfg zoo.cfg</span><br><span class="line"></span><br><span class="line">vim zoo.cfg</span><br></pre></td></tr></table></figure>
+<p><img src="/zookeeper-install/3.png"><br>端口号默认2181。</p>
+<p>配置文件zoo.cfg里面的dataDir要修改，如果不改，需要创建这个目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir -p /tmp/zookeeper</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-启动ZK"><a href="#5-启动ZK" class="headerlink" title="5. 启动ZK"></a>5. 启动ZK</h3><p>zookeeper默认端口 2181</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ../bin</span><br><span class="line">./zkServer.sh start</span><br></pre></td></tr></table></figure>
+<p>输出日志：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /usr/local/tools/apache-zookeeper-3.7.1-bin/bin/../conf/zoo.cfg</span><br><span class="line">Starting zookeeper ... STARTED</span><br></pre></td></tr></table></figure>
+
+<p>其他命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps -ef | grep zookeeper     #查看是否启动成功</span><br><span class="line"></span><br><span class="line">./zkServer.sh status      #查看zk的运行状态</span><br><span class="line"></span><br><span class="line">./zkCli.sh              #客户端链接zk</span><br><span class="line"></span><br><span class="line">ls                      #查看节点</span><br><span class="line"></span><br><span class="line">get /name               #get 获取节点数据和更新信息， name为具体的节点名称</span><br><span class="line"></span><br><span class="line">create [-s] [-e] path data acl        #create 创建节点 e 临时节点 s 顺序节点</span><br><span class="line"></span><br><span class="line">delete path [version]           #删除节点</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>中间件</category>
+      </categories>
+      <tags>
+        <tag>Zookeeper</tag>
       </tags>
   </entry>
   <entry>
