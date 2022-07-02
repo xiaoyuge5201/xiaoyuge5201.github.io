@@ -48,11 +48,10 @@
       
         
         
-      <description>&lt;h3 id=&quot;1前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1前言&quot;&gt;&lt;/a&gt; 1.前言&lt;/h3&gt;
-&lt;ol&gt;
+      <description>&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1.前言&quot;&gt;&lt;/a&gt;1.前言&lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;nameserver默认端口：9876&lt;/li&gt;
 &lt;li&gt;rocketmq默认端口：10911&lt;/li&gt;
-&lt;li&gt;服务器IP</description>
+&lt;li</description>
         
       
       
