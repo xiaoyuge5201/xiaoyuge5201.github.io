@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://xiaoyuge5201.github.io/rocketmq-install/</loc>
-    <lastmod>2022-07-02</lastmod>
+    <loc>https://xiaoyuge5201.github.io/outOfMemoryError/</loc>
+    <lastmod>2022-07-03</lastmod>
   </url>
   <url>
-    <loc>https://xiaoyuge5201.github.io/redis-sentinel/</loc>
-    <lastmod>2022-07-02</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/rabbitmq-standalone/</loc>
-    <lastmod>2022-07-01</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/zookeeper-install/</loc>
-    <lastmod>2022-06-30</lastmod>
+    <loc>https://xiaoyuge5201.github.io/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/</loc>
+    <lastmod>2022-07-03</lastmod>
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/kafka-command/</loc>
@@ -129,10 +121,6 @@
     <lastmod>2022-04-06</lastmod>
   </url>
   <url>
-    <loc>https://xiaoyuge5201.github.io/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/</loc>
-    <lastmod>2022-04-06</lastmod>
-  </url>
-  <url>
     <loc>https://xiaoyuge5201.github.io/mvcc/</loc>
     <lastmod>2022-04-06</lastmod>
   </url>
@@ -222,10 +210,6 @@
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/thread-01/</loc>
-    <lastmod>2022-03-27</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/outOfMemoryError/</loc>
     <lastmod>2022-03-27</lastmod>
   </url>
   <url>
