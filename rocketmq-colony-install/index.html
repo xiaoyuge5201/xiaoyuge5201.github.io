@@ -18,18 +18,23 @@
   
   
   <title>RocketMQ 二主二从异步集群部署 | 小余哥</title>
-  <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+  <meta name="description" content="1. 节点规划 第一台机器 192.168.44.163    端口 名称    9876 NameServer1   10910 BrokerA-master   10921 BrokerB-slave      第二台机器 192.168.44.164    端口 名称    9876 NameServer2   10911 BrokerA-slave   10920 BrokerB-slav">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RocketMQ 二主二从异步集群部署">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/rocketmq-colony-install/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:description" content="1. 节点规划 第一台机器 192.168.44.163    端口 名称    9876 NameServer1   10910 BrokerA-master   10921 BrokerB-slave      第二台机器 192.168.44.164    端口 名称    9876 NameServer2   10911 BrokerA-slave   10920 BrokerB-slav">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/rocketmq-colony-install/1.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/rocketmq-colony-install/2.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/rocketmq-colony-install/3.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/rocketmq-colony-install/4.png">
 <meta property="article:published_time" content="2022-07-03T03:37:05.000Z">
-<meta property="article:modified_time" content="2022-07-03T04:13:50.401Z">
+<meta property="article:modified_time" content="2022-07-03T04:51:50.592Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="rocketmq">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/rocketmq-colony-install/1.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://xiaoyuge5201.github.io/rocketmq-colony-install/index.html">
   
@@ -281,31 +286,6 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-sentinel/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/linux/">linux</a>
-              </p>
-              <p class="item-title">
-                <a href="/redis-sentinel/" class="title">Redis6.2.6一主二从Sentinel监控配置</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-07-02T04:52:41.000Z" itemprop="datePublished">2022-07-02</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
               <a href="/rocketmq-install/" class="thumb">
     
     
@@ -323,7 +303,32 @@
                 <a href="/rocketmq-install/" class="title">CentOS安装RocketMQ以及常用命令</a>
               </p>
               <p class="item-date">
-                <time datetime="2022-07-01T07:53:24.000Z" itemprop="datePublished">2022-07-01</time>
+                <time datetime="2022-07-02T07:53:24.000Z" itemprop="datePublished">2022-07-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/redis-sentinel/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/linux/">linux</a>
+              </p>
+              <p class="item-title">
+                <a href="/redis-sentinel/" class="title">Redis6.2.6一主二从Sentinel监控配置</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-01T04:52:41.000Z" itemprop="datePublished">2022-07-01</time>
               </p>
             </div>
           </li>
@@ -431,22 +436,120 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="1c9605e1ca017f3117b9156296bb147ccb997d2988d07290bcdccf53bfdb00b6">91b4a72afde41933824d9b47e790ab276fb896cf66d88c172d81884618061a3a71b2eceb59805407b891fc38969bcf4675eed9867e3e9ac710a9241e84b1bde8a4641367ecc300ebb86bc7c41038115e279d02dfbd07f9872c4054f47bf0ca79141a85702976c9cfaf93e6eaabad9eeb884516212529a6ec2c47133e18faf6626c0dbcf1cd6573f7b3b589941a6632752a9adc7050374b780540cd231e41fd321eb125e8edb138686d259ca4f81635f42ff7655a60ac39387fb676c2b294ecebb5989bf56e4938ecb8aab599e3b9c9b1dc5d92138bcab5a61ae99e5e679e946d635aa18af39f22043521e146cb2ba1d0d25b2e1e0e7c27bddd6bfaa1d4f0065e45f63c003020368b20694f73a6c030af15fc6a16fedcb2175ccb34734fa6c34d155d7c5143a31930b8f883a05cb9892bf63ecdc374001c9a92b7373b8ad05dd8901bffb89d30799e52db5706fd36c5363985da64e545396be5a54970866efae4b8d922ccc24fda24110fceae9c567f376d0c4d55bccffc43faa950b3de06d24caabaeb4814f444c353ab11e552a6dbc156b40b38214c6a32b54e3a972d6da845471c198ed1d08f8d8743ed267e5bfe1769155fc7efafab59482a7e9d85b2a1b4ceebe736e8b4913d4e1d47f4ab4486efee951d309ca1e44a63563376a5de470e7deede3b1ecc5580e82fddee0bf0198774bc5353e937489cda5ea8d7654761418241ac6891c5089d484fdf9f05617ca9356f935ad46f4c96e59d3960e08528eeb2bf759d0181afef62d51793d89d68e33ad3efc661e59f8c9311811752666b028e0d3d3b89739d8fa7500a49896adaf3c9a60ffefced80c203fefa426a2bdac97fb16ba7321cc706c9cf343bd988985051b0d7d930808978621fee16e6d50fca2923590538341f8fdcebdd449ff50f1cd6d177dc8d036ab6aac69c5da18697a7c6ed422d189902df588c04a910d7eb8f449f5674c58cec17bbdab10c856ec1f8bbfb153a2b438ec4d003f94fa41a12785a036cd0633d7d073fbfc135191dd3b560ceb6c276de447c50c13aec2448b5d5fdb1256f28d4247abd632f44d8587531b6a966fbaf1d4656b83cd9f5cfc57c6e5ea6fcd2b8cf70c92de7b9f17581ab07d961a18fc003ec9c50c97b0de035836251ea9dd3375427d95aea6c14e01a8ba01484e3cb9edf47d9d00606d3fd4b622dce1ebfc8cfb838a1f45b6d9120d50d03a60075395feb2a05e3eaef23c3593a3be4b8857b2460a76a606e9bbad938147fe7bfa8a97a10a82b12bae3bc07d0331d6be75a69456f2195b2c2b2af447ecd530fb98cae59b86a702d3be52e9c49f6b734582017863f523c3888c95d2c4b60b1f53ad11c14584fd349f4eb44a4ce3d325405870f9ba33933f3fb53e87c7c6f50a83a6fd24b8a29b48a1286e7b0d1033d5688805a9be80b13744accb60f9101b501b27e13b270f733ffd8a53182a27b23199c7a8e80b10a8ee381c64b15a2956873dc4035bd9c0fb4df2bd3d71d0a141d49902c20421382bcd85f5f21433633266e9337aceba8f1296b8c6933f94cb21878e2f93b037cb7fc823a745fe04affe82788b5b2f668128ecbef02d5a5386e07c6005bd42ac91e9dfb0f97fbbe7efd1494a83f6fa77e4a6ac91bf228e04911718bd2188fda558bd7d63abd8c6653fd5594800a6a12eea244fa7af4916f77e221cad07060f9796d03efe606d0be780093fe6d89dfbe5643252cdc0f7bbd0d3f48ccc2fbab76f58a86f5c80d3cae83b9ba98f656642163fd54157dd2756fc34ddddafaff575a6fafbb2cda4797f76dafbb952996f490d5c052de449caff3554840ccf5c4fb85afda038b38c7a422566432a422603691bd78d84994013f2d162f0c6694854c6296f9ee928d90698b33c39d919c7d31fbda8e59d1d8d51fcb7a9bb8633528637436c97074c4cf252091693acc68458759af458f78968d41b41d97f93e0001db82997f3f32cbdb13f1b999268a7dc1ba0d9ec2f16292e67635eb2b58286ba7898ae82d74c2e4eeccc8db4525bb2f15008115fd4d7f4d8c0b59112ade3ce0e4b1dd05ceb04303bb497cff74c8f12ec7936db2189f2eeed89f96f9df51be8fe1543a64183b48c43e92b5ddd78b929ff1a1cd8c59b70def95a2897481448f422305592bd67eaa5ef9e699b906fd31859e4435fab016250d6e14030feac26d16f9abf27ff9bdc999b08ea62adbb02e718c23392439152d6e143b6aaaaec501e3e28649777bd7871d6adc1d15dc135cb5ec4d1bda935aa02614344631c0f29f2f10e93645c95e24e98fc1ad3331ced4cd05220e5c4a40031d8b4383eeefa783344f5304ec4293b11c96fcfa4b5247d704c8d2568cac44edb2bbd5a8496a624ea35b3a3d5afa9353a9af55004beafcd2b9f07d36b523ca4fbd42efdfeb5a74ac8e35bbb6f939bdf716ec626385b614bb8d49e03af8e42dcb86f5f352a330618b4479f532390b593a98b3143ed51509c544b7b87e2cd62a075c66de9230ffc8fcefdd7531ce92fb51bfeb0b571faf3a2a14ec2cb9eb0fbdd416954acb4fd8f80b3847a2db7068606421d27f95516bdcb82ea7f41ed21841410af7de2b368629e6c9642f1b5193170db872b801d75947a44d15e3dce4270151d9c4760b3276f17ebb09e174826d8413353876754590a9a8da10a4709c32ecb6d0f68ddcc288e6f47d6e63e58c04c7febdcc5eecc8bbadc12b9f945d29b2d02b85172db0c8f9877ee82d6978bc586758fd017b00442c987e906a9dc41f9a58fa364f04b7fe3af9d8cee003902eec907f1d47bf1178815129d56996011a9d0859a165a50c6366a41675ef11ba95beecb4da31b691d51ac269967cac7cbb0e964a770fae1a29af3051ecccac913c520edd4b8d0fde2187a5e4f032950d21dd4e428f656e735b2afa8b553e775373d6bdf96500a84fc4d8f2f606ccc275e82feed27862830e81f52bc0147d2f80b9c90463b4d6e8ef6275013d45bd70eab6019b551cf1ffd3c71a7c21f6ce9a3bbcd0035ae6c11d4defa057d5d70a0b7fe72dbeacc6c66a5aeb48544f832f4a83507f373aaf2a267e6f58bc2e354f655e6da7eba9790b3be37139adc5b754c480e7b86fad789dc3decd823a42db83ca98982923d03dcd9c3caee63468c738c666c55a6c65b026d919f9f0a8bc5176eeec825ee7e91463e4d5bfffda9271cbeab7618cb1ea80e7baaca97085bf626dbeaed9e8157dbc3c897016e0d0299bf9424fb76bfee697fc1c95716d5bca4e27bae706164a73f03c37b3695ae2b6e57492a2c37a364b23715fee523206642494c017f3d8b3078524c22ebd43d441e3977136abc4fb4520d97042af15ac3887796d30b90321509fa16ab60a94d84a6d941c7824562021c8a2a4b8e4f99bf0ee96fd80646a9e8d030e2d76b0f46bbd40b5d13bc00bb731b0e771980eedec5ad78d4a3dff143518c99e88258e2d8ff7ca617ba174eddc17477b1674045299aa6945c3a3db70cf206333edbe1bc721</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-xray">
-      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">Hey, password is required here.</span>
-      </label>
-      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
-        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
-      </svg>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+        <h3 id="1-节点规划"><a href="#1-节点规划" class="headerlink" title="1. 节点规划"></a>1. 节点规划</h3><ol>
+<li><p>第一台机器 <strong>192.168.44.163</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">端口</th>
+<th align="left">名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">9876</td>
+<td align="left">NameServer1</td>
+</tr>
+<tr>
+<td align="left">10910</td>
+<td align="left">BrokerA-master</td>
+</tr>
+<tr>
+<td align="left">10921</td>
+<td align="left">BrokerB-slave</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ol start="2">
+<li><p>第二台机器 <strong>192.168.44.164</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">端口</th>
+<th align="left">名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">9876</td>
+<td align="left">NameServer2</td>
+</tr>
+<tr>
+<td align="left">10911</td>
+<td align="left">BrokerA-slave</td>
+</tr>
+<tr>
+<td align="left">10920</td>
+<td align="left">BrokerB-slave</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<p><img src="/rocketmq-colony-install/1.png"></p>
+<h3 id="2-下载并解压"><a href="#2-下载并解压" class="headerlink" title="2. 下载并解压"></a>2. 下载并解压</h3><p>具体操作可以查看 <a target="_blank" rel="noopener" href="https://xiaoyuge.work/rocketmq-install/">CentOS安装RocketMQ以及常用命令</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools</span><br><span class="line">wget https://dlcdn.apache.org/rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip</span><br><span class="line"><span class="meta">#</span><span class="bash">解压</span></span><br><span class="line">unzip rocketmq-all-4.9.4-bin-release.zip </span><br><span class="line"><span class="meta">#</span><span class="bash">改名</span></span><br><span class="line">mv rocketmq-all-4.9.4-bin-release rocketmq</span><br></pre></td></tr></table></figure>
+<p>在两台机器上都下载、解压好。<br>在<code>rocketmq/conf</code>目录下，有三种建议配置模式：</p>
+<ul>
+<li>2m-2s-async(2主2从异步) —— 本文采用这种</li>
+<li>2m-2s-sync (2主2从同步)</li>
+<li>2m-noslave (2主)</li>
+</ul>
+<p><img src="/rocketmq-colony-install/2.png"><br>现在需要修改两台机器上<code>2m-2s-async</code>这个目录中的文件。<br>配置文件修改之前先备份。</p>
+<h3 id="3-配置第一台机器163"><a href="#3-配置第一台机器163" class="headerlink" title="3. 配置第一台机器163"></a>3. 配置第一台机器163</h3><p>192.168.44.163的两个配置文件<br><img src="/rocketmq-colony-install/3.png"></p>
+<ol>
+<li>broker-a.properties <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools/rocketmq/conf/2m-2s-async</span><br><span class="line">vim  broker-a.properties</span><br></pre></td></tr></table></figure>
+ 修改的内容（名字自定义，保持一直，否则不能组成集群） <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">brokerClusterName</span>=<span class="string">ygb-cluster</span></span><br></pre></td></tr></table></figure>
+ 增加内容: <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Broker 对外服务的监听端口</span></span><br><span class="line"><span class="attr">listenPort</span>=<span class="string">10910</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建Topic，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateTopicEnable</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateSubscriptionGroup</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#nameServer地址，分号分割</span></span><br><span class="line"><span class="attr">namesrvAddr</span>=<span class="string">192.168.44.163:9876;192.168.44.164:9876</span></span><br><span class="line"><span class="comment">#存储路径</span></span><br><span class="line"><span class="attr">storePathRootDir</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a</span></span><br><span class="line"><span class="comment">#commitLog 存储路径</span></span><br><span class="line"><span class="attr">storePathCommitLog</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a/commitlog</span></span><br><span class="line"><span class="comment">#消费队列存储路径存储路径</span></span><br><span class="line"><span class="attr">storePathConsumeQueue</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a/consumequeue</span></span><br><span class="line"><span class="comment">#消息索引存储路径</span></span><br><span class="line"><span class="attr">storePathIndex</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a/index</span></span><br><span class="line"><span class="comment">#checkpoint 文件存储路径</span></span><br><span class="line"><span class="attr">storeCheckpoint</span>=<span class="string">/usr/local/tools/rocketmq/store/checkpoint</span></span><br><span class="line"><span class="comment">#abort 文件存储路径</span></span><br><span class="line"><span class="attr">abortFile</span>=<span class="string">/usr/local/tools/rocketmq/store/abort</span></span><br></pre></td></tr></table></figure></li>
+<li>broker-b-s.properties <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim  broker-b-s.properties</span><br></pre></td></tr></table></figure>
+ 修改的内容（名字自定义，保持一直，否则不能组成集群） <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">brokerClusterName</span>=<span class="string">ygb-cluster</span></span><br></pre></td></tr></table></figure>
+ 增加内容: <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Broker 对外服务的监听端口</span></span><br><span class="line"><span class="attr">listenPort</span>=<span class="string">10921</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建Topic，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateTopicEnable</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateSubscriptionGroup</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#nameServer地址，分号分割</span></span><br><span class="line"><span class="attr">namesrvAddr</span>=<span class="string">192.168.44.163:9876;192.168.44.164:9876</span></span><br><span class="line"><span class="comment">#存储路径</span></span><br><span class="line"><span class="attr">storePathRootDir</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-b-s</span></span><br><span class="line"><span class="comment">#commitLog 存储路径</span></span><br><span class="line"><span class="attr">storePathCommitLog</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-b-s/commitlog</span></span><br><span class="line"><span class="comment">#消费队列存储路径存储路径</span></span><br><span class="line"><span class="attr">storePathConsumeQueue</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-b-s/consumequeue</span></span><br><span class="line"><span class="comment">#消息索引存储路径</span></span><br><span class="line"><span class="attr">storePathIndex</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-b-s/index</span></span><br><span class="line"><span class="comment">#checkpoint 文件存储路径</span></span><br><span class="line"><span class="attr">storeCheckpoint</span>=<span class="string">/usr/local/tools/rocketmq/store/checkpoint</span></span><br><span class="line"><span class="comment">#abort 文件存储路径</span></span><br><span class="line"><span class="attr">abortFile</span>=<span class="string">/usr/local/tools/rocketmq/store/abort</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-配置第二台机器164"><a href="#4-配置第二台机器164" class="headerlink" title="4. 配置第二台机器164"></a>4. 配置第二台机器164</h3><p>192.168.44.164的两个配置文件; 修改的内容基本一致，主要是注意一下端口号、路径名。<br><img src="/rocketmq-colony-install/4.png"></p>
+<ol>
+<li><p>broker-b.properties</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools/rocketmq/conf/2m-2s-async</span><br><span class="line">vim  broker-b.properties</span><br></pre></td></tr></table></figure>
+<p> 修改的内容（名字自定义，保持一直，否则不能组成集群）</p>
+ <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">brokerClusterName</span>=<span class="string">ygb-cluster</span></span><br></pre></td></tr></table></figure>
+<p> 增加内容:</p>
+ <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Broker 对外服务的监听端口</span></span><br><span class="line"><span class="attr">listenPort</span>=<span class="string">10920</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建Topic，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateTopicEnable</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateSubscriptionGroup</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#nameServer地址，分号分割</span></span><br><span class="line"><span class="attr">namesrvAddr</span>=<span class="string">192.168.44.163:9876;192.168.44.164:9876</span></span><br><span class="line"><span class="comment">#存储路径</span></span><br><span class="line"><span class="attr">storePathRootDir</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-b</span></span><br><span class="line"><span class="comment">#commitLog 存储路径</span></span><br><span class="line"><span class="attr">storePathCommitLog</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-b/commitlog</span></span><br><span class="line"><span class="comment">#消费队列存储路径存储路径</span></span><br><span class="line"><span class="attr">storePathConsumeQueue</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-b/consumequeue</span></span><br><span class="line"><span class="comment">#消息索引存储路径</span></span><br><span class="line"><span class="attr">storePathIndex</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-b/index</span></span><br><span class="line"><span class="comment">#checkpoint 文件存储路径</span></span><br><span class="line"><span class="attr">storeCheckpoint</span>=<span class="string">/usr/local/tools/rocketmq/store/checkpoint</span></span><br><span class="line"><span class="comment">#abort 文件存储路径</span></span><br><span class="line"><span class="attr">abortFile</span>=<span class="string">/usr/local/tools/rocketmq/store/abort</span></span><br></pre></td></tr></table></figure></li>
+<li><p>broker-a-s.properties</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools/rocketmq/conf/2m-2s-async</span><br><span class="line">vim broker-a-s.properties</span><br></pre></td></tr></table></figure>
+<p> 修改的内容（名字自定义，保持一直，否则不能组成集群）</p>
+ <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">brokerClusterName</span>=<span class="string">ygb-cluster</span></span><br></pre></td></tr></table></figure>
+<p> 增加内容:</p>
+ <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Broker 对外服务的监听端口</span></span><br><span class="line"><span class="attr">listenPort</span>=<span class="string">10911</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建Topic，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateTopicEnable</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateSubscriptionGroup</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#nameServer地址，分号分割</span></span><br><span class="line"><span class="attr">namesrvAddr</span>=<span class="string">192.168.44.163:9876;192.168.44.164:9876</span></span><br><span class="line"><span class="comment">#存储路径</span></span><br><span class="line"><span class="attr">storePathRootDir</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a-s</span></span><br><span class="line"><span class="comment">#commitLog 存储路径</span></span><br><span class="line"><span class="attr">storePathCommitLog</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a-s/commitlog</span></span><br><span class="line"><span class="comment">#消费队列存储路径存储路径</span></span><br><span class="line"><span class="attr">storePathConsumeQueue</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a-s/consumequeue</span></span><br><span class="line"><span class="comment">#消息索引存储路径</span></span><br><span class="line"><span class="attr">storePathIndex</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a-s/index</span></span><br><span class="line"><span class="comment">#checkpoint 文件存储路径</span></span><br><span class="line"><span class="attr">storeCheckpoint</span>=<span class="string">/usr/local/tools/rocketmq/store/checkpoint</span></span><br><span class="line"><span class="comment">#abort 文件存储路径</span></span><br><span class="line"><span class="attr">abortFile</span>=<span class="string">/usr/local/tools/rocketmq/store/abort</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="5-创建数据目录"><a href="#5-创建数据目录" class="headerlink" title="5. 创建数据目录"></a>5. 创建数据目录</h3><ol>
+<li><p>在第一台机器163 执行（只需要执行一次）</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/local/tools/rocketmq/store/broker-a /usr/local/tools/rocketmq/store/broker-a/consumequeue /usr/local/tools/rocketmq/store/broker-a/commitlog /usr/local/tools/rocketmq/store/broker-a/index /usr/local/tools/rocketmq/logs /usr/local/tools/rocketmq/store/broker-b-s /usr/local/tools/rocketmq/store/broker-b-s/consumequeue /usr/local/tools/rocketmq/store/broker-b-s/commitlog /usr/local/tools/rocketmq/store/broker-b-s/index</span><br></pre></td></tr></table></figure></li>
+<li><p>在第二台机器164 执行（只需要执行一次）</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/local/tools/rocketmq/store/broker-a-s /usr/local/tools/rocketmq/store/broker-a-s/consumequeue /usr/local/tools/rocketmq/store/broker-a-s/commitlog /usr/local/tools/rocketmq/store/broker-a-s/index /usr/local/tools/rocketmq/logs /usr/local/tools/rocketmq/store/broker-b /usr/local/tools/rocketmq/store/broker-b/consumequeue /usr/local/tools/rocketmq/store/broker-b/commitlog /usr/local/tools/rocketmq/store/broker-b/index</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="6-启动两个NameServer"><a href="#6-启动两个NameServer" class="headerlink" title="6. 启动两个NameServer"></a>6. 启动两个NameServer</h3><ol>
+<li><p>启动第一台163的NameServer</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sh /usr/local/tools/rocketmq/bin/mqnamesrv &gt;/usr/local/tools/rocketmq/logs/mqnamesrv.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></li>
+<li><p>启动第二台164的NameServer</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sh /usr/local/tools/rocketmq/bin/mqnamesrv &gt;/usr/local/tools/rocketmq/logs/mqnamesrv.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="7-启动Broker"><a href="#7-启动Broker" class="headerlink" title="7. 启动Broker"></a>7. 启动Broker</h3><ol>
+<li><p>启动 163 机器上的<code>broker-a-master</code>（在163上执行）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sh /usr/local/tools/rocketmq/bin/mqbroker -c /usr/local/tools/rocketmq/conf/2m-2s-async/broker-a.properties &gt; /usr/local/tools/rocketmq/logs/broker-a.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p>在虚拟机中可能由于内存不够导致无法启动，日志文件中出现如下错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nohup: ignoring input</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM warning: INFO: os::commit_memory(0x00000005c0000000, 8589934592, 0) failed; error=&#x27;Cannot allocate memory&#x27; (errno=12)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/tools/rocketmq/bin/runbroker.sh</span><br></pre></td></tr></table></figure>
+<p>把8g和4g改成512m和256m</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">JAVA_OPT</span>=<span class="string">&quot;$&#123;JAVA_OPT&#125; -server -Xms512m -Xmx512m -Xmn256m&quot;</span></span><br></pre></td></tr></table></figure>
+<p>再次启动。</p>
+</li>
+<li><p>启动 164 机器上的<code>broker-a-s</code>（在164上执行）</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">nohup</span> <span class="string">sh /usr/local/tools/rocketmq/bin/mqbroker -c /usr/local/tools/rocketmq/conf/2m-2s-async/broker-a-s.properties &gt; /usr/local/tools/rocketmq/logs/broker-a-s.log 2&gt;&amp;1 &amp;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>启动 164 的<code>broker-b-master</code>（在164上执行）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sh /usr/local/tools/rocketmq/bin/mqbroker -c /usr/local/tools/rocketmq/conf/2m-2s-async/broker-b.properties &gt; /usr/local/tools/rocketmq/logs/broker-b.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></li>
+<li><p>启动 163 机器上的<code>broker-b-s</code>（在163上执行）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sh /usr/local/tools/rocketmq/bin/mqbroker -c /usr/local/tools/rocketmq/conf/2m-2s-async/broker-b-s.properties &gt; /usr/local/tools/rocketmq/logs/broker-b-s.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure></li>
+<li><p>查看两台机器的端口启动情况</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -an|grep 端口号</span><br></pre></td></tr></table></figure></li>
+</ol>
+
       
     </div>
     <div class="article-footer">
@@ -497,7 +600,7 @@
     
     
     <li class="next">
-      <a href="/redis-sentinel/" title="Redis6.2.6一主二从Sentinel监控配置"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/rocketmq-install/" title="CentOS安装RocketMQ以及常用命令"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
