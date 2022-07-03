@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xiaoyuge5201.github.io/canal-kafka-async/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/kafka-colony-install/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/kafka-install/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
     <loc>https://xiaoyuge5201.github.io/rocketmq-install/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
@@ -30,10 +42,6 @@
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/kafka-command/</loc>
-    <lastmod>2022-06-30</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/kafka-install/</loc>
     <lastmod>2022-06-30</lastmod>
   </url>
   <url>

@@ -15,8 +15,54 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 03 Jul 2022 04:51:50 GMT</pubDate>
+    <pubDate>Sun, 03 Jul 2022 14:09:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CentOS Kafka 3.2.0 单机集群安装（伪集群）</title>
+      <link>https://xiaoyuge5201.github.io/kafka-colony-install/</link>
+      <guid>https://xiaoyuge5201.github.io/kafka-colony-install/</guid>
+      <pubDate>Sun, 03 Jul 2022 13:45:23 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-准备工作&quot;&gt;&lt;a href=&quot;#1-准备工作&quot; class=&quot;headerlink&quot; title=&quot;1. 准备工作&quot;&gt;&lt;/a&gt;1. 准备工作&lt;/h3&gt;&lt;p&gt;由于没有那么多台机器，所以在同一台机器上运行多个Kafka服务，只是端口不同&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/kafka/">kafka</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>基于Canal和Kafka实现数据同步</title>
+      <link>https://xiaoyuge5201.github.io/canal-kafka-async/</link>
+      <guid>https://xiaoyuge5201.github.io/canal-kafka-async/</guid>
+      <pubDate>Sun, 03 Jul 2022 08:38:33 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h3&gt;&lt;p&gt;Canal的作用：把自己”伪装”成一个&lt;code&gt;Mysql&lt;/code&gt;的&lt;code&gt;slave&lt;/code&gt;，不停同</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/Canal/">Canal</category>
+      
+      
+    </item>
     
     <item>
       <title>RocketMQ 二主二从异步集群部署</title>
@@ -244,7 +290,7 @@
     </item>
     
     <item>
-      <title>CentOS安装kafka 2.5.0单机版</title>
+      <title>CentOS安装kafka 3.2.0单机版</title>
       <link>https://xiaoyuge5201.github.io/kafka-install/</link>
       <guid>https://xiaoyuge5201.github.io/kafka-install/</guid>
       <pubDate>Thu, 23 Jun 2022 06:19:35 GMT</pubDate>
