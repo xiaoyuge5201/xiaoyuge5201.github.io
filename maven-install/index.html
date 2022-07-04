@@ -17,19 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>分类: 知识整理 | 小余哥</title>
-  <meta name="description" content="小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小余哥|猿无忧">
-<meta property="og:url" content="https://xiaoyuge5201.github.io/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/index.html">
+  <title>CentOS安装Maven 3.8.6 | 小余哥</title>
+  <meta name="description" content="1. 下载 maven官网地址：https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ， 右键复制链接地址，wget下载，或者下载到本地再上传到Centos 可以从镜像仓库下载：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;apache&#x2F;maven&#x2F;maven-3&#x2F;3.8.6&#x2F;binaries&#x2F; ，12cd &#x2F;usr&#x2F;local&#x2F;toolshttp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS安装Maven 3.8.6">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/maven-install/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。">
+<meta property="og:description" content="1. 下载 maven官网地址：https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ， 右键复制链接地址，wget下载，或者下载到本地再上传到Centos 可以从镜像仓库下载：https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;apache&#x2F;maven&#x2F;maven-3&#x2F;3.8.6&#x2F;binaries&#x2F; ，12cd &#x2F;usr&#x2F;local&#x2F;toolshttp">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-04T01:10:10.000Z">
+<meta property="article:modified_time" content="2022-07-04T01:31:30.227Z">
 <meta property="article:author" content="小余哥|猿无忧">
-<meta property="article:tag" content="小余哥，猿无忧，余歌先生，小余">
+<meta property="article:tag" content="maven">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://xiaoyuge5201.github.io/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/index.html">
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/maven-install/index.html">
   
   
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -386,91 +388,187 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="content article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">分类: 知识整理</h1>
-      <p class="hidden-xs">共 2 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/categories">All</a></li>
-          
-          <li><a href="/categories/linux/">linux</a></li>
-          
-          <li><a href="/categories/知识整理/">知识整理</a></li>
-          
-          <li><a href="/categories/算法/">算法</a></li>
-          
-          <li><a href="/categories/踩坑记录/">踩坑记录</a></li>
-          
-          <li><a href="/categories/中间件/">中间件</a></li>
-          
-          <li><a href="/categories/java/">java</a></li>
-          
-          <li><a href="/categories/hexo/">hexo</a></li>
-          
-          <li><a href="/categories/mysql/">mysql</a></li>
-          
-          <li><a href="/categories/Docker/">Docker</a></li>
-          
-          <li><a href="/categories/nginx/">nginx</a></li>
-          
-          <li><a href="/categories/架构师笔记/">架构师笔记</a></li>
-          
-          <li><a href="/categories/apache/">apache</a></li>
-          
-          <li><a href="/categories/经验分享/">经验分享</a></li>
-          
-          <li><a href="/categories/vue/">vue</a></li>
-          
-          <li><a href="/categories/swagger/">swagger</a></li>
-          
-          <li><a href="/categories/tomcat/">tomcat</a></li>
-          
-          <li><a href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="panel panel-default b-no">
-    <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapse知识整理" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              知识整理
-            </a>
-            <small class="text-muted">(Total 2 articles)</small>
-        </h4>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-maven-install" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CentOS安装Maven 3.8.6
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/maven-install/" class="article-date">
+	  <time datetime="2022-06-04T01:10:10.000Z" itemprop="datePublished">2022-06-04</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/maven/" rel="tag">maven</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/maven-install/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
     </div>
-    <div id="collapse知识整理" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading知识整理">
-        <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/ConcurrentHashMap/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2021-07-02T08:17:29.000Z" itemprop="datePublished">2021-07-02</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> ConcurrentHashMap线程安全
-</a>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="1-下载"><a href="#1-下载" class="headerlink" title="1. 下载"></a>1. 下载</h3><ol>
+<li>maven官网地址：<a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a> ， 右键复制链接地址，wget下载，或者下载到本地再上传到Centos</li>
+<li>可以从镜像仓库下载：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.8.6/binaries/">https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.8.6/binaries/</a> ，<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools</span><br><span class="line">https://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-解压"><a href="#2-解压" class="headerlink" title="2. 解压"></a>2. 解压</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-maven-3.8.6-bin.tar.gz</span><br></pre></td></tr></table></figure>
 
+<h3 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3. 配置环境变量"></a>3. 配置环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+<p>在末尾增加两行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export MAVEN_HOME=/usr/local/tools/apache-maven-3.8.6</span><br><span class="line">export PATH=$PATH:$MAVEN_HOME/bin</span><br></pre></td></tr></table></figure>
+<p>编译生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<h3 id="4-验证是否配置成功"><a href="#4-验证是否配置成功" class="headerlink" title="4. 验证是否配置成功"></a>4. 验证是否配置成功</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn -v</span><br></pre></td></tr></table></figure>
+<p>如果出现版本信息则配置成功</p>
+<h3 id="5-配置本地仓库和镜像仓库"><a href="#5-配置本地仓库和镜像仓库" class="headerlink" title="5. 配置本地仓库和镜像仓库"></a>5. 配置本地仓库和镜像仓库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools/apache-maven-3.8.6/conf</span><br><span class="line">vim setting.xml</span><br></pre></td></tr></table></figure>
+<p>在相应注释位置添加如下两行：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>/home/mavenRepository/<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-              
-                
-<a href="/java8%E7%89%B9%E6%80%A7/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2020-04-23T06:04:02.000Z" itemprop="datePublished">2020-04-23</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> Java 8学习
-</a>
-
-
-              
-            </div>
-        </div>
+      
     </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoyuge5201.github.io/maven-install/" title="CentOS安装Maven 3.8.6" target="_blank" rel="external">https://xiaoyuge5201.github.io/maven-install/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！本博客如有侵权，请联系删除！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
+        <div>致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</div>
+      </div>
+    </figure>
+  </div>
 </div>
+
+
     </div>
   </article>
-   
+  
+    
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/springboot-validate-params/" title="SpringBoot参数校验"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/gitlab/" title="Linux安装gitlab"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -535,6 +633,10 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 })(jQuery);
 </script>
 
+
+
+
+   
 
 
 
