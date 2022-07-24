@@ -15,8 +15,27 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 03 Jul 2022 14:22:56 GMT</pubDate>
+    <pubDate>Sun, 24 Jul 2022 03:12:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Jenkins自动化部署入门教程</title>
+      <link>https://xiaoyuge5201.github.io/jenkins/</link>
+      <guid>https://xiaoyuge5201.github.io/jenkins/</guid>
+      <pubDate>Wed, 13 Jul 2022 02:41:39 GMT</pubDate>
+      
+      <description>博客被加密了, 请输入密码查看.</description>
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/devops/">devops</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/jenkins/">jenkins</category>
+      
+      
+    </item>
     
     <item>
       <title>CentOS Kafka 3.2.0 单机集群安装（伪集群）</title>
