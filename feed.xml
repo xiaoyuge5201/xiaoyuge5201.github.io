@@ -15,8 +15,49 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 24 Jul 2022 03:12:19 GMT</pubDate>
+    <pubDate>Sat, 15 Oct 2022 06:44:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Tidb查询优化</title>
+      <link>https://xiaoyuge5201.github.io/tidb-optimization/</link>
+      <guid>https://xiaoyuge5201.github.io/tidb-optimization/</guid>
+      <pubDate>Sat, 15 Oct 2022 06:23:37 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;1-tidb查询优化&quot;&gt;&lt;a href=&quot;#1-tidb查询优化&quot; class=&quot;headerlink&quot; title=&quot;1. tidb查询优化&quot;&gt;&lt;/a&gt;1. tidb查询优化&lt;/h3&gt;&lt;p&gt; tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/tidb/">tidb</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/tidb/">tidb</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>分布式消息中间件设计篇</title>
+      <link>https://xiaoyuge5201.github.io/distributed-message-middleware1/</link>
+      <guid>https://xiaoyuge5201.github.io/distributed-message-middleware1/</guid>
+      <pubDate>Sun, 18 Sep 2022 14:03:03 GMT</pubDate>
+      
+      <description>博客被加密了, 请输入密码查看.</description>
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/rocketmq/">rocketmq</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
+      
+      
+    </item>
     
     <item>
       <title>Jenkins自动化部署入门教程</title>
@@ -525,6 +566,25 @@
       
       
       <comments>https://xiaoyuge5201.github.io/uml/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Java知识系统整理1</title>
+      <link>https://xiaoyuge5201.github.io/java-basic/</link>
+      <guid>https://xiaoyuge5201.github.io/java-basic/</guid>
+      <pubDate>Sun, 24 Apr 2022 07:14:45 GMT</pubDate>
+      
+      <description>博客被加密了, 请输入密码查看.</description>
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
       
     </item>
     
