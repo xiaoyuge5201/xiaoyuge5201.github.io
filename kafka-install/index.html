@@ -18,12 +18,12 @@
   
   
   <title>CentOS安装kafka 3.2.0单机版 | 小余哥</title>
-  <meta name="description" content="1. JDK依赖请参考这篇博客：Linux安装JDK以及配置 2. 下载解压Kafka下载地址：https:&#x2F;&#x2F;kafka.apache.org&#x2F;downloads，  点击相应的版本，下载Binary 二进制版本而不是源码我这里下载的是3.2.0版本（https:&#x2F;&#x2F;www.apache.org&#x2F;dyn&#x2F;closer.cgi?path&#x3D;&#x2F;kafka&#x2F;3.2.0&#x2F;kafka_2.12-3.2.0.">
+  <meta name="description" content="1. JDK依赖 请参考这篇博客：Linux安装JDK以及配置  2. 下载解压Kafka 下载地址：https:&#x2F;&#x2F;kafka.apache.org&#x2F;downloads，  点击相应的版本，下载Binary 二进制版本而不是源码 我这里下载的是3.2.0版本（https:&#x2F;&#x2F;www.apache.org&#x2F;dyn&#x2F;closer.cgi?path&#x3D;&#x2F;kafka&#x2F;3.2.0&#x2F;kafka_2.12-3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS安装kafka 3.2.0单机版">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/kafka-install/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. JDK依赖请参考这篇博客：Linux安装JDK以及配置 2. 下载解压Kafka下载地址：https:&#x2F;&#x2F;kafka.apache.org&#x2F;downloads，  点击相应的版本，下载Binary 二进制版本而不是源码我这里下载的是3.2.0版本（https:&#x2F;&#x2F;www.apache.org&#x2F;dyn&#x2F;closer.cgi?path&#x3D;&#x2F;kafka&#x2F;3.2.0&#x2F;kafka_2.12-3.2.0.">
+<meta property="og:description" content="1. JDK依赖 请参考这篇博客：Linux安装JDK以及配置  2. 下载解压Kafka 下载地址：https:&#x2F;&#x2F;kafka.apache.org&#x2F;downloads，  点击相应的版本，下载Binary 二进制版本而不是源码 我这里下载的是3.2.0版本（https:&#x2F;&#x2F;www.apache.org&#x2F;dyn&#x2F;closer.cgi?path&#x3D;&#x2F;kafka&#x2F;3.2.0&#x2F;kafka_2.12-3">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/kafka-install/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/kafka-install/2.png">
@@ -435,36 +435,51 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-JDK依赖"><a href="#1-JDK依赖" class="headerlink" title="1. JDK依赖"></a>1. JDK依赖</h3><p>请参考这篇博客：<a target="_blank" rel="noopener" href="https://xiaoyuge.work/jdk-install/">Linux安装JDK以及配置</a></p>
-<h3 id="2-下载解压Kafka"><a href="#2-下载解压Kafka" class="headerlink" title="2. 下载解压Kafka"></a>2. 下载解压Kafka</h3><p>下载地址：<a target="_blank" rel="noopener" href="https://kafka.apache.org/downloads%EF%BC%8C">https://kafka.apache.org/downloads，</a>  点击相应的版本，下载Binary 二进制版本而不是源码<br>我这里下载的是3.2.0版本（<a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.cgi?path=/kafka/3.2.0/kafka_2.12-3.2.0.tgz%EF%BC%89">https://www.apache.org/dyn/closer.cgi?path=/kafka/3.2.0/kafka_2.12-3.2.0.tgz）</a><br><img src="/kafka-install/1.png"></p>
+        <h3 id="1-jdk依赖"><a class="markdownIt-Anchor" href="#1-jdk依赖"></a> 1. JDK依赖</h3>
+<p>请参考这篇博客：<a target="_blank" rel="noopener" href="https://xiaoyuge.work/jdk-install/">Linux安装JDK以及配置</a></p>
+<h3 id="2-下载解压kafka"><a class="markdownIt-Anchor" href="#2-下载解压kafka"></a> 2. 下载解压Kafka</h3>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://kafka.apache.org/downloads%EF%BC%8C">https://kafka.apache.org/downloads，</a>  点击相应的版本，下载Binary 二进制版本而不是源码<br>
+我这里下载的是3.2.0版本（<a target="_blank" rel="noopener" href="https://www.apache.org/dyn/closer.cgi?path=/kafka/3.2.0/kafka_2.12-3.2.0.tgz%EF%BC%89">https://www.apache.org/dyn/closer.cgi?path=/kafka/3.2.0/kafka_2.12-3.2.0.tgz）</a><br>
+<img src="/kafka-install/1.png" alt></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools</span><br><span class="line">wget https://dlcdn.apache.org/kafka/3.2.0/kafka_2.12-3.2.0.tgz</span><br><span class="line">tar -xzvf kafka_2.12-3.2.0.tgz</span><br><span class="line">cd kafka_2.12-3.2.0</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-启动zookeeper-默认端口2181"><a href="#3-启动zookeeper-默认端口2181" class="headerlink" title="3. 启动zookeeper(默认端口2181)"></a>3. 启动zookeeper(默认端口2181)</h3><p>kafka需要依赖ZK，安装包中已经自带了一个ZK，也可以改成指定已运行的ZK。<br>如果改成指定的ZK需要修改修改 kafka 安装目录下的 config/server.properties 文件中的 zookeeper.connect 。这里使用自带的ZK。</p>
+<h3 id="3-启动zookeeper默认端口2181"><a class="markdownIt-Anchor" href="#3-启动zookeeper默认端口2181"></a> 3. 启动zookeeper(默认端口2181)</h3>
+<p>kafka需要依赖ZK，安装包中已经自带了一个ZK，也可以改成指定已运行的ZK。<br>
+如果改成指定的ZK需要修改修改 kafka 安装目录下的 config/server.properties 文件中的 zookeeper.connect 。这里使用自带的ZK。</p>
 <p>后台启动zk</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./bin/zookeeper-server-start.sh config/zookeeper.properties &gt;&gt; zookeeper.nohup &amp;</span><br></pre></td></tr></table></figure>
 <p>检查zookeeper是否启动成功：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep zookeeper</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-启动kafka（默认端口9092）"><a href="#4-启动kafka（默认端口9092）" class="headerlink" title="4. 启动kafka（默认端口9092）"></a>4. 启动kafka（默认端口9092）</h3><ol>
-<li>修改相关配置 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config/server.properties</span><br></pre></td></tr></table></figure>
- <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">broker.id</span>=<span class="string">1                 #Broker ID启动以后就不能改了</span></span><br><span class="line"><span class="attr">listeners</span>=<span class="string">PLAINTEXT://192.168.44.160:9092       #取消注释，改成本机IP：</span></span><br><span class="line"></span><br><span class="line"><span class="meta">num.partitions</span>=<span class="string">1                #num.partitions后面增加2行。</span></span><br><span class="line"><span class="meta">auto.create.topics.enable</span>=<span class="string">true          #发送到不存在topic自动创建</span></span><br><span class="line"><span class="meta">delete.topic.enable</span>=<span class="string">true                #允许永久删除topic</span></span><br></pre></td></tr></table></figure></li>
-<li>后台启动kafka <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> nohup ./bin/kafka-server-start.sh ./config/server.properties &amp;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者</span></span><br><span class="line">./bin/kafka-server-start.sh -daemon ./config/server.properties</span><br></pre></td></tr></table></figure></li>
+<h3 id="4-启动kafka默认端口9092"><a class="markdownIt-Anchor" href="#4-启动kafka默认端口9092"></a> 4. 启动kafka（默认端口9092）</h3>
+<ol>
+<li>
+<p>修改相关配置</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config/server.properties</span><br></pre></td></tr></table></figure>
+ <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">broker.id</span>=<span class="string">1                 #Broker ID启动以后就不能改了</span></span><br><span class="line"><span class="attr">listeners</span>=<span class="string">PLAINTEXT://192.168.44.160:9092       #取消注释，改成本机IP：</span></span><br><span class="line"></span><br><span class="line"><span class="meta">num.partitions</span>=<span class="string">1                #num.partitions后面增加2行。</span></span><br><span class="line"><span class="meta">auto.create.topics.enable</span>=<span class="string">true          #发送到不存在topic自动创建</span></span><br><span class="line"><span class="meta">delete.topic.enable</span>=<span class="string">true                #允许永久删除topic</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>后台启动kafka</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> nohup ./bin/kafka-server-start.sh ./config/server.properties &amp;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者</span></span><br><span class="line">./bin/kafka-server-start.sh -daemon ./config/server.properties</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="5-创建Topic"><a href="#5-创建Topic" class="headerlink" title="5. 创建Topic"></a>5. 创建Topic</h3><p>创建一个名为<code>gptest</code>的<code>topic</code>，只有一个副本，一个分区：</p>
+<h3 id="5-创建topic"><a class="markdownIt-Anchor" href="#5-创建topic"></a> 5. 创建Topic</h3>
+<p>创建一个名为<code>gptest</code>的<code>topic</code>，只有一个副本，一个分区：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh bin/kafka-topics.sh --create --bootstrap-server localhost:2181 --replication-factor 1 --partitions 1 --topic gptest</span><br></pre></td></tr></table></figure>
 <p>查看已经创建的 topic：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh bin/kafka-topics.sh -list -bootstrap-server localhost:2181</span><br></pre></td></tr></table></figure>
 <p>从Kafka 2.2版本开始，Kafka社区推荐用–bootstrap-server参数替换–zookeeper参数用于指定Kafka Broker。集群的多个IP端口用逗号,隔开</p>
-<h3 id="5-启动Producer"><a href="#5-启动Producer" class="headerlink" title="5. 启动Producer"></a>5. 启动Producer</h3><p>打开一个窗口，在kafka解压目录下：</p>
+<h3 id="5-启动producer"><a class="markdownIt-Anchor" href="#5-启动producer"></a> 5. 启动Producer</h3>
+<p>打开一个窗口，在kafka解压目录下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh bin/kafka-console-producer.sh --broker-list localhost:9092 --topic gptest</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="6-启动Consumer"><a href="#6-启动Consumer" class="headerlink" title="6. 启动Consumer"></a>6. 启动Consumer</h3><p>在一个新的远程窗口中：</p>
+<h3 id="6-启动consumer"><a class="markdownIt-Anchor" href="#6-启动consumer"></a> 6. 启动Consumer</h3>
+<p>在一个新的远程窗口中：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic gptest --from-beginning</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-Producer窗口发送消息"><a href="#7-Producer窗口发送消息" class="headerlink" title="7. Producer窗口发送消息"></a>7. Producer窗口发送消息</h3><p>输入hello world 回车<br><img src="/kafka-install/2.png"></p>
-<p>消费者收到了消息：<br><img src="/kafka-install/3.png"></p>
-<h3 id="8-删除kafka全部数据"><a href="#8-删除kafka全部数据" class="headerlink" title="8. 删除kafka全部数据"></a>8. 删除kafka全部数据</h3><p>1、停止每台机器上的kafka；</p>
+<h3 id="7-producer窗口发送消息"><a class="markdownIt-Anchor" href="#7-producer窗口发送消息"></a> 7. Producer窗口发送消息</h3>
+<p>输入hello world 回车<br>
+<img src="/kafka-install/2.png" alt></p>
+<p>消费者收到了消息：<br>
+<img src="/kafka-install/3.png" alt></p>
+<h3 id="8-删除kafka全部数据"><a class="markdownIt-Anchor" href="#8-删除kafka全部数据"></a> 8. 删除kafka全部数据</h3>
+<p>1、停止每台机器上的kafka；</p>
 <p>2、删除kafka存储目录（server.properties文件log.dirs配置，默认为“/tmp/kafka-logs”）全部topic的数据目录；</p>
 <p>3、删除zookeeper上与kafka相关的znode节点；除了/zookeeper</p>
 <p>4、重启kafka。</p>

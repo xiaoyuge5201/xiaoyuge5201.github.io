@@ -18,12 +18,12 @@
   
   
   <title>Nginx基础篇（一）扫盲 | 小余哥</title>
-  <meta name="description" content="1.Nginx发展史作者：logo Sysoev  2000年地洞，c语言编写 2004年开源 2011年成立商业公司 2013 发布商业版本Nginx plus 2019.5月F5 Networks收购nginx 2019.12被Rambler集团起诉  2.Nginx与其他web服务器对比 Nginx与Apache HTTP server project区别用来响应用户请求的web服务器 Ng">
+  <meta name="description" content="1.Nginx发展史 作者：logo Sysoev  2000年地洞，c语言编写 2004年开源 2011年成立商业公司 2013 发布商业版本Nginx plus 2019.5月F5 Networks收购nginx 2019.12被Rambler集团起诉   2.Nginx与其他web服务器对比  Nginx与Apache HTTP server project区别 用来响应用户请求的web服">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx基础篇（一）扫盲">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/nginx-md/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1.Nginx发展史作者：logo Sysoev  2000年地洞，c语言编写 2004年开源 2011年成立商业公司 2013 发布商业版本Nginx plus 2019.5月F5 Networks收购nginx 2019.12被Rambler集团起诉  2.Nginx与其他web服务器对比 Nginx与Apache HTTP server project区别用来响应用户请求的web服务器 Ng">
+<meta property="og:description" content="1.Nginx发展史 作者：logo Sysoev  2000年地洞，c语言编写 2004年开源 2011年成立商业公司 2013 发布商业版本Nginx plus 2019.5月F5 Networks收购nginx 2019.12被Rambler集团起诉   2.Nginx与其他web服务器对比  Nginx与Apache HTTP server project区别 用来响应用户请求的web服">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/nginx-md/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/nginx-md/2.png">
@@ -434,7 +434,8 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-Nginx发展史"><a href="#1-Nginx发展史" class="headerlink" title="1.Nginx发展史"></a>1.Nginx发展史</h3><p>作者：logo Sysoev</p>
+        <h3 id="1nginx发展史"><a class="markdownIt-Anchor" href="#1nginx发展史"></a> 1.Nginx发展史</h3>
+<p>作者：logo Sysoev</p>
 <ul>
 <li>2000年地洞，c语言编写</li>
 <li>2004年开源</li>
@@ -443,38 +444,49 @@
 <li>2019.5月F5 Networks收购nginx</li>
 <li>2019.12被Rambler集团起诉</li>
 </ul>
-<h3 id="2-Nginx与其他web服务器对比"><a href="#2-Nginx与其他web服务器对比" class="headerlink" title="2.Nginx与其他web服务器对比"></a>2.Nginx与其他web服务器对比</h3><ol>
-<li>Nginx与Apache HTTP server project区别<br>用来响应用户请求的web服务器</li>
-<li>Nginx 和tomcat区别<br>Nginx是HTTP Server，主要是用于访问一些静态资源，可以用做代理服务器<br>Tomcat是Application Server应用服务器，用来存放和运行程序；</li>
+<h3 id="2nginx与其他web服务器对比"><a class="markdownIt-Anchor" href="#2nginx与其他web服务器对比"></a> 2.Nginx与其他web服务器对比</h3>
+<ol>
+<li>Nginx与Apache HTTP server project区别<br>
+用来响应用户请求的web服务器</li>
+<li>Nginx 和tomcat区别<br>
+Nginx是HTTP Server，主要是用于访问一些静态资源，可以用做代理服务器<br>
+Tomcat是Application Server应用服务器，用来存放和运行程序；</li>
 <li>HTTP Server 和Application Server区别与联系</li>
 </ol>
-<h3 id="3-HTTP知识"><a href="#3-HTTP知识" class="headerlink" title="3. HTTP知识"></a>3. HTTP知识</h3><h4 id="3-1-IP和端口"><a href="#3-1-IP和端口" class="headerlink" title="3.1 IP和端口"></a>3.1 IP和端口</h4><p>120.77.38.160:80</p>
+<h3 id="3-http知识"><a class="markdownIt-Anchor" href="#3-http知识"></a> 3. HTTP知识</h3>
+<h4 id="31-ip和端口"><a class="markdownIt-Anchor" href="#31-ip和端口"></a> 3.1 IP和端口</h4>
+<p>120.77.38.160:80</p>
 <p>0为A类，10为B类，110为C类，1110为D类，1111为E类。D类地址供组播使用，E类地址保留。</p>
 <p><img src="/nginx-md/1.png" alt="img"></p>
 <p><img src="/nginx-md/2.png" alt="img"></p>
 <p>端口是：0～65535</p>
-<h4 id="3-2-域名"><a href="#3-2-域名" class="headerlink" title="3.2 域名"></a>3.2 域名</h4><p>协议、子域名、顶级域名、域名类型、资源路径、参数</p>
+<h4 id="32-域名"><a class="markdownIt-Anchor" href="#32-域名"></a> 3.2 域名</h4>
+<p>协议、子域名、顶级域名、域名类型、资源路径、参数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#https 协议默认端口443 可以省略</span><br><span class="line">https://www.baidu.com:443</span><br><span class="line"></span><br><span class="line">#user：子域名， com为域名类型（cn中国， us美国...）； 3623252831 为资源路径</span><br><span class="line">https://user.qzone.qq.com/3623252831</span><br><span class="line"></span><br><span class="line">#？号后面为参数</span><br><span class="line">https://baike.baidu.com/item/测试/232323?fr=asdfasdf</span><br></pre></td></tr></table></figure>
 <p><strong>域名(domainName)和IP的关系以及域名的组成</strong></p>
-<p>域名：<a target="_blank" rel="noopener" href="https://www.baidu.com/member/query?far=adsfad">https://www.baidu.com:443/member/query?far=adsfad</a></p>
+<p>域名：<a target="_blank" rel="noopener" href="https://www.baidu.com:443/member/query?far=adsfad">https://www.baidu.com:443/member/query?far=adsfad</a></p>
 <ul>
 <li>http/ https: 协议</li>
 <li>baidu: 顶级域名</li>
 <li>Com： 域名类型</li>
-<li>www: 子域名，可以有多级：user.qzone.qq.com/232323</li>
+<li>www: 子域名，可以有多级：<a target="_blank" rel="noopener" href="http://user.qzone.qq.com/232323">user.qzone.qq.com/232323</a></li>
 <li>far=asdfa: 参数</li>
-<li>member/query: 资源路径<br>DNS(domain name server)将域名转化为ip+port</li>
+<li>member/query: 资源路径<br>
+DNS(domain name server)将域名转化为ip+port</li>
 </ul>
-<h5 id="3-3-HTTP协议的特点"><a href="#3-3-HTTP协议的特点" class="headerlink" title="3.3 HTTP协议的特点"></a>3.3 HTTP协议的特点</h5><ul>
+<h5 id="33-http协议的特点"><a class="markdownIt-Anchor" href="#33-http协议的特点"></a> 3.3 HTTP协议的特点</h5>
+<ul>
 <li>简单快速</li>
 <li>灵活</li>
 <li>无连接（一次请求，连接关闭）</li>
 <li>无状态（每次请求都和之前的请求无关）</li>
 </ul>
-<h5 id="3-4-HTTP协议的请求格式"><a href="#3-4-HTTP协议的请求格式" class="headerlink" title="3.4 HTTP协议的请求格式"></a>3.4 HTTP协议的请求格式</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Request URL: https://prtas.videocc.net/v2/view?pid=1638687363047X1327470&amp;vid=8c8d9388d0b4c16f41ef557fba23dede_8&amp;uid=8c8d9388d0&amp;flow=0&amp;ts=1638688553584&amp;href=aHR0cHM6Ly9rZS5ndXBhb2VkdS5jbi9wbGF5LzI4OD9waGFzZUlkPTU&amp;duration=1278&amp;cts=789&amp;sign=fcf19468eff088e983796d5826268f2d&amp;sd=1190&amp;pd=788&amp;pn=HTML5&amp;pv=v1.15.0&amp;sid=ZDIzZGM4ODUtNDM2My00MTQ3LWJmYTktY2M3MDgwM2U0NDc5&amp;param1=&amp;param2=MTc2MjEyODQ5OTg&amp;param3=&amp;cataid=1591268435818</span><br><span class="line">Request Method: GET</span><br><span class="line">Status Code: 200 </span><br><span class="line">Remote Address: 221.231.81.238:443</span><br><span class="line">Referrer Policy: strict-origin-when-cross-origin</span><br></pre></td></tr></table></figure>
+<h5 id="34-http协议的请求格式"><a class="markdownIt-Anchor" href="#34-http协议的请求格式"></a> 3.4 HTTP协议的请求格式</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Request URL: https://prtas.videocc.net/v2/view?pid=1638687363047X1327470&amp;vid=8c8d9388d0b4c16f41ef557fba23dede_8&amp;uid=8c8d9388d0&amp;flow=0&amp;ts=1638688553584&amp;href=aHR0cHM6Ly9rZS5ndXBhb2VkdS5jbi9wbGF5LzI4OD9waGFzZUlkPTU&amp;duration=1278&amp;cts=789&amp;sign=fcf19468eff088e983796d5826268f2d&amp;sd=1190&amp;pd=788&amp;pn=HTML5&amp;pv=v1.15.0&amp;sid=ZDIzZGM4ODUtNDM2My00MTQ3LWJmYTktY2M3MDgwM2U0NDc5&amp;param1=&amp;param2=MTc2MjEyODQ5OTg&amp;param3=&amp;cataid=1591268435818</span><br><span class="line">Request Method: GET</span><br><span class="line">Status Code: 200 </span><br><span class="line">Remote Address: 221.231.81.238:443</span><br><span class="line">Referrer Policy: strict-origin-when-cross-origin</span><br></pre></td></tr></table></figure>
 <ul>
 <li>请求行</li>
-<li>请求类型 Request Method<ol>
+<li>请求类型 Request Method
+<ol>
 <li>GET: 请求指定的页面细腻，并返回尸体主题</li>
 <li>HEAD: 类似于GET请求，只不过返回的相应中没有具体的内容，用于获取报头</li>
 <li>POST：想指定资源提交数据进行处理请求，数据被高喊在请求体中</li>
@@ -488,9 +500,9 @@
 <li>请求头</li>
 <li>空行和请求数据</li>
 </ul>
-<h5 id="3-5-HTTP协议的返回格式"><a href="#3-5-HTTP协议的返回格式" class="headerlink" title="3.5 HTTP协议的返回格式"></a>3.5 HTTP协议的返回格式</h5><p>状态行、小洗头、空行和响应正文</p>
+<h5 id="35-http协议的返回格式"><a class="markdownIt-Anchor" href="#35-http协议的返回格式"></a> 3.5 HTTP协议的返回格式</h5>
+<p>状态行、小洗头、空行和响应正文</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200</span><br><span class="line">Server: nginx/1.20.1</span><br><span class="line">Date: Sun, 05 Dec 2021 07:24:45 GMT</span><br><span class="line">Content-Type: application/json;charset=UTF-8</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Access-Control-Allow-Origin: https://ke.gupaoedu.cn</span><br><span class="line">Access-Control-Allow-Credentials: true</span><br><span class="line">Access-Control-Allow-Methods: PUT,POST,GET,DELETE,OPTIONS,PATCH</span><br><span class="line">Access-Control-Allow-Headers: DNT,web-token,app-token,Authorization,Accept,Origin,Keep-Alive,User-Agent,X-Mx-ReqToken,X-Data-Type,X-Auth-Token,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,token,showerr</span><br><span class="line">Access-Control-Max-Age: 86400</span><br></pre></td></tr></table></figure>
-
 <p><strong>Http格式响应状态码有哪些</strong></p>
 <ul>
 <li>1xx: informational(信息性状态码) 接受的请求正在处理</li>
@@ -499,14 +511,16 @@
 <li>4xx：client error（客户端错误状态码） 服务器无法处理请求</li>
 <li>5xx: server error（服务器错误错误状态码） 服务器处理请求出错</li>
 </ul>
-<h5 id="3-6-通用头字段Common-Header"><a href="#3-6-通用头字段Common-Header" class="headerlink" title="3.6 通用头字段Common Header"></a>3.6 通用头字段Common Header</h5><table>
+<h5 id="36-通用头字段common-header"><a class="markdownIt-Anchor" href="#36-通用头字段common-header"></a> 3.6 通用头字段Common Header</h5>
+<table>
 <thead>
 <tr>
 <th>字段</th>
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Cache-control</td>
 <td>控制缓存的行为</td>
 </tr>
@@ -542,15 +556,18 @@
 <td>Warning</td>
 <td>错误通知</td>
 </tr>
-</tbody></table>
-<h5 id="3-7-响应头字段Response-Header"><a href="#3-7-响应头字段Response-Header" class="headerlink" title="3.7 响应头字段Response Header"></a>3.7 响应头字段Response Header</h5><table>
+</tbody>
+</table>
+<h5 id="37-响应头字段response-header"><a class="markdownIt-Anchor" href="#37-响应头字段response-header"></a> 3.7 响应头字段Response Header</h5>
+<table>
 <thead>
 <tr>
 <th>字段</th>
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Accept-Ranges</td>
 <td>是否接收字节范围请求</td>
 </tr>
@@ -582,15 +599,18 @@
 <td>WWW-Authenticate</td>
 <td>服务器对客户端的认证信息</td>
 </tr>
-</tbody></table>
-<h5 id="3-8-实体头字段-Entity-Header"><a href="#3-8-实体头字段-Entity-Header" class="headerlink" title="3.8 实体头字段 Entity Header"></a>3.8 实体头字段 Entity Header</h5><table>
+</tbody>
+</table>
+<h5 id="38-实体头字段-entity-header"><a class="markdownIt-Anchor" href="#38-实体头字段-entity-header"></a> 3.8 实体头字段 Entity Header</h5>
+<table>
 <thead>
 <tr>
 <th>字段</th>
 <th>含义</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Allow</td>
 <td>资源科支持的http方法</td>
 </tr>
@@ -630,7 +650,8 @@
 <td>Last-Modified</td>
 <td>资源的最后修改日期时间</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
       
     </div>
