@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xiaoyuge5201.github.io/mysql-install/</loc>
+    <lastmod>2022-10-26</lastmod>
+  </url>
+  <url>
     <loc>https://xiaoyuge5201.github.io/tidb-optimization/</loc>
     <lastmod>2022-10-15</lastmod>
   </url>
@@ -202,10 +206,6 @@
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/sql-01/</loc>
-    <lastmod>2022-04-06</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/mysql-install/</loc>
     <lastmod>2022-04-06</lastmod>
   </url>
   <url>
