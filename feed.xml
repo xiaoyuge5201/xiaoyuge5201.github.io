@@ -15,8 +15,31 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sat, 15 Oct 2022 06:44:22 GMT</pubDate>
+    <pubDate>Sat, 29 Oct 2022 14:07:01 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Mysql重置密码</title>
+      <link>https://xiaoyuge5201.github.io/mysql-forget-pwd/</link>
+      <guid>https://xiaoyuge5201.github.io/mysql-forget-pwd/</guid>
+      <pubDate>Sat, 29 Oct 2022 13:43:23 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;Mysql 安装的时候忘记保存默认密码，需要重置密码；&lt;br&gt;&lt;img src=&quot;/mysql-forget-pwd/1.png&quot; alt=&quot;忘记密码&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-跳过Mysql密码认证&quot;&gt;&lt;a href=&quot;#1-跳过Mysql密码认证&quot; class=&quot;</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
+      
+      
+    </item>
     
     <item>
       <title>Tidb查询优化</title>
@@ -1506,30 +1529,6 @@
     </item>
     
     <item>
-      <title>mysql知识总结</title>
-      <link>https://xiaoyuge5201.github.io/mysql/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql/</guid>
-      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h1 id=&quot;mysql-初识&quot;&gt;&lt;a href=&quot;#mysql-初识&quot; class=&quot;headerlink&quot; title=&quot;mysql 初识&quot;&gt;&lt;/a&gt;mysql 初识&lt;/h1&gt;&lt;h2 id=&quot;1-版本历史&quot;&gt;&lt;a href=&quot;#1-版本历史&quot; class=&quot;headerli</description>
-        
-      
-      
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
-      
-      
-      <comments>https://xiaoyuge5201.github.io/mysql/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>mysql事务</title>
       <link>https://xiaoyuge5201.github.io/mysql-transcation/</link>
       <guid>https://xiaoyuge5201.github.io/mysql-transcation/</guid>
@@ -1550,6 +1549,30 @@
       
       
       <comments>https://xiaoyuge5201.github.io/mysql-transcation/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>mysql知识总结</title>
+      <link>https://xiaoyuge5201.github.io/mysql/</link>
+      <guid>https://xiaoyuge5201.github.io/mysql/</guid>
+      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;mysql-初识&quot;&gt;&lt;a href=&quot;#mysql-初识&quot; class=&quot;headerlink&quot; title=&quot;mysql 初识&quot;&gt;&lt;/a&gt;mysql 初识&lt;/h1&gt;&lt;h2 id=&quot;1-版本历史&quot;&gt;&lt;a href=&quot;#1-版本历史&quot; class=&quot;headerli</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/mysql/#disqus_thread</comments>
       
     </item>
     
