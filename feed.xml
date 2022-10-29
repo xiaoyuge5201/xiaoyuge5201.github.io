@@ -1506,30 +1506,6 @@
     </item>
     
     <item>
-      <title>mysql事务</title>
-      <link>https://xiaoyuge5201.github.io/mysql-transcation/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql-transcation/</guid>
-      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;事务的定义&quot;&gt;&lt;a href=&quot;#事务的定义&quot; class=&quot;headerlink&quot; title=&quot;事务的定义&quot;&gt;&lt;/a&gt;事务的定义&lt;/h2&gt;&lt;p&gt;事务是数据管理系统DBMS执行过程中的一个&lt;strong&gt;逻辑单位&lt;/strong&gt;，有一个有限的数据库&lt;stron</description>
-        
-      
-      
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
-      
-      
-      <comments>https://xiaoyuge5201.github.io/mysql-transcation/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>mysql知识总结</title>
       <link>https://xiaoyuge5201.github.io/mysql/</link>
       <guid>https://xiaoyuge5201.github.io/mysql/</guid>
@@ -1550,6 +1526,30 @@
       
       
       <comments>https://xiaoyuge5201.github.io/mysql/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>mysql事务</title>
+      <link>https://xiaoyuge5201.github.io/mysql-transcation/</link>
+      <guid>https://xiaoyuge5201.github.io/mysql-transcation/</guid>
+      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;事务的定义&quot;&gt;&lt;a href=&quot;#事务的定义&quot; class=&quot;headerlink&quot; title=&quot;事务的定义&quot;&gt;&lt;/a&gt;事务的定义&lt;/h2&gt;&lt;p&gt;事务是数据管理系统DBMS执行过程中的一个&lt;strong&gt;逻辑单位&lt;/strong&gt;，有一个有限的数据库&lt;stron</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/mysql-transcation/#disqus_thread</comments>
       
     </item>
     
