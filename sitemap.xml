@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/nginx-02/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/nginx-md/</loc>
     
     <lastmod>2022-10-30</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/nginx-03/</loc>
-    
-    <lastmod>2022-10-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/nginx-02/</loc>
     
     <lastmod>2022-10-30</lastmod>
     
