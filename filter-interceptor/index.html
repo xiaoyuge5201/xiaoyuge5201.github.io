@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://xiaoyuge5201.github.io/filter-interceptor/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/filter-interceptor/2.png">
 <meta property="article:published_time" content="2022-10-29T14:25:32.000Z">
-<meta property="article:modified_time" content="2022-10-30T04:24:28.424Z">
+<meta property="article:modified_time" content="2022-10-30T04:28:48.707Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -456,7 +456,7 @@
 </ul>
 <h3 id="1-3-创建Filter步骤"><a href="#1-3-创建Filter步骤" class="headerlink" title="1.3 创建Filter步骤"></a>1.3 创建Filter步骤</h3><ol>
 <li>创建<code>Filter</code>处理类，并实现<code>javax.servlet.Filter</code>接口</li>
-<li><code>web.xml</code>文件中配置Filter（或者使用@Filter注解）</li>
+<li><code>web.xml</code>文件中配置Filter（或者使用@WebFilter注解）</li>
 </ol>
 <p><code>javax.servlet.Filter</code>接口中中定义的三个方法：</p>
 <ul>
@@ -548,7 +548,7 @@
 <h3 id="3-1-执行顺序"><a href="#3-1-执行顺序" class="headerlink" title="3.1 执行顺序"></a>3.1 执行顺序</h3><p><strong>用户请求 -&gt; 过滤前 -&gt; 拦截前 -&gt; Action处理 -&gt; 拦截后 -&gt; 过滤后 -&gt; 响应</strong><br><img src="/filter-interceptor/1.png" alt="filter与intercepor的执行顺序"><br><img src="/filter-interceptor/2.png" alt="filter与intercepor的执行顺序"></p>
 <h2 id="4-过滤器（Filter）与-拦截器（Interceptor）常见用途"><a href="#4-过滤器（Filter）与-拦截器（Interceptor）常见用途" class="headerlink" title="4. 过滤器（Filter）与 拦截器（Interceptor）常见用途"></a>4. 过滤器（Filter）与 拦截器（Interceptor）常见用途</h2><ul>
 <li>Authentication Filters</li>
-<li>Logging and Auditing Filters</li>
+<li>Logging and Auditing Filtersx</li>
 <li>Image conversion Filters</li>
 <li>Data compression Filters</li>
 <li>Encryption Filters</li>
