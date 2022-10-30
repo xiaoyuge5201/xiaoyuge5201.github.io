@@ -1755,11 +1755,11 @@
 <li><p>安装依赖包</p>
  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install gcc pcre-devel zlib-devel openssl openssl-devel</span><br></pre></td></tr></table></figure></li>
 <li><p>下载并解压安装包</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//创建nginx存放文件夹</span><br><span class="line">cd /usr/local</span><br><span class="line">mkdir nginx</span><br><span class="line">cd nginx</span><br><span class="line"><span class="meta">#</span><span class="bash">下载tar包</span></span><br><span class="line">wget http://nginx.org/download/nginx-1.23.2.tar.gz</span><br><span class="line">tar -xvf nginx-1.23.2.tar.gz</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//创建nginx存放文件夹</span><br><span class="line">cd /usr/local</span><br><span class="line"><span class="meta">#</span><span class="bash">下载tar包</span></span><br><span class="line">wget http://nginx.org/download/nginx-1.23.2.tar.gz</span><br><span class="line">tar -xvf nginx-1.23.2.tar.gz</span><br><span class="line"><span class="meta">#</span></span><br></pre></td></tr></table></figure></li>
 <li><p>配置</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd nginx-1.23.2</span><br><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd nginx-1.23.2</span><br><span class="line">./configure  --prefix=/usr/local/nginx</span><br><span class="line"></span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></li>
 <li><p>测试是否安装成功</p>
- <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./sbin/nginx -t</span><br></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/nginx</span><br><span class="line">./sbin/nginx -t</span><br></pre></td></tr></table></figure>
 
  <img src="/nginx-02/_posts/2021/07/nginx/image-20201210101238462.png" alt="image-20201210101238462" style="zoom: 67%;float:right;"></li>
 <li><p>配置nginx.conf</p>
