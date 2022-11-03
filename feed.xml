@@ -15,8 +15,30 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 30 Oct 2022 04:28:48 GMT</pubDate>
+    <pubDate>Thu, 03 Nov 2022 15:17:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Select...for_update</title>
+      <link>https://xiaoyuge5201.github.io/select-for-update/</link>
+      <guid>https://xiaoyuge5201.github.io/select-for-update/</guid>
+      <pubDate>Thu, 03 Nov 2022 13:40:16 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-概要&quot;&gt;&lt;a href=&quot;#1-概要&quot; class=&quot;headerlink&quot; title=&quot;1. 概要&quot;&gt;&lt;/a&gt;1. 概要&lt;/h2&gt;&lt;p&gt;Select 查询语句是不会枷锁的，但是Select … for update 除了有查询语句的作用，还是加锁，而且是悲</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
+      
+      
+    </item>
     
     <item>
       <title>过滤器Filter与拦截器区别</title>
