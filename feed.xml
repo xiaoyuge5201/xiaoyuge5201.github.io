@@ -1122,16 +1122,14 @@
     </item>
     
     <item>
-      <title>LockSupport一个很灵活的线程工具类</title>
+      <title>LockSupport线程工具类</title>
       <link>https://xiaoyuge5201.github.io/locksupport/</link>
       <guid>https://xiaoyuge5201.github.io/locksupport/</guid>
       <pubDate>Sat, 25 Sep 2021 04:59:36 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;LockSupport是一个编程工具类， 主要是为了阻塞和唤醒线程用的。所有的方法都是静态方法，可以让线程在任意位置阻塞，也可以在任意位置唤醒&lt;/p&gt;
-&lt;p&gt;主要的方法： park(阻塞线程)  和  unpark(启动唤醒线程)&lt;/p&gt;
-&lt;figure class=&quot;hi</description>
+      <description>&lt;h3 id=&quot;1-概要&quot;&gt;&lt;a href=&quot;#1-概要&quot; class=&quot;headerlink&quot; title=&quot;1. 概要&quot;&gt;&lt;/a&gt;1. 概要&lt;/h3&gt;&lt;p&gt;LockSupport位于java.util.concurrent（简称juc）包中，是一个编程工具类， 主要是为了阻塞</description>
         
       
       
