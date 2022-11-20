@@ -837,6 +837,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/tags/mysql/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/tags/algorithm/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -844,7 +851,28 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/mysql/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/linux/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/%E9%9B%86%E5%90%88/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/shutdown/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -936,34 +964,6 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/thread/</loc>
-    <lastmod>2022-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/linux/</loc>
-    <lastmod>2022-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/%E9%9B%86%E5%90%88/</loc>
-    <lastmod>2022-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/shutdown/</loc>
-    <lastmod>2022-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1068,14 +1068,14 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/vue/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/Zookeeper/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/Zookeeper/</loc>
+    <loc>https://xiaoyuge5201.github.io/tags/vue/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1147,6 +1147,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1162,13 +1169,6 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
-    <lastmod>2022-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/categories/java/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1231,13 +1231,6 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/rocketmq/</loc>
-    <lastmod>2022-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/categories/filter/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1246,6 +1239,13 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/categories/tidb/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/categories/rocketmq/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
