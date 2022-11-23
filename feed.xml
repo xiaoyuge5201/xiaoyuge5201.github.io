@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 20 Nov 2022 12:10:19 GMT</pubDate>
+    <pubDate>Wed, 23 Nov 2022 15:05:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>接口设计-专题</title>
+      <link>https://xiaoyuge5201.github.io/special-interface/</link>
+      <guid>https://xiaoyuge5201.github.io/special-interface/</guid>
+      <pubDate>Wed, 23 Nov 2022 12:58:03 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;1-接口的幂等性&quot;&gt;&lt;a href=&quot;#1-接口的幂等性&quot; class=&quot;headerlink&quot; title=&quot;1. 接口的幂等性&quot;&gt;&lt;/a&gt;1. 接口的幂等性&lt;/h2&gt;&lt;p&gt;1.1 幂等性描述&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;幂等是一个数据和计算机学概念</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/interface/">interface</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
     
     <item>
       <title>破解LIMIT和OFFSET分页性能瓶颈</title>
@@ -1594,30 +1618,6 @@
     </item>
     
     <item>
-      <title>mysql事务</title>
-      <link>https://xiaoyuge5201.github.io/mysql-transcation/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql-transcation/</guid>
-      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;事务的定义&quot;&gt;&lt;a href=&quot;#事务的定义&quot; class=&quot;headerlink&quot; title=&quot;事务的定义&quot;&gt;&lt;/a&gt;事务的定义&lt;/h2&gt;&lt;p&gt;事务是数据管理系统DBMS执行过程中的一个&lt;strong&gt;逻辑单位&lt;/strong&gt;，有一个有限的数据库&lt;stron</description>
-        
-      
-      
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
-      
-      
-      <comments>https://xiaoyuge5201.github.io/mysql-transcation/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>mysql知识总结</title>
       <link>https://xiaoyuge5201.github.io/mysql/</link>
       <guid>https://xiaoyuge5201.github.io/mysql/</guid>
@@ -1638,6 +1638,30 @@
       
       
       <comments>https://xiaoyuge5201.github.io/mysql/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>mysql事务</title>
+      <link>https://xiaoyuge5201.github.io/mysql-transcation/</link>
+      <guid>https://xiaoyuge5201.github.io/mysql-transcation/</guid>
+      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;事务的定义&quot;&gt;&lt;a href=&quot;#事务的定义&quot; class=&quot;headerlink&quot; title=&quot;事务的定义&quot;&gt;&lt;/a&gt;事务的定义&lt;/h2&gt;&lt;p&gt;事务是数据管理系统DBMS执行过程中的一个&lt;strong&gt;逻辑单位&lt;/strong&gt;，有一个有限的数据库&lt;stron</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/mysql-transcation/#disqus_thread</comments>
       
     </item>
     

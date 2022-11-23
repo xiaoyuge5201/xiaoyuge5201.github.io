@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>接口设计-专题 | 小余哥</title>
+  <meta name="description" content="1. 接口的幂等性1.1 幂等性描述  幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  1.2 接口幂等性在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外），即多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。 幂等性指的是作用于结果而非资源本身。例如，H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="接口设计-专题">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/special-interface/index.html">
+<meta property="og:site_name" content="小余哥|猿无忧">
+<meta property="og:description" content="1. 接口的幂等性1.1 幂等性描述  幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  1.2 接口幂等性在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外），即多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。 幂等性指的是作用于结果而非资源本身。例如，H">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/1.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/2.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/3.png">
+<meta property="article:published_time" content="2022-11-23T12:58:03.000Z">
+<meta property="article:modified_time" content="2022-11-23T15:05:02.752Z">
+<meta property="article:author" content="小余哥|猿无忧">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/special-interface/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/special-interface/index.html">
+  
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+</head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shanghai, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>喜欢就争取，得到就珍惜，错过就忘记</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/apache/">apache</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canal/" rel="tag">Canal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ClassLoader/" rel="tag">ClassLoader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringCloud/" rel="tag">SpringCloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/" rel="tag">gitlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ip/" rel="tag">ip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/" rel="tag">jdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jstack/" rel="tag">jstack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lock/" rel="tag">lock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/" rel="tag">mycat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitMQ/" rel="tag">rabbitMQ</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rocketmq/" rel="tag">rocketmq</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shutdown/" rel="tag">shutdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger/" rel="tag">swagger</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidb/" rel="tag">tidb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" rel="tag">内存溢出</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" rel="tag">守护线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">消息中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Apache/" style="font-size: 13.2px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.2px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.2px;">Linux</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.6px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.4px;">hexo</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 13.8px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.4px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.2px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.6px;">nginx</a> <a href="/tags/rabbitMQ/" style="font-size: 13.2px;">rabbitMQ</a> <a href="/tags/redis/" style="font-size: 13.6px;">redis</a> <a href="/tags/rocketmq/" style="font-size: 13.2px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/springboot/" style="font-size: 13.2px;">springboot</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.4px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.2px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.2px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.2px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/special-interface/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/interface/">interface</a>
+              </p>
+              <p class="item-title">
+                <a href="/special-interface/" class="title">接口设计-专题</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-23T12:58:03.000Z" itemprop="datePublished">2022-11-23</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/limit-offset/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/mysql/">mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/limit-offset/" class="title">破解LIMIT和OFFSET分页性能瓶颈</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-20T04:56:15.000Z" itemprop="datePublished">2022-11-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/select-for-update/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/mysql/">mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/select-for-update/" class="title">select ... for update表锁还是行锁</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-11-03T13:40:16.000Z" itemprop="datePublished">2022-11-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/filter-interceptor/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/filter/">filter</a>
+              </p>
+              <p class="item-title">
+                <a href="/filter-interceptor/" class="title">过滤器Filter与拦截器区别</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-29T14:25:32.000Z" itemprop="datePublished">2022-10-29</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/mysql-forget-pwd/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/mysql/">mysql</a>
+              </p>
+              <p class="item-title">
+                <a href="/mysql-forget-pwd/" class="title">Mysql重置密码</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-29T13:43:23.000Z" itemprop="datePublished">2022-10-29</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-special-interface" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      接口设计-专题
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/special-interface/" class="article-date">
+	  <time datetime="2022-11-23T12:58:03.000Z" itemprop="datePublished">2022-11-23</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/interface/">interface</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/java/" rel="tag">java</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/special-interface/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="1-接口的幂等性"><a href="#1-接口的幂等性" class="headerlink" title="1. 接口的幂等性"></a>1. 接口的幂等性</h2><p>1.1 幂等性描述</p>
+<blockquote>
+<p>幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同</p>
+</blockquote>
+<h3 id="1-2-接口幂等性"><a href="#1-2-接口幂等性" class="headerlink" title="1.2 接口幂等性"></a>1.2 接口幂等性</h3><p>在HTTP/1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外），<br>即多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。</p>
+<p><strong>幂等性指的是作用于结果而非资源本身。例如，HTTP GET方法可能会每次得到不同的返回内容，但并不影响资源。</strong></p>
+<h3 id="1-3-为什么需要实现幂等性"><a href="#1-3-为什么需要实现幂等性" class="headerlink" title="1.3 为什么需要实现幂等性"></a>1.3 为什么需要实现幂等性</h3><p>在接口调用时一般情况下都能正常返回信息不会出现重复提交，不过出现以下几种情况会有问题，如：</p>
+<ul>
+<li><p>前端重复提交表单：比如用户注册时，因网络波动没有及时对用户做出提交成功响应，致使用户认为没有提交成功，然后多次进行提交操作，这时就会发生重复提交请求</p>
+</li>
+<li><p>用户恶意刷单：比如用户投票，如果用户针对一个内容重复提交投票，接口接收到用户重复提交的投票信息，影响实际的计算结果</p>
+</li>
+<li><p>接口超时重复提交：如果存在超时重试机制，尤其是第三方调用接口时，为了防止网络波动超时等造成的请求失败，都会添加重试机制，导致一个请求多次提交</p>
+</li>
+<li><p>消息进行重复消费：当使用MQ消息中间件时，如果发生消息中间件出现错误为即使提交消费消息，导致发生重复消费；</p>
+</li>
+</ul>
+<p>使用幂等性最大的又是在于使接口保证任何幂等性操作，避免因重试等造成系统未知问题。</p>
+<h3 id="1-4-幂等性对系统的影响"><a href="#1-4-幂等性对系统的影响" class="headerlink" title="1.4 幂等性对系统的影响"></a>1.4 幂等性对系统的影响</h3><p>幂等性时为了简化客户端逻辑处理，能防止重复提交等操作，但也额外增加了服务断电额逻辑复杂性，主要是</p>
+<ul>
+<li><p>把并行执行的功能改成了串行，降低了执行效率</p>
+</li>
+<li><p>增加了额外控制幂等的业务代码，使原本的业务功能复杂化</p>
+</li>
+</ul>
+<p>所以我们需要根据实际的业务场景来考虑是否引入幂等性</p>
+<h3 id="1-5-Restful-API-接口的幂等性"><a href="#1-5-Restful-API-接口的幂等性" class="headerlink" title="1.5 Restful API 接口的幂等性"></a>1.5 Restful API 接口的幂等性</h3><p>现在流行的Restful 推荐的几种HTTP方法中幂等性如下：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>是否幂等</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>是</td>
+<td>Get 方法用于获取资源。其一般不会也不应当对系统资源进行改变，所以是幂等的</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>否</td>
+<td>Post 方法一般用于创建新的资源。其每次执行都会新增数据，所以不是幂等的</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>-</td>
+<td>Put 方法一般用于更新资源。该操作则分情况来判断是不是满足幂等，更新操作中直接根据某个值进行更新，也能保持幂等。不过执行累加操作的更新是非幂等</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>-</td>
+<td>Delete 方法一般用于删除资源。该操作则分情况来判断是不是满足幂等，当根据唯一值进行删除时，删除同一个数据多次执行效果一样。不过需要注意，带查询条件的删除则就不一定满足幂等了。例如在根据条件删除一批数据后，这时候新增加了一条数据也满足条件，然后又执行了一次删除，那么将会导致新增加的这条满足条件数据也被删除。</td>
+</tr>
+</tbody></table>
+<h3 id="1-6-实现幂等性的方案"><a href="#1-6-实现幂等性的方案" class="headerlink" title="1.6 实现幂等性的方案"></a>1.6 实现幂等性的方案</h3><h4 id="nbsp-nbsp-方案1：数据库唯一主键"><a href="#nbsp-nbsp-方案1：数据库唯一主键" class="headerlink" title="&nbsp;&nbsp;方案1：数据库唯一主键"></a>&nbsp;&nbsp;方案1：数据库唯一主键</h4><ul>
+<li>描述<blockquote>
+<p>利用数据库主键唯一约束的特性，依赖来说唯一主键比较适用于插入时的幂等性，其 能保证一张表只能存在一条带该唯一主键的记录</p>
+<p>使用数据库唯一主键完成幂等性时需要注意的是，该主键一般来说并不是使用数据库自增主键，而是使用分布式ID作为主键，这样才能保证在分布式环境下ID的全局一致性</p>
+</blockquote>
+</li>
+<li>使用操作<ul>
+<li>插入</li>
+<li>删除</li>
+</ul>
+</li>
+<li>使用限制<ol>
+<li>需要生成全局唯一主键ID</li>
+</ol>
+</li>
+<li>主要流程   <img src="/special-interface/1.png"><br>   分布式ID服务可以使用<strong>Snowflake算法</strong>、<strong>数据库号段模式</strong>、<strong>Redis自增</strong>等方式生成；</li>
+</ul>
+<h4 id="nbsp-nbsp-方案2：数据库乐观锁"><a href="#nbsp-nbsp-方案2：数据库乐观锁" class="headerlink" title="&nbsp;&nbsp;方案2：数据库乐观锁"></a>&nbsp;&nbsp;方案2：数据库乐观锁</h4><ul>
+<li><p>描述</p>
+<blockquote>
+<p> 一般只适用于更新操作的过程，在表中增加version版本字段，每次对该表的这条数据更新时，都会带上上次更新后的version值</p>
+</blockquote>
+</li>
+<li><p>使用操作</p>
+<ul>
+<li>更新</li>
+</ul>
+</li>
+<li><p>使用限制</p>
+<ol>
+<li>需要在业务表中添加额外字段</li>
+</ol>
+</li>
+<li><p>主要流程</p>
+<p><img src="/special-interface/2.png"></p>
+</li>
+</ul>
+<h4 id="nbsp-nbsp-方案3：防重Token令牌"><a href="#nbsp-nbsp-方案3：防重Token令牌" class="headerlink" title="&nbsp;&nbsp;方案3：防重Token令牌"></a>&nbsp;&nbsp;方案3：防重Token令牌</h4><ul>
+<li><p>描述</p>
+<blockquote>
+<p>针对客户端连续点击或者调用方的超时重试等情况，例如提交订单，此种操作就可以用 Token 的机制实现防止重复提交。简单的说就是调用方在调用接口的时候先向后端请求一个全局 ID（Token），请求的时候携带这个全局 ID 一起请求（Token 最好将其放到 Headers 中），后端需要对这个 Token 作为 Key，用户信息作为 Value 到 Redis 中进行键值内容校验，如果 Key 存在且 Value 匹配就执行删除命令，然后正常执行后面的业务逻辑。如果不存在对应的 Key 或 Value 不匹配就返回重复执行的错误信息，这样来保证幂等操作</p>
+</blockquote>
+</li>
+<li><p>使用操作</p>
+<ul>
+<li>更新</li>
+<li>插入</li>
+</ul>
+</li>
+<li><p>使用限制</p>
+<ol>
+<li><p>需要生成全局唯一 Token串</p>
+</li>
+<li><p>需要使用Redis进行数据校验</p>
+</li>
+</ol>
+</li>
+<li><p>主要流程</p>
+<p><img src="/special-interface/3.png"><br>Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
+<ul>
+<li>验证成功：说明存在该token，是第一次调用接口，可以执行后面的业务代码，同时在redis中删除该token</li>
+<li>验证失败：说明存在该token，是重复调用接口，不可以执行后面的业务代码；</li>
+</ul>
+<blockquote>
+<p>注意，在并发情况下，执行 Redis 查找数据与删除需要保证原子性，否则很可能在并发下无法保证幂等性。其实现方法可以使用分布式锁或者使用 Lua 表达式来注销查询与删除操作。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="nbsp-nbsp-方案4：下游传递唯一序列号"><a href="#nbsp-nbsp-方案4：下游传递唯一序列号" class="headerlink" title="&nbsp;&nbsp;方案4：下游传递唯一序列号"></a>&nbsp;&nbsp;方案4：下游传递唯一序列号</h4><ul>
+<li><p>描述</p>
+<p>  所谓请求序列号，其实就是每次向服务端请求时候附带一个短时间内唯一不重复的序列号，该序列号可以是一个有序 ID，也可以是一个订单号，一般由下游生成，在调用上游服务端接口时附加该序列号和用于认证的 ID。 当上游服务器收到请求信息后拿取该 序列号 和下游 认证ID 进行组合，形成用于操作 Redis 的 Key，然后到 Redis 中查询是否存在对应的 Key 的键值对，根据其结果：  </p>
+<ul>
+<li>如果存在，就说明已经对该下游的该序列号的请求进行了业务处理，这时可以直接响应重复请求的错误信息。</li>
+<li>如果不存在，就以该 Key 作为 Redis 的键，以下游关键信息作为存储的值（例如下游商传递的一些业务逻辑信息），将该键值对存储到 Redis 中 ，然后再正常执行对应的业务逻辑即可。</li>
+</ul>
+</li>
+<li><p>使用操作</p>
+<ul>
+<li>更新</li>
+<li>插入</li>
+<li>删除</li>
+</ul>
+</li>
+<li><p>使用限制</p>
+<ol>
+<li>需要第三方传递唯一序列号</li>
+<li>需要使用Redis进行数据校验</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li>主要流程</li>
+</ul>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoyuge5201.github.io/special-interface/" title="接口设计-专题" target="_blank" rel="external">https://xiaoyuge5201.github.io/special-interface/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！本博客如有侵权，请联系删除！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
+        <div>致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/limit-offset/" title="破解LIMIT和OFFSET分页性能瓶颈"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2022 小余哥|猿无忧
+        
+<!--         <div class="publishby"> -->
+<!--         	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+<!--         </div> -->
+        <br>
+        <a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2021000267号-2</a>
+    </div>
+</footer>
+  <script src="/js/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:xiaoyuge5201.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+<div id="go-top">
+    </div>
+        <style type="text/css">
+        #go-top {
+            width:32px;
+            height:32px;
+            position:relative;
+            border-radius:2px;
+            position:fixed;
+            right:10px;
+            bottom:100px;
+            cursor:pointer;
+            display:none;
+            z-index:10;
+        }
+        #go-top:after {
+            content:url("/images/ico-to-top.png");
+            position:absolute;
+            left:0;
+            width: 32px;
+            height: 32px;
+            background-size: contain;
+        }
+
+        </style>
+        <script>
+            $(function() {
+                var o = $("#go-top");
+                $(window).scroll(function() {
+                    //监听滚动事件
+                    300 < document.documentElement.scrollTop  ? o.show(300) : o.hide(200);
+                })
+                 //回到顶部
+                 $("#go-top").click(function() {
+                    return $("html,body").animate({ scrollTop: 0 })
+                 })
+            })
+        </script>
+
+
+   <!--  -->
+  <style>
+    .copy-btn {
+          display: inline-block;
+          padding: 6px 12px;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 20px;
+          color: #333;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          background-color: #eee;
+          background-image: linear-gradient(#fcfcfc, #eee);
+          border: 1px solid #d5d5d5;
+          border-radius: 3px;
+          user-select: none;
+          outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+          transition: opacity .3s ease-in-out;
+          opacity: 0;
+          padding: 2px 10px;
+          position: absolute;
+          right: 4px;
+          color: #4a4886;
+          top: 3px;
+          z-index: 10;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+        .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    addLoadEvent(()=>{
+      $('.highlight').each(function (i, e) {
+        var $wrap = $('<div>').addClass('highlight-wrap')
+        $(e).after($wrap)
+        $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+          var code = $(this).parent().find(".code")[0].innerText
+          
+              code += ""
+          
+          var ta = document.createElement('textarea')
+          document.body.appendChild(ta)
+          ta.style.position = 'absolute'
+          ta.style.top = '0px'
+          ta.style.left = '0px'
+          ta.value = code
+          ta.select()
+          ta.focus()
+          var result = document.execCommand('copy')
+          document.body.removeChild(ta)
+          
+            if(result)$(this).text('复制成功')
+            else $(this).text('复制失败')
+          
+          $(this).blur()
+        })).on('mouseleave', function (e) {
+          var $b = $(this).find('.copy-btn')
+          setTimeout(function () {
+            $b.text('Copy')
+          }, 300)
+        }).append(e)
+      })
+    })
+  </script>
+<!--  -->
+</body>
+</html>
