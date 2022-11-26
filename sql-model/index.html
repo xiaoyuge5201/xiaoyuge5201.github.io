@@ -18,12 +18,12 @@
   
   
   <title>TIDB设置sql_mode | 小余哥</title>
-  <meta name="description" content="1. 使用命令查询当前sql_mode123select @@sql_mode-- 或者select @@GLOBAL.sql_mode  sql_mode常用值： ONLY_FULL_GROUP_BY对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中  NO_AUTO_VALUE_ON_ZERO该值影响">
+  <meta name="description" content="1. 使用命令查询当前sql_mode 123select @@sql_mode-- 或者select @@GLOBAL.sql_mode   sql_mode常用值：   ONLY_FULL_GROUP_BY 对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中   NO_AUTO_VALUE_ON_Z">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TIDB设置sql_mode">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/sql-model/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 使用命令查询当前sql_mode123select @@sql_mode-- 或者select @@GLOBAL.sql_mode  sql_mode常用值： ONLY_FULL_GROUP_BY对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中  NO_AUTO_VALUE_ON_ZERO该值影响">
+<meta property="og:description" content="1. 使用命令查询当前sql_mode 123select @@sql_mode-- 或者select @@GLOBAL.sql_mode   sql_mode常用值：   ONLY_FULL_GROUP_BY 对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中   NO_AUTO_VALUE_ON_Z">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/sql-model/1.png">
 <meta property="article:published_time" content="2021-11-15T12:57:46.000Z">
@@ -433,33 +433,56 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-使用命令查询当前sql-mode"><a href="#1-使用命令查询当前sql-mode" class="headerlink" title="1. 使用命令查询当前sql_mode"></a>1. 使用命令查询当前sql_mode</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @<span class="variable">@sql</span>_mode</span><br><span class="line"><span class="comment">-- 或者</span></span><br><span class="line"><span class="keyword">select</span> @<span class="variable">@GLOBAL</span>.sql_mode</span><br></pre></td></tr></table></figure>
+        <h3 id="1-使用命令查询当前sql_mode"><a class="markdownIt-Anchor" href="#1-使用命令查询当前sql_mode"></a> 1. 使用命令查询当前sql_mode</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @<span class="variable">@sql</span>_mode</span><br><span class="line"><span class="comment">-- 或者</span></span><br><span class="line"><span class="keyword">select</span> @<span class="variable">@GLOBAL</span>.sql_mode</span><br></pre></td></tr></table></figure>
 <p><img src="/sql-model/1.png" alt="sql_mode"></p>
-<h5 id="sql-mode常用值："><a href="#sql-mode常用值：" class="headerlink" title="sql_mode常用值："></a>sql_mode常用值：</h5><ul>
-<li><p>ONLY_FULL_GROUP_BY<br>对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中</p>
+<h5 id="sql_mode常用值"><a class="markdownIt-Anchor" href="#sql_mode常用值"></a> sql_mode常用值：</h5>
+<ul>
+<li>
+<p>ONLY_FULL_GROUP_BY<br>
+对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中</p>
 </li>
-<li><p>NO_AUTO_VALUE_ON_ZERO<br>该值影响自增长列的插入。默认设置下，插入0或NULL代表生成下一个自增长值。如果用户希望插入的值为0，而该列又是自增长的，那么这个选项就有用了。</p>
+<li>
+<p>NO_AUTO_VALUE_ON_ZERO<br>
+该值影响自增长列的插入。默认设置下，插入0或NULL代表生成下一个自增长值。如果用户希望插入的值为0，而该列又是自增长的，那么这个选项就有用了。</p>
 </li>
-<li><p>STRICT_TRANS_TABLES<br>在该模式下，如果一个值不能插入到一个事务中，则中断当前的操作，对非事务表不做限制</p>
+<li>
+<p>STRICT_TRANS_TABLES<br>
+在该模式下，如果一个值不能插入到一个事务中，则中断当前的操作，对非事务表不做限制</p>
 </li>
-<li><p>NO_ZERO_IN_DATE<br>在严格模式下，不允许日期和月份为零</p>
+<li>
+<p>NO_ZERO_IN_DATE<br>
+在严格模式下，不允许日期和月份为零</p>
 </li>
-<li><p>NO_ZERO_DATE<br>设置该值，mysql数据库不允许插入零日期，插入零日期会抛出错误而不是警告</p>
+<li>
+<p>NO_ZERO_DATE<br>
+设置该值，mysql数据库不允许插入零日期，插入零日期会抛出错误而不是警告</p>
 </li>
-<li><p>ERROR_FOR_DIVISION_BY_ZERO<br>在insert或update过程中，如果数据被零除，则产生错误而非警告。如果未给出该模式，那么数据被零除时Mysql返回NULL</p>
+<li>
+<p>ERROR_FOR_DIVISION_BY_ZERO<br>
+在insert或update过程中，如果数据被零除，则产生错误而非警告。如果未给出该模式，那么数据被零除时Mysql返回NULL</p>
 </li>
-<li><p>NO_AUTO_CREATE_USER<br>禁止GRANT创建密码为空的用户</p>
+<li>
+<p>NO_AUTO_CREATE_USER<br>
+禁止GRANT创建密码为空的用户</p>
 </li>
-<li><p>NO_ENGINE_SUBSTITUTION<br>如果需要的存储引擎被禁用或未编译，那么抛出错误。不设置此值时，用默认的存储引擎替代，并抛出一个异常</p>
+<li>
+<p>NO_ENGINE_SUBSTITUTION<br>
+如果需要的存储引擎被禁用或未编译，那么抛出错误。不设置此值时，用默认的存储引擎替代，并抛出一个异常</p>
 </li>
-<li><p>PIPES_AS_CONCAT<br>将”||”视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样是，也和字符串的拼接函数Concat想类似</p>
+<li>
+<p>PIPES_AS_CONCAT<br>
+将&quot;||&quot;视为字符串的连接操作符而非或运算符，这和Oracle数据库是一样是，也和字符串的拼接函数Concat想类似</p>
 </li>
-<li><p>ANSI_QUOTES<br>启用ANSI_QUOTES后，不能用双引号来引用字符串，因为它被解释为识别符</p>
+<li>
+<p>ANSI_QUOTES<br>
+启用ANSI_QUOTES后，不能用双引号来引用字符串，因为它被解释为识别符</p>
 </li>
 </ul>
-<h3 id="2-临时设置（新session仍然使用之前的sql-mode）"><a href="#2-临时设置（新session仍然使用之前的sql-mode）" class="headerlink" title="2. 临时设置（新session仍然使用之前的sql_mode）"></a>2. 临时设置（新session仍然使用之前的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> sql_mode<span class="operator">=</span>‘ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES’;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-全局设置（新session仍然使用修改后的sql-mode）"><a href="#3-全局设置（新session仍然使用修改后的sql-mode）" class="headerlink" title="3. 全局设置（新session仍然使用修改后的sql_mode）"></a>3. 全局设置（新session仍然使用修改后的sql_mode）</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> @<span class="variable">@global</span>.sql_mode<span class="operator">=</span><span class="string">&#x27;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE‘；</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-临时设置新session仍然使用之前的sql_mode"><a class="markdownIt-Anchor" href="#2-临时设置新session仍然使用之前的sql_mode"></a> 2. 临时设置（新session仍然使用之前的sql_mode）</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> sql_mode<span class="operator">=</span>‘ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES’;</span><br></pre></td></tr></table></figure>
+<h3 id="3-全局设置新session仍然使用修改后的sql_mode"><a class="markdownIt-Anchor" href="#3-全局设置新session仍然使用修改后的sql_mode"></a> 3. 全局设置（新session仍然使用修改后的sql_mode）</h3>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> @<span class="variable">@global</span>.sql_mode<span class="operator">=</span><span class="string">&#x27;ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE‘；</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <div class="article-footer">

@@ -18,12 +18,12 @@
   
   
   <title>Apache archiva Maven私有仓库搭建 | 小余哥</title>
-  <meta name="description" content="1. 搭建 环境准备  JDK 1.8 Apache Archiva 2.2.8  Apache-maven 3.6.3 （ https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ）      Apache Archiva安装文件下载   123456archiva官网地址：https:&#x2F;&#x2F;archiva.apache.org&#x2F;index.cgi#a下载地址：https:&#x2F;&#x2F;">
+  <meta name="description" content="1. 搭建   环境准备   JDK 1.8   Apache Archiva 2.2.8   Apache-maven 3.6.3 （ https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ）      Apache Archiva安装文件下载 123456archiva官网地址：https:&#x2F;&#x2F;archiva.apache.org&#x2F;index.cgi#a下载地址：htt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache archiva Maven私有仓库搭建">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/Apache-archiva/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 搭建 环境准备  JDK 1.8 Apache Archiva 2.2.8  Apache-maven 3.6.3 （ https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ）      Apache Archiva安装文件下载   123456archiva官网地址：https:&#x2F;&#x2F;archiva.apache.org&#x2F;index.cgi#a下载地址：https:&#x2F;&#x2F;">
+<meta property="og:description" content="1. 搭建   环境准备   JDK 1.8   Apache Archiva 2.2.8   Apache-maven 3.6.3 （ https:&#x2F;&#x2F;maven.apache.org&#x2F;download.cgi ）      Apache Archiva安装文件下载 123456archiva官网地址：https:&#x2F;&#x2F;archiva.apache.org&#x2F;index.cgi#a下载地址：htt">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/Apache-archiva/image-20220628112607703.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/Apache-archiva/image-20220628111905504.png">
@@ -442,82 +442,96 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-搭建"><a href="#1-搭建" class="headerlink" title="1. 搭建"></a>1. 搭建</h3><ol>
-<li><p>环境准备</p>
+        <h3 id="1-搭建"><a class="markdownIt-Anchor" href="#1-搭建"></a> 1. 搭建</h3>
+<ol>
+<li>
+<p>环境准备</p>
 <ul>
-<li>JDK 1.8</li>
-<li>Apache Archiva 2.2.8 </li>
-<li>Apache-maven 3.6.3 （ <a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a> ）</li>
+<li>
+<p>JDK 1.8</p>
+</li>
+<li>
+<p>Apache Archiva 2.2.8</p>
+</li>
+<li>
+<p>Apache-maven 3.6.3 （ <a target="_blank" rel="noopener" href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a> ）</p>
+</li>
 </ul>
-<p>  <img src="/Apache-archiva/image-20220628112607703.png" alt="image-20220628112607703"></p>
+<p><img src="/Apache-archiva/image-20220628112607703.png" alt="image-20220628112607703"></p>
 </li>
-<li><p>Apache Archiva安装文件下载</p>
-  <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">archiva官网地址：https:<span class="regexp">//</span>archiva.apache.org/index.cgi<span class="comment">#a</span></span><br><span class="line">下载地址：https:<span class="regexp">//</span>archiva.apache.org<span class="regexp">/download.cgi  （这个太慢了，几K/</span>s，坑）</span><br><span class="line"></span><br><span class="line">镜像仓库：https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/apache/</span>archiva</span><br><span class="line"></span><br><span class="line">建议从镜像仓库拉取！！！</span><br></pre></td></tr></table></figure>
-
-<p>  <img src="/Apache-archiva/image-20220628111905504.png" alt="image-20220628111905504"></p>
+<li>
+<p>Apache Archiva安装文件下载</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">archiva官网地址：https:<span class="regexp">//</span>archiva.apache.org/index.cgi<span class="comment">#a</span></span><br><span class="line">下载地址：https:<span class="regexp">//</span>archiva.apache.org<span class="regexp">/download.cgi  （这个太慢了，几K/</span>s，坑）</span><br><span class="line"></span><br><span class="line">镜像仓库：https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/apache/</span>archiva</span><br><span class="line"></span><br><span class="line">建议从镜像仓库拉取！！！</span><br></pre></td></tr></table></figure>
+<p><img src="/Apache-archiva/image-20220628111905504.png" alt="image-20220628111905504"></p>
 </li>
-<li><p>  将下载的tar.gz包上传到服务器相应位置</p>
+<li>
+<p>将下载的tar.gz包上传到服务器相应位置</p>
 </li>
-<li><p>解压tar.gz包</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ./apache-archiva-2.2.8-bin.tar.gz </span><br><span class="line">chmod 775 ./apache-archiva-2.2.8</span><br></pre></td></tr></table></figure></li>
-<li><p>修改端口（8080默认），如不需要，请跳过</p>
-<p>  <img src="/Apache-archiva/image-20220628113033117.png" alt="image-20220628113033117"></p>
+<li>
+<p>解压tar.gz包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf ./apache-archiva-2.2.8-bin.tar.gz </span><br><span class="line">chmod 775 ./apache-archiva-2.2.8</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>启动</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /User/xiaoyuge/maven/apache-archiva-2.2.8/bin</span><br><span class="line">./archiva start 			#执行启动命令，建议第一次启动使用：./archiva console 可以打印启动信息</span><br><span class="line">./archiva stop				#停止命令</span><br></pre></td></tr></table></figure>
-
-<p>  <img src="/Apache-archiva/image-20220628114117703.png" alt="image-20220628114117703"></p>
-<p>  各版本操作系统下详细安装及服务注册参照：<a target="_blank" rel="noopener" href="http://archiva.apache.org/docs/2.2.8/adminguide/standalone.html">http://archiva.apache.org/docs/2.2.8/adminguide/standalone.html</a></p>
+<li>
+<p>修改端口（8080默认），如不需要，请跳过</p>
+<p><img src="/Apache-archiva/image-20220628113033117.png" alt="image-20220628113033117"></p>
+</li>
+<li>
+<p>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /User/xiaoyuge/maven/apache-archiva-2.2.8/bin</span><br><span class="line">./archiva start 			#执行启动命令，建议第一次启动使用：./archiva console 可以打印启动信息</span><br><span class="line">./archiva stop				#停止命令</span><br></pre></td></tr></table></figure>
+<p><img src="/Apache-archiva/image-20220628114117703.png" alt="image-20220628114117703"></p>
+<p>各版本操作系统下详细安装及服务注册参照：<a target="_blank" rel="noopener" href="http://archiva.apache.org/docs/2.2.8/adminguide/standalone.html">http://archiva.apache.org/docs/2.2.8/adminguide/standalone.html</a></p>
+</li>
+<li>
+<p>将 <code>archiva</code>在Centos中安装成服务(root执行)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /Users/xiaoyuge/maven/apache-archiva-2.2.8/bin/archiva /etc/init.d/archiva</span><br></pre></td></tr></table></figure>
+<p>这样就可以通过<code>service</code>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service archiva start</span><br><span class="line">service archiva stop</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>启动成功后，访问<code>maven</code>服务器地址: <a target="_blank" rel="noopener" href="http://ip:8080">http://ip:8080</a></p>
+<p><img src="/Apache-archiva/image-20220628114324543.png" alt="image-20220628114324543"></p>
+</li>
+<li>
+<p>点击右上角的<code>Create Admin User</code>创建管理员账号</p>
 </li>
 </ol>
-<ol start="7">
-<li><p>将 <code>archiva</code>在Centos中安装成服务(root执行)</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /Users/xiaoyuge/maven/apache-archiva-2.2.8/bin/archiva /etc/init.d/archiva</span><br></pre></td></tr></table></figure>
-
-<p>  这样就可以通过<code>service</code>启动</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service archiva start</span><br><span class="line">service archiva stop</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ol start="8">
-<li><p>启动成功后，访问<code>maven</code>服务器地址: <a target="_blank" rel="noopener" href="http://ip:8080/">http://ip:8080</a></p>
-<p>  <img src="/Apache-archiva/image-20220628114324543.png" alt="image-20220628114324543"></p>
-</li>
-<li><p>  点击右上角的<code>Create Admin User</code>创建管理员账号</p>
-</li>
-</ol>
-<h2 id="2-上传私有jar包"><a href="#2-上传私有jar包" class="headerlink" title="2. 上传私有jar包"></a>2. 上传私有jar包</h2><ol>
-<li><p>访问：<a target="_blank" rel="noopener" href="http://localhost:8080/#upload%EF%BC%8C%E4%B8%8A%E4%BC%A0%E7%A7%81%E6%9C%89jar%E5%8C%85%E5%88%B0%E4%BB%93%E5%BA%93">http://localhost:8080/#upload，上传私有jar包到仓库</a></p>
+<h2 id="2-上传私有jar包"><a class="markdownIt-Anchor" href="#2-上传私有jar包"></a> 2. 上传私有jar包</h2>
+<ol>
+<li>
+<p>访问：<a target="_blank" rel="noopener" href="http://localhost:8080/#upload%EF%BC%8C%E4%B8%8A%E4%BC%A0%E7%A7%81%E6%9C%89jar%E5%8C%85%E5%88%B0%E4%BB%93%E5%BA%93">http://localhost:8080/#upload，上传私有jar包到仓库</a></p>
 <ul>
-<li><code>Repository Id</code> 选择 <code>Archiva Managed Internal Repository </code>则是把依赖作为正式版. 查看地址：<a href="http://host:port/repository/internal">http://host:port/repository/internal</a></li>
-<li><code>Repository Id</code> 选择<code>Archiva Managed Snapshot</code>则是把依赖作为快照版.    查看地址：<a href="http://host:port/repository/snapshots">http://host:port/repository/snapshots</a></li>
+<li><code>Repository Id</code> 选择 <code>Archiva Managed Internal Repository</code>则是把依赖作为正式版. 查看地址：<a target="_blank" rel="noopener" href="http://host">http://host</a>:port/repository/internal</li>
+<li><code>Repository Id</code> 选择<code>Archiva Managed Snapshot</code>则是把依赖作为快照版.	查看地址：<a target="_blank" rel="noopener" href="http://host">http://host</a>:port/repository/snapshots</li>
 </ul>
-<p>  按照以下步骤依次操作：</p>
-<p>  <img src="/Apache-archiva/image-20220628133605624.png" alt="image-20220628133605624"></p>
-<p>  保存后，提示以下信息表示上传成功！</p>
-<p>  <img src="/Apache-archiva/image-20220628133705165.png" alt="image-20220628133705165"></p>
-<p>  在左侧菜单栏<code>Browse</code>中查看上传的jar ，如下所示：</p>
-<p>  <img src="/Apache-archiva/image-20220628134114089.png" alt="image-20220628134114089"></p>
+<p>按照以下步骤依次操作：</p>
+<p><img src="/Apache-archiva/image-20220628133605624.png" alt="image-20220628133605624"></p>
+<p>保存后，提示以下信息表示上传成功！</p>
+<p><img src="/Apache-archiva/image-20220628133705165.png" alt="image-20220628133705165"></p>
+<p>在左侧菜单栏<code>Browse</code>中查看上传的jar ，如下所示：</p>
+<p><img src="/Apache-archiva/image-20220628134114089.png" alt="image-20220628134114089"></p>
 </li>
-<li><p>也可以通过命令的方式上传（<a href="#setting">需要配置maven 的setting.xml</a>）</p>
-<p>  在<code>/Users/xiaoyuge/Desktop</code>有一个junit-4.13.2.jar，使用<code>mvn deploy</code>命令上传如下</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn deploy:deploy-file -Dfile=/Users/xiaoyuge/Desktop/junit-4.13.2.jar -DrepositoryId=archiva-releases -DgroupId=junit -DartifactId=junit -Dversion=4.13.2 -Durl=http://localhost:8080/repository/internal</span><br></pre></td></tr></table></figure>
-<p>  命令解释：</p>
+<li>
+<p>也可以通过命令的方式上传（<a href="#setting">需要配置maven 的setting.xml</a>）</p>
+<p>在<code>/Users/xiaoyuge/Desktop</code>有一个junit-4.13.2.jar，使用<code>mvn deploy</code>命令上传如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn deploy:deploy-file -Dfile=/Users/xiaoyuge/Desktop/junit-4.13.2.jar -DrepositoryId=archiva-releases -DgroupId=junit -DartifactId=junit -Dversion=4.13.2 -Durl=http://localhost:8080/repository/internal</span><br></pre></td></tr></table></figure>
+<p>命令解释：</p>
 <ul>
 <li>-Dfile ：要上传到私服的jar包， jar包全路径</li>
 <li>-DrepositoryId： 仓库ID，要与maven 的setting.xml配置文件中的server一致，否则401；</li>
-<li>-DgroupId： groupId主包名 </li>
+<li>-DgroupId： groupId主包名</li>
 <li>-DartifactId： 项目名</li>
 <li>-Dversion：版本号</li>
 <li>-Durl：远程仓库地址</li>
 </ul>
-<p>  上传结果如下如所示：</p>
-<p>  <img src="/Apache-archiva/image-20220628141000055.png" alt="image-20220628141000055"></p>
-<p>  同时在私服仓库中可以查看到刚上传的<code>jar</code></p>
-<p>  <img src="/Apache-archiva/image-20220628141111292.png" alt="image-20220628141111292"></p>
+<p>上传结果如下如所示：</p>
+<p><img src="/Apache-archiva/image-20220628141000055.png" alt="image-20220628141000055"></p>
+<p>同时在私服仓库中可以查看到刚上传的<code>jar</code></p>
+<p><img src="/Apache-archiva/image-20220628141111292.png" alt="image-20220628141111292"></p>
 </li>
 </ol>
-<h2 id="3-项目使用"><a href="#3-项目使用" class="headerlink" title="3. 项目使用"></a>3. 项目使用</h2><p><span id="setting">配置maven中的setting.xml文件，配置如下：</span></p>
+<h2 id="3-项目使用"><a class="markdownIt-Anchor" href="#3-项目使用"></a> 3. 项目使用</h2>
+<p><span id="setting">配置maven中的setting.xml文件，配置如下：</span></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">settings</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>    <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>\Common\my_repository<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">servers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">id</span>&gt;</span>archiva-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--要和mvn命令中的  -DrepositoryId 一致--&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">password</span>&gt;</span>xiaoyuge0318<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">id</span>&gt;</span>archiva-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span><span class="comment">&lt;!--要和mvn命令中的  -DrepositoryId 一致--&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">password</span>&gt;</span>xiaoyuge0318<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">servers</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 私服地址 start --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirror</span>&gt;</span> <span class="comment">&lt;!-- 正式版 --&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">id</span>&gt;</span>archiva-releases<span class="tag">&lt;/<span class="name">id</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>internal<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8080/repository/internal<span class="tag">&lt;/<span class="name">url</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mirror</span>&gt;</span> <span class="comment">&lt;!-- 快照版 --&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">id</span>&gt;</span>archiva-snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8080/repository/snapshots<span class="tag">&lt;/<span class="name">url</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line">true <span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">profiles</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></span><br><span class="line">             <span class="comment">&lt;!-- 正式版 --&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>internal<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>Archiva Managed Internal Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8080/repository/internal<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">            </span><br><span class="line">              <span class="comment">&lt;!-- 快照版 --&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>Archiva Managed Snapshots Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://localhost:8080/repository/snapshots<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">profiles</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 私服地址END --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">settings</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 
       
     </div>

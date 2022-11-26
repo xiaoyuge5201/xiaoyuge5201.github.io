@@ -1,0 +1,28 @@
+.tit-h2{
+    display:inline-block;
+    background:rgb(239, 112, 96);
+    color:#fff;
+    font-size: 24px;
+    padding:3px 10px 1px;
+    border-top-right-radius:4px;
+    border-top-left-radius:4px;
+    margin-right: 3px;
+}
+.tit-h3{
+    display:inline-block;
+    background:rgb(239, 112, 96);
+    color:#fff;
+    padding:3px 10px 1px;
+    border-top-right-radius:4px;
+    border-top-left-radius:4px;
+    margin-right: 3px;
+}
+.tit-h4{
+    display:inline-block;
+    background:rgb(239, 112, 96);
+    color:#fff;
+    padding:3px 10px 1px;
+    border-top-right-radius:4px;
+    border-top-left-radius:4px;
+    margin-right: 3px;
+}

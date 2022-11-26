@@ -18,23 +18,24 @@
   
   
   <title>接口设计-专题 | 小余哥</title>
-  <meta name="description" content="1. 接口的幂等性1.1 幂等性描述  幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  1.2 接口幂等性在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外），即多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。 幂等性指的是作用于结果而非资源本身。例如，H">
+  <meta name="description" content="1. 接口的幂等性 1.1 幂等性描述  幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  在数学中，幂等用函数表达式就是：f(x) &#x3D; f(f(x))  1.2 接口幂等性  在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外）， 即多次调用方法或者接口不会改变业务状态，可以保证重复调">
 <meta property="og:type" content="article">
 <meta property="og:title" content="接口设计-专题">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/special-interface/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 接口的幂等性1.1 幂等性描述  幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  1.2 接口幂等性在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外），即多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。 幂等性指的是作用于结果而非资源本身。例如，H">
+<meta property="og:description" content="1. 接口的幂等性 1.1 幂等性描述  幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  在数学中，幂等用函数表达式就是：f(x) &#x3D; f(f(x))  1.2 接口幂等性  在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外）， 即多次调用方法或者接口不会改变业务状态，可以保证重复调">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/5.gif">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/2.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/3.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/4.png">
 <meta property="article:published_time" content="2022-11-23T12:58:03.000Z">
-<meta property="article:modified_time" content="2022-11-23T15:07:00.516Z">
+<meta property="article:modified_time" content="2022-11-26T08:00:41.734Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xiaoyuge5201.github.io/special-interface/1.png">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/special-interface/5.gif">
   <!-- Canonical links -->
   <link rel="canonical" href="https://xiaoyuge5201.github.io/special-interface/index.html">
   
@@ -436,33 +437,50 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="1-接口的幂等性"><a href="#1-接口的幂等性" class="headerlink" title="1. 接口的幂等性"></a>1. 接口的幂等性</h2><p>1.1 幂等性描述</p>
+        <link rel="stylesheet" type="text/css" href="/themes/pure/source/css/content.css">
+<h2 id="1-span-classtit-h2接口的幂等性span"><a class="markdownIt-Anchor" href="#1-span-classtit-h2接口的幂等性span"></a> 1. <span class="tit-h2">接口的幂等性</span></h2>
+<p>1.1 幂等性描述</p>
 <blockquote>
 <p>幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同</p>
 </blockquote>
-<h3 id="1-2-接口幂等性"><a href="#1-2-接口幂等性" class="headerlink" title="1.2 接口幂等性"></a>1.2 接口幂等性</h3><p>在HTTP/1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外），<br>即多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。</p>
+<p>在数学中，幂等用函数表达式就是：<strong>f(x) = f(f(x))</strong></p>
+<h3 id="12-接口幂等性"><a class="markdownIt-Anchor" href="#12-接口幂等性"></a> 1.2 接口幂等性</h3>
+<blockquote>
+<p>在HTTP/1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外），<br>
+即多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。</p>
+</blockquote>
 <p><strong>幂等性指的是作用于结果而非资源本身。例如，HTTP GET方法可能会每次得到不同的返回内容，但并不影响资源。</strong></p>
-<h3 id="1-3-为什么需要实现幂等性"><a href="#1-3-为什么需要实现幂等性" class="headerlink" title="1.3 为什么需要实现幂等性"></a>1.3 为什么需要实现幂等性</h3><p>在接口调用时一般情况下都能正常返回信息不会出现重复提交，不过出现以下几种情况会有问题，如：</p>
+<h3 id="13-为什么需要实现幂等性"><a class="markdownIt-Anchor" href="#13-为什么需要实现幂等性"></a> 1.3 为什么需要实现幂等性</h3>
+<p>在接口调用时一般情况下都能正常返回信息不会出现重复提交，不过出现以下几种情况会有问题，如：</p>
 <ul>
-<li><p>前端重复提交表单：比如用户注册时，因网络波动没有及时对用户做出提交成功响应，致使用户认为没有提交成功，然后多次进行提交操作，这时就会发生重复提交请求</p>
+<li>
+<p>前端重复提交表单：比如用户注册时，因网络波动没有及时对用户做出提交成功响应，致使用户认为没有提交成功，然后多次进行提交操作，这时就会发生重复提交请求</p>
 </li>
-<li><p>用户恶意刷单：比如用户投票，如果用户针对一个内容重复提交投票，接口接收到用户重复提交的投票信息，影响实际的计算结果</p>
+<li>
+<p>用户恶意刷单：比如用户投票，如果用户针对一个内容重复提交投票，接口接收到用户重复提交的投票信息，影响实际的计算结果</p>
 </li>
-<li><p>接口超时重复提交：如果存在超时重试机制，尤其是第三方调用接口时，为了防止网络波动超时等造成的请求失败，都会添加重试机制，导致一个请求多次提交</p>
+<li>
+<p>接口超时重复提交：如果存在超时重试机制，尤其是第三方调用接口时，为了防止网络波动超时等造成的请求失败，都会添加重试机制，导致一个请求多次提交</p>
 </li>
-<li><p>消息进行重复消费：当使用MQ消息中间件时，如果发生消息中间件出现错误为即使提交消费消息，导致发生重复消费；</p>
+<li>
+<p>消息进行重复消费：当使用MQ消息中间件时，如果发生消息中间件出现错误为即使提交消费消息，导致发生重复消费；</p>
 </li>
 </ul>
-<p>使用幂等性最大的又是在于使接口保证任何幂等性操作，避免因重试等造成系统未知问题。</p>
-<h3 id="1-4-幂等性对系统的影响"><a href="#1-4-幂等性对系统的影响" class="headerlink" title="1.4 幂等性对系统的影响"></a>1.4 幂等性对系统的影响</h3><p>幂等性时为了简化客户端逻辑处理，能防止重复提交等操作，但也额外增加了服务断电额逻辑复杂性，主要是</p>
+<p>使用幂等性最大的优势在于使接口保证任何幂等性操作，避免因重试等造成系统未知问题。</p>
+<p><img src="/special-interface/5.gif" alt></p>
+<h3 id="14-幂等性对系统的影响"><a class="markdownIt-Anchor" href="#14-幂等性对系统的影响"></a> 1.4 幂等性对系统的影响</h3>
+<p>幂等性时为了简化客户端逻辑处理，能防止重复提交等操作，但也额外增加了服务端业务逻辑复杂性，主要是</p>
 <ul>
-<li><p>把并行执行的功能改成了串行，降低了执行效率</p>
+<li>
+<p>把并行执行的功能改成了串行，降低了执行效率</p>
 </li>
-<li><p>增加了额外控制幂等的业务代码，使原本的业务功能复杂化</p>
+<li>
+<p>增加了额外控制幂等的业务代码，使原本的业务功能复杂化</p>
 </li>
 </ul>
 <p>所以我们需要根据实际的业务场景来考虑是否引入幂等性</p>
-<h3 id="1-5-Restful-API-接口的幂等性"><a href="#1-5-Restful-API-接口的幂等性" class="headerlink" title="1.5 Restful API 接口的幂等性"></a>1.5 Restful API 接口的幂等性</h3><p>现在流行的Restful 推荐的几种HTTP方法中幂等性如下：</p>
+<h3 id="15-restful-api-接口的幂等性"><a class="markdownIt-Anchor" href="#15-restful-api-接口的幂等性"></a> 1.5 Restful API 接口的幂等性</h3>
+<p>现在流行的Restful 推荐的几种HTTP方法中幂等性如下：</p>
 <table>
 <thead>
 <tr>
@@ -471,7 +489,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>GET</td>
 <td>是</td>
 <td>Get 方法用于获取资源。其一般不会也不应当对系统资源进行改变，所以是幂等的</td>
@@ -491,66 +510,92 @@
 <td>-</td>
 <td>Delete 方法一般用于删除资源。该操作则分情况来判断是不是满足幂等，当根据唯一值进行删除时，删除同一个数据多次执行效果一样。不过需要注意，带查询条件的删除则就不一定满足幂等了。例如在根据条件删除一批数据后，这时候新增加了一条数据也满足条件，然后又执行了一次删除，那么将会导致新增加的这条满足条件数据也被删除。</td>
 </tr>
-</tbody></table>
-<h3 id="1-6-实现幂等性的方案"><a href="#1-6-实现幂等性的方案" class="headerlink" title="1.6 实现幂等性的方案"></a>1.6 实现幂等性的方案</h3><h4 id="nbsp-nbsp-方案1：数据库唯一主键"><a href="#nbsp-nbsp-方案1：数据库唯一主键" class="headerlink" title="&nbsp;&nbsp;方案1：数据库唯一主键"></a>&nbsp;&nbsp;方案1：数据库唯一主键</h4><ul>
-<li>描述<blockquote>
-<p>利用数据库主键唯一约束的特性，依赖来说唯一主键比较适用于插入时的幂等性，其 能保证一张表只能存在一条带该唯一主键的记录</p>
+</tbody>
+</table>
+<h3 id="16-实现幂等性的方案"><a class="markdownIt-Anchor" href="#16-实现幂等性的方案"></a> 1.6 实现幂等性的方案</h3>
+<h4 id="方案1数据库唯一主键"><a class="markdownIt-Anchor" href="#方案1数据库唯一主键"></a>   方案1：数据库唯一主键</h4>
+<ul>
+<li>
+<p>描述</p>
+<blockquote>
+<p>利用数据库主键唯一约束的特性，依赖来说唯一主键比较适用于插入时的幂等性，其能保证一张表只能存在一条带该唯一主键的记录</p>
 <p>使用数据库唯一主键完成幂等性时需要注意的是，该主键一般来说并不是使用数据库自增主键，而是使用分布式ID作为主键，这样才能保证在分布式环境下ID的全局一致性</p>
 </blockquote>
 </li>
-<li>使用操作<ul>
+<li>
+<p>使用操作</p>
+<ul>
 <li>插入</li>
 <li>删除</li>
 </ul>
 </li>
-<li>使用限制<ol>
+<li>
+<p>使用限制</p>
+<ol>
 <li>需要生成全局唯一主键ID</li>
 </ol>
 </li>
-<li>主要流程   <img src="/special-interface/1.png"><br>   分布式ID服务可以使用<strong>Snowflake算法</strong>、<strong>数据库号段模式</strong>、<strong>Redis自增</strong>等方式生成；</li>
+<li>
+<p>主要流程</p>
+<p><img src="/special-interface/1.png" alt><br>
+分布式ID服务可以使用<strong>Snowflake算法</strong>、<strong>数据库号段模式</strong>、<strong>Redis自增</strong>等方式生成；</p>
+</li>
 </ul>
-<h4 id="nbsp-nbsp-方案2：数据库乐观锁"><a href="#nbsp-nbsp-方案2：数据库乐观锁" class="headerlink" title="&nbsp;&nbsp;方案2：数据库乐观锁"></a>&nbsp;&nbsp;方案2：数据库乐观锁</h4><ul>
-<li><p>描述</p>
+<h4 id="方案2数据库乐观锁"><a class="markdownIt-Anchor" href="#方案2数据库乐观锁"></a>   方案2：数据库乐观锁</h4>
+<ul>
+<li>
+<p>描述</p>
 <blockquote>
-<p> 一般只适用于更新操作的过程，在表中增加version版本字段，每次对该表的这条数据更新时，都会带上上次更新后的version值</p>
+<p>一般只适用于更新操作的过程，在表中增加version版本字段，每次对该表的这条数据更新时，都会带上上次更新后的version值</p>
 </blockquote>
 </li>
-<li><p>使用操作</p>
+<li>
+<p>使用操作</p>
 <ul>
 <li>更新</li>
 </ul>
 </li>
-<li><p>使用限制</p>
+<li>
+<p>使用限制</p>
 <ol>
 <li>需要在业务表中添加额外字段</li>
 </ol>
 </li>
-<li><p>主要流程</p>
-<p><img src="/special-interface/2.png"></p>
+<li>
+<p>主要流程</p>
+<p><img src="/special-interface/2.png" alt></p>
 </li>
 </ul>
-<h4 id="nbsp-nbsp-方案3：防重Token令牌"><a href="#nbsp-nbsp-方案3：防重Token令牌" class="headerlink" title="&nbsp;&nbsp;方案3：防重Token令牌"></a>&nbsp;&nbsp;方案3：防重Token令牌</h4><ul>
-<li><p>描述</p>
+<h4 id="方案3防重token令牌"><a class="markdownIt-Anchor" href="#方案3防重token令牌"></a>   方案3：防重Token令牌</h4>
+<ul>
+<li>
+<p>描述</p>
 <blockquote>
 <p>针对客户端连续点击或者调用方的超时重试等情况，例如提交订单，此种操作就可以用 Token 的机制实现防止重复提交。简单的说就是调用方在调用接口的时候先向后端请求一个全局 ID（Token），请求的时候携带这个全局 ID 一起请求（Token 最好将其放到 Headers 中），后端需要对这个 Token 作为 Key，用户信息作为 Value 到 Redis 中进行键值内容校验，如果 Key 存在且 Value 匹配就执行删除命令，然后正常执行后面的业务逻辑。如果不存在对应的 Key 或 Value 不匹配就返回重复执行的错误信息，这样来保证幂等操作</p>
 </blockquote>
 </li>
-<li><p>使用操作</p>
+<li>
+<p>使用操作</p>
 <ul>
 <li>更新</li>
 <li>插入</li>
 </ul>
 </li>
-<li><p>使用限制</p>
+<li>
+<p>使用限制</p>
 <ol>
-<li><p>需要生成全局唯一 Token串</p>
+<li>
+<p>需要生成全局唯一 Token串</p>
 </li>
-<li><p>需要使用Redis进行数据校验</p>
+<li>
+<p>需要使用Redis进行数据校验</p>
 </li>
 </ol>
 </li>
-<li><p>主要流程</p>
-<p><img src="/special-interface/3.png"><br>Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
+<li>
+<p>主要流程</p>
+<p><img src="/special-interface/3.png" alt><br>
+Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
 <ul>
 <li>验证成功：说明存在该token，是第一次调用接口，可以执行后面的业务代码，同时在redis中删除该token</li>
 <li>验证失败：说明存在该token，是重复调用接口，不可以执行后面的业务代码；</li>
@@ -560,34 +605,112 @@
 </blockquote>
 </li>
 </ul>
-<h4 id="nbsp-nbsp-方案4：下游传递唯一序列号"><a href="#nbsp-nbsp-方案4：下游传递唯一序列号" class="headerlink" title="&nbsp;&nbsp;方案4：下游传递唯一序列号"></a>&nbsp;&nbsp;方案4：下游传递唯一序列号</h4><ul>
-<li><p>描述</p>
-<p>  所谓请求序列号，其实就是每次向服务端请求时候附带一个短时间内唯一不重复的序列号，该序列号可以是一个有序 ID，也可以是一个订单号，一般由下游生成，在调用上游服务端接口时附加该序列号和用于认证的 ID。 当上游服务器收到请求信息后拿取该 序列号 和下游 认证ID 进行组合，形成用于操作 Redis 的 Key，然后到 Redis 中查询是否存在对应的 Key 的键值对，根据其结果：  </p>
+<h4 id="方案4下游传递唯一序列号"><a class="markdownIt-Anchor" href="#方案4下游传递唯一序列号"></a>   方案4：下游传递唯一序列号</h4>
+<ul>
+<li>
+<p>描述</p>
+<p>所谓请求序列号，其实就是每次向服务端请求时候附带一个短时间内唯一不重复的序列号，该序列号可以是一个有序 ID，也可以是一个订单号，一般由下游生成，在调用上游服务端接口时附加该序列号和用于认证的 ID。 当上游服务器收到请求信息后拿取该 序列号 和下游 认证ID 进行组合，形成用于操作 Redis 的 Key，然后到 Redis 中查询是否存在对应的 Key 的键值对，根据其结果：</p>
 <ul>
 <li>如果存在，就说明已经对该下游的该序列号的请求进行了业务处理，这时可以直接响应重复请求的错误信息。</li>
 <li>如果不存在，就以该 Key 作为 Redis 的键，以下游关键信息作为存储的值（例如下游商传递的一些业务逻辑信息），将该键值对存储到 Redis 中 ，然后再正常执行对应的业务逻辑即可。</li>
 </ul>
 </li>
-<li><p>使用操作</p>
+<li>
+<p>使用操作</p>
 <ul>
 <li>更新</li>
 <li>插入</li>
 <li>删除</li>
 </ul>
 </li>
-<li><p>使用限制</p>
+<li>
+<p>使用限制</p>
 <ol>
 <li>需要第三方传递唯一序列号</li>
 <li>需要使用Redis进行数据校验</li>
 </ol>
 </li>
-</ul>
-<ul>
-<li>主要流程 <img src="/special-interface/4.png">① 下游服务生成分布式 ID 作为序列号，然后执行请求调用上游接口，并附带“唯一序列号”与请求的“认证凭据ID”。② 上游服务进行安全效验，检测下游传递的参数中是否存在“序列号”和“凭据ID”。③ 上游服务到 Redis 中检测是否存在对应的“序列号”与“认证ID”组成的 Key，如果存在就抛出重复执行的异常信息，然后响应下游对应的错误信息。如果不存在就以该“序列号”和“认证ID”组合作为 Key，以下游关键信息作为 Value，进而存储到 Redis 中，然后正常执行接来来的业务逻辑。<blockquote>
+<li>
+<p>主要流程</p>
+<p><img src="/special-interface/4.png" alt></p>
+<p>① 下游服务生成分布式 ID 作为序列号，然后执行请求调用上游接口，并附带“唯一序列号”与请求的“认证凭据ID”。<br>
+② 上游服务进行安全效验，检测下游传递的参数中是否存在“序列号”和“凭据ID”。<br>
+③ 上游服务到 Redis 中检测是否存在对应的“序列号”与“认证ID”组成的 Key，如果存在就抛出重复执行的异常信息，然后响应下游对应的错误信息。如果不存在就以该“序列号”和“认证ID”组合作为 Key，以下游关键信息作为 Value，进而存储到 Redis 中，然后正常执行接来来的业务逻辑。</p>
+<blockquote>
 <p>上面步骤中插入数据到 Redis 一定要设置过期时间。这样能保证在这个时间范围内，如果重复调用接口，则能够进行判断识别。如果不设置过期时间，很可能导致数据无限量的存入 Redis，致使 Redis 不能正常工作。</p>
 </blockquote>
 </li>
 </ul>
+<h4 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h4>
+<ol>
+<li>对于下单等存在唯一主键的可以使用&quot;唯一主键方案&quot;的方式实现</li>
+<li>对于更新订单状态等相关的更新场景操作，可以使用&quot;乐观锁方案&quot;</li>
+<li>对于上下游这种，下游请求上游，上游服务可以使用&quot;下游传递唯一序列号方案&quot;更为合理</li>
+<li>类似于前端重复提交、重复下单、没有唯一ID号的场景，可以通过token与Redis配置的&quot;防重Token方案&quot;更为快捷</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方案</th>
+<th style="text-align:center">适用方法</th>
+<th style="text-align:right">复杂度</th>
+<th style="text-align:center">缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">数据库唯一主键</td>
+<td style="text-align:center">插入、删除</td>
+<td style="text-align:right">简单</td>
+<td style="text-align:center">只能用于存在唯一主键的场景</td>
+</tr>
+<tr>
+<td style="text-align:center">数据库乐观锁</td>
+<td style="text-align:center">更新</td>
+<td style="text-align:right">简单</td>
+<td style="text-align:center">只能用于更新操作，表中需要添加额外字段</td>
+</tr>
+<tr>
+<td style="text-align:center">请求序列号</td>
+<td style="text-align:center">插入、删除、更新</td>
+<td style="text-align:right">简单</td>
+<td style="text-align:center">1. 需要保证下游生成唯一序列号；<br> 2. 需要Redis存储序列号</td>
+</tr>
+<tr>
+<td style="text-align:center">防重Token令牌</td>
+<td style="text-align:center">插入、更新、删除</td>
+<td style="text-align:right">适中</td>
+<td style="text-align:center">需要Redis存储序列号</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-springboot-防重token令牌方案"><a class="markdownIt-Anchor" href="#2-springboot-防重token令牌方案"></a> 2. SpringBoot 防重Token令牌方案</h2>
+<p>该方案能保证在不同请求动作下的幂等性，实现逻辑可以看上面写的”防重Token令牌”方案;</p>
+<h3 id="21-引入相关依赖"><a class="markdownIt-Anchor" href="#21-引入相关依赖"></a> 2.1 引入相关依赖</h3>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>idempotent-token<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>idempotent-token<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://www.example.com<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-pool2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pluginManagement</span>&gt;</span><span class="comment">&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="22-配置文件"><a class="markdownIt-Anchor" href="#22-配置文件"></a> 2.2 配置文件</h3>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置redis连接参数</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">ssl:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line">    <span class="attr">database:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">timeout:</span> <span class="number">1000</span></span><br><span class="line">    <span class="attr">password:</span></span><br><span class="line">    <span class="attr">lettuce:</span></span><br><span class="line">      <span class="attr">pool:</span></span><br><span class="line">        <span class="attr">max-active:</span> <span class="number">100</span></span><br><span class="line">        <span class="attr">max-wait:</span> <span class="number">-1</span></span><br><span class="line">        <span class="attr">min-idle:</span> <span class="number">0</span></span><br><span class="line">        <span class="attr">max-idle:</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<h3 id="23-token获取验证接口"><a class="markdownIt-Anchor" href="#23-token获取验证接口"></a> 2.3 Token获取/验证接口</h3>
+<p>创建用于操作Token相关的Service类，包含创建token以及验证方法，其中：</p>
+<ul>
+<li>
+<p>Token创建： 使用UUID工具创建token串，设置<code>IDEMPOTENT_TOKEN_PREFIX:+token</code>串作为key,以用户信息作为value，存入Redis;</p>
+</li>
+<li>
+<p>Token验证：接口Token串参数，加上前缀生成key，再传入用户信息value,使用Lua表达式（Lua表达式能保证命令执行的原子性）进行查找对应的key和value，执行完成后验证命令的返回结果，如果不为空且非0则验证成功，反之则失败;</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xiaoyuge</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenUtilService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> StringRedisTemplate redisTemplate;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * redis 的token键前缀</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String IDEMPOTENT_TOKEN_PREFIX = <span class="string">&quot;IDEMPOTENT_TOKEN:&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建token存入redis， 并返回token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value 用于辅助验证的value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> token串</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">generateToken</span><span class="params">(String value)</span> </span>&#123;</span><br><span class="line">        String token = UUID.randomUUID().toString();</span><br><span class="line">        <span class="comment">//拼接redis key</span></span><br><span class="line">        String key = IDEMPOTENT_TOKEN_PREFIX + token;</span><br><span class="line">        <span class="comment">//存储到redis 中，设置过期时间为5分钟</span></span><br><span class="line">        redisTemplate.opsForValue().set(key, value, <span class="number">5</span>, TimeUnit.MINUTES);</span><br><span class="line">        <span class="keyword">return</span> token;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 验证token的正确性</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> token token字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value 辅助验证信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 验证结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">validateToken</span><span class="params">(String token, String value)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//设置Lua脚本，其中KEY[1] 是key, KEYS[2] 是value； 如果根据key获取到的值是value,那么删除key否则返回0</span></span><br><span class="line">        String script = <span class="string">&quot;if redis.call(&#x27;get&#x27;, KEYS[1]) == KEYS[2] then return redis.call(&#x27;del&#x27;, KEYS[1]) else return 0 end&quot;</span>;</span><br><span class="line">        RedisScript&lt;Long&gt; redisScript = <span class="keyword">new</span> DefaultRedisScript&lt;&gt;(script, Long.class);</span><br><span class="line">        <span class="comment">//拼接key</span></span><br><span class="line">        String key = IDEMPOTENT_TOKEN_PREFIX + token;</span><br><span class="line">        <span class="comment">//执行lua脚本，传递数组参数[key, value]</span></span><br><span class="line">        Long result = redisTemplate.execute(redisScript, Arrays.asList(key, value));</span><br><span class="line">        <span class="keyword">if</span> (result == <span class="keyword">null</span> &amp;&amp; result != <span class="number">0L</span>) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;验证token= &#123;&#125;,key=&#123;&#125;, value=&#123;&#125;成功&quot;</span>, token, key, value);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="24-创建controller"><a class="markdownIt-Anchor" href="#24-创建controller"></a> 2.4 创建Controller</h3>
+<p>创建用于测试的 Controller 类，里面有获取 Token 与测试接口幂等性的接口，内容如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xiaoyuge</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> TokenUtilService tokenUtilService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> token串</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/token&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getToken</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取用户信息</span></span><br><span class="line">        String username = <span class="string">&quot;xiaoyuge&quot;</span>;</span><br><span class="line">        <span class="comment">//使用用户信息作为辅助验证</span></span><br><span class="line">        <span class="comment">//获取token并返回</span></span><br><span class="line">        <span class="keyword">return</span> tokenUtilService.generateToken(username);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 接口幂等性测试接口</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> token token串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 执行结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testIdempotence</span><span class="params">(<span class="meta">@RequestHeader(value = &quot;token&quot;)</span> String token)</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取用户信息，和上面保持一样的业务逻辑</span></span><br><span class="line">        String username = <span class="string">&quot;xiaoyuge&quot;</span>;</span><br><span class="line">        <span class="comment">//根据token和用户相关信息到redis验证是否存在对应的信息</span></span><br><span class="line">        <span class="keyword">boolean</span> result = tokenUtilService.validateToken(token, username);</span><br><span class="line">        <span class="keyword">return</span> result ? <span class="string">&quot;正常调用&quot;</span>:<span class="string">&quot;重复调用&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="25-创建springboot启动类"><a class="markdownIt-Anchor" href="#25-创建springboot启动类"></a> 2.5 创建Springboot启动类</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdempotentApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(IdempotentApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="26-创建测试类"><a class="markdownIt-Anchor" href="#26-创建测试类"></a> 2.6 创建测试类</h3>
+<p>测试多次访问同一个接口，是否只有第一次执行成功</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdempotentTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> WebApplicationContext webApplicationContext;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">interfaceIdempotenceTest</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//初始化MockMvc</span></span><br><span class="line">        MockMvc mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();</span><br><span class="line">        <span class="comment">//调用获取 token 接口</span></span><br><span class="line">        String token = mockMvc.perform(MockMvcRequestBuilders.get(<span class="string">&quot;/token&quot;</span>)</span><br><span class="line">                .accept(MediaType.TEXT_HTML))</span><br><span class="line">                .andReturn()</span><br><span class="line">                .getResponse().getContentAsString();</span><br><span class="line">        log.info(<span class="string">&quot;获取的token串：&#123;&#125;&quot;</span>, token);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;第&#123;&#125;次调用接口&quot;</span>, i+<span class="number">1</span>);</span><br><span class="line">            String result = mockMvc.perform(MockMvcRequestBuilders.post(<span class="string">&quot;/test&quot;</span>)</span><br><span class="line">                    .header(<span class="string">&quot;token&quot;</span>, token)</span><br><span class="line">                    .accept(MediaType.TEXT_HTML))</span><br><span class="line">                    .andReturn().getResponse().getContentAsString();</span><br><span class="line">            log.info(<span class="string">&quot;调用结果:&#123;&#125;&quot;</span>, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用结果返回如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[main] org.example.IdempotentTest : 获取的token串：ed965e9e-42ce-4865-a1fd-25d13ad5544b</span><br><span class="line">[main] org.example.IdempotentTest : 第1次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:正常调用</span><br><span class="line">[main] org.example.IdempotentTest : 第2次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:重复调用</span><br><span class="line">[main] org.example.IdempotentTest : 第3次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:重复调用</span><br><span class="line">[main] org.example.IdempotentTest : 第4次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:重复调用</span><br><span class="line">[main] org.example.IdempotentTest : 第5次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:重复调用</span><br></pre></td></tr></table></figure>
 
       
     </div>

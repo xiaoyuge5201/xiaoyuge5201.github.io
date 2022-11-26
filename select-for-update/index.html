@@ -18,12 +18,12 @@
   
   
   <title>select ... for update表锁还是行锁 | 小余哥</title>
-  <meta name="description" content="1. 概要Select 查询语句是不会枷锁的，但是Select … for update 除了有查询语句的作用，还是加锁，而且是悲观锁。  使用索引： 行锁 未使用索引：表锁  2. 建表 123456789101112131415--建表语句CREATE TABLE t_user (    id INT ( 11 ) NOT NULL AUTO_INCREMENT,    name VARCHA">
+  <meta name="description" content="1. 概要 Select 查询语句是不会枷锁的，但是Select … for update 除了有查询语句的作用，还是加锁，而且是悲观锁。  使用索引： 行锁 未使用索引：表锁   2. 建表  123456789101112131415--建表语句CREATE TABLE t_user (    id INT ( 11 ) NOT NULL AUTO_INCREMENT,    name VA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="select ... for update表锁还是行锁">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/select-for-update/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 概要Select 查询语句是不会枷锁的，但是Select … for update 除了有查询语句的作用，还是加锁，而且是悲观锁。  使用索引： 行锁 未使用索引：表锁  2. 建表 123456789101112131415--建表语句CREATE TABLE t_user (    id INT ( 11 ) NOT NULL AUTO_INCREMENT,    name VARCHA">
+<meta property="og:description" content="1. 概要 Select 查询语句是不会枷锁的，但是Select … for update 除了有查询语句的作用，还是加锁，而且是悲观锁。  使用索引： 行锁 未使用索引：表锁   2. 建表  123456789101112131415--建表语句CREATE TABLE t_user (    id INT ( 11 ) NOT NULL AUTO_INCREMENT,    name VA">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/select-for-update/0.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/select-for-update/1.png">
@@ -442,22 +442,46 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="1-概要"><a href="#1-概要" class="headerlink" title="1. 概要"></a>1. 概要</h2><p>Select 查询语句是不会枷锁的，但是Select … for update 除了有查询语句的作用，还是加锁，而且是悲观锁。</p>
+        <h2 id="1-概要"><a class="markdownIt-Anchor" href="#1-概要"></a> 1. 概要</h2>
+<p>Select 查询语句是不会枷锁的，但是Select … for update 除了有查询语句的作用，还是加锁，而且是悲观锁。</p>
 <ul>
 <li>使用索引： 行锁</li>
 <li>未使用索引：表锁</li>
 </ul>
-<h2 id="2-建表"><a href="#2-建表" class="headerlink" title="2. 建表"></a>2. 建表</h2><p><img src="/select-for-update/0.png"></p>
+<h2 id="2-建表"><a class="markdownIt-Anchor" href="#2-建表"></a> 2. 建表</h2>
+<p><img src="/select-for-update/0.png" alt></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--建表语句</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> t_user (</span><br><span class="line">    id <span class="type">INT</span> ( <span class="number">11</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">    name <span class="type">VARCHAR</span> ( <span class="number">255</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    age <span class="type">INT</span> ( <span class="number">11</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    addr <span class="type">VARCHAR</span> ( <span class="number">255</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY ( id ), <span class="comment">-- 主键索引</span></span><br><span class="line">    KEY idx_age ( age ) <span class="keyword">USING</span> BTREE    <span class="comment">-- 唯一索引</span></span><br><span class="line">) ENGINE <span class="operator">=</span> INNODB AUTO_INCREMENT <span class="operator">=</span> <span class="number">1</span> <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 插入数据</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_user (name, age, addr) <span class="keyword">VALUES</span> (<span class="string">&#x27;张三&#x27;</span>, <span class="number">12</span>, <span class="string">&#x27;上海&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_user (name, age, addr) <span class="keyword">VALUES</span> (<span class="string">&#x27;李四&#x27;</span>, <span class="number">31</span>, <span class="string">&#x27;广东&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_user (name, age, addr) <span class="keyword">VALUES</span> (<span class="string">&#x27;王五&#x27;</span>, <span class="number">32</span>, <span class="string">&#x27;南昌&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> t_user (name, age, addr) <span class="keyword">VALUES</span> (<span class="string">&#x27;赵六&#x27;</span>, <span class="number">24</span>, <span class="string">&#x27;广东&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>需要关闭自动提交，通过<code>set @@autocommit = 0;</code>设置为手动提交，0代表手动提交，1代表自动提交<br><img src="/select-for-update/1.png" alt="关闭自动提交"></p>
-<h2 id="3-验证"><a href="#3-验证" class="headerlink" title="3. 验证"></a>3. 验证</h2><h3 id="3-1-场景一"><a href="#3-1-场景一" class="headerlink" title="3.1 场景一"></a>3.1 场景一</h3><p>使用<strong>主键id为1</strong>条件去查询，然后开启另一个事务对<strong>主键id为1</strong>对数据进行更新；</p>
-<p>第一个事务使用select … for update查询，没有提交事务；<br><img src="/select-for-update/2.png"><br>第二个事务，去更新主键id为1的数据，被阻塞了，长时间拿不到锁导致报错<br><img src="/select-for-update/3.png"><br><u>结论：使用主键字段进行select … for update操作会锁住当前记录。</u></p>
-<h3 id="3-2-场景二"><a href="#3-2-场景二" class="headerlink" title="3.2 场景二"></a>3.2 场景二</h3><p>使用<strong>主键id=1</strong>为条件查询，开启另一个事务对<strong>主键id=2</strong>的数据进行更新</p>
-<p>第一个事务使用select … for update查询，没有提交事务；<br><img src="/select-for-update/2.png"><br>第二个事务对另一条id为2的数据更新，可以看到更新成功。<br><img src="/select-for-update/4.png"><br><u>结论：使用主键字段进行select … for update操作会锁住当前记录，其他行数据可以进行正常的更新操作。</u></p>
-<h3 id="3-3-场景三"><a href="#3-3-场景三" class="headerlink" title="3.3 场景三"></a>3.3 场景三</h3><p>使用 <strong>唯一索引age12</strong> 查询，开启另一个事务对 <strong>唯一索引age=12</strong> 的数据进行更新</p>
-<p>第一个事务使用select … for update查询，没有提交事务；<br><img src="/select-for-update/5.png"><br>第二个事务对age=12的数据更新，被阻塞了。<br><img src="/select-for-update/6.png"><br><u>结论：使用唯一索引字段进行select … for update操作会锁住当前记录，其他数据可以进行正常的更新操作。</u></p>
-<h3 id="3-4-场景四"><a href="#3-4-场景四" class="headerlink" title="3.4 场景四"></a>3.4 场景四</h3><p><strong>使用普通字段 addr 进行操作</strong></p>
-<p>第一个事务使用select … for update查询，没有提交事务；<br><img src="/select-for-update/7.png"><br>第二个事务<strong>进行任何数据更新操作</strong>，被阻塞了。<br><img src="/select-for-update/8.png"><br><u>结论：使用非索引字段进行select … for update操作都会锁表，没有commit之前任何更新操作无法获取锁。</u></p>
+<p>需要关闭自动提交，通过<code>set @@autocommit = 0;</code>设置为手动提交，0代表手动提交，1代表自动提交<br>
+<img src="/select-for-update/1.png" alt="关闭自动提交"></p>
+<h2 id="3-验证"><a class="markdownIt-Anchor" href="#3-验证"></a> 3. 验证</h2>
+<h3 id="31-场景一"><a class="markdownIt-Anchor" href="#31-场景一"></a> 3.1 场景一</h3>
+<p>使用<strong>主键id为1</strong>条件去查询，然后开启另一个事务对<strong>主键id为1</strong>对数据进行更新；</p>
+<p>第一个事务使用select … for update查询，没有提交事务；<br>
+<img src="/select-for-update/2.png" alt><br>
+第二个事务，去更新主键id为1的数据，被阻塞了，长时间拿不到锁导致报错<br>
+<img src="/select-for-update/3.png" alt><br>
+<u>结论：使用主键字段进行select … for update操作会锁住当前记录。</u></p>
+<h3 id="32-场景二"><a class="markdownIt-Anchor" href="#32-场景二"></a> 3.2 场景二</h3>
+<p>使用<strong>主键id=1</strong>为条件查询，开启另一个事务对<strong>主键id=2</strong>的数据进行更新</p>
+<p>第一个事务使用select … for update查询，没有提交事务；<br>
+<img src="/select-for-update/2.png" alt><br>
+第二个事务对另一条id为2的数据更新，可以看到更新成功。<br>
+<img src="/select-for-update/4.png" alt><br>
+<u>结论：使用主键字段进行select … for update操作会锁住当前记录，其他行数据可以进行正常的更新操作。</u></p>
+<h3 id="33-场景三"><a class="markdownIt-Anchor" href="#33-场景三"></a> 3.3 场景三</h3>
+<p>使用 <strong>唯一索引age12</strong> 查询，开启另一个事务对 <strong>唯一索引age=12</strong> 的数据进行更新</p>
+<p>第一个事务使用select … for update查询，没有提交事务；<br>
+<img src="/select-for-update/5.png" alt><br>
+第二个事务对age=12的数据更新，被阻塞了。<br>
+<img src="/select-for-update/6.png" alt><br>
+<u>结论：使用唯一索引字段进行select … for update操作会锁住当前记录，其他数据可以进行正常的更新操作。</u></p>
+<h3 id="34-场景四"><a class="markdownIt-Anchor" href="#34-场景四"></a> 3.4 场景四</h3>
+<p><strong>使用普通字段 addr 进行操作</strong></p>
+<p>第一个事务使用select … for update查询，没有提交事务；<br>
+<img src="/select-for-update/7.png" alt><br>
+第二个事务<strong>进行任何数据更新操作</strong>，被阻塞了。<br>
+<img src="/select-for-update/8.png" alt><br>
+<u>结论：使用非索引字段进行select … for update操作都会锁表，没有commit之前任何更新操作无法获取锁。</u></p>
 
       
     </div>

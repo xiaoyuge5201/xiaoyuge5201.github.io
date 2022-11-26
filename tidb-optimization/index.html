@@ -18,12 +18,12 @@
   
   
   <title>Tidb查询优化 | 小余哥</title>
-  <meta name="description" content="1. tidb查询优化 tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；  查看表的健康度12345   show stats_healthy where table_name&#x3D;&amp;#x27;xxxx&amp;#x27;;   &#96;&#96;&#96;                        2. 查看自动统计状态                &#96;&#96;&#96;sql    s">
+  <meta name="description" content="1. tidb查询优化 tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；   查看表的健康度 12345   show stats_healthy where table_name&#x3D;&amp;#x27;xxxx&amp;#x27;;   &#96;&#96;&#96;                        2. 查看自动统计状态                &#96;&#96;&#96;sql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tidb查询优化">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/tidb-optimization/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. tidb查询优化 tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；  查看表的健康度12345   show stats_healthy where table_name&#x3D;&amp;#x27;xxxx&amp;#x27;;   &#96;&#96;&#96;                        2. 查看自动统计状态                &#96;&#96;&#96;sql    s">
+<meta property="og:description" content="1. tidb查询优化 tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；   查看表的健康度 12345   show stats_healthy where table_name&#x3D;&amp;#x27;xxxx&amp;#x27;;   &#96;&#96;&#96;                        2. 查看自动统计状态                &#96;&#96;&#96;sql">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-15T06:23:37.000Z">
 <meta property="article:modified_time" content="2022-10-15T06:44:22.007Z">
@@ -431,20 +431,37 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-tidb查询优化"><a href="#1-tidb查询优化" class="headerlink" title="1. tidb查询优化"></a>1. tidb查询优化</h3><p> tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；</p>
+        <h3 id="1-tidb查询优化"><a class="markdownIt-Anchor" href="#1-tidb查询优化"></a> 1. tidb查询优化</h3>
+<p>tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；</p>
 <ol>
-<li>查看表的健康度<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">show</span> stats_healthy <span class="keyword">where</span> table_name<span class="operator">=</span><span class="string">&#x27;xxxx&#x27;</span>;</span><br><span class="line">   ```                        </span><br><span class="line"><span class="number">2.</span> 查看自动统计状态            </span><br><span class="line">    ```<span class="keyword">sql</span></span><br><span class="line">    <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%auto_analyze%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<li>
+<p>查看表的健康度</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">show</span> stats_healthy <span class="keyword">where</span> table_name<span class="operator">=</span><span class="string">&#x27;xxxx&#x27;</span>;</span><br><span class="line">   ```                        </span><br><span class="line"><span class="number">2.</span> 查看自动统计状态            </span><br><span class="line">    ```<span class="keyword">sql</span></span><br><span class="line">    <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%auto_analyze%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>tidb_auto_analyze_start_time和tidb_auto_analyze_end_time控制了自动收集统计信息的窗口；</li>
 <li>tidb_auto_analyze_ratio 控制了可以进行自动收集统计信息的阈值，默认为0.5，如果后续表的数据量增加，可以酌情调整这个参数到0.3或者0.2，意味着这张表的数据修改超过总表行数的30%或者20%就会自动收集，会更敏感一些</li>
 </ul>
- 官方文档：<a target="_blank" rel="noopener" href="https://docs.pingcap.com/zh/tidb/dev/statistics#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0">https://docs.pingcap.com/zh/tidb/dev/statistics#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0</a></li>
-<li>调整自动收集统计信息的阈值<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_auto_analyze_ratio <span class="operator">=</span> <span class="number">0.2</span>;</span><br></pre></td></tr></table></figure></li>
-<li>查看健康度低于阈值的表信息<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> stats_healthy <span class="keyword">where</span> healthy<span class="operator">&lt;</span><span class="number">80</span>;</span><br></pre></td></tr></table></figure></li>
-<li>低于80的重新收集统计信息 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">analyze <span class="keyword">table</span> xxx</span><br></pre></td></tr></table></figure></li>
-<li>加快索引添加速度 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;tidb_ddl_reorg_%&#x27;</span>;</span><br><span class="line">   </span><br><span class="line"># 记录原来的数值， 添加完索引后记得改回去</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_ddl_reorg_batch_size <span class="operator">=</span> <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_ddl_reorg_worker_cnt <span class="operator">=</span> <span class="number">16</span>;</span><br></pre></td></tr></table></figure>
-如果某张表因为业务需求导入了大量的数据，而这些数据在达到tidb_auto_analyze_start_time之前就需要使用SQL进行查询，此时建议对导入的表进行手动的收集；<br>我们也可以分析业务的行为，如果某张表有定时任务会自动插入大量数据，自动任务完成后需要产生报表的需求，也建议在自动任务结束后手动对相关的表进行手动收集；</li>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://docs.pingcap.com/zh/tidb/dev/statistics#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0">https://docs.pingcap.com/zh/tidb/dev/statistics#自动更新</a></p>
+</li>
+<li>
+<p>调整自动收集统计信息的阈值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_auto_analyze_ratio <span class="operator">=</span> <span class="number">0.2</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>查看健康度低于阈值的表信息</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> stats_healthy <span class="keyword">where</span> healthy<span class="operator">&lt;</span><span class="number">80</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>低于80的重新收集统计信息</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">analyze <span class="keyword">table</span> xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>加快索引添加速度</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;tidb_ddl_reorg_%&#x27;</span>;</span><br><span class="line">   </span><br><span class="line"># 记录原来的数值， 添加完索引后记得改回去</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_ddl_reorg_batch_size <span class="operator">=</span> <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_ddl_reorg_worker_cnt <span class="operator">=</span> <span class="number">16</span>;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<p>如果某张表因为业务需求导入了大量的数据，而这些数据在达到tidb_auto_analyze_start_time之前就需要使用SQL进行查询，此时建议对导入的表进行手动的收集；<br>
+我们也可以分析业务的行为，如果某张表有定时任务会自动插入大量数据，自动任务完成后需要产生报表的需求，也建议在自动任务结束后手动对相关的表进行手动收集；</p>
 
       
     </div>
