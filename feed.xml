@@ -15,19 +15,19 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sat, 26 Nov 2022 08:00:41 GMT</pubDate>
+    <pubDate>Sat, 26 Nov 2022 08:23:45 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>接口设计-专题</title>
+      <title>专题—接口设计</title>
       <link>https://xiaoyuge5201.github.io/special-interface/</link>
       <guid>https://xiaoyuge5201.github.io/special-interface/</guid>
       <pubDate>Wed, 23 Nov 2022 12:58:03 GMT</pubDate>
       
         
         
-      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/themes/pure/source/css/content.css&quot;&gt;
-&lt;h2 id=&quot;1-span-classtit-h2接口的幂等性span&quot;&gt;&lt;a class=&quot;markdownI</description>
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+&lt;h2 id=&quot;span-classtit-h21-接口的幂等性span&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#sp</description>
         
       
       

@@ -8,6 +8,12 @@
     border-top-left-radius:4px;
     margin-right: 3px;
 }
+.marked-body h2 {
+    padding-bottom: 0;
+    font-size: 1.5em;
+    text-indent: -3px;
+    border-bottom: 2px solid rgb(239, 112, 96);
+}
 .tit-h3{
     display:inline-block;
     background:rgb(239, 112, 96);
