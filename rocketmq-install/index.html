@@ -18,12 +18,12 @@
   
   
   <title>CentOS安装RocketMQ以及常用命令 | 小余哥</title>
-  <meta name="description" content="1.前言  nameserver默认端口：9876 rocketmq默认端口：10911 服务器IP：172.21.16.253 安装路径：&#x2F;usr&#x2F;local&#x2F;tools   2. 下载 RocketMQ官网链接：http:&#x2F;&#x2F;rocketmq.apache.org&#x2F; ,然后选择Lastest Release进入下载界面    右键复制链接地址，wget下载，或者下载后上传到Centos服务器">
+  <meta name="description" content="1.前言 nameserver默认端口：9876 rocketmq默认端口：10911 服务器IP：172.21.16.253 安装路径：&#x2F;usr&#x2F;local&#x2F;tools  2. 下载RocketMQ官网链接：http:&#x2F;&#x2F;rocketmq.apache.org&#x2F; ,然后选择Lastest Release进入下载界面右键复制链接地址，wget下载，或者下载后上传到Centos服务器上。 12cd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS安装RocketMQ以及常用命令">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/rocketmq-install/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1.前言  nameserver默认端口：9876 rocketmq默认端口：10911 服务器IP：172.21.16.253 安装路径：&#x2F;usr&#x2F;local&#x2F;tools   2. 下载 RocketMQ官网链接：http:&#x2F;&#x2F;rocketmq.apache.org&#x2F; ,然后选择Lastest Release进入下载界面    右键复制链接地址，wget下载，或者下载后上传到Centos服务器">
+<meta property="og:description" content="1.前言 nameserver默认端口：9876 rocketmq默认端口：10911 服务器IP：172.21.16.253 安装路径：&#x2F;usr&#x2F;local&#x2F;tools  2. 下载RocketMQ官网链接：http:&#x2F;&#x2F;rocketmq.apache.org&#x2F; ,然后选择Lastest Release进入下载界面右键复制链接地址，wget下载，或者下载后上传到Centos服务器上。 12cd">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/rocketmq-install/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/rocketmq-install/2.png">
@@ -439,1134 +439,946 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1前言"><a class="markdownIt-Anchor" href="#1前言"></a> 1.前言</h3>
-<ol>
+        <h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h3><ol>
 <li>nameserver默认端口：9876</li>
 <li>rocketmq默认端口：10911</li>
 <li>服务器IP：172.21.16.253</li>
 <li>安装路径：/usr/local/tools</li>
 </ol>
-<h3 id="2-下载"><a class="markdownIt-Anchor" href="#2-下载"></a> 2. 下载</h3>
-<p>RocketMQ官网链接：<a target="_blank" rel="noopener" href="http://rocketmq.apache.org/">http://rocketmq.apache.org/</a> ,然后选择Lastest Release进入下载界面<br>
-<img src="/rocketmq-install/1.png" alt><br>
-<img src="/rocketmq-install/2.png" alt><br>
-<img src="/rocketmq-install/0.png" alt><br>
-右键复制链接地址，<code>wget</code>下载，或者下载后上传到Centos服务器上。</p>
+<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><p>RocketMQ官网链接：<a target="_blank" rel="noopener" href="http://rocketmq.apache.org/">http://rocketmq.apache.org/</a> ,然后选择Lastest Release进入下载界面<br><img src="/rocketmq-install/1.png"><br><img src="/rocketmq-install/2.png"><br><img src="/rocketmq-install/0.png"><br>右键复制链接地址，<code>wget</code>下载，或者下载后上传到Centos服务器上。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools</span><br><span class="line">wget https://dlcdn.apache.org/rocketmq/4.9.4/rocketmq-all-4.9.4-bin-release.zip</span><br></pre></td></tr></table></figure>
-<h3 id="3-解压"><a class="markdownIt-Anchor" href="#3-解压"></a> 3. 解压</h3>
-<p>解压二进制包，修改文件夹名称</p>
+
+<h3 id="3-解压"><a href="#3-解压" class="headerlink" title="3. 解压"></a>3. 解压</h3><p>解压二进制包，修改文件夹名称</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzip rocketmq-all-4.9.4-bin-release.zip </span><br><span class="line">mv rocketmq-all-4.9.4-bin-release rocketmq</span><br></pre></td></tr></table></figure>
 <p>如果提示<code>-bash: unzip: command not found</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装zip 和 unzip</span></span><br><span class="line">yum install zip</span><br><span class="line">yum install unzip</span><br></pre></td></tr></table></figure>
+
 <p>创建数据存储目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/local/tools/rocketmq/store/broker-a /usr/local/tools/rocketmq/store/broker-a/consumequeue /usr/local/tools/rocketmq/store/broker-a/commitlog /usr/local/tools/rocketmq/store/broker-a/index /usr/local/tools/rocketmq/broker-a/logs </span><br></pre></td></tr></table></figure>
-<h3 id="4-修改配置文件"><a class="markdownIt-Anchor" href="#4-修改配置文件"></a> 4. 修改配置文件</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools/rocketmq/conf</span><br><span class="line">vim broker.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4. 修改配置文件"></a>4. 修改配置文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools/rocketmq/conf</span><br><span class="line">vim broker.conf</span><br></pre></td></tr></table></figure>
 <p>增加内容</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Broker 对外服务的监听端口</span></span><br><span class="line"><span class="attr">listenPort</span>=<span class="string">10911</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建Topic，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateTopicEnable</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</span></span><br><span class="line"><span class="attr">autoCreateSubscriptionGroup</span>=<span class="string">true</span></span><br><span class="line"><span class="comment">#nameServer地址，分号分割</span></span><br><span class="line"><span class="attr">namesrvAddr</span>=<span class="string">localhost:9876</span></span><br><span class="line"><span class="comment">#存储路径</span></span><br><span class="line"><span class="attr">storePathRootDir</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a</span></span><br><span class="line"><span class="comment">#commitLog 存储路径</span></span><br><span class="line"><span class="attr">storePathCommitLog</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a/commitlog</span></span><br><span class="line"><span class="comment">#消费队列存储路径存储路径</span></span><br><span class="line"><span class="attr">storePathConsumeQueue</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a/consumequeue</span></span><br><span class="line"><span class="comment">#消息索引存储路径</span></span><br><span class="line"><span class="attr">storePathIndex</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a/index</span></span><br><span class="line"><span class="comment">#checkpoint 文件存储路径</span></span><br><span class="line"><span class="attr">storeCheckpoint</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a/checkpoint</span></span><br><span class="line"><span class="comment">#abort 文件存储路径</span></span><br><span class="line"><span class="attr">abortFile</span>=<span class="string">/usr/local/tools/rocketmq/store/broker-a/abort</span></span><br></pre></td></tr></table></figure>
-<p><img src="/rocketmq-install/3.png" alt></p>
-<h3 id="5-启动"><a class="markdownIt-Anchor" href="#5-启动"></a> 5. 启动</h3>
-<p>依次启动nameserver和broker ,这两个命令可以做成alias</p>
+<p><img src="/rocketmq-install/3.png"></p>
+<h3 id="5-启动"><a href="#5-启动" class="headerlink" title="5. 启动"></a>5. 启动</h3><p>依次启动nameserver和broker ,这两个命令可以做成alias</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools/rocketmq/bin</span><br><span class="line"></span><br><span class="line">nohup sh mqnamesrv &amp;</span><br><span class="line">nohup sh mqbroker -c /usr/local/tools/rocketmq/conf/broker.conf &amp;</span><br></pre></td></tr></table></figure>
-<p>在虚拟机中有可能因为内存不够而启动失败<br>
-<img src="/rocketmq-install/4.png" alt></p>
+<p>在虚拟机中有可能因为内存不够而启动失败<br><img src="/rocketmq-install/4.png"></p>
 <ul>
-<li>
-<p>1）设置<code>bin</code>目录下的 <a target="_blank" rel="noopener" href="http://runserver.sh">runserver.sh</a></p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPT=&quot;$&#123;JAVA_OPT&#125; -server -Xms256m -Xmx256m -Xmn512m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>2）设置<code>bin</code>目录下的 <a target="_blank" rel="noopener" href="http://runbroker.sh">runbroker.sh</a></p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPT=&quot;$&#123;JAVA_OPT&#125; -server -Xms256m -Xmx256m -Xmn128m&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>3）如果改了上面两个还不行，<a target="_blank" rel="noopener" href="http://xn--bintools-w39lv9mo3yznw9pr780dmkbj53ud8xa.sh">那在修改bin目录下面的tools.sh</a></p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPT=&quot;$&#123;JAVA_OPT&#125; -server -Xms256m -Xmx256m -Xmn256m -XX:PermSize=128m -XX:MaxPermSize=128m&quot;</span><br></pre></td></tr></table></figure>
-</li>
+<li>1）设置<code>bin</code>目录下的 runserver.sh  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPT=&quot;$&#123;JAVA_OPT&#125; -server -Xms256m -Xmx256m -Xmn512m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m&quot;</span><br></pre></td></tr></table></figure></li>
+<li>2）设置<code>bin</code>目录下的 runbroker.sh  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPT=&quot;$&#123;JAVA_OPT&#125; -server -Xms256m -Xmx256m -Xmn128m&quot;</span><br></pre></td></tr></table></figure></li>
+<li>3）如果改了上面两个还不行，那在修改bin目录下面的tools.sh  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA_OPT=&quot;$&#123;JAVA_OPT&#125; -server -Xms256m -Xmx256m -Xmn256m -XX:PermSize=128m -XX:MaxPermSize=128m&quot;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="6-查看日志"><a class="markdownIt-Anchor" href="#6-查看日志"></a> 6. 查看日志</h3>
-<p>启动成功后查看mq动态日志</p>
+<h3 id="6-查看日志"><a href="#6-查看日志" class="headerlink" title="6. 查看日志"></a>6. 查看日志</h3><p>启动成功后查看mq动态日志</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tail -f ~/logs/rocketmqlogs/namesrv.log</span><br><span class="line">tail -f ~/logs/rocketmqlogs/broker.log</span><br></pre></td></tr></table></figure>
-<p><img src="/rocketmq-install/5.png" alt></p>
-<h3 id="7关闭服务"><a class="markdownIt-Anchor" href="#7关闭服务"></a> 7.关闭服务</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools/rocketmq/bin</span><br><span class="line"></span><br><span class="line">sh mqshutdown namesrv</span><br><span class="line">sh mqshutdown broker</span><br></pre></td></tr></table></figure>
-<h3 id="8-常用命令"><a class="markdownIt-Anchor" href="#8-常用命令"></a> 8. 常用命令</h3>
-<p>RocketMQ 提供有控制台及一系列控制台目录，用户管理员对主题、集群、broker等信息的管理。</p>
-<p>进入rocketmq下的bin目录，可以看到该目录下有个mqadmin脚本<br>
-<img src="/rocketmq-install/6.png" alt><br>
-查看帮助</p>
+<p><img src="/rocketmq-install/5.png"></p>
+<h3 id="7-关闭服务"><a href="#7-关闭服务" class="headerlink" title="7.关闭服务"></a>7.关闭服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools/rocketmq/bin</span><br><span class="line"></span><br><span class="line">sh mqshutdown namesrv</span><br><span class="line">sh mqshutdown broker</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-常用命令"><a href="#8-常用命令" class="headerlink" title="8. 常用命令"></a>8. 常用命令</h3><p>RocketMQ 提供有控制台及一系列控制台目录，用户管理员对主题、集群、broker等信息的管理。</p>
+<p>进入rocketmq下的bin目录，可以看到该目录下有个mqadmin脚本<br><img src="/rocketmq-install/6.png"><br>查看帮助</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh mqadmin help 命令名称</span><br></pre></td></tr></table></figure>
 <p>例如，查看updateTopic的使用</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh mqadmin help updateTopic</span><br></pre></td></tr></table></figure>
+
 <p>下面列举一些常用的命令。</p>
-<h4 id="81-创建修改topic"><a class="markdownIt-Anchor" href="#81-创建修改topic"></a> 8.1 创建（修改）Topic</h4>
-<ul>
-<li>
-<p>指令： updateTopic</p>
+<h4 id="8-1-创建（修改）Topic"><a href="#8-1-创建（修改）Topic" class="headerlink" title="8.1 创建（修改）Topic"></a>8.1 创建（修改）Topic</h4><ul>
+<li><p>指令： updateTopic</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.topic.UpdateTopicSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.topic.UpdateTopicSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-b</td>
-<td style="text-align:left">如果 -c为空，则必填</td>
-<td style="text-align:left">broker地址，表示topic建在该broker</td>
+<tbody><tr>
+<td align="left">-b</td>
+<td align="left">如果 -c为空，则必填</td>
+<td align="left">broker地址，表示topic建在该broker</td>
 </tr>
 <tr>
-<td style="text-align:left">-c</td>
-<td style="text-align:left">如果 -b为空，则必填</td>
-<td style="text-align:left">cluster名称，表示topic建在该集群（集群可通过clusterList查询）</td>
+<td align="left">-c</td>
+<td align="left">如果 -b为空，则必填</td>
+<td align="left">cluster名称，表示topic建在该集群（集群可通过clusterList查询）</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
 <tr>
-<td style="text-align:left">-p</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">指定新topic的权限限制( W</td>
+<td align="left">-p</td>
+<td align="left">否</td>
+<td align="left">指定新topic的权限限制( W</td>
 </tr>
 <tr>
-<td style="text-align:left">-r</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">可读队列数（默认为8）</td>
+<td align="left">-r</td>
+<td align="left">否</td>
+<td align="left">可读队列数（默认为8）</td>
 </tr>
 <tr>
-<td style="text-align:left">-w</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">可写队列数（默认为8）</td>
+<td align="left">-w</td>
+<td align="left">否</td>
+<td align="left">可写队列数（默认为8）</td>
 </tr>
 <tr>
-<td style="text-align:left">-t</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">topic名称（名称只能使用字符 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>+$ ）</td>
+<td align="left">-t</td>
+<td align="left">是</td>
+<td align="left">topic名称（名称只能使用字符 ^[a-zA-Z0-9_-]+$ ）</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
+<li><p>举例</p>
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在集群DefaultCluster上创建主题ZTEExample，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin updateTopic –n 172.21.16.253:9876 –c DefaultCluster –t ZTEExample</span><br></pre></td></tr></table></figure>
+<h4 id="8-2-删除Topic"><a href="#8-2-删除Topic" class="headerlink" title="8.2 删除Topic"></a>8.2 删除Topic</h4></li>
+<li><p>指令： deleteTopic</p>
 </li>
-</ul>
-<h4 id="82-删除topic"><a class="markdownIt-Anchor" href="#82-删除topic"></a> 8.2 删除Topic</h4>
-<ul>
-<li>
-<p>指令： deleteTopic</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.topic.DeleteTopicSubCommand</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.topic.DeleteTopicSubCommand</p>
-</li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-c</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">cluster名称，表示删除某集群下的某个topic （集群可通过clusterList查询）</td>
+<tbody><tr>
+<td align="left">-c</td>
+<td align="left">是</td>
+<td align="left">cluster名称，表示删除某集群下的某个topic （集群可通过clusterList查询）</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
 <tr>
-<td style="text-align:left">-t</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">topic名称（名称只能使用字符 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>+$ ）</td>
+<td align="left">-t</td>
+<td align="left">是</td>
+<td align="left">topic名称（名称只能使用字符 ^[a-zA-Z0-9_-]+$ ）</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在集群DefaultCluster上删除主题ZTEExample，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin deleteTopic –n 172.21.16.253:9876 –c DefaultCluster –t ZTEExample</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在集群DefaultCluster上删除主题ZTEExample，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin deleteTopic –n 172.21.16.253:9876 –c DefaultCluster –t ZTEExample</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="83-创建修改订阅组"><a class="markdownIt-Anchor" href="#83-创建修改订阅组"></a> 8.3 创建（修改）订阅组</h4>
-<ul>
-<li>
-<p>指令： updateSubGroup</p>
+<h4 id="8-3-创建（修改）订阅组"><a href="#8-3-创建（修改）订阅组" class="headerlink" title="8.3 创建（修改）订阅组"></a>8.3 创建（修改）订阅组</h4><ul>
+<li><p>指令： updateSubGroup</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.consumer.UpdateSubGroupSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.consumer.UpdateSubGroupSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-b</td>
-<td style="text-align:left">如果 -c为空，则必填</td>
-<td style="text-align:left">broker地址，表示topic建在该broker</td>
+<tbody><tr>
+<td align="left">-b</td>
+<td align="left">如果 -c为空，则必填</td>
+<td align="left">broker地址，表示topic建在该broker</td>
 </tr>
 <tr>
-<td style="text-align:left">-c</td>
-<td style="text-align:left">如果 -b为空，则必填</td>
-<td style="text-align:left">cluster名称，表示topic建在该集群（集群可通过clusterList查询）</td>
+<td align="left">-c</td>
+<td align="left">如果 -b为空，则必填</td>
+<td align="left">cluster名称，表示topic建在该集群（集群可通过clusterList查询）</td>
 </tr>
 <tr>
-<td style="text-align:left">-d</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">是否容许广播方式消费</td>
+<td align="left">-d</td>
+<td align="left">否</td>
+<td align="left">是否容许广播方式消费</td>
 </tr>
 <tr>
-<td style="text-align:left">-g</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">订阅组名</td>
+<td align="left">-g</td>
+<td align="left">是</td>
+<td align="left">订阅组名</td>
 </tr>
 <tr>
-<td style="text-align:left">-i</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">从哪个broker开始消费</td>
+<td align="left">-i</td>
+<td align="left">否</td>
+<td align="left">从哪个broker开始消费</td>
 </tr>
 <tr>
-<td style="text-align:left">-m</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">是否容许从队列的最小位置开始消费，默认会设置为false</td>
+<td align="left">-m</td>
+<td align="left">否</td>
+<td align="left">是否容许从队列的最小位置开始消费，默认会设置为false</td>
 </tr>
 <tr>
-<td style="text-align:left">-q</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">消费失败的消息放到一个重试队列，每个订阅组配置几个重试队列</td>
+<td align="left">-q</td>
+<td align="left">否</td>
+<td align="left">消费失败的消息放到一个重试队列，每个订阅组配置几个重试队列</td>
 </tr>
 <tr>
-<td style="text-align:left">-r</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">重试消费最大次数，超过则投递到死信队列，不再投递，并报警</td>
+<td align="left">-r</td>
+<td align="left">否</td>
+<td align="left">重试消费最大次数，超过则投递到死信队列，不再投递，并报警</td>
 </tr>
 <tr>
-<td style="text-align:left">-s</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">消费功能是否开启</td>
+<td align="left">-s</td>
+<td align="left">否</td>
+<td align="left">消费功能是否开启</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
 <tr>
-<td style="text-align:left">-w</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">发现消息堆积后，将Consumer的消费请求重定向到另外一台Slave机器</td>
+<td align="left">-w</td>
+<td align="left">否</td>
+<td align="left">发现消息堆积后，将Consumer的消费请求重定向到另外一台Slave机器</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
 </ul>
-<h4 id="84-删除订阅组配置"><a class="markdownIt-Anchor" href="#84-删除订阅组配置"></a> 8.4 删除订阅组配置</h4>
-<ul>
-<li>
-<p>指令： deleteSubGroup</p>
+<h4 id="8-4-删除订阅组配置"><a href="#8-4-删除订阅组配置" class="headerlink" title="8.4 删除订阅组配置"></a>8.4 删除订阅组配置</h4><ul>
+<li><p>指令： deleteSubGroup</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.consumer.DeleteSubscriptionGroupCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.consumer.DeleteSubscriptionGroupCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-b</td>
-<td style="text-align:left">如果 -c为空，则必填</td>
-<td style="text-align:left">broker地址，表示订阅组建在该broker</td>
+<tbody><tr>
+<td align="left">-b</td>
+<td align="left">如果 -c为空，则必填</td>
+<td align="left">broker地址，表示订阅组建在该broker</td>
 </tr>
 <tr>
-<td style="text-align:left">-c</td>
-<td style="text-align:left">如果 -b为空，则必填</td>
-<td style="text-align:left">cluster名称，表示topic建在该集群（集群可通过clusterList查询）</td>
+<td align="left">-c</td>
+<td align="left">如果 -b为空，则必填</td>
+<td align="left">cluster名称，表示topic建在该集群（集群可通过clusterList查询）</td>
 </tr>
 <tr>
-<td style="text-align:left">-g</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">订阅组名</td>
+<td align="left">-g</td>
+<td align="left">是</td>
+<td align="left">订阅组名</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
 </ul>
-<h4 id="85-更新broker配置文件"><a class="markdownIt-Anchor" href="#85-更新broker配置文件"></a> 8.5 更新broker配置文件</h4>
-<ul>
-<li>
-<p>指令： updateBrokerConfig</p>
+<h4 id="8-5-更新broker配置文件"><a href="#8-5-更新broker配置文件" class="headerlink" title="8.5 更新broker配置文件"></a>8.5 更新broker配置文件</h4><ul>
+<li><p>指令： updateBrokerConfig</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.broker.UpdateBrokerConfigSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.broker.UpdateBrokerConfigSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-b</td>
-<td style="text-align:left">如果 -c为空，则必填</td>
-<td style="text-align:left">broker地址，表示订阅组建在该broker</td>
+<tbody><tr>
+<td align="left">-b</td>
+<td align="left">如果 -c为空，则必填</td>
+<td align="left">broker地址，表示订阅组建在该broker</td>
 </tr>
 <tr>
-<td style="text-align:left">-c</td>
-<td style="text-align:left">如果 -b为空，则必填</td>
-<td style="text-align:left">cluster名称，表示topic建在该集群（集群可通过clusterList查询）</td>
+<td align="left">-c</td>
+<td align="left">如果 -b为空，则必填</td>
+<td align="left">cluster名称，表示topic建在该集群（集群可通过clusterList查询）</td>
 </tr>
 <tr>
-<td style="text-align:left">-k</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">是否容许广播方式消费</td>
+<td align="left">-k</td>
+<td align="left">否</td>
+<td align="left">是否容许广播方式消费</td>
 </tr>
 <tr>
-<td style="text-align:left">-v</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">value值</td>
+<td align="left">-v</td>
+<td align="left">是</td>
+<td align="left">value值</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
 </ul>
-<h4 id="86-查看topic-列表信息"><a class="markdownIt-Anchor" href="#86-查看topic-列表信息"></a> 8.6 查看topic 列表信息</h4>
-<ul>
-<li>
-<p>指令： topicList</p>
+<h4 id="8-6-查看topic-列表信息"><a href="#8-6-查看topic-列表信息" class="headerlink" title="8.6 查看topic 列表信息"></a>8.6 查看topic 列表信息</h4><ul>
+<li><p>指令： topicList</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.broker.UpdateBrokerConfigSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.broker.UpdateBrokerConfigSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<tbody><tr>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> nameserve地址为172.21.16.253:9876;</span></span><br><span class="line">sh mqadmin topicList -n 172.21.16.253:9876</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> nameserve地址为172.21.16.253:9876;</span></span><br><span class="line">sh mqadmin topicList -n 172.21.16.253:9876</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="87-查看路由信息"><a class="markdownIt-Anchor" href="#87-查看路由信息"></a> 8.7 查看路由信息</h4>
-<ul>
-<li>
-<p>指令： topicRoute</p>
+<h4 id="8-7-查看路由信息"><a href="#8-7-查看路由信息" class="headerlink" title="8.7 查看路由信息"></a>8.7 查看路由信息</h4><ul>
+<li><p>指令： topicRoute</p>
 </li>
-<li>
-<p>类路径： com.alibaba.rocketmq.tools.command.topic.TopicRouteSubCommand</p>
+<li><p>类路径： com.alibaba.rocketmq.tools.command.topic.TopicRouteSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-t</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">topic名称</td>
+<tbody><tr>
+<td align="left">-t</td>
+<td align="left">是</td>
+<td align="left">topic名称</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  查看主题%DLQ%consumer1的路由，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin topicRoute -n 172.21.16.253:9876 -t %DLQ%consumer1</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  查看主题%DLQ%consumer1的路由，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin topicRoute -n 172.21.16.253:9876 -t %DLQ%consumer1</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="88-查看topic统计信息"><a class="markdownIt-Anchor" href="#88-查看topic统计信息"></a> 8.8 查看topic统计信息</h4>
-<ul>
-<li>
-<p>指令： topicStatus</p>
+<h4 id="8-8-查看topic统计信息"><a href="#8-8-查看topic统计信息" class="headerlink" title="8.8 查看topic统计信息"></a>8.8 查看topic统计信息</h4><ul>
+<li><p>指令： topicStatus</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.topic.TopicStatsSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.topic.TopicStatsSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-t</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">topic名称</td>
+<tbody><tr>
+<td align="left">-t</td>
+<td align="left">是</td>
+<td align="left">topic名称</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看主题%DLQ%consumer1的统计信息，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin topicStatus -n 172.21.16.253:9876 -t %DLQ%consumer1</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看主题%DLQ%consumer1的统计信息，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin topicStatus -n 172.21.16.253:9876 -t %DLQ%consumer1</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="89-查看broker统计信息"><a class="markdownIt-Anchor" href="#89-查看broker统计信息"></a> 8.9 查看broker统计信息</h4>
-<ul>
-<li>
-<p>指令： brokerStatus</p>
+<h4 id="8-9-查看broker统计信息"><a href="#8-9-查看broker统计信息" class="headerlink" title="8.9 查看broker统计信息"></a>8.9 查看broker统计信息</h4><ul>
+<li><p>指令： brokerStatus</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.broker.BrokerStatsSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.broker.BrokerStatsSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-b</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">broker地址</td>
+<tbody><tr>
+<td align="left">-b</td>
+<td align="left">是</td>
+<td align="left">broker地址</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看broker(crmdb)的统计信息，broker地址为172.21.16.253:10911,nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin brokerStatus  –n 172.21.16.253:9876 -b 172.21.16.253:10911</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看broker(crmdb)的统计信息，broker地址为172.21.16.253:10911,nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin brokerStatus  –n 172.21.16.253:9876 -b 172.21.16.253:10911</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="810-根据消息id查询消息"><a class="markdownIt-Anchor" href="#810-根据消息id查询消息"></a> 8.10 根据消息ID查询消息</h4>
-<ul>
-<li>
-<p>指令： queryMsgById</p>
+<h4 id="8-10-根据消息ID查询消息"><a href="#8-10-根据消息ID查询消息" class="headerlink" title="8.10 根据消息ID查询消息"></a>8.10 根据消息ID查询消息</h4><ul>
+<li><p>指令： queryMsgById</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.message.QueryMsgByIdSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.message.QueryMsgByIdSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-i</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">msgId</td>
+<tbody><tr>
+<td align="left">-i</td>
+<td align="left">是</td>
+<td align="left">msgId</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询msgId= C0A89F8000002A9F000000000000449A的消息，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin queryMsgById -n 172.21.16.253:9876 -i C0A89F8000002A9F000000000000449A</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询msgId= C0A89F8000002A9F000000000000449A的消息，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin queryMsgById -n 172.21.16.253:9876 -i C0A89F8000002A9F000000000000449A</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="811-根据消息key查询消息"><a class="markdownIt-Anchor" href="#811-根据消息key查询消息"></a> 8.11 根据消息key查询消息</h4>
-<ul>
-<li>
-<p>指令： queryMsgByKey</p>
+<h4 id="8-11-根据消息key查询消息"><a href="#8-11-根据消息key查询消息" class="headerlink" title="8.11 根据消息key查询消息"></a>8.11 根据消息key查询消息</h4><ul>
+<li><p>指令： queryMsgByKey</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.message.QueryMsgByKeySubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.message.QueryMsgByKeySubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-f</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">被查询消息的截止时间</td>
+<tbody><tr>
+<td align="left">-f</td>
+<td align="left">否</td>
+<td align="left">被查询消息的截止时间</td>
 </tr>
 <tr>
-<td style="text-align:left">-k</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">msgKey</td>
+<td align="left">-k</td>
+<td align="left">是</td>
+<td align="left">msgKey</td>
 </tr>
 <tr>
-<td style="text-align:left">-t</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">Topic名称</td>
+<td align="left">-t</td>
+<td align="left">是</td>
+<td align="left">Topic名称</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查询Topic= TopicTest下key=i0的消息，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin queryMsgByKey -n 172.21.16.253:9876 -t TopicTest -k i0</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查询Topic= TopicTest下key=i0的消息，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin queryMsgByKey -n 172.21.16.253:9876 -t TopicTest -k i0</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="812-根据offset查询消息"><a class="markdownIt-Anchor" href="#812-根据offset查询消息"></a> 8.12 根据Offset查询消息</h4>
-<ul>
-<li>
-<p>指令： queryMsgByOffset</p>
+<h4 id="8-12-根据Offset查询消息"><a href="#8-12-根据Offset查询消息" class="headerlink" title="8.12 根据Offset查询消息"></a>8.12 根据Offset查询消息</h4><ul>
+<li><p>指令： queryMsgByOffset</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.message.QueryMsgByOffsetSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.message.QueryMsgByOffsetSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-b</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">Broker名称，表示订阅组建在该broker（这里需要注意填写的是broker的名称，不是broker的地址，broker名称可以在clusterList查到）</td>
+<tbody><tr>
+<td align="left">-b</td>
+<td align="left">是</td>
+<td align="left">Broker名称，表示订阅组建在该broker（这里需要注意填写的是broker的名称，不是broker的地址，broker名称可以在clusterList查到）</td>
 </tr>
 <tr>
-<td style="text-align:left">-i</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">query队列id</td>
+<td align="left">-i</td>
+<td align="left">是</td>
+<td align="left">query队列id</td>
 </tr>
 <tr>
-<td style="text-align:left">-o</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">offset值</td>
+<td align="left">-o</td>
+<td align="left">是</td>
+<td align="left">offset值</td>
 </tr>
 <tr>
-<td style="text-align:left">-t</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">Topic名称</td>
+<td align="left">-t</td>
+<td align="left">是</td>
+<td align="left">Topic名称</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询brokerName=broker-a，Topic= TopicTest的第1个队列下offset=0的消息，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin queryMsgByOffset -n 172.21.16.253:9876 -b broker-a -i 0 -t TopicTest -o 0</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询brokerName=broker-a，Topic= TopicTest的第1个队列下offset=0的消息，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin queryMsgByOffset -n 172.21.16.253:9876 -b broker-a -i 0 -t TopicTest -o 0</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="813-查询producer的网络连接"><a class="markdownIt-Anchor" href="#813-查询producer的网络连接"></a> 8.13 查询Producer的网络连接</h4>
-<p>该命令只打印当前与cluster连接的producer网络连接信息</p>
+<h4 id="8-13-查询Producer的网络连接"><a href="#8-13-查询Producer的网络连接" class="headerlink" title="8.13 查询Producer的网络连接"></a>8.13 查询Producer的网络连接</h4><p>该命令只打印当前与cluster连接的producer网络连接信息</p>
 <ul>
-<li>
-<p>指令： producerConnection</p>
+<li><p>指令： producerConnection</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.connection.ProducerConnectionSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.connection.ProducerConnectionSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-g</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">生产者所属组名</td>
+<tbody><tr>
+<td align="left">-g</td>
+<td align="left">是</td>
+<td align="left">生产者所属组名</td>
 </tr>
 <tr>
-<td style="text-align:left">-t</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">topic名称</td>
+<td align="left">-t</td>
+<td align="left">是</td>
+<td align="left">topic名称</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查询当前属于group（生产者组）=simple-producer-test的生产者到topic=ZTEExample的网络连接，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin producerConnection -n 172.21.16.253:9876 -g simple-producer-test -t ZTEExample</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查询当前属于group（生产者组）=simple-producer-test的生产者到topic=ZTEExample的网络连接，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin producerConnection -n 172.21.16.253:9876 -g simple-producer-test -t ZTEExample</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="814-查询consumer的网络连接"><a class="markdownIt-Anchor" href="#814-查询consumer的网络连接"></a> 8.14 查询Consumer的网络连接</h4>
-<p>该命令只打印当前与cluster连接的Consumer网络连接信息</p>
+<h4 id="8-14-查询Consumer的网络连接"><a href="#8-14-查询Consumer的网络连接" class="headerlink" title="8.14 查询Consumer的网络连接"></a>8.14 查询Consumer的网络连接</h4><p>该命令只打印当前与cluster连接的Consumer网络连接信息</p>
 <ul>
-<li>
-<p>指令： consumerConnection</p>
+<li><p>指令： consumerConnection</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.connection.ConsumerConnectionSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.connection.ConsumerConnectionSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-g</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">生产者所属组名</td>
+<tbody><tr>
+<td align="left">-g</td>
+<td align="left">是</td>
+<td align="left">生产者所属组名</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  查询当前属于group（消费者组）=simple-consumer-test的消费者的网络连接，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin consumerConnection -n 172.21.16.253:9876 -g simple-consumer-test</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  查询当前属于group（消费者组）=simple-consumer-test的消费者的网络连接，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin consumerConnection -n 172.21.16.253:9876 -g simple-consumer-test</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="815-查看订阅组消费状态"><a class="markdownIt-Anchor" href="#815-查看订阅组消费状态"></a> 8.15  查看订阅组消费状态</h4>
-<ul>
-<li>
-<p>指令： consumerProgress</p>
+<h4 id="8-15-查看订阅组消费状态"><a href="#8-15-查看订阅组消费状态" class="headerlink" title="8.15  查看订阅组消费状态"></a>8.15  查看订阅组消费状态</h4><ul>
+<li><p>指令： consumerProgress</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.consumer.ConsumerProgressSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.consumer.ConsumerProgressSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-g</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">消费者所属组名</td>
+<tbody><tr>
+<td align="left">-g</td>
+<td align="left">是</td>
+<td align="left">消费者所属组名</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">   查询当前属于group（消费者组）=simple-consumer-test的订阅状态，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin consumerProgress -n 172.21.16.253:9876 -g simple-consumer-test</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">   查询当前属于group（消费者组）=simple-consumer-test的订阅状态，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin consumerProgress -n 172.21.16.253:9876 -g simple-consumer-test</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="816-查看集群消息"><a class="markdownIt-Anchor" href="#816-查看集群消息"></a> 8.16  查看集群消息</h4>
-<ul>
-<li>
-<p>指令： clusterList</p>
+<h4 id="8-16-查看集群消息"><a href="#8-16-查看集群消息" class="headerlink" title="8.16  查看集群消息"></a>8.16  查看集群消息</h4><ul>
+<li><p>指令： clusterList</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.cluster.ClusterListSubCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.cluster.ClusterListSubCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-m</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印更多信息 (增加打印出如下信息 #InTotalYest,   #OutTotalYest, #InTotalToday ,#OutTotalToday)</td>
+<tbody><tr>
+<td align="left">-m</td>
+<td align="left">否</td>
+<td align="left">打印更多信息 (增加打印出如下信息 #InTotalYest,   #OutTotalYest, #InTotalToday ,#OutTotalToday)</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  查询当前集群状态，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin clusterList -n 172.21.16.253:9876   </span><br><span class="line">sh mqadmin clusterList -n 172.21.16.253:9876 –m</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>举例</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">  查询当前集群状态，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin clusterList -n 172.21.16.253:9876   </span><br><span class="line">sh mqadmin clusterList -n 172.21.16.253:9876 –m</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="817-添加更新kv配置信息"><a class="markdownIt-Anchor" href="#817-添加更新kv配置信息"></a> 8.17  添加（更新）KV配置信息</h4>
-<ul>
-<li>
-<p>指令： updateKvConfig</p>
+<h4 id="8-17-添加（更新）KV配置信息"><a href="#8-17-添加（更新）KV配置信息" class="headerlink" title="8.17  添加（更新）KV配置信息"></a>8.17  添加（更新）KV配置信息</h4><ul>
+<li><p>指令： updateKvConfig</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.namesrv.UpdateKvConfigCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.namesrv.UpdateKvConfigCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-k</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">key值</td>
+<tbody><tr>
+<td align="left">-k</td>
+<td align="left">是</td>
+<td align="left">key值</td>
 </tr>
 <tr>
-<td style="text-align:left">-v</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">value值</td>
+<td align="left">-v</td>
+<td align="left">是</td>
+<td align="left">value值</td>
 </tr>
 <tr>
-<td style="text-align:left">-s</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">Namespace值</td>
+<td align="left">-s</td>
+<td align="left">是</td>
+<td align="left">Namespace值</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
 </ul>
-<h4 id="818-删除kv配置信息"><a class="markdownIt-Anchor" href="#818-删除kv配置信息"></a> 8.18  删除KV配置信息</h4>
-<ul>
-<li>
-<p>指令： deleteKvConfig</p>
+<h4 id="8-18-删除KV配置信息"><a href="#8-18-删除KV配置信息" class="headerlink" title="8.18  删除KV配置信息"></a>8.18  删除KV配置信息</h4><ul>
+<li><p>指令： deleteKvConfig</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.namesrv.DeleteKvConfigCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.namesrv.DeleteKvConfigCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-k</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">key值</td>
+<tbody><tr>
+<td align="left">-k</td>
+<td align="left">是</td>
+<td align="left">key值</td>
 </tr>
 <tr>
-<td style="text-align:left">-s</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">Namespace值</td>
+<td align="left">-s</td>
+<td align="left">是</td>
+<td align="left">Namespace值</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
 </ul>
-<h4 id="819-添加更新project-group配置信息"><a class="markdownIt-Anchor" href="#819-添加更新project-group配置信息"></a> 8.19  添加（更新）Project group配置信息</h4>
-<ul>
-<li>
-<p>指令： updateProjectGroup</p>
+<h4 id="8-19-添加（更新）Project-group配置信息"><a href="#8-19-添加（更新）Project-group配置信息" class="headerlink" title="8.19  添加（更新）Project group配置信息"></a>8.19  添加（更新）Project group配置信息</h4><ul>
+<li><p>指令： updateProjectGroup</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.namesrv.UpdateProjectGroupCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.namesrv.UpdateProjectGroupCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-i</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">服务器ip</td>
+<tbody><tr>
+<td align="left">-i</td>
+<td align="left">是</td>
+<td align="left">服务器ip</td>
 </tr>
 <tr>
-<td style="text-align:left">-p</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">project group名</td>
+<td align="left">-p</td>
+<td align="left">是</td>
+<td align="left">project group名</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
 </ul>
-<h4 id="820-删除project-group配置信息"><a class="markdownIt-Anchor" href="#820-删除project-group配置信息"></a> 8.20  删除Project group配置信息</h4>
-<ul>
-<li>
-<p>指令： deleteProjectGroup</p>
+<h4 id="8-20-删除Project-group配置信息"><a href="#8-20-删除Project-group配置信息" class="headerlink" title="8.20  删除Project group配置信息"></a>8.20  删除Project group配置信息</h4><ul>
+<li><p>指令： deleteProjectGroup</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.namesrv.DeleteProjectGroupCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.namesrv.DeleteProjectGroupCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-i</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">服务器ip</td>
+<tbody><tr>
+<td align="left">-i</td>
+<td align="left">是</td>
+<td align="left">服务器ip</td>
 </tr>
 <tr>
-<td style="text-align:left">-p</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">project group名</td>
+<td align="left">-p</td>
+<td align="left">是</td>
+<td align="left">project group名</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
 </ul>
-<h4 id="821-取得project-group配置信息"><a class="markdownIt-Anchor" href="#821-取得project-group配置信息"></a> 8.21  取得Project group配置信息</h4>
-<ul>
-<li>
-<p>指令： getProjectGroup</p>
+<h4 id="8-21-取得Project-group配置信息"><a href="#8-21-取得Project-group配置信息" class="headerlink" title="8.21  取得Project group配置信息"></a>8.21  取得Project group配置信息</h4><ul>
+<li><p>指令： getProjectGroup</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.namesrv.GetProjectGroupCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.namesrv.GetProjectGroupCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-i</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">服务器ip</td>
+<tbody><tr>
+<td align="left">-i</td>
+<td align="left">是</td>
+<td align="left">服务器ip</td>
 </tr>
 <tr>
-<td style="text-align:left">-p</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">project group名</td>
+<td align="left">-p</td>
+<td align="left">是</td>
+<td align="left">project group名</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
 </ul>
-<h4 id="822-获取consumer消费进度"><a class="markdownIt-Anchor" href="#822-获取consumer消费进度"></a> 8.22  获取Consumer消费进度</h4>
-<p>该命令只打印当前与cluster连接的consumer的消费进度</p>
+<h4 id="8-22-获取Consumer消费进度"><a href="#8-22-获取Consumer消费进度" class="headerlink" title="8.22  获取Consumer消费进度"></a>8.22  获取Consumer消费进度</h4><p>该命令只打印当前与cluster连接的consumer的消费进度</p>
 <ul>
-<li>
-<p>指令： getConsumerStatus</p>
+<li><p>指令： getConsumerStatus</p>
 </li>
-<li>
-<p>类路径：com.alibaba.rocketmq.tools.command.offset.GetConsumerStatusCommand</p>
+<li><p>类路径：com.alibaba.rocketmq.tools.command.offset.GetConsumerStatusCommand</p>
 </li>
-<li>
-<p>参数</p>
+<li><p>参数</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">是否必填</th>
-<th style="text-align:left">说明</th>
+<th align="left">参数</th>
+<th align="left">是否必填</th>
+<th align="left">说明</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-g</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">消费者所属组名</td>
+<tbody><tr>
+<td align="left">-g</td>
+<td align="left">是</td>
+<td align="left">消费者所属组名</td>
 </tr>
 <tr>
-<td style="text-align:left">-t</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">查询主题</td>
+<td align="left">-t</td>
+<td align="left">是</td>
+<td align="left">查询主题</td>
 </tr>
 <tr>
-<td style="text-align:left">-i</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">Consumer客户端ip</td>
+<td align="left">-i</td>
+<td align="left">否</td>
+<td align="left">Consumer客户端ip</td>
 </tr>
 <tr>
-<td style="text-align:left">-h</td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">打印帮助</td>
+<td align="left">-h</td>
+<td align="left">否</td>
+<td align="left">打印帮助</td>
 </tr>
 <tr>
-<td style="text-align:left">-n</td>
-<td style="text-align:left">是</td>
-<td style="text-align:left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
+<td align="left">-n</td>
+<td align="left">是</td>
+<td align="left">nameserve服务地址列表，格式ip:port;ip:port;…</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 </li>
-<li>
-<p>举例</p>
+<li><p>举例</p>
   <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查询属于group（消费者组）=simple-consumer-test的消费者在Topic=ZTEExample上的消费状态，nameserve地址为172.21.16.253:9876</span></span><br><span class="line">sh mqadmin getConsumerStatus -n 172.21.16.253:9876 -g simple-consumer-test -t ZTEExample</span><br></pre></td></tr></table></figure></li>
 </ul>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>a-zA-Z0-9_- <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>a-zA-Z0-9_- <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
 
       
     </div>
