@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/select-for-update/</loc>
+    <loc>https://xiaoyuge5201.github.io/lock-granularity/</loc>
     
     <lastmod>2022-12-04</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/lock-granularity/</loc>
+    <loc>https://xiaoyuge5201.github.io/select-for-update/</loc>
     
     <lastmod>2022-12-04</lastmod>
     
@@ -878,13 +878,6 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
-    <lastmod>2022-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/tags/Java/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -997,6 +990,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/tags/tidb/</loc>
+    <lastmod>2022-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/tags/docker/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -1026,13 +1026,6 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
-    <lastmod>2022-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1124,6 +1117,13 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/tags/rocketmq/</loc>
+    <lastmod>2022-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/tags/UML/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1258,13 +1258,6 @@
   </url>
   
   <url>
-    <loc>https://xiaoyuge5201.github.io/categories/rocketmq/</loc>
-    <lastmod>2022-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xiaoyuge5201.github.io/categories/filter/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -1273,6 +1266,13 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/categories/tidb/</loc>
+    <lastmod>2022-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoyuge5201.github.io/categories/rocketmq/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
