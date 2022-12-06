@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Thu, 01 Dec 2022 14:38:38 GMT</pubDate>
+    <pubDate>Tue, 06 Dec 2022 14:58:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>线程池底层源码分析</title>
+      <link>https://xiaoyuge5201.github.io/thread-pool-source/</link>
+      <guid>https://xiaoyuge5201.github.io/thread-pool-source/</guid>
+      <pubDate>Tue, 06 Dec 2022 13:56:29 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-线程池创建&quot;&gt;&lt;a href=&quot;#1-线程池创建&quot; class=&quot;headerlink&quot; title=&quot;1. 线程池创建&quot;&gt;&lt;/a</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/thread/">thread</category>
+      
+      
+    </item>
     
     <item>
       <title>搞定 CompletableFuture</title>

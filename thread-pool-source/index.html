@@ -17,19 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>分类: filter | 小余哥</title>
-  <meta name="description" content="小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小余哥|猿无忧">
-<meta property="og:url" content="https://xiaoyuge5201.github.io/categories/filter/index.html">
+  <title>线程池底层源码分析 | 小余哥</title>
+  <meta name="description" content="1. 线程池创建先使用ThreadPoolExecutor手动创建一个线程池  根据阿里巴巴Java开发手册里面的要求，线程池不允许使用Executors创建，而是通过ThreadPoolExecutor的方式这样的处理方式更加明确线程池的运行规则，规避资源耗尽的风险说明：Executors返回的线程池对象的弊端如下：  FixedThreadPool和SingleThreadPool: 允许">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程池底层源码分析">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/thread-pool-source/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。">
+<meta property="og:description" content="1. 线程池创建先使用ThreadPoolExecutor手动创建一个线程池  根据阿里巴巴Java开发手册里面的要求，线程池不允许使用Executors创建，而是通过ThreadPoolExecutor的方式这样的处理方式更加明确线程池的运行规则，规避资源耗尽的风险说明：Executors返回的线程池对象的弊端如下：  FixedThreadPool和SingleThreadPool: 允许">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-06T13:56:29.000Z">
+<meta property="article:modified_time" content="2022-12-06T14:58:58.733Z">
 <meta property="article:author" content="小余哥|猿无忧">
-<meta property="article:tag" content="小余哥，猿无忧，余歌先生，小余">
+<meta property="article:tag" content="thread">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://xiaoyuge5201.github.io/categories/filter/index.html">
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/thread-pool-source/index.html">
   
   
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -386,93 +388,218 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="content article article-categories article-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">分类: filter</h1>
-      <p class="hidden-xs">共 1 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/categories">All</a></li>
-          
-          <li><a href="/categories/linux/">linux</a></li>
-          
-          <li><a href="/categories/中间件/">中间件</a></li>
-          
-          <li><a href="/categories/java/">java</a></li>
-          
-          <li><a href="/categories/架构师笔记/">架构师笔记</a></li>
-          
-          <li><a href="/categories/rocketmq/">rocketmq</a></li>
-          
-          <li><a href="/categories/devops/">devops</a></li>
-          
-          <li><a href="/categories/apache/">apache</a></li>
-          
-          <li><a href="/categories/经验分享/">经验分享</a></li>
-          
-          <li><a href="/categories/vue/">vue</a></li>
-          
-          <li><a href="/categories/算法/">算法</a></li>
-          
-          <li><a href="/categories/mysql/">mysql</a></li>
-          
-          <li><a href="/categories/filter/">filter</a></li>
-          
-          <li><a href="/categories/tidb/">tidb</a></li>
-          
-          <li><a href="/categories/知识整理/">知识整理</a></li>
-          
-          <li><a href="/categories/踩坑记录/">踩坑记录</a></li>
-          
-          <li><a href="/categories/hexo/">hexo</a></li>
-          
-          <li><a href="/categories/Docker/">Docker</a></li>
-          
-          <li><a href="/categories/nginx/">nginx</a></li>
-          
-          <li><a href="/categories/swagger/">swagger</a></li>
-          
-          <li><a href="/categories/tomcat/">tomcat</a></li>
-          
-          <li><a href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li>
-          
-          <li><a href="/categories/interface/">interface</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="panel panel-default b-no">
-    <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-            <a data-toggle="collapse" href="#collapsefilter" aria-expanded="true">
-              <i class="icon icon-folder text-active"></i><i class="icon icon-folder-open text"></i>
-              filter
-            </a>
-            <small class="text-muted">(Total 1 articles)</small>
-        </h4>
-    </div>
-    <div id="collapsefilter" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingfilter">
-        <div class="panel-body">
-            <div class="collection">
-              
-                
-<a href="/filter-interceptor/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2022-10-29T14:25:32.000Z" itemprop="datePublished">2022-10-29</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 过滤器Filter与拦截器区别
-</a>
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-thread-pool-source" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      线程池底层源码分析
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/thread-pool-source/" class="article-date">
+	  <time datetime="2022-12-06T13:56:29.000Z" itemprop="datePublished">2022-12-06</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/thread/" rel="tag">thread</a>
+  </span>
 
 
-              
-            </div>
-        </div>
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/thread-pool-source/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
     </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="/css/content.css">
+
+<h3 id="1-线程池创建"><a href="#1-线程池创建" class="headerlink" title="1. 线程池创建"></a>1. 线程池创建</h3><p>先使用<code>ThreadPoolExecutor</code>手动创建一个线程池</p>
+<blockquote>
+<p>根据阿里巴巴Java开发手册里面的要求，线程池不允许使用<code>Executors</code>创建，而是通过<code>ThreadPoolExecutor</code>的方式<br>这样的处理方式更加明确线程池的运行规则，规避资源耗尽的风险<br>说明：Executors返回的线程池对象的弊端如下：</p>
+<ol>
+<li><code>FixedThreadPool</code>和<code>SingleThreadPool</code>: 允许的请求队列长度为Integer.MAX_VALUE,可能会堆积大量请求，从而导致OOM</li>
+</ol>
+<ol start="2">
+<li><code>CachedThreadPool</code>和 <code>ScheduledThreadPool</code>: 允许的创建线程数长度为Integer.MAX_VALUE,可能会创建大量线程，从而导致OOM</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ThreadPoolExecutor executor = <span class="keyword">new</span> ThreadPoolExecutor(<span class="number">2</span>,</span><br><span class="line">        <span class="number">5</span>,</span><br><span class="line">        <span class="number">3</span>,</span><br><span class="line">        TimeUnit.SECONDS,</span><br><span class="line">        <span class="keyword">new</span> LinkedBlockingDeque&lt;&gt;(<span class="number">3</span>),</span><br><span class="line">        Executors.defaultThreadFactory(),</span><br><span class="line">        <span class="keyword">new</span> ThreadPoolExecutor.DiscardOldestPolicy());</span><br></pre></td></tr></table></figure>
+<p><strong>ThreadPoolExecutor七大参数：</strong></p>
+<ol>
+<li>corePoolSize:核心线程池大小</li>
+<li>maximumPoolSize:最大核心线程池大小</li>
+<li>keepAliveTime:空闲线程存活时间</li>
+<li>unit:时间单位</li>
+<li>workQueue:阻塞队列</li>
+<li>threadFactory:线程工厂：创建线程的，一般不用动</li>
+<li>handler:拒绝策略<ul>
+<li>new ThreadPoolExecutor.AbortPolicy() // 不执行新任务，直接抛出异常，提示线程池已满</li>
+<li>new ThreadPoolExecutor.CallerRunsPolicy() // 哪来的去哪里！由调用线程处理该任务</li>
+<li>new ThreadPoolExecutor.DiscardPolicy() //不执行新任务，也不抛出异常</li>
+<li>new ThreadPoolExecutor.DiscardOldestPolicy() //丢弃队列最前面的任务，然后重新提交被拒绝的任务。</li>
+</ul>
+</li>
+</ol>
+<p><strong>ThreadPoolExecutor构造方法源码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,</span></span></span><br><span class="line"><span class="params"><span class="function">                          <span class="keyword">int</span> maximumPoolSize,</span></span></span><br><span class="line"><span class="params"><span class="function">                          <span class="keyword">long</span> keepAliveTime,</span></span></span><br><span class="line"><span class="params"><span class="function">                          TimeUnit unit,</span></span></span><br><span class="line"><span class="params"><span class="function">                          BlockingQueue&lt;Runnable&gt; workQueue,</span></span></span><br><span class="line"><span class="params"><span class="function">                          ThreadFactory threadFactory,</span></span></span><br><span class="line"><span class="params"><span class="function">                          RejectedExecutionHandler handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (corePoolSize &lt; <span class="number">0</span> ||</span><br><span class="line">        maximumPoolSize &lt;= <span class="number">0</span> ||</span><br><span class="line">        maximumPoolSize &lt; corePoolSize ||</span><br><span class="line">        keepAliveTime &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException();</span><br><span class="line">    <span class="keyword">if</span> (workQueue == <span class="keyword">null</span> || threadFactory == <span class="keyword">null</span> || handler == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    <span class="keyword">this</span>.acc = System.getSecurityManager() == <span class="keyword">null</span> ?</span><br><span class="line">            <span class="keyword">null</span> :</span><br><span class="line">            AccessController.getContext();</span><br><span class="line">    <span class="keyword">this</span>.corePoolSize = corePoolSize;</span><br><span class="line">    <span class="keyword">this</span>.maximumPoolSize = maximumPoolSize;</span><br><span class="line">    <span class="keyword">this</span>.workQueue = workQueue;</span><br><span class="line">    <span class="keyword">this</span>.keepAliveTime = unit.toNanos(keepAliveTime);</span><br><span class="line">    <span class="keyword">this</span>.threadFactory = threadFactory;</span><br><span class="line">    <span class="keyword">this</span>.handler = handler;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-线程池的基础属性和方法"><a href="#2-线程池的基础属性和方法" class="headerlink" title="2. 线程池的基础属性和方法"></a>2. 线程池的基础属性和方法</h3><p>在线程池的源码中，会通过一个 <code>AtomicInteger</code>类型的变量 <strong>ctl</strong> 来表示<strong>线程池的状态和当前线程池<br>中的工作线程数量</strong>。</p>
+<p>一个Integer占4个字节，也就是 32个bit,线程池有5个状态：</p>
+<ol>
+<li>RUNNING</li>
+<li>SHUTDOWN</li>
+<li>STOP</li>
+<li>TIDYING</li>
+<li>TERMINATED<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"> 源码关于5中状态的说明：</span><br><span class="line">/*   ******</span><br><span class="line">* The runState provides the main lifecycle control, taking on values:</span><br><span class="line">*</span><br><span class="line">*   RUNNING:  Accept new tasks and process queued tasks</span><br><span class="line">*   SHUTDOWN: Don&#x27;t accept new tasks, but process queued tasks</span><br><span class="line">*   STOP:     Don&#x27;t accept new tasks, don&#x27;t process queued tasks,</span><br><span class="line">*             and interrupt in-progress tasks</span><br><span class="line">*   TIDYING:  All tasks have terminated, workerCount is zero,</span><br><span class="line">*             the thread transitioning to state TIDYING</span><br><span class="line">*             will run the terminated() hook method</span><br><span class="line">*   TERMINATED: terminated() has completed</span><br><span class="line">*</span><br><span class="line">* The numerical order among these values matters, to allow</span><br><span class="line">* ordered comparisons. The runState monotonically increases over</span><br><span class="line">* time, but need not hit each state. The transitions are:</span><br><span class="line">*</span><br><span class="line">* RUNNING -&gt; SHUTDOWN</span><br><span class="line">*    On invocation of shutdown(), perhaps implicitly in finalize()</span><br><span class="line">* (RUNNING or SHUTDOWN) -&gt; STOP</span><br><span class="line">*    On invocation of shutdownNow()</span><br><span class="line">* SHUTDOWN -&gt; TIDYING</span><br><span class="line">*    When both queue and pool are empty</span><br><span class="line">* STOP -&gt; TIDYING</span><br><span class="line">*    When pool is empty</span><br><span class="line">* TIDYING -&gt; TERMINATED</span><br><span class="line">*    When the terminated() hook method has completed</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+2个bit 能表示4种状态， 那5种状态就至少需要3个bit位，比如在线程池的源码中就是这么表示的<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> COUNT_BITS = Integer.SIZE - <span class="number">3</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CAPACITY   = (<span class="number">1</span> &lt;&lt; COUNT_BITS) - <span class="number">1</span>;</span><br><span class="line"><span class="comment">// runState is stored in the high-order bits</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> RUNNING    = -<span class="number">1</span> &lt;&lt; COUNT_BITS;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SHUTDOWN   =  <span class="number">0</span> &lt;&lt; COUNT_BITS;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> STOP       =  <span class="number">1</span> &lt;&lt; COUNT_BITS;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TIDYING    =  <span class="number">2</span> &lt;&lt; COUNT_BITS;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> TERMINATED =  <span class="number">3</span> &lt;&lt; COUNT_BITS;</span><br></pre></td></tr></table></figure>
+<code>Integer.SIZE</code> 为 32， 所以 <code>COUNT_BITS = 29</code>， 最终各个状态对应的二进制为：</li>
+</ol>
+<ul>
+<li>RUNNING: <strong>111</strong>00000 00000000 00000000 00000000</li>
+<li>SHUTDOWN: <strong>000</strong>00000 00000000 00000000 00000000</li>
+<li>STOP: <strong>001</strong>00000 00000000 00000000 00000000</li>
+<li>TIDYING: <strong>010</strong>00000 00000000 00000000 00000000</li>
+<li>TERMINATED: <strong>011</strong>00000 00000000 00000000 00000000</li>
+</ul>
+<p>所以，只需要使用一个Integer数字的最高三个bit，就可以表示5种线程池状态，而剩下的29个bit就可以用来表示工作线程数，<br>比如：假设ctl为：<code>11100000 00000000 00000000 00001010</code> 就表示线程池的状态为RUNNING，线程池池目前在工作的线程有10个，<br>这里说的”在工作”指的是线程活着，要么在执行任务，要么在阻塞等待任务。</p>
+<p>同时，线程池中也提供一些方法来获取线程池状态和工作线程数，比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> AtomicInteger ctl = <span class="keyword">new</span> AtomicInteger(ctlOf(RUNNING, <span class="number">0</span>));</span><br><span class="line"><span class="comment">//29 二进制为：00000000 00000000 00000000 00011101</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> COUNT_BITS = Integer.SIZE - <span class="number">3</span>;</span><br><span class="line"><span class="comment">//二进制为：00011111 11111111 11111111 11111111</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CAPACITY   = (<span class="number">1</span> &lt;&lt; COUNT_BITS) - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Packing and unpacking ctl</span></span><br><span class="line"><span class="comment">//～CAPACITY： 11100000 00000000 00000000 00000000</span></span><br><span class="line"><span class="comment">// &amp; 操作之后， 得到的就是 c 的高3位</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">runStateOf</span><span class="params">(<span class="keyword">int</span> c)</span>     </span>&#123; <span class="keyword">return</span> c &amp; ~CAPACITY; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//CAPACITY： 00011111 11111111 11111111 11111111</span></span><br><span class="line"><span class="comment">// &amp; 操作之后， 得到的就是 c 的低29位</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">workerCountOf</span><span class="params">(<span class="keyword">int</span> c)</span>  </span>&#123; <span class="keyword">return</span> c &amp; CAPACITY; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  把运行张泰和线程数量进行合并，传入的两个int 数字有限制， rs的低29位都必须是9</span></span><br><span class="line"><span class="comment"> *  wc的高3位都必须位0，这样经过或运算之后，才能得到准确的 ctl </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">ctlOf</span><span class="params">(<span class="keyword">int</span> rs, <span class="keyword">int</span> wc)</span> </span>&#123; <span class="keyword">return</span> rs | wc; &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoyuge5201.github.io/thread-pool-source/" title="线程池底层源码分析" target="_blank" rel="external">https://xiaoyuge5201.github.io/thread-pool-source/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！本博客如有侵权，请联系删除！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
+        <div>致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</div>
+      </div>
+    </figure>
+  </div>
 </div>
+
+
     </div>
   </article>
-   
+  
+    
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/completableFuture/" title="搞定 CompletableFuture"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -539,6 +666,10 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 })(jQuery);
 </script>
 
+
+
+
+   
 
 
 
