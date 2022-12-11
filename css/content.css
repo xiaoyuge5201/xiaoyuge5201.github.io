@@ -11,6 +11,7 @@
     background:linear-gradient(to right,rgba(239, 112, 96,1),rgba(239, 112, 96,.5));
     border-bottom: 2px solid rgb(239, 112, 96);
     width: 100%;
+    line-height: 1.55;
 }
 
 .marked-body h3 {
@@ -20,6 +21,7 @@
     color: #fff;
     background: #4797bb;
     border-radius: 4px;
+    line-height: 1.55;
 }
 
 .tit-h4 {
