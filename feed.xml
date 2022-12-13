@@ -15,16 +15,22 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Mon, 12 Dec 2022 14:47:13 GMT</pubDate>
+    <pubDate>Mon, 12 Dec 2022 14:48:13 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>一文搞明白位运算、补码、反码、原码</title>
       <link>https://xiaoyuge5201.github.io/bitwise-operation/</link>
       <guid>https://xiaoyuge5201.github.io/bitwise-operation/</guid>
-      <pubDate>Sun, 11 Dec 2022 13:29:59 GMT</pubDate>
+      <pubDate>Mon, 12 Dec 2022 13:29:59 GMT</pubDate>
       
-      <description>博客被加密了, 请输入密码查看.</description>
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;p&gt;在平时看各种框架的源码过程中，经常会看到一些位移运算，所以作为一个有经验的Java开发者是一定要掌握位移运算的。&lt;/p&gt;
+&lt;h3 id=&quot;1-正</description>
+        
       
       
       
@@ -72,6 +78,30 @@
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
 
 &lt;h2 id=&quot;1-目录&quot;&gt;&lt;a href=&quot;#1-目录&quot; class=&quot;headerlink&quot; title=&quot;1. 目录&quot;&gt;&lt;/a&gt;1. 目录&lt;/h</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>String.intern()使用总结</title>
+      <link>https://xiaoyuge5201.github.io/intern/</link>
+      <guid>https://xiaoyuge5201.github.io/intern/</guid>
+      <pubDate>Fri, 02 Dec 2022 13:14:18 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-知识点一&quot;&gt;&lt;a href=&quot;#1-知识点一&quot; class=&quot;headerlink&quot; title=&quot;1. 知识点一&quot;&gt;&lt;/a&gt;1.</description>
         
       
       
