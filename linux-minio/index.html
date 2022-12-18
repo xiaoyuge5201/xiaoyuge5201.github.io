@@ -18,12 +18,12 @@
   
   
   <title>MinIO简介以及Linux安装MinIO | 小余哥</title>
-  <meta name="description" content="1. 什么是对象存储对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，适合存放任意类型的文件。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。 最大的优势：可以存储大量的非结构话数据，例如：图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等。 2. MinIOMinIO 是个基于Golang编写的开源对象存储套件，基于A">
+  <meta name="description" content="1. 什么是对象存储 对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，适合存放任意类型的文件。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。 最大的优势：可以存储大量的非结构话数据，例如：图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等。  2. MinIO MinIO 是个基于Golang编写的开源对象存储套件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MinIO简介以及Linux安装MinIO">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/linux-minio/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 什么是对象存储对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，适合存放任意类型的文件。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。 最大的优势：可以存储大量的非结构话数据，例如：图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等。 2. MinIOMinIO 是个基于Golang编写的开源对象存储套件，基于A">
+<meta property="og:description" content="1. 什么是对象存储 对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，适合存放任意类型的文件。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。 最大的优势：可以存储大量的非结构话数据，例如：图片、视频、日志文件、备份数据和容器&#x2F;虚拟机镜像等。  2. MinIO MinIO 是个基于Golang编写的开源对象存储套件">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/linux-minio/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/linux-minio/8.png">
@@ -230,7 +230,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/apache/">apache</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/apache/">apache</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -240,7 +240,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canal/" rel="tag">Canal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ClassLoader/" rel="tag">ClassLoader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringCloud/" rel="tag">SpringCloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/" rel="tag">gitlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ip/" rel="tag">ip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/" rel="tag">jdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jstack/" rel="tag">jstack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lock/" rel="tag">lock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/" rel="tag">mycat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitMQ/" rel="tag">rabbitMQ</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rocketmq/" rel="tag">rocketmq</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shutdown/" rel="tag">shutdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger/" rel="tag">swagger</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidb/" rel="tag">tidb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" rel="tag">内存溢出</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" rel="tag">守护线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">消息中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canal/" rel="tag">Canal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ClassLoader/" rel="tag">ClassLoader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringCloud/" rel="tag">SpringCloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/" rel="tag">gitlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ip/" rel="tag">ip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/" rel="tag">jdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jstack/" rel="tag">jstack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lock/" rel="tag">lock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/" rel="tag">mycat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitMQ/" rel="tag">rabbitMQ</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rocketmq/" rel="tag">rocketmq</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shutdown/" rel="tag">shutdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger/" rel="tag">swagger</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidb/" rel="tag">tidb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" rel="tag">内存溢出</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" rel="tag">守护线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">消息中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -250,7 +250,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Apache/" style="font-size: 13.2px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.2px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.2px;">Linux</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.6px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.4px;">hexo</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 13.8px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.4px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.2px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.6px;">nginx</a> <a href="/tags/rabbitMQ/" style="font-size: 13.2px;">rabbitMQ</a> <a href="/tags/redis/" style="font-size: 13.6px;">redis</a> <a href="/tags/rocketmq/" style="font-size: 13.2px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/springboot/" style="font-size: 13.2px;">springboot</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.6px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.2px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.2px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.2px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="/tags/Apache/" style="font-size: 13.25px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.25px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.25px;">Linux</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.75px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.5px;">hexo</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.5px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.25px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.75px;">nginx</a> <a href="/tags/rabbitMQ/" style="font-size: 13.25px;">rabbitMQ</a> <a href="/tags/redis/" style="font-size: 13.75px;">redis</a> <a href="/tags/rocketmq/" style="font-size: 13.25px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.75px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.25px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.25px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.25px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -259,7 +259,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -271,6 +271,31 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled ">
         
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/cglib/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/cglib/" class="title">cglib 底层源码分析一</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-12-14T14:13:31.000Z" itemprop="datePublished">2022-12-14</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-thumb">
@@ -371,31 +396,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/completableFuture/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/java/">java</a>
-              </p>
-              <p class="item-title">
-                <a href="/completableFuture/" class="title">搞定 CompletableFuture</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-12-01T14:37:57.000Z" itemprop="datePublished">2022-12-01</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -449,92 +449,162 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="1-什么是对象存储"><a href="#1-什么是对象存储" class="headerlink" title="1. 什么是对象存储"></a>1. 什么是对象存储</h2><p>对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，<strong>适合存放任意类型的文件</strong>。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。</p>
+        <h2 id="1-什么是对象存储"><a class="markdownIt-Anchor" href="#1-什么是对象存储"></a> 1. 什么是对象存储</h2>
+<p>对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的云存储服务，<strong>适合存放任意类型的文件</strong>。容量和处理能力弹性扩展，多种存储类型提供选择，全面优化存储成本。</p>
 <p>最大的优势：可以存储大量的非结构话数据，例如：图片、视频、日志文件、备份数据和容器/虚拟机镜像等。</p>
-<h2 id="2-MinIO"><a href="#2-MinIO" class="headerlink" title="2. MinIO"></a>2. MinIO</h2><p>MinIO 是个基于Golang编写的开源对象存储套件，基于Apache License V2.0开源协议，虽然轻量，却拥有不错的性能，兼容亚马逊S3云存储服务接口。可以很简单的和其他应用结合使用，例如：NodeJS、Redis、mysql等</p>
+<h2 id="2-minio"><a class="markdownIt-Anchor" href="#2-minio"></a> 2. MinIO</h2>
+<p>MinIO 是个基于Golang编写的开源对象存储套件，基于Apache License V2.0开源协议，虽然轻量，却拥有不错的性能，兼容亚马逊S3云存储服务接口。可以很简单的和其他应用结合使用，例如：NodeJS、Redis、mysql等</p>
 <p>中文文档： <a target="_blank" rel="noopener" href="http://docs.minio.org.cn/docs/master/minio-monitoring-guide">http://docs.minio.org.cn/docs/master/minio-monitoring-guide</a></p>
-<h3 id="2-1-MinIO应用场景"><a href="#2-1-MinIO应用场景" class="headerlink" title="2.1 MinIO应用场景"></a>2.1 MinIO应用场景</h3><p>可以作为私有云的对象存储服务来使用，也可以作为云对象存储的网关层，无缝对接Amazon S3 或者 MicroSoft Azure 。<br><img src="/linux-minio/1.png" alt="应用场景"></p>
-<h3 id="2-2-MinIO特点"><a href="#2-2-MinIO特点" class="headerlink" title="2.2 MinIO特点"></a>2.2 MinIO特点</h3><ul>
-<li><p>高性能</p>
-<p>  作为一款高性能存储，在标准硬件条件下，其读写速率分别可以达到55Gb/s和 35Gb/s。并且MinIO支持一个对象文件是任意大小（几KB到最大5T不等）</p>
+<h3 id="21-minio应用场景"><a class="markdownIt-Anchor" href="#21-minio应用场景"></a> 2.1 MinIO应用场景</h3>
+<p>可以作为私有云的对象存储服务来使用，也可以作为云对象存储的网关层，无缝对接Amazon S3 或者 MicroSoft Azure 。<br>
+<img src="/linux-minio/1.png" alt="应用场景"></p>
+<h3 id="22-minio特点"><a class="markdownIt-Anchor" href="#22-minio特点"></a> 2.2 MinIO特点</h3>
+<ul>
+<li>
+<p>高性能</p>
+<p>作为一款高性能存储，在标准硬件条件下，其读写速率分别可以达到55Gb/s和 35Gb/s。并且MinIO支持一个对象文件是任意大小（几KB到最大5T不等）</p>
 </li>
-<li><p>可扩展</p>
-<p>  不同MinIO集群可以组成联邦，并形成一个全局的命名空间，并且支持跨越多个数据中心</p>
+<li>
+<p>可扩展</p>
+<p>不同MinIO集群可以组成联邦，并形成一个全局的命名空间，并且支持跨越多个数据中心</p>
 </li>
-<li><p>云原生</p>
-<p>  容器化、基于K8S的编排、多租户支持</p>
+<li>
+<p>云原生</p>
+<p>容器化、基于K8S的编排、多租户支持</p>
 </li>
-<li><p>Amazon S3兼容</p>
-<p>  使用Amazon S3 V2/V4 API。可以使用Minio SDK，Minio Client，AWS SDK 和 AWS CLI 访问Minio服务器。</p>
+<li>
+<p>Amazon S3兼容</p>
+<p>使用Amazon S3 V2/V4 API。可以使用Minio SDK，Minio Client，AWS SDK 和 AWS CLI 访问Minio服务器。</p>
 </li>
-<li><p>可对接多种后端存储</p>
+<li>
+<p>可对接多种后端存储</p>
 <p>除了Minio自己的文件系统，还支持 DAS、 JBODs、NAS、Google云存储和 Azure Blob存储。</p>
 </li>
-<li><p>SDK支持</p>
+<li>
+<p>SDK支持</p>
 <p>GO SDK： <a target="_blank" rel="noopener" href="https://github.com/minio/minio-go">https://github.com/minio/minio-go</a></p>
 <p>JavaSDK： <a target="_blank" rel="noopener" href="https://github.com/minio/minio-java">https://github.com/minio/minio-java</a></p>
 <p>PythonSDK： <a target="_blank" rel="noopener" href="https://github.com/minio/minio-py">https://github.com/minio/minio-py</a></p>
 </li>
-</ul>
-<ul>
-<li><p>Lambda计算</p>
+<li>
+<p>Lambda计算</p>
 <p>Minio服务器通过其兼容AWS SNS / SQS的事件通知服务触发Lambda功能。支持的目标是消息队列，如Kafka，NATS，AMQP，MQTT，Webhooks以及Elasticsearch，Redis，Postgres和MySQL等数据库</p>
 </li>
-<li><p>图形化界面</p>
-<p>  有操作页面</p>
+<li>
+<p>图形化界面</p>
+<p>有操作页面</p>
 </li>
-<li><p>功能简单</p>
-<p>  不容易出错，快速启动</p>
+<li>
+<p>功能简单</p>
+<p>不容易出错，快速启动</p>
 </li>
-<li><p>支持纠删码</p>
+<li>
+<p>支持纠删码</p>
 <p>MinIO使用纠删码、Checksum来防止硬件错误和静默数据污染。在最高冗余度配置下，即使丢失1/2的磁盘也能恢复数据</p>
 </li>
 </ul>
-<h3 id="2-3-存储机制"><a href="#2-3-存储机制" class="headerlink" title="2.3 存储机制"></a>2.3 存储机制</h3><p>MinIO 使用纠删码erasure code、校验和checksum。 即使丢一半数据（N/2）的鹰派，仍然可以恢复数据。</p>
+<h3 id="23-存储机制"><a class="markdownIt-Anchor" href="#23-存储机制"></a> 2.3 存储机制</h3>
+<p>MinIO 使用纠删码erasure code、校验和checksum。 即使丢一半数据（N/2）的鹰派，仍然可以恢复数据。</p>
 <ul>
-<li><p>校验和checksum</p>
-<p>  保护数据免受硬件故障和无声数据损坏</p>
+<li>
+<p>校验和checksum</p>
+<p>保护数据免受硬件故障和无声数据损坏</p>
 </li>
-<li><p>纠删码erasure code</p>
-<p>  纠删码是一种恢复丢失和损坏数据的数据算法，目前纠删码技术在分布式存储系统中的应用主要有三类：阵列纠删码（Array Code : RAID5、RAID6等）、RS（Reed-Solomon）里德-所罗门类纠删码和LDPC（LowDensity Parity Check Code）<br>  低密度奇偶校验纠删码。</p>
-<p>  Erasure code 是一种编码技术，他可以将N份原始数据，增加m份数据，并通过n+m 份中的任意n份数据，还原为原始数据。即如果有任意小于等于m份的数据失效，仍然能通过剩下的数据还原出来。<br>MinIO 采用Reed-Solomon code将对象拆分成N/2数据和N/2奇偶校验快，这就意味着如果是12块盘，一个对象会分成6个数据块、6个奇偶校验块；可以丢失任意6块盘（不管是存放的数据块还是奇偶校验块），仍可以通过剩下的盘进行数据恢复</p>
+<li>
+<p>纠删码erasure code</p>
+<p>纠删码是一种恢复丢失和损坏数据的数据算法，目前纠删码技术在分布式存储系统中的应用主要有三类：阵列纠删码（Array Code : RAID5、RAID6等）、RS（Reed-Solomon）里德-所罗门类纠删码和LDPC（LowDensity Parity Check Code）<br>
+低密度奇偶校验纠删码。</p>
+<p>Erasure code 是一种编码技术，他可以将N份原始数据，增加m份数据，并通过n+m 份中的任意n份数据，还原为原始数据。即如果有任意小于等于m份的数据失效，仍然能通过剩下的数据还原出来。<br>
+MinIO 采用Reed-Solomon code将对象拆分成N/2数据和N/2奇偶校验快，这就意味着如果是12块盘，一个对象会分成6个数据块、6个奇偶校验块；可以丢失任意6块盘（不管是存放的数据块还是奇偶校验块），仍可以通过剩下的盘进行数据恢复</p>
 </li>
 </ul>
-<h2 id="3-安装和使用MinIO"><a href="#3-安装和使用MinIO" class="headerlink" title="3. 安装和使用MinIO"></a>3. 安装和使用MinIO</h2><h3 id="3-1-Linux安装MinIO"><a href="#3-1-Linux安装MinIO" class="headerlink" title="3.1 Linux安装MinIO"></a>3.1 Linux安装MinIO</h3><ol>
-<li>下载（<a target="_blank" rel="noopener" href="https://min.io/download#/linux%EF%BC%89">https://min.io/download#/linux）</a> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.min.io/server/minio/release/linux-amd64/minio</span><br></pre></td></tr></table></figure>
+<h2 id="3-安装和使用minio"><a class="markdownIt-Anchor" href="#3-安装和使用minio"></a> 3. 安装和使用MinIO</h2>
+<h3 id="31-linux安装minio"><a class="markdownIt-Anchor" href="#31-linux安装minio"></a> 3.1 Linux安装MinIO</h3>
+<ol>
+<li>
+<p>下载（<a target="_blank" rel="noopener" href="https://min.io/download#/linux%EF%BC%89">https://min.io/download#/linux）</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.min.io/server/minio/release/linux-amd64/minio</span><br></pre></td></tr></table></figure>
 </li>
-<li>运行 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> chmod +x minio</span><br><span class="line"> ./minio server /usr/software/minio/data      #将/usr/software/minio/data 替换为您希望 MinIO 存储数据的驱动器或目录的路径。</span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"> #</span><span class="bash">后台启动</span></span><br><span class="line">nohup ./minio server /usr/software/minio/data  &gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin nohup ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data&gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br></pre></td></tr></table></figure>
-<img src="/linux-minio/8.png"></li>
-<li>设置启动脚本（建议） <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir miniodata</span><br><span class="line">   </span><br><span class="line">touch minio.sh</span><br><span class="line">   </span><br><span class="line">vi minio.sh</span><br></pre></td></tr></table></figure>
-在sh文件中添加以下内容 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">指定登录用户名</span></span><br><span class="line">export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line">export MINIO_SECRET_KEY=password</span><br><span class="line"><span class="meta">#</span><span class="bash">指定端口以及存储文件夹，并启动服务 9000访问端口， 9001 控制台界面访问端口, 这里0.0.0.0可以设置为具体的服务器IP</span></span><br><span class="line">nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure>
-给当前用户加上执行权限 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x  *.sh</span><br><span class="line">  </span><br><span class="line"><span class="meta"> #</span><span class="bash">启动</span></span><br><span class="line">sh minio.sh</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="3-2-安装客户端-可选"><a href="#3-2-安装客户端-可选" class="headerlink" title="3.2 安装客户端(可选)"></a>3.2 安装客户端(可选)</h3><ol>
-<li>安装 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.min.io/client/mc/release/linux-amd64/mc</span><br><span class="line">chmod +x mc</span><br><span class="line">./mc --help</span><br></pre></td></tr></table></figure></li>
-<li>使用命令给客户端添加一个服务端 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mc alias set minio http://172.21.0.7:9000 minioadmin minioadmin</span><br></pre></td></tr></table></figure></li>
-<li>创建bucket，并查询所有bucket <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[root@ww xiaoyuge]# ./mc mb minio/mybucket</span><br><span class="line">Bucket created successfully `minio/mybucket`</span><br><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[2020-09-02 03:02:36 CST]      0B mybucket/</span><br><span class="line">[root@ww xiaoyuge]# </span><br></pre></td></tr></table></figure></li>
-<li>页面查询bucket <img src="/linux-minio/6.png"></li>
-<li>创建用户 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mc admin user add minio root rootroot</span><br></pre></td></tr></table></figure></li>
-<li>给用户赋予权限 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mc admin policy set minio readwrite user=root</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="3-3-使用MinIO"><a href="#3-3-使用MinIO" class="headerlink" title="3.3 使用MinIO"></a>3.3 使用MinIO</h3><ol>
-<li><p>启动</p>
-<p> 在浏览器输入： <a target="_blank" rel="noopener" href="http://localhost:9000/">http://localhost:9000</a><br> <img src="/linux-minio/2.png"><br>在输入控制打印的默认的AccessKey和SecretKey：</p>
-<p> <strong>AccessKey:</strong> minioadmin</p>
-<p> <strong>SecretKey（默认）:</strong> minioadmin</p>
-<p> 使用AccessKey 和 SecretKey 登录后台。</p>
+<li>
+<p>运行</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> chmod +x minio</span><br><span class="line"> ./minio server /usr/software/minio/data      #将/usr/software/minio/data 替换为您希望 MinIO 存储数据的驱动器或目录的路径。</span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta"> #</span><span class="bash">后台启动</span></span><br><span class="line">nohup ./minio server /usr/software/minio/data  &gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">或者指定账号密码启动</span></span><br><span class="line">MINIO_ACCESS_KEY=minioadmin MINIO_SECRET_KEY=minioadmin nohup ./minio server --config-dir /usr/software/minio/config /usr/software/minio/data&gt;  /usr/software/minio/minio.log 2&gt;&amp;1 &amp;#</span><br></pre></td></tr></table></figure>
+<p><img src="/linux-minio/8.png" alt></p>
 </li>
-<li><p>进入系统后，我们先要点击右上角的“+”按钮，创建一个文件桶（输入名称后，回车即可），在上传文件到这个文件桶中。Create bucket（创建文件桶），然后输入bucket名称为 <strong>test</strong>, 创建成功后再Upload file（上传文件）。<br><img src="/linux-minio/3.png"><img src="/linux-minio/3_1.png"><img src="/linux-minio/3_2.png"><img src="/linux-minio/4.png"></p>
-<p>现在我们去服务器，我们启动时指定的目录去看看，可以看到一个新建的test文件目录（文件桶相当于文件目录），这里没有使用纠删码的模式，所以直接就是源文件了。当我们线上运行的项目已经有源文件了，在使用minio的时候，可以直接指定该目录为minio的文件目录就行了。<br><img src="/linux-minio/5.png"><img src="/linux-minio/7.png"></p>
-</li>
-<li><p>分享文件，也可以设置文件分享有效日期<br> <img src="/linux-minio/11.png"><img src="/linux-minio/12.png" alt="img_1.png"><br>访问连接会出现如下界面：<br><img src="/linux-minio/13.png" alt="img_1.png"></p>
+<li>
+<p>设置启动脚本（建议）</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir miniodata</span><br><span class="line">   </span><br><span class="line">touch minio.sh</span><br><span class="line">   </span><br><span class="line">vi minio.sh</span><br></pre></td></tr></table></figure>
+<p>在sh文件中添加以下内容</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">指定登录用户名</span></span><br><span class="line">export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line">export MINIO_SECRET_KEY=password</span><br><span class="line"><span class="meta">#</span><span class="bash">指定端口以及存储文件夹，并启动服务 9000访问端口， 9001 控制台界面访问端口, 这里0.0.0.0可以设置为具体的服务器IP</span></span><br><span class="line">nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure>
+<p>给当前用户加上执行权限</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod u+x  *.sh</span><br><span class="line">  </span><br><span class="line"><span class="meta"> #</span><span class="bash">启动</span></span><br><span class="line">sh minio.sh</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="3-4-mioIO常见启动问题"><a href="#3-4-mioIO常见启动问题" class="headerlink" title="3.4 mioIO常见启动问题"></a>3.4 mioIO常见启动问题</h3><ol>
-<li>启动报错“WARNING: Console endpoint is listening on a dynamic port…”<br> <img src="/linux-minio/9.png" alt="img_1.png"><br>错误提示很明显，需要to choose a static port。<br>写了一个shell启动MinIO，在shell中使用–console-address ‘部署minio的ip:希望通过什么端口打开minio console页面’ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line"> export MINIO_SECRET_KEY=password</span><br><span class="line"> nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure></li>
+<h3 id="32-安装客户端可选"><a class="markdownIt-Anchor" href="#32-安装客户端可选"></a> 3.2 安装客户端(可选)</h3>
+<ol>
+<li>
+<p>安装</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.min.io/client/mc/release/linux-amd64/mc</span><br><span class="line">chmod +x mc</span><br><span class="line">./mc --help</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>使用命令给客户端添加一个服务端</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mc alias set minio http://172.21.0.7:9000 minioadmin minioadmin</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>创建bucket，并查询所有bucket</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[root@ww xiaoyuge]# ./mc mb minio/mybucket</span><br><span class="line">Bucket created successfully `minio/mybucket`</span><br><span class="line">[root@ww xiaoyuge]# ./mc ls minio</span><br><span class="line">[2020-09-02 03:02:36 CST]      0B mybucket/</span><br><span class="line">[root@ww xiaoyuge]# </span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>页面查询bucket</p>
+<p><img src="/linux-minio/6.png" alt></p>
+</li>
+<li>
+<p>创建用户</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mc admin user add minio root rootroot</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>给用户赋予权限</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mc admin policy set minio readwrite user=root</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h2 id="4-SpringBoot-集成minIO"><a href="#4-SpringBoot-集成minIO" class="headerlink" title="4. SpringBoot 集成minIO"></a>4. SpringBoot 集成minIO</h2><p>项目源代码地址：<a target="_blank" rel="noopener" href="https://gitee.com/xiaoyuge520/minio-demo%EF%BC%8C">https://gitee.com/xiaoyuge520/minio-demo，</a> 下面是应用主要功能截图展示：<br><img src="/linux-minio/14.png" alt="img14.png"><br>在minIO的控制台界面选择对应的bucket可以查看到刚提交的内容<br><img src="/linux-minio/15.png" alt="img14.png"></p>
-<p>同理，删除也是一样！！！<br><img src="/linux-minio/16.png" alt="img14.png"></p>
+<h3 id="33-使用minio"><a class="markdownIt-Anchor" href="#33-使用minio"></a> 3.3 使用MinIO</h3>
+<ol>
+<li>
+<p>启动</p>
+<p>在浏览器输入： <a target="_blank" rel="noopener" href="http://localhost:9000">http://localhost:9000</a><br>
+<img src="/linux-minio/2.png" alt><br>
+在输入控制打印的默认的AccessKey和SecretKey：</p>
+<p><strong>AccessKey:</strong> minioadmin</p>
+<p><strong>SecretKey（默认）:</strong> minioadmin</p>
+<p>使用AccessKey 和 SecretKey 登录后台。</p>
+</li>
+<li>
+<p>进入系统后，我们先要点击右上角的“+”按钮，创建一个文件桶（输入名称后，回车即可），在上传文件到这个文件桶中。Create bucket（创建文件桶），然后输入bucket名称为 <strong>test</strong>, 创建成功后再Upload file（上传文件）。<br>
+<img src="/linux-minio/3.png" alt><img src="/linux-minio/3_1.png" alt><img src="/linux-minio/3_2.png" alt><img src="/linux-minio/4.png" alt></p>
+<p>现在我们去服务器，我们启动时指定的目录去看看，可以看到一个新建的test文件目录（文件桶相当于文件目录），这里没有使用纠删码的模式，所以直接就是源文件了。当我们线上运行的项目已经有源文件了，在使用minio的时候，可以直接指定该目录为minio的文件目录就行了。<br>
+<img src="/linux-minio/5.png" alt><img src="/linux-minio/7.png" alt></p>
+</li>
+<li>
+<p>分享文件，也可以设置文件分享有效日期<br>
+<img src="/linux-minio/11.png" alt><img src="/linux-minio/12.png" alt="img_1.png"><br>
+访问连接会出现如下界面：<br>
+<img src="/linux-minio/13.png" alt="img_1.png"></p>
+</li>
+</ol>
+<h3 id="34-mioio常见启动问题"><a class="markdownIt-Anchor" href="#34-mioio常见启动问题"></a> 3.4 mioIO常见启动问题</h3>
+<ol>
+<li>启动报错“WARNING: Console endpoint is listening on a dynamic port…”<br>
+<img src="/linux-minio/9.png" alt="img_1.png"><br>
+错误提示很明显，需要to choose a static port。<br>
+写了一个shell启动MinIO，在shell中使用–console-address ‘部署minio的ip:希望通过什么端口打开minio console页面’ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> export MINIO_ACCESS_KEY=username</span><br><span class="line"><span class="meta">#</span><span class="bash">指定登录密码</span></span><br><span class="line"> export MINIO_SECRET_KEY=password</span><br><span class="line"> nohup ./minio server --address &#x27;0.0.0.0:9000&#x27; --console-address &#x27;0.0.0.0:9001&#x27; ./miniodata &gt; ./miniodata/minio.log 2&gt;&amp;1&amp;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="4-springboot-集成minio"><a class="markdownIt-Anchor" href="#4-springboot-集成minio"></a> 4. SpringBoot 集成minIO</h2>
+<p>项目源代码地址：<a target="_blank" rel="noopener" href="https://gitee.com/xiaoyuge520/minio-demo%EF%BC%8C">https://gitee.com/xiaoyuge520/minio-demo，</a> 下面是应用主要功能截图展示：<br>
+<img src="/linux-minio/14.png" alt="img14.png"><br>
+在minIO的控制台界面选择对应的bucket可以查看到刚提交的内容<br>
+<img src="/linux-minio/15.png" alt="img14.png"></p>
+<p>同理，删除也是一样！！！<br>
+<img src="/linux-minio/16.png" alt="img14.png"></p>
 
       
     </div>
