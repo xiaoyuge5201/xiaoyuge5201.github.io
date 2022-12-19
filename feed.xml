@@ -15,7 +15,7 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Mon, 19 Dec 2022 14:17:35 GMT</pubDate>
+    <pubDate>Mon, 19 Dec 2022 14:19:46 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -28,7 +28,7 @@
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
 
-&lt;p&gt;在Springboot中，支持了很多条件注解，@ConditionalOnClass注解就是其中之一。它主要是用来判断该注解所指定的某个类或者某</description>
+&lt;p&gt;在Springboot中，支持了很多条件注解，@ConditionalOnClass注解就是其中之一。它主要是&lt;strong&gt;用来判断该注解所指</description>
         
       
       
