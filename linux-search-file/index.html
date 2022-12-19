@@ -18,12 +18,12 @@
   
   
   <title>Linux系统下查找文件命令总结 | 小余哥</title>
-  <meta name="description" content="1. which查命令绝对路径 which 从环境变量PATH中定位&#x2F;返回与指定名字相匹配的可执行文件所在的路径  原理：执行which命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径， 否则依次返回满足条件的所有可执行文件的路径名 适用场合： 一般用于查找命令&#x2F;可执行文件所在的路径。有时候可能在多个路径下存">
+  <meta name="description" content="1. which查命令绝对路径which 从环境变量PATH中定位&#x2F;返回与指定名字相匹配的可执行文件所在的路径 原理：执行which命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径，否则依次返回满足条件的所有可执行文件的路径名 适用场合： 一般用于查找命令&#x2F;可执行文件所在的路径。有时候可能在多个路径下存在相同的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux系统下查找文件命令总结">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/linux-search-file/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. which查命令绝对路径 which 从环境变量PATH中定位&#x2F;返回与指定名字相匹配的可执行文件所在的路径  原理：执行which命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径， 否则依次返回满足条件的所有可执行文件的路径名 适用场合： 一般用于查找命令&#x2F;可执行文件所在的路径。有时候可能在多个路径下存">
+<meta property="og:description" content="1. which查命令绝对路径which 从环境变量PATH中定位&#x2F;返回与指定名字相匹配的可执行文件所在的路径 原理：执行which命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径，否则依次返回满足条件的所有可执行文件的路径名 适用场合： 一般用于查找命令&#x2F;可执行文件所在的路径。有时候可能在多个路径下存在相同的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/linux-search-file/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/linux-search-file/2.png">
@@ -220,7 +220,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/apache/">apache</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/apache/">apache</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -230,7 +230,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canal/" rel="tag">Canal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ClassLoader/" rel="tag">ClassLoader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringCloud/" rel="tag">SpringCloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/" rel="tag">gitlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ip/" rel="tag">ip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/" rel="tag">jdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jstack/" rel="tag">jstack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lock/" rel="tag">lock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/" rel="tag">mycat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitMQ/" rel="tag">rabbitMQ</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rocketmq/" rel="tag">rocketmq</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shutdown/" rel="tag">shutdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger/" rel="tag">swagger</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidb/" rel="tag">tidb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" rel="tag">内存溢出</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" rel="tag">守护线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">消息中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canal/" rel="tag">Canal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ClassLoader/" rel="tag">ClassLoader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringCloud/" rel="tag">SpringCloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/" rel="tag">gitlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ip/" rel="tag">ip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/" rel="tag">jdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jstack/" rel="tag">jstack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lock/" rel="tag">lock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/" rel="tag">mycat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitMQ/" rel="tag">rabbitMQ</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rocketmq/" rel="tag">rocketmq</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shutdown/" rel="tag">shutdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger/" rel="tag">swagger</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidb/" rel="tag">tidb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" rel="tag">内存溢出</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" rel="tag">守护线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">消息中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -240,7 +240,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Apache/" style="font-size: 13.25px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.25px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.25px;">Linux</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.75px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.5px;">hexo</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.5px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.25px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.75px;">nginx</a> <a href="/tags/rabbitMQ/" style="font-size: 13.25px;">rabbitMQ</a> <a href="/tags/redis/" style="font-size: 13.75px;">redis</a> <a href="/tags/rocketmq/" style="font-size: 13.25px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.75px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.25px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.25px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.25px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="/tags/Apache/" style="font-size: 13.2px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.2px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.2px;">Linux</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.6px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.4px;">hexo</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.4px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.2px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 13.8px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.6px;">nginx</a> <a href="/tags/rabbitMQ/" style="font-size: 13.2px;">rabbitMQ</a> <a href="/tags/redis/" style="font-size: 13.6px;">redis</a> <a href="/tags/rocketmq/" style="font-size: 13.2px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/springboot/" style="font-size: 13.2px;">springboot</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.6px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.2px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.2px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.2px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -249,7 +249,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -261,6 +261,31 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled ">
         
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/conditional-on-class/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/conditional-on-class/" class="title">注解@ConditionalOnClass的底层源码实现</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-12-19T13:34:57.000Z" itemprop="datePublished">2022-12-19</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-thumb">
@@ -278,7 +303,7 @@
                 <a class="category-link" href="/categories/java/">java</a>
               </p>
               <p class="item-title">
-                <a href="/cglib/" class="title">cglib 底层源码分析一</a>
+                <a href="/cglib/" class="title">cglib 底层源码分析</a>
               </p>
               <p class="item-date">
                 <time datetime="2022-12-14T14:13:31.000Z" itemprop="datePublished">2022-12-14</time>
@@ -361,31 +386,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/intern/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/java/">java</a>
-              </p>
-              <p class="item-title">
-                <a href="/intern/" class="title">String.intern()使用总结</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-12-02T13:14:18.000Z" itemprop="datePublished">2022-12-02</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -439,91 +439,60 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-which查命令绝对路径"><a class="markdownIt-Anchor" href="#1-which查命令绝对路径"></a> 1. which查命令绝对路径</h3>
-<p><strong>which</strong> 从环境变量PATH中定位/返回与指定名字相匹配的可执行文件所在的路径<br>
-<img src="/linux-search-file/1.png" alt="which命令"></p>
-<p><strong>原理</strong>：执行<strong>which</strong>命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径，<br>
-否则依次返回满足条件的所有可执行文件的路径名</p>
+        <h3 id="1-which查命令绝对路径"><a href="#1-which查命令绝对路径" class="headerlink" title="1. which查命令绝对路径"></a>1. which查命令绝对路径</h3><p><strong>which</strong> 从环境变量PATH中定位/返回与指定名字相匹配的可执行文件所在的路径<br><img src="/linux-search-file/1.png" alt="which命令"></p>
+<p><strong>原理</strong>：执行<strong>which</strong>命令时，which会在当前环境变量PATH中依次寻找能够匹配所找命令名字的可执行文件名，不加 - a选项，返回第一个匹配的可执行文件路径，<br>否则依次返回满足条件的所有可执行文件的路径名</p>
 <p><strong>适用场合：</strong> 一般用于查找命令/可执行文件所在的路径。有时候可能在多个路径下存在相同的命令，该命令可用于查找当前所执行的命令到底是哪一个位置处的命令。</p>
-<h3 id="2-whereis查找特定文件"><a class="markdownIt-Anchor" href="#2-whereis查找特定文件"></a> 2. whereis查找特定文件</h3>
-<p><strong>whereis</strong> 命令用来定位指令的二进制程序、源代码文件和man手册页等相关文件的路径， 该命令只能用于程序名的搜索</p>
+<h3 id="2-whereis查找特定文件"><a href="#2-whereis查找特定文件" class="headerlink" title="2. whereis查找特定文件"></a>2. whereis查找特定文件</h3><p><strong>whereis</strong> 命令用来定位指令的二进制程序、源代码文件和man手册页等相关文件的路径， 该命令只能用于程序名的搜索</p>
 <ol>
 <li>- b   #定位可执行文件</li>
 <li>- m   #定位帮助文件</li>
-<li>- s   定位源代码文件</li>
+<li>- s   定位源代码文件 </li>
 <li>- u   搜索默认路径下除可执行文件、源代码文件、帮助文件以外的其它文件</li>
 <li>- B   指定搜索可执行文件的路径。</li>
 <li>- M   指定搜索帮助文件的路径。</li>
-<li>- S   指定搜索源代码文件的路径<br>
-<img src="/linux-search-file/2.png" alt="whereis命令"></li>
+<li>- S   指定搜索源代码文件的路径<br><img src="/linux-search-file/2.png" alt="whereis命令"></li>
 </ol>
 <p><strong>原理：</strong> whereis命令首先会去掉filename中的前缀空格和以.开头的任何字符，然后再在数据库（var/lib/slocate/slocate.db）中查找与上述处理后的filename相匹配的二进制文件、源文件和帮助手册文件,使用之前可以使用<strong>updatedb</strong>命令手动更新数据库。</p>
-<p><strong>适用场合：</strong> 二进制文件、源文件和帮助手册文件路径的查找。<br>
-和<strong>find</strong> 相比，Whereis 查找的速度非常快，这是因为Linux系统会将系统内的所有文件都记录在一个数据库文件中，当使用<strong>whereis (或者locate)</strong><br>
-会从数据库查找数据，而不是像find命令那样，通过遍历硬盘来查找文件，效率更高！</p>
-<h3 id="3-locate缓存查找文件"><a class="markdownIt-Anchor" href="#3-locate缓存查找文件"></a> 3. locate缓存查找文件</h3>
-<p><strong>locate</strong> 搜素一个数据库（/var/lib/mlocate/mlocate.db）,这个数据库中国呢包含本地所有文件信息，Linux系统自动创建这个数据库，并且每天更新依次，所以使用locate命令查不到最新变动过的文件，为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库，updatedb命令会根据/etc/updatedb.conf来更新文件。</p>
-<p><strong>原理：</strong> 默认情况下(当filename中不包含通配符*)，locate会给出所有与 * filename*相匹配的文件的路径。<br>
-<strong>适用场合：</strong> 没有文件类型性质的模糊查找（你只记得某个文件的部分名称）。<br>
-<img src="/linux-search-file/3.png" alt="locate命令"><br>
-<img src="/linux-search-file/4.png" alt="locate命令"><br>
-<img src="/linux-search-file/5.png" alt="locate命令"><br>
-<img src="/linux-search-file/6.png" alt="locate命令"></p>
-<h3 id="4-find-遍历文件查找"><a class="markdownIt-Anchor" href="#4-find-遍历文件查找"></a> 4. find 遍历文件查找</h3>
-<p>语法：</p>
+<p><strong>适用场合：</strong> 二进制文件、源文件和帮助手册文件路径的查找。<br>和<strong>find</strong> 相比，Whereis 查找的速度非常快，这是因为Linux系统会将系统内的所有文件都记录在一个数据库文件中，当使用<strong>whereis (或者locate)</strong><br>会从数据库查找数据，而不是像find命令那样，通过遍历硬盘来查找文件，效率更高！</p>
+<h3 id="3-locate缓存查找文件"><a href="#3-locate缓存查找文件" class="headerlink" title="3. locate缓存查找文件"></a>3. locate缓存查找文件</h3><p><strong>locate</strong> 搜素一个数据库（/var/lib/mlocate/mlocate.db）,这个数据库中国呢包含本地所有文件信息，Linux系统自动创建这个数据库，并且每天更新依次，所以使用locate命令查不到最新变动过的文件，为了避免这种情况，可以在使用locate之前，先使用updatedb命令，手动更新数据库，updatedb命令会根据/etc/updatedb.conf来更新文件。</p>
+<p><strong>原理：</strong> 默认情况下(当filename中不包含通配符*)，locate会给出所有与 * filename*相匹配的文件的路径。<br><strong>适用场合：</strong> 没有文件类型性质的模糊查找（你只记得某个文件的部分名称）。<br><img src="/linux-search-file/3.png" alt="locate命令"><br><img src="/linux-search-file/4.png" alt="locate命令"><br><img src="/linux-search-file/5.png" alt="locate命令"><br><img src="/linux-search-file/6.png" alt="locate命令"></p>
+<h3 id="4-find-遍历文件查找"><a href="#4-find-遍历文件查找" class="headerlink" title="4. find 遍历文件查找"></a>4. find 遍历文件查找</h3><p>语法：</p>
 <ul>
-<li>
-<p>-name                    #按文件名查找(find /etc/ -name “???” 查找/etc目录下，开头是6个任意字符的文件， *.log以log结尾的文件；&quot;[1-3].txt&quot;指定范围以txt结尾的文件（包括 1.txt,2.txt,3.txt）)</p>
+<li><p>-name                    #按文件名查找(find /etc/ -name “??????” 查找/etc目录下，开头是6个任意字符的文件， *.log以log结尾的文件；”[1-3].txt”指定范围以txt结尾的文件（包括 1.txt,2.txt,3.txt）)</p>
 </li>
-<li>
-<p>-size                    #按大小查找（find /etc/ -size +1M 查询大于1M的文件(find /etc/ -size -10K)，注意：如果没有+ -， 则是精确到1M,加上+ - 表示范围； find /etc/ -size +1k -a -size -10k 查找1-10K的文件）</p>
+<li><p>-size                    #按大小查找（find /etc/ -size +1M 查询大于1M的文件(find /etc/ -size -10K)，注意：如果没有+ -， 则是精确到1M,加上+ - 表示范围； find /etc/ -size +1k -a -size -10k 查找1-10K的文件）</p>
 </li>
-<li>
-<p>-user                    #按属主查找（find /opt/ -user xiaoyuge 查找/opt属于xiaoyuge用户的文件；注意，系统要存在该用户，否则会报错）</p>
+<li><p>-user                    #按属主查找（find /opt/ -user xiaoyuge 查找/opt属于xiaoyuge用户的文件；注意，系统要存在该用户，否则会报错）</p>
 </li>
-<li>
-<p>-perm                    #按权限查找（find /opt/ -perm 0644 查找/opt目录权限是644文件）</p>
+<li><p>-perm                    #按权限查找（find /opt/ -perm 0644 查找/opt目录权限是644文件）</p>
 </li>
-<li>
-<p>-type                    #按类型查找（find /usr/bin/ -type f 查找/usr/bin下类型是二进制文件）</p>
+<li><p>-type                    #按类型查找（find /usr/bin/ -type f 查找/usr/bin下类型是二进制文件）</p>
 </li>
-<li>
-<p>-time                    #按天查找</p>
+<li><p>-time                    #按天查找</p>
 <ul>
-<li>
-<p>atime n                    #将n*24小时内访问过的文件列出(access)</p>
+<li><p>atime n                    #将n*24小时内访问过的文件列出(access)</p>
 </li>
-<li>
-<p>ctime n                    #将n*24小时内状态发生改变的文件列出（change） find /etc/ -ctime +7 在7天之前,属性被修改过的文件</p>
+<li><p>ctime n                    #将n*24小时内状态发生改变的文件列出（change） find /etc/ -ctime +7 在7天之前,属性被修改过的文件</p>
 </li>
-<li>
-<p>mtime n                    #将n*24小时内被修改过的文件列出(modify)</p>
+<li><p>mtime n                    #将n*24小时内被修改过的文件列出(modify)</p>
 </li>
-<li>
-<p>newer file                 #把比file还要心的文件列出</p>
+<li><p>newer file                 #把比file还要心的文件列出</p>
 </li>
-<li>
-<p>amin n                     #将n 分钟内访问过的文件列出(access)   find /etc/ -mmin -120 在120分钟内，内容被修改的文件</p>
+<li><p>amin n                     #将n 分钟内访问过的文件列出(access)   find /etc/ -mmin -120 在120分钟内，内容被修改的文件</p>
 </li>
-<li>
-<p>cmin n                     #将n 分钟内状态发生改变的文件列出（change）</p>
+<li><p>cmin n                     #将n 分钟内状态发生改变的文件列出（change）</p>
 </li>
-<li>
-<p>mmin n                     #将n 分钟内被修改过的文件列出(modify)</p>
+<li><p>mmin n                     #将n 分钟内被修改过的文件列出(modify)</p>
 </li>
 </ul>
 </li>
-<li>
-<p>-inum                    #按i节点查找 有一些文件的硬链接数量很多，有相同的i节点，查找其中一个文件的i节点号，一次性删除。</p>
+<li><p>-inum                    #按i节点查找 有一些文件的硬链接数量很多，有相同的i节点，查找其中一个文件的i节点号，一次性删除。</p>
 </li>
-<li>
-<p>-exec                    #查找后执行命令</p>
+<li><p>-exec                    #查找后执行命令</p>
 </li>
 </ul>
-<p><strong>原理：</strong> 遍历当前工作目录及其子目录，find命令是在硬盘上遍历查找，非常耗硬盘资源，查找效率相比whereis和locate较低。<br>
-<strong>适用场合：</strong> 能用which、whereis和locate的时候尽量不要用find.</p>
-<h3 id="5-4种命令对比"><a class="markdownIt-Anchor" href="#5-4种命令对比"></a> 5. 4种命令对比</h3>
-<p><img src="/linux-search-file/7.png" alt="对比"></p>
+<p><strong>原理：</strong> 遍历当前工作目录及其子目录，find命令是在硬盘上遍历查找，非常耗硬盘资源，查找效率相比whereis和locate较低。<br><strong>适用场合：</strong> 能用which、whereis和locate的时候尽量不要用find.</p>
+<h3 id="5-4种命令对比"><a href="#5-4种命令对比" class="headerlink" title="5. 4种命令对比"></a>5. 4种命令对比</h3><p><img src="/linux-search-file/7.png" alt="对比"></p>
 
       
     </div>
