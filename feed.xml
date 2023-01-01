@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Thu, 29 Dec 2022 07:35:37 GMT</pubDate>
+    <pubDate>Fri, 30 Dec 2022 03:17:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>SpringBoot代码混淆</title>
+      <link>https://xiaoyuge5201.github.io/code-obfuscation/</link>
+      <guid>https://xiaoyuge5201.github.io/code-obfuscation/</guid>
+      <pubDate>Fri, 30 Dec 2022 02:35:43 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;p&gt;作为一个有经验的程序员，我们都知道 jar/war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/springboot/">springboot</category>
+      
+      
+    </item>
     
     <item>
       <title>SQL语句执行过程</title>
