@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Tue, 10 Jan 2023 12:55:40 GMT</pubDate>
+    <pubDate>Sat, 14 Jan 2023 09:02:03 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>断网了，还能ping通127.0.0.1码</title>
+      <link>https://xiaoyuge5201.github.io/interview-1/</link>
+      <guid>https://xiaoyuge5201.github.io/interview-1/</guid>
+      <pubDate>Tue, 10 Jan 2023 04:12:01 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/interview/">interview</category>
+      
+      
+    </item>
     
     <item>
       <title>SpringBoot+Disruptor</title>
