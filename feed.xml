@@ -15,7 +15,7 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sat, 14 Jan 2023 13:40:19 GMT</pubDate>
+    <pubDate>Sat, 14 Jan 2023 13:53:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -67,10 +67,34 @@
     </item>
     
     <item>
+      <title>说说wait()和sleep的区别</title>
+      <link>https://xiaoyuge5201.github.io/interview-2/</link>
+      <guid>https://xiaoyuge5201.github.io/interview-2/</guid>
+      <pubDate>Sat, 07 Jan 2023 02:26:38 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+&lt;h3 id=&quot;1-得分点&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-得分点&quot;&gt;&lt;/a&gt; 1. 得分点&lt;/h3&gt;
+&lt;</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
+    
+    <item>
       <title>SpringBoot+Disruptor</title>
       <link>https://xiaoyuge5201.github.io/springboot-disruptor/</link>
       <guid>https://xiaoyuge5201.github.io/springboot-disruptor/</guid>
-      <pubDate>Sat, 07 Jan 2023 04:01:43 GMT</pubDate>
+      <pubDate>Wed, 04 Jan 2023 04:01:43 GMT</pubDate>
       
         
         
