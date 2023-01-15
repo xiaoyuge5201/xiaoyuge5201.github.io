@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Spring注入方式 | 小余哥</title>
+  <meta name="description" content="目录1. 实例注入方式2. @Autowired, @Resource, @Inject 三个注解的区别3. @Autowired Field injection is not recommended4. 总结 1. 实例注入方式spring注入的方式有三种：  属性field注入 setter方法注入 构造方法constructor注入  下面就分别看下这三种方式注入的区别 1.1 属性fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring注入方式">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/spring-injection/index.html">
+<meta property="og:site_name" content="小余哥|猿无忧">
+<meta property="og:description" content="目录1. 实例注入方式2. @Autowired, @Resource, @Inject 三个注解的区别3. @Autowired Field injection is not recommended4. 总结 1. 实例注入方式spring注入的方式有三种：  属性field注入 setter方法注入 构造方法constructor注入  下面就分别看下这三种方式注入的区别 1.1 属性fi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-15T06:03:13.000Z">
+<meta property="article:modified_time" content="2023-01-15T09:08:44.009Z">
+<meta property="article:author" content="小余哥|猿无忧">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/spring-injection/index.html">
+  
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+</head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shanghai, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>喜欢就争取，得到就珍惜，错过就忘记</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/apache/">apache</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canal/" rel="tag">Canal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ClassLoader/" rel="tag">ClassLoader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringCloud/" rel="tag">SpringCloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/" rel="tag">gitlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ip/" rel="tag">ip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/" rel="tag">jdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jstack/" rel="tag">jstack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lock/" rel="tag">lock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/" rel="tag">mycat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitMQ/" rel="tag">rabbitMQ</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rocketmq/" rel="tag">rocketmq</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shutdown/" rel="tag">shutdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger/" rel="tag">swagger</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidb/" rel="tag">tidb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" rel="tag">内存溢出</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" rel="tag">守护线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">消息中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Apache/" style="font-size: 13.2px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.2px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.2px;">Linux</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.6px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.4px;">hexo</a> <a href="/tags/interview/" style="font-size: 13px;">interview</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.4px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.2px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 13.8px;">mysql</a> <a href="/tags/nginx/" style="font-size: 13.6px;">nginx</a> <a href="/tags/rabbitMQ/" style="font-size: 13.2px;">rabbitMQ</a> <a href="/tags/redis/" style="font-size: 13.6px;">redis</a> <a href="/tags/rocketmq/" style="font-size: 13.2px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/springboot/" style="font-size: 13.4px;">springboot</a> <a href="/tags/sql/" style="font-size: 13px;">sql</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.6px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.2px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.2px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.2px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/spring-injection/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/spring/">spring</a>
+              </p>
+              <p class="item-title">
+                <a href="/spring-injection/" class="title">Spring注入方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-01-15T06:03:13.000Z" itemprop="datePublished">2023-01-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/service-locator-pattern/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+              </p>
+              <p class="item-title">
+                <a href="/service-locator-pattern/" class="title">服务定位模式 Service Locator Pattern</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-01-14T12:28:56.000Z" itemprop="datePublished">2023-01-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/interview-1/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+              </p>
+              <p class="item-title">
+                <a href="/interview-1/" class="title">断网了，还能ping通127.0.0.1吗</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-01-10T04:12:01.000Z" itemprop="datePublished">2023-01-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/interview-2/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+              </p>
+              <p class="item-title">
+                <a href="/interview-2/" class="title">说说wait()和sleep的区别</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-01-07T02:26:38.000Z" itemprop="datePublished">2023-01-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/springboot-disruptor/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/springboot-disruptor/" class="title">SpringBoot+Disruptor</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-01-04T04:01:43.000Z" itemprop="datePublished">2023-01-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-spring-injection" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring注入方式
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/spring-injection/" class="article-date">
+	  <time datetime="2023-01-15T06:03:13.000Z" itemprop="datePublished">2023-01-15</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/spring/">spring</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/java/" rel="tag">java</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/spring-injection/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="/css/content.css">
+
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><strong>1. <a href="#part1">实例注入方式</a></strong><br><strong>2. <a href="#part2">@Autowired, @Resource, @Inject 三个注解的区别</a></strong><br><strong>3. <a href="#part3">@Autowired Field injection is not recommended</a></strong><br><strong>4. <a href="#part4">总结</a></strong></p>
+<h2 id="1-实例注入方式"><a href="#1-实例注入方式" class="headerlink" title="1. 实例注入方式"></a><span id="part1">1. 实例注入方式</span></h2><p>spring注入的方式有三种：</p>
+<ol>
+<li>属性field注入</li>
+<li>setter方法注入</li>
+<li>构造方法constructor注入</li>
+</ol>
+<p>下面就分别看下这三种方式注入的区别</p>
+<h4 id="1-1-属性field注入"><a href="#1-1-属性field注入" class="headerlink" title="1.1 属性field注入"></a>1.1 属性field注入</h4><p>属性注入是大家最为常见也是使用最多的一种注入方式，就是在bean的变量上使用注解进行依赖注入，本质上是通过反射的方式直接注入到field。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BService</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    AService aService;</span><br><span class="line">    <span class="comment">//......</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里使用<code>@Autowired</code>注解注入，另外也有<code>Resource</code>以及<code>@Inject</code>等注解，都可以实现注入。</p>
+<p>但是当我们使用<code>@Autowired</code>注解注入时，却出现Field injection is not recommended的警告，这是为什么？且看下文。</p>
+<h4 id="1-2-setter方法注入"><a href="#1-2-setter方法注入" class="headerlink" title="1.2 setter方法注入"></a>1.2 setter方法注入</h4><p>set 方法注入太过于臃肿，实际上很少使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BService</span></span>&#123;</span><br><span class="line">    AService aService;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setaService</span><span class="params">(AService aService)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.aService = aService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注：在 Spring 4.3 及以后的版本中，setter 上面的 @Autowired 注解是可以不写的。</p>
+</blockquote>
+<h4 id="1-3-构造方法注入"><a href="#1-3-构造方法注入" class="headerlink" title="1.3 构造方法注入"></a>1.3 构造方法注入</h4><p>构造方法注入方式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BService</span></span>&#123;</span><br><span class="line">    AService aService;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BService</span><span class="params">(AService aService)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.aService = aService;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果类只有一个构造方法，那么<code>@Autowired</code>注解可以省略；如果有多个构造方法，那么需要添加上<code>@Autowired</code>注解来明确指定使用哪个构造方法</p>
+<h4 id="1-4-属性field注入优缺点"><a href="#1-4-属性field注入优缺点" class="headerlink" title="1.4 属性field注入优缺点"></a>1.4 属性field注入优缺点</h4><p>好处：方式简洁，代码简单；</p>
+<p>坏处：</p>
+<ul>
+<li><p>容易违背了单一职责原则，使用这种基于field注入的方式，添加依赖是很简单的，就算类中有十几个依赖你可能都觉得没有什么问题，但是拥有太多的依赖通常意味着你的类要承担更多的责任，明显违背了单一职责原则(SRP：Single responsibility principle)</p>
+</li>
+<li><p>依赖注入与容器本身耦合：依赖注入框架的核心思想之一就是受容器管理的类不应该去依赖容器所使用的依赖。换句话说，这个类应该是一个简单的POJO能够被单独实例化并且能为它提供所需的依赖；这个问题具体可以表现在</p>
+<ul>
+<li>类和依赖容器强耦合，不能在容器外使用</li>
+<li>类不能绕过反射（例如单元测试的时候）进行实例化，必须通过依赖容器才能实例化</li>
+</ul>
+</li>
+<li><p>不能使用属性注入的方式构建不可变对象（final修饰的变量）</p>
+</li>
+</ul>
+<h4 id="1-5-Spring-开发团队的建议"><a href="#1-5-Spring-开发团队的建议" class="headerlink" title="1.5 Spring 开发团队的建议"></a>1.5 Spring 开发团队的建议</h4><blockquote>
+<p>Since you can mix constructor-based and setter-based DI, it is a good rule of thumb to use constructors for mandatory dependencies and setter methods or configuration methods for optional dependencies.</p>
+</blockquote>
+<p>简单的说，就是</p>
+<ul>
+<li><p>强制依赖就用构造器凡事</p>
+</li>
+<li><p>可选、可变的依赖就用setter注入</p>
+<p> 当然你可以在同一个类中使用这两种方法。构造器注入更适合强制性的注入旨在不变性，Setter注入更适合可变性的注入</p>
+</li>
+</ul>
+<ol>
+<li>基于构造方法注入<blockquote>
+<p>The Spring team generally advocates constructor injection as it enables one to implement application components as immutable objects and to ensure that required dependencies are not null. Furthermore constructor-injected components are always returned to client (calling) code in a fully initialized state. As a side note, a large number of constructor arguments is a bad code smell, implying that the class likely has too many responsibilities and should be refactored to better address proper separation of concerns.</p>
+</blockquote>
+Spring 团队提倡使用基于构造方法的注入，因为这样一方面可以将依赖注入到一个不可变的变量中 (注：final 修饰的变量) ，另一方面也可以保证这些变量的值不会是 null 。此外，经过构造方法完成依赖注入的组件 (注：比如各个 service)，在被调用时可以保证它们都完全准备好了 。与此同时，从代码质量的角度来看，一个巨大的构造方法通常代表着出现了代码异味，这个类可能承担了过多的责任 。</li>
+</ol>
+<ol start="2">
+<li>基于setter注入<blockquote>
+<p>Setter injection should primarily only be used for optional dependencies that can be assigned reasonable default values within the class. Otherwise, not-null checks must be performed everywhere the code uses the dependency. One benefit of setter injection is that setter methods make objects of that class amenable to reconfiguration or re-injection later.</p>
+</blockquote>
+基于 setter 的注入，则只应该被用于注入非必需的依赖，同时在类中应该对这个依赖提供一个合理的默认值。如果使用 setter 注入必需的依赖，那么将会有过多的 null 检查充斥在代码中。使用 setter 注入的一个优点是，这个依赖可以很方便的被改变或者重新注入 。</li>
+</ol>
+<h2 id="2-Autowired-Resource-Inject-三个注解的区别"><a href="#2-Autowired-Resource-Inject-三个注解的区别" class="headerlink" title="2. @Autowired, @Resource, @Inject 三个注解的区别"></a><span id="part2">2. @Autowired, @Resource, @Inject 三个注解的区别</span></h2><p>Spring 支持使用<code>@Autowired</code>、<code>@Resource</code>、<code>@Inject</code>三个注解进行依赖注入，下面就来介绍一下这三个注解的区别。</p>
+<h3 id="2-1-Autowired"><a href="#2-1-Autowired" class="headerlink" title="2.1 @Autowired"></a>2.1 @Autowired</h3><p>@Autowired为Spring框架提供的注解，需要导入包<code>org.springframework.beans.factory.annotation.Autowired</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD, ElementType.ANNOTATION_TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Autowired &#123;</span><br><span class="line">true<span class="function"><span class="keyword">boolean</span> <span class="title">required</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从Autowired注解源码上看，可以作用在：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.CONSTRUCTOR)</span> <span class="comment">//构造函数</span></span><br><span class="line"><span class="meta">@Target(ElementType.METHOD)</span> <span class="comment">//方法</span></span><br><span class="line"><span class="meta">@Target(ElementType.PARAMETER)</span> <span class="comment">//方法参数</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span> <span class="comment">//字段、枚举的常量</span></span><br><span class="line"><span class="meta">@Target(ElementType.ANNOTATION_TYPE)</span> <span class="comment">//注解</span></span><br></pre></td></tr></table></figure>
+<p>@Autowired是Spring自带的注解，通过<code>AutowiredAnnotationBeanPostProcessor</code>类实现的依赖注入</p>
+<p>下面就通过一段代码来了解它。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Svc</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SvcA</span> <span class="keyword">implements</span> <span class="title">Svc</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;hello, this is service A&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="comment">// @Qualifier(&quot;svcA&quot;)</span></span><br><span class="line">    Svc svc;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">rc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Assertions.assertNotNull(svc);</span><br><span class="line">        svc.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>装配顺序：</strong></p>
+<ol>
+<li><p>按照<code>type</code>在上下文查看匹配的bean</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查找type为Svc的bean</span><br></pre></td></tr></table></figure></li>
+<li><p>如果有多个bean, 则按照<code>name</code>进行匹配</p>
+</li>
+</ol>
+<ol start="3">
+<li>判断是否有<code>@Qualifier</code>注解 a. 如果有<code>@Qualifier</code>注解，则按照<code>@Qualifier</code>指定的name进行匹配<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查找name为svcA的bean</span><br></pre></td></tr></table></figure>
+ b. 如果没有，则按照变量名进行匹配 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查找name为svc的bean</span><br></pre></td></tr></table></figure></li>
+<li>匹配不到，则报错。（<code>@Autowired(required=false)</code>，如果设置<code>required</code>为<code>false</code>(默认为<code>true</code>)，则注入失败时不会抛出异常）</li>
+</ol>
+<h3 id="2-2-Inject"><a href="#2-2-Inject" class="headerlink" title="2.2 @Inject"></a>2.2 @Inject</h3><p><code>@Inject</code>是JSR330 (Dependency Injection for Java)中的规范，需要导入<code>javax.inject.Inject</code> jar包，才能实现注入</p>
+<p><code>@Inject</code>是根据类型进行自动装配的，如果需要按名称进行装配，则需要配合@Named</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Inject &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从<code>@Inject</code>注解源码上看，可以使用在以下地方：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.CONSTRUCTOR)</span> <span class="comment">//构造函数</span></span><br><span class="line"><span class="meta">@Target(ElementType.METHOD)</span> <span class="comment">//方法</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span>  <span class="comment">//字段、枚举的常量</span></span><br></pre></td></tr></table></figure>
+<p>在Spring 的环境下，<code>@Inject</code>和<code>@Autowired</code> 是相同的 ，因为它们的依赖注入都是使用<code>AutowiredAnnotationBeanPostProcessor</code>来处理的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AutowiredAnnotationBeanPostProcessor</span> <span class="keyword">extends</span> <span class="title">InstantiationAwareBeanPostProcessorAdapter</span></span></span><br><span class="line"><span class="class">        <span class="keyword">implements</span> <span class="title">MergedBeanDefinitionPostProcessor</span>, <span class="title">PriorityOrdered</span>, <span class="title">BeanFactoryAware</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="comment">//........省略........</span></span><br><span class="line">true<span class="function"><span class="keyword">public</span> <span class="title">AutowiredAnnotationBeanPostProcessor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">truetrue<span class="keyword">this</span>.autowiredAnnotationTypes.add(Autowired.class);</span><br><span class="line">truetrue<span class="keyword">this</span>.autowiredAnnotationTypes.add(Value.class);</span><br><span class="line">truetrue<span class="keyword">try</span> &#123;</span><br><span class="line">truetruetrue<span class="keyword">this</span>.autowiredAnnotationTypes.add((Class&lt;? extends Annotation&gt;)</span><br><span class="line">truetruetruetruetrueClassUtils.forName(<span class="string">&quot;javax.inject.Inject&quot;</span>, AutowiredAnnotationBeanPostProcessor.class.getClassLoader()));</span><br><span class="line">truetruetruelogger.info(<span class="string">&quot;JSR-330 &#x27;javax.inject.Inject&#x27; annotation found and supported for autowiring&quot;</span>);</span><br><span class="line">truetrue&#125;</span><br><span class="line">truetrue<span class="keyword">catch</span> (ClassNotFoundException ex) &#123;</span><br><span class="line">truetruetrue<span class="comment">// JSR-330 API not available - simply skip.</span></span><br><span class="line">truetrue&#125;</span><br><span class="line">true&#125;</span><br><span class="line">       <span class="comment">//........省略........   </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>区别：@Inject是Java EE包里的，在SE环境需要单独引入。另一个区别在于@Autowired可以设置required=false而@Inject并没有这个属性</p>
+<h3 id="2-3-Resource"><a href="#2-3-Resource" class="headerlink" title="2.3 @Resource"></a>2.3 @Resource</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;TYPE, FIELD, METHOD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RUNTIME)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Resource &#123;</span><br><span class="line">    <span class="function">String <span class="title">name</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">    <span class="function">String <span class="title">lookup</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">    Class&lt;?&gt; type() <span class="keyword">default</span> java.lang.Object.class;</span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">AuthenticationType</span> </span>&#123;</span><br><span class="line">            CONTAINER,</span><br><span class="line">            APPLICATION</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">AuthenticationType <span class="title">authenticationType</span><span class="params">()</span> <span class="keyword">default</span> AuthenticationType.CONTAINER</span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">shareable</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">true</span></span>;</span><br><span class="line">    <span class="function">String <span class="title">mappedName</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">    <span class="function">String <span class="title">description</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从<code>@Resource</code>注解源码上看，可以使用在以下地方：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span> <span class="comment">//Class, interface (including annotation type), or enum declaration</span></span><br><span class="line"><span class="meta">@Target(ElementType.METHOD)</span> <span class="comment">//方法</span></span><br><span class="line"><span class="meta">@Target(ElementType.FIELD)</span> <span class="comment">//字段、枚举的常量</span></span><br></pre></td></tr></table></figure>
+<p><code>@Resource</code>是JSR-250定义的注解。Spring 在 <code>CommonAnnotationBeanPostProcessor</code>实现了对JSR-250的注解的处理，其中就包括<code>@Resource</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CommonAnnotationBeanPostProcessor</span> <span class="keyword">extends</span> <span class="title">InitDestroyAnnotationBeanPostProcessor</span></span></span><br><span class="line"><span class="class">		<span class="keyword">implements</span> <span class="title">InstantiationAwareBeanPostProcessor</span>, <span class="title">BeanFactoryAware</span>, <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//........省略........   </span></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> PropertyValues <span class="title">postProcessPropertyValues</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">           PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      InjectionMetadata metadata = findResourceMetadata(beanName, bean.getClass(), pvs);</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">         metadata.inject(bean, beanName, pvs);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">         <span class="keyword">throw</span> <span class="keyword">new</span> BeanCreationException(beanName, <span class="string">&quot;Injection of resource dependencies failed&quot;</span>, ex);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> pvs;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//........省略........   </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>@Resource有两个重要的属性：<code>name</code>和<code>type</code>，而Spring 将<code>@Resource</code>注解的name属性解析为bean的名字，而type属性则解析为bean的类型。</p>
+<p><strong>装配顺序：</strong></p>
+<ol>
+<li>如果同时指定了name和type，则从Spring上下文中找到唯一匹配的bean进行装配，找不到则抛出异常。</li>
+<li>如果指定了name，则从上下文中查找名称（id）匹配的bean进行装配，找不到则抛出异常。</li>
+<li>如果指定了type，则从上下文中找到类型匹配的唯一bean进行装配，找不到或是找到多个，都会抛出异常。</li>
+<li>如果既没有指定name，又没有指定type，则默认按照byName方式进行装配；如果没有匹配，按照byType进行装配。</li>
+</ol>
+<h2 id="3-Autowired-Field-injection-is-not-recommended"><a href="#3-Autowired-Field-injection-is-not-recommended" class="headerlink" title="3. @Autowired Field injection is not recommended"></a><span id="part3">3. @Autowired Field injection is not recommended</span></h2><p>在使用IDEA进行Spring开发时，使用<code>@Autowired</code>注解的时候，会发现IDEA会有警告显示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Field injection is not recommended</span><br><span class="line"></span><br><span class="line">Inspection info: Spring Team Recommends: &quot;Always use constructor based dependency injection in your beans. Always use assertions for mandatory dependencies&quot;.</span><br></pre></td></tr></table></figure>
+<p>大致的意思就是：</p>
+<blockquote>
+<p>不建议使用基于 field 的注入方式。</p>
+</blockquote>
+<blockquote>
+<p>Spring 开发团队建议：在你的Spring Bean 永远使用基于constructor 的方式进行依赖注入。对于必须的依赖，永远使用断言来确认。</p>
+</blockquote>
+<p>比如以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelpService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="meta">@Qualifier(&quot;svcB&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Svc svc;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        svc.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Svc</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SvcB</span> <span class="keyword">implements</span> <span class="title">Svc</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;hello, this is service B&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改为Constructor的注入方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelpService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Svc svc;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HelpService</span><span class="params">(<span class="meta">@Qualifier(&quot;svcB&quot;)</span> Svc svc)</span> </span>&#123;</span><br><span class="line">        Assert.notNull(svc, <span class="string">&quot;svc must not be null&quot;</span>);</span><br><span class="line">        <span class="keyword">this</span>.svc = svc;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        svc.sayHello();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果按照Spring团段的建议，如果<code>svc</code>是必须的依赖，应该使用<code>Assert.notNull(svc, &quot;svc must not be null&quot;);</code>来确认</p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a><span id="part4">4. 总结</span></h2><h3 id="4-1-Autowired总结"><a href="#4-1-Autowired总结" class="headerlink" title="4.1 @Autowired总结"></a>4.1 @Autowired总结</h3><p><strong>@Autowired注解总结</strong></p>
+<ol>
+<li><p>可用于构造函数，成员变量以及set方法</p>
+</li>
+<li><p>从Spring 4.3开始，如果目标Bean只有一个构造函数，则在该构造函数上可以省略@Autowired注解；如果目标Bean有多个构造函数则不可省略</p>
+</li>
+</ol>
+<p><strong>@Autowired注入方式：</strong></p>
+<ul>
+<li><p>按照type查找bean，如果使用@Qualifier注解声明了name，则从结果集中取出与该name相匹配的bean返回（此时可以视为通过name和type获取bean，但实质是先通过type获取所有bean，然后通过name筛选，详情见后文findAutowireCandidates()方法源码分析）</p>
+</li>
+<li><p>如果没有使用@Qualifier注解，且找到多个bean，则判断这些bean中是否有使用@Primary注解和@Priority注解，有就返回优先级最高的哪一个bean，没有就按照字段名称去匹配bean，匹配成功返回，不成功抛出异常。（详情见后文determineAutowireCandidate()方法源码解析）</p>
+</li>
+</ul>
+<h3 id="4-2-Resource总结"><a href="#4-2-Resource总结" class="headerlink" title="4.2 @Resource总结"></a>4.2 @Resource总结</h3><ol>
+<li><p>可用于成员变量以及set方法</p>
+</li>
+<li><p>若不指定name属性，则会把name属性值处理为字段名或set方法标识的字段名称</p>
+</li>
+<li><p>若指定type属性，则type属性值必须与字段类型或set方法返回值类型为父子关系（type属性值可以是子类，也可以是超类），否则会抛出异常</p>
+</li>
+<li><p>@Resource先按照name属性值注入，若未找到，则按type属性值注入。即默认的name或指定的name找不到 bean ，就会按 type 注入</p>
+</li>
+</ol>
+<h3 id="4-3-Inject总结"><a href="#4-3-Inject总结" class="headerlink" title="4.3 @Inject总结"></a>4.3 @Inject总结</h3><ol>
+<li><p>@Inject是JSR330 (Dependency Injection for Java)中的规范，需要导入javax.inject.Inject jar包 ，才能实现注入</p>
+</li>
+<li><p>@Inject可以作用CONSTRUCTOR、METHOD、FIELD上</p>
+</li>
+<li><p>@Inject是根据类型进行自动装配的，如果需要按名称进行装配，则需要配合@Named；</p>
+</li>
+</ol>
+<h3 id="4-4-总结"><a href="#4-4-总结" class="headerlink" title="4.4 总结"></a>4.4 总结</h3><p>1、@Autowired是Spring自带的，@Resource是JSR250规范实现的，@Inject是JSR330规范实现的</p>
+<p>2、@Autowired、@Inject用法基本一样，不同的是@Inject没有一个request属性</p>
+<p>3、@Autowired、@Inject是默认按照类型匹配的，@Resource是按照名称匹配的</p>
+<p>4、@Autowired如果需要按照名称匹配需要和@Qualifier一起使用，@Inject和@Name一起使用，@Resource则通过name进行指定</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoyuge5201.github.io/spring-injection/" title="Spring注入方式" target="_blank" rel="external">https://xiaoyuge5201.github.io/spring-injection/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！本博客如有侵权，请联系删除！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
+        <div>致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/service-locator-pattern/" title="服务定位模式 Service Locator Pattern"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2023 小余哥|猿无忧
+        
+<!--         <div class="publishby"> -->
+<!--         	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+<!--         </div> -->
+        <br>
+        <a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2021000267号-2</a>
+    </div>
+</footer>
+  <script src="/js/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:xiaoyuge5201.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+<div id="go-top">
+    </div>
+        <style type="text/css">
+        #go-top {
+            width:32px;
+            height:32px;
+            position:relative;
+            border-radius:2px;
+            position:fixed;
+            right:10px;
+            bottom:100px;
+            cursor:pointer;
+            display:none;
+            z-index:10;
+        }
+        #go-top:after {
+            content:url("/images/ico-to-top.png");
+            position:absolute;
+            left:0;
+            width: 32px;
+            height: 32px;
+            background-size: contain;
+        }
+
+        </style>
+        <script>
+            $(function() {
+                var o = $("#go-top");
+                $(window).scroll(function() {
+                    //监听滚动事件
+                    300 < document.documentElement.scrollTop  ? o.show(300) : o.hide(200);
+                })
+                 //回到顶部
+                 $("#go-top").click(function() {
+                    return $("html,body").animate({ scrollTop: 0 })
+                 })
+            })
+        </script>
+
+
+   <!--  -->
+  <style>
+    .copy-btn {
+          display: inline-block;
+          padding: 6px 12px;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 20px;
+          color: #333;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          background-color: #eee;
+          background-image: linear-gradient(#fcfcfc, #eee);
+          border: 1px solid #d5d5d5;
+          border-radius: 3px;
+          user-select: none;
+          outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+          transition: opacity .3s ease-in-out;
+          opacity: 0;
+          padding: 2px 10px;
+          position: absolute;
+          right: 4px;
+          color: #4a4886;
+          top: 3px;
+          z-index: 10;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+        .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    addLoadEvent(()=>{
+      $('.highlight').each(function (i, e) {
+        var $wrap = $('<div>').addClass('highlight-wrap')
+        $(e).after($wrap)
+        $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+          var code = $(this).parent().find(".code")[0].innerText
+          
+              code += ""
+          
+          var ta = document.createElement('textarea')
+          document.body.appendChild(ta)
+          ta.style.position = 'absolute'
+          ta.style.top = '0px'
+          ta.style.left = '0px'
+          ta.value = code
+          ta.select()
+          ta.focus()
+          var result = document.execCommand('copy')
+          document.body.removeChild(ta)
+          
+            if(result)$(this).text('复制成功')
+            else $(this).text('复制失败')
+          
+          $(this).blur()
+        })).on('mouseleave', function (e) {
+          var $b = $(this).find('.copy-btn')
+          setTimeout(function () {
+            $b.text('Copy')
+          }, 300)
+        }).append(e)
+      })
+    })
+  </script>
+<!--  -->
+</body>
+</html>
