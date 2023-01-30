@@ -15,8 +15,27 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Mon, 30 Jan 2023 13:41:10 GMT</pubDate>
+    <pubDate>Mon, 30 Jan 2023 15:00:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Magic-api HTTP API接口开发框架</title>
+      <link>https://xiaoyuge5201.github.io/magic-api/</link>
+      <guid>https://xiaoyuge5201.github.io/magic-api/</guid>
+      <pubDate>Mon, 30 Jan 2023 14:57:56 GMT</pubDate>
+      
+      <description>博客被加密了, 请输入密码查看.</description>
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
     
     <item>
       <title>MyPerf4J一个高性能、无侵入的Java性能监控和统计工具</title>
