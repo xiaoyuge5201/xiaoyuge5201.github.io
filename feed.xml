@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 29 Jan 2023 12:50:05 GMT</pubDate>
+    <pubDate>Mon, 30 Jan 2023 13:41:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>MyPerf4J一个高性能、无侵入的Java性能监控和统计工具</title>
+      <link>https://xiaoyuge5201.github.io/myperf4j/</link>
+      <guid>https://xiaoyuge5201.github.io/myperf4j/</guid>
+      <pubDate>Fri, 20 Jan 2023 14:12:23 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h2 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1 简介&quot;&gt;&lt;/a&gt;1 简介&lt;/h2&gt;</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/Monitor/">Monitor</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
     
     <item>
       <title>Nginx版本升级流程</title>
@@ -24,7 +48,13 @@
       <guid>https://xiaoyuge5201.github.io/nginx-upgrade/</guid>
       <pubDate>Wed, 18 Jan 2023 12:07:35 GMT</pubDate>
       
-      <description>博客被加密了, 请输入密码查看.</description>
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;旨在说明版本升级流程步骤，测试环境为nginx1.11.1升级至1.22.0稳定版本，目的是解决Nginx&amp;lt;=1</description>
+        
       
       
       
