@@ -18,12 +18,12 @@
   
   
   <title>springCloud之FeignClient访问微服务接口缓慢 | 小余哥</title>
-  <meta name="description" content="问题描述逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：程序启动第一次访问初始化1.2秒左右，还可以理解。但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。 原因排查1查看连接查实的接口发现接口调用的是这个地址，其实是别人启动项">
+  <meta name="description" content="问题描述 逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为： 程序启动第一次访问初始化1.2秒左右，还可以理解。 但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。 但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。  原因排查1 查看连接查实的接口  发现接口调用的是这个地址">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springCloud之FeignClient访问微服务接口缓慢">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/bug-sprigCloud/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="问题描述逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：程序启动第一次访问初始化1.2秒左右，还可以理解。但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。 原因排查1查看连接查实的接口发现接口调用的是这个地址，其实是别人启动项">
+<meta property="og:description" content="问题描述 逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为： 程序启动第一次访问初始化1.2秒左右，还可以理解。 但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。 但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。  原因排查1 查看连接查实的接口  发现接口调用的是这个地址">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/02.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/01.png">
@@ -434,11 +434,21 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：<br>程序启动第一次访问初始化1.2秒左右，还可以理解。<br>但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。<br>但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。</p>
-<h3 id="原因排查1"><a href="#原因排查1" class="headerlink" title="原因排查1"></a>原因排查1</h3><p>查看连接查实的接口<br><img src="/bug-sprigCloud/02.png" alt="请求缓慢2"><br>发现接口调用的是这个地址，其实是别人启动项目的时候吧自己的ip注册到了eureka注册中心，导致接口有时候走的是getway，有时候又是走的别人的接口</p>
+        <h3 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h3>
+<p>逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：<br>
+程序启动第一次访问初始化1.2秒左右，还可以理解。<br>
+但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。<br>
+但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。</p>
+<h3 id="原因排查1"><a class="markdownIt-Anchor" href="#原因排查1"></a> 原因排查1</h3>
+<p>查看连接查实的接口<br>
+<img src="/bug-sprigCloud/02.png" alt="请求缓慢2"><br>
+发现接口调用的是这个地址，其实是别人启动项目的时候吧自己的ip注册到了eureka注册中心，导致接口有时候走的是getway，有时候又是走的别人的接口</p>
 <p>解决方法：eureka.client.register-with-eureka 为false  这样就不会注册到eureka注册中心了</p>
-<h3 id="原因排查2"><a href="#原因排查2" class="headerlink" title="原因排查2"></a>原因排查2</h3><ol>
-<li>查看日志<br> <img src="/bug-sprigCloud/01.png" alt="请求缓慢"><br>查看是否是hystrix 配置的时间小于了ribbon的时间</li>
+<h3 id="原因排查2"><a class="markdownIt-Anchor" href="#原因排查2"></a> 原因排查2</h3>
+<ol>
+<li>查看日志<br>
+<img src="/bug-sprigCloud/01.png" alt="请求缓慢"><br>
+查看是否是hystrix 配置的时间小于了ribbon的时间</li>
 </ol>
 
       
