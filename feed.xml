@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 12 Feb 2023 08:22:37 GMT</pubDate>
+    <pubDate>Sun, 12 Feb 2023 13:48:46 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>如何停止一个正在运行的线程</title>
+      <link>https://xiaoyuge5201.github.io/thread-stop/</link>
+      <guid>https://xiaoyuge5201.github.io/thread-stop/</guid>
+      <pubDate>Tue, 07 Feb 2023 09:14:29 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/thread/">thread</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
     
     <item>
       <title>HashMap的底层原理</title>
@@ -24,7 +48,12 @@
       <guid>https://xiaoyuge5201.github.io/hashmap/</guid>
       <pubDate>Sun, 05 Feb 2023 13:13:51 GMT</pubDate>
       
-      <description>博客被加密了, 请输入密码查看.</description>
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1. 简介&quot;&gt;&lt;/a&gt;1. 简介&lt;/h</description>
+        
       
       
       
