@@ -2845,10 +2845,10 @@ Spring 团队提倡使用基于构造方法的注入，因为这样一方面可�
 <p><strong>总结：建议使用“抛异常”的方法来实现线程的停止，因为在catch块中还可以将异常向上抛，使线程停止事件得以传播</strong>。</p>
 ]]></content>
       <categories>
-        <category>thread</category>
+        <category>java</category>
       </categories>
       <tags>
-        <tag>java</tag>
+        <tag>thread</tag>
       </tags>
   </entry>
   <entry>

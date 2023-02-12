@@ -15,7 +15,7 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 12 Feb 2023 13:48:46 GMT</pubDate>
+    <pubDate>Sun, 12 Feb 2023 13:50:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -34,10 +34,10 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/thread/">thread</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/thread/">thread</category>
       
       
     </item>
