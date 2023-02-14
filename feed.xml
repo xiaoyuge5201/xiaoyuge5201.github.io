@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 12 Feb 2023 13:50:00 GMT</pubDate>
+    <pubDate>Tue, 14 Feb 2023 14:38:17 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Spring中9种经典设计模式</title>
+      <link>https://xiaoyuge5201.github.io/spring-design-pattern/</link>
+      <guid>https://xiaoyuge5201.github.io/spring-design-pattern/</guid>
+      <pubDate>Sun, 12 Feb 2023 13:51:22 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h3&gt;&lt;p&gt;&lt;stro</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/spring/">spring</category>
+      
+      
+    </item>
     
     <item>
       <title>如何停止一个正在运行的线程</title>
