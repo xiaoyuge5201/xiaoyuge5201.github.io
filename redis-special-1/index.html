@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Redis 5大数据类型 | 小余哥</title>
+  <meta name="description" content="1. 前言这里说的数据类型是value的数据类型，key的类型都是字符串。 5种数据类型：  字符串String 列表List 集合Set 哈希表 Hash 有序集合Zset  Redis 常用数据类型操作命令：  1. Redis键（key) keys * : 查看当前库所有的key exists key : 判断某个key是否存在 type key ： 查看key的类型 del key：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis 5大数据类型">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/redis-special-1/index.html">
+<meta property="og:site_name" content="小余哥|猿无忧">
+<meta property="og:description" content="1. 前言这里说的数据类型是value的数据类型，key的类型都是字符串。 5种数据类型：  字符串String 列表List 集合Set 哈希表 Hash 有序集合Zset  Redis 常用数据类型操作命令：  1. Redis键（key) keys * : 查看当前库所有的key exists key : 判断某个key是否存在 type key ： 查看key的类型 del key：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://redis.cn/commands.html">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-1/1.png">
+<meta property="article:published_time" content="2023-02-19T08:57:18.000Z">
+<meta property="article:modified_time" content="2023-02-19T13:25:56.404Z">
+<meta property="article:author" content="小余哥|猿无忧">
+<meta property="article:tag" content="redis专题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://redis.cn/commands.html">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/redis-special-1/index.html">
+  
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+</head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shanghai, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>喜欢就争取，得到就珍惜，错过就忘记</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Monitor/">Monitor</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/apache/">apache</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E6%BA%90/">开源</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canal/" rel="tag">Canal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ClassLoader/" rel="tag">ClassLoader</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ELK/" rel="tag">ELK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx%E4%B8%93%E9%A2%98/" rel="tag">Nginx专题</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringCloud/" rel="tag">SpringCloud</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UML/" rel="tag">UML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/" rel="tag">algorithm</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab/" rel="tag">gitlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/interview/" rel="tag">interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ip/" rel="tag">ip</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/" rel="tag">jdk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jenkins/" rel="tag">jenkins</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jstack/" rel="tag">jstack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kafka/" rel="tag">kafka</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lock/" rel="tag">lock</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/" rel="tag">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mycat/" rel="tag">mycat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rabbitMQ/" rel="tag">rabbitMQ</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis%E4%B8%93%E9%A2%98/" rel="tag">redis专题</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rocketmq/" rel="tag">rocketmq</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shutdown/" rel="tag">shutdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/" rel="tag">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swagger/" rel="tag">swagger</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/thread/" rel="tag">thread</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tidb/" rel="tag">tidb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" rel="tag">内存溢出</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" rel="tag">内部类</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" rel="tag">守护线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">消息中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E5%90%88/" rel="tag">集合</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Apache/" style="font-size: 13.14px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.14px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.14px;">Linux</a> <a href="/tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.71px;">Nginx专题</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.43px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.29px;">hexo</a> <a href="/tags/interview/" style="font-size: 13px;">interview</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.29px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.14px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 13.86px;">mysql</a> <a href="/tags/rabbitMQ/" style="font-size: 13.14px;">rabbitMQ</a> <a href="/tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.43px;">redis专题</a> <a href="/tags/rocketmq/" style="font-size: 13.14px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.29px;">springboot</a> <a href="/tags/sql/" style="font-size: 13px;">sql</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.57px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.14px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.14px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.14px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">二月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">十月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">十二月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">七月 2021</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/redis-special-1/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/redis/">redis</a>
+              </p>
+              <p class="item-title">
+                <a href="/redis-special-1/" class="title">Redis 5大数据类型</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-19T08:57:18.000Z" itemprop="datePublished">2023-02-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/nginx-session-consistency/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/nginx/">nginx</a>
+              </p>
+              <p class="item-title">
+                <a href="/nginx-session-consistency/" class="title">负载均衡Nginx Session 一致性</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-19T06:40:23.000Z" itemprop="datePublished">2023-02-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/spring-design-pattern/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/spring-design-pattern/" class="title">Spring中9种经典设计模式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-12T13:51:22.000Z" itemprop="datePublished">2023-02-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/thread-stop/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/thread-stop/" class="title">如何停止一个正在运行的线程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-07T09:14:29.000Z" itemprop="datePublished">2023-02-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/hashmap/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+              </p>
+              <p class="item-title">
+                <a href="/hashmap/" class="title">HashMap的底层原理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-05T13:13:51.000Z" itemprop="datePublished">2023-02-05</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-redis-special-1" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redis 5大数据类型
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/redis-special-1/" class="article-date">
+	  <time datetime="2023-02-19T08:57:18.000Z" itemprop="datePublished">2023-02-19</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/redis%E4%B8%93%E9%A2%98/" rel="tag">redis专题</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/redis-special-1/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="/css/content.css">
+
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><p>这里说的数据类型是value的数据类型，key的类型都是字符串。</p>
+<p>5种数据类型：</p>
+<ul>
+<li><a href="#string">字符串String</a></li>
+<li><a href="#list">列表List</a></li>
+<li><a href="#set">集合Set</a></li>
+<li><a href="#hash">哈希表 Hash</a></li>
+<li><a href="#zset">有序集合Zset</a></li>
+</ul>
+<p>Redis 常用数据类型操作命令： <img src="http://redis.cn/commands.html" alt="Redis命令中心"></p>
+<h3 id="1-Redis键（key"><a href="#1-Redis键（key" class="headerlink" title="1. Redis键（key)"></a>1. Redis键（key)</h3><ul>
+<li>keys * : 查看当前库所有的key</li>
+<li>exists key : 判断某个key是否存在</li>
+<li>type key ： 查看key的类型</li>
+<li>del key： 删除指定的key数据</li>
+<li>unlink key : 根据value删除非阻塞删除，仅仅将keys从keyspace元数据中删除，真正的删除会在后续异步中国呢操作</li>
+<li>expire key 10: 设置key的有效事件为10秒</li>
+<li>ttl key：查看指定的key还有多少秒过期，-1：表示永不过期，-2：表示已过期</li>
+<li>select dbindex：切换数据库【0-15】，默认为0</li>
+<li>dbsize：查看当前数据库key的数量</li>
+<li>flushdb：清空当前库</li>
+<li>flushall：通杀全部库</li>
+</ul>
+<h3 id="2-字符串String"><a href="#2-字符串String" class="headerlink" title="2. 字符串String"></a>2. <span id="string">字符串String</span></h3><p>String是Redis最基本的类型，可以理解为和Memcached一样的类型，一个key 对应一个value。</p>
+<p>String类型是二进制，意味着可以包含任何数据，比如jpg图片或者序列化对象。一个Redis字符串value最多可以是512M</p>
+<h4 id="2-1-常用命令"><a href="#2-1-常用命令" class="headerlink" title="2.1 常用命令"></a>2.1 常用命令</h4><ol>
+<li><p><strong>set</strong> 添加键值对</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set key value [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>NX：当数据库中key不存在时，可以将key-value添加到数据库</li>
+<li>XX：当数据库中key存在时，可以将key-value添加数据库，与NX参数互斥</li>
+<li>EX：key的超时秒数</li>
+<li>PX：key的超时毫秒数，与EX互斥</li>
+<li>value中若包含空格、特殊字符，需用双引号包裹</li>
+</ul>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set xiaoyuge 180 NX </span><br><span class="line">OK</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>get</strong> 获取值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get &lt;key&gt;</span><br></pre></td></tr></table></figure>
+<p> 示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; get xiaoyuge</span><br><span class="line">&quot;180&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>append</strong> 追加值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">append &lt;key&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将给定的value追加到原值的末尾。</p>
+</blockquote>
+<p> 示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set xiaoyuge 180</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get xiaoyuge</span><br><span class="line">&quot;180&quot;</span><br><span class="line">127.0.0.1:6379&gt; append xiaoyuge cm</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; get xiaoyuge</span><br><span class="line">&quot;180cm&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>strlen</strong> 获取值的长度 </p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strlen &lt;key&gt;</span><br></pre></td></tr></table></figure>
+<p> 示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; strlen xiaoyuge</span><br><span class="line">(integer) 5</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>setnx</strong> key不存在时，设置key的值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setnx &lt;key&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
+<p> 示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setnx ygb cool      ## ygb不存在，返回1，表示设置成功</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; setnx ygb cool      ## 再次通过setnx设置ygb，由于已经存在了，所以设置失败，返回0</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure></li>
+<li><p><strong>incr</strong> 原子递增1</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">incr &lt;key&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将key中存储的值增加1， 只能对数值操作，如果key不存在，则会新建一个，值为1</p>
+</blockquote>
+<p> 示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb #清空db，方便测试</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set age 18 #age值为18</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; incr age #age增加1，返回19</span><br><span class="line">(integer) 19</span><br><span class="line">127.0.0.1:6379&gt; get age #获取age的值</span><br><span class="line">&quot;19&quot;</span><br><span class="line">127.0.0.1:6379&gt; incr salary #salary不存在，自动创建一个，值为1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; get salary #获取salary的值</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>decr</strong> 原子递减1</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">decr &lt;key&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将key中存储的值减1，只能对数值操作，如果为空，新增值为-1</p>
+</blockquote>
+<p> 示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set age 18</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get age</span><br><span class="line">&quot;18&quot;</span><br><span class="line">127.0.0.1:6379&gt; decr age</span><br><span class="line">(integer) 17</span><br><span class="line">127.0.0.1:6379&gt; keys age1</span><br><span class="line">(empty array)</span><br><span class="line">127.0.0.1:6379&gt; decr age1</span><br><span class="line">(integer) -1</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>incrby/decrby</strong> 递增或递减指定的数字</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">incrby &lt;key&gt; &lt;步长&gt;</span><br><span class="line">decrby &lt;key&gt; &lt;步长&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将key中存储的数字值递增指定的步长，若key不存在，则相当于在原值为0的值上递增指定的步长。</p>
+</blockquote>
+<p> 示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; incrby age 18</span><br><span class="line">(integer) 18</span><br><span class="line">127.0.0.1:6379&gt; decrby age 2</span><br><span class="line">(integer) 16</span><br><span class="line">127.0.0.1:6379&gt; get age</span><br><span class="line">&quot;16&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>mset</strong> 同时设置多个key-value</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mset &lt;key1&gt; &lt;value1&gt; &lt;key2&gt; &lt;value2&gt; ...</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置name = xiaoyuge, age = 18</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 127.0.0.1:6379&gt; mset name xiaoyuge age 18</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>mget</strong> 获取多个key对应的值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mget &lt;key1&gt; &lt;key2&gt; ....</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例</span></span><br><span class="line">127.0.0.1:6379&gt; mget name age</span><br><span class="line"><span class="meta">#</span><span class="bash">1) <span class="string">&quot;xiaoyuge&quot;</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">2) <span class="string">&quot;18&quot;</span></span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>msetnx</strong> 当多个key都不存在时，则设置成功</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msetnx &lt;key1&gt; &lt;value1&gt; &lt;key2&gt; &lt;value2&gt; ...</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原子性，要么都成功，或者都失败</p>
+</blockquote>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb   #清空</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k1 v1  #先设置k1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; msetnx k1 v1 k2 v2  #当k1和k2都不存在，同时设置k1,k2,由于k1已经存在，所以操作失败</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; mget k1 k2    # 获取k1、k2， k2不存在</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) (nil)</span><br><span class="line">127.0.0.1:6379&gt; msetnx k2 v2 k3 v3  #当k2和k3都不存在，同时设置k2,k3，设置成功</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; mget k2 k3    # 获取k2、k3</span><br><span class="line">1) &quot;v2&quot;</span><br><span class="line">2) &quot;v3&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>getrange</strong> 获取值的范围，类似于Java的substring</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getrange key &lt;start&gt; &lt;end&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>获取[start， end]之间的字符，返回为字符串</p>
+</blockquote>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set k1 xiaoyuge</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; getrange k1 0 4</span><br><span class="line">&quot;xiaoy&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>setrange</strong> 覆盖自定位置的值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setrange &lt;key&gt; &lt;start&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从 start 位置开始覆盖，覆盖的长度为value的长度， 总长度不变</p>
+</blockquote>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;xiaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; setrange k1 0 nb</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;nbaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;nbaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; setrange k1 0 xiao</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;xiaoyuge&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>setex</strong> 设置键值&amp;过期时间(秒)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setex &lt;key&gt; &lt;过期时间s&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setex k1 120 v1 #设置k1的值为v1，有效期120秒</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get k1      #获取k1的值</span><br><span class="line">&quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; ttl k1      #获取k1还有多少秒失效</span><br><span class="line">(integer) 113</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>getset</strong> 以新换旧，设置新值同时返回旧值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getset &lt;key&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set name xiaoyuge         #设置name为xiaoyuge</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; getset name xiaoyuge666   #设置name为xiaoyuge666，返回name的旧值</span><br><span class="line">&quot;xiaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; getset age 18             #设置age为18，age未设置过，返回age的旧值为null</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get name                  #获取现在的name，返回xiaoyuge666</span><br><span class="line">&quot;xiaoyuge666&quot;</span><br><span class="line">127.0.0.1:6379&gt; get age                   #获取age</span><br><span class="line">&quot;18&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="2-2-数据结构"><a href="#2-2-数据结构" class="headerlink" title="2.2 数据结构"></a>2.2 数据结构</h4><p>String的数据结构为简单动态字符串(Simple Dynamic String,简写SDS)。是可以修改的字符串，内部结构类似于Java中的ArrayList，采用分配冗余空间的方式来减少内存的频繁分配。</p>
+<p><img src="/redis-special-1/1.png"></p>
+<p>如图所示，内部为当前字符串实际分配的空间capacity一般要高于实际字符串长度len。当字符串长度小于1M时，扩容都是加倍现有的空间，如果超过1M，扩容时一次会多扩容1M的空间</p>
+<p><strong>要注意的是字符串最大长度为512M</strong>。</p>
+<h3 id="2-列表List"><a href="#2-列表List" class="headerlink" title="2. 列表List"></a>2. <span id="list">列表List</span></h3>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoyuge5201.github.io/redis-special-1/" title="Redis 5大数据类型" target="_blank" rel="external">https://xiaoyuge5201.github.io/redis-special-1/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！本博客如有侵权，请联系删除！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
+        <div>致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/nginx-session-consistency/" title="负载均衡Nginx Session 一致性"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2023 小余哥|猿无忧
+        
+<!--         <div class="publishby"> -->
+<!--         	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+<!--         </div> -->
+        <br>
+        <a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2021000267号-2</a>
+    </div>
+</footer>
+  <script src="/js/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:xiaoyuge5201.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+<div id="go-top">
+    </div>
+        <style type="text/css">
+        #go-top {
+            width:32px;
+            height:32px;
+            position:relative;
+            border-radius:2px;
+            position:fixed;
+            right:10px;
+            bottom:100px;
+            cursor:pointer;
+            display:none;
+            z-index:10;
+        }
+        #go-top:after {
+            content:url("/images/ico-to-top.png");
+            position:absolute;
+            left:0;
+            width: 32px;
+            height: 32px;
+            background-size: contain;
+        }
+
+        </style>
+        <script>
+            $(function() {
+                var o = $("#go-top");
+                $(window).scroll(function() {
+                    //监听滚动事件
+                    300 < document.documentElement.scrollTop  ? o.show(300) : o.hide(200);
+                })
+                 //回到顶部
+                 $("#go-top").click(function() {
+                    return $("html,body").animate({ scrollTop: 0 })
+                 })
+            })
+        </script>
+
+
+   <!--  -->
+  <style>
+    .copy-btn {
+          display: inline-block;
+          padding: 6px 12px;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 20px;
+          color: #333;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          background-color: #eee;
+          background-image: linear-gradient(#fcfcfc, #eee);
+          border: 1px solid #d5d5d5;
+          border-radius: 3px;
+          user-select: none;
+          outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+          transition: opacity .3s ease-in-out;
+          opacity: 0;
+          padding: 2px 10px;
+          position: absolute;
+          right: 4px;
+          color: #4a4886;
+          top: 3px;
+          z-index: 10;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+        .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    addLoadEvent(()=>{
+      $('.highlight').each(function (i, e) {
+        var $wrap = $('<div>').addClass('highlight-wrap')
+        $(e).after($wrap)
+        $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+          var code = $(this).parent().find(".code")[0].innerText
+          
+              code += ""
+          
+          var ta = document.createElement('textarea')
+          document.body.appendChild(ta)
+          ta.style.position = 'absolute'
+          ta.style.top = '0px'
+          ta.style.left = '0px'
+          ta.value = code
+          ta.select()
+          ta.focus()
+          var result = document.execCommand('copy')
+          document.body.removeChild(ta)
+          
+            if(result)$(this).text('复制成功')
+            else $(this).text('复制失败')
+          
+          $(this).blur()
+        })).on('mouseleave', function (e) {
+          var $b = $(this).find('.copy-btn')
+          setTimeout(function () {
+            $b.text('Copy')
+          }, 300)
+        }).append(e)
+      })
+    })
+  </script>
+<!--  -->
+</body>
+</html>
