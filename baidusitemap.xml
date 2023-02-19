@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xiaoyuge5201.github.io/nginx-session-consistency/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/nginx-upgrade/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/nginx-03/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/nginx-md/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/nginx-02/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/nginx-04/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/redis_install/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/redis-sentinel/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/redis-usage-scenario/</loc>
+    <lastmod>2023-02-19</lastmod>
+  </url>
+  <url>
     <loc>https://xiaoyuge5201.github.io/spring-design-pattern/</loc>
     <lastmod>2023-02-18</lastmod>
   </url>
@@ -27,10 +63,6 @@
   <url>
     <loc>https://xiaoyuge5201.github.io/myperf4j/</loc>
     <lastmod>2023-01-30</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/nginx-upgrade/</loc>
-    <lastmod>2023-01-29</lastmod>
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/spring-injection/</loc>
@@ -78,10 +110,6 @@
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/mybatis-batch-insert/</loc>
-    <lastmod>2022-12-11</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/nginx-02/</loc>
     <lastmod>2022-12-11</lastmod>
   </url>
   <url>
@@ -161,10 +189,6 @@
     <lastmod>2022-12-04</lastmod>
   </url>
   <url>
-    <loc>https://xiaoyuge5201.github.io/redis-sentinel/</loc>
-    <lastmod>2022-12-04</lastmod>
-  </url>
-  <url>
     <loc>https://xiaoyuge5201.github.io/rocketmq-colony-install/</loc>
     <lastmod>2022-12-04</lastmod>
   </url>
@@ -197,10 +221,6 @@
     <lastmod>2022-12-01</lastmod>
   </url>
   <url>
-    <loc>https://xiaoyuge5201.github.io/redis_install/</loc>
-    <lastmod>2022-11-26</lastmod>
-  </url>
-  <url>
     <loc>https://xiaoyuge5201.github.io/locksupport/</loc>
     <lastmod>2022-11-06</lastmod>
   </url>
@@ -214,18 +234,6 @@
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/docker-nginx/</loc>
-    <lastmod>2022-10-30</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/nginx-04/</loc>
-    <lastmod>2022-10-30</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/nginx-md/</loc>
-    <lastmod>2022-10-30</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/nginx-03/</loc>
     <lastmod>2022-10-30</lastmod>
   </url>
   <url>
@@ -361,19 +369,11 @@
     <lastmod>2022-03-29</lastmod>
   </url>
   <url>
-    <loc>https://xiaoyuge5201.github.io/redis-usage-scenario/</loc>
-    <lastmod>2022-03-27</lastmod>
-  </url>
-  <url>
     <loc>https://xiaoyuge5201.github.io/shutdown/</loc>
     <lastmod>2022-03-27</lastmod>
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/lock01/</loc>
-    <lastmod>2022-03-27</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/cache-consistency/</loc>
     <lastmod>2022-03-27</lastmod>
   </url>
   <url>

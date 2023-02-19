@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sat, 18 Feb 2023 03:09:48 GMT</pubDate>
+    <pubDate>Sun, 19 Feb 2023 07:05:06 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>负载均衡Nginx Session 一致性</title>
+      <link>https://xiaoyuge5201.github.io/nginx-session-consistency/</link>
+      <guid>https://xiaoyuge5201.github.io/nginx-session-consistency/</guid>
+      <pubDate>Sun, 19 Feb 2023 06:40:23 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;HTTPS请求跳转&quot;&gt;&lt;a href=&quot;#HTTPS请求跳转&quot; class=&quot;headerlink&quot; title=&quot;HTTPS请求跳转</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
+      
+      
+    </item>
     
     <item>
       <title>Spring中9种经典设计模式</title>
@@ -206,7 +230,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
       
       
     </item>
@@ -862,7 +886,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/redis/">redis</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/redis%E4%B8%93%E9%A2%98/">redis专题</category>
       
       
     </item>
@@ -1521,7 +1545,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
       
       
       <comments>https://xiaoyuge5201.github.io/nginx-04/#disqus_thread</comments>
@@ -1545,7 +1569,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
       
       
       <comments>https://xiaoyuge5201.github.io/nginx-03/#disqus_thread</comments>
@@ -1570,7 +1594,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
       
       
       <comments>https://xiaoyuge5201.github.io/nginx-02/#disqus_thread</comments>
@@ -1596,7 +1620,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/nginx/">nginx</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/nginx/">nginx</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
       
       
       <comments>https://xiaoyuge5201.github.io/nginx-md/#disqus_thread</comments>
@@ -1996,7 +2020,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/redis/">redis</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/redis%E4%B8%93%E9%A2%98/">redis专题</category>
       
       
       <comments>https://xiaoyuge5201.github.io/redis-usage-scenario/#disqus_thread</comments>
@@ -2024,25 +2048,6 @@
       
       
       <comments>https://xiaoyuge5201.github.io/mvcc/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>java缓存一致性问题</title>
-      <link>https://xiaoyuge5201.github.io/cache-consistency/</link>
-      <guid>https://xiaoyuge5201.github.io/cache-consistency/</guid>
-      <pubDate>Wed, 11 Aug 2021 05:31:52 GMT</pubDate>
-      
-      
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</category>
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/tags/redis/">redis</category>
-      
-      
-      <comments>https://xiaoyuge5201.github.io/cache-consistency/#disqus_thread</comments>
       
     </item>
     
@@ -2524,7 +2529,7 @@
       
         
         
-      <description>&lt;h5 id=&quot;1-安装gcc&quot;&gt;&lt;a href=&quot;#1-安装gcc&quot; class=&quot;headerlink&quot; title=&quot;1. 安装gcc&quot;&gt;&lt;/a&gt;1. 安装gcc&lt;/h5&gt;   &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c</description>
+      <description>&lt;h4 id=&quot;1-安装gcc&quot;&gt;&lt;a href=&quot;#1-安装gcc&quot; class=&quot;headerlink&quot; title=&quot;1. 安装gcc&quot;&gt;&lt;/a&gt;1. 安装gcc&lt;/h4&gt;   &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c</description>
         
       
       
@@ -2533,7 +2538,7 @@
       <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
-      <category domain="https://xiaoyuge5201.github.io/tags/redis/">redis</category>
+      <category domain="https://xiaoyuge5201.github.io/tags/redis%E4%B8%93%E9%A2%98/">redis专题</category>
       
       
       <comments>https://xiaoyuge5201.github.io/redis_install/#disqus_thread</comments>
