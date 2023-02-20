@@ -15,7 +15,7 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 19 Feb 2023 13:29:55 GMT</pubDate>
+    <pubDate>Mon, 20 Feb 2023 15:00:04 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -28,7 +28,7 @@
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
 
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
+&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;这里说的数</description>
         
       
       
@@ -2034,10 +2034,8 @@
       
         
         
-      <description>&lt;h2 id=&quot;1-缓存&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-缓存&quot;&gt;&lt;/a&gt; 1. 缓存&lt;/h2&gt;
-&lt;p&gt;String类型&lt;br&gt;
-例如：热点数据缓存、对象缓存、全页缓存可以提升热点数据的访问效率&lt;/p&gt;
-&lt;h2 id=&quot;2-数据共享分</description>
+      <description>&lt;h2 id=&quot;1-缓存&quot;&gt;&lt;a href=&quot;#1-缓存&quot; class=&quot;headerlink&quot; title=&quot;1. 缓存&quot;&gt;&lt;/a&gt;1. 缓存&lt;/h2&gt;&lt;p&gt;String类型&lt;br&gt;例如：热点数据缓存、对象缓存、全页缓存可以提升热点数据的访问效率&lt;/p&gt;
+&lt;h2 id=&quot;2-数</description>
         
       
       
@@ -2555,8 +2553,7 @@
       
         
         
-      <description>&lt;h4 id=&quot;1-安装gcc&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-安装gcc&quot;&gt;&lt;/a&gt; 1. 安装gcc&lt;/h4&gt;
-   &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu</description>
+      <description>&lt;h4 id=&quot;1-安装gcc&quot;&gt;&lt;a href=&quot;#1-安装gcc&quot; class=&quot;headerlink&quot; title=&quot;1. 安装gcc&quot;&gt;&lt;/a&gt;1. 安装gcc&lt;/h4&gt;   &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c</description>
         
       
       
