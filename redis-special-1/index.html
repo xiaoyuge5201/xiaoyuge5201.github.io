@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-1/2.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-1/3.png">
 <meta property="article:published_time" content="2023-02-19T08:57:18.000Z">
-<meta property="article:modified_time" content="2023-02-20T15:00:04.238Z">
+<meta property="article:modified_time" content="2023-02-21T14:20:29.583Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="redis专题">
 <meta name="twitter:card" content="summary">
@@ -454,7 +454,7 @@
 <li>type key ： 查看key的类型</li>
 <li>del key： 删除指定的key数据</li>
 <li>unlink key : 根据value删除非阻塞删除，仅仅将keys从keyspace元数据中删除，真正的删除会在后续异步中操作</li>
-<li>expire key 10: 设置key的有效事件为10秒</li>
+<li>expire key 10: 设置key的有效时间为10秒</li>
 <li>ttl key：查看指定的key还有多少秒过期，-1：表示永不过期，-2：表示已过期</li>
 <li>select dbindex：切换数据库【0-15】，默认为0</li>
 <li>dbsize：查看当前数据库key的数量</li>
@@ -646,6 +646,130 @@
 <p>因为普通的链表需要的附加指针空间太大，会比较浪费空间，比如这个列表里存储的只是int类型的书，结构上还需要2个额外的指针prev和next。</p>
 <p><img src="/redis-special-1/3.png"></p>
 <p><strong>redis将链表和ziplist结合起来组成了quicklist。也就是将多个ziplist使用双向指针串起来使用，这样既满足了快速的插入删除性能，又不会出现太大的空间冗余。</strong></p>
+<h3 id="3-集合Set"><a href="#3-集合Set" class="headerlink" title="3. 集合Set"></a>3. <span id="set">集合Set</span></h3><p>Redis set对外提供的功能与list类似，是一个列表的功能，特殊之处在于set可以自动去重</p>
+<p>set时String类型的无序集合，它的底层实际上时一个value为null的hash表，添加、删除、查找复杂度都是O(1)</p>
+<blockquote>
+<p>一个算法，如果时间复杂度是O(1)，那么随着数据的增加，查找数据的时间不变，也就是不管数据多少，查找时间都是一样的。</p>
+</blockquote>
+<h4 id="3-1-常用命令"><a href="#3-1-常用命令" class="headerlink" title="3.1 常用命令"></a>3.1 常用命令</h4><ol>
+<li><p><strong>sadd</strong> 添加一个或者多个元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sadd &lt;key&gt; &lt;value1&gt; &lt;value2&gt; ...</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例：</span></span><br><span class="line">127.0.0.1:6379&gt; sadd s1  v1 v2 v3</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure></li>
+<li><p><strong>smembers</strong>取出所有的元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">smembers &lt;key&gt;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例：</span></span><br><span class="line">127.0.0.1:6379&gt; smembers s1   #输出结果为无序</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v1&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>sismember</strong> 判断集合中是否存在某个值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sismember &lt;key&gt; &lt;value&gt;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">判断集合key是否包含元素value， 1：有， 0：没有</span></span><br><span class="line"><span class="meta">#</span><span class="bash">sismember: <span class="built_in">set</span> is member（是否是<span class="built_in">set</span>中的成员）</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>scard</strong> 返回集合中元素的个数</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scard &lt;key&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回集合key中元素个数，当key不存在返回0</p>
+</blockquote>
+</li>
+<li><p><strong>srem</strong> 删除多个元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">srem &lt;key&gt; &lt;member&gt; [member ...]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>移除集合key中的一个或多个member元素，不存在的元素会被忽略，当key不是集合类型，返回一个错误</p>
+<p>返回被成功移除的元素数量，不包括被忽略的元素</p>
+</blockquote>
+</li>
+<li><p><strong>spop</strong> 随机弹出多个值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spop &lt;key&gt; &lt;count&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>随机从key集合中弹出count个元素，count默认为1，返回被移除的元素</p>
+<p>当count大于元素集合个数的时候，弹出全部</p>
+<p>当key不存在或者空集时，返回nil</p>
+</blockquote>
+</li>
+<li><p><strong>srandmember</strong> 随机获取多个元素，不会从集合中删除</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">srandmember &lt;key&gt; &lt;count&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>从key指定的集合中随机返回count个元素，count可以不指定，默认值是1。</p>
+<p>srandmember 和 spop的区别： 都可以随机获取多个元素，srandmember 不会删除元素，而spop会删除元素。</p>
+<p>返回值: 1. 只提供 key 参数时，返回一个元素；如果集合为空，返回 nil 。 2. 如果提供了count参数，那么返回一个数组；如果集合为空，返回空数组。</p>
+</blockquote>
+</li>
+</ol>
+<ol start="8">
+<li><p><strong>smove</strong> 将某个元素从一个集合移到另一个集合</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smove &lt;source&gt; &lt;destination&gt; &lt;member&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将member元素从source集合移动到destination集合。</p>
+<p>smove是原子性操作,如果source集合不存在或者不保护指定的member元素，则smove命令不执行任何操作，仅返回0。<br>否则，member元素从source集合中移除，并添加到destination集合中去(destination集合不存在的话，会自动添加一个)</p>
+<p>当destination已经包含member元素，smove只是删除source中的member元素</p>
+<p>如果member被成功删除，返回1；如果member不是source集合成员，并且没有任何对destination的操作，那么返回0</p>
+</blockquote>
+</li>
+<li><p>*<em>sinter</em> 取多个集合的交集</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sinter key [key ...]</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例</span></span><br><span class="line">127.0.0.1:6379&gt; smembers s          #查询s集合的所有元素</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v4&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">127.0.0.1:6379&gt; sadd s2 v1 v2 v3    #集合s2添加三个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; smembers s2         #查询s2集合的所有元素</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v1&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">127.0.0.1:6379&gt; sinter s s2         #获取集合s s2的交集</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>sinterstore</strong> 将多个集合的交集放到一个新的集合中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sinterstore destination key [key ...]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个命令类似于sinter命令，但它将结果保存到 destination 集合，而不是简单地返回结果集。 返回结果集中的成员数量。</p>
+</blockquote>
+</li>
+<li><p><strong>sunion</strong> 取多个集合的并集，自动去重</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sunion key [key ...]</span><br><span class="line"><span class="meta">#</span><span class="bash">示例：</span></span><br><span class="line">127.0.0.1:6379&gt; sunion s s2</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v3&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">4) &quot;v4&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>sunionstore</strong> 将多个集合的并集放到一个新的集合中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sinterstore destination key [key ...]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个命令类似于 sunion 命令，但它将结果保存到 destination 集合，而不是简单地返回结果集。 返回值:结果集中的成员数量。</p>
+</blockquote>
+</li>
+<li><p><strong>sdiff</strong> 取多个集合的差集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdiff key [key ...]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回一个集合的全部成员，该集合是所有给定集合之间的差集。 不存在的 key 被视为空集。</p>
+</blockquote>
+</li>
+<li><p><strong>sdiffstore</strong> 将多个集合的差集放到一个新的集合中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdiffstore destination key [key ...]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>这个命令类似于 sdiff 命令，但它将结果保存到 destination 集合，而不是简单地返回结果集。</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="3-2-数据结构"><a href="#3-2-数据结构" class="headerlink" title="3.2 数据结构"></a>3.2 数据结构</h4><p><strong>set数据机构是字典，字典是用hash表实现的。</strong></p>
+<p>Java中的hashSet的内部实现使用HashMap,只不过所有的value都指向同一个对象。</p>
+<p>Redis的set结构也是一样的，它的内部也使用hash结构，所有的value都指向同一个内部值。</p>
+<h3 id="4-哈希表-Hash"><a href="#4-哈希表-Hash" class="headerlink" title="4. 哈希表 Hash"></a>4. <span id="hash">哈希表 Hash</span></h3><p><strong>Redis hash是一个键值对集合</strong>。</p>
+<p>Redis hash是一个string类型的field和value的映射表，hash特别适合用于存储对象。 类似于java里面的Map&lt;String,Object&gt;</p>
+<h4 id="4-1-常用命令"><a href="#4-1-常用命令" class="headerlink" title="4.1 常用命令"></a>4.1 常用命令</h4><ol>
+<li><p><strong>hset</strong> 设置多个field值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> hset key field value [field value ...]</span><br><span class="line"></span><br><span class="line"> 127.0.0.1:6379&gt; hset set1 name xiaoyuge age 18 </span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将哈希表 key 中的域 field 的值设为 value 。 如果 key 不存在，一个新的哈希表被创建并进行 hset 操作。 如果域 field 已经存在于哈希表中，旧值将被覆盖。</p>
+<p>返回值： 如果 field 是哈希表中的一个新建域，并且值设置成功，返回 1 。 如果哈希表中域 field 已经存在且旧值已被新值覆盖，返回 0 。</p>
+</blockquote>
+</li>
+<li><p><strong>hget</strong> 获取指定field的值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hget &lt;key&gt; &lt;field&gt;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; hget set1 name</span><br><span class="line">&quot;xiaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; hget set1 age</span><br><span class="line">&quot;18&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>hgetall</strong> 返回hash表所有的fileld和value</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hgetall &lt;key&gt;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; hgetall set1</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;xiaoyuge&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;18&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>hexists</strong> 判断给定的field是否存在，1：存在，0：不存在</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexists key field</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看哈希表 key 中，给定域 field 是否存在。 返回值： 如果哈希表含有给定域，返回 1 。 如果哈希表不含有给定域，或 key 不存在，返回 0 。</p>
+</blockquote>
+</li>
+</ol>
+<ol start="5">
+<li><strong>hkeys</strong> 列出所有的filed <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hkeys key</span><br></pre></td></tr></table></figure></li>
+<li><strong>hvals</strong> 列出所有的value <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hvals key</span><br></pre></td></tr></table></figure></li>
+<li><strong>hlen</strong> 返回field的数量 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hlen key</span><br></pre></td></tr></table></figure></li>
+<li><strong>hincrby</strong> filed的值加上指定的增量 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hincrby key field increment</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>为哈希表 key 中的域 field 的值加上增量 increment 。 增量也可以为负数，相当于对给定域进行减法操作。 如果 key 不存在，一个新的哈希表被创建并执行 HINCRBY 命令。 如果域 field 不存在，那么在执行命令前，域的值被初始化为 0 。 对一个储存字符串值的域 field 执行 HINCRBY 命令将造成一个错误。</p>
+<p>返回值： 执行 hincrby 命令之后，哈希表 key 中域 field 的值。</p>
+</blockquote>
+ 示例： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hincrby set1 age 3</span><br><span class="line">(integer) 21</span><br><span class="line">127.0.0.1:6379&gt; hvals set1</span><br><span class="line">1) &quot;xiaoyuge&quot;</span><br><span class="line">2) &quot;21&quot;</span><br></pre></td></tr></table></figure></li>
+<li><strong>hsetnx</strong> 当filed不存在的时候，设置filed的值 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hsetnx key field value</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将哈希表 key 中的域 field 的值设置为 value ，当且仅当域 field 不存在。 若域 field 已经存在，该操作无效。 如果 key 不存在，一个新哈希表被创建并执行 hsetnx 命令。</p>
+<p>返回值： 设置成功，返回 1 。 如果给定域已经存在且没有操作被执行，返回 0</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="4-2-数据结构"><a href="#4-2-数据结构" class="headerlink" title="4.2 数据结构"></a>4.2 数据结构</h4><p>Hash类型对应的数据结构是2种：<strong>ziplist（压缩列表）</strong>，<strong>hashtable（哈希表）</strong>。</p>
+<p>当field-value长度较短个数较少时，使用ziplist，否则使用hashtable。</p>
 
       
     </div>
