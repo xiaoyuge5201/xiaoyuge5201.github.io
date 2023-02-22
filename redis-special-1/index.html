@@ -18,18 +18,21 @@
   
   
   <title>Redis 5大数据类型 | 小余哥</title>
-  <meta name="description" content="前言这里说的数据类型是value的数据类型，key的类型都是字符串。 5种数据类型：  字符串String 列表List 集合Set 哈希表 Hash 有序集合Zset  Redis 常用数据类型操作命令： Redis命令中心 Redis键（key)的相关命令：  keys * : 查看当前库所有的key exists key : 判断某个key是否存在 type key ： 查看key的类型">
+  <meta name="description" content="前言 这里说的数据类型是value的数据类型，key的类型都是字符串。 5种数据类型：  字符串String 列表List 集合Set 哈希表 Hash 有序集合Zset  Redis 常用数据类型操作命令： Redis命令中心 Redis键（key)的相关命令：  keys * : 查看当前库所有的key exists key : 判断某个key是否存在 type key ： 查看key的类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis 5大数据类型">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/redis-special-1/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="前言这里说的数据类型是value的数据类型，key的类型都是字符串。 5种数据类型：  字符串String 列表List 集合Set 哈希表 Hash 有序集合Zset  Redis 常用数据类型操作命令： Redis命令中心 Redis键（key)的相关命令：  keys * : 查看当前库所有的key exists key : 判断某个key是否存在 type key ： 查看key的类型">
+<meta property="og:description" content="前言 这里说的数据类型是value的数据类型，key的类型都是字符串。 5种数据类型：  字符串String 列表List 集合Set 哈希表 Hash 有序集合Zset  Redis 常用数据类型操作命令： Redis命令中心 Redis键（key)的相关命令：  keys * : 查看当前库所有的key exists key : 判断某个key是否存在 type key ： 查看key的类">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-1/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-1/2.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-1/3.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-1/4.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-1/5.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-1/6.png">
 <meta property="article:published_time" content="2023-02-19T08:57:18.000Z">
-<meta property="article:modified_time" content="2023-02-21T14:20:29.583Z">
+<meta property="article:modified_time" content="2023-02-22T13:53:09.180Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="redis专题">
 <meta name="twitter:card" content="summary">
@@ -436,8 +439,8 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这里说的数据类型是value的数据类型，key的类型都是字符串。</p>
+<h3 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h3>
+<p>这里说的数据类型是value的数据类型，key的类型都是字符串。</p>
 <p>5种数据类型：</p>
 <ol>
 <li><a href="#string">字符串String</a></li>
@@ -461,10 +464,13 @@
 <li>flushdb：清空当前库</li>
 <li>flushall：清空全部库</li>
 </ul>
-<h3 id="1-字符串String"><a href="#1-字符串String" class="headerlink" title="1. 字符串String"></a>1. <span id="string">字符串String</span></h3><p>String是Redis最基本的类型，可以理解为和Memcached一样的类型，一个key 对应一个value。</p>
+<h3 id="1-span-idstring字符串stringspan"><a class="markdownIt-Anchor" href="#1-span-idstring字符串stringspan"></a> 1. <span id="string">字符串String</span></h3>
+<p>String是Redis最基本的类型，可以理解为和Memcached一样的类型，一个key 对应一个value。</p>
 <p>String类型是二进制，意味着可以包含任何数据，比如jpg图片或者序列化对象。一个Redis字符串value最多可以是512M</p>
-<h4 id="1-1-常用命令"><a href="#1-1-常用命令" class="headerlink" title="1.1 常用命令"></a>1.1 常用命令</h4><ol>
-<li><p><strong>set</strong> 添加键值对</p>
+<h4 id="11-常用命令"><a class="markdownIt-Anchor" href="#11-常用命令"></a> 1.1 常用命令</h4>
+<ol>
+<li>
+<p><strong>set</strong>： 添加键值对</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set key value [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-timestamp|KEEPTTL] [NX|XX] [GET]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>NX：当数据库中key不存在时，可以将key-value添加到数据库</li>
@@ -473,205 +479,273 @@
 <li>PX：key的超时毫秒数，与EX互斥</li>
 <li>value中若包含空格、特殊字符，需用双引号包裹</li>
 </ul>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set xiaoyuge 180 NX </span><br><span class="line">OK</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>get</strong> 获取值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set xiaoyuge 180 NX </span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>get</strong>： 获取值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get &lt;key&gt;</span><br></pre></td></tr></table></figure>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; get xiaoyuge</span><br><span class="line">&quot;180&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>append</strong> 追加值</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; get xiaoyuge</span><br><span class="line">&quot;180&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>append</strong>： 追加值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">append &lt;key&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将给定的value追加到原值的末尾。</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set xiaoyuge 180</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get xiaoyuge</span><br><span class="line">&quot;180&quot;</span><br><span class="line">127.0.0.1:6379&gt; append xiaoyuge cm</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; get xiaoyuge</span><br><span class="line">&quot;180cm&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>strlen</strong> 获取值的长度 </p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set xiaoyuge 180</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get xiaoyuge</span><br><span class="line">&quot;180&quot;</span><br><span class="line">127.0.0.1:6379&gt; append xiaoyuge cm</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; get xiaoyuge</span><br><span class="line">&quot;180cm&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>strlen</strong>： 获取值的长度</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strlen &lt;key&gt;</span><br></pre></td></tr></table></figure>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; strlen xiaoyuge</span><br><span class="line">(integer) 8</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>setnx</strong> key不存在时，设置key的值</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; strlen xiaoyuge</span><br><span class="line">(integer) 8</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>setnx</strong>： key不存在时，设置key的值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setnx &lt;key&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setnx ygb cool      ## ygb不存在，返回1，表示设置成功</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; setnx ygb cool      ## 再次通过setnx设置ygb，由于已经存在了，所以设置失败，返回0</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure></li>
-<li><p><strong>incr</strong> 原子递增1</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setnx ygb cool      ## ygb不存在，返回1，表示设置成功</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; setnx ygb cool      ## 再次通过setnx设置ygb，由于已经存在了，所以设置失败，返回0</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>incr</strong>： 原子递增1</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">incr &lt;key&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将key中存储的值增加1， 只能对数值操作，如果key不存在，则会新建一个，值为1</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb #清空db，方便测试</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set age 18 #age值为18</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; incr age #age增加1，返回19</span><br><span class="line">(integer) 19</span><br><span class="line">127.0.0.1:6379&gt; get age #获取age的值</span><br><span class="line">&quot;19&quot;</span><br><span class="line">127.0.0.1:6379&gt; incr salary #salary不存在，自动创建一个，值为1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; get salary #获取salary的值</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>decr</strong> 原子递减1</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb #清空db，方便测试</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set age 18 #age值为18</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; incr age #age增加1，返回19</span><br><span class="line">(integer) 19</span><br><span class="line">127.0.0.1:6379&gt; get age #获取age的值</span><br><span class="line">&quot;19&quot;</span><br><span class="line">127.0.0.1:6379&gt; incr salary #salary不存在，自动创建一个，值为1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; get salary #获取salary的值</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>decr</strong>： 原子递减1</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">decr &lt;key&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将key中存储的值减1，只能对数值操作，如果为空，新增值为-1</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set age 18</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get age</span><br><span class="line">&quot;18&quot;</span><br><span class="line">127.0.0.1:6379&gt; decr age</span><br><span class="line">(integer) 17</span><br><span class="line">127.0.0.1:6379&gt; keys age1</span><br><span class="line">(empty array)</span><br><span class="line">127.0.0.1:6379&gt; decr age1</span><br><span class="line">(integer) -1</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>incrby/decrby</strong> 递增或递减指定的数字</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set age 18</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get age</span><br><span class="line">&quot;18&quot;</span><br><span class="line">127.0.0.1:6379&gt; decr age</span><br><span class="line">(integer) 17</span><br><span class="line">127.0.0.1:6379&gt; keys age1</span><br><span class="line">(empty array)</span><br><span class="line">127.0.0.1:6379&gt; decr age1</span><br><span class="line">(integer) -1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>incrby/decrby</strong>： 递增或递减指定的数字</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">incrby &lt;key&gt; &lt;步长&gt;</span><br><span class="line">decrby &lt;key&gt; &lt;步长&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将key中存储的数字值递增指定的步长，若key不存在，则相当于在原值为0的值上递增指定的步长。</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; incrby age 18</span><br><span class="line">(integer) 18</span><br><span class="line">127.0.0.1:6379&gt; decrby age 2</span><br><span class="line">(integer) 16</span><br><span class="line">127.0.0.1:6379&gt; get age</span><br><span class="line">&quot;16&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>mset</strong> 同时设置多个key-value</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mset &lt;key1&gt; &lt;value1&gt; &lt;key2&gt; &lt;value2&gt; ...</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置name = xiaoyuge, age = 18</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 127.0.0.1:6379&gt; mset name xiaoyuge age 18</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>mget</strong> 获取多个key对应的值</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mget &lt;key1&gt; &lt;key2&gt; ....</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例</span></span><br><span class="line">127.0.0.1:6379&gt; mget name age</span><br><span class="line"><span class="meta">#</span><span class="bash">1) <span class="string">&quot;xiaoyuge&quot;</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">2) <span class="string">&quot;18&quot;</span></span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>msetnx</strong> 当多个key都不存在时，则设置成功</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; incrby age 18</span><br><span class="line">(integer) 18</span><br><span class="line">127.0.0.1:6379&gt; decrby age 2</span><br><span class="line">(integer) 16</span><br><span class="line">127.0.0.1:6379&gt; get age</span><br><span class="line">&quot;16&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>mset</strong>： 同时设置多个key-value</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mset &lt;key1&gt; &lt;value1&gt; &lt;key2&gt; &lt;value2&gt; ...</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置name = xiaoyuge, age = 18</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 127.0.0.1:6379&gt; mset name xiaoyuge age 18</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>mget</strong>： 获取多个key对应的值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mget &lt;key1&gt; &lt;key2&gt; ....</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例</span></span><br><span class="line">127.0.0.1:6379&gt; mget name age</span><br><span class="line"><span class="meta">#</span><span class="bash">1) <span class="string">&quot;xiaoyuge&quot;</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">2) <span class="string">&quot;18&quot;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>msetnx</strong>： 当多个key都不存在时，则设置成功</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">msetnx &lt;key1&gt; &lt;value1&gt; &lt;key2&gt; &lt;value2&gt; ...</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>原子性，要么都成功，或者都失败</p>
 </blockquote>
 <p>示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb   #清空</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k1 v1  #先设置k1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; msetnx k1 v1 k2 v2  #当k1和k2都不存在，同时设置k1,k2,由于k1已经存在，所以操作失败</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; mget k1 k2    # 获取k1、k2， k2不存在</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) (nil)</span><br><span class="line">127.0.0.1:6379&gt; msetnx k2 v2 k3 v3  #当k2和k3都不存在，同时设置k2,k3，设置成功</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; mget k2 k3    # 获取k2、k3</span><br><span class="line">1) &quot;v2&quot;</span><br><span class="line">2) &quot;v3&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>getrange</strong> 获取值的范围，类似于Java的substring</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb   #清空</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set k1 v1  #先设置k1</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; msetnx k1 v1 k2 v2  #当k1和k2都不存在，同时设置k1,k2,由于k1已经存在，所以操作失败</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; mget k1 k2    # 获取k1、k2， k2不存在</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) (nil)</span><br><span class="line">127.0.0.1:6379&gt; msetnx k2 v2 k3 v3  #当k2和k3都不存在，同时设置k2,k3，设置成功</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; mget k2 k3    # 获取k2、k3</span><br><span class="line">1) &quot;v2&quot;</span><br><span class="line">2) &quot;v3&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>getrange</strong>： 获取值的范围，类似于Java的substring</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getrange key &lt;start&gt; &lt;end&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>获取[start， end]之间的字符，返回为字符串</p>
 </blockquote>
 <p>示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set k1 xiaoyuge</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; getrange k1 0 4</span><br><span class="line">&quot;xiaoy&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>setrange</strong> 覆盖自定位置的值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set k1 xiaoyuge</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; getrange k1 0 4</span><br><span class="line">&quot;xiaoy&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>setrange</strong>： 覆盖自定位置的值</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setrange &lt;key&gt; &lt;start&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>从 start 位置开始覆盖，覆盖的长度为value的长度， 总长度不变</p>
 </blockquote>
 <p>示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;xiaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; setrange k1 0 nb</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;nbaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;nbaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; setrange k1 0 xiao</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;xiaoyuge&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>setex</strong> 设置键值&amp;过期时间(秒)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;xiaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; setrange k1 0 nb</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;nbaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;nbaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; setrange k1 0 xiao</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; get k1</span><br><span class="line">&quot;xiaoyuge&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>setex</strong>： 设置键值&amp;过期时间(秒)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setex &lt;key&gt; &lt;过期时间s&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
 <p>示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setex k1 120 v1 #设置k1的值为v1，有效期120秒</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get k1      #获取k1的值</span><br><span class="line">&quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; ttl k1      #获取k1还有多少秒失效</span><br><span class="line">(integer) 113</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>getset</strong> 以新换旧，设置新值同时返回旧值</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setex k1 120 v1 #设置k1的值为v1，有效期120秒</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get k1      #获取k1的值</span><br><span class="line">&quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; ttl k1      #获取k1还有多少秒失效</span><br><span class="line">(integer) 113</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>getset</strong>： 以新换旧，设置新值同时返回旧值</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getset &lt;key&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
 <p>示例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set name xiaoyuge         #设置name为xiaoyuge</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; getset name xiaoyuge666   #设置name为xiaoyuge666，返回name的旧值</span><br><span class="line">&quot;xiaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; getset age 18             #设置age为18，age未设置过，返回age的旧值为null</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get name                  #获取现在的name，返回xiaoyuge666</span><br><span class="line">&quot;xiaoyuge666&quot;</span><br><span class="line">127.0.0.1:6379&gt; get age                   #获取age</span><br><span class="line">&quot;18&quot;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set name xiaoyuge         #设置name为xiaoyuge</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; getset name xiaoyuge666   #设置name为xiaoyuge666，返回name的旧值</span><br><span class="line">&quot;xiaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; getset age 18             #设置age为18，age未设置过，返回age的旧值为null</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get name                  #获取现在的name，返回xiaoyuge666</span><br><span class="line">&quot;xiaoyuge666&quot;</span><br><span class="line">127.0.0.1:6379&gt; get age                   #获取age</span><br><span class="line">&quot;18&quot;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h4 id="1-2-数据结构"><a href="#1-2-数据结构" class="headerlink" title="1.2 数据结构"></a>1.2 数据结构</h4><p>String的数据结构为简单动态字符串(Simple Dynamic String,简写SDS)。是可以修改的字符串，内部结构类似于Java中的ArrayList，<strong>采用分配冗余空间的方式来减少内存的频繁分配</strong>。</p>
-<p><img src="/redis-special-1/1.png"></p>
+<h4 id="12-数据结构"><a class="markdownIt-Anchor" href="#12-数据结构"></a> 1.2 数据结构</h4>
+<p>String的数据结构为简单动态字符串(Simple Dynamic String,简写SDS)。是可以修改的字符串，内部结构类似于Java中的ArrayList，<strong>采用分配冗余空间的方式来减少内存的频繁分配</strong>。</p>
+<p><img src="/redis-special-1/1.png" alt></p>
 <p>如图所示，内部为当前字符串实际分配的空间capacity，一般要高于实际字符串长度len。当字符串长度小于1M时，扩容都是加倍现有的空间，如果超过1M，扩容时一次会多扩容1M的空间</p>
 <p><strong>要注意的是字符串最大长度为512M</strong>。</p>
-<h3 id="2-列表List"><a href="#2-列表List" class="headerlink" title="2. 列表List"></a>2. <span id="list">列表List</span></h3><p>列表List是简单的字符串列表，按照插入顺序排序，添加元素时可以插入列表的头部或者尾部。</p>
-<p>它的底层实现实际上使用双向链表实现的，对两端的操作性能很高，通过索引下标操作中间节点性能会较差。<br><img src="/redis-special-1/2.png"></p>
-<h4 id="2-1-常用命令"><a href="#2-1-常用命令" class="headerlink" title="2.1 常用命令"></a>2.1 常用命令</h4><ol>
-<li><p><strong>lupsh/rpush</strong> 从左边或者右边插入一个或多个值</p>
+<h3 id="2-span-idlist列表listspan"><a class="markdownIt-Anchor" href="#2-span-idlist列表listspan"></a> 2. <span id="list">列表List</span></h3>
+<p>列表List是简单的字符串列表，按照插入顺序排序，添加元素时可以插入列表的头部或者尾部。</p>
+<p>它的底层实现实际上使用双向链表实现的，对两端的操作性能很高，通过索引下标操作中间节点性能会较差。<br>
+<img src="/redis-special-1/2.png" alt></p>
+<h4 id="21-常用命令"><a class="markdownIt-Anchor" href="#21-常用命令"></a> 2.1 常用命令</h4>
+<ol>
+<li>
+<p><strong>lupsh/rpush</strong>： 从左边或者右边插入一个或多个值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lpush &lt;key1&gt; &lt;value1&gt; &lt;value2&gt; &lt;value3&gt; ...</span><br><span class="line">rpush &lt;key1&gt; &lt;value1&gt; &lt;value2&gt; &lt;value3&gt; ...</span><br></pre></td></tr></table></figure>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush k v1 v2 v3  #列表k的右边插入3个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lpush k v4 v5 v6  #列表k的左边插入3个元素</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 6    #输出[0,6]范围内的元素</span><br><span class="line">1) &quot;v6&quot;</span><br><span class="line">2) &quot;v5&quot;</span><br><span class="line">3) &quot;v4&quot;</span><br><span class="line">4) &quot;v1&quot;</span><br><span class="line">5) &quot;v2&quot;</span><br><span class="line">6) &quot;v3&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>lrange</strong> 从列表左边获取指定范围内的值</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush k v1 v2 v3  #列表k的右边插入3个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lpush k v4 v5 v6  #列表k的左边插入3个元素</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 6    #输出[0,6]范围内的元素</span><br><span class="line">1) &quot;v6&quot;</span><br><span class="line">2) &quot;v5&quot;</span><br><span class="line">3) &quot;v4&quot;</span><br><span class="line">4) &quot;v1&quot;</span><br><span class="line">5) &quot;v2&quot;</span><br><span class="line">6) &quot;v3&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>lrange</strong>： 从列表左边获取指定范围内的值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lrange &lt;key&gt; &lt;start&gt; &lt;end&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>返回列表key中指定的区间的元素，区间偏移量start ,end指定。</p>
-<p>下标index参数start和end都从0开始，也可以使用负数下标，以 -1表示列表最后一个元素，-2表示倒数第二个元素…..</p>
+<p>下标index参数start和end都从0开始，也可以使用负数下标，以 -1表示列表最后一个元素，-2表示倒数第二个元素…</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lpush n v1 v2 v3 v4 v5 v6</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; lrange n 0 -1   #取出n集合中所有元素 start 0表示从第一个开始, end -1表示最后一个</span><br><span class="line">1) &quot;v6&quot;</span><br><span class="line">2) &quot;v5&quot;</span><br><span class="line">3) &quot;v4&quot;</span><br><span class="line">4) &quot;v3&quot;</span><br><span class="line">5) &quot;v2&quot;</span><br><span class="line">6) &quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange n -3 -1    #获取倒数第三至倒数一个元素 start 一定要小于end</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br><span class="line">3) &quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure></li>
-<li><p><strong>lpop/rpop</strong> 从左边或者右边弹出多个元素</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lpush n v1 v2 v3 v4 v5 v6</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; lrange n 0 -1   #取出n集合中所有元素 start 0表示从第一个开始, end -1表示最后一个</span><br><span class="line">1) &quot;v6&quot;</span><br><span class="line">2) &quot;v5&quot;</span><br><span class="line">3) &quot;v4&quot;</span><br><span class="line">4) &quot;v3&quot;</span><br><span class="line">5) &quot;v2&quot;</span><br><span class="line">6) &quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange n -3 -1    #获取倒数第三至倒数一个元素 start 一定要小于end</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br><span class="line">3) &quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>lpop/rpop</strong>： 从左边或者右边弹出多个元素</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lpop/rpop &lt;key&gt; &lt;count&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>count: 可以省略，默认为1</p>
 <p>lpop/rpop操作之后，弹出的值会从列表中删除，当所有的值都删除后，键就删除</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush k v1 v2 v3  #集合k 右边添加3个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lpop k    #左边弹出1个元素</span><br><span class="line">&quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpop k 2  # 右边弹出2个元素    </span><br><span class="line">&quot;v3&quot;</span><br><span class="line">&quot;v2&quot;</span><br><span class="line">127.0.0.1:6379&gt; exists k  # 查询key是否存在</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>rpoplpush</strong> 从一个列表右边弹出一个元素放到另外一个列表中</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush k v1 v2 v3  #集合k 右边添加3个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lpop k    #左边弹出1个元素</span><br><span class="line">&quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpop k 2  # 右边弹出2个元素    </span><br><span class="line">&quot;v3&quot;</span><br><span class="line">&quot;v2&quot;</span><br><span class="line">127.0.0.1:6379&gt; exists k  # 查询key是否存在</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>rpoplpush</strong>： 从一个列表右边弹出一个元素放到另外一个列表中</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpoplpush &lt;source&gt; &lt;destination&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>从source的右边弹出一个元素放到destination列表的左边</p>
 </blockquote>
-<p> 示例</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush k 1 2 3   #列表k的右边添加3个元素[1,2,3]</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1    #从左到右输出k列表中的元素</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">3) &quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpush k1 4 5 6   #列表k1的右边添加3个元素[4,5,6]</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1    #从左到右输出k1列表中的元素</span><br><span class="line">1) &quot;4&quot;</span><br><span class="line">2) &quot;5&quot;</span><br><span class="line">3) &quot;6&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpoplpush k k1    #从k的右边弹出一个元素放到k1的左边</span><br><span class="line">&quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1     #k中剩下2个元素了</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1    #k1变成来4个元素</span><br><span class="line">1) &quot;3&quot;</span><br><span class="line">2) &quot;4&quot;</span><br><span class="line">3) &quot;5&quot;</span><br><span class="line">4) &quot;6&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>lindex</strong> 获取指定索引位置的元素（从左到右）</p>
+<p>示例</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush k 1 2 3   #列表k的右边添加3个元素[1,2,3]</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1    #从左到右输出k列表中的元素</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">3) &quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpush k1 4 5 6   #列表k1的右边添加3个元素[4,5,6]</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1    #从左到右输出k1列表中的元素</span><br><span class="line">1) &quot;4&quot;</span><br><span class="line">2) &quot;5&quot;</span><br><span class="line">3) &quot;6&quot;</span><br><span class="line">127.0.0.1:6379&gt; rpoplpush k k1    #从k的右边弹出一个元素放到k1的左边</span><br><span class="line">&quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1     #k中剩下2个元素了</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1    #k1变成来4个元素</span><br><span class="line">1) &quot;3&quot;</span><br><span class="line">2) &quot;4&quot;</span><br><span class="line">3) &quot;5&quot;</span><br><span class="line">4) &quot;6&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>lindex</strong>： 获取指定索引位置的元素（从左到右）</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lindex &lt;key&gt; &lt;index&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>返回列表key中下标为index的元素。</p>
-<p>下标从0开始，也可以是负数，-1 表示列表最后一个元素，-2表示列表倒数第二个元素…..</p>
+<p>下标从0开始，也可以是负数，-1 表示列表最后一个元素，-2表示列表倒数第二个元素…</p>
 <p>如果key不是列表类型，返回一个错误</p>
 <p>如果index超出了列表的长度范围，返回 nil</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1</span><br><span class="line">1) &quot;3&quot;</span><br><span class="line">2) &quot;4&quot;</span><br><span class="line">3) &quot;5&quot;</span><br><span class="line">4) &quot;6&quot;</span><br><span class="line">127.0.0.1:6379&gt; lindex k1 2   #返回索引位置2的元素</span><br><span class="line">&quot;5&quot;</span><br><span class="line">127.0.0.1:6379&gt; lindex k1 6   #返回索引位置6的元素，超出了列表长度</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; lindex k1 -1  #返回最后一个元素</span><br><span class="line">&quot;6&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>llen</strong> 获取列表长度</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1</span><br><span class="line">1) &quot;3&quot;</span><br><span class="line">2) &quot;4&quot;</span><br><span class="line">3) &quot;5&quot;</span><br><span class="line">4) &quot;6&quot;</span><br><span class="line">127.0.0.1:6379&gt; lindex k1 2   #返回索引位置2的元素</span><br><span class="line">&quot;5&quot;</span><br><span class="line">127.0.0.1:6379&gt; lindex k1 6   #返回索引位置6的元素，超出了列表长度</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; lindex k1 -1  #返回最后一个元素</span><br><span class="line">&quot;6&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>llen</strong>： 获取列表长度</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">llen &lt;key&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>返回列表长度，如果key不存在，则被解释为一个空列表，返回0；</p>
 <p>如果key不是列表类型，返回一个错误</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1</span><br><span class="line">1) &quot;3&quot;</span><br><span class="line">2) &quot;4&quot;</span><br><span class="line">3) &quot;5&quot;</span><br><span class="line">4) &quot;6&quot;</span><br><span class="line">127.0.0.1:6379&gt; llen k1     #返回k1集合的长度</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; set name xiaoyuge   #设置字符串</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; type name       #查看name的类型</span><br><span class="line">string</span><br><span class="line">127.0.0.1:6379&gt; llen name       #获取name的长度，因为name为String类型，所以报错</span><br><span class="line">(error) WRONGTYPE Operation against a key holding the wrong kind of value</span><br><span class="line">127.0.0.1:6379&gt; strlen name     #字符串的长度使用strlen</span><br><span class="line">(integer) 8</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>linsert</strong> 在某个值的前或者后插入一个值</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1</span><br><span class="line">1) &quot;3&quot;</span><br><span class="line">2) &quot;4&quot;</span><br><span class="line">3) &quot;5&quot;</span><br><span class="line">4) &quot;6&quot;</span><br><span class="line">127.0.0.1:6379&gt; llen k1     #返回k1集合的长度</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; set name xiaoyuge   #设置字符串</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; type name       #查看name的类型</span><br><span class="line">string</span><br><span class="line">127.0.0.1:6379&gt; llen name       #获取name的长度，因为name为String类型，所以报错</span><br><span class="line">(error) WRONGTYPE Operation against a key holding the wrong kind of value</span><br><span class="line">127.0.0.1:6379&gt; strlen name     #字符串的长度使用strlen</span><br><span class="line">(integer) 8</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>linsert</strong>： 在某个值的前或者后插入一个值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linsert &lt;key&gt; before|after &lt;value&gt; &lt;newvalue&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将值newvalue插入到列表key中，位于value值之前或者之后</p>
-<p>当value不存在列表key中，不执行任何操作，返回 -1 </p>
+<p>当value不存在列表key中，不执行任何操作，返回 -1</p>
 <p>当key不存在时，key被视为空列表，不执行任何操作， 返回 0</p>
 <p>如果命令执行成功，返回插入操作完成之后，列表的长度</p>
 <p>如果key不是列表类型，返回一个错误</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush k 1 2 3   #列表k中添加3个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1   #输出k全部元素</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">3) &quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; linsert k before 1 0  #在1前面添加0，添加成功，返回列表长度</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1     #输出k全部元素</span><br><span class="line">1) &quot;0&quot;</span><br><span class="line">2) &quot;1&quot;</span><br><span class="line">3) &quot;2&quot;</span><br><span class="line">4) &quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; linsert k before 4 5   #在4前面添加5，由于元素4不存在，插入失败返回-1</span><br><span class="line">(integer) -1</span><br><span class="line">127.0.0.1:6379&gt; linsert k1 before 4 5   #在列表k1中元素4前面插入5，由于列表k1不存在，返回0</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>lrem</strong> 删除指定数量的某个相同的元素</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush k 1 2 3   #列表k中添加3个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1   #输出k全部元素</span><br><span class="line">1) &quot;1&quot;</span><br><span class="line">2) &quot;2&quot;</span><br><span class="line">3) &quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; linsert k before 1 0  #在1前面添加0，添加成功，返回列表长度</span><br><span class="line">(integer) 4</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1     #输出k全部元素</span><br><span class="line">1) &quot;0&quot;</span><br><span class="line">2) &quot;1&quot;</span><br><span class="line">3) &quot;2&quot;</span><br><span class="line">4) &quot;3&quot;</span><br><span class="line">127.0.0.1:6379&gt; linsert k before 4 5   #在4前面添加5，由于元素4不存在，插入失败返回-1</span><br><span class="line">(integer) -1</span><br><span class="line">127.0.0.1:6379&gt; linsert k1 before 4 5   #在列表k1中元素4前面插入5，由于列表k1不存在，返回0</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>lrem</strong>： 删除指定数量的某个相同的元素</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lrem &lt;key&gt; &lt;count&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>根据count的值，移除列表中与参数value相等的count个元素</p>
 <p>count的值可以是以下几种</p>
 <ol>
-<li><p>count &gt; 0: 从表头开始向表尾搜索，移除与 value 相等的元素，数量为 count</p>
+<li>
+<p>count &gt; 0: 从表头开始向表尾搜索，移除与 value 相等的元素，数量为 count</p>
 </li>
-<li><p>count &lt; 0: 从表尾开始向表头搜索，移除与 value 相等的元素，数量为 count 的绝对值。</p>
+<li>
+<p>count &lt; 0: 从表尾开始向表头搜索，移除与 value 相等的元素，数量为 count 的绝对值。</p>
 </li>
-<li><p>count = 0: 移除列表总所有与value相等的值</p>
+<li>
+<p>count = 0: 移除列表总所有与value相等的值</p>
 </li>
 </ol>
 <p>因为不存在的 key 被视作空表(empty list)，所以当 key 不存在时，总是返回 0 。</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb #清空db，方便测试</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; rpush k1 v1 v2 v3 v2 v2 v1 #k1列表中插入6个元素</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1 #输出k1集合中所有元素</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br><span class="line">3) &quot;v3&quot;</span><br><span class="line">4) &quot;v2&quot;</span><br><span class="line">5) &quot;v2&quot;</span><br><span class="line">6) &quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrem k1 2 v2   #k1集合中从左边删除2个v2</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1 #输出列表，列表中还有1个v2，前面2个v2干掉了</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v3&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">4) &quot;v1&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>lset</strong> 替换指定位置的值</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb #清空db，方便测试</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; rpush k1 v1 v2 v3 v2 v2 v1 #k1列表中插入6个元素</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1 #输出k1集合中所有元素</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br><span class="line">3) &quot;v3&quot;</span><br><span class="line">4) &quot;v2&quot;</span><br><span class="line">5) &quot;v2&quot;</span><br><span class="line">6) &quot;v1&quot;</span><br><span class="line">127.0.0.1:6379&gt; lrem k1 2 v2   #k1集合中从左边删除2个v2</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; lrange k1 0 -1 #输出列表，列表中还有1个v2，前面2个v2干掉了</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v3&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">4) &quot;v1&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>lset</strong>： 替换指定位置的值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lset &lt;key&gt; &lt;index&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将列表key下标为index的元素替换为value, 当index参数超出范围，或者对一个空列表进行操作时，返回一个错误</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb              #清空db，方便测试</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; rpush k v1 v2 v3      #k集合中放入3个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1         #输出k集合元素</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br><span class="line">3) &quot;v3&quot;</span><br><span class="line">127.0.0.1:6379&gt; lset k 1 vv           #将k集合中第2个元素替换为vv</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;vv&quot;</span><br><span class="line">3) &quot;v3&quot;</span><br><span class="line">127.0.0.1:6379&gt; lset k 10 vv         #将k集合中第11个元素替换为vv，由于集合长度小于10，报错</span><br><span class="line">(error) ERR index out of range</span><br><span class="line">127.0.0.1:6379&gt; lset k1 1 vv         #k1不存在，报错</span><br><span class="line">(error) ERR no such key</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h4 id="2-2-数据结构"><a href="#2-2-数据结构" class="headerlink" title="2.2 数据结构"></a>2.2 数据结构</h4><p><strong>List的数据结构为快速链表quickList</strong></p>
-<ol>
-<li><p>首先在列表元素较少的情况下会使用一块连续的内存存储，这个结构是ziplist，也就是压缩列表。 它将所有的元素紧挨着一起存储，分配的是一块连续的内存。</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb              #清空db，方便测试</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; rpush k v1 v2 v3      #k集合中放入3个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1         #输出k集合元素</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br><span class="line">3) &quot;v3&quot;</span><br><span class="line">127.0.0.1:6379&gt; lset k 1 vv           #将k集合中第2个元素替换为vv</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; lrange k 0 -1</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;vv&quot;</span><br><span class="line">3) &quot;v3&quot;</span><br><span class="line">127.0.0.1:6379&gt; lset k 10 vv         #将k集合中第11个元素替换为vv，由于集合长度小于10，报错</span><br><span class="line">(error) ERR index out of range</span><br><span class="line">127.0.0.1:6379&gt; lset k1 1 vv         #k1不存在，报错</span><br><span class="line">(error) ERR no such key</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>当就比较多的时候才会改成quickList。</p>
+</ol>
+<h4 id="22-数据结构"><a class="markdownIt-Anchor" href="#22-数据结构"></a> 2.2 数据结构</h4>
+<p><strong>List的数据结构为快速链表quickList</strong></p>
+<ol>
+<li>
+<p>首先在列表元素较少的情况下会使用一块连续的内存存储，这个结构是ziplist，也就是压缩列表。 它将所有的元素紧挨着一起存储，分配的是一块连续的内存。</p>
+</li>
+<li>
+<p>当就比较多的时候才会改成quickList。</p>
 </li>
 </ol>
 <p>因为普通的链表需要的附加指针空间太大，会比较浪费空间，比如这个列表里存储的只是int类型的书，结构上还需要2个额外的指针prev和next。</p>
-<p><img src="/redis-special-1/3.png"></p>
+<p><img src="/redis-special-1/3.png" alt></p>
 <p><strong>redis将链表和ziplist结合起来组成了quicklist。也就是将多个ziplist使用双向指针串起来使用，这样既满足了快速的插入删除性能，又不会出现太大的空间冗余。</strong></p>
-<h3 id="3-集合Set"><a href="#3-集合Set" class="headerlink" title="3. 集合Set"></a>3. <span id="set">集合Set</span></h3><p>Redis set对外提供的功能与list类似，是一个列表的功能，特殊之处在于set可以自动去重</p>
+<h3 id="3-span-idset集合setspan"><a class="markdownIt-Anchor" href="#3-span-idset集合setspan"></a> 3. <span id="set">集合Set</span></h3>
+<p>Redis set对外提供的功能与list类似，是一个列表的功能，特殊之处在于set可以自动去重</p>
 <p>set时String类型的无序集合，它的底层实际上时一个value为null的hash表，添加、删除、查找复杂度都是O(1)</p>
 <blockquote>
 <p>一个算法，如果时间复杂度是O(1)，那么随着数据的增加，查找数据的时间不变，也就是不管数据多少，查找时间都是一样的。</p>
 </blockquote>
-<h4 id="3-1-常用命令"><a href="#3-1-常用命令" class="headerlink" title="3.1 常用命令"></a>3.1 常用命令</h4><ol>
-<li><p><strong>sadd</strong> 添加一个或者多个元素</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sadd &lt;key&gt; &lt;value1&gt; &lt;value2&gt; ...</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例：</span></span><br><span class="line">127.0.0.1:6379&gt; sadd s1  v1 v2 v3</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure></li>
-<li><p><strong>smembers</strong>取出所有的元素</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">smembers &lt;key&gt;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例：</span></span><br><span class="line">127.0.0.1:6379&gt; smembers s1   #输出结果为无序</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v1&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>sismember</strong> 判断集合中是否存在某个值</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sismember &lt;key&gt; &lt;value&gt;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">判断集合key是否包含元素value， 1：有， 0：没有</span></span><br><span class="line"><span class="meta">#</span><span class="bash">sismember: <span class="built_in">set</span> is member（是否是<span class="built_in">set</span>中的成员）</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>scard</strong> 返回集合中元素的个数</p>
+<h4 id="31-常用命令"><a class="markdownIt-Anchor" href="#31-常用命令"></a> 3.1 常用命令</h4>
+<ol>
+<li>
+<p><strong>sadd</strong>： 添加一个或者多个元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sadd &lt;key&gt; &lt;value1&gt; &lt;value2&gt; ...</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例：</span></span><br><span class="line">127.0.0.1:6379&gt; sadd s1  v1 v2 v3</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>smembers</strong>取出所有的元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">smembers &lt;key&gt;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例：</span></span><br><span class="line">127.0.0.1:6379&gt; smembers s1   #输出结果为无序</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v1&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>sismember</strong>： 判断集合中是否存在某个值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sismember &lt;key&gt; &lt;value&gt;</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">判断集合key是否包含元素value， 1：有， 0：没有</span></span><br><span class="line"><span class="meta">#</span><span class="bash">sismember: <span class="built_in">set</span> is member（是否是<span class="built_in">set</span>中的成员）</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>scard</strong>： 返回集合中元素的个数</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scard &lt;key&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>返回集合key中元素个数，当key不存在返回0</p>
 </blockquote>
 </li>
-<li><p><strong>srem</strong> 删除多个元素</p>
+<li>
+<p><strong>srem</strong>： 删除多个元素</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">srem &lt;key&gt; &lt;member&gt; [member ...]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>移除集合key中的一个或多个member元素，不存在的元素会被忽略，当key不是集合类型，返回一个错误</p>
 <p>返回被成功移除的元素数量，不包括被忽略的元素</p>
 </blockquote>
 </li>
-<li><p><strong>spop</strong> 随机弹出多个值</p>
+<li>
+<p><strong>spop</strong>： 随机弹出多个值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spop &lt;key&gt; &lt;count&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>随机从key集合中弹出count个元素，count默认为1，返回被移除的元素</p>
@@ -679,7 +753,8 @@
 <p>当key不存在或者空集时，返回nil</p>
 </blockquote>
 </li>
-<li><p><strong>srandmember</strong> 随机获取多个元素，不会从集合中删除</p>
+<li>
+<p><strong>srandmember</strong>： 随机获取多个元素，不会从集合中删除</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">srandmember &lt;key&gt; &lt;count&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>从key指定的集合中随机返回count个元素，count可以不指定，默认值是1。</p>
@@ -687,89 +762,247 @@
 <p>返回值: 1. 只提供 key 参数时，返回一个元素；如果集合为空，返回 nil 。 2. 如果提供了count参数，那么返回一个数组；如果集合为空，返回空数组。</p>
 </blockquote>
 </li>
-</ol>
-<ol start="8">
-<li><p><strong>smove</strong> 将某个元素从一个集合移到另一个集合</p>
+<li>
+<p><strong>smove</strong>： 将某个元素从一个集合移到另一个集合</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">smove &lt;source&gt; &lt;destination&gt; &lt;member&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将member元素从source集合移动到destination集合。</p>
-<p>smove是原子性操作,如果source集合不存在或者不保护指定的member元素，则smove命令不执行任何操作，仅返回0。<br>否则，member元素从source集合中移除，并添加到destination集合中去(destination集合不存在的话，会自动添加一个)</p>
+<p>smove是原子性操作,如果source集合不存在或者不保护指定的member元素，则smove命令不执行任何操作，仅返回0。<br>
+否则，member元素从source集合中移除，并添加到destination集合中去(destination集合不存在的话，会自动添加一个)</p>
 <p>当destination已经包含member元素，smove只是删除source中的member元素</p>
 <p>如果member被成功删除，返回1；如果member不是source集合成员，并且没有任何对destination的操作，那么返回0</p>
 </blockquote>
 </li>
-<li><p>*<em>sinter</em> 取多个集合的交集</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sinter key [key ...]</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例</span></span><br><span class="line">127.0.0.1:6379&gt; smembers s          #查询s集合的所有元素</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v4&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">127.0.0.1:6379&gt; sadd s2 v1 v2 v3    #集合s2添加三个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; smembers s2         #查询s2集合的所有元素</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v1&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">127.0.0.1:6379&gt; sinter s s2         #获取集合s s2的交集</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>sinterstore</strong> 将多个集合的交集放到一个新的集合中</p>
+<li>
+<p>*<em>sinter</em> 取多个集合的交集</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sinter key [key ...]</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例</span></span><br><span class="line">127.0.0.1:6379&gt; smembers s          #查询s集合的所有元素</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v4&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">127.0.0.1:6379&gt; sadd s2 v1 v2 v3    #集合s2添加三个元素</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt; smembers s2         #查询s2集合的所有元素</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v1&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">127.0.0.1:6379&gt; sinter s s2         #获取集合s s2的交集</span><br><span class="line">1) &quot;v3&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>sinterstore</strong>： 将多个集合的交集放到一个新的集合中</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sinterstore destination key [key ...]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这个命令类似于sinter命令，但它将结果保存到 destination 集合，而不是简单地返回结果集。 返回结果集中的成员数量。</p>
 </blockquote>
 </li>
-<li><p><strong>sunion</strong> 取多个集合的并集，自动去重</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sunion key [key ...]</span><br><span class="line"><span class="meta">#</span><span class="bash">示例：</span></span><br><span class="line">127.0.0.1:6379&gt; sunion s s2</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v3&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">4) &quot;v4&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>sunionstore</strong> 将多个集合的并集放到一个新的集合中</p>
+<li>
+<p><strong>sunion</strong>： 取多个集合的并集，自动去重</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sunion key [key ...]</span><br><span class="line"><span class="meta">#</span><span class="bash">示例：</span></span><br><span class="line">127.0.0.1:6379&gt; sunion s s2</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v3&quot;</span><br><span class="line">3) &quot;v2&quot;</span><br><span class="line">4) &quot;v4&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>sunionstore</strong>： 将多个集合的并集放到一个新的集合中</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sinterstore destination key [key ...]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这个命令类似于 sunion 命令，但它将结果保存到 destination 集合，而不是简单地返回结果集。 返回值:结果集中的成员数量。</p>
 </blockquote>
 </li>
-<li><p><strong>sdiff</strong> 取多个集合的差集</p>
+<li>
+<p><strong>sdiff</strong>： 取多个集合的差集</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdiff key [key ...]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>返回一个集合的全部成员，该集合是所有给定集合之间的差集。 不存在的 key 被视为空集。</p>
 </blockquote>
 </li>
-<li><p><strong>sdiffstore</strong> 将多个集合的差集放到一个新的集合中</p>
+<li>
+<p><strong>sdiffstore</strong>： 将多个集合的差集放到一个新的集合中</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sdiffstore destination key [key ...]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这个命令类似于 sdiff 命令，但它将结果保存到 destination 集合，而不是简单地返回结果集。</p>
 </blockquote>
 </li>
 </ol>
-<h4 id="3-2-数据结构"><a href="#3-2-数据结构" class="headerlink" title="3.2 数据结构"></a>3.2 数据结构</h4><p><strong>set数据机构是字典，字典是用hash表实现的。</strong></p>
+<h4 id="32-数据结构"><a class="markdownIt-Anchor" href="#32-数据结构"></a> 3.2 数据结构</h4>
+<p><strong>set数据机构是字典，字典是用hash表实现的。</strong></p>
 <p>Java中的hashSet的内部实现使用HashMap,只不过所有的value都指向同一个对象。</p>
 <p>Redis的set结构也是一样的，它的内部也使用hash结构，所有的value都指向同一个内部值。</p>
-<h3 id="4-哈希表-Hash"><a href="#4-哈希表-Hash" class="headerlink" title="4. 哈希表 Hash"></a>4. <span id="hash">哈希表 Hash</span></h3><p><strong>Redis hash是一个键值对集合</strong>。</p>
+<h3 id="4-span-idhash哈希表-hashspan"><a class="markdownIt-Anchor" href="#4-span-idhash哈希表-hashspan"></a> 4. <span id="hash">哈希表 Hash</span></h3>
+<p><strong>Redis hash是一个键值对集合</strong>。</p>
 <p>Redis hash是一个string类型的field和value的映射表，hash特别适合用于存储对象。 类似于java里面的Map&lt;String,Object&gt;</p>
-<h4 id="4-1-常用命令"><a href="#4-1-常用命令" class="headerlink" title="4.1 常用命令"></a>4.1 常用命令</h4><ol>
-<li><p><strong>hset</strong> 设置多个field值</p>
+<h4 id="41-常用命令"><a class="markdownIt-Anchor" href="#41-常用命令"></a> 4.1 常用命令</h4>
+<ol>
+<li>
+<p><strong>hset</strong>： 设置多个field值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> hset key field value [field value ...]</span><br><span class="line"></span><br><span class="line"> 127.0.0.1:6379&gt; hset set1 name xiaoyuge age 18 </span><br><span class="line">(integer) 2</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将哈希表 key 中的域 field 的值设为 value 。 如果 key 不存在，一个新的哈希表被创建并进行 hset 操作。 如果域 field 已经存在于哈希表中，旧值将被覆盖。</p>
 <p>返回值： 如果 field 是哈希表中的一个新建域，并且值设置成功，返回 1 。 如果哈希表中域 field 已经存在且旧值已被新值覆盖，返回 0 。</p>
 </blockquote>
 </li>
-<li><p><strong>hget</strong> 获取指定field的值</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hget &lt;key&gt; &lt;field&gt;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; hget set1 name</span><br><span class="line">&quot;xiaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; hget set1 age</span><br><span class="line">&quot;18&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>hgetall</strong> 返回hash表所有的fileld和value</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hgetall &lt;key&gt;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; hgetall set1</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;xiaoyuge&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;18&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>hexists</strong> 判断给定的field是否存在，1：存在，0：不存在</p>
+<li>
+<p><strong>hget</strong>： 获取指定field的值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hget &lt;key&gt; &lt;field&gt;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; hget set1 name</span><br><span class="line">&quot;xiaoyuge&quot;</span><br><span class="line">127.0.0.1:6379&gt; hget set1 age</span><br><span class="line">&quot;18&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>hgetall</strong>： 返回hash表所有的fileld和value</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hgetall &lt;key&gt;</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; hgetall set1</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;xiaoyuge&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;18&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>hexists</strong>： 判断给定的field是否存在，1：存在，0：不存在</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexists key field</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>查看哈希表 key 中，给定域 field 是否存在。 返回值： 如果哈希表含有给定域，返回 1 。 如果哈希表不含有给定域，或 key 不存在，返回 0 。</p>
 </blockquote>
 </li>
-</ol>
-<ol start="5">
-<li><strong>hkeys</strong> 列出所有的filed <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hkeys key</span><br></pre></td></tr></table></figure></li>
-<li><strong>hvals</strong> 列出所有的value <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hvals key</span><br></pre></td></tr></table></figure></li>
-<li><strong>hlen</strong> 返回field的数量 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hlen key</span><br></pre></td></tr></table></figure></li>
-<li><strong>hincrby</strong> filed的值加上指定的增量 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hincrby key field increment</span><br></pre></td></tr></table></figure>
+<li>
+<p><strong>hkeys</strong>： 列出所有的filed</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hkeys key</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>hvals</strong>： 列出所有的value</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hvals key</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>hlen</strong>： 返回field的数量</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hlen key</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>hincrby</strong>： filed的值加上指定的增量</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hincrby key field increment</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>为哈希表 key 中的域 field 的值加上增量 increment 。 增量也可以为负数，相当于对给定域进行减法操作。 如果 key 不存在，一个新的哈希表被创建并执行 HINCRBY 命令。 如果域 field 不存在，那么在执行命令前，域的值被初始化为 0 。 对一个储存字符串值的域 field 执行 HINCRBY 命令将造成一个错误。</p>
 <p>返回值： 执行 hincrby 命令之后，哈希表 key 中域 field 的值。</p>
 </blockquote>
- 示例： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hincrby set1 age 3</span><br><span class="line">(integer) 21</span><br><span class="line">127.0.0.1:6379&gt; hvals set1</span><br><span class="line">1) &quot;xiaoyuge&quot;</span><br><span class="line">2) &quot;21&quot;</span><br></pre></td></tr></table></figure></li>
-<li><strong>hsetnx</strong> 当filed不存在的时候，设置filed的值 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hsetnx key field value</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hincrby set1 age 3</span><br><span class="line">(integer) 21</span><br><span class="line">127.0.0.1:6379&gt; hvals set1</span><br><span class="line">1) &quot;xiaoyuge&quot;</span><br><span class="line">2) &quot;21&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>hsetnx</strong>： 当filed不存在的时候，设置filed的值</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hsetnx key field value</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将哈希表 key 中的域 field 的值设置为 value ，当且仅当域 field 不存在。 若域 field 已经存在，该操作无效。 如果 key 不存在，一个新哈希表被创建并执行 hsetnx 命令。</p>
 <p>返回值： 设置成功，返回 1 。 如果给定域已经存在且没有操作被执行，返回 0</p>
 </blockquote>
 </li>
 </ol>
-<h4 id="4-2-数据结构"><a href="#4-2-数据结构" class="headerlink" title="4.2 数据结构"></a>4.2 数据结构</h4><p>Hash类型对应的数据结构是2种：<strong>ziplist（压缩列表）</strong>，<strong>hashtable（哈希表）</strong>。</p>
+<h4 id="42-数据结构"><a class="markdownIt-Anchor" href="#42-数据结构"></a> 4.2 数据结构</h4>
+<p>Hash类型对应的数据结构是2种：<strong>ziplist（压缩列表）</strong>，<strong>hashtable（哈希表）</strong>。</p>
 <p>当field-value长度较短个数较少时，使用ziplist，否则使用hashtable。</p>
+<h3 id="5-span-idzset有序集合zsetspan"><a class="markdownIt-Anchor" href="#5-span-idzset有序集合zsetspan"></a> 5. <span id="zset">有序集合Zset</span></h3>
+<p>有序集合zset和普通集合set非常相似，是一个没有重复元素的字符串集合，不同之处是有序集合的每一个成员都关联一个评分（score），<br>
+这个评分被用来按照从最低分到最高分的方式排序集合中的成员。</p>
+<p>**成员是唯一的，但是评分可以重复。**因为元素是有序的，所以可以很快的根据评分score或者次序position来获取一个范围的元素，访问有序集合中的中间元素也是非常快的。</p>
+<h4 id="51-常用命令"><a class="markdownIt-Anchor" href="#51-常用命令"></a> 5.1 常用命令</h4>
+<ol>
+<li>
+<p><strong>zadd</strong>： 添加元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zadd &lt;key&gt; &lt;score1&gt; &lt;member1&gt; &lt;score2&gt; &lt;member2&gt; ...</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>将一个或多个member元素及其score值加入到有序集 key 当中。 如果某个 member 已经是有序集的成员，那么更新这个 member 的 score 值，并通过重新插入这个 member 元素，来保证该 member 在正确的位置上。 score 值可以是整数值或双精度浮点数。 如果 key 不存在，则创建一个空的有序集并执行 zadd 操作。</p>
+<p>当 key 存在但不是有序集类型时，返回一个错误。 被成功添加的新成员的数量，不包括那些被更新的、已经存在的成员。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zrange</strong>： score生序，获取指定索引范围的元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zrange key start top [withscores]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回存储在有序集合key中的指定范围的元素。 返回的元素可以认为是按score从最低到最高排列，如果得分相同，将按字典排序。</p>
+<p>下标参数 start 和 stop 都以 0 为底，也就是说，以 0 表示有序集第一个成员，以 1 表示有序集第二个成员，以此类推。 你也可以使用负数下标，以 -1 表示最后一个成员， -2 表示倒数第二个成员，以此类推。</p>
+<p>zrange key 0 -1：可以获取所有元素</p>
+<p>withscores：让成员和它的 score 值一并返回，返回列表以 value1,score1, …, valueN,scoreN 的格式表示</p>
+<p>时间复杂度:O(log(N)+M)， N 为有序集的基数，而 M 为结果集的基数</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zrevrange</strong>： score降序，获取指定索引范围的元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zrevrange key start stop [WITHSCORES]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回存储在有序集合key中的指定范围的元素。 返回的元素可以认为是按score最高到最低排列， 如果得分相同，将按字典排序。</p>
+<p>下标参数 start 和 stop 都以 0 为底，也就是说，以 0 表示有序集第一个成员，以 1 表示有序集第二个成员，以此类推。 你也可以使用负数下标，以 -1 表示最后一个成员， -2 表示倒数第二个成员，以此类推。</p>
+<p>withscores：让成员和它的 score 值一并返回，返回列表以 value1,score1, …, valueN,scoreN 的格式表示</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zrangebyscore</strong>：按照score升序，返回指定score范围内的数据</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zrangebyscore key min max [WITHSCORES] [LIMIT offset count]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回有序集 key 中，所有 score 值介于 min 和 max 之间(包括等于 min 或 max )的成员。有序集成员按 score 值递增(从小到大)次序排列。</p>
+<p>具有相同 score 值的成员按字典序来排列(该属性是有序集提供的，不需要额外的计算)。<br>
+可选的 LIMIT 参数指定返回结果的数量及区间(就像SQL中的 SELECT LIMIT offset, count )，注意当 offset 很大时，定位 offset 的操作可能需要遍历整个有序集，此过程最坏复杂度为 O(N) 时间。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zrevrangebyscore</strong>：按照score降序，返回指定score范围内的数据</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zrevrangebyscore key max min [WITHSCORES] [LIMIT offset count]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回有序集 key 中， score 值介于 max 和 min 之间(默认包括等于 max 或 min )的所有的成员。有序集成员按 score 值递减(从大到小)的次序排列。</p>
+<p>具有相同 score 值的成员按字典序的逆序排列。</p>
+<p>除了成员按 score 值递减的次序排列这一点外， zrevrangebyscore 命令的其他方面和 zrangebyscore 命令一样。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zincrby</strong>：为指定元素的score加上指定的增量</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zincrby key increment member</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以通过传递一个负数值 increment ，让 score 减去相应的值，比如 ZINCRBY key -5 member ，就是让 member 的 score 值减去 5 。</p>
+<p>当 key 不存在，或 member 不是 key 的成员时， ZINCRBY key increment member 等同于 ZADD key increment member</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zrem</strong>：删除集合中多个元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zrem key member [member ...]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>移除有序集 key 中的一个或多个成员，不存在的成员将被忽略。 当 key 存在但不是有序集类型时，返回一个错误。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zremrangebyrank</strong> 根据索引范围删除元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zremrangebyrank key start stop</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>移除有序集 key 中，指定排名(rank)区间内的所有成员。 区间分别以下标参数 start 和 stop 指出，包含 start 和 stop 在内。 下标参数 start 和 stop 都以 0 为底，也就是说，以 0 表示有序集第一个成员，以 1 表示有序集第二个成员，以此类推。 你也可以使用负数下标，以 -1 表示最后一个成员， -2 表示倒数第二个成员，以此类推。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zremrangebyscore</strong>：根据score的范围删除元素</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zremrangebyscore key min max</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>移除有序集 key 中，所有 score 值介于 min 和 max 之间(包括等于 min 或 max )的成员</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zcount</strong>：统计指定score范围内的元素个数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zcount key min max</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回有序集 key 中， score 值在 min 和 max 之间(默认包括 score 值等于 min 或 max )的成员的数量</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zrank</strong>：按照score生序，返回某个元素在集合中的排名</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zrank key member</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回有序集 key 中成员 member 的排名。其中有序集成员按 score 值递增(从小到大)顺序排列。 排名以 0 为底，也就是说， score 值最小的成员排名为 0 。</p>
+</blockquote>
+<ol start="12">
+<li>
+<p><strong>zrevrank</strong>：按照score将许，返回某个元素在集合中的排名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zrevrank key member</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回有序集 key 中成员 member 的排名。其中有序集成员按 score 值递减(从大到小)排序。排名以 0 为底，也就是说， score 值最大的成员排名为 0</p>
+</blockquote>
+</li>
+<li>
+<p><strong>zscore</strong>：返回集合中指定元素的score</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zscore key member</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>返回有序集 key 中，成员 member 的 score 值。 如果 member 元素不是有序集 key 的成员，或 key 不存在，返回 nil</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="52-数据结构"><a class="markdownIt-Anchor" href="#52-数据结构"></a> 5.2 数据结构</h4>
+<p>SortedSet（zset）是redis提供的一个非常特别的数据结构，内部使用到了2种数据结构。</p>
+<p><strong>1. hash表</strong></p>
+<p>类似于java中的Map&lt;String,score&gt;，key为集合中的元素，value为元素对应的score，可以用来快速定位元素定义的score，时间复杂度为O(1)</p>
+<p><strong>2. 跳表</strong></p>
+<p>跳表（skiplist）是一个非常有限的数据结构，实现简单，插入、删除、查找的复杂度均为O(logN)</p>
+<p>类似于Java中的<code>ConcurrentSkipListSet</code>，根据score的值排序后生成一个跳表，可以快速按照位置的顺序或者score的顺序查找元素。</p>
+<p>来看一下跳表的原理：<br>
+首先从考虑一个有序列表开始：</p>
+<p><img src="/redis-special-1/4.png" alt></p>
+<p>从该有序表中搜索元素 &lt; 23, 43, 59 &gt; ，需要比较的次数分别为 &lt; 2, 4, 6 &gt;，总共比较的次数为 2 + 4 + 6 = 12 次。有没有优化的算法吗? 链表是有序的，但不能使用二分查找。类似二叉搜索树，我们把一些节点提取出来，作为索引。得到如下结构：</p>
+<p><img src="/redis-special-1/5.png" alt></p>
+<p>这里我们把 &lt; 14, 34, 50, 72 &gt; 提取出来作为一级索引，这样搜索的时候就可以减少比较次数了。我们还可以再从一级索引提取一些元素出来，作为二级索引，变成如下结构：</p>
+<p><img src="/redis-special-1/6.png" alt></p>
+<p>如果元素足够多，这种索引结构就能体现出优势来了。</p>
 
       
     </div>

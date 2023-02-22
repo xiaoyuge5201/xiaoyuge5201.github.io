@@ -18,12 +18,12 @@
   
   
   <title>Plumelog一个简单易用的java分布式日志组件 | 小余哥</title>
-  <meta name="description" content="1. 系统介绍 无代码侵入的分布式日志系统，基于log4j、log4j2、logback搜集日志，设置链路ID，方便查询管关联日志  基于elasticsearch作为查询引擎  高吞吐，查询效率高  全程不占应用程序本地磁盘空间，免维护；对于项目透明，不影响项目本身运行  无需修改老项目，引入直接使用，支持dubbo，支持springCloud   2. 架构  plumelog-core">
+  <meta name="description" content="1. 系统介绍   无代码侵入的分布式日志系统，基于log4j、log4j2、logback搜集日志，设置链路ID，方便查询管关联日志   基于elasticsearch作为查询引擎   高吞吐，查询效率高   全程不占应用程序本地磁盘空间，免维护；对于项目透明，不影响项目本身运行   无需修改老项目，引入直接使用，支持dubbo，支持springCloud    2. 架构    plume">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Plumelog一个简单易用的java分布式日志组件">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/plumelog/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 系统介绍 无代码侵入的分布式日志系统，基于log4j、log4j2、logback搜集日志，设置链路ID，方便查询管关联日志  基于elasticsearch作为查询引擎  高吞吐，查询效率高  全程不占应用程序本地磁盘空间，免维护；对于项目透明，不影响项目本身运行  无需修改老项目，引入直接使用，支持dubbo，支持springCloud   2. 架构  plumelog-core">
+<meta property="og:description" content="1. 系统介绍   无代码侵入的分布式日志系统，基于log4j、log4j2、logback搜集日志，设置链路ID，方便查询管关联日志   基于elasticsearch作为查询引擎   高吞吐，查询效率高   全程不占应用程序本地磁盘空间，免维护；对于项目透明，不影响项目本身运行   无需修改老项目，引入直接使用，支持dubbo，支持springCloud    2. 架构    plume">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/plumelog/plumelog.png">
 <meta property="article:published_time" content="2023-02-05T08:54:32.000Z">
@@ -434,38 +434,53 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-
-<h3 id="1-系统介绍"><a href="#1-系统介绍" class="headerlink" title="1. 系统介绍"></a>1. 系统介绍</h3><ol>
-<li><p>无代码侵入的分布式日志系统，基于log4j、log4j2、logback搜集日志，设置链路ID，方便查询管关联日志</p>
+<h3 id="1-系统介绍"><a class="markdownIt-Anchor" href="#1-系统介绍"></a> 1. 系统介绍</h3>
+<ol>
+<li>
+<p>无代码侵入的分布式日志系统，基于log4j、log4j2、logback搜集日志，设置链路ID，方便查询管关联日志</p>
 </li>
-<li><p>基于elasticsearch作为查询引擎</p>
+<li>
+<p>基于elasticsearch作为查询引擎</p>
 </li>
-<li><p>高吞吐，查询效率高</p>
+<li>
+<p>高吞吐，查询效率高</p>
 </li>
-<li><p>全程不占应用程序本地磁盘空间，免维护；对于项目透明，不影响项目本身运行</p>
+<li>
+<p>全程不占应用程序本地磁盘空间，免维护；对于项目透明，不影响项目本身运行</p>
 </li>
-<li><p>无需修改老项目，引入直接使用，支持dubbo，支持springCloud</p>
+<li>
+<p>无需修改老项目，引入直接使用，支持dubbo，支持springCloud</p>
 </li>
 </ol>
-<h3 id="2-架构"><a href="#2-架构" class="headerlink" title="2. 架构"></a>2. 架构</h3><p><img src="/plumelog/plumelog.png" alt="plumelog架构"></p>
+<h3 id="2-架构"><a class="markdownIt-Anchor" href="#2-架构"></a> 2. 架构</h3>
+<p><img src="/plumelog/plumelog.png" alt="plumelog架构"></p>
 <ul>
-<li><p>plumelog-core 核心组件包含日志搜集端，负责搜集日志并推送到kafka，redis等队列</p>
+<li>
+<p>plumelog-core 核心组件包含日志搜集端，负责搜集日志并推送到kafka，redis等队列</p>
 </li>
-<li><p>plumelog-server 负责把队列中的日志日志异步写入到elasticsearch</p>
+<li>
+<p>plumelog-server 负责把队列中的日志日志异步写入到elasticsearch</p>
 </li>
-<li><p>plumelog-demo 基于springboot的使用案例</p>
+<li>
+<p>plumelog-demo 基于springboot的使用案例</p>
 </li>
-<li><p>plumelog-lite plumelog的嵌入式集成版本，免部署</p>
+<li>
+<p>plumelog-lite plumelog的嵌入式集成版本，免部署</p>
 </li>
 </ul>
-<h3 id="3-使用方法"><a href="#3-使用方法" class="headerlink" title="3. 使用方法"></a>3. 使用方法</h3><ul>
-<li><p>plumelog分三种启动模式，分别为redis,kafka,lite，外加嵌入式版本plumelog-lite</p>
+<h3 id="3-使用方法"><a class="markdownIt-Anchor" href="#3-使用方法"></a> 3. 使用方法</h3>
+<ul>
+<li>
+<p>plumelog分三种启动模式，分别为redis,kafka,lite，外加嵌入式版本plumelog-lite</p>
 </li>
-<li><p>lite模式，不依赖任何外部中间件直接启动使用，但是性能有限，一天10个G以内可以应付，还必须是SSD硬盘，适合管理系统类的小玩家</p>
+<li>
+<p>lite模式，不依赖任何外部中间件直接启动使用，但是性能有限，一天10个G以内可以应付，还必须是SSD硬盘，适合管理系统类的小玩家</p>
 </li>
-<li><p>redis,kafka模式可以集群分布式部署，适合大型玩家，互联网公司</p>
+<li>
+<p>redis,kafka模式可以集群分布式部署，适合大型玩家，互联网公司</p>
 </li>
-<li><p>plumelog-lite plumelog的嵌入式集成版本，直接pom引用，嵌入在项目中，自带查询界面，适合单个独立小项目使用，外包软件的最佳伴侣</p>
+<li>
+<p>plumelog-lite plumelog的嵌入式集成版本，直接pom引用，嵌入在项目中，自带查询界面，适合单个独立小项目使用，外包软件的最佳伴侣</p>
 </li>
 </ul>
 <p>使用方法访问源码wiki<a target="_blank" rel="noopener" href="https://gitee.com/plumeorg/plumelog/blob/master/FASTSTART.md">Plumelog使用方法</a></p>
