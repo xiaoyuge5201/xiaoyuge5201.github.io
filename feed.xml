@@ -15,11 +15,35 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Wed, 22 Feb 2023 13:53:09 GMT</pubDate>
+    <pubDate>Thu, 23 Feb 2023 13:35:38 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Redis 5大数据类型</title>
+      <title>Redis的发布和订阅（二）</title>
+      <link>https://xiaoyuge5201.github.io/redis-special-pub/</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-pub/</guid>
+      <pubDate>Thu, 23 Feb 2023 13:12:50 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-发布和订阅介绍&quot;&gt;&lt;a href=&quot;#1-发布和订阅介绍&quot; class=&quot;headerlink&quot; title=&quot;1. 发布和订阅介</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/redis%E4%B8%93%E9%A2%98/">redis专题</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/redis%E4%B8%93%E9%A2%98/">redis专题</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>Redis 5大数据类型（一）</title>
       <link>https://xiaoyuge5201.github.io/redis-special-1/</link>
       <guid>https://xiaoyuge5201.github.io/redis-special-1/</guid>
       <pubDate>Sun, 19 Feb 2023 08:57:18 GMT</pubDate>
@@ -27,8 +51,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt; 前言&lt;/h3&gt;
-&lt;p&gt;这里说的数据类型</description>
+
+&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;Reids</description>
         
       
       
@@ -51,7 +75,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;https请求跳转&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#https请求跳转&quot;&gt;&lt;/a&gt; HTTPS</description>
+
+&lt;h3 id=&quot;HTTPS请求跳转&quot;&gt;&lt;a href=&quot;#HTTPS请求跳转&quot; class=&quot;headerlink&quot; title=&quot;HTTPS请求跳转</description>
         
       
       
@@ -74,8 +99,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;目录&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目录&quot;&gt;&lt;/a&gt; 目录&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;</description>
+
+&lt;h3 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h3&gt;&lt;p&gt;&lt;stro</description>
         
       
       
@@ -98,8 +123,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
-&lt;p&gt;停</description>
+
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
         
       
       
@@ -122,8 +147,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h3&gt;
-&lt;p&gt;H</description>
+
+&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1. 简介&quot;&gt;&lt;/a&gt;1. 简介&lt;/h</description>
         
       
       
@@ -146,7 +171,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-系统介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-系统介绍&quot;&gt;&lt;/a&gt; 1. 系统介绍&lt;/h3</description>
+
+&lt;h3 id=&quot;1-系统介绍&quot;&gt;&lt;a href=&quot;#1-系统介绍&quot; class=&quot;headerlink&quot; title=&quot;1. 系统介绍&quot;&gt;&lt;/a&gt;1.</description>
         
       
       
@@ -169,8 +195,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h3&gt;
-&lt;p&gt;在</description>
+
+&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1. 简介&quot;&gt;&lt;/a&gt;1. 简介&lt;/h</description>
         
       
       
@@ -193,8 +219,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1 简介&lt;/h3&gt;
-&lt;p&gt;ma</description>
+
+&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1 简介&quot;&gt;&lt;/a&gt;1 简介&lt;/h3&gt;</description>
         
       
       
@@ -217,8 +243,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1 简介&lt;/h2&gt;
-&lt;p&gt;随着</description>
+
+&lt;h2 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1 简介&quot;&gt;&lt;/a&gt;1 简介&lt;/h2&gt;</description>
         
       
       
@@ -241,8 +267,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
 &lt;blockquote&gt;
-&lt;p&gt;旨在说明版本升级流程步骤，测试环境为nginx1.11.1升级至1.22.0稳定版本，目的是解决Nginx&amp;lt;=1.</description>
+&lt;p&gt;旨在说明版本升级流程步骤，测试环境为nginx1.11.1升级至1.22.0稳定版本，目的是解决Nginx&amp;lt;=1</description>
         
       
       
@@ -265,8 +292,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;目录&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目录&quot;&gt;&lt;/a&gt; 目录&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;</description>
+
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;p&gt;&lt;stro</description>
         
       
       
@@ -289,8 +316,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
-&lt;p&gt;不</description>
+
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
         
       
       
@@ -313,8 +340,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
-&lt;p&gt;网</description>
+
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
         
       
       
@@ -337,8 +364,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-得分点&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-得分点&quot;&gt;&lt;/a&gt; 1. 得分点&lt;/h3&gt;
-&lt;</description>
+
+&lt;h3 id=&quot;1-得分点&quot;&gt;&lt;a href=&quot;#1-得分点&quot; class=&quot;headerlink&quot; title=&quot;1. 得分点&quot;&gt;&lt;/a&gt;1. 得分</description>
         
       
       
@@ -361,7 +388,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;1-disruptor介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-disruptor介绍&quot;&gt;&lt;/</description>
+
+&lt;h2 id=&quot;1-Disruptor介绍&quot;&gt;&lt;a href=&quot;#1-Disruptor介绍&quot; class=&quot;headerlink&quot; title=&quot;1</description>
         
       
       
@@ -384,7 +412,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;p&gt;作为一个有经验的程序员，我们都知道 jar/war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样预</description>
+
+&lt;p&gt;作为一个有经验的程序员，我们都知道 jar/war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样</description>
         
       
       
@@ -407,7 +436,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-mysql-逻辑架构&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-mysql-逻辑架构&quot;&gt;&lt;/a&gt;</description>
+
+&lt;h3 id=&quot;1-Mysql-逻辑架构&quot;&gt;&lt;a href=&quot;#1-Mysql-逻辑架构&quot; class=&quot;headerlink&quot; title=&quot;1. </description>
         
       
       
@@ -430,7 +460,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;p&gt;在Springboot中，支持了很多条件注解，@ConditionalOnClass注解就是其中之一。它主要是&lt;strong&gt;用来判断该注解所指定</description>
+
+&lt;p&gt;在Springboot中，支持了很多条件注解，@ConditionalOnClass注解就是其中之一。它主要是&lt;strong&gt;用来判断该注解所指</description>
         
       
       
@@ -453,7 +484,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;1-cglib-介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-cglib-介绍&quot;&gt;&lt;/a&gt; 1. </description>
+
+&lt;h2 id=&quot;1-cglib-介绍&quot;&gt;&lt;a href=&quot;#1-cglib-介绍&quot; class=&quot;headerlink&quot; title=&quot;1. cgli</description>
         
       
       
@@ -476,8 +508,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
 &lt;p&gt;在平时看各种框架的源码过程中，经常会看到一些位移运算，所以作为一个有经验的Java开发者是一定要掌握位移运算的。&lt;/p&gt;
-&lt;h3 id=&quot;1-正数</description>
+&lt;h3 id=&quot;1-正</description>
         
       
       
@@ -500,7 +533,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-线程池创建&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-线程池创建&quot;&gt;&lt;/a&gt; 1. 线程池创建&lt;</description>
+
+&lt;h3 id=&quot;1-线程池创建&quot;&gt;&lt;a href=&quot;#1-线程池创建&quot; class=&quot;headerlink&quot; title=&quot;1. 线程池创建&quot;&gt;&lt;/a</description>
         
       
       
@@ -523,8 +557,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;1-目录&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-目录&quot;&gt;&lt;/a&gt; 1. 目录&lt;/h2&gt;
-&lt;p&gt;&lt;</description>
+
+&lt;h2 id=&quot;1-目录&quot;&gt;&lt;a href=&quot;#1-目录&quot; class=&quot;headerlink&quot; title=&quot;1. 目录&quot;&gt;&lt;/a&gt;1. 目录&lt;/h</description>
         
       
       
@@ -547,7 +581,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-知识点一&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-知识点一&quot;&gt;&lt;/a&gt; 1. 知识点一&lt;/h3</description>
+
+&lt;h3 id=&quot;1-知识点一&quot;&gt;&lt;a href=&quot;#1-知识点一&quot; class=&quot;headerlink&quot; title=&quot;1. 知识点一&quot;&gt;&lt;/a&gt;1.</description>
         
       
       
@@ -589,8 +624,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-悲观锁&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-悲观锁&quot;&gt;&lt;/a&gt; 1. 悲观锁&lt;/h3&gt;
-&lt;</description>
+
+&lt;h3 id=&quot;1-悲观锁&quot;&gt;&lt;a href=&quot;#1-悲观锁&quot; class=&quot;headerlink&quot; title=&quot;1. 悲观锁&quot;&gt;&lt;/a&gt;1. 悲观</description>
         
       
       
@@ -613,8 +648,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;目录&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目录&quot;&gt;&lt;/a&gt; 目录&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;</description>
+
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;p&gt;&lt;stro</description>
         
       
       
@@ -637,7 +672,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-分页方法分类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-分页方法分类&quot;&gt;&lt;/a&gt; 1. 分页方法</description>
+
+&lt;h3 id=&quot;1-分页方法分类&quot;&gt;&lt;a href=&quot;#1-分页方法分类&quot; class=&quot;headerlink&quot; title=&quot;1. 分页方法分类&quot;&gt;</description>
         
       
       
@@ -660,8 +696,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-概要&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-概要&quot;&gt;&lt;/a&gt; 1. 概要&lt;/h3&gt;
-&lt;p&gt;S</description>
+
+&lt;h3 id=&quot;1-概要&quot;&gt;&lt;a href=&quot;#1-概要&quot; class=&quot;headerlink&quot; title=&quot;1. 概要&quot;&gt;&lt;/a&gt;1. 概要&lt;/h</description>
         
       
       
@@ -684,7 +720,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;span-classtit-h21-过滤器filterspan&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;</description>
+
+&lt;h2 id=&quot;1-过滤器（Filter）&quot;&gt;&lt;a href=&quot;#1-过滤器（Filter）&quot; class=&quot;headerlink&quot; title=&quot;1</description>
         
       
       
@@ -707,8 +744,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;p&gt;Mysql 安装的时候忘记保存默认密码，需要重置密码；&lt;br&gt;
-&lt;img src=&quot;/mysql-forget-pwd/1.png&quot; alt=&quot;忘</description>
+
+&lt;p&gt;Mysql 安装的时候忘记保存默认密码，需要重置密码；&lt;br&gt;&lt;img src=&quot;/mysql-forget-pwd/1.png&quot; alt=&quot;忘</description>
         
       
       
@@ -731,7 +768,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-tidb查询优化&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-tidb查询优化&quot;&gt;&lt;/a&gt; 1. </description>
+
+&lt;h3 id=&quot;1-tidb查询优化&quot;&gt;&lt;a href=&quot;#1-tidb查询优化&quot; class=&quot;headerlink&quot; title=&quot;1. tidb</description>
         
       
       
@@ -792,7 +830,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-准备工作&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-准备工作&quot;&gt;&lt;/a&gt; 1. 准备工作&lt;/h3</description>
+
+
+&lt;h3 id=&quot;1-准备工作&quot;&gt;&lt;a href=&quot;#1-准备工作&quot; class=&quot;headerlink&quot; title=&quot;1. 准备工作&quot;&gt;&lt;/a&gt;1</description>
         
       
       
@@ -815,8 +855,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
-&lt;p&gt;C</description>
+
+
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/</description>
         
       
       
@@ -839,7 +880,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-节点规划&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-节点规划&quot;&gt;&lt;/a&gt; 1. 节点规划&lt;/h3</description>
+
+
+&lt;h3 id=&quot;1-节点规划&quot;&gt;&lt;a href=&quot;#1-节点规划&quot; class=&quot;headerlink&quot; title=&quot;1. 节点规划&quot;&gt;&lt;/a&gt;1</description>
         
       
       
@@ -862,9 +905,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1前言&quot;&gt;&lt;/a&gt; 1.前言&lt;/h3&gt;
-&lt;ol&gt;
-&lt;l</description>
+
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1.前言&quot;&gt;&lt;/a&gt;1.前言&lt;/h3&gt;</description>
         
       
       
@@ -906,8 +948,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-搭建&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-搭建&quot;&gt;&lt;/a&gt; 1. 搭建&lt;/h3&gt;
-&lt;ol&gt;</description>
+
+
+&lt;h3 id=&quot;1-搭建&quot;&gt;&lt;a href=&quot;#1-搭建&quot; class=&quot;headerlink&quot; title=&quot;1. 搭建&quot;&gt;&lt;/a&gt;1. 搭建&lt;/</description>
         
       
       
@@ -930,7 +973,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;1-tomcat简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-tomcat简介&quot;&gt;&lt;/a&gt; 1. </description>
+
+&lt;h2 id=&quot;1-Tomcat简介&quot;&gt;&lt;a href=&quot;#1-Tomcat简介&quot; class=&quot;headerlink&quot; title=&quot;1. Tomc</description>
         
       
       
@@ -953,7 +997,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-安装-docker&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-安装-docker&quot;&gt;&lt;/a&gt; 1</description>
+
+
+&lt;h3 id=&quot;1-安装-Docker&quot;&gt;&lt;a href=&quot;#1-安装-Docker&quot; class=&quot;headerlink&quot; title=&quot;1. 安</description>
         
       
       
@@ -995,7 +1041,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;span-classtit-h21-动态数据源解决方案span&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;</description>
+
+&lt;h2 id=&quot;1-动态数据源解决方案&quot;&gt;&lt;a href=&quot;#1-动态数据源解决方案&quot; class=&quot;headerlink&quot; title=&quot;1. 动态</description>
         
       
       
@@ -1018,7 +1065,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-jdk依赖&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-jdk依赖&quot;&gt;&lt;/a&gt; 1. JDK依赖&lt;</description>
+
+&lt;h3 id=&quot;1-JDK依赖&quot;&gt;&lt;a href=&quot;#1-JDK依赖&quot; class=&quot;headerlink&quot; title=&quot;1. JDK依赖&quot;&gt;&lt;/a</description>
         
       
       
@@ -1041,7 +1089,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-脚本概览&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-脚本概览&quot;&gt;&lt;/a&gt; 1. 脚本概览&lt;/h3</description>
+
+
+&lt;h3 id=&quot;1-脚本概览&quot;&gt;&lt;a href=&quot;#1-脚本概览&quot; class=&quot;headerlink&quot; title=&quot;1. 脚本概览&quot;&gt;&lt;/a&gt;1</description>
         
       
       
@@ -1064,7 +1114,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-jdk依赖&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-jdk依赖&quot;&gt;&lt;/a&gt; 1. JDK依赖&lt;</description>
+
+
+&lt;h3 id=&quot;1-JDK依赖&quot;&gt;&lt;a href=&quot;#1-JDK依赖&quot; class=&quot;headerlink&quot; title=&quot;1. JDK依赖&quot;&gt;&lt;/</description>
         
       
       
@@ -1087,7 +1139,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;1-vmwarecentos7-静态ip设置&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-vmware</description>
+
+&lt;h2 id=&quot;1-VMware-Centos7-静态IP设置&quot;&gt;&lt;a href=&quot;#1-VMware-Centos7-静态IP设置&quot; class=&quot;</description>
         
       
       
@@ -1110,7 +1163,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;1-什么是vue&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-什么是vue&quot;&gt;&lt;/a&gt; 1. 什么是v</description>
+
+&lt;h2 id=&quot;1-什么是vue&quot;&gt;&lt;a href=&quot;#1-什么是vue&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是vue&quot;&gt;</description>
         
       
       
@@ -1133,8 +1187,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h2 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h2&gt;
-&lt;p&gt;在</description>
+
+&lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
         
       
       
@@ -1157,8 +1211,9 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-下载&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-下载&quot;&gt;&lt;/a&gt; 1. 下载&lt;/h3&gt;
-&lt;ol&gt;</description>
+
+
+&lt;h3 id=&quot;1-下载&quot;&gt;&lt;a href=&quot;#1-下载&quot; class=&quot;headerlink&quot; title=&quot;1. 下载&quot;&gt;&lt;/a&gt;1. 下载&lt;/</description>
         
       
       
@@ -1180,8 +1235,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
-&lt;p&gt;以前在自己服务器使用的是Gitblit,官网地址：&lt;a href=&quot;http://gitblit.github.io/gitbli</description>
+      <description>&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h3&gt;&lt;p&gt; 以前在自己服务器使用的是Gitblit,官网地址：&lt;a href=&quot;http://gitblit.github.io/</description>
         
       
       
@@ -1308,8 +1362,7 @@
       
         
         
-      <description>&lt;h2 id=&quot;1-swagger&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-swagger&quot;&gt;&lt;/a&gt; 1. Swagger&lt;/h2&gt;
-&lt;p&gt;Swagger 是一个规范且完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web</description>
+      <description>&lt;h2 id=&quot;1-Swagger&quot;&gt;&lt;a href=&quot;#1-Swagger&quot; class=&quot;headerlink&quot; title=&quot;1. Swagger&quot;&gt;&lt;/a&gt;1. Swagger&lt;/h2&gt;&lt;p&gt;Swagger 是一个规范且完整的框架，用于生成、描述、调用和可视化 RESTf</description>
         
       
       
@@ -1334,7 +1387,7 @@
         
         
       <description>&lt;p&gt;在项目中经常会需要查询数据库所有的表以及表字段，然后可能还需要导出到Excel中，然后自己写了一个工具类，目前支持sqlserver、mysql、oracle、Postgre；如果有问题请留言！！！&lt;/p&gt;
-&lt;h3 id=&quot;1-引入依赖包&quot;&gt;&lt;a class=&quot;markdo</description>
+&lt;h3 id=&quot;1-引入依赖包&quot;&gt;&lt;a href=&quot;#1-引入依赖</description>
         
       
       
@@ -1359,7 +1412,7 @@
         
         
       <description>&lt;p&gt;记录一下用到的一些java8的lambda表达式语法&lt;/p&gt;
-&lt;h3 id=&quot;1-list集合根据某个字段分组后求多个字段的和&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-list集合根据某个字段分组后求多个字段的和&quot;&gt;&lt;/a&gt; 1 lis</description>
+&lt;h3 id=&quot;1-list集合根据某个字段分组后求多个字段的和&quot;&gt;&lt;a href=&quot;#1-list集合根据某个字段分组后求多个字段的和&quot; class=&quot;headerlink&quot; title=&quot;1 list集合根据</description>
         
       
       
@@ -1383,11 +1436,9 @@
       
         
         
-      <description>&lt;h2 id=&quot;1-消息中间件概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-消息中间件概述&quot;&gt;&lt;/a&gt; 1. 消息中间件概述&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;什么是分布式消息中间件&lt;/p&gt;
-&lt;p&gt;利用高效可靠的消息传递机制进行平台无关的数</description>
+      <description>&lt;h2 id=&quot;1-消息中间件概述&quot;&gt;&lt;a href=&quot;#1-消息中间件概述&quot; class=&quot;headerlink&quot; title=&quot;1. 消息中间件概述&quot;&gt;&lt;/a&gt;1. 消息中间件概述&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;什么是分布式消息中间件&lt;/p&gt;
+&lt;p&gt; 利用高效可靠的消息传递</description>
         
       
       
@@ -1411,8 +1462,7 @@
       
         
         
-      <description>&lt;h2 id=&quot;1-什么是对象存储&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-什么是对象存储&quot;&gt;&lt;/a&gt; 1. 什么是对象存储&lt;/h2&gt;
-&lt;p&gt;对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的</description>
+      <description>&lt;h2 id=&quot;1-什么是对象存储&quot;&gt;&lt;a href=&quot;#1-什么是对象存储&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是对象存储&quot;&gt;&lt;/a&gt;1. 什么是对象存储&lt;/h2&gt;&lt;p&gt;对象存储服务OSS（Object Storage Service）是一种海量、安</description>
         
       
       
@@ -1436,8 +1486,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-which查命令绝对路径&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-which查命令绝对路径&quot;&gt;&lt;/a&gt; 1. which查命令绝对路径&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;which&lt;/strong&gt; 从环境变量PATH中定位</description>
+      <description>&lt;h3 id=&quot;1-which查命令绝对路径&quot;&gt;&lt;a href=&quot;#1-which查命令绝对路径&quot; class=&quot;headerlink&quot; title=&quot;1. which查命令绝对路径&quot;&gt;&lt;/a&gt;1. which查命令绝对路径&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;which&lt;/stron</description>
         
       
       
@@ -1461,8 +1510,7 @@
       
         
         
-      <description>&lt;h5 id=&quot;1查看所有的镜像&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1查看所有的镜像&quot;&gt;&lt;/a&gt; 1.查看所有的镜像&lt;/h5&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu</description>
+      <description>&lt;h5 id=&quot;1-查看所有的镜像&quot;&gt;&lt;a href=&quot;#1-查看所有的镜像&quot; class=&quot;headerlink&quot; title=&quot;1.查看所有的镜像&quot;&gt;&lt;/a&gt;1.查看所有的镜像&lt;/h5&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t</description>
         
       
       
@@ -1486,8 +1534,7 @@
       
         
         
-      <description>&lt;h5 id=&quot;1查看所有的镜像&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1查看所有的镜像&quot;&gt;&lt;/a&gt; 1.查看所有的镜像&lt;/h5&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu</description>
+      <description>&lt;h5 id=&quot;1-查看所有的镜像&quot;&gt;&lt;a href=&quot;#1-查看所有的镜像&quot; class=&quot;headerlink&quot; title=&quot;1.查看所有的镜像&quot;&gt;&lt;/a&gt;1.查看所有的镜像&lt;/h5&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t</description>
         
       
       
@@ -1512,7 +1559,7 @@
         
         
       <description>&lt;p&gt;新的服务器没有安装docker，使用docker命令时提示：docker: command not found错误信息&lt;/p&gt;
-&lt;h5 id=&quot;1-更新yum包&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-更新yum包&quot;&gt;&lt;/a&gt; 1. 更</description>
+&lt;h5 id=&quot;1-更新yum包&quot;&gt;&lt;a href=&quot;#1-更新yum包&quot; class=&quot;headerlink&quot; title=&quot;1. 更新yum包</description>
         
       
       
@@ -1536,11 +1583,8 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-正向代理和反向代理&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-正向代理和反向代理&quot;&gt;&lt;/a&gt; 1. 正向代理和反向代理&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;正向代理：&lt;br&gt;
-正向代理类似一个跳板机，代理访问外部资源&lt;br&gt;</description>
+      <description>&lt;h3 id=&quot;1-正向代理和反向代理&quot;&gt;&lt;a href=&quot;#1-正向代理和反向代理&quot; class=&quot;headerlink&quot; title=&quot;1. 正向代理和反向代理&quot;&gt;&lt;/a&gt;1. 正向代理和反向代理&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;正向代理：&lt;br&gt;正向代理类似一个跳板机，代理</description>
         
       
       
@@ -1564,8 +1608,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-虚拟主机virtual-host&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-虚拟主机virtual-host&quot;&gt;&lt;/a&gt; 1. 虚拟主机Virtual Host&lt;/h3&gt;
-&lt;p&gt;一种在单一主机或主机群上，实现多网域服务的方法</description>
+      <description>&lt;h3 id=&quot;1-虚拟主机Virtual-Host&quot;&gt;&lt;a href=&quot;#1-虚拟主机Virtual-Host&quot; class=&quot;headerlink&quot; title=&quot;1. 虚拟主机Virtual Host&quot;&gt;&lt;/a&gt;1. 虚拟主机Virtual Host&lt;/h3&gt;&lt;p&gt;一种在单</description>
         
       
       
@@ -1589,10 +1632,8 @@
       
         
         
-      <description>&lt;h2 id=&quot;1nginx安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1nginx安装&quot;&gt;&lt;/a&gt; 1.Nginx安装&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;安装nginx前首先要确认系统中是否安装了gcc 、pcre-devel、zlib-d</description>
+      <description>&lt;h2 id=&quot;1-Nginx安装&quot;&gt;&lt;a href=&quot;#1-Nginx安装&quot; class=&quot;headerlink&quot; title=&quot;1.Nginx安装&quot;&gt;&lt;/a&gt;1.Nginx安装&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装nginx前首先要确认系统中是否安装了gcc 、pcre-de</description>
         
       
       
@@ -1616,11 +1657,9 @@
       
         
         
-      <description>&lt;h3 id=&quot;1nginx发展史&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1nginx发展史&quot;&gt;&lt;/a&gt; 1.Nginx发展史&lt;/h3&gt;
-&lt;p&gt;作者：logo Sysoev&lt;/p&gt;
+      <description>&lt;h3 id=&quot;1-Nginx发展史&quot;&gt;&lt;a href=&quot;#1-Nginx发展史&quot; class=&quot;headerlink&quot; title=&quot;1.Nginx发展史&quot;&gt;&lt;/a&gt;1.Nginx发展史&lt;/h3&gt;&lt;p&gt;作者：logo Sysoev&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;2000年地洞，c语言编写&lt;/li&gt;
-&lt;li</description>
+&lt;li&gt;2000年地洞，c语</description>
         
       
       
@@ -1644,8 +1683,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-第一个错误的版本&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-第一个错误的版本&quot;&gt;&lt;/a&gt; 1. 第一个错误的版本&lt;/h3&gt;
-&lt;h3 id=&quot;11-题目描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href</description>
+      <description>&lt;h3 id=&quot;1-第一个错误的版本&quot;&gt;&lt;a href=&quot;#1-第一个错误的版本&quot; class=&quot;headerlink&quot; title=&quot;1. 第一个错误的版本&quot;&gt;&lt;/a&gt;1. 第一个错误的版本&lt;/h3&gt;&lt;h3 id=&quot;1-1-题目描述&quot;&gt;&lt;a href=&quot;#1-1-题目描述&quot; c</description>
         
       
       
@@ -1669,8 +1707,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-添加字段&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-添加字段&quot;&gt;&lt;/a&gt; 1. 添加字段&lt;/h3&gt;
-&lt;h4 id=&quot;11-在末尾添加字段&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#11-在末尾</description>
+      <description>&lt;h3 id=&quot;1-添加字段&quot;&gt;&lt;a href=&quot;#1-添加字段&quot; class=&quot;headerlink&quot; title=&quot;1. 添加字段&quot;&gt;&lt;/a&gt;1. 添加字段&lt;/h3&gt;&lt;h4 id=&quot;1-1-在末尾添加字段&quot;&gt;&lt;a href=&quot;#1-1-在末尾添加字段&quot; class=&quot;head</description>
         
       
       
@@ -1694,8 +1731,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-使用命令查询当前sql_mode&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-使用命令查询当前sql_mode&quot;&gt;&lt;/a&gt; 1. 使用命令查询当前sql_mode&lt;/h3&gt;
-&lt;figure class=&quot;highlight s</description>
+      <description>&lt;h3 id=&quot;1-使用命令查询当前sql-mode&quot;&gt;&lt;a href=&quot;#1-使用命令查询当前sql-mode&quot; class=&quot;headerlink&quot; title=&quot;1. 使用命令查询当前sql_mode&quot;&gt;&lt;/a&gt;1. 使用命令查询当前sql_mode&lt;/h3&gt;&lt;figure</description>
         
       
       
@@ -1719,8 +1755,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-tostring-方法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-tostring-方法&quot;&gt;&lt;/a&gt; 1. toString() 方法&lt;/h3&gt;
-&lt;p&gt;List.toString()是最简单的，但它在开头和结尾添加方括号，每</description>
+      <description>&lt;h3 id=&quot;1-toString-方法&quot;&gt;&lt;a href=&quot;#1-toString-方法&quot; class=&quot;headerlink&quot; title=&quot;1. toString() 方法&quot;&gt;&lt;/a&gt;1. toString() 方法&lt;/h3&gt;&lt;p&gt;List.toString()是最简单的</description>
         
       
       
@@ -1744,8 +1779,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-shutdown命令&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-shutdown命令&quot;&gt;&lt;/a&gt; 1. shutdown命令&lt;/h3&gt;
-&lt;p&gt;shutdown会给系统计划一个时间关机。它可以被用于停止、关机、重启机器。&lt;br</description>
+      <description>&lt;h3 id=&quot;1-shutdown命令&quot;&gt;&lt;a href=&quot;#1-shutdown命令&quot; class=&quot;headerlink&quot; title=&quot;1. shutdown命令&quot;&gt;&lt;/a&gt;1. shutdown命令&lt;/h3&gt;&lt;p&gt;shutdown会给系统计划一个时间关机。它可以被用于停</description>
         
       
       
@@ -1769,11 +1803,8 @@
       
         
         
-      <description>&lt;h2 id=&quot;1-系统安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-系统安装&quot;&gt;&lt;/a&gt; 1. 系统安装&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;安装&lt;br&gt;
-&lt;img src=&quot;/Installing-CentOS-system/1.png&quot;</description>
+      <description>&lt;h2 id=&quot;1-系统安装&quot;&gt;&lt;a href=&quot;#1-系统安装&quot; class=&quot;headerlink&quot; title=&quot;1. 系统安装&quot;&gt;&lt;/a&gt;1. 系统安装&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;安装&lt;br&gt; &lt;img src=&quot;/Installing-CentOS-system/</description>
         
       
       
@@ -1797,8 +1828,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-概要&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-概要&quot;&gt;&lt;/a&gt; 1. 概要&lt;/h3&gt;
-&lt;p&gt;LockSupport位于java.util.concurrent（简称juc）包中，是一个编程工具类， 主要是为了阻塞和唤醒线程</description>
+      <description>&lt;h3 id=&quot;1-概要&quot;&gt;&lt;a href=&quot;#1-概要&quot; class=&quot;headerlink&quot; title=&quot;1. 概要&quot;&gt;&lt;/a&gt;1. 概要&lt;/h3&gt;&lt;p&gt;LockSupport位于java.util.concurrent（简称juc）包中，是一个编程工具类， 主要是为了阻塞</description>
         
       
       
@@ -1822,10 +1852,8 @@
       
         
         
-      <description>&lt;p&gt;数据表：&lt;br&gt;
-&lt;img src=&quot;/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/01.png&quot; alt=&quot;原始数据&quot;&gt;&lt;/p&gt;
-&lt;p&gt;行转列结果为：&lt;br&gt;
-&lt;img src=&quot;/mysql%E8%A1%8C%E5%88%97%E</description>
+      <description>&lt;p&gt;数据表：&lt;br&gt;&lt;img src=&quot;/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/01.png&quot; alt=&quot;原始数据&quot;&gt;&lt;/p&gt;
+&lt;p&gt;行转列结果为：&lt;br&gt;&lt;img src=&quot;/mysql%E8%A1%8C%E5%88%97%E8%</description>
         
       
       
@@ -1899,10 +1927,9 @@
       
         
         
-      <description>&lt;p&gt;拿汉语字典的目录页（索引）打比方，我们可以按拼音、笔画、偏旁部首等排序的目录（索引）快速查找到需要的字。&lt;br&gt;
-索引分单列索引和组合索引。&lt;/p&gt;
+      <description>&lt;p&gt;拿汉语字典的目录页（索引）打比方，我们可以按拼音、笔画、偏旁部首等排序的目录（索引）快速查找到需要的字。&lt;br&gt;索引分单列索引和组合索引。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。&lt;/li&gt;
+&lt;li&gt;单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。 &lt;/li&gt;
 &lt;li&gt;组合索引</description>
         
       
@@ -1931,8 +1958,7 @@
 &lt;ul&gt;
 &lt;li&gt;如果目标值 = 中间值，则找到目标值&lt;/li&gt;
 &lt;li&gt;如果目标值 &amp;lt; 中间值，则在左侧继续搜索&lt;/li&gt;
-&lt;li&gt;如果目标值 &amp;gt; 中间值，则在右侧继续搜索&lt;br&gt;
-&lt;img src=</description>
+&lt;li&gt;如果目标值 &amp;gt; 中间值，则在右侧继续搜索&lt;br&gt;&lt;img src=&quot;</description>
         
       
       
@@ -1957,8 +1983,7 @@
         
         
       <description>&lt;p&gt;springboot项目中默认的配置文件是application.properties；&lt;/p&gt;
-&lt;h3 id=&quot;1yml文件规则&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1yml文件规则&quot;&gt;&lt;/a&gt; 1.yml文件规则&lt;/h3&gt;
-&lt;ul&gt;</description>
+&lt;h3 id=&quot;1-yml文件规则&quot;&gt;&lt;a href=&quot;#1-yml文件规则&quot; class=&quot;headerlink&quot; title=&quot;1.yml文件规则&quot;&gt;&lt;/a&gt;1.yml文件</description>
         
       
       
@@ -2033,10 +2058,8 @@
       
         
         
-      <description>&lt;h2 id=&quot;1-缓存&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-缓存&quot;&gt;&lt;/a&gt; 1. 缓存&lt;/h2&gt;
-&lt;p&gt;String类型&lt;br&gt;
-例如：热点数据缓存、对象缓存、全页缓存可以提升热点数据的访问效率&lt;/p&gt;
-&lt;h2 id=&quot;2-数据共享分</description>
+      <description>&lt;h2 id=&quot;1-缓存&quot;&gt;&lt;a href=&quot;#1-缓存&quot; class=&quot;headerlink&quot; title=&quot;1. 缓存&quot;&gt;&lt;/a&gt;1. 缓存&lt;/h2&gt;&lt;p&gt;String类型&lt;br&gt;例如：热点数据缓存、对象缓存、全页缓存可以提升热点数据的访问效率&lt;/p&gt;
+&lt;h2 id=&quot;2-数</description>
         
       
       
@@ -2060,8 +2083,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;1-mvcc&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-mvcc&quot;&gt;&lt;/a&gt; 1. MVCC&lt;/h3&gt;
-&lt;p&gt;全称Multi-Version Concurrency Control即多版本并发控制。MVCC是一种并发控制的方法，</description>
+      <description>&lt;h3 id=&quot;1-MVCC&quot;&gt;&lt;a href=&quot;#1-MVCC&quot; class=&quot;headerlink&quot; title=&quot;1. MVCC&quot;&gt;&lt;/a&gt;1. MVCC&lt;/h3&gt;&lt;p&gt;全称Multi-Version Concurrency Control即多版本并发控制。MVCC是一种并</description>
         
       
       
@@ -2085,10 +2107,7 @@
       
         
         
-      <description>&lt;h2 id=&quot;1volatile作用&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1volatile作用&quot;&gt;&lt;/a&gt; 1.volatile作用&lt;/h2&gt;
-&lt;p&gt;volatile保证有序性，可见性，不能保证原子性&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;禁止指令重</description>
+      <description>&lt;h2 id=&quot;1-volatile作用&quot;&gt;&lt;a href=&quot;#1-volatile作用&quot; class=&quot;headerlink&quot; title=&quot;1.volatile作用&quot;&gt;&lt;/a&gt;1.volatile作用&lt;/h2&gt;&lt;p&gt;  volatile保证有序性，可见性，不能保证原子性&lt;/p</description>
         
       
       
@@ -2112,8 +2131,7 @@
       
         
         
-      <description>&lt;h2 id=&quot;1内存溢出&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1内存溢出&quot;&gt;&lt;/a&gt; 1.内存溢出&lt;/h2&gt;
-&lt;p&gt;java.lang.OutOfMemoryError：是指程序在申请内存是，没有足够的内存空间供其使用，出现OutOfMem</description>
+      <description>&lt;h2 id=&quot;1-内存溢出&quot;&gt;&lt;a href=&quot;#1-内存溢出&quot; class=&quot;headerlink&quot; title=&quot;1.内存溢出&quot;&gt;&lt;/a&gt;1.内存溢出&lt;/h2&gt;&lt;p&gt;java.lang.OutOfMemoryError：是指程序在申请内存是，没有足够的内存空间供其使用，出现</description>
         
       
       
@@ -2137,8 +2155,7 @@
       
         
         
-      <description>&lt;h2 id=&quot;1类加载机制&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1类加载机制&quot;&gt;&lt;/a&gt; 1.类加载机制&lt;/h2&gt;
-&lt;p&gt;JVM将类描述数据从.class文件中加载到内存，并对数据进行解析、初始化，最终形成被JVM直接使用的Java类型；类</description>
+      <description>&lt;h2 id=&quot;1-类加载机制&quot;&gt;&lt;a href=&quot;#1-类加载机制&quot; class=&quot;headerlink&quot; title=&quot;1.类加载机制&quot;&gt;&lt;/a&gt;1.类加载机制&lt;/h2&gt;&lt;p&gt;JVM将类描述数据从.class文件中加载到内存，并对数据进行解析、初始化，最终形成被JVM直接使用</description>
         
       
       
@@ -2164,12 +2181,12 @@
         
       <description>&lt;p&gt;Hexo的评论系统有很多，常见的有以下几个&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;s&gt;多说&lt;/s&gt;&lt;/li&gt;
-&lt;li&gt;&lt;s&gt;网易云跟帖&lt;/s&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;多说&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;网易云跟帖&lt;/del&gt;&lt;/li&gt;
 &lt;li&gt;畅言&lt;/li&gt;
 &lt;li&gt;来必力（LiveRe）&lt;/li&gt;
 &lt;li&gt;Disqus&lt;/li&gt;
-&lt;li&gt;Hypercomment</description>
+&lt;li&gt;Hype</description>
         
       
       
@@ -2193,10 +2210,7 @@
       
         
         
-      <description>&lt;p&gt;当数据库有事务的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；&lt;br&gt;
-&lt;strong&gt;锁的作用&lt;/strong&gt;：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。&lt;br&gt;
-##1. 不同引擎的锁以及锁分类&lt;br&gt;
-&lt;stron</description>
+      <description>&lt;p&gt;当数据库有事务的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；&lt;br&gt;&lt;strong&gt;锁的作用&lt;/strong&gt;：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。&lt;br&gt;##1. 不同引擎的锁以及锁分类&lt;br&gt;&lt;strong&gt;M</description>
         
       
       
@@ -2220,8 +2234,7 @@
       
         
         
-      <description>&lt;h1 id=&quot;mycat分库分表中间件&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mycat分库分表中间件&quot;&gt;&lt;/a&gt; Mycat(分库分表中间件)&lt;/h1&gt;
-&lt;h2 id=&quot;1-数据库优化策略&quot;&gt;&lt;a class=&quot;markdownIt-Anc</description>
+      <description>&lt;h1 id=&quot;Mycat-分库分表中间件&quot;&gt;&lt;a href=&quot;#Mycat-分库分表中间件&quot; class=&quot;headerlink&quot; title=&quot;Mycat(分库分表中间件)&quot;&gt;&lt;/a&gt;Mycat(分库分表中间件)&lt;/h1&gt;&lt;h2 id=&quot;1-数据库优化策略&quot;&gt;&lt;a href=</description>
         
       
       
@@ -2238,31 +2251,6 @@
     </item>
     
     <item>
-      <title>mysql知识总结</title>
-      <link>https://xiaoyuge5201.github.io/mysql/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql/</guid>
-      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h1 id=&quot;mysql-初识&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mysql-初识&quot;&gt;&lt;/a&gt; mysql 初识&lt;/h1&gt;
-&lt;h2 id=&quot;1-版本历史&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-版本历</description>
-        
-      
-      
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
-      
-      
-      <comments>https://xiaoyuge5201.github.io/mysql/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
       <title>mysql事务</title>
       <link>https://xiaoyuge5201.github.io/mysql-transcation/</link>
       <guid>https://xiaoyuge5201.github.io/mysql-transcation/</guid>
@@ -2270,8 +2258,7 @@
       
         
         
-      <description>&lt;h2 id=&quot;事务的定义&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#事务的定义&quot;&gt;&lt;/a&gt; 事务的定义&lt;/h2&gt;
-&lt;p&gt;事务是数据管理系统DBMS执行过程中的一个&lt;strong&gt;逻辑单位&lt;/strong&gt;，有一个有限的数据库&lt;strong&gt;操作序</description>
+      <description>&lt;h2 id=&quot;事务的定义&quot;&gt;&lt;a href=&quot;#事务的定义&quot; class=&quot;headerlink&quot; title=&quot;事务的定义&quot;&gt;&lt;/a&gt;事务的定义&lt;/h2&gt;&lt;p&gt;事务是数据管理系统DBMS执行过程中的一个&lt;strong&gt;逻辑单位&lt;/strong&gt;，有一个有限的数据库&lt;stron</description>
         
       
       
@@ -2288,6 +2275,30 @@
     </item>
     
     <item>
+      <title>mysql知识总结</title>
+      <link>https://xiaoyuge5201.github.io/mysql/</link>
+      <guid>https://xiaoyuge5201.github.io/mysql/</guid>
+      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;mysql-初识&quot;&gt;&lt;a href=&quot;#mysql-初识&quot; class=&quot;headerlink&quot; title=&quot;mysql 初识&quot;&gt;&lt;/a&gt;mysql 初识&lt;/h1&gt;&lt;h2 id=&quot;1-版本历史&quot;&gt;&lt;a href=&quot;#1-版本历史&quot; class=&quot;headerli</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/mysql/">mysql</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/mysql/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>锁优化</title>
       <link>https://xiaoyuge5201.github.io/lock01/</link>
       <guid>https://xiaoyuge5201.github.io/lock01/</guid>
@@ -2295,12 +2306,10 @@
       
         
         
-      <description>&lt;h2 id=&quot;1-优化思路以及方法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-优化思路以及方法&quot;&gt;&lt;/a&gt; 1. 优化思路以及方法&lt;/h2&gt;
-&lt;ul&gt;
+      <description>&lt;h2 id=&quot;1-优化思路以及方法&quot;&gt;&lt;a href=&quot;#1-优化思路以及方法&quot; class=&quot;headerlink&quot; title=&quot;1. 优化思路以及方法&quot;&gt;&lt;/a&gt;1. 优化思路以及方法&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;减少锁持有时间&lt;/li&gt;
 &lt;li&gt;减小锁粒度&lt;/li&gt;
-&lt;li&gt;锁分离&lt;/li&gt;
-</description>
+&lt;l</description>
         
       
       
@@ -2324,10 +2333,8 @@
       
         
         
-      <description>&lt;h2 id=&quot;1-jdk14安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-jdk14安装&quot;&gt;&lt;/a&gt; 1. JDK14安装&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;下载jdk14：  &lt;a href=&quot;https://jdk.java.net/</description>
+      <description>&lt;h2 id=&quot;1-JDK14安装&quot;&gt;&lt;a href=&quot;#1-JDK14安装&quot; class=&quot;headerlink&quot; title=&quot;1. JDK14安装&quot;&gt;&lt;/a&gt;1. JDK14安装&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;下载jdk14：  &lt;a href=&quot;https://jdk.</description>
         
       
       
@@ -2352,7 +2359,7 @@
         
         
       <description>&lt;p&gt;Object.freeze()，这会阻止修改现有的 property，也意味着响应系统无法再追踪变化。&lt;/p&gt;
-&lt;h3 id=&quot;1-export&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-export&quot;&gt;&lt;/a&gt; 1. export&lt;/h</description>
+&lt;h3 id=&quot;1-export&quot;&gt;&lt;a href=&quot;#1-export&quot; class=&quot;headerlink&quot; title=&quot;1. export&quot;&gt;&lt;/a&gt;1.</description>
         
       
       
@@ -2397,9 +2404,7 @@
       
         
         
-      <description>&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#问题描述&quot;&gt;&lt;/a&gt; 问题描述&lt;/h3&gt;
-&lt;p&gt;逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：&lt;br&gt;
-程序启动第一次访问初始化</description>
+      <description>&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：&lt;br&gt;程序启动第一次访问</description>
         
       
       
@@ -2423,9 +2428,7 @@
       
         
         
-      <description>&lt;p&gt;##1. jdk1.7 ConcurrentHashMap&lt;br&gt;
-jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&lt;br&gt;
-&lt;img src=&quot;/ConcurrentHashMap/01.png&quot; alt=&quot;ima</description>
+      <description>&lt;p&gt;##1. jdk1.7 ConcurrentHashMap&lt;br&gt;jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&lt;br&gt;&lt;img src=&quot;/ConcurrentHashMap/01.png&quot; alt=&quot;image</description>
         
       
       
@@ -2450,11 +2453,9 @@ jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&
         
         
       <description>&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：&lt;/</description>
+&lt;li&gt;&lt;p&gt;应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：    </description>
         
       
       
@@ -2478,9 +2479,8 @@ jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&
       
         
         
-      <description>&lt;h3 id=&quot;1-下载&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-下载&quot;&gt;&lt;/a&gt; 1. 下载&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;下载地址：&lt;a href=&quot;https://downloads.mysql.com/archives/communit</description>
+      <description>&lt;h3 id=&quot;1-下载&quot;&gt;&lt;a href=&quot;#1-下载&quot; class=&quot;headerlink&quot; title=&quot;1. 下载&quot;&gt;&lt;/a&gt;1. 下载&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;下载地址：&lt;a href=&quot;https://downloads.mysql.com/archives/com</description>
         
       
       
@@ -2504,10 +2504,8 @@ jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&
       
         
         
-      <description>&lt;h3 id=&quot;1-安装包安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-安装包安装&quot;&gt;&lt;/a&gt; 1. 安装包安装&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;下载jdk安装包（&lt;a href=&quot;https://www.oracle.com/cn/ja</description>
+      <description>&lt;h3 id=&quot;1-安装包安装&quot;&gt;&lt;a href=&quot;#1-安装包安装&quot; class=&quot;headerlink&quot; title=&quot;1. 安装包安装&quot;&gt;&lt;/a&gt;1. 安装包安装&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;下载jdk安装包（&lt;a href=&quot;https://www.oracle.co</description>
         
       
       
@@ -2531,8 +2529,7 @@ jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&
       
         
         
-      <description>&lt;h3 id=&quot;8升-5升-3升水桶各一个如何分成两个4升&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#8升-5升-3升水桶各一个如何分成两个4升&quot;&gt;&lt;/a&gt; 8升、5升、3升水桶各一个,如何分成两个4升&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/int</description>
+      <description>&lt;h3 id=&quot;8升、5升、3升水桶各一个-如何分成两个4升&quot;&gt;&lt;a href=&quot;#8升、5升、3升水桶各一个-如何分成两个4升&quot; class=&quot;headerlink&quot; title=&quot;8升、5升、3升水桶各一个,如何分成两个4升&quot;&gt;&lt;/a&gt;8升、5升、3升水桶各一个,如何分成两个</description>
         
       
       
@@ -2556,8 +2553,7 @@ jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&
       
         
         
-      <description>&lt;h3 id=&quot;1-在同个java文件中但不是内部类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-在同个java文件中但不是内部类&quot;&gt;&lt;/a&gt; 1. 在同个java文件中，但不是内部类&lt;/h3&gt;
-&lt;figure class=&quot;highlight </description>
+      <description>&lt;h3 id=&quot;1-在同个java文件中，但不是内部类&quot;&gt;&lt;a href=&quot;#1-在同个java文件中，但不是内部类&quot; class=&quot;headerlink&quot; title=&quot;1. 在同个java文件中，但不是内部类&quot;&gt;&lt;/a&gt;1. 在同个java文件中，但不是内部类&lt;/h3&gt;&lt;fi</description>
         
       
       
@@ -2581,8 +2577,7 @@ jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&
       
         
         
-      <description>&lt;h4 id=&quot;1-安装gcc&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-安装gcc&quot;&gt;&lt;/a&gt; 1. 安装gcc&lt;/h4&gt;
-   &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu</description>
+      <description>&lt;h4 id=&quot;1-安装gcc&quot;&gt;&lt;a href=&quot;#1-安装gcc&quot; class=&quot;headerlink&quot; title=&quot;1. 安装gcc&quot;&gt;&lt;/a&gt;1. 安装gcc&lt;/h4&gt;   &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c</description>
         
       
       
@@ -2607,7 +2602,7 @@ jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&
         
         
       <description>&lt;p&gt;项目运行时，如果需要修改某个css、js、html等文件的时候，需要自己连接到服务器然后修改，更有甚者需要连接vpn、堡垒机等等，特别烦！！！！于是弄了一个在线修改静态文件的工具，在此记录一下。&lt;/p&gt;
-&lt;h4 id=&quot;1-引入pom&quot;&gt;&lt;a class=&quot;markdown</description>
+&lt;h4 id=&quot;1-引入pom&quot;&gt;&lt;a href=&quot;#1-引入pom&quot;</description>
         
       
       
@@ -2631,8 +2626,7 @@ jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&
       
         
         
-      <description>&lt;h2 id=&quot;1-java线程分类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-java线程分类&quot;&gt;&lt;/a&gt; 1. Java线程分类&lt;/h2&gt;
-&lt;p&gt;在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 TERMINATED状态</description>
+      <description>&lt;h2 id=&quot;1-Java线程分类&quot;&gt;&lt;a href=&quot;#1-Java线程分类&quot; class=&quot;headerlink&quot; title=&quot;1. Java线程分类&quot;&gt;&lt;/a&gt;1. Java线程分类&lt;/h2&gt;&lt;p&gt;在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 T</description>
         
       
       
@@ -2656,8 +2650,7 @@ jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&
       
         
         
-      <description>&lt;h2 id=&quot;1-optional&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-optional&quot;&gt;&lt;/a&gt; 1. Optional&lt;/h2&gt;
-&lt;p&gt;Optional 类主要解决的问题是臭名昭著的空指针异常（NullPointerExcepti</description>
+      <description>&lt;h2 id=&quot;1-Optional&quot;&gt;&lt;a href=&quot;#1-Optional&quot; class=&quot;headerlink&quot; title=&quot;1. Optional&quot;&gt;&lt;/a&gt;1. Optional&lt;/h2&gt;&lt;p&gt;Optional 类主要解决的问题是臭名昭著的空指针异常（NullPoi</description>
         
       
       
