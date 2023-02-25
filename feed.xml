@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sat, 25 Feb 2023 11:32:23 GMT</pubDate>
+    <pubDate>Sat, 25 Feb 2023 12:38:19 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>SpringBoot整合Redis（五）</title>
+      <link>https://xiaoyuge5201.github.io/redis-special-springboot/</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-springboot/</guid>
+      <pubDate>Sat, 25 Feb 2023 11:39:59 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-引入Redis依赖&quot;&gt;&lt;a href=&quot;#1-引入Redis依赖&quot; class=&quot;headerlink&quot; title=&quot;1. 引入</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/redis%E4%B8%93%E9%A2%98/">redis专题</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/redis%E4%B8%93%E9%A2%98/">redis专题</category>
+      
+      
+    </item>
     
     <item>
       <title>Jedis操作Redis6（四）</title>
@@ -27,7 +51,8 @@
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-&lt;h3 id=&quot;1-jedis的用法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-jedis的用法&quot;&gt;&lt;/a&gt; 1. </description>
+
+&lt;h3 id=&quot;1-Jedis的用法&quot;&gt;&lt;a href=&quot;#1-Jedis的用法&quot; class=&quot;headerlink&quot; title=&quot;1. Jedi</description>
         
       
       
