@@ -14,22 +14,17 @@
     
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
-    <description>小余哥个人博客，致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</description>
-    <pubDate>Sun, 26 Feb 2023 13:17:50 GMT</pubDate>
+    <description>小余哥个人博客，分享一些技术教程以及日常踩坑记录。</description>
+    <pubDate>Thu, 02 Mar 2023 14:48:33 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Redis应用问题解决(缓存穿透、击穿、雪崩、分布式锁)</title>
+      <title>缓存穿透、击穿、雪崩、分布式锁</title>
       <link>https://xiaoyuge5201.github.io/redis-special-application-problems/</link>
       <guid>https://xiaoyuge5201.github.io/redis-special-application-problems/</guid>
       <pubDate>Sun, 26 Feb 2023 12:20:07 GMT</pubDate>
       
-        
-        
-      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-</description>
-        
+      <description>博客被加密了, 请输入密码查看.</description>
       
       
       
@@ -59,8 +54,6 @@
       
       
       <category domain="https://xiaoyuge5201.github.io/categories/redis%E4%B8%93%E9%A2%98/">redis专题</category>
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/redis%E4%B8%93%E9%A2%98/java/">java</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/redis%E4%B8%93%E9%A2%98/">redis专题</category>
@@ -1102,11 +1095,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">01数据结构</category>
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/httpd/">httpd</category>
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/httpd/%E6%B5%8B%E8%AF%95/">测试</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/linux/">linux</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/linux/">linux</category>
@@ -1415,9 +1404,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">01数据结构</category>
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/01%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/httpd/">httpd</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/httpd/">httpd</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/Apache/">Apache</category>

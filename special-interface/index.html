@@ -1,17 +1,24 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang=zh>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>接口设计看这一篇就够了 | 小余哥|猿无忧</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="小余哥|猿无忧">
-    
-
-    
-    <meta name="description" content="目录1. 接口幂等性2. SpringBoot 防重Token令牌方案3. 接口数据安全方案4. 接口性能优化方案5. 接口设计的锦囊 1. 接口幂等性1.1 幂等性描述 幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  在数学中，幂等用函数表达式就是：f(x) &#x3D; f(f(x)) 1.2 接口幂等性 在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>接口设计看这一篇就够了 | 小余哥</title>
+  <meta name="description" content="目录1. 接口幂等性2. SpringBoot 防重Token令牌方案3. 接口数据安全方案4. 接口性能优化方案5. 接口设计的锦囊 1. 接口幂等性1.1 幂等性描述 幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  在数学中，幂等用函数表达式就是：f(x) &#x3D; f(f(x)) 1.2 接口幂等性 在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次">
 <meta property="og:type" content="article">
 <meta property="og:title" content="接口设计看这一篇就够了">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/special-interface/index.html">
@@ -53,95 +60,418 @@
 <meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/38.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/39.png">
 <meta property="article:published_time" content="2022-11-23T12:58:03.000Z">
-<meta property="article:modified_time" content="2022-12-01T14:36:07.014Z">
+<meta property="article:modified_time" content="2023-03-02T12:08:26.224Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://xiaoyuge5201.github.io/special-interface/5.gif">
-
-    
-    <link rel="alternative" href="/atom.xml" title="小余哥|猿无忧" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="/%02.css">
-<link rel="stylesheet" href="/.css">
-
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="小余哥|猿无忧" title="小余哥|猿无忧"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="小余哥|猿无忧">小余哥|猿无忧</a></h1>
-				<h2 class="blog-motto"></h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-						<li><a href="/about">About</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:xiaoyuge5201.github.io">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/special-interface/index.html">
   
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/special-interface/" title="接口设计看这一篇就够了" itemprop="url">接口设计看这一篇就够了</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="小余哥|猿无忧" target="_blank" itemprop="author">小余哥|猿无忧</a>
-		
-  <p class="article-time">
-    <time datetime="2022-11-23T12:58:03.000Z" itemprop="datePublished"> 发表于 2022-11-23</time>
-    
-  </p>
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+    <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
+  
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+</head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shanghai, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">1. 接口幂等性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B9%82%E7%AD%89%E6%80%A7%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 幂等性描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 接口幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 为什么需要实现幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%B9%82%E7%AD%89%E6%80%A7%E5%AF%B9%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">2.4.</span> <span class="toc-text">1.4 幂等性对系统的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Restful-API-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.5.</span> <span class="toc-text">1.5 Restful API 接口的幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%B9%82%E7%AD%89"><span class="toc-number">2.6.</span> <span class="toc-text">1.6 如何设计幂等</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80ID"><span class="toc-number">2.6.1.</span> <span class="toc-text">全局唯一ID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%82%E7%AD%89%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-number">2.6.2.</span> <span class="toc-text">幂等设计的基本流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E7%9A%84%E6%96%B9%E6%A1%88"><span class="toc-number">2.7.</span> <span class="toc-text">1.7 实现幂等的方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%881%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%94%AF%E4%B8%80%E4%B8%BB%E9%94%AE"><span class="toc-number">2.7.1.</span> <span class="toc-text">  方案1：数据库唯一主键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%882%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%90%E8%A7%82%E9%94%81"><span class="toc-number">2.7.2.</span> <span class="toc-text">  方案2：数据库乐观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%883%EF%BC%9A%E9%98%B2%E9%87%8DToken%E4%BB%A4%E7%89%8C"><span class="toc-number">2.7.3.</span> <span class="toc-text">  方案3：防重Token令牌</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%884%EF%BC%9A%E4%B8%8B%E6%B8%B8%E4%BC%A0%E9%80%92%E5%94%AF%E4%B8%80%E5%BA%8F%E5%88%97%E5%8F%B7"><span class="toc-number">2.7.4.</span> <span class="toc-text">  方案4：下游传递唯一序列号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%885%EF%BC%9A%E7%8A%B6%E6%80%81%E6%9C%BA%E5%B9%82%E7%AD%89"><span class="toc-number">2.7.5.</span> <span class="toc-text">  方案5：状态机幂等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%886%EF%BC%9A%E6%82%B2%E8%A7%82%E9%94%81"><span class="toc-number">2.7.6.</span> <span class="toc-text">  方案6：悲观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%887%EF%BC%9A%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">2.7.7.</span> <span class="toc-text">  方案7：分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.7.8.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SpringBoot-%E9%98%B2%E9%87%8DToken%E4%BB%A4%E7%89%8C%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">2. SpringBoot 防重Token令牌方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%BC%95%E5%85%A5%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 引入相关依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Token%E8%8E%B7%E5%8F%96-%E9%AA%8C%E8%AF%81%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 Token获取&#x2F;验证接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%88%9B%E5%BB%BAController"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 创建Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%88%9B%E5%BB%BASpringboot%E5%90%AF%E5%8A%A8%E7%B1%BB"><span class="toc-number">3.5.</span> <span class="toc-text">2.5 创建Springboot启动类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%88%9B%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%B1%BB"><span class="toc-number">3.6.</span> <span class="toc-text">2.6 创建测试类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%96%B9%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">3. 接口数据安全方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%EF%BC%8C%E9%98%B2%E6%AD%A2%E6%8A%A5%E6%96%87%E6%98%8E%E6%96%87%E4%BC%A0%E8%BE%93"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 数据加密，防止报文明文传输</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F"><span class="toc-number">4.1.1.</span> <span class="toc-text">3.1.1 加密方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-HTTPS%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.1.2.</span> <span class="toc-text">3.1.2 HTTPS安全协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%95%B0%E6%8D%AE%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 数据加签验签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-number">4.2.1.</span> <span class="toc-text">3.2.1 什么是加签验签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E6%9C%89%E4%BA%86Https%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E8%A6%81%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-number">4.2.2.</span> <span class="toc-text">3.2.2 有了Https，为什么还要加签验签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-token-%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 token 授权认证机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-token%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88"><span class="toc-number">4.3.1.</span> <span class="toc-text">3.3.1 token授权认证方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81token%E7%9A%84%E5%AE%89%E5%85%A8%EF%BC%9Ftoken%E8%A2%AB%E5%8A%AB%E6%8C%81%E5%91%A2%EF%BC%9F"><span class="toc-number">4.3.2.</span> <span class="toc-text">3.3.2 如何保证token的安全？token被劫持呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E8%B6%85%E6%97%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">4.4.</span> <span class="toc-text">3.4 时间戳timestamp超时机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-timestamp-nonce%E6%96%B9%E6%A1%88%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE%E6%94%BB%E5%87%BB"><span class="toc-number">4.5.</span> <span class="toc-text">3.5 timestamp+nonce方案防止重放攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E9%99%90%E6%B5%81%E6%9C%BA%E5%88%B6"><span class="toc-number">4.6.</span> <span class="toc-text">3.6 限流机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E9%BB%91%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-number">4.7.</span> <span class="toc-text">3.7 黑名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E7%99%BD%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-number">4.8.</span> <span class="toc-text">3.8 白名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F%E6%8E%A9%E7%A0%81"><span class="toc-number">4.9.</span> <span class="toc-text">3.9 数据脱敏掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10-%E6%95%B0%E6%8D%AE%E5%8F%82%E6%95%B0%E5%90%88%E6%B3%95%E6%80%A7%E6%A0%A1%E9%AA%8C"><span class="toc-number">4.10.</span> <span class="toc-text">3.10 数据参数合法性校验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%8E%A5%E5%8F%A3%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88"><span class="toc-number">5.</span> <span class="toc-text">4. 接口性能优化方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 本地缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.1.1.</span> <span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98"><span class="toc-number">5.1.2.</span> <span class="toc-text">注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 分布式缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98-1"><span class="toc-number">5.2.1.</span> <span class="toc-text">注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%B9%B6%E8%A1%8C%E5%8C%96"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 并行化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%BC%82%E6%AD%A5%E5%8C%96"><span class="toc-number">5.4.</span> <span class="toc-text">4.4 异步化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E6%B1%A0%E5%8C%96"><span class="toc-number">5.5.</span> <span class="toc-text">4.5 池化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="toc-number">5.6.</span> <span class="toc-text">4.6 分库分表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-SQL-%E4%BC%98%E5%8C%96"><span class="toc-number">5.7.</span> <span class="toc-text">4.7 SQL 优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E9%A2%84%E5%85%88%E8%AE%A1%E7%AE%97"><span class="toc-number">5.8.</span> <span class="toc-text">4.8 预先计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3"><span class="toc-number">5.9.</span> <span class="toc-text">4.9 事务相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">5.10.</span> <span class="toc-text">4.10 海量数据处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-11-%E6%89%B9%E9%87%8F%E8%AF%BB%E5%86%99"><span class="toc-number">5.11.</span> <span class="toc-text">4.11 批量读写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-12-%E9%94%81%E7%9A%84%E7%B2%92%E5%BA%A6"><span class="toc-number">5.12.</span> <span class="toc-text">4.12 锁的粒度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-1-synchronized"><span class="toc-number">5.12.1.</span> <span class="toc-text">4.12.1 synchronized</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-2-Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">5.12.2.</span> <span class="toc-text">4.12.2 Redis分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">5.12.3.</span> <span class="toc-text">4.12.3 数据库分布式锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-13-%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BC%A0%E9%80%92"><span class="toc-number">5.13.</span> <span class="toc-text">4.13 上下文传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-14-%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F"><span class="toc-number">5.14.</span> <span class="toc-text">4.14 空间大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-15-%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="toc-number">5.15.</span> <span class="toc-text">4.15 查询优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E7%9A%84%E9%94%A6%E5%9B%8A"><span class="toc-number">6.</span> <span class="toc-text">5. 接口设计的锦囊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%89%B9%E9%87%8F%E6%80%9D%E6%83%B3%EF%BC%9A%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 批量思想：批量操作数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%BC%82%E6%AD%A5%E6%80%9D%E6%83%B3%EF%BC%9A%E8%80%97%E6%97%B6%E6%93%8D%E4%BD%9C%EF%BC%8C%E8%80%83%E8%99%91%E6%94%BE%E5%88%B0%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 异步思想：耗时操作，考虑放到异步执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4%E6%80%9D%E6%83%B3%EF%BC%9A%E6%81%B0%E5%BD%93%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E3%80%82"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 空间换时间思想：恰当使用缓存。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E9%A2%84%E5%8F%96%E6%80%9D%E6%83%B3%EF%BC%9A%E6%8F%90%E5%89%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%B0%E7%BC%93%E5%AD%98"><span class="toc-number">6.4.</span> <span class="toc-text">5.4 预取思想：提前初始化到缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E6%B1%A0%E5%8C%96%E6%80%9D%E6%83%B3%EF%BC%9A%E9%A2%84%E5%88%86%E9%85%8D%E4%B8%8E%E5%BE%AA%E7%8E%AF%E4%BD%BF%E7%94%A8"><span class="toc-number">6.5.</span> <span class="toc-text">5.5 池化思想：预分配与循环使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E6%80%9D%E6%83%B3%EF%BC%9A%E6%8B%92%E7%BB%9D%E9%98%BB%E5%A1%9E%E7%AD%89%E5%BE%85"><span class="toc-number">6.6.</span> <span class="toc-text">5.6 事件回调思想：拒绝阻塞等待</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%E7%94%B1%E4%B8%B2%E8%A1%8C%E6%94%B9%E4%B8%BA%E5%B9%B6%E8%A1%8C"><span class="toc-number">6.7.</span> <span class="toc-text">5.7 远程调用由串行改为并行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8-%E9%94%81%E7%B2%92%E5%BA%A6%E9%81%BF%E5%85%8D%E8%BF%87%E7%B2%97"><span class="toc-number">6.8.</span> <span class="toc-text">5.8 锁粒度避免过粗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-9-%E5%88%87%E6%8D%A2%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%EF%BC%9A%E6%96%87%E4%BB%B6%E4%B8%AD%E8%BD%AC%E6%9A%82%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="toc-number">6.9.</span> <span class="toc-text">5.9 切换存储方式：文件中转暂存数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-10-%E7%B4%A2%E5%BC%95"><span class="toc-number">6.10.</span> <span class="toc-text">5.10 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-1-%E6%B2%A1%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-number">6.10.1.</span> <span class="toc-text">5.10.1 没加索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-2-%E7%B4%A2%E5%BC%95%E4%B8%8D%E7%94%9F%E6%95%88"><span class="toc-number">6.10.2.</span> <span class="toc-text">5.10.2 索引不生效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-3-%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E4%B8%8D%E5%90%88%E7%90%86"><span class="toc-number">6.10.3.</span> <span class="toc-text">5.10.3 索引设计不合理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-11-%E4%BC%98%E5%8C%96SQL"><span class="toc-number">6.11.</span> <span class="toc-text">5.11 优化SQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-12-%E9%81%BF%E5%85%8D%E5%A4%A7%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-number">6.12.</span> <span class="toc-text">5.12 避免大事务问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-13-%E6%B7%B1%E5%88%86%E9%A1%B5%E9%97%AE%E9%A2%98"><span class="toc-number">6.13.</span> <span class="toc-text">5.13 深分页问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-14-%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">6.14.</span> <span class="toc-text">5.14 优化程序结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-15-%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%93%E5%86%85%E5%AE%B9"><span class="toc-number">6.15.</span> <span class="toc-text">5.15 压缩传输内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-16-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%EF%BC%8C%E8%80%83%E8%99%91NoSQL"><span class="toc-number">6.16.</span> <span class="toc-text">5.16 海量数据处理，考虑NoSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-17-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AE%BE%E8%AE%A1%E8%A6%81%E5%90%88%E7%90%86"><span class="toc-number">6.17.</span> <span class="toc-text">5.17 线程池设计要合理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-18-%E6%9C%BA%E5%99%A8%E9%97%AE%E9%A2%98-%EF%BC%88fullGC%E3%80%81%E7%BA%BF%E7%A8%8B%E6%89%93%E6%BB%A1%E3%80%81%E5%A4%AA%E5%A4%9AIO%E8%B5%84%E6%BA%90%E6%B2%A1%E5%85%B3%E9%97%AD%E7%AD%89%E7%AD%89%EF%BC%89"><span class="toc-number">6.18.</span> <span class="toc-text">5.18 机器问题 （fullGC、线程打满、太多IO资源没关闭等等）</span></a></li></ol></li></ol>
-		
-		</div>
-		
-		<link rel="stylesheet" type="text/css" href="/css/content.css">
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>路漫漫其修远兮，吾将上下而求索</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Monitor/">Monitor</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/httpd/">httpd</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E6%BA%90/">开源</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/redis-special-application-problems/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="/redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/redis-special-database/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="/redis-special-database/" class="title">Redis持久化之RDB（七）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-26T08:20:06.000Z" itemprop="datePublished">2023-02-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/redis-special-transaction/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="/redis-special-transaction/" class="title">Redis事务操作（六）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-25T12:58:29.000Z" itemprop="datePublished">2023-02-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/redis-special-springboot/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="/redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-25T11:39:59.000Z" itemprop="datePublished">2023-02-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/redis-special-jedis/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="/redis-special-jedis/" class="title">Jedis操作Redis6（四）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-02-25T09:07:27.000Z" itemprop="datePublished">2023-02-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="/tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="/tags/interview/" style="font-size: 13px;">interview</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.13px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="/tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="/tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="/tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="/tags/sql/" style="font-size: 13px;">sql</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.5px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.13px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+    </div>
+  </div>
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">1. 接口幂等性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B9%82%E7%AD%89%E6%80%A7%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 幂等性描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 接口幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 为什么需要实现幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%B9%82%E7%AD%89%E6%80%A7%E5%AF%B9%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">2.4.</span> <span class="toc-text">1.4 幂等性对系统的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Restful-API-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.5.</span> <span class="toc-text">1.5 Restful API 接口的幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%B9%82%E7%AD%89"><span class="toc-number">2.6.</span> <span class="toc-text">1.6 如何设计幂等</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80ID"><span class="toc-number">2.6.1.</span> <span class="toc-text">全局唯一ID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%82%E7%AD%89%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-number">2.6.2.</span> <span class="toc-text">幂等设计的基本流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E7%9A%84%E6%96%B9%E6%A1%88"><span class="toc-number">2.7.</span> <span class="toc-text">1.7 实现幂等的方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%881%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%94%AF%E4%B8%80%E4%B8%BB%E9%94%AE"><span class="toc-number">2.7.1.</span> <span class="toc-text">  方案1：数据库唯一主键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%882%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%90%E8%A7%82%E9%94%81"><span class="toc-number">2.7.2.</span> <span class="toc-text">  方案2：数据库乐观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%883%EF%BC%9A%E9%98%B2%E9%87%8DToken%E4%BB%A4%E7%89%8C"><span class="toc-number">2.7.3.</span> <span class="toc-text">  方案3：防重Token令牌</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%884%EF%BC%9A%E4%B8%8B%E6%B8%B8%E4%BC%A0%E9%80%92%E5%94%AF%E4%B8%80%E5%BA%8F%E5%88%97%E5%8F%B7"><span class="toc-number">2.7.4.</span> <span class="toc-text">  方案4：下游传递唯一序列号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%885%EF%BC%9A%E7%8A%B6%E6%80%81%E6%9C%BA%E5%B9%82%E7%AD%89"><span class="toc-number">2.7.5.</span> <span class="toc-text">  方案5：状态机幂等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%886%EF%BC%9A%E6%82%B2%E8%A7%82%E9%94%81"><span class="toc-number">2.7.6.</span> <span class="toc-text">  方案6：悲观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%887%EF%BC%9A%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">2.7.7.</span> <span class="toc-text">  方案7：分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.7.8.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SpringBoot-%E9%98%B2%E9%87%8DToken%E4%BB%A4%E7%89%8C%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">2. SpringBoot 防重Token令牌方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%BC%95%E5%85%A5%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 引入相关依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Token%E8%8E%B7%E5%8F%96-%E9%AA%8C%E8%AF%81%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 Token获取&#x2F;验证接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%88%9B%E5%BB%BAController"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 创建Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%88%9B%E5%BB%BASpringboot%E5%90%AF%E5%8A%A8%E7%B1%BB"><span class="toc-number">3.5.</span> <span class="toc-text">2.5 创建Springboot启动类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%88%9B%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%B1%BB"><span class="toc-number">3.6.</span> <span class="toc-text">2.6 创建测试类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%96%B9%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">3. 接口数据安全方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%EF%BC%8C%E9%98%B2%E6%AD%A2%E6%8A%A5%E6%96%87%E6%98%8E%E6%96%87%E4%BC%A0%E8%BE%93"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 数据加密，防止报文明文传输</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F"><span class="toc-number">4.1.1.</span> <span class="toc-text">3.1.1 加密方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-HTTPS%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.1.2.</span> <span class="toc-text">3.1.2 HTTPS安全协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%95%B0%E6%8D%AE%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 数据加签验签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-number">4.2.1.</span> <span class="toc-text">3.2.1 什么是加签验签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E6%9C%89%E4%BA%86Https%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E8%A6%81%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-number">4.2.2.</span> <span class="toc-text">3.2.2 有了Https，为什么还要加签验签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-token-%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 token 授权认证机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-token%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88"><span class="toc-number">4.3.1.</span> <span class="toc-text">3.3.1 token授权认证方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81token%E7%9A%84%E5%AE%89%E5%85%A8%EF%BC%9Ftoken%E8%A2%AB%E5%8A%AB%E6%8C%81%E5%91%A2%EF%BC%9F"><span class="toc-number">4.3.2.</span> <span class="toc-text">3.3.2 如何保证token的安全？token被劫持呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E8%B6%85%E6%97%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">4.4.</span> <span class="toc-text">3.4 时间戳timestamp超时机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-timestamp-nonce%E6%96%B9%E6%A1%88%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE%E6%94%BB%E5%87%BB"><span class="toc-number">4.5.</span> <span class="toc-text">3.5 timestamp+nonce方案防止重放攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E9%99%90%E6%B5%81%E6%9C%BA%E5%88%B6"><span class="toc-number">4.6.</span> <span class="toc-text">3.6 限流机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E9%BB%91%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-number">4.7.</span> <span class="toc-text">3.7 黑名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E7%99%BD%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-number">4.8.</span> <span class="toc-text">3.8 白名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F%E6%8E%A9%E7%A0%81"><span class="toc-number">4.9.</span> <span class="toc-text">3.9 数据脱敏掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10-%E6%95%B0%E6%8D%AE%E5%8F%82%E6%95%B0%E5%90%88%E6%B3%95%E6%80%A7%E6%A0%A1%E9%AA%8C"><span class="toc-number">4.10.</span> <span class="toc-text">3.10 数据参数合法性校验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%8E%A5%E5%8F%A3%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88"><span class="toc-number">5.</span> <span class="toc-text">4. 接口性能优化方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 本地缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.1.1.</span> <span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98"><span class="toc-number">5.1.2.</span> <span class="toc-text">注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 分布式缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98-1"><span class="toc-number">5.2.1.</span> <span class="toc-text">注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%B9%B6%E8%A1%8C%E5%8C%96"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 并行化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%BC%82%E6%AD%A5%E5%8C%96"><span class="toc-number">5.4.</span> <span class="toc-text">4.4 异步化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E6%B1%A0%E5%8C%96"><span class="toc-number">5.5.</span> <span class="toc-text">4.5 池化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="toc-number">5.6.</span> <span class="toc-text">4.6 分库分表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-SQL-%E4%BC%98%E5%8C%96"><span class="toc-number">5.7.</span> <span class="toc-text">4.7 SQL 优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E9%A2%84%E5%85%88%E8%AE%A1%E7%AE%97"><span class="toc-number">5.8.</span> <span class="toc-text">4.8 预先计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3"><span class="toc-number">5.9.</span> <span class="toc-text">4.9 事务相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">5.10.</span> <span class="toc-text">4.10 海量数据处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-11-%E6%89%B9%E9%87%8F%E8%AF%BB%E5%86%99"><span class="toc-number">5.11.</span> <span class="toc-text">4.11 批量读写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-12-%E9%94%81%E7%9A%84%E7%B2%92%E5%BA%A6"><span class="toc-number">5.12.</span> <span class="toc-text">4.12 锁的粒度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-1-synchronized"><span class="toc-number">5.12.1.</span> <span class="toc-text">4.12.1 synchronized</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-2-Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">5.12.2.</span> <span class="toc-text">4.12.2 Redis分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">5.12.3.</span> <span class="toc-text">4.12.3 数据库分布式锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-13-%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BC%A0%E9%80%92"><span class="toc-number">5.13.</span> <span class="toc-text">4.13 上下文传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-14-%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F"><span class="toc-number">5.14.</span> <span class="toc-text">4.14 空间大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-15-%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="toc-number">5.15.</span> <span class="toc-text">4.15 查询优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E7%9A%84%E9%94%A6%E5%9B%8A"><span class="toc-number">6.</span> <span class="toc-text">5. 接口设计的锦囊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%89%B9%E9%87%8F%E6%80%9D%E6%83%B3%EF%BC%9A%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 批量思想：批量操作数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%BC%82%E6%AD%A5%E6%80%9D%E6%83%B3%EF%BC%9A%E8%80%97%E6%97%B6%E6%93%8D%E4%BD%9C%EF%BC%8C%E8%80%83%E8%99%91%E6%94%BE%E5%88%B0%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 异步思想：耗时操作，考虑放到异步执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4%E6%80%9D%E6%83%B3%EF%BC%9A%E6%81%B0%E5%BD%93%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E3%80%82"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 空间换时间思想：恰当使用缓存。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E9%A2%84%E5%8F%96%E6%80%9D%E6%83%B3%EF%BC%9A%E6%8F%90%E5%89%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%B0%E7%BC%93%E5%AD%98"><span class="toc-number">6.4.</span> <span class="toc-text">5.4 预取思想：提前初始化到缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E6%B1%A0%E5%8C%96%E6%80%9D%E6%83%B3%EF%BC%9A%E9%A2%84%E5%88%86%E9%85%8D%E4%B8%8E%E5%BE%AA%E7%8E%AF%E4%BD%BF%E7%94%A8"><span class="toc-number">6.5.</span> <span class="toc-text">5.5 池化思想：预分配与循环使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E6%80%9D%E6%83%B3%EF%BC%9A%E6%8B%92%E7%BB%9D%E9%98%BB%E5%A1%9E%E7%AD%89%E5%BE%85"><span class="toc-number">6.6.</span> <span class="toc-text">5.6 事件回调思想：拒绝阻塞等待</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%E7%94%B1%E4%B8%B2%E8%A1%8C%E6%94%B9%E4%B8%BA%E5%B9%B6%E8%A1%8C"><span class="toc-number">6.7.</span> <span class="toc-text">5.7 远程调用由串行改为并行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8-%E9%94%81%E7%B2%92%E5%BA%A6%E9%81%BF%E5%85%8D%E8%BF%87%E7%B2%97"><span class="toc-number">6.8.</span> <span class="toc-text">5.8 锁粒度避免过粗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-9-%E5%88%87%E6%8D%A2%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%EF%BC%9A%E6%96%87%E4%BB%B6%E4%B8%AD%E8%BD%AC%E6%9A%82%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="toc-number">6.9.</span> <span class="toc-text">5.9 切换存储方式：文件中转暂存数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-10-%E7%B4%A2%E5%BC%95"><span class="toc-number">6.10.</span> <span class="toc-text">5.10 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-1-%E6%B2%A1%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-number">6.10.1.</span> <span class="toc-text">5.10.1 没加索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-2-%E7%B4%A2%E5%BC%95%E4%B8%8D%E7%94%9F%E6%95%88"><span class="toc-number">6.10.2.</span> <span class="toc-text">5.10.2 索引不生效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-3-%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E4%B8%8D%E5%90%88%E7%90%86"><span class="toc-number">6.10.3.</span> <span class="toc-text">5.10.3 索引设计不合理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-11-%E4%BC%98%E5%8C%96SQL"><span class="toc-number">6.11.</span> <span class="toc-text">5.11 优化SQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-12-%E9%81%BF%E5%85%8D%E5%A4%A7%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-number">6.12.</span> <span class="toc-text">5.12 避免大事务问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-13-%E6%B7%B1%E5%88%86%E9%A1%B5%E9%97%AE%E9%A2%98"><span class="toc-number">6.13.</span> <span class="toc-text">5.13 深分页问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-14-%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">6.14.</span> <span class="toc-text">5.14 优化程序结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-15-%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%93%E5%86%85%E5%AE%B9"><span class="toc-number">6.15.</span> <span class="toc-text">5.15 压缩传输内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-16-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%EF%BC%8C%E8%80%83%E8%99%91NoSQL"><span class="toc-number">6.16.</span> <span class="toc-text">5.16 海量数据处理，考虑NoSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-17-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AE%BE%E8%AE%A1%E8%A6%81%E5%90%88%E7%90%86"><span class="toc-number">6.17.</span> <span class="toc-text">5.17 线程池设计要合理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-18-%E6%9C%BA%E5%99%A8%E9%97%AE%E9%A2%98-%EF%BC%88fullGC%E3%80%81%E7%BA%BF%E7%A8%8B%E6%89%93%E6%BB%A1%E3%80%81%E5%A4%AA%E5%A4%9AIO%E8%B5%84%E6%BA%90%E6%B2%A1%E5%85%B3%E9%97%AD%E7%AD%89%E7%AD%89%EF%BC%89"><span class="toc-number">6.18.</span> <span class="toc-text">5.18 机器问题 （fullGC、线程打满、太多IO资源没关闭等等）</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-special-interface" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      接口设计看这一篇就够了
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/special-interface/" class="article-date">
+	  <time datetime="2022-11-23T12:58:03.000Z" itemprop="datePublished">2022-11-23</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/interface/">interface</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/java/" rel="tag">java</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/special-interface/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 16.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 59(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="/css/content.css">
 
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><strong>1. <a href="#content1">接口幂等性</a><br>2. <a href="#token">SpringBoot 防重Token令牌方案</a><br>3. <a href="#interfaceSafe">接口数据安全方案</a><br>4. <a href="#interfacePerformance">接口性能优化方案</a><br>5. <a href="#interfaceDefine">接口设计的锦囊</a></strong></p>
 <h2 id="1-接口幂等性"><a href="#1-接口幂等性" class="headerlink" title="1. 接口幂等性"></a><span class="tit-h2" id="content1">1. 接口幂等性</span></h2><h3 id="1-1-幂等性描述"><a href="#1-1-幂等性描述" class="headerlink" title="1.1 幂等性描述"></a>1.1 幂等性描述</h3><blockquote>
@@ -745,574 +1075,362 @@
 <li>如果IO资源没关闭，也会导致耗时增加。这个大家可以看下，平时你的电脑一直打开很多很多文件，是不是会觉得很卡。</li>
 </ul>
 <p>记录这篇博客花了好几天的时间，主要是筛选一些同类型的博客，然后整理一下，在这过程中也自己也是受益良多，也更加系统性的了解、熟悉接口方面的知识。这篇博客主要是借鉴于<strong>捡田螺的小男孩</strong> <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2NzYyNjQzNg==&mid=2247495355&idx=1&sn=20a4b5594a5d307b36fd374002d7e29b&chksm=ceba1210f9cd9b06329a4f6c1c5f6595956643696bf8d89110b6d4b6efc0dde1e5049ee8948c&scene=126&&sessionid=1669128030#rd">设计好接口的36个锦囊</a> 以及 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/cd-EuL1Psn_nDQp2djJFBA">18种接口优化总结</a>；</p>
-  
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/interface/">interface</a>
-</div>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoyuge5201.github.io/special-interface/" title="接口设计看这一篇就够了" target="_blank" rel="external">https://xiaoyuge5201.github.io/special-interface/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！本博客如有侵权，请联系删除！
+    </li>
+  </ul>
+</blockquote>
 
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/java/">java</a>
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
+        <div>致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</div>
+      </div>
+    </figure>
   </div>
-
 </div>
 
 
+    </div>
+  </article>
+  
+    
 
-	<div class="article-share" id="share">
-	
-	  <div data-url="https://xiaoyuge5201.github.io/special-interface/" data-title="接口设计看这一篇就够了 | 小余哥|猿无忧" data-tsina="" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/lock-granularity/" title="13种锁的实现方式">
-  <strong>上一篇：</strong><br/>
-  <span>
-  13种锁的实现方式</span>
-</a>
+  
 </div>
 
-
-<div class="next">
-<a href="/limit-offset/"  title="破解LIMIT和OFFSET分页性能瓶颈">
- <strong>下一篇：</strong><br/> 
- <span>破解LIMIT和OFFSET分页性能瓶颈
-</span>
-</a>
-</div>
-
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/lock-granularity/" title="13种锁的实现方式"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/limit-offset/" title="破解LIMIT和OFFSET分页性能瓶颈"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
 </nav>
-
-	
-
-
-
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">1. 接口幂等性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B9%82%E7%AD%89%E6%80%A7%E6%8F%8F%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 幂等性描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 接口幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 为什么需要实现幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%B9%82%E7%AD%89%E6%80%A7%E5%AF%B9%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">2.4.</span> <span class="toc-text">1.4 幂等性对系统的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Restful-API-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-number">2.5.</span> <span class="toc-text">1.5 Restful API 接口的幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%B9%82%E7%AD%89"><span class="toc-number">2.6.</span> <span class="toc-text">1.6 如何设计幂等</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80ID"><span class="toc-number">2.6.1.</span> <span class="toc-text">全局唯一ID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%82%E7%AD%89%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-number">2.6.2.</span> <span class="toc-text">幂等设计的基本流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E7%9A%84%E6%96%B9%E6%A1%88"><span class="toc-number">2.7.</span> <span class="toc-text">1.7 实现幂等的方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%881%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%94%AF%E4%B8%80%E4%B8%BB%E9%94%AE"><span class="toc-number">2.7.1.</span> <span class="toc-text">  方案1：数据库唯一主键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%882%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%90%E8%A7%82%E9%94%81"><span class="toc-number">2.7.2.</span> <span class="toc-text">  方案2：数据库乐观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%883%EF%BC%9A%E9%98%B2%E9%87%8DToken%E4%BB%A4%E7%89%8C"><span class="toc-number">2.7.3.</span> <span class="toc-text">  方案3：防重Token令牌</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%884%EF%BC%9A%E4%B8%8B%E6%B8%B8%E4%BC%A0%E9%80%92%E5%94%AF%E4%B8%80%E5%BA%8F%E5%88%97%E5%8F%B7"><span class="toc-number">2.7.4.</span> <span class="toc-text">  方案4：下游传递唯一序列号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%885%EF%BC%9A%E7%8A%B6%E6%80%81%E6%9C%BA%E5%B9%82%E7%AD%89"><span class="toc-number">2.7.5.</span> <span class="toc-text">  方案5：状态机幂等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%886%EF%BC%9A%E6%82%B2%E8%A7%82%E9%94%81"><span class="toc-number">2.7.6.</span> <span class="toc-text">  方案6：悲观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%887%EF%BC%9A%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">2.7.7.</span> <span class="toc-text">  方案7：分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">2.7.8.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SpringBoot-%E9%98%B2%E9%87%8DToken%E4%BB%A4%E7%89%8C%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">2. SpringBoot 防重Token令牌方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%BC%95%E5%85%A5%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="toc-number">3.1.</span> <span class="toc-text">2.1 引入相关依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.2.</span> <span class="toc-text">2.2 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Token%E8%8E%B7%E5%8F%96-%E9%AA%8C%E8%AF%81%E6%8E%A5%E5%8F%A3"><span class="toc-number">3.3.</span> <span class="toc-text">2.3 Token获取&#x2F;验证接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%88%9B%E5%BB%BAController"><span class="toc-number">3.4.</span> <span class="toc-text">2.4 创建Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%88%9B%E5%BB%BASpringboot%E5%90%AF%E5%8A%A8%E7%B1%BB"><span class="toc-number">3.5.</span> <span class="toc-text">2.5 创建Springboot启动类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%88%9B%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%B1%BB"><span class="toc-number">3.6.</span> <span class="toc-text">2.6 创建测试类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%96%B9%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">3. 接口数据安全方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%EF%BC%8C%E9%98%B2%E6%AD%A2%E6%8A%A5%E6%96%87%E6%98%8E%E6%96%87%E4%BC%A0%E8%BE%93"><span class="toc-number">4.1.</span> <span class="toc-text">3.1 数据加密，防止报文明文传输</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F"><span class="toc-number">4.1.1.</span> <span class="toc-text">3.1.1 加密方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-HTTPS%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE"><span class="toc-number">4.1.2.</span> <span class="toc-text">3.1.2 HTTPS安全协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%95%B0%E6%8D%AE%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-number">4.2.</span> <span class="toc-text">3.2 数据加签验签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-number">4.2.1.</span> <span class="toc-text">3.2.1 什么是加签验签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E6%9C%89%E4%BA%86Https%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E8%A6%81%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-number">4.2.2.</span> <span class="toc-text">3.2.2 有了Https，为什么还要加签验签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-token-%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="toc-number">4.3.</span> <span class="toc-text">3.3 token 授权认证机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-token%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88"><span class="toc-number">4.3.1.</span> <span class="toc-text">3.3.1 token授权认证方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81token%E7%9A%84%E5%AE%89%E5%85%A8%EF%BC%9Ftoken%E8%A2%AB%E5%8A%AB%E6%8C%81%E5%91%A2%EF%BC%9F"><span class="toc-number">4.3.2.</span> <span class="toc-text">3.3.2 如何保证token的安全？token被劫持呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E8%B6%85%E6%97%B6%E6%9C%BA%E5%88%B6"><span class="toc-number">4.4.</span> <span class="toc-text">3.4 时间戳timestamp超时机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-timestamp-nonce%E6%96%B9%E6%A1%88%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE%E6%94%BB%E5%87%BB"><span class="toc-number">4.5.</span> <span class="toc-text">3.5 timestamp+nonce方案防止重放攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E9%99%90%E6%B5%81%E6%9C%BA%E5%88%B6"><span class="toc-number">4.6.</span> <span class="toc-text">3.6 限流机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E9%BB%91%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-number">4.7.</span> <span class="toc-text">3.7 黑名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E7%99%BD%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-number">4.8.</span> <span class="toc-text">3.8 白名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F%E6%8E%A9%E7%A0%81"><span class="toc-number">4.9.</span> <span class="toc-text">3.9 数据脱敏掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10-%E6%95%B0%E6%8D%AE%E5%8F%82%E6%95%B0%E5%90%88%E6%B3%95%E6%80%A7%E6%A0%A1%E9%AA%8C"><span class="toc-number">4.10.</span> <span class="toc-text">3.10 数据参数合法性校验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%8E%A5%E5%8F%A3%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88"><span class="toc-number">5.</span> <span class="toc-text">4. 接口性能优化方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 本地缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.1.1.</span> <span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98"><span class="toc-number">5.1.2.</span> <span class="toc-text">注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 分布式缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98-1"><span class="toc-number">5.2.1.</span> <span class="toc-text">注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%B9%B6%E8%A1%8C%E5%8C%96"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 并行化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%BC%82%E6%AD%A5%E5%8C%96"><span class="toc-number">5.4.</span> <span class="toc-text">4.4 异步化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E6%B1%A0%E5%8C%96"><span class="toc-number">5.5.</span> <span class="toc-text">4.5 池化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="toc-number">5.6.</span> <span class="toc-text">4.6 分库分表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-SQL-%E4%BC%98%E5%8C%96"><span class="toc-number">5.7.</span> <span class="toc-text">4.7 SQL 优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E9%A2%84%E5%85%88%E8%AE%A1%E7%AE%97"><span class="toc-number">5.8.</span> <span class="toc-text">4.8 预先计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3"><span class="toc-number">5.9.</span> <span class="toc-text">4.9 事务相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-number">5.10.</span> <span class="toc-text">4.10 海量数据处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-11-%E6%89%B9%E9%87%8F%E8%AF%BB%E5%86%99"><span class="toc-number">5.11.</span> <span class="toc-text">4.11 批量读写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-12-%E9%94%81%E7%9A%84%E7%B2%92%E5%BA%A6"><span class="toc-number">5.12.</span> <span class="toc-text">4.12 锁的粒度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-1-synchronized"><span class="toc-number">5.12.1.</span> <span class="toc-text">4.12.1 synchronized</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-2-Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">5.12.2.</span> <span class="toc-text">4.12.2 Redis分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-number">5.12.3.</span> <span class="toc-text">4.12.3 数据库分布式锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-13-%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BC%A0%E9%80%92"><span class="toc-number">5.13.</span> <span class="toc-text">4.13 上下文传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-14-%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F"><span class="toc-number">5.14.</span> <span class="toc-text">4.14 空间大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-15-%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="toc-number">5.15.</span> <span class="toc-text">4.15 查询优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E7%9A%84%E9%94%A6%E5%9B%8A"><span class="toc-number">6.</span> <span class="toc-text">5. 接口设计的锦囊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%89%B9%E9%87%8F%E6%80%9D%E6%83%B3%EF%BC%9A%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">6.1.</span> <span class="toc-text">5.1 批量思想：批量操作数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%BC%82%E6%AD%A5%E6%80%9D%E6%83%B3%EF%BC%9A%E8%80%97%E6%97%B6%E6%93%8D%E4%BD%9C%EF%BC%8C%E8%80%83%E8%99%91%E6%94%BE%E5%88%B0%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C"><span class="toc-number">6.2.</span> <span class="toc-text">5.2 异步思想：耗时操作，考虑放到异步执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4%E6%80%9D%E6%83%B3%EF%BC%9A%E6%81%B0%E5%BD%93%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E3%80%82"><span class="toc-number">6.3.</span> <span class="toc-text">5.3 空间换时间思想：恰当使用缓存。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E9%A2%84%E5%8F%96%E6%80%9D%E6%83%B3%EF%BC%9A%E6%8F%90%E5%89%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%B0%E7%BC%93%E5%AD%98"><span class="toc-number">6.4.</span> <span class="toc-text">5.4 预取思想：提前初始化到缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E6%B1%A0%E5%8C%96%E6%80%9D%E6%83%B3%EF%BC%9A%E9%A2%84%E5%88%86%E9%85%8D%E4%B8%8E%E5%BE%AA%E7%8E%AF%E4%BD%BF%E7%94%A8"><span class="toc-number">6.5.</span> <span class="toc-text">5.5 池化思想：预分配与循环使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E6%80%9D%E6%83%B3%EF%BC%9A%E6%8B%92%E7%BB%9D%E9%98%BB%E5%A1%9E%E7%AD%89%E5%BE%85"><span class="toc-number">6.6.</span> <span class="toc-text">5.6 事件回调思想：拒绝阻塞等待</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%E7%94%B1%E4%B8%B2%E8%A1%8C%E6%94%B9%E4%B8%BA%E5%B9%B6%E8%A1%8C"><span class="toc-number">6.7.</span> <span class="toc-text">5.7 远程调用由串行改为并行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8-%E9%94%81%E7%B2%92%E5%BA%A6%E9%81%BF%E5%85%8D%E8%BF%87%E7%B2%97"><span class="toc-number">6.8.</span> <span class="toc-text">5.8 锁粒度避免过粗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-9-%E5%88%87%E6%8D%A2%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%EF%BC%9A%E6%96%87%E4%BB%B6%E4%B8%AD%E8%BD%AC%E6%9A%82%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="toc-number">6.9.</span> <span class="toc-text">5.9 切换存储方式：文件中转暂存数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-10-%E7%B4%A2%E5%BC%95"><span class="toc-number">6.10.</span> <span class="toc-text">5.10 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-1-%E6%B2%A1%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-number">6.10.1.</span> <span class="toc-text">5.10.1 没加索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-2-%E7%B4%A2%E5%BC%95%E4%B8%8D%E7%94%9F%E6%95%88"><span class="toc-number">6.10.2.</span> <span class="toc-text">5.10.2 索引不生效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-3-%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E4%B8%8D%E5%90%88%E7%90%86"><span class="toc-number">6.10.3.</span> <span class="toc-text">5.10.3 索引设计不合理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-11-%E4%BC%98%E5%8C%96SQL"><span class="toc-number">6.11.</span> <span class="toc-text">5.11 优化SQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-12-%E9%81%BF%E5%85%8D%E5%A4%A7%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-number">6.12.</span> <span class="toc-text">5.12 避免大事务问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-13-%E6%B7%B1%E5%88%86%E9%A1%B5%E9%97%AE%E9%A2%98"><span class="toc-number">6.13.</span> <span class="toc-text">5.13 深分页问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-14-%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">6.14.</span> <span class="toc-text">5.14 优化程序结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-15-%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%93%E5%86%85%E5%AE%B9"><span class="toc-number">6.15.</span> <span class="toc-text">5.15 压缩传输内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-16-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%EF%BC%8C%E8%80%83%E8%99%91NoSQL"><span class="toc-number">6.16.</span> <span class="toc-text">5.16 海量数据处理，考虑NoSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-17-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AE%BE%E8%AE%A1%E8%A6%81%E5%90%88%E7%90%86"><span class="toc-number">6.17.</span> <span class="toc-text">5.17 线程池设计要合理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-18-%E6%9C%BA%E5%99%A8%E9%97%AE%E9%A2%98-%EF%BC%88fullGC%E3%80%81%E7%BA%BF%E7%A8%8B%E6%89%93%E6%BB%A1%E3%80%81%E5%A4%AA%E5%A4%9AIO%E8%B5%84%E6%BA%90%E6%B2%A1%E5%85%B3%E9%97%AD%E7%AD%89%E7%AD%89%EF%BC%89"><span class="toc-number">6.18.</span> <span class="toc-text">5.18 机器问题 （fullGC、线程打满、太多IO资源没关闭等等）</span></a></li></ol></li></ol>
- 
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-
-  
-<div class="categorieslist">
-	<p class="asidetitle">分类</p>
-		<ul>
-		
-		  
-			<li><a href="/categories/01数据结构/" title="01数据结构">01数据结构<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Docker/" title="Docker">Docker<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/Monitor/" title="Monitor">Monitor<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/ShardingSphere-jdbc/" title="ShardingSphere-jdbc">ShardingSphere-jdbc<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/devops/" title="devops">devops<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/filter/" title="filter">filter<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/hexo/" title="hexo">hexo<sup>3</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/01数据结构/httpd/" title="httpd">httpd<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/interface/" title="interface">interface<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/java/" title="java">java<sup>28</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/redis专题/java/" title="java">java<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/linux/" title="linux">linux<sup>9</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/mysql/" title="mysql">mysql<sup>15</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/nginx/" title="nginx">nginx<sup>7</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/redis专题/" title="redis专题">redis专题<sup>11</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/rocketmq/" title="rocketmq">rocketmq<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/spring/" title="spring">spring<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/swagger/" title="swagger">swagger<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/tidb/" title="tidb">tidb<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/tomcat/" title="tomcat">tomcat<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/vue/" title="vue">vue<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/中间件/" title="中间件">中间件<sup>11</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/开源/" title="开源">开源<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/架构师笔记/" title="架构师笔记">架构师笔记<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/01数据结构/httpd/测试/" title="测试">测试<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/知识整理/" title="知识整理">知识整理<sup>2</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/算法/" title="算法">算法<sup>4</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/经验分享/" title="经验分享">经验分享<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/踩坑记录/" title="踩坑记录">踩坑记录<sup>1</sup></a></li>
-		  
-		
-		  
-			<li><a href="/categories/面试题/" title="面试题">面试题<sup>3</sup></a></li>
-		  
-		
-		</ul>
 </div>
 
 
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			
-				<li><a href="/tags/java/" title="java">java<sup>22</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/mysql/" title="mysql">mysql<sup>13</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/redis专题/" title="redis专题">redis专题<sup>11</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Nginx专题/" title="Nginx专题">Nginx专题<sup>6</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/thread/" title="thread">thread<sup>5</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/algorithm/" title="algorithm">algorithm<sup>4</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/hexo/" title="hexo">hexo<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/springboot/" title="springboot">springboot<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/kafka/" title="kafka">kafka<sup>3</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/linux/" title="linux">linux<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Docker/" title="Docker">Docker<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/tidb/" title="tidb">tidb<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Linux/" title="Linux">Linux<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Apache/" title="Apache">Apache<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/rabbitMQ/" title="rabbitMQ">rabbitMQ<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/vue/" title="vue">vue<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/rocketmq/" title="rocketmq">rocketmq<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/分布式/" title="分布式">分布式<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/jdk/" title="jdk">jdk<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/集合/" title="集合">集合<sup>1</sup></a></li>
-			
-		
-		</ul>
-</div>
 
+</main>
 
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
-            
-          </li>
+        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
-</div>
 
-  
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
-			This is my blog,believe it or not.</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2023 
-		
-		<a href="/about" target="_blank" title="小余哥|猿无忧">小余哥|猿无忧</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
+    <div class="copyright">
+    	
+        &copy; 2023 小余哥|猿无忧
         
-    }
-  });
-});
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
-
+<!--         <div class="publishby"> -->
+<!--         	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+<!--         </div> -->
+        <br>
+        <a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2021000267号-2</a>
+    </div>
+</footer>
+  <script src="/js/jquery.min.js"></script>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:xiaoyuge5201.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
 </script>
 
 
 
-<!-- Analytics End -->
 
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-<!-- MathJax End -->
 
-<!-- Tiny_search Begin -->
 
-<!-- Tiny_search End -->
 
-  </body>
+
+  <script src="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.js"></script>
+  <script>
+  //利用 FancyBox 实现点击图片放大
+  $(document).ready(function() {
+    $('article img').not('[hidden]').not('.panel-body img').each(function() {
+      var $image = $(this);
+      var imageCaption = $image.attr('alt');
+      var $imageWrapLink = $image.parent('a');
+      if ($imageWrapLink.length < 1) {
+        var src = this.getAttribute('src');
+        var idx = src.lastIndexOf('?');
+        if (idx != -1) {
+          src = src.substring(0, idx);
+        }
+        $imageWrapLink = $image.wrap('<a href="' + src + '"></a>').parent('a');
+      }
+      $imageWrapLink.attr('data-fancybox', 'images');
+      if (imageCaption) {
+        $imageWrapLink.attr('data-caption', imageCaption);
+      }
+    });
+    $().fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+    });
+  });
+  </script>
+
+
+
+
+
+
+<div id="go-top">
+    </div>
+        <style type="text/css">
+        #go-top {
+            width:32px;
+            height:32px;
+            position:relative;
+            border-radius:2px;
+            position:fixed;
+            right:10px;
+            bottom:100px;
+            cursor:pointer;
+            display:none;
+            z-index:10;
+        }
+        #go-top:after {
+            content:url("/images/ico-to-top.png");
+            position:absolute;
+            left:0;
+            width: 32px;
+            height: 32px;
+            background-size: contain;
+        }
+
+        </style>
+        <script>
+            $(function() {
+                var o = $("#go-top");
+                $(window).scroll(function() {
+                    //监听滚动事件
+                    300 < document.documentElement.scrollTop  ? o.show(300) : o.hide(200);
+                })
+                 //回到顶部
+                 $("#go-top").click(function() {
+                    return $("html,body").animate({ scrollTop: 0 })
+                 })
+            })
+        </script>
+
+
+   <!--  -->
+  <style>
+    .copy-btn {
+          display: inline-block;
+          padding: 6px 12px;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 20px;
+          color: #333;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          background-color: #eee;
+          background-image: linear-gradient(#fcfcfc, #eee);
+          border: 1px solid #d5d5d5;
+          border-radius: 3px;
+          user-select: none;
+          outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+          transition: opacity .3s ease-in-out;
+          opacity: 0;
+          padding: 2px 10px;
+          position: absolute;
+          right: 4px;
+          color: #4a4886;
+          top: 3px;
+          z-index: 10;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+        .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    addLoadEvent(()=>{
+      $('.highlight').each(function (i, e) {
+        var $wrap = $('<div>').addClass('highlight-wrap')
+        $(e).after($wrap)
+        $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+          var code = $(this).parent().find(".code")[0].innerText
+          
+              code += ""
+          
+          var ta = document.createElement('textarea')
+          document.body.appendChild(ta)
+          ta.style.position = 'absolute'
+          ta.style.top = '0px'
+          ta.style.left = '0px'
+          ta.value = code
+          ta.select()
+          ta.focus()
+          var result = document.execCommand('copy')
+          document.body.removeChild(ta)
+          
+            if(result)$(this).text('复制成功')
+            else $(this).text('复制失败')
+          
+          $(this).blur()
+        })).on('mouseleave', function (e) {
+          var $b = $(this).find('.copy-btn')
+          setTimeout(function () {
+            $b.text('Copy')
+          }, 300)
+        }).append(e)
+      })
+    })
+  </script>
+<!--  -->
+</body>
 </html>
