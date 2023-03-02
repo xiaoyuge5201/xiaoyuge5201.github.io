@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiaoyuge5201.github.io/redis-special-springboot/</loc>
+    
+    <lastmod>2023-03-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoyuge5201.github.io/redis-special-application-problems/</loc>
     
     <lastmod>2023-03-02</lastmod>
@@ -138,15 +147,6 @@
   
   <url>
     <loc>https://xiaoyuge5201.github.io/redis-special-newDataType/</loc>
-    
-    <lastmod>2023-03-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoyuge5201.github.io/redis-special-springboot/</loc>
     
     <lastmod>2023-03-02</lastmod>
     
