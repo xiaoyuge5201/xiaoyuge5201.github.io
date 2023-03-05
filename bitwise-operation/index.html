@@ -26,7 +26,7 @@
 <meta property="og:description" content="在平时看各种框架的源码过程中，经常会看到一些位移运算，所以作为一个有经验的Java开发者是一定要掌握位移运算的。 1. 正数位移运算java中有三个位移运算：  &lt;&lt;：左移  &gt;&gt;：右移  &gt;&gt;&gt;：无符号右移   123456System.out.println(2 &lt;&lt; 1); &#x2F;&#x2F;4System.out.println(2 &gt;&amp;g">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-12T13:29:59.000Z">
-<meta property="article:modified_time" content="2023-03-02T12:08:26.156Z">
+<meta property="article:modified_time" content="2023-03-04T09:59:07.483Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -373,7 +373,10 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%AD%A3%E6%95%B0%E4%BD%8D%E7%A7%BB%E8%BF%90%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">1. 正数位移运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">2. 原码、反码、补码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%8E%9F%E7%A0%81"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 原码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%8F%8D%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 反码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E8%A1%A5%E7%A0%81"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 补码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%B4%9F%E6%95%B0%E4%BD%8D%E7%A7%BB%E8%BF%90%E7%AE%97"><span class="toc-number">3.</span> <span class="toc-text">3. 负数位移运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB"><span class="toc-number">4.</span> <span class="toc-text">4. 无符号右移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">5. 总结</span></a></li></ol>
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%AD%A3%E6%95%B0%E4%BD%8D%E7%A7%BB%E8%BF%90%E7%AE%97"><span class="toc-text">1. 正数位移运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81"><span class="toc-text">2. 原码、反码、补码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%8E%9F%E7%A0%81"><span class="toc-text">2.1 原码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%8F%8D%E7%A0%81"><span class="toc-text">2.2 反码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E8%A1%A5%E7%A0%81"><span class="toc-text">2.3 补码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%B4%9F%E6%95%B0%E4%BD%8D%E7%A7%BB%E8%BF%90%E7%AE%97"><span class="toc-text">3. 负数位移运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%97%A0%E7%AC%A6%E5%8F%B7%E5%8F%B3%E7%A7%BB"><span class="toc-text">4. 无符号右移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%80%BB%E7%BB%93"><span class="toc-text">5. 总结</span></a></li></ol>
+      
+      
     </nav>
   </div>
 </aside>
@@ -633,7 +636,7 @@
       </div>
       <div class="media-body">
         <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
-        <div>致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</div>
+        <div>分享一些技术教程与实践，以及日常踩坑记录。</div>
       </div>
     </figure>
   </div>

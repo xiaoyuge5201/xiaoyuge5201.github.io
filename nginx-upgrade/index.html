@@ -373,7 +373,10 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD"><span class="toc-number">1.</span> <span class="toc-text">备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%8E%9F%E6%9C%89%E7%9A%84-nginx-%E7%BC%96%E8%AF%91%E5%8F%82%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">查看原有的 nginx 编译参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%BA%90%E7%A0%81%E5%8C%85%E8%BF%9B%E8%A1%8C%E7%BC%96%E8%AF%91"><span class="toc-number">3.</span> <span class="toc-text">对新版本的源码包进行编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2nginx%E8%BF%9B%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">停止nginx进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%96%B0%E7%9A%84nginx%E6%BA%90%E7%A0%81%E5%8C%85%E4%B8%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%EF%BC%8C%E8%A6%86%E7%9B%96%E5%8E%9F%E6%9D%A5%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">复制新的nginx源码包中二进制文件，覆盖原来的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8nginx%E6%9C%8D%E5%8A%A1"><span class="toc-number">6.</span> <span class="toc-text">启动nginx服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81nginx%E5%8D%87%E7%BA%A7%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-number">7.</span> <span class="toc-text">验证nginx升级是否成功</span></a></li></ol>
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%87%E4%BB%BD"><span class="toc-text">备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%8E%9F%E6%9C%89%E7%9A%84-nginx-%E7%BC%96%E8%AF%91%E5%8F%82%E6%95%B0"><span class="toc-text">查看原有的 nginx 编译参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E6%BA%90%E7%A0%81%E5%8C%85%E8%BF%9B%E8%A1%8C%E7%BC%96%E8%AF%91"><span class="toc-text">对新版本的源码包进行编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2nginx%E8%BF%9B%E7%A8%8B"><span class="toc-text">停止nginx进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E6%96%B0%E7%9A%84nginx%E6%BA%90%E7%A0%81%E5%8C%85%E4%B8%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6%EF%BC%8C%E8%A6%86%E7%9B%96%E5%8E%9F%E6%9D%A5%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-text">复制新的nginx源码包中二进制文件，覆盖原来的文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8nginx%E6%9C%8D%E5%8A%A1"><span class="toc-text">启动nginx服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81nginx%E5%8D%87%E7%BA%A7%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="toc-text">验证nginx升级是否成功</span></a></li></ol>
+      
+      
     </nav>
   </div>
 </aside>
@@ -495,7 +498,7 @@
       </div>
       <div class="media-body">
         <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
-        <div>致力于分享一些技术教程和有趣的技术实践，以及日常踩坑记录。</div>
+        <div>分享一些技术教程与实践，以及日常踩坑记录。</div>
       </div>
     </figure>
   </div>
