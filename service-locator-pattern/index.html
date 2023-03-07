@@ -18,12 +18,12 @@
   
   
   <title>服务定位模式 Service Locator Pattern | 小余哥</title>
-  <meta name="description" content="1. 前言不知道大家在项目中有没有遇到这样的场景，根据传入的类型，调用接口不同的实现类或者服务，比如根据文件的类型使用CSV解析器或者JSON解析器，在调用的客户端 一般都是用if else去做判断，比如类型为JSON，就用JSON解析器，那么如果新加一个类型的解析器，是不是调用的客户端还要修改？这显然太耦合了。 本文就介绍一种方法，服务定位模式Service Locator Pattern来">
+  <meta name="description" content="1. 前言 不知道大家在项目中有没有遇到这样的场景，根据传入的类型，调用接口不同的实现类或者服务，比如根据文件的类型使用CSV解析器或者JSON解析器，在调用的客户端 一般都是用if else去做判断，比如类型为JSON，就用JSON解析器，那么如果新加一个类型的解析器，是不是调用的客户端还要修改？这显然太耦合了。 本文就介绍一种方法，服务定位模式Service Locator Pattern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务定位模式 Service Locator Pattern">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/service-locator-pattern/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 前言不知道大家在项目中有没有遇到这样的场景，根据传入的类型，调用接口不同的实现类或者服务，比如根据文件的类型使用CSV解析器或者JSON解析器，在调用的客户端 一般都是用if else去做判断，比如类型为JSON，就用JSON解析器，那么如果新加一个类型的解析器，是不是调用的客户端还要修改？这显然太耦合了。 本文就介绍一种方法，服务定位模式Service Locator Pattern来">
+<meta property="og:description" content="1. 前言 不知道大家在项目中有没有遇到这样的场景，根据传入的类型，调用接口不同的实现类或者服务，比如根据文件的类型使用CSV解析器或者JSON解析器，在调用的客户端 一般都是用if else去做判断，比如类型为JSON，就用JSON解析器，那么如果新加一个类型的解析器，是不是调用的客户端还要修改？这显然太耦合了。 本文就介绍一种方法，服务定位模式Service Locator Pattern">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/service-locator-pattern/1.png">
 <meta property="article:published_time" content="2023-01-14T12:28:56.000Z">
@@ -39,13 +39,13 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
   
   
   
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
 </head>
 
 
@@ -57,7 +57,7 @@
       
       <div class="profile-block text-center">
         <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
-          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+          <img class="img-circle img-rotate" src="../images/avatar.png" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
         <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
@@ -101,7 +101,7 @@
         
         
         <li class="menu-item menu-item-home">
-          <a href="/.">
+          <a href="../.">
             
             <i class="icon icon-home-fill"></i>
             
@@ -111,7 +111,7 @@
         
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="../archives">
             
             <i class="icon icon-archives-fill"></i>
             
@@ -121,7 +121,7 @@
         
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories">
+          <a href="../categories">
             
             <i class="icon icon-folder"></i>
             
@@ -131,7 +131,7 @@
         
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="../tags">
             
             <i class="icon icon-tags"></i>
             
@@ -141,7 +141,7 @@
         
         
         <li class="menu-item menu-item-repository">
-          <a href="/repository">
+          <a href="../repository">
             
             <i class="icon icon-project"></i>
             
@@ -151,7 +151,7 @@
         
         
         <li class="menu-item menu-item-books">
-          <a href="/books">
+          <a href="../books">
             
             <i class="icon icon-book-fill"></i>
             
@@ -161,7 +161,7 @@
         
         
         <li class="menu-item menu-item-links">
-          <a href="/links">
+          <a href="../links">
             
             <i class="icon icon-friendship"></i>
             
@@ -171,7 +171,7 @@
         
         
         <li class="menu-item menu-item-about">
-          <a href="/about">
+          <a href="../about">
             
             <i class="icon icon-cup-fill"></i>
             
@@ -184,9 +184,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -214,7 +214,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
     </div>
   </div>
 
@@ -229,7 +229,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-application-problems/" class="thumb">
+              <a href="../redis-special-aof/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -240,10 +240,35 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
+                <a href="../redis-special-aof/" class="title">Redis持久化之AOF（八）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-07T13:31:16.000Z" itemprop="datePublished">2023-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../redis-special-application-problems/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
@@ -254,7 +279,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-database/" class="thumb">
+              <a href="../redis-special-rdb/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -265,10 +290,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-database/" class="title">Redis持久化之RDB（七）</a>
+                <a href="../redis-special-rdb/" class="title">Redis持久化之RDB（七）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T08:20:06.000Z" itemprop="datePublished">2023-02-26</time>
@@ -279,7 +304,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-transaction/" class="thumb">
+              <a href="../redis-special-transaction/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -290,10 +315,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-transaction/" class="title">Redis事务操作（六）</a>
+                <a href="../redis-special-transaction/" class="title">Redis事务操作（六）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T12:58:29.000Z" itemprop="datePublished">2023-02-25</time>
@@ -304,7 +329,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-springboot/" class="thumb">
+              <a href="../redis-special-springboot/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -315,38 +340,13 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
+                <a href="../redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T11:39:59.000Z" itemprop="datePublished">2023-02-25</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/redis-special-jedis/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
-              </p>
-              <p class="item-title">
-                <a href="/redis-special-jedis/" class="title">Jedis操作Redis6（四）</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-25T09:07:27.000Z" itemprop="datePublished">2023-02-25</time>
               </p>
             </div>
           </li>
@@ -361,7 +361,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="/tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="/tags/interview/" style="font-size: 13px;">interview</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.13px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="/tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="/tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="/tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="/tags/sql/" style="font-size: 13px;">sql</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.5px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.13px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -376,7 +376,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E5%99%A8"><span class="toc-text">2. 文件解析器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BA%94%E7%94%A8Service-Locator-Pattern"><span class="toc-text">3. 应用Service Locator Pattern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%89%96%E6%9E%90Service-Locator-Pattern"><span class="toc-text">4. 剖析Service Locator Pattern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%80%BB%E7%BB%93"><span class="toc-text">5. 总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text"> 1. 前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E5%99%A8"><span class="toc-text"> 2. 文件解析器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BA%94%E7%94%A8service-locator-pattern"><span class="toc-text"> 3. 应用Service Locator Pattern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%89%96%E6%9E%90service-locator-pattern"><span class="toc-text"> 4. 剖析Service Locator Pattern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%80%BB%E7%BB%93"><span class="toc-text"> 5. 总结</span></a></li></ol>
       
       
     </nav>
@@ -400,20 +400,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/service-locator-pattern/" class="article-date">
+	<a href="" class="article-date">
 	  <time datetime="2023-01-14T12:28:56.000Z" itemprop="datePublished">2023-01-14</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+    <a class="article-category-link" href="../categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/java/" rel="tag">java</a>
+	<a class="article-tag-link-link" href="../tags/java/" rel="tag">java</a>
   </span>
 
 
@@ -426,7 +426,7 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/service-locator-pattern/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="#comments" class="article-comment-link">评论</a></span>
         
 	
 	
@@ -438,46 +438,68 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-
-<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><p>不知道大家在项目中有没有遇到这样的场景，根据传入的类型，调用接口不同的实现类或者服务，比如根据文件的类型使用CSV解析器或者JSON解析器，在调用的客户端 一般都是用<code>if else</code>去做判断，比如类型为JSON，就用JSON解析器，那么如果新加一个类型的解析器，是不是调用的客户端还要修改？这显然太耦合了。</p>
+<h3 id="1-前言"><a class="markdownIt-Anchor" href="#1-前言"></a> 1. 前言</h3>
+<p>不知道大家在项目中有没有遇到这样的场景，根据传入的类型，调用接口不同的实现类或者服务，比如根据文件的类型使用CSV解析器或者JSON解析器，在调用的客户端 一般都是用<code>if else</code>去做判断，比如类型为JSON，就用JSON解析器，那么如果新加一个类型的解析器，是不是调用的客户端还要修改？这显然太耦合了。</p>
 <p>本文就介绍一种方法，服务定位模式<code>Service Locator Pattern</code>来解决，帮助我们消除紧耦合实现及其依赖性，并提出将服务与其具体类解耦。</p>
-<h3 id="2-文件解析器"><a href="#2-文件解析器" class="headerlink" title="2. 文件解析器"></a>2. 文件解析器</h3><p>接下来通过一个例子来介绍如何使用<code>Service Locator Pattern</code>。</p>
+<h3 id="2-文件解析器"><a class="markdownIt-Anchor" href="#2-文件解析器"></a> 2. 文件解析器</h3>
+<p>接下来通过一个例子来介绍如何使用<code>Service Locator Pattern</code>。</p>
 <p>假设有一个从各种来源获取数据的应用程序，我们必须解析不同类型的文件，比如解析CSV文件和JSON 文件。</p>
 <ol>
-<li><p>定义一个类型的枚举</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">ContentType</span> </span>&#123;</span><br><span class="line">    JSON,</span><br><span class="line">    CSV</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>定义一个解析的接口</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Parser</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="function">List <span class="title">parse</span><span class="params">(Reader reader)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>根据不同的文件类型编写不同的实现类</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CSVParser</span> <span class="keyword">implements</span> <span class="title">Parser</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JSONParser</span> <span class="keyword">implements</span> <span class="title">Parser</span></span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>编写一个客户端，通过<code>switch case</code>根据不同类型调用不同的实现类</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Parser csvParser, jsonParser;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Client</span><span class="params">(Parser csvParser, Parser jsonParser)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.csvParser = csvParser;</span><br><span class="line">        <span class="keyword">this</span>.jsonParser = jsonParser;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">getAll</span><span class="params">(ContentType contentType, Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//......</span></span><br><span class="line">        <span class="keyword">switch</span> (contentType) &#123;</span><br><span class="line">            <span class="keyword">case</span> CSV:</span><br><span class="line">                <span class="keyword">return</span> csvParser.parse(reader);</span><br><span class="line">            <span class="keyword">case</span> JSON:</span><br><span class="line">                <span class="keyword">return</span> jsonParser.parse(reader);</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ...........</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>
+<p>定义一个类型的枚举</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">ContentType</span> </span>&#123;</span><br><span class="line">    JSON,</span><br><span class="line">    CSV</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>定义一个解析的接口</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Parser</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="function">List <span class="title">parse</span><span class="params">(Reader reader)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>根据不同的文件类型编写不同的实现类</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CSVParser</span> <span class="keyword">implements</span> <span class="title">Parser</span></span>&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JSONParser</span> <span class="keyword">implements</span> <span class="title">Parser</span></span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>编写一个客户端，通过<code>switch case</code>根据不同类型调用不同的实现类</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Parser csvParser, jsonParser;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Client</span><span class="params">(Parser csvParser, Parser jsonParser)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.csvParser = csvParser;</span><br><span class="line">        <span class="keyword">this</span>.jsonParser = jsonParser;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">getAll</span><span class="params">(ContentType contentType, Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//......</span></span><br><span class="line">        <span class="keyword">switch</span> (contentType) &#123;</span><br><span class="line">            <span class="keyword">case</span> CSV:</span><br><span class="line">                <span class="keyword">return</span> csvParser.parse(reader);</span><br><span class="line">            <span class="keyword">case</span> JSON:</span><br><span class="line">                <span class="keyword">return</span> jsonParser.parse(reader);</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ...........</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>可能大部份人首先想到的都是像上面一样的方式去实现，那么这样存在怎样的问题呢？</p>
 <p>现在加入提出一个新需求支持XML文件类型，是不是客户端也要修改代码，然后在<code>switch case</code>中添加新的类型，这就导致客户端和不同的解析器紧密耦合。</p>
 <p>那么有什么更好的方式呢？</p>
-<h3 id="3-应用Service-Locator-Pattern"><a href="#3-应用Service-Locator-Pattern" class="headerlink" title="3. 应用Service Locator Pattern"></a>3. 应用Service Locator Pattern</h3><p>接下来使用服务定位模式<code>Service Locator Pattern</code>来改造上面的方法</p>
+<h3 id="3-应用service-locator-pattern"><a class="markdownIt-Anchor" href="#3-应用service-locator-pattern"></a> 3. 应用Service Locator Pattern</h3>
+<p>接下来使用服务定位模式<code>Service Locator Pattern</code>来改造上面的方法</p>
 <ol>
-<li><p>定义服务定位器接口<code>ParserFactory</code>，根据参数类型返回<code>Parser</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ParserFactory</span> </span>&#123;</span><br><span class="line">    <span class="function">Parser <span class="title">getParser</span><span class="params">(ContentType contentType)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>配置<code>ServiceLocatorFactoryBean</code>使用<code>ParserFactory</code>作为服务定位器接口，<code>ParserFactory</code>这个接口不需要写实现类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ParserConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean(&quot;parserFactory&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FactoryBean <span class="title">serviceLocatorFactoryBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ServiceLocatorFactoryBean factory = <span class="keyword">new</span> ServiceLocatorFactoryBean();</span><br><span class="line">        <span class="comment">//设置服务定位接口</span></span><br><span class="line">        factory.setServiceLocatorInterface(ParserFactory.class);</span><br><span class="line">        <span class="keyword">return</span> factory;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>设置解析器Bean的名称为类型名称，方便服务定位</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component(&quot;CSV&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CSVParser</span> <span class="keyword">implements</span> <span class="title">Parser</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component(&quot;JSON&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JSONParser</span> <span class="keyword">implements</span> <span class="title">Parser</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component(&quot;XML&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XmlParser</span> <span class="keyword">implements</span> <span class="title">Parser</span></span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>修改枚举，添加XML类型</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">ContentType</span> </span>&#123;</span><br><span class="line">    JSON,</span><br><span class="line">    CSV,</span><br><span class="line">    XML</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>最后修改客户端调用，直接根据类型调用对应的解析器，去掉了<code>switch case</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ParserFactory parserFactory;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Client</span><span class="params">(ParserFactory parserFactory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.parserFactory = parserFactory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">getAll</span><span class="params">(ContentType contentType, Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//..............</span></span><br><span class="line">        <span class="comment">//关键点，直接根据类型获取</span></span><br><span class="line">        <span class="keyword">return</span> parserFactory.getParser(contentType).parse(reader);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>
+<p>定义服务定位器接口<code>ParserFactory</code>，根据参数类型返回<code>Parser</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ParserFactory</span> </span>&#123;</span><br><span class="line">    <span class="function">Parser <span class="title">getParser</span><span class="params">(ContentType contentType)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>配置<code>ServiceLocatorFactoryBean</code>使用<code>ParserFactory</code>作为服务定位器接口，<code>ParserFactory</code>这个接口不需要写实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ParserConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean(&quot;parserFactory&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> FactoryBean <span class="title">serviceLocatorFactoryBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ServiceLocatorFactoryBean factory = <span class="keyword">new</span> ServiceLocatorFactoryBean();</span><br><span class="line">        <span class="comment">//设置服务定位接口</span></span><br><span class="line">        factory.setServiceLocatorInterface(ParserFactory.class);</span><br><span class="line">        <span class="keyword">return</span> factory;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>设置解析器Bean的名称为类型名称，方便服务定位</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component(&quot;CSV&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CSVParser</span> <span class="keyword">implements</span> <span class="title">Parser</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component(&quot;JSON&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JSONParser</span> <span class="keyword">implements</span> <span class="title">Parser</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component(&quot;XML&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XmlParser</span> <span class="keyword">implements</span> <span class="title">Parser</span></span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> List <span class="title">parse</span><span class="params">(Reader reader)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>修改枚举，添加XML类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">ContentType</span> </span>&#123;</span><br><span class="line">    JSON,</span><br><span class="line">    CSV,</span><br><span class="line">    XML</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>最后修改客户端调用，直接根据类型调用对应的解析器，去掉了<code>switch case</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ParserFactory parserFactory;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Client</span><span class="params">(ParserFactory parserFactory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.parserFactory = parserFactory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List <span class="title">getAll</span><span class="params">(ContentType contentType, Reader reader)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//..............</span></span><br><span class="line">        <span class="comment">//关键点，直接根据类型获取</span></span><br><span class="line">        <span class="keyword">return</span> parserFactory.getParser(contentType).parse(reader);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <p><strong>这样就实现了，如果再添加新的类型，只需要扩展添加新的解析器就行，再也不用修改客户端了，满足开闭原则。</strong></p>
 <p>如果觉得Bean的名称直接使用类型怪怪的，可以建议按照下面的方式来</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">ContentType</span> </span>&#123;</span><br><span class="line">    JSON(TypeConstants.JSON_PARSER),</span><br><span class="line">    CSV(TypeConstants.CSV_PARSER),</span><br><span class="line">    XML(TypeConstants.XML_PARSER);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String parserName;</span><br><span class="line"></span><br><span class="line">    ContentType(String parserName) &#123;</span><br><span class="line">        <span class="keyword">this</span>.parserName = parserName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.parserName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TypeConstants</span> </span>&#123;</span><br><span class="line">        String CSV_PARSER = <span class="string">&quot;csvParser&quot;</span>;</span><br><span class="line">        String JSON_PARSER = <span class="string">&quot;jsonParser&quot;</span>;</span><br><span class="line">        String XML_PARSER = <span class="string">&quot;xmlParser&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component(TypeConstants.CSV_PARSER)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CSVParser</span> <span class="keyword">implements</span> <span class="title">Parser</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component(TypeConstants.JSON_PARSER)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JSONParser</span> <span class="keyword">implements</span> <span class="title">Parser</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component(TypeConstants.XML_PARSER)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XMLParser</span> <span class="keyword">implements</span> <span class="title">Parser</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-剖析Service-Locator-Pattern"><a href="#4-剖析Service-Locator-Pattern" class="headerlink" title="4. 剖析Service Locator Pattern"></a>4. 剖析Service Locator Pattern</h3><blockquote>
+<h3 id="4-剖析service-locator-pattern"><a class="markdownIt-Anchor" href="#4-剖析service-locator-pattern"></a> 4. 剖析Service Locator Pattern</h3>
+<blockquote>
 <p>服务定位器模式消除了客户端对具体实现的依赖。以下引自 Martin Fowler 的文章总结了核心思想：“服务定位器背后的基本思想是拥有一个知道如何获取应用程序可能需要的所有服务的对象。因此，此应用程序的服务定位器将有一个在需要时返回“服务”的方法。”</p>
 </blockquote>
-<p><img src="/service-locator-pattern/1.png"><br><code>Spring</code> 的<code>ServiceLocatorFactoryBean</code>实现了 <code>FactoryBean</code>接口，创建了<code>Service Factory</code>服务工厂<code>Bean</code>。</p>
-<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h3><p>我们通过使用服务定位器模式实现了一种扩展 Spring 控制反转的绝妙方法。它帮助我们解决了依赖注入未提供最佳解决方案的用例。也就是说，依赖注入仍然是首选，并且在大多数情况下不应使用服务定位器来替代依赖注入。</p>
+<p><img src="/service-locator-pattern/1.png" alt><br>
+<code>Spring</code> 的<code>ServiceLocatorFactoryBean</code>实现了 <code>FactoryBean</code>接口，创建了<code>Service Factory</code>服务工厂<code>Bean</code>。</p>
+<h3 id="5-总结"><a class="markdownIt-Anchor" href="#5-总结"></a> 5. 总结</h3>
+<p>我们通过使用服务定位器模式实现了一种扩展 Spring 控制反转的绝妙方法。它帮助我们解决了依赖注入未提供最佳解决方案的用例。也就是说，依赖注入仍然是首选，并且在大多数情况下不应使用服务定位器来替代依赖注入。</p>
 
       
     </div>
@@ -502,7 +524,7 @@
     <figure class="media">
       <div class="media-left">
         <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+          <img src="../images/avatar.png" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">
@@ -528,12 +550,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/spring-injection/" title="Spring注解装配方式"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="../spring-injection/" title="Spring注解装配方式"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/interview-1/" title="断网了，还能ping通127.0.0.1吗"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="../interview-1/" title="断网了，还能ping通127.0.0.1吗"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -577,14 +599,14 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="alipay">
               <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="wechatpay">
               <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
@@ -615,9 +637,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -637,10 +659,10 @@
 window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 </script>
 
-<script src="/js/plugin.min.js"></script>
+<script src="../js/plugin.min.js"></script>
 
 
-<script src="/js/application.js"></script>
+<script src="../js/application.js"></script>
 
 
     <script>
@@ -654,13 +676,13 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
             UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
+        CONTENT_URL: '../content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
 
-<script src="/js/insight.js"></script>
+<script src="../js/insight.js"></script>
 
 
 

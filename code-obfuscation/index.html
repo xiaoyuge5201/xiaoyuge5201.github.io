@@ -18,12 +18,12 @@
   
   
   <title>SpringBoot代码混淆 | 小余哥</title>
-  <meta name="description" content="作为一个有经验的程序员，我们都知道 jar&#x2F;war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样预防源码暴露呢？ 可以混淆代码，扰乱敌人视线。接下来就一起来看看怎么去实现 代码混淆 首先得弄个springBoot项目吧  在项目根路径新建proguard.cfg文件，然后键入以下内容  123456789101112131415161718192">
+  <meta name="description" content="作为一个有经验的程序员，我们都知道 jar&#x2F;war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样预防源码暴露呢？ 可以混淆代码，扰乱敌人视线。接下来就一起来看看怎么去实现  代码混淆   首先得弄个springBoot项目吧   在项目根路径新建proguard.cfg文件，然后键入以下内容  123456789101112131415161718">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot代码混淆">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/code-obfuscation/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="作为一个有经验的程序员，我们都知道 jar&#x2F;war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样预防源码暴露呢？ 可以混淆代码，扰乱敌人视线。接下来就一起来看看怎么去实现 代码混淆 首先得弄个springBoot项目吧  在项目根路径新建proguard.cfg文件，然后键入以下内容  123456789101112131415161718192">
+<meta property="og:description" content="作为一个有经验的程序员，我们都知道 jar&#x2F;war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样预防源码暴露呢？ 可以混淆代码，扰乱敌人视线。接下来就一起来看看怎么去实现  代码混淆   首先得弄个springBoot项目吧   在项目根路径新建proguard.cfg文件，然后键入以下内容  123456789101112131415161718">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/code-obfuscation/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/code-obfuscation/2.png">
@@ -43,13 +43,13 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
   
   
   
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
 </head>
 
 
@@ -61,7 +61,7 @@
       
       <div class="profile-block text-center">
         <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
-          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+          <img class="img-circle img-rotate" src="../images/avatar.png" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
         <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
@@ -105,7 +105,7 @@
         
         
         <li class="menu-item menu-item-home">
-          <a href="/.">
+          <a href="../.">
             
             <i class="icon icon-home-fill"></i>
             
@@ -115,7 +115,7 @@
         
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="../archives">
             
             <i class="icon icon-archives-fill"></i>
             
@@ -125,7 +125,7 @@
         
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories">
+          <a href="../categories">
             
             <i class="icon icon-folder"></i>
             
@@ -135,7 +135,7 @@
         
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="../tags">
             
             <i class="icon icon-tags"></i>
             
@@ -145,7 +145,7 @@
         
         
         <li class="menu-item menu-item-repository">
-          <a href="/repository">
+          <a href="../repository">
             
             <i class="icon icon-project"></i>
             
@@ -155,7 +155,7 @@
         
         
         <li class="menu-item menu-item-books">
-          <a href="/books">
+          <a href="../books">
             
             <i class="icon icon-book-fill"></i>
             
@@ -165,7 +165,7 @@
         
         
         <li class="menu-item menu-item-links">
-          <a href="/links">
+          <a href="../links">
             
             <i class="icon icon-friendship"></i>
             
@@ -175,7 +175,7 @@
         
         
         <li class="menu-item menu-item-about">
-          <a href="/about">
+          <a href="../about">
             
             <i class="icon icon-cup-fill"></i>
             
@@ -188,9 +188,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -218,7 +218,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
     </div>
   </div>
 
@@ -233,7 +233,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-application-problems/" class="thumb">
+              <a href="../redis-special-aof/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -244,10 +244,35 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
+                <a href="../redis-special-aof/" class="title">Redis持久化之AOF（八）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-07T13:31:16.000Z" itemprop="datePublished">2023-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../redis-special-application-problems/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
@@ -258,7 +283,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-database/" class="thumb">
+              <a href="../redis-special-rdb/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -269,10 +294,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-database/" class="title">Redis持久化之RDB（七）</a>
+                <a href="../redis-special-rdb/" class="title">Redis持久化之RDB（七）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T08:20:06.000Z" itemprop="datePublished">2023-02-26</time>
@@ -283,7 +308,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-transaction/" class="thumb">
+              <a href="../redis-special-transaction/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -294,10 +319,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-transaction/" class="title">Redis事务操作（六）</a>
+                <a href="../redis-special-transaction/" class="title">Redis事务操作（六）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T12:58:29.000Z" itemprop="datePublished">2023-02-25</time>
@@ -308,7 +333,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-springboot/" class="thumb">
+              <a href="../redis-special-springboot/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -319,38 +344,13 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
+                <a href="../redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T11:39:59.000Z" itemprop="datePublished">2023-02-25</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/redis-special-jedis/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
-              </p>
-              <p class="item-title">
-                <a href="/redis-special-jedis/" class="title">Jedis操作Redis6（四）</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-25T09:07:27.000Z" itemprop="datePublished">2023-02-25</time>
               </p>
             </div>
           </li>
@@ -365,7 +365,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="/tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="/tags/interview/" style="font-size: 13px;">interview</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.13px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="/tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="/tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="/tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="/tags/sql/" style="font-size: 13px;">sql</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.5px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.13px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -380,7 +380,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86"><span class="toc-text">代码混淆</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86"><span class="toc-text"> 代码混淆</span></a></li></ol>
       
       
     </nav>
@@ -404,20 +404,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/code-obfuscation/" class="article-date">
+	<a href="" class="article-date">
 	  <time datetime="2022-12-30T02:35:43.000Z" itemprop="datePublished">2022-12-30</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/java/">java</a>
+    <a class="article-category-link" href="../categories/java/">java</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/springboot/" rel="tag">springboot</a>
+	<a class="article-tag-link-link" href="../tags/springboot/" rel="tag">springboot</a>
   </span>
 
 
@@ -430,7 +430,7 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/code-obfuscation/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="#comments" class="article-comment-link">评论</a></span>
         
 	
 	
@@ -442,21 +442,34 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-
 <p>作为一个有经验的程序员，我们都知道 jar/war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样预防源码暴露呢？</p>
 <p>可以混淆代码，扰乱敌人视线。接下来就一起来看看怎么去实现</p>
-<h3 id="代码混淆"><a href="#代码混淆" class="headerlink" title="代码混淆"></a>代码混淆</h3><ol>
-<li><p>首先得弄个springBoot项目吧</p>
+<h3 id="代码混淆"><a class="markdownIt-Anchor" href="#代码混淆"></a> 代码混淆</h3>
+<ol>
+<li>
+<p>首先得弄个springBoot项目吧</p>
 </li>
-<li><p>在项目根路径新建<code>proguard.cfg</code>文件，然后键入以下内容</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#指定Java的版本</span><br><span class="line">-target 1.8</span><br><span class="line">#proguard会对代码进行优化压缩，他会删除从未使用的类或者类成员变量等</span><br><span class="line">-dontshrink</span><br><span class="line">#是否关闭字节码级别的优化，如果不开启则设置如下配置</span><br><span class="line">-dontoptimize</span><br><span class="line">#混淆时不生成大小写混合的类名，默认是可以大小写混合</span><br><span class="line">-dontusemixedcaseclassnames</span><br><span class="line"># 对于类成员的命名的混淆采取唯一策略</span><br><span class="line">-useuniqueclassmembernames</span><br><span class="line">#混淆时不生成大小写混合的类名，默认是可以大小写混合</span><br><span class="line">-dontusemixedcaseclassnames</span><br><span class="line">#混淆类名之后，对使用Class.forName(&#x27;className&#x27;)之类的地方进行相应替代</span><br><span class="line">-adaptclassstrings</span><br><span class="line"> </span><br><span class="line">#对异常、注解信息予以保留</span><br><span class="line">-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,EnclosingMethod</span><br><span class="line"># 此选项将保存接口中的所有原始名称（不混淆）--&gt;</span><br><span class="line">-keepnames interface ** &#123; *; &#125;</span><br><span class="line"># 此选项将保存所有软件包中的所有原始接口文件（不进行混淆）</span><br><span class="line">#-keep interface * extends * &#123; *; &#125;</span><br><span class="line">#保留参数名，因为控制器，或者Mybatis等接口的参数如果混淆会导致无法接受参数，xml文件找不到参数</span><br><span class="line">-keepparameternames</span><br><span class="line"># 保留枚举成员及方法</span><br><span class="line">-keepclassmembers enum * &#123; *; &#125;</span><br><span class="line"># 不混淆所有类,保存原始定义的注释-</span><br><span class="line">-keepclassmembers class * &#123;</span><br><span class="line">                        @org.springframework.context.annotation.Bean *;</span><br><span class="line">                        @org.springframework.beans.factory.annotation.Autowired *;</span><br><span class="line">                        @org.springframework.beans.factory.annotation.Value *;</span><br><span class="line">                        @org.springframework.stereotype.Service *;</span><br><span class="line">                        @org.springframework.stereotype.Component *;</span><br><span class="line">                        &#125;</span><br><span class="line"> </span><br><span class="line">#忽略warn消息</span><br><span class="line">-ignorewarnings</span><br><span class="line">#忽略note消息</span><br><span class="line">-dontnote</span><br><span class="line">#打印配置信息</span><br><span class="line">-printconfiguration</span><br><span class="line">   </span><br><span class="line">#这里要看清，不要混淆springboot的启动类</span><br><span class="line">-keep public class com.yugb.Application &#123;</span><br><span class="line">        public static void main(java.lang.String[]);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>添加<code>proguard</code>混淆插件</p>
+<li>
+<p>在项目根路径新建<code>proguard.cfg</code>文件，然后键入以下内容</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">#指定Java的版本</span><br><span class="line">-target 1.8</span><br><span class="line">#proguard会对代码进行优化压缩，他会删除从未使用的类或者类成员变量等</span><br><span class="line">-dontshrink</span><br><span class="line">#是否关闭字节码级别的优化，如果不开启则设置如下配置</span><br><span class="line">-dontoptimize</span><br><span class="line">#混淆时不生成大小写混合的类名，默认是可以大小写混合</span><br><span class="line">-dontusemixedcaseclassnames</span><br><span class="line"># 对于类成员的命名的混淆采取唯一策略</span><br><span class="line">-useuniqueclassmembernames</span><br><span class="line">#混淆时不生成大小写混合的类名，默认是可以大小写混合</span><br><span class="line">-dontusemixedcaseclassnames</span><br><span class="line">#混淆类名之后，对使用Class.forName(&#x27;className&#x27;)之类的地方进行相应替代</span><br><span class="line">-adaptclassstrings</span><br><span class="line"> </span><br><span class="line">#对异常、注解信息予以保留</span><br><span class="line">-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,EnclosingMethod</span><br><span class="line"># 此选项将保存接口中的所有原始名称（不混淆）--&gt;</span><br><span class="line">-keepnames interface ** &#123; *; &#125;</span><br><span class="line"># 此选项将保存所有软件包中的所有原始接口文件（不进行混淆）</span><br><span class="line">#-keep interface * extends * &#123; *; &#125;</span><br><span class="line">#保留参数名，因为控制器，或者Mybatis等接口的参数如果混淆会导致无法接受参数，xml文件找不到参数</span><br><span class="line">-keepparameternames</span><br><span class="line"># 保留枚举成员及方法</span><br><span class="line">-keepclassmembers enum * &#123; *; &#125;</span><br><span class="line"># 不混淆所有类,保存原始定义的注释-</span><br><span class="line">-keepclassmembers class * &#123;</span><br><span class="line">                        @org.springframework.context.annotation.Bean *;</span><br><span class="line">                        @org.springframework.beans.factory.annotation.Autowired *;</span><br><span class="line">                        @org.springframework.beans.factory.annotation.Value *;</span><br><span class="line">                        @org.springframework.stereotype.Service *;</span><br><span class="line">                        @org.springframework.stereotype.Component *;</span><br><span class="line">                        &#125;</span><br><span class="line"> </span><br><span class="line">#忽略warn消息</span><br><span class="line">-ignorewarnings</span><br><span class="line">#忽略note消息</span><br><span class="line">-dontnote</span><br><span class="line">#打印配置信息</span><br><span class="line">-printconfiguration</span><br><span class="line">   </span><br><span class="line">#这里要看清，不要混淆springboot的启动类</span><br><span class="line">-keep public class com.yugb.Application &#123;</span><br><span class="line">        public static void main(java.lang.String[]);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>添加<code>proguard</code>混淆插件</p>
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.wvengen<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>proguard-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.6.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 以下配置说明执行mvn的package命令时候，会执行proguard--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span>proguard<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 就是输入Jar的名称，我们要知道，代码混淆其实是将一个原始的jar，生成一个混淆后的jar，那么就会有输入输出。 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">injar</span>&gt;</span>$&#123;project.build.finalName&#125;.jar<span class="tag">&lt;/<span class="name">injar</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 输出jar名称，输入输出jar同名的时候就是覆盖，也是比较常用的配置。 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">outjar</span>&gt;</span>$&#123;project.build.finalName&#125;.jar<span class="tag">&lt;/<span class="name">outjar</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 是否混淆 默认是true --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">obfuscate</span>&gt;</span>true<span class="tag">&lt;/<span class="name">obfuscate</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 配置一个文件，通常叫做proguard.cfg,该文件主要是配置options选项，也就是说使用proguard.cfg那么options下的所有内容都可以移到proguard.cfg中 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">proguardInclude</span>&gt;</span>$&#123;project.basedir&#125;/proguard.cfg<span class="tag">&lt;/<span class="name">proguardInclude</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 额外的jar包，通常是项目编译所需要的jar --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">libs</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">lib</span>&gt;</span>$&#123;java.home&#125;/lib/rt.jar<span class="tag">&lt;/<span class="name">lib</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">lib</span>&gt;</span>$&#123;java.home&#125;/lib/jce.jar<span class="tag">&lt;/<span class="name">lib</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">lib</span>&gt;</span>$&#123;java.home&#125;/lib/jsse.jar<span class="tag">&lt;/<span class="name">lib</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">libs</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 对输入jar进行过滤比如，如下配置就是对META-INFO文件不处理。 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">inLibsFilter</span>&gt;</span>!META-INF/**,!META-INF/versions/9/**.class<span class="tag">&lt;/<span class="name">inLibsFilter</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 这是输出路径配置，但是要注意这个路径必须要包括injar标签填写的jar --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>$&#123;project.basedir&#125;/target<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--这里特别重要，此处主要是配置混淆的一些细节选项，比如哪些类不需要混淆，哪些需要混淆--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">options</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 可以在此处写option标签配置，不过我上面使用了proguardInclude，故而我更喜欢在proguard.cfg中配置 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">options</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goal</span>&gt;</span>repackage<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                        <span class="comment">&lt;!-- 这个是启动类路径 --&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.yugb.Application<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p> 然后就可以看到：<br><img src="/code-obfuscation/1.png"></p>
+<p>然后就可以看到：<br>
+<img src="/code-obfuscation/1.png" alt></p>
 </li>
-<li><p>正常执行编译打包流程<br><img src="/code-obfuscation/2.png"><br><img src="/code-obfuscation/3.png"><br>打包编译+混淆</p>
+<li>
+<p>正常执行编译打包流程<br>
+<img src="/code-obfuscation/2.png" alt><br>
+<img src="/code-obfuscation/3.png" alt><br>
+打包编译+混淆</p>
 </li>
-<li><p>打开jar包，反编译class<br><img src="/code-obfuscation/4.png"><br>这打开一看，这啥东西啊，谁看谁不迷糊啊。接下来反编译走一波。<br><img src="/code-obfuscation/5.png"></p>
+<li>
+<p>打开jar包，反编译class<br>
+<img src="/code-obfuscation/4.png" alt><br>
+这打开一看，这啥东西啊，谁看谁不迷糊啊。接下来反编译走一波。<br>
+<img src="/code-obfuscation/5.png" alt></p>
 </li>
 </ol>
 
@@ -483,7 +496,7 @@
     <figure class="media">
       <div class="media-left">
         <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+          <img src="../images/avatar.png" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">
@@ -509,12 +522,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/springboot-disruptor/" title="SpringBoot+Disruptor"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="../springboot-disruptor/" title="SpringBoot+Disruptor"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/sql-execution-process/" title="SQL语句执行过程"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="../sql-execution-process/" title="SQL语句执行过程"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -558,14 +571,14 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="alipay">
               <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="wechatpay">
               <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
@@ -596,9 +609,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -618,10 +631,10 @@
 window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 </script>
 
-<script src="/js/plugin.min.js"></script>
+<script src="../js/plugin.min.js"></script>
 
 
-<script src="/js/application.js"></script>
+<script src="../js/application.js"></script>
 
 
     <script>
@@ -635,13 +648,13 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
             UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
+        CONTENT_URL: '../content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
 
-<script src="/js/insight.js"></script>
+<script src="../js/insight.js"></script>
 
 
 

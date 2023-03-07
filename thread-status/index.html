@@ -18,12 +18,12 @@
   
   
   <title>Java线程的生命周期状态 | 小余哥</title>
-  <meta name="description" content="1. Java线程分类在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 TERMINATED状态， 我们从Thread类中的内部枚举类State中可以看到线程的6种状态； 12345678910111213141516171819202122232425262728293031323334353637383940414243444546public enum State &amp;#1">
+  <meta name="description" content="1. Java线程分类 在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 TERMINATED状态， 我们从Thread类中的内部枚举类State中可以看到线程的6种状态； 12345678910111213141516171819202122232425262728293031323334353637383940414243444546public enum State &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java线程的生命周期状态">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/thread-status/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. Java线程分类在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 TERMINATED状态， 我们从Thread类中的内部枚举类State中可以看到线程的6种状态； 12345678910111213141516171819202122232425262728293031323334353637383940414243444546public enum State &amp;#1">
+<meta property="og:description" content="1. Java线程分类 在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 TERMINATED状态， 我们从Thread类中的内部枚举类State中可以看到线程的6种状态； 12345678910111213141516171819202122232425262728293031323334353637383940414243444546public enum State &amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/thread-status/02.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/thread-status/03.png">
@@ -41,13 +41,13 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
   
   
   
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
 </head>
 
 
@@ -59,7 +59,7 @@
       
       <div class="profile-block text-center">
         <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
-          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+          <img class="img-circle img-rotate" src="../images/avatar.png" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
         <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
@@ -103,7 +103,7 @@
         
         
         <li class="menu-item menu-item-home">
-          <a href="/.">
+          <a href="../.">
             
             <i class="icon icon-home-fill"></i>
             
@@ -113,7 +113,7 @@
         
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="../archives">
             
             <i class="icon icon-archives-fill"></i>
             
@@ -123,7 +123,7 @@
         
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories">
+          <a href="../categories">
             
             <i class="icon icon-folder"></i>
             
@@ -133,7 +133,7 @@
         
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="../tags">
             
             <i class="icon icon-tags"></i>
             
@@ -143,7 +143,7 @@
         
         
         <li class="menu-item menu-item-repository">
-          <a href="/repository">
+          <a href="../repository">
             
             <i class="icon icon-project"></i>
             
@@ -153,7 +153,7 @@
         
         
         <li class="menu-item menu-item-books">
-          <a href="/books">
+          <a href="../books">
             
             <i class="icon icon-book-fill"></i>
             
@@ -163,7 +163,7 @@
         
         
         <li class="menu-item menu-item-links">
-          <a href="/links">
+          <a href="../links">
             
             <i class="icon icon-friendship"></i>
             
@@ -173,7 +173,7 @@
         
         
         <li class="menu-item menu-item-about">
-          <a href="/about">
+          <a href="../about">
             
             <i class="icon icon-cup-fill"></i>
             
@@ -186,9 +186,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -216,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
     </div>
   </div>
 
@@ -231,7 +231,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-application-problems/" class="thumb">
+              <a href="../redis-special-aof/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -242,10 +242,35 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
+                <a href="../redis-special-aof/" class="title">Redis持久化之AOF（八）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-07T13:31:16.000Z" itemprop="datePublished">2023-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../redis-special-application-problems/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
@@ -256,7 +281,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-database/" class="thumb">
+              <a href="../redis-special-rdb/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -267,10 +292,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-database/" class="title">Redis持久化之RDB（七）</a>
+                <a href="../redis-special-rdb/" class="title">Redis持久化之RDB（七）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T08:20:06.000Z" itemprop="datePublished">2023-02-26</time>
@@ -281,7 +306,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-transaction/" class="thumb">
+              <a href="../redis-special-transaction/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -292,10 +317,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-transaction/" class="title">Redis事务操作（六）</a>
+                <a href="../redis-special-transaction/" class="title">Redis事务操作（六）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T12:58:29.000Z" itemprop="datePublished">2023-02-25</time>
@@ -306,7 +331,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-springboot/" class="thumb">
+              <a href="../redis-special-springboot/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -317,38 +342,13 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
+                <a href="../redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T11:39:59.000Z" itemprop="datePublished">2023-02-25</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/redis-special-jedis/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
-              </p>
-              <p class="item-title">
-                <a href="/redis-special-jedis/" class="title">Jedis操作Redis6（四）</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-25T09:07:27.000Z" itemprop="datePublished">2023-02-25</time>
               </p>
             </div>
           </li>
@@ -363,7 +363,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="/tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="/tags/interview/" style="font-size: 13px;">interview</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.13px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="/tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="/tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="/tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="/tags/sql/" style="font-size: 13px;">sql</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.5px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.13px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -390,20 +390,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/thread-status/" class="article-date">
+	<a href="" class="article-date">
 	  <time datetime="2020-06-02T08:04:02.000Z" itemprop="datePublished">2020-06-02</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/java/">java</a>
+    <a class="article-category-link" href="../categories/java/">java</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/thread/" rel="tag">thread</a>
+	<a class="article-tag-link-link" href="../tags/thread/" rel="tag">thread</a>
   </span>
 
 
@@ -416,7 +416,7 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/thread-status/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="#comments" class="article-comment-link">评论</a></span>
         
 	
 	
@@ -427,21 +427,24 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="1-Java线程分类"><a href="#1-Java线程分类" class="headerlink" title="1. Java线程分类"></a>1. Java线程分类</h2><p>在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 TERMINATED状态， 我们从Thread类中的内部枚举类State中可以看到线程的6种状态；</p>
+        <h2 id="1-java线程分类"><a class="markdownIt-Anchor" href="#1-java线程分类"></a> 1. Java线程分类</h2>
+<p>在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 TERMINATED状态， 我们从Thread类中的内部枚举类State中可以看到线程的6种状态；</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">State</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Thread state for a thread which has not yet started.</span></span><br><span class="line"><span class="comment">     * 尚未启动的线程的线程状态</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    NEW,</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Thread state for a runnable thread.  A thread in the runnable state is executing in the Java virtual machine but it may</span></span><br><span class="line"><span class="comment">     * be waiting for other resources from the operating system such as processor.</span></span><br><span class="line"><span class="comment">     * 可运行线程的线程状态。处于可运行状态的线程正在Java虚拟机中执行，但它可能正在等待来自操作系统的其他资源，例如处理器。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    RUNNABLE,</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Thread state for a thread blocked waiting for a monitor lock. A thread in the blocked state is waiting for a monitor lock to enter a synchronized block/method or reenter a synchronized block/method after calling Object.wait() .</span></span><br><span class="line"><span class="comment">     * 等待监视器锁定的被阻止线程的线程状态。处于阻塞状态的线程正在等待监视器锁进入同步块/方法，或在调用对象后重新进入同步块/方法。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    BLOCKED,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Thread state for a waiting thread. A thread is in the waiting state due to calling one of the following methods:</span></span><br><span class="line"><span class="comment">     * 1.Object.wait() with no timeout </span></span><br><span class="line"><span class="comment">     * 2.Thread.join() with no timeout </span></span><br><span class="line"><span class="comment">     * 3.LockSupport.park()</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * A thread in the waiting state is waiting for another thread to perform a particular action.</span></span><br><span class="line"><span class="comment">     * For example, a thread that has called Object.wait() on an object is waiting for another thread to call</span></span><br><span class="line"><span class="comment">     * Object.notify or Object.notifyAll() on that object. A thread that has called Thread.join()</span></span><br><span class="line"><span class="comment">     * is waiting for a specified thread to terminate.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    WAITING,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Thread state for a waiting thread with a specified waiting time. A thread is in the timed waiting state due to calling one of</span></span><br><span class="line"><span class="comment">     * the following methods with a specified positive waiting time:</span></span><br><span class="line"><span class="comment">     * 1.Thread.sleep()</span></span><br><span class="line"><span class="comment">     * 2.Object.wait() with timeout</span></span><br><span class="line"><span class="comment">     * 3.Thread.join() with timeout</span></span><br><span class="line"><span class="comment">     * 4.LockSupport.parkNanos()</span></span><br><span class="line"><span class="comment">     * 5.LockSupport.parkUntil()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    TIMED_WAITING,</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Thread state for a terminated thread. The thread has completed execution.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    TERMINATED;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-1-状态1：-NEW"><a href="#1-1-状态1：-NEW" class="headerlink" title="1.1 状态1： NEW"></a>1.1 状态1： NEW</h3><p>当线程被创建出来还没有被调用 start()时候的状态</p>
+<h3 id="11-状态1-new"><a class="markdownIt-Anchor" href="#11-状态1-new"></a> 1.1 状态1： NEW</h3>
+<p>当线程被创建出来还没有被调用 start()时候的状态</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">官方描述：Thread state for a thread which has not yet started.</span><br></pre></td></tr></table></figure>
 <p>示例代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadStateTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>);</span><br><span class="line">        System.out.println(thread.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： NEW</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-2-状态2：-RUNNABLE"><a href="#1-2-状态2：-RUNNABLE" class="headerlink" title="1.2 状态2： RUNNABLE"></a>1.2 状态2： RUNNABLE</h3><p>当线程被调用start()，且处于等待操作系统分配资源（如CPU）、等待IO连接、正在运行状态，即表示Running状态和Ready状态。<br>注：调用了start()不一定会立即改变状态，还有一些准备工作，这个时候线程状态是不确定的。</p>
+<h3 id="12-状态2-runnable"><a class="markdownIt-Anchor" href="#12-状态2-runnable"></a> 1.2 状态2： RUNNABLE</h3>
+<p>当线程被调用start()，且处于等待操作系统分配资源（如CPU）、等待IO连接、正在运行状态，即表示Running状态和Ready状态。<br>
+注：调用了start()不一定会立即改变状态，还有一些准备工作，这个时候线程状态是不确定的。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">官方描述：</span><br><span class="line">Thread state for a runnable thread.  A thread in the runnable state is executing in the Java virtual machine but it may</span><br><span class="line">be waiting for other resources from the operating system such as processor.</span><br></pre></td></tr></table></figure>
 <p>示例代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadStateTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>);</span><br><span class="line">        thread.start();</span><br><span class="line">        System.out.println(thread.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出： RUNNABLE</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-3-状态3：-BLOCKED"><a href="#1-3-状态3：-BLOCKED" class="headerlink" title="1.3 状态3： BLOCKED"></a>1.3 状态3： BLOCKED</h3><p>等待监视器锁而被阻塞的线程的状态。当进入synchronized块/方法 或者在调用wait()被唤醒/超时之后重新进入synchronized块/方法，但是锁被其他线程占有，这个时候被操作系统挂起，状态为<strong>阻塞状态 BLOCKED</strong>。</p>
+<h3 id="13-状态3-blocked"><a class="markdownIt-Anchor" href="#13-状态3-blocked"></a> 1.3 状态3： BLOCKED</h3>
+<p>等待监视器锁而被阻塞的线程的状态。当进入synchronized块/方法 或者在调用wait()被唤醒/超时之后重新进入synchronized块/方法，但是锁被其他线程占有，这个时候被操作系统挂起，状态为<strong>阻塞状态 BLOCKED</strong>。</p>
 <p><strong>阻塞状态的线程，即使调用interrupt()方法也不会改变其状态</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">官方描述：</span><br><span class="line">Thread state for a thread blocked waiting for a monitor lock. </span><br><span class="line">A thread in the blocked state is waiting for a monitor lock to enter a synchronized block/method or reenter a synchronized block/method after calling Object.wait() .</span><br><span class="line">译文：等待监视器锁定的被阻止线程的线程状态。处于阻塞状态的线程正在等待监视器锁进入同步块/方法，或在调用对象后重新进入同步块/方法。</span><br></pre></td></tr></table></figure>
-
 <p>阻塞(BLOCKED)：阻塞状态是指线程因为某种原因放弃了cpu 使用权，也即让出了cpu timeslice，暂时停止运行。直到线程进入可运行(runnable)状态，才有机会再次获得cpu timeslice 转到运行(running)状态。阻塞的情况分三种：</p>
 <ul>
 <li>等待阻塞：运行(running)的线程执行o.wait()方法，JVM会把该线程放入等待队列(waitting queue)中。</li>
@@ -452,11 +455,13 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlockedState</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> String lock = <span class="string">&quot;锁&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (lock) &#123;</span><br><span class="line">                    <span class="comment">//死循环导致thread1一直持有lock对象锁</span></span><br><span class="line">                    <span class="keyword">while</span> (<span class="keyword">true</span>) ;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//休眠1秒，让thread1先启动</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread2&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (lock) &#123; <span class="comment">//@1</span></span><br><span class="line">                    System.out.println(<span class="string">&quot;thread2&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread2.start();</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1.state:&quot;</span> + thread1.getState());</span><br><span class="line">        System.out.println(<span class="string">&quot;thread2.state:&quot;</span> + thread2.getState());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//while (true) 死循环导致thread1持有lock对象锁一直没有释放，而thread2也想获取lock对象锁，但是锁一直被thread1持有着，导致thread2被阻塞在@1处，</span></span><br><span class="line">        <span class="comment">//此时thread2就处于BLOCKED状态</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出： thread1.state:RUNNABLE</span></span><br><span class="line"><span class="comment">//      thread2.state:BLOCKED</span></span><br></pre></td></tr></table></figure>
 <p>查看2个线程的堆栈信息，包括：线程状态、线程目前执行到哪段代码等</p>
 <ol>
-<li><p>jps命令查看需要打印线程栈的进程号</p>
+<li>
+<p>jps命令查看需要打印线程栈的进程号</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
-<p><img src="/thread-status/02.png"></p>
+<p><img src="/thread-status/02.png" alt></p>
 </li>
-<li><p>jstack命令生成java虚拟机当前时刻的线程快照</p>
+<li>
+<p>jstack命令生成java虚拟机当前时刻的线程快照</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jstack 46622  #找到BlockedState线程的</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&quot;thread2&quot; #13 prio=5 os_prio=31 tid=0x00007f81c387e800 nid=0xa703 waiting for monitor entry [0x000070000bbbd000]</span><br><span class="line">   java.lang.Thread.State: BLOCKED (on object monitor)</span><br><span class="line">      at org.example.thread.BlockedState$2.run(BlockedState.java:26)</span><br><span class="line">         - waiting to lock &lt;0x0000000715916c40&gt; (a java.lang.String)</span><br><span class="line"></span><br><span class="line">&quot;thread1&quot; #11 prio=5 os_prio=31 tid=0x00007f81b3d9b800 nid=0x5503 runnable [0x000070000b9b7000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line">      at org.example.thread.BlockedState$1.run(BlockedState.java:14)</span><br><span class="line">          - locked &lt;0x0000000715916c40&gt; (a java.lang.String)</span><br></pre></td></tr></table></figure>
@@ -470,52 +475,60 @@
 </ul>
 </li>
 </ol>
-<h3 id="1-4-状态4：-WAITING"><a href="#1-4-状态4：-WAITING" class="headerlink" title="1.4 状态4： WAITING"></a>1.4 状态4： WAITING</h3><p>无条件等待，当线程调用wait()/join()/LockSupport.park()不加超时时间的方法之后所处的状态，如果没有被唤醒或等待的线程没有结束，那么将一直等待，当前状态的线程不会被分配CPU资源和持有锁。</p>
+<h3 id="14-状态4-waiting"><a class="markdownIt-Anchor" href="#14-状态4-waiting"></a> 1.4 状态4： WAITING</h3>
+<p>无条件等待，当线程调用wait()/join()/LockSupport.park()不加超时时间的方法之后所处的状态，如果没有被唤醒或等待的线程没有结束，那么将一直等待，当前状态的线程不会被分配CPU资源和持有锁。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">官方描述：</span><br><span class="line"></span><br><span class="line">Thread state for a waiting thread. A thread is in the waiting state due to calling one of the following methods:</span><br><span class="line">1.Object.wait with no timeout </span><br><span class="line">2.Thread.join with no timeout </span><br><span class="line">3.LockSupport.park</span><br><span class="line"></span><br><span class="line">A thread in the waiting state is waiting for another thread to perform a particular action.</span><br><span class="line">For example, a thread that has called Object.wait() on an object is waiting for another thread to call</span><br><span class="line">Object.notify or Object.notifyAll() on that object. A thread that has called Thread.join()</span><br><span class="line">is waiting for a specified thread to terminate.</span><br></pre></td></tr></table></figure>
-<h4 id="方式一：Object-wait"><a href="#方式一：Object-wait" class="headerlink" title="方式一：Object.wait()"></a>方式一：Object.wait()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>)&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (WaitingState.class)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        WaitingState.class.wait();</span><br><span class="line">                    &#125;<span class="keyword">catch</span> (InterruptedException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到wait方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread.state:&quot;</span>+thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread1.state:WAITING</span></span><br></pre></td></tr></table></figure>
+<h4 id="方式一objectwait"><a class="markdownIt-Anchor" href="#方式一objectwait"></a> 方式一：Object.wait()</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>)&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (WaitingState.class)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        WaitingState.class.wait();</span><br><span class="line">                    &#125;<span class="keyword">catch</span> (InterruptedException e)&#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到wait方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread.state:&quot;</span>+thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread1.state:WAITING</span></span><br></pre></td></tr></table></figure>
 <p>打印线程thread1堆栈信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;thread1&quot; #11 prio=5 os_prio=31 tid=0x00007fc57b877800 nid=0x5503 in Object.wait() [0x0000700011529000]</span><br><span class="line">   java.lang.Thread.State: WAITING (on object monitor)</span><br><span class="line">true  at java.lang.Object.wait(Native Method)</span><br><span class="line">true    - waiting on &lt;0x0000000715916c40&gt; (a java.lang.Class for org.example.thread.WaitingState)</span><br><span class="line">true  at java.lang.Object.wait(Object.java:502)</span><br><span class="line">true  at org.example.thread.WaitingState$1.run(WaitingState.java:12)</span><br><span class="line">true    - locked &lt;0x0000000715916c40&gt; (a java.lang.Class for org.example.thread.WaitingState)</span><br></pre></td></tr></table></figure>
-<h4 id="方式二：Thread-join"><a href="#方式二：Thread-join" class="headerlink" title="方式二：Thread.join()"></a>方式二：Thread.join()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>)&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">               <span class="keyword">while</span> (<span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//join方法会让当前主线程等待thread1结束</span></span><br><span class="line">        thread1.join();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方式二threadjoin"><a class="markdownIt-Anchor" href="#方式二threadjoin"></a> 方式二：Thread.join()</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>)&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">               <span class="keyword">while</span> (<span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//join方法会让当前主线程等待thread1结束</span></span><br><span class="line">        thread1.join();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面的代码导致主线程处于WAITING状态，下面是主线程堆栈信息，第二行显示主线程处于WAITING状态，第五行表示因为调用了Thread.join导致线程WAITING</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&quot;main&quot; #1 prio=5 os_prio=31 tid=0x00007fea7b01b800 nid=0xe03 in Object.wait() [0x0000700008b43000]</span><br><span class="line">   java.lang.Thread.State: WAITING (on object monitor)</span><br><span class="line">trueat java.lang.Object.wait(Native Method)</span><br><span class="line">true  - waiting on &lt;0x000000071591c4c8&gt; (a org.example.thread.WaitingState$1)</span><br><span class="line">trueat java.lang.Thread.join(Thread.java:1252)</span><br><span class="line">true  - locked &lt;0x000000071591c4c8&gt; (a org.example.thread.WaitingState$1)</span><br><span class="line">trueat java.lang.Thread.join(Thread.java:1326)</span><br><span class="line">trueat org.example.thread.WaitingState.main(WaitingState.java:17)</span><br></pre></td></tr></table></figure>
-
-<h4 id="方式三：LockSupport-park"><a href="#方式三：LockSupport-park" class="headerlink" title="方式三：LockSupport.park()"></a>方式三：LockSupport.park()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>)&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                LockSupport.park();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread.state:&quot;</span>+thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread.state:WAITING</span></span><br></pre></td></tr></table></figure>
+<h4 id="方式三locksupportpark"><a class="markdownIt-Anchor" href="#方式三locksupportpark"></a> 方式三：LockSupport.park()</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>)&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                LockSupport.park();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread.state:&quot;</span>+thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread.state:WAITING</span></span><br></pre></td></tr></table></figure>
 <p>打印线程thread1的堆栈信息如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;thread1&quot; #11 prio=5 os_prio=31 tid=0x00007f7baf82d000 nid=0x5503 waiting on condition [0x000070000b2b9000]</span><br><span class="line">   java.lang.Thread.State: WAITING (parking)</span><br><span class="line">trueat sun.misc.Unsafe.park(Native Method)</span><br><span class="line">trueat java.util.concurrent.locks.LockSupport.park(LockSupport.java:304)</span><br><span class="line">trueat org.example.thread.WaitingState$1.run(WaitingState.java:11)</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-5-状态5：-TIMED-WAITING"><a href="#1-5-状态5：-TIMED-WAITING" class="headerlink" title="1.5 状态5： TIMED_WAITING"></a>1.5 状态5： TIMED_WAITING</h3><p>有条件的等待，区别于上面的WAITING(无条件等待)，当线程调用以下方法之后所处的状态，在指定的时间没有被唤醒或者等待线程没有结束，会被系统自动唤醒，正常退出。</p>
+<h3 id="15-状态5-timed_waiting"><a class="markdownIt-Anchor" href="#15-状态5-timed_waiting"></a> 1.5 状态5： TIMED_WAITING</h3>
+<p>有条件的等待，区别于上面的WAITING(无条件等待)，当线程调用以下方法之后所处的状态，在指定的时间没有被唤醒或者等待线程没有结束，会被系统自动唤醒，正常退出。</p>
 <ul>
 <li>sleep(睡眠时间)</li>
-<li>wait(等待时间) </li>
-<li>join(等待时间) </li>
-<li>LockSupport.parkNanos(等待时间) </li>
+<li>wait(等待时间)</li>
+<li>join(等待时间)</li>
+<li>LockSupport.parkNanos(等待时间)</li>
 <li>LockSupport.parkUntil(等待时间)</li>
 </ul>
 <p>TIMED_WAITING： 有期限的等待</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">官方描述：</span><br><span class="line">Thread state for a waiting thread with a specified waiting time. </span><br><span class="line">A thread is in the timed waiting state due to calling one of the following methods with a specified positive waiting time:</span><br><span class="line">1.Thread.sleep</span><br><span class="line">2.Object.wait with timeout</span><br><span class="line">3.Thread.join with timeout</span><br><span class="line">4.LockSupport.parkNanos</span><br><span class="line">5.LockSupport.parkUntil</span><br></pre></td></tr></table></figure>
-<h4 id="方式一：Thread-sleep-seconds"><a href="#方式一：Thread-sleep-seconds" class="headerlink" title="方式一：Thread.sleep(seconds)"></a>方式一：Thread.sleep(seconds)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">//休眠500秒 = 500000毫秒</span></span><br><span class="line">                    Thread.sleep(<span class="number">500</span> * <span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到sleep方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1.state:&quot;</span> + thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread1.state:TIMED_WAITING</span></span><br></pre></td></tr></table></figure>
+<h4 id="方式一threadsleepseconds"><a class="markdownIt-Anchor" href="#方式一threadsleepseconds"></a> 方式一：Thread.sleep(seconds)</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">//休眠500秒 = 500000毫秒</span></span><br><span class="line">                    Thread.sleep(<span class="number">500</span> * <span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到sleep方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1.state:&quot;</span> + thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread1.state:TIMED_WAITING</span></span><br></pre></td></tr></table></figure>
 <p>打印线程thread1的堆栈信息，可以看出是线程sleep方法(第三行)导致线程等待</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;thread1&quot; #11 prio=5 os_prio=31 tid=0x00007fddf71ae800 nid=0x5503 waiting on condition [0x000070000b11c000]</span><br><span class="line">   java.lang.Thread.State: TIMED_WAITING (sleeping)</span><br><span class="line">trueat java.lang.Thread.sleep(Native Method)</span><br><span class="line">trueat org.example.thread.TimeWaitingState$1.run(TimeWaitingState.java:12)</span><br></pre></td></tr></table></figure>
-<h4 id="方式二：Object-wait-seconds"><a href="#方式二：Object-wait-seconds" class="headerlink" title="方式二：Object.wait(seconds)"></a>方式二：Object.wait(seconds)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (TimeWaitingState.class) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        TimeWaitingState.class.wait(<span class="number">500</span> * <span class="number">100</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到sleep方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1.state:&quot;</span> + thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出； thread1.state:TIMED_WAITING</span></span><br></pre></td></tr></table></figure>
+<h4 id="方式二objectwaitseconds"><a class="markdownIt-Anchor" href="#方式二objectwaitseconds"></a> 方式二：Object.wait(seconds)</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (TimeWaitingState.class) &#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        TimeWaitingState.class.wait(<span class="number">500</span> * <span class="number">100</span>);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到sleep方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1.state:&quot;</span> + thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出； thread1.state:TIMED_WAITING</span></span><br></pre></td></tr></table></figure>
 <p>打印线程 thread1 堆栈信息，从堆栈信息第三行中可以看出是线程 wait 方法导致线程等待的</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;thread1&quot; #11 prio=5 os_prio=31 tid=0x00007f80a0129800 nid=0x5503 in Object.wait() [0x000070000856b000]</span><br><span class="line">   java.lang.Thread.State: TIMED_WAITING (on object monitor)</span><br><span class="line">trueat java.lang.Object.wait(Native Method)</span><br><span class="line">true- waiting on &lt;0x0000000715916d28&gt; (a java.lang.Class for org.example.thread.TimeWaitingState)</span><br><span class="line">trueat org.example.thread.TimeWaitingState$1.run(TimeWaitingState.java:12)</span><br><span class="line">true- locked &lt;0x0000000715916d28&gt; (a java.lang.Class for org.example.thread.TimeWaitingState)</span><br></pre></td></tr></table></figure>
-<h4 id="方式三：Thread-join-seconds"><a href="#方式三：Thread-join-seconds" class="headerlink" title="方式三：Thread.join(seconds)"></a>方式三：Thread.join(seconds)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">while</span>(<span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//Thread.join 会让当前主线程等待thread1结束，需要等待500s</span></span><br><span class="line">        thread1.join(<span class="number">500</span> * <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>Thread.join 会让当前主线程等待thread1结束，所以我们查看主线程堆栈信息: </p>
+<h4 id="方式三threadjoinseconds"><a class="markdownIt-Anchor" href="#方式三threadjoinseconds"></a> 方式三：Thread.join(seconds)</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">while</span>(<span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//Thread.join 会让当前主线程等待thread1结束，需要等待500s</span></span><br><span class="line">        thread1.join(<span class="number">500</span> * <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Thread.join 会让当前主线程等待thread1结束，所以我们查看主线程堆栈信息:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;main&quot; #1 prio=5 os_prio=31 tid=0x00007fa6d7009000 nid=0xd03 in Object.wait() [0x000070000feb9000]</span><br><span class="line">   java.lang.Thread.State: TIMED_WAITING (on object monitor)</span><br><span class="line">trueat java.lang.Object.wait(Native Method)</span><br><span class="line">true- waiting on &lt;0x000000071591c138&gt; (a org.example.thread.TimeWaitingState$1)</span><br><span class="line">trueat java.lang.Thread.join(Thread.java:1260)</span><br><span class="line">true- locked &lt;0x000000071591c138&gt; (a org.example.thread.TimeWaitingState$1)</span><br><span class="line">trueat org.example.thread.TimeWaitingState.main(TimeWaitingState.java:14)</span><br></pre></td></tr></table></figure>
-<h4 id="方式四：LockSupport-parkNanos-seconds"><a href="#方式四：LockSupport-parkNanos-seconds" class="headerlink" title="方式四：LockSupport.parkNanos(seconds)"></a>方式四：LockSupport.parkNanos(seconds)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">//等待500秒</span></span><br><span class="line">                LockSupport.parkNanos(TimeUnit.SECONDS.toNanos(<span class="number">500</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到parkNanos方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1.state:&quot;</span> + thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread1.state:TIMED_WAITING</span></span><br></pre></td></tr></table></figure>
+<h4 id="方式四locksupportparknanosseconds"><a class="markdownIt-Anchor" href="#方式四locksupportparknanosseconds"></a> 方式四：LockSupport.parkNanos(seconds)</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">//等待500秒</span></span><br><span class="line">                LockSupport.parkNanos(TimeUnit.SECONDS.toNanos(<span class="number">500</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到parkNanos方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1.state:&quot;</span> + thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread1.state:TIMED_WAITING</span></span><br></pre></td></tr></table></figure>
 <p>线程 thread1 堆栈信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;thread1&quot; #11 prio=5 os_prio=31 tid=0x00007fb71b07a000 nid=0x5503 waiting on condition [0x0000700001da8000]</span><br><span class="line">   java.lang.Thread.State: TIMED_WAITING (parking)</span><br><span class="line">trueat sun.misc.Unsafe.park(Native Method)</span><br><span class="line">trueat java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:338)</span><br><span class="line">trueat org.example.thread.TimeWaitingState$1.run(TimeWaitingState.java:12)</span><br></pre></td></tr></table></figure>
-<h4 id="方式五：LockSupport-parkUntil-seconds"><a href="#方式五：LockSupport-parkUntil-seconds" class="headerlink" title="方式五：LockSupport.parkUntil(seconds)"></a>方式五：LockSupport.parkUntil(seconds)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">//等待500秒</span></span><br><span class="line">                LockSupport.parkUntil(System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(<span class="number">500</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到parkNanos方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1.state:&quot;</span> + thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread1.state:TIMED_WAITING</span></span><br></pre></td></tr></table></figure>
+<h4 id="方式五locksupportparkuntilseconds"><a class="markdownIt-Anchor" href="#方式五locksupportparkuntilseconds"></a> 方式五：LockSupport.parkUntil(seconds)</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeWaitingState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">//等待500秒</span></span><br><span class="line">                LockSupport.parkUntil(System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(<span class="number">500</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//模拟休眠1秒，让thread1运行到parkNanos方法处</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1.state:&quot;</span> + thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出： thread1.state:TIMED_WAITING</span></span><br></pre></td></tr></table></figure>
 <p>线程 thread1 堆栈信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;thread1&quot; #11 prio=5 os_prio=31 tid=0x00007ff41d076000 nid=0x5503 waiting on condition [0x00007000094df000]</span><br><span class="line">   java.lang.Thread.State: TIMED_WAITING (parking)</span><br><span class="line">trueat sun.misc.Unsafe.park(Native Method)</span><br><span class="line">trueat java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:372)</span><br><span class="line">trueat org.example.thread.TimeWaitingState$1.run(TimeWaitingState.java:12)</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-6-状态6：-TERMINATED"><a href="#1-6-状态6：-TERMINATED" class="headerlink" title="1.6 状态6： TERMINATED"></a>1.6 状态6： TERMINATED</h3><p>执行完了 run()方法。其实这只是 Java 语言级别的一种状态，在操作系统内部可能已经注销了相应的线程，或者将它复用给其他需要使用线程的请求，而在 Java 语言级别只是通过 Java 代码看到的线程状态而已</p>
+<h3 id="16-状态6-terminated"><a class="markdownIt-Anchor" href="#16-状态6-terminated"></a> 1.6 状态6： TERMINATED</h3>
+<p>执行完了 run()方法。其实这只是 Java 语言级别的一种状态，在操作系统内部可能已经注销了相应的线程，或者将它复用给其他需要使用线程的请求，而在 Java 语言级别只是通过 Java 代码看到的线程状态而已</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">官方描述：</span><br><span class="line">Thread state for a terminated thread. The thread has completed execution.</span><br></pre></td></tr></table></figure>
-
 <p>示例代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TerminatedState</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="string">&quot;thread1&quot;</span>) &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(Thread.currentThread());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        thread1.start();</span><br><span class="line">        <span class="comment">//休眠1秒，等待thread1执行完毕</span></span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;thread1 state:&quot;</span> + thread1.getState());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出：Thread[thread1,5,main]</span></span><br><span class="line"><span class="comment">//     thread1 state:TERMINATED</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-状态转化"><a href="#2-状态转化" class="headerlink" title="2.状态转化"></a>2.状态转化</h2><p><img src="/thread-status/03.png" alt="线程的状态"><br><img src="/thread-status/01.jpg" alt="线程的状态"></p>
+<h2 id="2状态转化"><a class="markdownIt-Anchor" href="#2状态转化"></a> 2.状态转化</h2>
+<p><img src="/thread-status/03.png" alt="线程的状态"><br>
+<img src="/thread-status/01.jpg" alt="线程的状态"></p>
 
       
     </div>
@@ -540,7 +553,7 @@
     <figure class="media">
       <div class="media-left">
         <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+          <img src="../images/avatar.png" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">
@@ -570,12 +583,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/%E5%9C%A8%E7%BA%BF%E4%BF%AE%E6%94%B9%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/" title="在线修改静态文件"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="../%E5%9C%A8%E7%BA%BF%E4%BF%AE%E6%94%B9%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/" title="在线修改静态文件"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/java8%E7%89%B9%E6%80%A7/" title="Java 8学习"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="../java8%E7%89%B9%E6%80%A7/" title="Java 8学习"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -610,14 +623,14 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="alipay">
               <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="wechatpay">
               <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
@@ -648,9 +661,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -670,10 +683,10 @@
 window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 </script>
 
-<script src="/js/plugin.min.js"></script>
+<script src="../js/plugin.min.js"></script>
 
 
-<script src="/js/application.js"></script>
+<script src="../js/application.js"></script>
 
 
     <script>
@@ -687,13 +700,13 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
             UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
+        CONTENT_URL: '../content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
 
-<script src="/js/insight.js"></script>
+<script src="../js/insight.js"></script>
 
 
 

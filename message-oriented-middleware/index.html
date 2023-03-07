@@ -18,12 +18,12 @@
   
   
   <title>分布式消息中间件设计 | 小余哥</title>
-  <meta name="description" content="1. 消息中间件概述 什么是分布式消息中间件  利用高效可靠的消息传递机制进行平台无关的数据交流； 并基于数据通信来进行分布式系统的集成； 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。  消息中间件的应用场景  跨系统数据传递、高并发流量削峰、数据异步处理……  常用的消息中间件  ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ  本质  一种具备">
+  <meta name="description" content="1. 消息中间件概述   什么是分布式消息中间件 利用高效可靠的消息传递机制进行平台无关的数据交流； 并基于数据通信来进行分布式系统的集成； 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。   消息中间件的应用场景 跨系统数据传递、高并发流量削峰、数据异步处理…   常用的消息中间件 ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ   本质 一种具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式消息中间件设计">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/message-oriented-middleware/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 消息中间件概述 什么是分布式消息中间件  利用高效可靠的消息传递机制进行平台无关的数据交流； 并基于数据通信来进行分布式系统的集成； 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。  消息中间件的应用场景  跨系统数据传递、高并发流量削峰、数据异步处理……  常用的消息中间件  ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ  本质  一种具备">
+<meta property="og:description" content="1. 消息中间件概述   什么是分布式消息中间件 利用高效可靠的消息传递机制进行平台无关的数据交流； 并基于数据通信来进行分布式系统的集成； 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。   消息中间件的应用场景 跨系统数据传递、高并发流量削峰、数据异步处理…   常用的消息中间件 ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ   本质 一种具">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/message-oriented-middleware/2.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/message-oriented-middleware/3.png">
@@ -43,13 +43,13 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
   
   
   
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
 </head>
 
 
@@ -61,7 +61,7 @@
       
       <div class="profile-block text-center">
         <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
-          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+          <img class="img-circle img-rotate" src="../images/avatar.png" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
         <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
@@ -105,7 +105,7 @@
         
         
         <li class="menu-item menu-item-home">
-          <a href="/.">
+          <a href="../.">
             
             <i class="icon icon-home-fill"></i>
             
@@ -115,7 +115,7 @@
         
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="../archives">
             
             <i class="icon icon-archives-fill"></i>
             
@@ -125,7 +125,7 @@
         
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories">
+          <a href="../categories">
             
             <i class="icon icon-folder"></i>
             
@@ -135,7 +135,7 @@
         
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="../tags">
             
             <i class="icon icon-tags"></i>
             
@@ -145,7 +145,7 @@
         
         
         <li class="menu-item menu-item-repository">
-          <a href="/repository">
+          <a href="../repository">
             
             <i class="icon icon-project"></i>
             
@@ -155,7 +155,7 @@
         
         
         <li class="menu-item menu-item-books">
-          <a href="/books">
+          <a href="../books">
             
             <i class="icon icon-book-fill"></i>
             
@@ -165,7 +165,7 @@
         
         
         <li class="menu-item menu-item-links">
-          <a href="/links">
+          <a href="../links">
             
             <i class="icon icon-friendship"></i>
             
@@ -175,7 +175,7 @@
         
         
         <li class="menu-item menu-item-about">
-          <a href="/about">
+          <a href="../about">
             
             <i class="icon icon-cup-fill"></i>
             
@@ -188,9 +188,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -218,7 +218,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
     </div>
   </div>
 
@@ -233,7 +233,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-application-problems/" class="thumb">
+              <a href="../redis-special-aof/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -244,10 +244,35 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
+                <a href="../redis-special-aof/" class="title">Redis持久化之AOF（八）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-07T13:31:16.000Z" itemprop="datePublished">2023-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../redis-special-application-problems/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
@@ -258,7 +283,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-database/" class="thumb">
+              <a href="../redis-special-rdb/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -269,10 +294,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-database/" class="title">Redis持久化之RDB（七）</a>
+                <a href="../redis-special-rdb/" class="title">Redis持久化之RDB（七）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T08:20:06.000Z" itemprop="datePublished">2023-02-26</time>
@@ -283,7 +308,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-transaction/" class="thumb">
+              <a href="../redis-special-transaction/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -294,10 +319,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-transaction/" class="title">Redis事务操作（六）</a>
+                <a href="../redis-special-transaction/" class="title">Redis事务操作（六）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T12:58:29.000Z" itemprop="datePublished">2023-02-25</time>
@@ -308,7 +333,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-springboot/" class="thumb">
+              <a href="../redis-special-springboot/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -319,38 +344,13 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
+                <a href="../redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T11:39:59.000Z" itemprop="datePublished">2023-02-25</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/redis-special-jedis/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
-              </p>
-              <p class="item-title">
-                <a href="/redis-special-jedis/" class="title">Jedis操作Redis6（四）</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-25T09:07:27.000Z" itemprop="datePublished">2023-02-25</time>
               </p>
             </div>
           </li>
@@ -365,7 +365,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="/tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="/tags/interview/" style="font-size: 13px;">interview</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.13px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="/tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="/tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="/tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="/tags/sql/" style="font-size: 13px;">sql</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.5px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.13px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -392,20 +392,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/message-oriented-middleware/" class="article-date">
+	<a href="" class="article-date">
 	  <time datetime="2022-03-22T08:56:31.000Z" itemprop="datePublished">2022-03-22</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+    <a class="article-category-link" href="../categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">消息中间件</a>
+	<a class="article-tag-link-link" href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">消息中间件</a>
   </span>
 
 
@@ -418,7 +418,7 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/message-oriented-middleware/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="#comments" class="article-comment-link">评论</a></span>
         
 	
 	
@@ -429,20 +429,28 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="1-消息中间件概述"><a href="#1-消息中间件概述" class="headerlink" title="1. 消息中间件概述"></a>1. 消息中间件概述</h2><ol>
-<li><p>什么是分布式消息中间件</p>
-<p> 利用高效可靠的消息传递机制进行平台无关的数据交流；<br> 并基于数据通信来进行分布式系统的集成；<br> 通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。</p>
+        <h2 id="1-消息中间件概述"><a class="markdownIt-Anchor" href="#1-消息中间件概述"></a> 1. 消息中间件概述</h2>
+<ol>
+<li>
+<p>什么是分布式消息中间件</p>
+<p>利用高效可靠的消息传递机制进行平台无关的数据交流；<br>
+并基于数据通信来进行分布式系统的集成；<br>
+通过提供消息和消息排队模型，它可以在分布式环境下扩展进城间的通信。</p>
 </li>
-<li><p>消息中间件的应用场景</p>
-<p> 跨系统数据传递、高并发流量削峰、数据异步处理……</p>
+<li>
+<p>消息中间件的应用场景</p>
+<p>跨系统数据传递、高并发流量削峰、数据异步处理…</p>
 </li>
-<li><p>常用的消息中间件</p>
-<p> ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ</p>
+<li>
+<p>常用的消息中间件</p>
+<p>ActiveMQ(太老)、RabbitMQ、Kafka、 RocketMQ</p>
 </li>
-<li><p>本质</p>
-<p> 一种具备接受请求、保存数据、发送数据等功能的网络应用。和一般的网络应用程序的区别是它主要负责数据的接收和传递，所以性能一般高于普通程序</p>
+<li>
+<p>本质</p>
+<p>一种具备接受请求、保存数据、发送数据等功能的网络应用。和一般的网络应用程序的区别是它主要负责数据的接收和传递，所以性能一般高于普通程序</p>
 </li>
-<li><p>5大核心组成</p>
+<li>
+<p>5大核心组成</p>
 <ul>
 <li>协议</li>
 <li>持久性机制</li>
@@ -452,126 +460,147 @@
 </ul>
 </li>
 </ol>
-<h3 id="1-1-协议"><a href="#1-1-协议" class="headerlink" title="1.1 协议"></a>1.1 协议</h3><p>协议是计算机之间通信时共同遵守的一组约定，确保计算机之间能够相互交流；是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述</p>
+<h3 id="11-协议"><a class="markdownIt-Anchor" href="#11-协议"></a> 1.1 协议</h3>
+<p>协议是计算机之间通信时共同遵守的一组约定，确保计算机之间能够相互交流；是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述</p>
 <p>三大要素：</p>
 <ul>
 <li>语法：即数据和控制信息的结构或格式</li>
 <li>语义：即需要发出何种控制信息，完成何种动作以及作出何种响应</li>
 <li>时序：即时间实现顺序的详细说明</li>
 </ul>
-<p>消息中间件常用协议：openWire、AMQP、MQTT（物流网，快，不能持久化）、Kafka、OpenMessage等；<br>不能用http协议的原因是：http每次请求必须要有响应，性能不高；</p>
-<h4 id="1-1-AMQP协议"><a href="#1-1-AMQP协议" class="headerlink" title="1.1 AMQP协议"></a>1.1 AMQP协议</h4><p>AMQP（Advanced Message Queuing Protocol）是高级消息队列协议；04年JPMorgan Chase(摩根大通集团)联合其他公司共同设计</p>
+<p>消息中间件常用协议：openWire、AMQP、MQTT（物流网，快，不能持久化）、Kafka、OpenMessage等；<br>
+不能用http协议的原因是：http每次请求必须要有响应，性能不高；</p>
+<h4 id="11-amqp协议"><a class="markdownIt-Anchor" href="#11-amqp协议"></a> 1.1 AMQP协议</h4>
+<p>AMQP（Advanced Message Queuing Protocol）是高级消息队列协议；04年JPMorgan Chase(摩根大通集团)联合其他公司共同设计</p>
 <ul>
 <li>特性：事物支持、持久化支持，出生金融行业，在可靠性消息处理上具备天然的优势</li>
 <li>优秀产品 RabbitMQ、 Apache ACTIVEMQ</li>
 </ul>
-<h4 id="1-2-MQTT协议"><a href="#1-2-MQTT协议" class="headerlink" title="1.2 MQTT协议"></a>1.2 MQTT协议</h4><p>MQTT（Message Queuing Telemetry Transport）消息队列遥测传输<br>是IBM开发的一个即时通讯协议，物联网系统架构中的重要组成部分；</p>
+<h4 id="12-mqtt协议"><a class="markdownIt-Anchor" href="#12-mqtt协议"></a> 1.2 MQTT协议</h4>
+<p>MQTT（Message Queuing Telemetry Transport）消息队列遥测传输<br>
+是IBM开发的一个即时通讯协议，物联网系统架构中的重要组成部分；</p>
 <ul>
 <li>特性：轻量、结构简单、传输快、没有事务支持、没有持久化相关设计</li>
 <li>应用场景：适用于计算能力有限、低宽带、网络不稳定的场景</li>
 <li>优秀产品：RabbitMQ、 Apache ACTIVEMQ</li>
 </ul>
-<h4 id="1-3-Open-Message协议"><a href="#1-3-Open-Message协议" class="headerlink" title="1.3 Open Message协议"></a>1.3 Open Message协议</h4><p>OpenMessaging 是近几年有阿里发起，与雅虎、滴滴出行、Streamlio等公司共同参数传里的分布式消息中间件、流处理领域的开发应用标准。<br>是国内首个在全球范围内发起的分布式消息领域国际标准</p>
+<h4 id="13-open-message协议"><a class="markdownIt-Anchor" href="#13-open-message协议"></a> 1.3 Open Message协议</h4>
+<p>OpenMessaging 是近几年有阿里发起，与雅虎、滴滴出行、Streamlio等公司共同参数传里的分布式消息中间件、流处理领域的开发应用标准。<br>
+是国内首个在全球范围内发起的分布式消息领域国际标准</p>
 <ul>
 <li>特性：结构简单、解析快、有事务设计、有持久化设计</li>
 <li>优秀产品：Apache RocketMQ</li>
 </ul>
-<h4 id="1-4-Kafka协议"><a href="#1-4-Kafka协议" class="headerlink" title="1.4 Kafka协议"></a>1.4 Kafka协议</h4><p>Kafka协议是基于TCP的二进制协议。消息内部是通过长度来分割，由一些基本数据类型组成</p>
+<h4 id="14-kafka协议"><a class="markdownIt-Anchor" href="#14-kafka协议"></a> 1.4 Kafka协议</h4>
+<p>Kafka协议是基于TCP的二进制协议。消息内部是通过长度来分割，由一些基本数据类型组成</p>
 <ul>
 <li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
 <li>优秀产品：Apache Kafka</li>
 </ul>
-<h4 id="1-55-OpenWire协议"><a href="#1-55-OpenWire协议" class="headerlink" title="1.55 OpenWire协议"></a>1.55 OpenWire协议</h4><p>开放链接，ActiveMQ自定义的一种协议，ActiveMQ默认链接方式，它提供一种高效率的二进制格式来使消息高速传输</p>
+<h4 id="155-openwire协议"><a class="markdownIt-Anchor" href="#155-openwire协议"></a> 1.55 OpenWire协议</h4>
+<p>开放链接，ActiveMQ自定义的一种协议，ActiveMQ默认链接方式，它提供一种高效率的二进制格式来使消息高速传输</p>
 <ul>
 <li>特性：结构简单、解析快、无事务设计、有持久化设计</li>
 <li>优秀产品：Apache ActiveMQ</li>
 </ul>
-<h3 id="1-2-持久化"><a href="#1-2-持久化" class="headerlink" title="1.2 持久化"></a>1.2 持久化</h3><p>简单来说就是将数据存入磁盘，而不是存在内存中岁服务重启而消失，使数据能够永久保存叫做持久化</p>
+<h3 id="12-持久化"><a class="markdownIt-Anchor" href="#12-持久化"></a> 1.2 持久化</h3>
+<p>简单来说就是将数据存入磁盘，而不是存在内存中岁服务重启而消失，使数据能够永久保存叫做持久化</p>
 <table>
 <thead>
 <tr>
 <th></th>
-<th align="center">ActiveMQ</th>
-<th align="center">RabbitMQ</th>
-<th align="center">Kafka</th>
-<th align="center">RocketMQ</th>
+<th style="text-align:center">ActiveMQ</th>
+<th style="text-align:center">RabbitMQ</th>
+<th style="text-align:center">Kafka</th>
+<th style="text-align:center">RocketMQ</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>文件系统</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
 </tr>
 <tr>
 <td>数据库</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">-</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
 </tr>
-<tr>
-<td></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h3 id="1-3-消息分发"><a href="#1-3-消息分发" class="headerlink" title="1.3 消息分发"></a>1.3 消息分发</h3><table>
+</tbody>
+</table>
+<h3 id="13-消息分发"><a class="markdownIt-Anchor" href="#13-消息分发"></a> 1.3 消息分发</h3>
+<table>
 <thead>
 <tr>
 <th></th>
-<th align="center">ActiveMQ</th>
-<th align="center">RabbitMQ</th>
-<th align="center">Kafka</th>
-<th align="center">RocketMQ</th>
+<th style="text-align:center">ActiveMQ</th>
+<th style="text-align:center">RabbitMQ</th>
+<th style="text-align:center">Kafka</th>
+<th style="text-align:center">RocketMQ</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>发布订阅</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
 </tr>
 <tr>
 <td>轮询分发</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">-</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
 <td>公平分发</td>
-<td align="center">-</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">-</td>
 </tr>
 <tr>
 <td>重发</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">-</td>
-<td align="center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">支持</td>
 </tr>
 <tr>
 <td>消息拉取</td>
-<td align="center">-</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
-<td align="center">支持</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
+<td style="text-align:center">支持</td>
 </tr>
-</tbody></table>
-<h3 id="1-4-高可用"><a href="#1-4-高可用" class="headerlink" title="1.4 高可用"></a>1.4 高可用</h3><p>高可用性是指产品在规定的条件和规定的时刻或时间区间内处于可执行规定功能状态的能力；<br>当业务量大时，一台消息中间件服务器可能无法满足需求，所以需要消息中间件能够集群部署，来达到高可用的目的。</p>
-<h4 id="1-4-1-Master-Slave主从共享数据的部署方式"><a href="#1-4-1-Master-Slave主从共享数据的部署方式" class="headerlink" title="1.4.1 Master-Slave主从共享数据的部署方式"></a>1.4.1 Master-Slave主从共享数据的部署方式</h4><p>当Master收到客户端的消息后，放到共享的文件系统/数据库； 客户端访问的是Master节点，Slave节点只做备份；<br><img src="/message-oriented-middleware/2.png" alt="Master-Slave主从共享数据的部署方式"></p>
-<h4 id="1-4-2-Master-Slave主从同步部署方式"><a href="#1-4-2-Master-Slave主从同步部署方式" class="headerlink" title="1.4.2 Master-Slave主从同步部署方式"></a>1.4.2 Master-Slave主从同步部署方式</h4><p>当Master收到客户端的消息后，发给其他broker同步。<br><img src="/message-oriented-middleware/3.png" alt="Master-Slave主从同步部署方式"></p>
-<h4 id="1-4-3-Broker-Cluster多主集群同步部署方式"><a href="#1-4-3-Broker-Cluster多主集群同步部署方式" class="headerlink" title="1.4.3 Broker-Cluster多主集群同步部署方式"></a>1.4.3 Broker-Cluster多主集群同步部署方式</h4><p>一部分消息放在broker1 ,一部分放在broker2<br><img src="/message-oriented-middleware/4.png" alt="Broker-Cluster多主集群同步部署方式"></p>
-<h4 id="1-4-4-Broker-Cluster多主集群转发部署方式"><a href="#1-4-4-Broker-Cluster多主集群转发部署方式" class="headerlink" title="1.4.4 Broker-Cluster多主集群转发部署方式"></a>1.4.4 Broker-Cluster多主集群转发部署方式</h4><p>转发数据或转发请求<br><img src="/message-oriented-middleware/5.png" alt="Broker-Cluster多主集群转发部署方式"></p>
-<h4 id="1-4-5-Master-slave与Broker-Cluster结合"><a href="#1-4-5-Master-slave与Broker-Cluster结合" class="headerlink" title="1.4.5 Master-slave与Broker-Cluster结合"></a>1.4.5 Master-slave与Broker-Cluster结合</h4><p><img src="/message-oriented-middleware/6.png" alt="Master-slave与Broker-Cluster结合"></p>
-<h3 id="1-5-高可靠"><a href="#1-5-高可靠" class="headerlink" title="1.5 高可靠"></a>1.5 高可靠</h3><p>高可靠性是指系统可以无故障地持续运行。比如一个系统从来不崩溃、报错，或者崩溃、报错的几率较低，那就是高可靠。<br>保证消息中间件的高可靠行，可以从一下几方面考虑</p>
+</tbody>
+</table>
+<h3 id="14-高可用"><a class="markdownIt-Anchor" href="#14-高可用"></a> 1.4 高可用</h3>
+<p>高可用性是指产品在规定的条件和规定的时刻或时间区间内处于可执行规定功能状态的能力；<br>
+当业务量大时，一台消息中间件服务器可能无法满足需求，所以需要消息中间件能够集群部署，来达到高可用的目的。</p>
+<h4 id="141-master-slave主从共享数据的部署方式"><a class="markdownIt-Anchor" href="#141-master-slave主从共享数据的部署方式"></a> 1.4.1 Master-Slave主从共享数据的部署方式</h4>
+<p>当Master收到客户端的消息后，放到共享的文件系统/数据库； 客户端访问的是Master节点，Slave节点只做备份；<br>
+<img src="/message-oriented-middleware/2.png" alt="Master-Slave主从共享数据的部署方式"></p>
+<h4 id="142-master-slave主从同步部署方式"><a class="markdownIt-Anchor" href="#142-master-slave主从同步部署方式"></a> 1.4.2 Master-Slave主从同步部署方式</h4>
+<p>当Master收到客户端的消息后，发给其他broker同步。<br>
+<img src="/message-oriented-middleware/3.png" alt="Master-Slave主从同步部署方式"></p>
+<h4 id="143-broker-cluster多主集群同步部署方式"><a class="markdownIt-Anchor" href="#143-broker-cluster多主集群同步部署方式"></a> 1.4.3 Broker-Cluster多主集群同步部署方式</h4>
+<p>一部分消息放在broker1 ,一部分放在broker2<br>
+<img src="/message-oriented-middleware/4.png" alt="Broker-Cluster多主集群同步部署方式"></p>
+<h4 id="144-broker-cluster多主集群转发部署方式"><a class="markdownIt-Anchor" href="#144-broker-cluster多主集群转发部署方式"></a> 1.4.4 Broker-Cluster多主集群转发部署方式</h4>
+<p>转发数据或转发请求<br>
+<img src="/message-oriented-middleware/5.png" alt="Broker-Cluster多主集群转发部署方式"></p>
+<h4 id="145-master-slave与broker-cluster结合"><a class="markdownIt-Anchor" href="#145-master-slave与broker-cluster结合"></a> 1.4.5 Master-slave与Broker-Cluster结合</h4>
+<p><img src="/message-oriented-middleware/6.png" alt="Master-slave与Broker-Cluster结合"></p>
+<h3 id="15-高可靠"><a class="markdownIt-Anchor" href="#15-高可靠"></a> 1.5 高可靠</h3>
+<p>高可靠性是指系统可以无故障地持续运行。比如一个系统从来不崩溃、报错，或者崩溃、报错的几率较低，那就是高可靠。<br>
+保证消息中间件的高可靠行，可以从一下几方面考虑</p>
 <ul>
 <li>消息传输可靠： 通过协议来保证系统件数据解析的正确性</li>
 <li>消息存储可靠： 通过持久化来保证消息存储可靠性</li>
@@ -600,7 +629,7 @@
     <figure class="media">
       <div class="media-left">
         <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+          <img src="../images/avatar.png" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">
@@ -630,12 +659,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/lambda/" title="java8的lambda表达式语法"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="../lambda/" title="java8的lambda表达式语法"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/linux-minio/" title="MinIO简介以及Linux安装MinIO"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="../linux-minio/" title="MinIO简介以及Linux安装MinIO"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -670,14 +699,14 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="alipay">
               <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="wechatpay">
               <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
@@ -708,9 +737,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -730,10 +759,10 @@
 window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 </script>
 
-<script src="/js/plugin.min.js"></script>
+<script src="../js/plugin.min.js"></script>
 
 
-<script src="/js/application.js"></script>
+<script src="../js/application.js"></script>
 
 
     <script>
@@ -747,13 +776,13 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
             UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
+        CONTENT_URL: '../content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
 
-<script src="/js/insight.js"></script>
+<script src="../js/insight.js"></script>
 
 
 

@@ -18,12 +18,12 @@
   
   
   <title>springCloud之FeignClient访问微服务接口缓慢 | 小余哥</title>
-  <meta name="description" content="问题描述逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：程序启动第一次访问初始化1.2秒左右，还可以理解。但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。 原因排查1查看连接查实的接口发现接口调用的是这个地址，其实是别人启动项">
+  <meta name="description" content="问题描述 逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为： 程序启动第一次访问初始化1.2秒左右，还可以理解。 但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。 但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。  原因排查1 查看连接查实的接口  发现接口调用的是这个地址">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springCloud之FeignClient访问微服务接口缓慢">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/bug-sprigCloud/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="问题描述逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：程序启动第一次访问初始化1.2秒左右，还可以理解。但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。 原因排查1查看连接查实的接口发现接口调用的是这个地址，其实是别人启动项">
+<meta property="og:description" content="问题描述 逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为： 程序启动第一次访问初始化1.2秒左右，还可以理解。 但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。 但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。  原因排查1 查看连接查实的接口  发现接口调用的是这个地址">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/02.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/01.png">
@@ -40,13 +40,13 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="../css/style.css">
 
   
   
   
   
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
 </head>
 
 
@@ -58,7 +58,7 @@
       
       <div class="profile-block text-center">
         <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
-          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+          <img class="img-circle img-rotate" src="../images/avatar.png" width="200" height="200">
         </a>
         <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
         <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
@@ -102,7 +102,7 @@
         
         
         <li class="menu-item menu-item-home">
-          <a href="/.">
+          <a href="../.">
             
             <i class="icon icon-home-fill"></i>
             
@@ -112,7 +112,7 @@
         
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
+          <a href="../archives">
             
             <i class="icon icon-archives-fill"></i>
             
@@ -122,7 +122,7 @@
         
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories">
+          <a href="../categories">
             
             <i class="icon icon-folder"></i>
             
@@ -132,7 +132,7 @@
         
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
+          <a href="../tags">
             
             <i class="icon icon-tags"></i>
             
@@ -142,7 +142,7 @@
         
         
         <li class="menu-item menu-item-repository">
-          <a href="/repository">
+          <a href="../repository">
             
             <i class="icon icon-project"></i>
             
@@ -152,7 +152,7 @@
         
         
         <li class="menu-item menu-item-books">
-          <a href="/books">
+          <a href="../books">
             
             <i class="icon icon-book-fill"></i>
             
@@ -162,7 +162,7 @@
         
         
         <li class="menu-item menu-item-links">
-          <a href="/links">
+          <a href="../links">
             
             <i class="icon icon-friendship"></i>
             
@@ -172,7 +172,7 @@
         
         
         <li class="menu-item menu-item-about">
-          <a href="/about">
+          <a href="../about">
             
             <i class="icon icon-cup-fill"></i>
             
@@ -185,9 +185,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -215,7 +215,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
     </div>
   </div>
 
@@ -230,7 +230,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-application-problems/" class="thumb">
+              <a href="../redis-special-aof/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -241,10 +241,35 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
+                <a href="../redis-special-aof/" class="title">Redis持久化之AOF（八）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-07T13:31:16.000Z" itemprop="datePublished">2023-03-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../redis-special-application-problems/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+              </p>
+              <p class="item-title">
+                <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
@@ -255,7 +280,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-database/" class="thumb">
+              <a href="../redis-special-rdb/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -266,10 +291,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-database/" class="title">Redis持久化之RDB（七）</a>
+                <a href="../redis-special-rdb/" class="title">Redis持久化之RDB（七）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T08:20:06.000Z" itemprop="datePublished">2023-02-26</time>
@@ -280,7 +305,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-transaction/" class="thumb">
+              <a href="../redis-special-transaction/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -291,10 +316,10 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-transaction/" class="title">Redis事务操作（六）</a>
+                <a href="../redis-special-transaction/" class="title">Redis事务操作（六）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T12:58:29.000Z" itemprop="datePublished">2023-02-25</time>
@@ -305,7 +330,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/redis-special-springboot/" class="thumb">
+              <a href="../redis-special-springboot/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -316,38 +341,13 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
               </p>
               <p class="item-title">
-                <a href="/redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
+                <a href="../redis-special-springboot/" class="title">SpringBoot整合Redis（五）</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-25T11:39:59.000Z" itemprop="datePublished">2023-02-25</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/redis-special-jedis/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
-              </p>
-              <p class="item-title">
-                <a href="/redis-special-jedis/" class="title">Jedis操作Redis6（四）</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-25T09:07:27.000Z" itemprop="datePublished">2023-02-25</time>
               </p>
             </div>
           </li>
@@ -362,7 +362,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="/tags/Canal/" style="font-size: 13px;">Canal</a> <a href="/tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="/tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="/tags/ELK/" style="font-size: 13px;">ELK</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="/tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="/tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="/tags/UML/" style="font-size: 13px;">UML</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="/tags/docker/" style="font-size: 13px;">docker</a> <a href="/tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="/tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="/tags/interview/" style="font-size: 13px;">interview</a> <a href="/tags/ip/" style="font-size: 13px;">ip</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/jdk/" style="font-size: 13px;">jdk</a> <a href="/tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="/tags/jstack/" style="font-size: 13px;">jstack</a> <a href="/tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="/tags/linux/" style="font-size: 13.13px;">linux</a> <a href="/tags/lock/" style="font-size: 13px;">lock</a> <a href="/tags/maven/" style="font-size: 13px;">maven</a> <a href="/tags/mycat/" style="font-size: 13px;">mycat</a> <a href="/tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="/tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="/tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="/tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="/tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="/tags/spring/" style="font-size: 13px;">spring</a> <a href="/tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="/tags/sql/" style="font-size: 13px;">sql</a> <a href="/tags/swagger/" style="font-size: 13px;">swagger</a> <a href="/tags/thread/" style="font-size: 13.5px;">thread</a> <a href="/tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="/tags/vue/" style="font-size: 13.13px;">vue</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="/tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="/tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -389,20 +389,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/bug-sprigCloud/" class="article-date">
+	<a href="" class="article-date">
 	  <time datetime="2021-07-03T09:08:10.000Z" itemprop="datePublished">2021-07-03</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a>
+    <a class="article-category-link" href="../categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/SpringCloud/" rel="tag">SpringCloud</a>
+	<a class="article-tag-link-link" href="../tags/SpringCloud/" rel="tag">SpringCloud</a>
   </span>
 
 
@@ -415,7 +415,7 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/bug-sprigCloud/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="#comments" class="article-comment-link">评论</a></span>
         
 	
 	
@@ -426,11 +426,21 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：<br>程序启动第一次访问初始化1.2秒左右，还可以理解。<br>但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。<br>但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。</p>
-<h3 id="原因排查1"><a href="#原因排查1" class="headerlink" title="原因排查1"></a>原因排查1</h3><p>查看连接查实的接口<br><img src="/bug-sprigCloud/02.png" alt="请求缓慢2"><br>发现接口调用的是这个地址，其实是别人启动项目的时候吧自己的ip注册到了eureka注册中心，导致接口有时候走的是getway，有时候又是走的别人的接口</p>
+        <h3 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h3>
+<p>逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：<br>
+程序启动第一次访问初始化1.2秒左右，还可以理解。<br>
+但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。<br>
+但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。</p>
+<h3 id="原因排查1"><a class="markdownIt-Anchor" href="#原因排查1"></a> 原因排查1</h3>
+<p>查看连接查实的接口<br>
+<img src="/bug-sprigCloud/02.png" alt="请求缓慢2"><br>
+发现接口调用的是这个地址，其实是别人启动项目的时候吧自己的ip注册到了eureka注册中心，导致接口有时候走的是getway，有时候又是走的别人的接口</p>
 <p>解决方法：eureka.client.register-with-eureka 为false  这样就不会注册到eureka注册中心了</p>
-<h3 id="原因排查2"><a href="#原因排查2" class="headerlink" title="原因排查2"></a>原因排查2</h3><ol>
-<li>查看日志<br> <img src="/bug-sprigCloud/01.png" alt="请求缓慢"><br>查看是否是hystrix 配置的时间小于了ribbon的时间</li>
+<h3 id="原因排查2"><a class="markdownIt-Anchor" href="#原因排查2"></a> 原因排查2</h3>
+<ol>
+<li>查看日志<br>
+<img src="/bug-sprigCloud/01.png" alt="请求缓慢"><br>
+查看是否是hystrix 配置的时间小于了ribbon的时间</li>
 </ol>
 
       
@@ -456,7 +466,7 @@
     <figure class="media">
       <div class="media-left">
         <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+          <img src="../images/avatar.png" class="img-rounded w-full" alt="">
         </a>
       </div>
       <div class="media-body">
@@ -486,12 +496,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/hexo-encrypt/" title="Hexo博客加密"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="../hexo-encrypt/" title="Hexo博客加密"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="/ConcurrentHashMap/" title="ConcurrentHashMap线程安全"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="../ConcurrentHashMap/" title="ConcurrentHashMap线程安全"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -526,14 +536,14 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="alipay">
               <div class="donate-payimg">
-                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="wechatpay">
               <div class="donate-payimg">
-                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
@@ -564,9 +574,9 @@
 	
     <ul class="social-links">
     	
-        <li><a href="https://github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-        <li><a href="https://weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
         
     </ul>
 
@@ -586,10 +596,10 @@
 window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 </script>
 
-<script src="/js/plugin.min.js"></script>
+<script src="../js/plugin.min.js"></script>
 
 
-<script src="/js/application.js"></script>
+<script src="../js/application.js"></script>
 
 
     <script>
@@ -603,13 +613,13 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
             UNTITLED: '(未命名)',
         },
         ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
+        CONTENT_URL: '../content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
 
-<script src="/js/insight.js"></script>
+<script src="../js/insight.js"></script>
 
 
 
