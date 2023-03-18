@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，分享一些技术教程以及日常踩坑记录。</description>
-    <pubDate>Wed, 08 Mar 2023 13:29:12 GMT</pubDate>
+    <pubDate>Sat, 18 Mar 2023 14:08:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Java SPI 机制详解</title>
+      <link>https://xiaoyuge5201.github.io/spi/</link>
+      <guid>https://xiaoyuge5201.github.io/spi/</guid>
+      <pubDate>Fri, 17 Mar 2023 11:21:07 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h2 id=&quot;1-什么是SPI机制&quot;&gt;&lt;a href=&quot;#1-什么是SPI机制&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是S</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/java/">java</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/SPI/">SPI</category>
+      
+      
+    </item>
     
     <item>
       <title>Redis持久化之AOF（八）</title>
