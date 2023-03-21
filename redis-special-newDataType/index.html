@@ -18,18 +18,18 @@
   
   
   <title>Redis新的3种数据类型（三） | 小余哥</title>
-  <meta name="description" content="1. Bitmaps 位操作字符串现代计算机使用二进制(位)作为信息的基本单位，1个字节&#x3D;8位，例如”abc”字符串有3个字节组成，计算机存储是使用其二进制。“abc”分别对应ASCII码：97，98，99，对应的二进制分别是：01100001、01100010、01100011，如下图 合理的使用位操作能够有效地提高内存使用率和开发效率。 Redis提供了Bitmaps这个”数据类型”可以实">
+  <meta name="description" content="1. Bitmaps 位操作字符串 现代计算机使用二进制(位)作为信息的基本单位，1个字节&#x3D;8位，例如&quot;abc&quot;字符串有3个字节组成，计算机存储是使用其二进制。 &quot;abc&quot;分别对应ASCII码：97，98，99，对应的二进制分别是：01100001、01100010、01100011，如下图  合理的使用位操作能够有效地提高内存使用率和开发效率。 Red">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis新的3种数据类型（三）">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/redis-special-newDataType/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. Bitmaps 位操作字符串现代计算机使用二进制(位)作为信息的基本单位，1个字节&#x3D;8位，例如”abc”字符串有3个字节组成，计算机存储是使用其二进制。“abc”分别对应ASCII码：97，98，99，对应的二进制分别是：01100001、01100010、01100011，如下图 合理的使用位操作能够有效地提高内存使用率和开发效率。 Redis提供了Bitmaps这个”数据类型”可以实">
+<meta property="og:description" content="1. Bitmaps 位操作字符串 现代计算机使用二进制(位)作为信息的基本单位，1个字节&#x3D;8位，例如&quot;abc&quot;字符串有3个字节组成，计算机存储是使用其二进制。 &quot;abc&quot;分别对应ASCII码：97，98，99，对应的二进制分别是：01100001、01100010、01100011，如下图  合理的使用位操作能够有效地提高内存使用率和开发效率。 Red">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-newDataType/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-newDataType/2.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-newDataType/3.png">
 <meta property="article:published_time" content="2023-02-23T13:49:20.000Z">
-<meta property="article:modified_time" content="2023-03-02T12:09:55.553Z">
+<meta property="article:modified_time" content="2023-03-21T13:44:09.183Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="redis专题">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
     </div>
   </div>
 
@@ -231,6 +231,31 @@
           <li>
             
             <div class="item-thumb">
+              <a href="../mybatis-sql-excute-process/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
+              </p>
+              <p class="item-title">
+                <a href="../mybatis-sql-excute-process/" class="title">Mybatis执行一条SQL命令的过程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-21T13:07:32.000Z" itemprop="datePublished">2023-03-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
               <a href="../reflection/" class="thumb">
     
     
@@ -242,7 +267,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/java/">java</a>
+                <a class="category-link" href="../categories/01-Java/">01 Java</a>
               </p>
               <p class="item-title">
                 <a href="../reflection/" class="title">Java 反射机制详解</a>
@@ -267,7 +292,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/java/">java</a>
+                <a class="category-link" href="../categories/01-Java/">01 Java</a>
               </p>
               <p class="item-title">
                 <a href="../spi/" class="title">Java SPI机制详解</a>
@@ -292,7 +317,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/07-Redis/">07 Redis</a>
               </p>
               <p class="item-title">
                 <a href="../redis-special-aof/" class="title">Redis持久化之AOF（八）</a>
@@ -317,38 +342,13 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/07-Redis/">07 Redis</a>
               </p>
               <p class="item-title">
                 <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../redis-special-rdb/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
-              </p>
-              <p class="item-title">
-                <a href="../redis-special-rdb/" class="title">Redis持久化之RDB（七）</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-26T08:20:06.000Z" itemprop="datePublished">2023-02-26</time>
               </p>
             </div>
           </li>
@@ -363,7 +363,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">接口设计</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -378,7 +378,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Bitmaps-%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">1. Bitmaps 位操作字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">1.1 常用命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-bitmaps%E4%B8%8Eset%E6%AF%94%E8%BE%83"><span class="toc-text">1.2 bitmaps与set比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-HyperLoglog"><span class="toc-text">2. HyperLoglog</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">2.1 常用命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Geographic"><span class="toc-text">3. Geographic</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">3.1 常用命令</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-bitmaps-%E4%BD%8D%E6%93%8D%E4%BD%9C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text"> 1. Bitmaps 位操作字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text"> 1.1 常用命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-bitmaps%E4%B8%8Eset%E6%AF%94%E8%BE%83"><span class="toc-text"> 1.2 bitmaps与set比较</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-hyperloglog"><span class="toc-text"> 2. HyperLoglog</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#21-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text"> 2.1 常用命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-geographic"><span class="toc-text"> 3. Geographic</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#31-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text"> 3.1 常用命令</span></a></li></ol></li></ol>
       
       
     </nav>
@@ -409,7 +409,7 @@
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+    <a class="article-category-link" href="../categories/07-Redis/">07 Redis</a>
   </span>
 
         
@@ -440,48 +440,57 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-
-<h3 id="1-Bitmaps-位操作字符串"><a href="#1-Bitmaps-位操作字符串" class="headerlink" title="1. Bitmaps 位操作字符串"></a>1. Bitmaps 位操作字符串</h3><p>现代计算机使用二进制(位)作为信息的基本单位，1个字节=8位，例如”abc”字符串有3个字节组成，计算机存储是使用其二进制。<br>“abc”分别对应ASCII码：97，98，99，对应的二进制分别是：01100001、01100010、01100011，如下图<br><img src="/redis-special-newDataType/1.png"></p>
+<h3 id="1-bitmaps-位操作字符串"><a class="markdownIt-Anchor" href="#1-bitmaps-位操作字符串"></a> 1. Bitmaps 位操作字符串</h3>
+<p>现代计算机使用二进制(位)作为信息的基本单位，1个字节=8位，例如&quot;abc&quot;字符串有3个字节组成，计算机存储是使用其二进制。<br>
+&quot;abc&quot;分别对应ASCII码：97，98，99，对应的二进制分别是：01100001、01100010、01100011，如下图<br>
+<img src="/redis-special-newDataType/1.png" alt></p>
 <p>合理的使用位操作能够有效地提高内存使用率和开发效率。</p>
-<p>Redis提供了Bitmaps这个”数据类型”可以实现对位的操作：</p>
+<p>Redis提供了Bitmaps这个&quot;数据类型&quot;可以实现对位的操作：</p>
 <ul>
-<li><p>Bitmaps本身不是一种数据类型，实际上就是字符串（key-value),但它可以对字符串进行操作，字符串中每一个字符对应1个字节，也就是8位，一个字符可以存储8bit位信息</p>
+<li>
+<p>Bitmaps本身不是一种数据类型，实际上就是字符串（key-value),但它可以对字符串进行操作，字符串中每一个字符对应1个字节，也就是8位，一个字符可以存储8bit位信息</p>
 </li>
-<li><p>Bitmaps单独提供了一套命令， 所以在Redis中使用Bitmaps和使用字符串的方法不太相同。 可以把Bitmaps想象成一个以位为单位的数组， 数组的每个单元只能存储0和1， 数组的下标在Bitmaps中叫做偏移量。</p>
+<li>
+<p>Bitmaps单独提供了一套命令， 所以在Redis中使用Bitmaps和使用字符串的方法不太相同。 可以把Bitmaps想象成一个以位为单位的数组， 数组的每个单元只能存储0和1， 数组的下标在Bitmaps中叫做偏移量。</p>
 </li>
 </ul>
-<p><img src="/redis-special-newDataType/2.png"></p>
-<h4 id="1-1-常用命令"><a href="#1-1-常用命令" class="headerlink" title="1.1 常用命令"></a>1.1 常用命令</h4><ol>
-<li><p><strong>setbit</strong>：设置某个偏移量的值(0或1)</p>
+<p><img src="/redis-special-newDataType/2.png" alt></p>
+<h4 id="11-常用命令"><a class="markdownIt-Anchor" href="#11-常用命令"></a> 1.1 常用命令</h4>
+<ol>
+<li>
+<p><strong>setbit</strong>：设置某个偏移量的值(0或1)</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setbit key offset value</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>设置offset偏移位的值为value，offset的值是从0开始的，n代表第n+1个bit位置的。 offset 参数必须大于或等于 0 ，小于 2^32 (bit 映射被限制在 512 MB 之内)。 value的值只能为0或1 返回值：指定偏移量原来储存的位。</p>
 </blockquote>
-<p> 示例：</p>
+<p>示例：</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setbit bitkey 100 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; getbit bitkey 100</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; getbit bitkey 101   #bit默认初始化为 0 </span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
-<p> 每个独立用户是否访问国网站存放在bitmaps中，将访问的用户记录记做1，没有反问的记做0，用户ID作为offset。假设现在有20个用户，userId=1,6,11，15,19的用户访问了网站，那么当前的bitmaps初始化结果如图：<br> <img src="/redis-special-newDataType/3.png"></p>
-<p> <code>users:20230225</code>这个bitmaps中表示2023-02-25这天独立访问的用户，如下：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setbit users:20230225 1 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit users:20230225 6 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit users:20230225 11 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit users:20230225 15 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit users:20230225 19 1</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>getbit</strong>：获取某个偏移位的值</p>
+<p>每个独立用户是否访问国网站存放在bitmaps中，将访问的用户记录记做1，没有反问的记做0，用户ID作为offset。假设现在有20个用户，userId=1,6,11，15,19的用户访问了网站，那么当前的bitmaps初始化结果如图：<br>
+<img src="/redis-special-newDataType/3.png" alt></p>
+<p><code>users:20230225</code>这个bitmaps中表示2023-02-25这天独立访问的用户，如下：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setbit users:20230225 1 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit users:20230225 6 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit users:20230225 11 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit users:20230225 15 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit users:20230225 19 1</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>getbit</strong>：获取某个偏移位的值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getbit key offset</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>获取key锁对应的bitmaps中offset偏移为的值，返回0或者1</p>
 </blockquote>
 </li>
-</ol>
-<ol start="3">
-<li><p><strong>bitcount</strong>：统计bit位都为1的数量</p>
+<li>
+<p><strong>bitcount</strong>：统计bit位都为1的数量</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bitcount key [start] [end]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>统计bit被设置为1的数量，一般情况下，给定的整个字符串都会被进行统计，通过指定额外的start或者end参数，可以让计数只在特定位上进行</p>
 <p>start和end都可以使用负数，比如 -1表示最后一个，-2表示倒数第二个，以此类推</p>
 <p><strong>注意：start、end是指bit数组的字节下标，一个字节对应8个bit,所以[a,b]对应的offset范围是[8a, 8b+7]</strong></p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> offset值为：1,6,11，15,19</span></span><br><span class="line">127.0.0.1:6379&gt; bitcount users:20230225      # 获取user这个bitmaps中1的数量</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; bitcount users:20230225 0 1  # 获取[0,1]这个字节内bit位上1的数量，也就是offset是[0,15]的位置上1的数量，所以是4个</span><br><span class="line">(integer) 4</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ol start="4">
-<li><strong>bitop</strong>：对一个或者多个bitmaps执行位操作 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bitop &lt;operation&gt; destkey key [key ....]</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> offset值为：1,6,11，15,19</span></span><br><span class="line">127.0.0.1:6379&gt; bitcount users:20230225      # 获取user这个bitmaps中1的数量</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; bitcount users:20230225 0 1  # 获取[0,1]这个字节内bit位上1的数量，也就是offset是[0,15]的位置上1的数量，所以是4个</span><br><span class="line">(integer) 4</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>bitop</strong>：对一个或者多个bitmaps执行位操作</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bitop &lt;operation&gt; destkey key [key ....]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>对一个或多个保存二进制位的字符串key进行位元操作，并将结果保存到destkey上。</p>
 <p>operation可以是 AND 、OR、NOT、XOR中的一种：</p>
@@ -493,39 +502,47 @@
 </ul>
 <p>除了 NOT 操作之外，其他操作都可以接受一个或多个 key 作为输入。 返回值：保存到 destkey 的字符串的长度，和输入 key 中最长的字符串长度相等。</p>
 </blockquote>
- 示例： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setbit bits-1 0 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit bits-1 3 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit bits-2 0 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit bits-2 3 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; bitop and result-and bits-1 bits-2</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure></li>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; setbit bits-1 0 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit bits-1 3 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit bits-2 0 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; setbit bits-2 3 1</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; bitop and result-and bits-1 bits-2</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h4 id="1-2-bitmaps与set比较"><a href="#1-2-bitmaps与set比较" class="headerlink" title="1.2 bitmaps与set比较"></a>1.2 bitmaps与set比较</h4><p>假设网站有1亿的用户，每天独立访问的用户有5千万，如果每天用集合类型和bitmaps分别存储活跃用户可以得到表：</p>
+<h4 id="12-bitmaps与set比较"><a class="markdownIt-Anchor" href="#12-bitmaps与set比较"></a> 1.2 bitmaps与set比较</h4>
+<p>假设网站有1亿的用户，每天独立访问的用户有5千万，如果每天用集合类型和bitmaps分别存储活跃用户可以得到表：</p>
 <table>
 <thead>
 <tr>
-<th align="center">数据类型</th>
-<th align="center">每个用户ID占用空间</th>
-<th align="center">需要存储的用户量</th>
-<th align="center">全部存储两</th>
+<th style="text-align:center">数据类型</th>
+<th style="text-align:center">每个用户ID占用空间</th>
+<th style="text-align:center">需要存储的用户量</th>
+<th style="text-align:center">全部存储两</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">Set集合</td>
-<td align="center">64位</td>
-<td align="center">5千万</td>
-<td align="center">64位 * 50000000 = 400MB</td>
+<tbody>
+<tr>
+<td style="text-align:center">Set集合</td>
+<td style="text-align:center">64位</td>
+<td style="text-align:center">5千万</td>
+<td style="text-align:center">64位 * 50000000 = 400MB</td>
 </tr>
 <tr>
-<td align="center">Bitmaps</td>
-<td align="center">1位</td>
-<td align="center">1亿</td>
-<td align="center">1位 * 100000000 = 12.5MB</td>
+<td style="text-align:center">Bitmaps</td>
+<td style="text-align:center">1位</td>
+<td style="text-align:center">1亿</td>
+<td style="text-align:center">1位 * 100000000 = 12.5MB</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>很明显， 这种情况下使用<code>Bitmaps</code>能节省很多的内存空间， 尤其是随着时间推移节省的内存还是非常可观的。</p>
 <p>但是如果该网站每天独立访问用户很少，那么这两者对比起来，bitmaps就不太合适了，因为大部份位都是0；</p>
-<h3 id="2-HyperLoglog"><a href="#2-HyperLoglog" class="headerlink" title="2. HyperLoglog"></a>2. HyperLoglog</h3><p>在工作当中，我们经常会遇到与统计相关的功能需求，比如统计网站 PV（PageView 页面访问量），可以使用 Redis 的 incr、incrby 轻松实现。但像 UV（UniqueVisitor 独立访客）、独立 IP 数、搜索记录数等需要去重和计数的问题如何解决？这种求集合中不重复元素个数的问题称为基数问题。</p>
+<h3 id="2-hyperloglog"><a class="markdownIt-Anchor" href="#2-hyperloglog"></a> 2. HyperLoglog</h3>
+<p>在工作当中，我们经常会遇到与统计相关的功能需求，比如统计网站 PV（PageView 页面访问量），可以使用 Redis 的 incr、incrby 轻松实现。但像 UV（UniqueVisitor 独立访客）、独立 IP 数、搜索记录数等需要去重和计数的问题如何解决？这种求集合中不重复元素个数的问题称为基数问题。</p>
 <p>解决基数问题有很多种方案：</p>
 <ul>
-<li><p>数据存储在 MySQL 表中，使用 distinct count 计算不重复个数。</p>
+<li>
+<p>数据存储在 MySQL 表中，使用 distinct count 计算不重复个数。</p>
 </li>
-<li><p>使用 Redis 提供的 hash、set、bitmaps 等数据结构来处理。</p>
+<li>
+<p>使用 Redis 提供的 hash、set、bitmaps 等数据结构来处理。</p>
 </li>
 </ul>
 <p>以上的方案结果精确，但随着数据不断增加，导致占用空间越来越大，对于非常大的数据集是不切实际的。能否能够<strong>降低一定的精度来平衡存储空间</strong>？Redis 推出了 HyperLogLog。</p>
@@ -533,64 +550,81 @@
 <p>在 Redis 里面，每个 HyperLogLog 键只需要花费 12 KB 内存，就可以计算接近 2^64 个不同元素的基数。这和计算基数时，元素越多耗费内存就越多的集合形成鲜明对比。</p>
 <p>但是，因为 HyperLogLog只会根据输入元素来计算基数，而不会储存输入元素本身，所以 HyperLogLog不能像集合那样，返回输入的各个元素。</p>
 <p>基数： 比如数据集 {1, 3, 5, 7, 5, 7, 8}，那么这个数据集的基数集为 {1, 3, 5 ,7, 8}，基数 (不重复元素) 为 5。 基数估计就是在误差可接受的范围内，快速计算基数。</p>
-<h4 id="2-1-常用命令"><a href="#2-1-常用命令" class="headerlink" title="2.1 常用命令"></a>2.1 常用命令</h4><ol>
-<li><p><strong>pfadd</strong>：添加多个元素</p>
+<h4 id="21-常用命令"><a class="markdownIt-Anchor" href="#21-常用命令"></a> 2.1 常用命令</h4>
+<ol>
+<li>
+<p><strong>pfadd</strong>：添加多个元素</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pfadd key element [element ....]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>向HyperLoglog类型key添加一个或者多个元素,1添加成功， 0添加失败</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; pfadd program java php js node # program中添加4个元素[java,php,js,node]，添加成功，返回1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfadd program java      #再次添加java，由于已经存在，所以添加失败，返回0</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; pfadd program java c++  # 再次添加2个元素，java已经存在了，但是c++不存在，添加成功，返回1</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>pfcount</strong>：获取多个HLL合并后元素的个数</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; pfadd program java php js node # program中添加4个元素[java,php,js,node]，添加成功，返回1</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfadd program java      #再次添加java，由于已经存在，所以添加失败，返回0</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; pfadd program java c++  # 再次添加2个元素，java已经存在了，但是c++不存在，添加成功，返回1</span><br><span class="line">(integer) 1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>pfcount</strong>：获取多个HLL合并后元素的个数</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pfcount key1 key2</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>统计一个或者多个key去重后元素的数量</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; pfadd k1 a b c d java   #k1中5个元素：[a,b,c,d,java],其中Java在program中存在</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfcount k1</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; pfcount k1 program    获取k1和program去重之后数量合集：[a,b,c,d,java,php,js,node,c++]，数量为9</span><br><span class="line">(integer) 9</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>pfmerge</strong>：将多个HLL合并后元素放入另一个HLL</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; pfadd k1 a b c d java   #k1中5个元素：[a,b,c,d,java],其中Java在program中存在</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; pfcount k1</span><br><span class="line">(integer) 5</span><br><span class="line">127.0.0.1:6379&gt; pfcount k1 program    获取k1和program去重之后数量合集：[a,b,c,d,java,php,js,node,c++]，数量为9</span><br><span class="line">(integer) 9</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>pfmerge</strong>：将多个HLL合并后元素放入另一个HLL</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pfmerge &lt;destkey&gt; &lt;sourcekey&gt; [sourcekey ....]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>将过个sourcekey合并放到destkey中</p>
 </blockquote>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; pfmerge mergekey k1 program    #将k1和program合并后放入mergekey</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; pfcount mergekey              #mergekey中元素个数为9</span><br><span class="line">(integer) 9</span><br></pre></td></tr></table></figure></li>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; pfmerge mergekey k1 program    #将k1和program合并后放入mergekey</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; pfcount mergekey              #mergekey中元素个数为9</span><br><span class="line">(integer) 9</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="3-Geographic"><a href="#3-Geographic" class="headerlink" title="3. Geographic"></a>3. Geographic</h3><p>Reids3.2 中增加了对GEO类型的支持，GEO（Geographic），地理信息的缩写。</p>
+<h3 id="3-geographic"><a class="markdownIt-Anchor" href="#3-geographic"></a> 3. Geographic</h3>
+<p>Reids3.2 中增加了对GEO类型的支持，GEO（Geographic），地理信息的缩写。</p>
 <p>该类型，就是元素的2维坐标，在地图上就是经纬度，redis基于该类型，提供了经纬度设置、查询、范围查询、距离查询，经纬度Hash等常见操作。</p>
-<h4 id="3-1-常用命令"><a href="#3-1-常用命令" class="headerlink" title="3.1 常用命令"></a>3.1 常用命令</h4><ol>
-<li><p><strong>geoadd</strong>：添加多个位置的经纬度</p>
+<h4 id="31-常用命令"><a class="markdownIt-Anchor" href="#31-常用命令"></a> 3.1 常用命令</h4>
+<ol>
+<li>
+<p><strong>geoadd</strong>：添加多个位置的经纬度</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geoadd key longitude latitude member [longitude latitude member...]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>longitude latitude member：经度 纬度 名称</p>
 <p><strong>geo实际上使用的是zset类型存储的</strong></p>
 </blockquote>
-<p> 示例：</p>
+<p>示例：</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; geoadd china:city 121.47 31.23 shanghai #添加上海的经纬度</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; geoadd china:city 106.50 29.53 chongqing  #添加重庆经纬度</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; type china:city     #查看类型，发现geo实际上使用zset类型存储的</span><br><span class="line">zset</span><br><span class="line">127.0.0.1:6379&gt; zrange china:city 0 -1    #查询key的全部元素</span><br><span class="line">1) &quot;chongqing&quot;</span><br><span class="line">2) &quot;shanghai&quot;</span><br><span class="line">127.0.0.1:6379&gt; zrange china:city 0 -1 withscores  # 查询key的全部元素包含score</span><br><span class="line">1) &quot;chongqing&quot;</span><br><span class="line">2) &quot;4026042091628984&quot;</span><br><span class="line">3) &quot;shanghai&quot;</span><br><span class="line">4) &quot;4054803462927619&quot;</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><p>两级无法直接添加，一般会下载城市数据，直接通过java程序一次性导入。</p>
+<li>
+<p>两级无法直接添加，一般会下载城市数据，直接通过java程序一次性导入。</p>
 </li>
-<li><p>有效的经纬度从<code>-180</code>度到<code>180</code>度，有效的维度从<code>-85.05112878</code>度到<code>85.05112878</code>度。</p>
+<li>
+<p>有效的经纬度从<code>-180</code>度到<code>180</code>度，有效的维度从<code>-85.05112878</code>度到<code>85.05112878</code>度。</p>
 </li>
-<li><p>当坐标位置超出指定范围时，该命令将会返回一个错误。</p>
+<li>
+<p>当坐标位置超出指定范围时，该命令将会返回一个错误。</p>
 </li>
-<li><p>已经添加的数据，是无法再次往里面添加的。</p>
+<li>
+<p>已经添加的数据，是无法再次往里面添加的。</p>
 </li>
 </ul>
 </li>
-<li><p><strong>geopos</strong>：获取多个位置的坐标值</p>
+<li>
+<p><strong>geopos</strong>：获取多个位置的坐标值</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">geopos key member [member.....]</span><br></pre></td></tr></table></figure>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; geopos china:city shanghai chongqing wuhan  #获取上海、重庆、武汉3个城市的坐标,由于没有添加武汉的数据，所以没有获取到，其他2个获取到了</span><br><span class="line">1) 1) &quot;121.47000163793563843&quot;</span><br><span class="line">   2) &quot;31.22999903975783553&quot;</span><br><span class="line">2) 1) &quot;106.49999767541885376&quot;</span><br><span class="line">   2) &quot;29.52999957900659211&quot;</span><br><span class="line">3) (nil)</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>geodist</strong>：获取两个位置的直线距离</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; geopos china:city shanghai chongqing wuhan  #获取上海、重庆、武汉3个城市的坐标,由于没有添加武汉的数据，所以没有获取到，其他2个获取到了</span><br><span class="line">1) 1) &quot;121.47000163793563843&quot;</span><br><span class="line">   2) &quot;31.22999903975783553&quot;</span><br><span class="line">2) 1) &quot;106.49999767541885376&quot;</span><br><span class="line">   2) &quot;29.52999957900659211&quot;</span><br><span class="line">3) (nil)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>geodist</strong>：获取两个位置的直线距离</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">geodist key member1 member2 [m | km | ft | mi]</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">单位：[m|km|ft|mi] -&gt; [米|千米|英里|英尺]，默认为米</span></span><br></pre></td></tr></table></figure>
-<p> 示例：</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; zrange china:city 0 -1</span><br><span class="line">1) &quot;chongqing&quot;</span><br><span class="line">2) &quot;shanghai&quot;</span><br><span class="line">127.0.0.1:6379&gt; geodist china:city shanghai chongqing  #获取上海到重庆的直线距离</span><br><span class="line">&quot;1447673.6920&quot;</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure></li>
-<li><p><strong>georadius</strong>：以给定的经纬度为中心，找出某一半径内的元素(附近的人)</p>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; zrange china:city 0 -1</span><br><span class="line">1) &quot;chongqing&quot;</span><br><span class="line">2) &quot;shanghai&quot;</span><br><span class="line">127.0.0.1:6379&gt; geodist china:city shanghai chongqing  #获取上海到重庆的直线距离</span><br><span class="line">&quot;1447673.6920&quot;</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>georadius</strong>：以给定的经纬度为中心，找出某一半径内的元素(附近的人)</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">georadius key longitude latitude radius m |km |ft|mi</span><br><span class="line"><span class="meta"> </span></span><br><span class="line"><span class="meta">#</span><span class="bash">单位：[m|km|ft|mi] -&gt; [米|千米|英里|英尺]，默认为米</span></span><br></pre></td></tr></table></figure>
-
-<p> 示例：</p>
+<p>示例：</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; geoadd china:city 114.05 22.52 shenzhen 116.38 39.90 beijing  #添加深圳、北京2个城市的经纬度</span><br><span class="line">(integer) 2</span><br><span class="line">127.0.0.1:6379&gt; zrange china:city 0 -1    #输出key中的元素，里面包含了重庆，深圳，上海，北京4个地方的经纬度</span><br><span class="line">1) &quot;chongqing&quot;</span><br><span class="line">2) &quot;shenzhen&quot;</span><br><span class="line">3) &quot;shanghai&quot;</span><br><span class="line">4) &quot;beijing&quot;</span><br><span class="line">127.0.0.1:6379&gt; georadius china:city 110 30 1000 km  #在china:city中检索：以经纬度(110,30)为中心，半径为1000km内的位置列表</span><br><span class="line">1) &quot;chongqing&quot;</span><br><span class="line">2) &quot;shenzhen&quot;</span><br></pre></td></tr></table></figure></li>
 </ol>
 

@@ -18,18 +18,18 @@
   
   
   <title>CentOS安装Zookeeper 3.7.1单节点 | 小余哥</title>
-  <meta name="description" content="1. JDK依赖请参考这篇博客：Linux安装JDK以及配置 2. 下载Zookeeper下载连接：https:&#x2F;&#x2F;zookeeper.apache.org&#x2F;releases.html,  找到版本3.7.1下载二进制版本，不需要编译以安装路径 &#x2F;usr&#x2F;local&#x2F;tools 为例 12cd &#x2F;usr&#x2F;local&#x2F;toolswget https:&#x2F;&#x2F;dlcdn.apache.org&#x2F;zook">
+  <meta name="description" content="1. JDK依赖 请参考这篇博客：Linux安装JDK以及配置  2. 下载Zookeeper 下载连接：https:&#x2F;&#x2F;zookeeper.apache.org&#x2F;releases.html,  找到版本3.7.1下载二进制版本，不需要编译  以安装路径 &#x2F;usr&#x2F;local&#x2F;tools 为例 12cd &#x2F;usr&#x2F;local&#x2F;toolswget https:&#x2F;&#x2F;dlcdn.apache.org">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS安装Zookeeper 3.7.1单节点">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/zookeeper-install/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. JDK依赖请参考这篇博客：Linux安装JDK以及配置 2. 下载Zookeeper下载连接：https:&#x2F;&#x2F;zookeeper.apache.org&#x2F;releases.html,  找到版本3.7.1下载二进制版本，不需要编译以安装路径 &#x2F;usr&#x2F;local&#x2F;tools 为例 12cd &#x2F;usr&#x2F;local&#x2F;toolswget https:&#x2F;&#x2F;dlcdn.apache.org&#x2F;zook">
+<meta property="og:description" content="1. JDK依赖 请参考这篇博客：Linux安装JDK以及配置  2. 下载Zookeeper 下载连接：https:&#x2F;&#x2F;zookeeper.apache.org&#x2F;releases.html,  找到版本3.7.1下载二进制版本，不需要编译  以安装路径 &#x2F;usr&#x2F;local&#x2F;tools 为例 12cd &#x2F;usr&#x2F;local&#x2F;toolswget https:&#x2F;&#x2F;dlcdn.apache.org">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/zookeeper-install/2.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/zookeeper-install/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/zookeeper-install/3.png">
 <meta property="article:published_time" content="2022-06-24T07:12:42.000Z">
-<meta property="article:modified_time" content="2023-03-02T12:08:25.978Z">
+<meta property="article:modified_time" content="2023-03-21T13:25:48.868Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="Zookeeper">
 <meta name="twitter:card" content="summary">
@@ -216,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/Monitor/">Monitor</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/ShardingSphere-jdbc/">ShardingSphere-jdbc</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/devops/">devops</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/filter/">filter</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/httpd/">httpd</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/interface/">interface</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/mysql/">mysql</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/nginx/">nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/rocketmq/">rocketmq</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/spring/">spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/swagger/">swagger</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tidb/">tidb</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/tomcat/">tomcat</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/vue/">vue</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E5%BC%80%E6%BA%90/">开源</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E6%9E%B6%E6%9E%84%E5%B8%88%E7%AC%94%E8%AE%B0/">架构师笔记</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/">知识整理</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/">经验分享</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
     </div>
   </div>
 
@@ -231,6 +231,31 @@
           <li>
             
             <div class="item-thumb">
+              <a href="../mybatis-sql-excute-process/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
+              </p>
+              <p class="item-title">
+                <a href="../mybatis-sql-excute-process/" class="title">Mybatis执行一条SQL命令的过程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-21T13:07:32.000Z" itemprop="datePublished">2023-03-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
               <a href="../reflection/" class="thumb">
     
     
@@ -242,7 +267,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/java/">java</a>
+                <a class="category-link" href="../categories/01-Java/">01 Java</a>
               </p>
               <p class="item-title">
                 <a href="../reflection/" class="title">Java 反射机制详解</a>
@@ -267,7 +292,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/java/">java</a>
+                <a class="category-link" href="../categories/01-Java/">01 Java</a>
               </p>
               <p class="item-title">
                 <a href="../spi/" class="title">Java SPI机制详解</a>
@@ -292,7 +317,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/07-Redis/">07 Redis</a>
               </p>
               <p class="item-title">
                 <a href="../redis-special-aof/" class="title">Redis持久化之AOF（八）</a>
@@ -317,38 +342,13 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
+                <a class="category-link" href="../categories/07-Redis/">07 Redis</a>
               </p>
               <p class="item-title">
                 <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../redis-special-rdb/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/redis%E4%B8%93%E9%A2%98/">redis专题</a>
-              </p>
-              <p class="item-title">
-                <a href="../redis-special-rdb/" class="title">Redis持久化之RDB（七）</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-26T08:20:06.000Z" itemprop="datePublished">2023-02-26</time>
               </p>
             </div>
           </li>
@@ -363,7 +363,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.13px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">接口设计</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -378,7 +378,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-JDK%E4%BE%9D%E8%B5%96"><span class="toc-text">1. JDK依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BDZookeeper"><span class="toc-text">2. 下载Zookeeper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%A7%A3%E5%8E%8B"><span class="toc-text">3. 解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">4. 修改配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%90%AF%E5%8A%A8ZK"><span class="toc-text">5. 启动ZK</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-jdk%E4%BE%9D%E8%B5%96"><span class="toc-text"> 1. JDK依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BDzookeeper"><span class="toc-text"> 2. 下载Zookeeper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%A7%A3%E5%8E%8B"><span class="toc-text"> 3. 解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text"> 4. 修改配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%90%AF%E5%8A%A8zk"><span class="toc-text"> 5. 启动ZK</span></a></li></ol>
       
       
     </nav>
@@ -409,7 +409,7 @@
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="../categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a>
+    <a class="article-category-link" href="../categories/08-Linux/">08 Linux</a>
   </span>
 
         
@@ -440,25 +440,30 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-
-<h3 id="1-JDK依赖"><a href="#1-JDK依赖" class="headerlink" title="1. JDK依赖"></a>1. JDK依赖</h3><p>请参考这篇博客：<a target="_blank" rel="noopener" href="https://xiaoyuge.work/jdk-install/">Linux安装JDK以及配置</a></p>
-<h3 id="2-下载Zookeeper"><a href="#2-下载Zookeeper" class="headerlink" title="2. 下载Zookeeper"></a>2. 下载Zookeeper</h3><p>下载连接：<a target="_blank" rel="noopener" href="https://zookeeper.apache.org/releases.html">https://zookeeper.apache.org/releases.html</a>,  找到版本3.7.1下载二进制版本，不需要编译<br><img src="/zookeeper-install/2.png"><br>以安装路径 /usr/local/tools 为例</p>
+<h3 id="1-jdk依赖"><a class="markdownIt-Anchor" href="#1-jdk依赖"></a> 1. JDK依赖</h3>
+<p>请参考这篇博客：<a target="_blank" rel="noopener" href="https://xiaoyuge.work/jdk-install/">Linux安装JDK以及配置</a></p>
+<h3 id="2-下载zookeeper"><a class="markdownIt-Anchor" href="#2-下载zookeeper"></a> 2. 下载Zookeeper</h3>
+<p>下载连接：<a target="_blank" rel="noopener" href="https://zookeeper.apache.org/releases.html">https://zookeeper.apache.org/releases.html</a>,  找到版本3.7.1下载二进制版本，不需要编译<br>
+<img src="/zookeeper-install/2.png" alt><br>
+以安装路径 /usr/local/tools 为例</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tools</span><br><span class="line">wget https://dlcdn.apache.org/zookeeper/zookeeper-3.7.1/apache-zookeeper-3.7.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
-<p>如果上面的地址下载比较慢的话，可以试下在apache仓库里面找（<a target="_blank" rel="noopener" href="https://archive.apache.org/dist/zookeeper/%EF%BC%89">https://archive.apache.org/dist/zookeeper/）</a><br><img src="/zookeeper-install/1.png"></p>
-<h3 id="3-解压"><a href="#3-解压" class="headerlink" title="3. 解压"></a>3. 解压</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf apache-zookeeper-3.7.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
-<h3 id="4-修改配置文件"><a href="#4-修改配置文件" class="headerlink" title="4. 修改配置文件"></a>4. 修改配置文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd apache-zookeeper-3.7.1-bin/conf</span><br><span class="line">cp zoo_sample.cfg zoo.cfg</span><br><span class="line"></span><br><span class="line">vim zoo.cfg</span><br></pre></td></tr></table></figure>
-<p><img src="/zookeeper-install/3.png"><br>端口号默认2181。</p>
+<p>如果上面的地址下载比较慢的话，可以试下在apache仓库里面找（<a target="_blank" rel="noopener" href="https://archive.apache.org/dist/zookeeper/%EF%BC%89">https://archive.apache.org/dist/zookeeper/）</a><br>
+<img src="/zookeeper-install/1.png" alt></p>
+<h3 id="3-解压"><a class="markdownIt-Anchor" href="#3-解压"></a> 3. 解压</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf apache-zookeeper-3.7.1-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="4-修改配置文件"><a class="markdownIt-Anchor" href="#4-修改配置文件"></a> 4. 修改配置文件</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd apache-zookeeper-3.7.1-bin/conf</span><br><span class="line">cp zoo_sample.cfg zoo.cfg</span><br><span class="line"></span><br><span class="line">vim zoo.cfg</span><br></pre></td></tr></table></figure>
+<p><img src="/zookeeper-install/3.png" alt><br>
+端口号默认2181。</p>
 <p>配置文件zoo.cfg里面的dataDir要修改，如果不改，需要创建这个目录</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /tmp/zookeeper</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-启动ZK"><a href="#5-启动ZK" class="headerlink" title="5. 启动ZK"></a>5. 启动ZK</h3><p>zookeeper默认端口 2181</p>
+<h3 id="5-启动zk"><a class="markdownIt-Anchor" href="#5-启动zk"></a> 5. 启动ZK</h3>
+<p>zookeeper默认端口 2181</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../bin</span><br><span class="line">./zkServer.sh start</span><br></pre></td></tr></table></figure>
 <p>输出日志：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ZooKeeper JMX enabled by default</span><br><span class="line">Using config: /usr/local/tools/apache-zookeeper-3.7.1-bin/bin/../conf/zoo.cfg</span><br><span class="line">Starting zookeeper ... STARTED</span><br></pre></td></tr></table></figure>
-
 <p>其他命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep zookeeper     #查看是否启动成功</span><br><span class="line"></span><br><span class="line">./zkServer.sh status      #查看zk的运行状态</span><br><span class="line"></span><br><span class="line">./zkCli.sh              #客户端链接zk</span><br><span class="line"></span><br><span class="line">ls                      #查看节点</span><br><span class="line"></span><br><span class="line">get /name               #get 获取节点数据和更新信息， name为具体的节点名称</span><br><span class="line"></span><br><span class="line">create [-s] [-e] path data acl        #create 创建节点 e 临时节点 s 顺序节点</span><br><span class="line"></span><br><span class="line">delete path [version]           #删除节点</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 
       
     </div>
