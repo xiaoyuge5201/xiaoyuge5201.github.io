@@ -18,12 +18,12 @@
   
   
   <title>Redis持久化之AOF（八） | 小余哥</title>
-  <meta name="description" content="1. 前言 Redis是先执行命令，把数据写入内存，然后才记录日志。日志里记录的是Redis收到的每一条命令，这些命令是以文本形式保存。  Redis是&quot;写后&quot;日志， 而大多数的数据库采用的是写前日志(WAL),例如Mysql，通过写前日志和两阶段提交，实现数据和逻辑的一致性。  AOF日志采用写后日志，即：先写内存，后写日志  为什么采用写后日志？ Redis要求高性能，">
+  <meta name="description" content="1. 前言Redis是先执行命令，把数据写入内存，然后才记录日志。日志里记录的是Redis收到的每一条命令，这些命令是以文本形式保存。  Redis是”写后”日志， 而大多数的数据库采用的是写前日志(WAL),例如Mysql，通过写前日志和两阶段提交，实现数据和逻辑的一致性。  AOF日志采用写后日志，即：先写内存，后写日志 为什么采用写后日志？ Redis要求高性能，采用后写日志有两方面的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis持久化之AOF（八）">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/redis-special-aof/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 前言 Redis是先执行命令，把数据写入内存，然后才记录日志。日志里记录的是Redis收到的每一条命令，这些命令是以文本形式保存。  Redis是&quot;写后&quot;日志， 而大多数的数据库采用的是写前日志(WAL),例如Mysql，通过写前日志和两阶段提交，实现数据和逻辑的一致性。  AOF日志采用写后日志，即：先写内存，后写日志  为什么采用写后日志？ Redis要求高性能，">
+<meta property="og:description" content="1. 前言Redis是先执行命令，把数据写入内存，然后才记录日志。日志里记录的是Redis收到的每一条命令，这些命令是以文本形式保存。  Redis是”写后”日志， 而大多数的数据库采用的是写前日志(WAL),例如Mysql，通过写前日志和两阶段提交，实现数据和逻辑的一致性。  AOF日志采用写后日志，即：先写内存，后写日志 为什么采用写后日志？ Redis要求高性能，采用后写日志有两方面的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-aof/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-aof/2.png">
@@ -234,6 +234,31 @@
           <li>
             
             <div class="item-thumb">
+              <a href="../mybatis-01/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
+              </p>
+              <p class="item-title">
+                <a href="../mybatis-01/" class="title">Mybatis 总体框架设计</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-21T14:11:59.000Z" itemprop="datePublished">2023-03-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
               <a href="../mybatis-sql-excute-process/" class="thumb">
     
     
@@ -331,31 +356,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../redis-special-application-problems/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/07-Redis/">07 Redis</a>
-              </p>
-              <p class="item-title">
-                <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -381,7 +381,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text"> 1. 前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0aof"><span class="toc-text"> 2. 如何实现AOF</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#21-%E4%B8%89%E7%A7%8D%E5%86%99%E5%9B%9E%E7%AD%96%E7%95%A5%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text"> 2.1 三种写回策略的优缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-redisconf%E9%85%8D%E7%BD%AEaof"><span class="toc-text"> 3. redis.conf配置AOF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3aof%E9%87%8D%E5%86%99"><span class="toc-text"> 4. 深入理解AOF重写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#41-%E5%9B%BE%E4%BE%8B"><span class="toc-text"> 4.1. 图例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#42-aof%E9%87%8D%E5%86%99%E4%BC%9A%E9%98%BB%E5%A1%9E%E5%90%97"><span class="toc-text"> 4.2. AOF重写会阻塞吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#43-aof%E6%97%A5%E5%BF%97%E4%BD%95%E6%97%B6%E4%BC%9A%E9%87%8D%E5%86%99"><span class="toc-text"> 4.3. AOF日志何时会重写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#44-%E9%87%8D%E5%86%99%E6%97%A5%E5%BF%97%E6%97%B6%E6%9C%89%E6%96%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5"><span class="toc-text"> 4.4. 重写日志时，有新的数据写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#45-%E4%B8%BB%E7%BA%BF%E7%A8%8Bfork%E5%87%BA%E5%AD%90%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%98%AF%E5%A6%82%E4%BD%95%E5%A4%8D%E5%88%B6%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E7%9A%84"><span class="toc-text"> 4.5. 主线程fork出子进程的是如何复制内存数据的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#46-%E5%9C%A8%E9%87%8D%E5%86%99%E6%97%A5%E5%BF%97%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B%E6%97%B6%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B%E5%9C%B0%E6%96%B9%E4%BC%9A%E8%A2%AB%E9%98%BB%E5%A1%9E"><span class="toc-text"> 4.6. 在重写日志整个过程时，主线程有哪些地方会被阻塞？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#47-%E4%B8%BA%E4%BB%80%E4%B9%88aof%E9%87%8D%E5%86%99%E4%B8%8D%E5%A4%8D%E7%94%A8%E5%8E%9Faof%E6%97%A5%E5%BF%97"><span class="toc-text"> 4.7. 为什么AOF重写不复用原AOF日志？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-rdb%E5%92%8Caof%E6%B7%B7%E5%90%88%E6%96%B9%E5%BC%8F40%E7%89%88%E6%9C%AC"><span class="toc-text"> 5. RDB和AOF混合方式（4.0版本）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BB%8E%E6%8C%81%E4%B9%85%E5%8C%96%E4%B8%AD%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE"><span class="toc-text"> 6. 从持久化中恢复数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%9E%E8%B7%B5"><span class="toc-text"> 7. 性能与实践</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1. 前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0AOF"><span class="toc-text">2. 如何实现AOF</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E4%B8%89%E7%A7%8D%E5%86%99%E5%9B%9E%E7%AD%96%E7%95%A5%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2.1 三种写回策略的优缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-redis-conf%E9%85%8D%E7%BD%AEAOF"><span class="toc-text">3. redis.conf配置AOF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3AOF%E9%87%8D%E5%86%99"><span class="toc-text">4. 深入理解AOF重写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E5%9B%BE%E4%BE%8B"><span class="toc-text">4.1. 图例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-AOF%E9%87%8D%E5%86%99%E4%BC%9A%E9%98%BB%E5%A1%9E%E5%90%97%EF%BC%9F"><span class="toc-text">4.2. AOF重写会阻塞吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-AOF%E6%97%A5%E5%BF%97%E4%BD%95%E6%97%B6%E4%BC%9A%E9%87%8D%E5%86%99"><span class="toc-text">4.3. AOF日志何时会重写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-%E9%87%8D%E5%86%99%E6%97%A5%E5%BF%97%E6%97%B6%EF%BC%8C%E6%9C%89%E6%96%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5"><span class="toc-text">4.4. 重写日志时，有新的数据写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-%E4%B8%BB%E7%BA%BF%E7%A8%8Bfork%E5%87%BA%E5%AD%90%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%98%AF%E5%A6%82%E4%BD%95%E5%A4%8D%E5%88%B6%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E7%9A%84%EF%BC%9F"><span class="toc-text">4.5. 主线程fork出子进程的是如何复制内存数据的？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-6-%E5%9C%A8%E9%87%8D%E5%86%99%E6%97%A5%E5%BF%97%E6%95%B4%E4%B8%AA%E8%BF%87%E7%A8%8B%E6%97%B6%EF%BC%8C%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B%E5%9C%B0%E6%96%B9%E4%BC%9A%E8%A2%AB%E9%98%BB%E5%A1%9E%EF%BC%9F"><span class="toc-text">4.6. 在重写日志整个过程时，主线程有哪些地方会被阻塞？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-7-%E4%B8%BA%E4%BB%80%E4%B9%88AOF%E9%87%8D%E5%86%99%E4%B8%8D%E5%A4%8D%E7%94%A8%E5%8E%9FAOF%E6%97%A5%E5%BF%97%EF%BC%9F"><span class="toc-text">4.7. 为什么AOF重写不复用原AOF日志？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-RDB%E5%92%8CAOF%E6%B7%B7%E5%90%88%E6%96%B9%E5%BC%8F%EF%BC%884-0%E7%89%88%E6%9C%AC%EF%BC%89"><span class="toc-text">5. RDB和AOF混合方式（4.0版本）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%BB%8E%E6%8C%81%E4%B9%85%E5%8C%96%E4%B8%AD%E6%81%A2%E5%A4%8D%E6%95%B0%E6%8D%AE"><span class="toc-text">6. 从持久化中恢复数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%9E%E8%B7%B5"><span class="toc-text">7. 性能与实践</span></a></li></ol>
       
       
     </nav>
@@ -443,256 +443,186 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-<h3 id="1-前言"><a class="markdownIt-Anchor" href="#1-前言"></a> 1. 前言</h3>
-<p>Redis是先执行命令，把数据写入内存，然后才记录日志。日志里记录的是Redis收到的每一条命令，这些命令是以文本形式保存。</p>
+
+
+<h3 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h3><p>Redis是先执行命令，把数据写入内存，然后才记录日志。日志里记录的是Redis收到的每一条命令，这些命令是以文本形式保存。</p>
 <blockquote>
-<p>Redis是&quot;写后&quot;日志， 而大多数的数据库采用的是写前日志(WAL),例如Mysql，通过写前日志和两阶段提交，实现数据和逻辑的一致性。</p>
+<p>Redis是”写后”日志， 而大多数的数据库采用的是写前日志(WAL),例如Mysql，通过写前日志和两阶段提交，实现数据和逻辑的一致性。</p>
 </blockquote>
-<p>AOF日志采用写后日志，即：<strong>先写内存，后写日志</strong><br>
-<img src="/redis-special-aof/1.png" alt></p>
+<p>AOF日志采用写后日志，即：<strong>先写内存，后写日志</strong><br><img src="/redis-special-aof/1.png"></p>
 <p><strong>为什么采用写后日志？</strong></p>
 <p>Redis要求高性能，采用后写日志有两方面的好处：</p>
 <ol>
-<li>
-<p>避免额外的检查开销：Redis向AOF里面记录日志的时候，并不会先去会这些命令进行语法检查，如果先记日志再执行命令，日志可能会记录错误的命令，在使用日志恢复数据的时候，就可能会报错。</p>
+<li><p>避免额外的检查开销：Redis向AOF里面记录日志的时候，并不会先去会这些命令进行语法检查，如果先记日志再执行命令，日志可能会记录错误的命令，在使用日志恢复数据的时候，就可能会报错。</p>
 </li>
-<li>
-<p>不会阻塞当前的写操作</p>
+<li><p>不会阻塞当前的写操作</p>
 </li>
 </ol>
 <p>但是这种方式潜在的风险：</p>
 <ol>
-<li>
-<p>如果命令执行完成，写日志之前宕机了，会丢失数据</p>
+<li><p>如果命令执行完成，写日志之前宕机了，会丢失数据</p>
 </li>
-<li>
-<p>主线程写磁盘压力大，导致写磁盘满，阻塞后续操作</p>
+<li><p>主线程写磁盘压力大，导致写磁盘满，阻塞后续操作</p>
 </li>
 </ol>
-<h3 id="2-如何实现aof"><a class="markdownIt-Anchor" href="#2-如何实现aof"></a> 2. 如何实现AOF</h3>
-<p>AOF 日志记录Redis的每个写命令，步骤分为：<strong>命令追加append</strong>、<strong>文件写入write</strong>和<strong>文件同步sync</strong></p>
+<h3 id="2-如何实现AOF"><a href="#2-如何实现AOF" class="headerlink" title="2. 如何实现AOF"></a>2. 如何实现AOF</h3><p>AOF 日志记录Redis的每个写命令，步骤分为：<strong>命令追加append</strong>、<strong>文件写入write</strong>和<strong>文件同步sync</strong></p>
 <ul>
-<li>
-<p>命令追加：当AOF持久功能打开后，服务器在执行完一个命令之后，会以协议格式将被执行的写命令追加到服务器的<code>aof_buf</code>缓冲区</p>
+<li><p>命令追加：当AOF持久功能打开后，服务器在执行完一个命令之后，会以协议格式将被执行的写命令追加到服务器的<code>aof_buf</code>缓冲区</p>
 </li>
-<li>
-<p>文件写入和同步：关于何时将<code>aof_buf</code>缓冲区的内容写入AOF文件中，redis提供了3中写回策略：</p>
+<li><p>文件写入和同步：关于何时将<code>aof_buf</code>缓冲区的内容写入AOF文件中，redis提供了3中写回策略：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">配置项</th>
-<th style="text-align:center">写回时机</th>
-<th style="text-align:center">优点</th>
-<th style="text-align:center">缺点</th>
+<th align="center">配置项</th>
+<th align="center">写回时机</th>
+<th align="center">优点</th>
+<th align="center">缺点</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">Always</td>
-<td style="text-align:center">同步写回</td>
-<td style="text-align:center">可靠性高，基本不会丢失</td>
-<td style="text-align:center">每个写命令都要落盘，性能影响大</td>
+<tbody><tr>
+<td align="center">Always</td>
+<td align="center">同步写回</td>
+<td align="center">可靠性高，基本不会丢失</td>
+<td align="center">每个写命令都要落盘，性能影响大</td>
 </tr>
 <tr>
-<td style="text-align:center">Everysec</td>
-<td style="text-align:center">每秒写回</td>
-<td style="text-align:center">性能适中</td>
-<td style="text-align:center">宕机时丢失1秒内的数据</td>
+<td align="center">Everysec</td>
+<td align="center">每秒写回</td>
+<td align="center">性能适中</td>
+<td align="center">宕机时丢失1秒内的数据</td>
 </tr>
 <tr>
-<td style="text-align:center">No</td>
-<td style="text-align:center">操作系统控制的写回</td>
-<td style="text-align:center">性能好</td>
-<td style="text-align:center">宕机时丢失的数据较多</td>
+<td align="center">No</td>
+<td align="center">操作系统控制的写回</td>
+<td align="center">性能好</td>
+<td align="center">宕机时丢失的数据较多</td>
 </tr>
-</tbody>
-</table>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 <ul>
-<li>
-<p><code>Always</code>: 同步写回：每个写命令执行完，立马同步地将日志写回磁盘</p>
+<li><p><code>Always</code>: 同步写回：每个写命令执行完，立马同步地将日志写回磁盘</p>
 </li>
-<li>
-<p><code>Everysec</code>: 每秒写回：每个写命令执行完，只是先把日志写到AOF文件的内存缓冲区，每隔一秒把缓冲区中的内容写入磁盘</p>
+<li><p><code>Everysec</code>: 每秒写回：每个写命令执行完，只是先把日志写到AOF文件的内存缓冲区，每隔一秒把缓冲区中的内容写入磁盘</p>
 </li>
-<li>
-<p><code>No</code>: 操作系统控制的写回：每个写命令执行完，只是先把日志写到AOF文件的内存缓冲区，由操作系统决定何时将缓冲区内容写回磁盘。</p>
+<li><p><code>No</code>: 操作系统控制的写回：每个写命令执行完，只是先把日志写到AOF文件的内存缓冲区，由操作系统决定何时将缓冲区内容写回磁盘。</p>
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="21-三种写回策略的优缺点"><a class="markdownIt-Anchor" href="#21-三种写回策略的优缺点"></a> 2.1 三种写回策略的优缺点</h4>
-<p>上面的三种写回策略体现了一个重要原则：<strong>trade-off取舍</strong>，在性能和可靠性之间做取舍</p>
+<h4 id="2-1-三种写回策略的优缺点"><a href="#2-1-三种写回策略的优缺点" class="headerlink" title="2.1 三种写回策略的优缺点"></a>2.1 三种写回策略的优缺点</h4><p>上面的三种写回策略体现了一个重要原则：<strong>trade-off取舍</strong>，在性能和可靠性之间做取舍</p>
 <p>关于AOF的同步策略是涉及到操作系统的 write 函数和 fsync 函数的，在《Redis设计与实现》中是这样说明的：</p>
 <blockquote>
 <p>为了提高文件写入效率，在现代操作系统中，当用户调用write函数，将一些数据写入文件时，操作系统通常会将数据暂存到一个内存缓冲区里，当缓冲区的空间被填满或超过了指定时限后，才真正将缓冲区的数据写入到磁盘里。</p>
 <p>这样的操作虽然提高了效率，但也为数据写入带来了安全问题：如果计算机停机，内存缓冲区中的数据会丢失。为此，系统提供了fsync、fdatasync同步函数，可以强制操作系统立刻将缓冲区中的数据写入到硬盘里，从而确保写入数据的安全性。</p>
 </blockquote>
-<h3 id="3-redisconf配置aof"><a class="markdownIt-Anchor" href="#3-redisconf配置aof"></a> 3. redis.conf配置AOF</h3>
-<p>默认情况下，Redis是没有开启AOF的，可以通过配置redis.conf文件来开启AOF持久化，关于AOF的配置如下：</p>
+<h3 id="3-redis-conf配置AOF"><a href="#3-redis-conf配置AOF" class="headerlink" title="3. redis.conf配置AOF"></a>3. redis.conf配置AOF</h3><p>默认情况下，Redis是没有开启AOF的，可以通过配置redis.conf文件来开启AOF持久化，关于AOF的配置如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># appendonly参数开启AOF持久化</span><br><span class="line">appendonly no</span><br><span class="line"></span><br><span class="line"># AOF持久化的文件名，默认是appendonly.aof</span><br><span class="line">appendfilename &quot;appendonly.aof&quot;</span><br><span class="line"></span><br><span class="line"># AOF文件的保存位置和RDB文件的位置相同，都是通过dir参数设置的</span><br><span class="line">dir ./</span><br><span class="line"></span><br><span class="line"># 同步策略</span><br><span class="line"># appendfsync always</span><br><span class="line">appendfsync everysec</span><br><span class="line"># appendfsync no</span><br><span class="line"></span><br><span class="line"># aof重写期间是否同步</span><br><span class="line">no-appendfsync-on-rewrite no</span><br><span class="line"></span><br><span class="line"># 重写触发配置</span><br><span class="line">auto-aof-rewrite-percentage 100</span><br><span class="line">auto-aof-rewrite-min-size 64mb</span><br><span class="line"></span><br><span class="line"># 加载aof出错如何处理</span><br><span class="line">aof-load-truncated yes</span><br><span class="line"></span><br><span class="line"># 文件重写策略</span><br><span class="line">aof-rewrite-incremental-fsync yes</span><br></pre></td></tr></table></figure>
+
 <p>以下是Redis中关于AOF的主要配置信息：</p>
 <ul>
-<li>
-<p>appendonly：默认情况下AOF功能是关闭的，将该选项改为yes以便打开Redis的AOF功能。</p>
-</li>
-<li>
-<p>appendfilename：这个参数项很好理解了，就是AOF文件的名字。</p>
-</li>
-<li>
-<p>appendfsync：这个参数项是AOF功能最重要的设置项之一，主要用于设置“真正执行”操作命令向AOF文件中同步的策略。什么叫“真正执行”呢？还记得Linux操作系统对磁盘设备的操作方式吗？ 为了保证操作系统中I/O队列的操作效率，应用程序提交的I/O操作请求一般是被放置在linux Page Cache中的，然后再由Linux操作系统中的策略自行决定正在写到磁盘上的时机。而Redis中有一个fsync()函数，可以将Page Cache中待写的数据真正写入到物理设备上，而缺点是频繁调用这个fsync()函数干预操作系统的既定策略，可能导致I/O卡顿的现象频繁 。与上节对应，appendfsync参数项可以设置三个值，分别是：always、everysec、no，默认的值为everysec。</p>
-</li>
-<li>
-<p>no-appendfsync-on-rewrite：always和everysec的设置会使真正的I/O操作高频度的出现，甚至会出现长时间的卡顿情况，这个问题出现在操作系统层面上，所有靠工作在操作系统之上的Redis是没法解决的。为了尽量缓解这个情况，Redis提供了这个设置项，保证在完成fsync函数调用时，不会将这段时间内发生的命令操作放入操作系统的Page Cache（这段时间Redis还在接受客户端的各种写操作命令）。</p>
-</li>
-<li>
-<p>auto-aof-rewrite-percentage：上文说到在生产环境下，技术人员不可能随时随地使用“BGREWRITEAOF”命令去重写AOF文件。所以更多时候我们需要依靠Redis中对AOF文件的自动重写策略。Redis中对触发自动重写AOF文件的操作提供了两个设置：auto-aof-rewrite-percentage表示如果当前AOF文件的大小超过了上次重写后AOF文件的百分之多少后，就再次开始重写AOF文件。例如该参数值的默认设置值为100，意思就是如果AOF文件的大小超过上次AOF文件重写后的1倍，就启动重写操作。</p>
-</li>
-<li>
-<p>auto-aof-rewrite-min-size：参考auto-aof-rewrite-percentage选项的介绍，auto-aof-rewrite-min-size设置项表示启动AOF文件重写操作的AOF文件最小大小。如果AOF文件大小低于这个值，则不会触发重写操作。注意，auto-aof-rewrite-percentage和auto-aof-rewrite-min-size只是用来控制Redis中自动对AOF文件进行重写的情况，如果是技术人员手动调用“BGREWRITEAOF”命令，则不受这两个限制条件左右。#</p>
-</li>
+<li>appendonly：默认情况下AOF功能是关闭的，将该选项改为yes以便打开Redis的AOF功能。</li>
+<li>appendfilename：这个参数项很好理解了，就是AOF文件的名字。</li>
+<li>appendfsync：这个参数项是AOF功能最重要的设置项之一，主要用于设置“真正执行”操作命令向AOF文件中同步的策略。什么叫“真正执行”呢？还记得Linux操作系统对磁盘设备的操作方式吗？ 为了保证操作系统中I/O队列的操作效率，应用程序提交的I/O操作请求一般是被放置在linux Page Cache中的，然后再由Linux操作系统中的策略自行决定正在写到磁盘上的时机。而Redis中有一个fsync()函数，可以将Page Cache中待写的数据真正写入到物理设备上，而缺点是频繁调用这个fsync()函数干预操作系统的既定策略，可能导致I/O卡顿的现象频繁 。与上节对应，appendfsync参数项可以设置三个值，分别是：always、everysec、no，默认的值为everysec。</li>
+<li>no-appendfsync-on-rewrite：always和everysec的设置会使真正的I/O操作高频度的出现，甚至会出现长时间的卡顿情况，这个问题出现在操作系统层面上，所有靠工作在操作系统之上的Redis是没法解决的。为了尽量缓解这个情况，Redis提供了这个设置项，保证在完成fsync函数调用时，不会将这段时间内发生的命令操作放入操作系统的Page Cache（这段时间Redis还在接受客户端的各种写操作命令）。</li>
+<li>auto-aof-rewrite-percentage：上文说到在生产环境下，技术人员不可能随时随地使用“BGREWRITEAOF”命令去重写AOF文件。所以更多时候我们需要依靠Redis中对AOF文件的自动重写策略。Redis中对触发自动重写AOF文件的操作提供了两个设置：auto-aof-rewrite-percentage表示如果当前AOF文件的大小超过了上次重写后AOF文件的百分之多少后，就再次开始重写AOF文件。例如该参数值的默认设置值为100，意思就是如果AOF文件的大小超过上次AOF文件重写后的1倍，就启动重写操作。</li>
+<li>auto-aof-rewrite-min-size：参考auto-aof-rewrite-percentage选项的介绍，auto-aof-rewrite-min-size设置项表示启动AOF文件重写操作的AOF文件最小大小。如果AOF文件大小低于这个值，则不会触发重写操作。注意，auto-aof-rewrite-percentage和auto-aof-rewrite-min-size只是用来控制Redis中自动对AOF文件进行重写的情况，如果是技术人员手动调用“BGREWRITEAOF”命令，则不受这两个限制条件左右。#</li>
 </ul>
-<h3 id="4-深入理解aof重写"><a class="markdownIt-Anchor" href="#4-深入理解aof重写"></a> 4. 深入理解AOF重写</h3>
-<blockquote>
-<p>AOF会记录每个写命令到AOF文件，随着时间越长，AOF文件会越来越大，如果不加以控制，会对Redis服务器，甚至操作系统造成影响，而且AOF文件越大，数据恢复越慢，<br>
-为了解决AOF文件体积膨胀的问题，Redis提供AOF文件重写机制来对AOF文件进行&quot;瘦身&quot;。</p>
+<h3 id="4-深入理解AOF重写"><a href="#4-深入理解AOF重写" class="headerlink" title="4. 深入理解AOF重写"></a>4. 深入理解AOF重写</h3><blockquote>
+<p>AOF会记录每个写命令到AOF文件，随着时间越长，AOF文件会越来越大，如果不加以控制，会对Redis服务器，甚至操作系统造成影响，而且AOF文件越大，数据恢复越慢，<br>为了解决AOF文件体积膨胀的问题，Redis提供AOF文件重写机制来对AOF文件进行”瘦身”。</p>
 </blockquote>
-<h4 id="41-图例"><a class="markdownIt-Anchor" href="#41-图例"></a> 4.1. 图例</h4>
-<p>Redis通过创建一个新的AOF文件来替换现有的AOF，新旧两个AOF文件保存的数据相同，但新的文件没有冗余的命令</p>
-<p><img src="/redis-special-aof/2.png" alt></p>
-<h4 id="42-aof重写会阻塞吗"><a class="markdownIt-Anchor" href="#42-aof重写会阻塞吗"></a> 4.2. AOF重写会阻塞吗？</h4>
-<p>AOF重写过程是由后台进程<code>bgrewriteaof</code>来完成的。 主线程fork出后台的<code>bgrewriteaof</code>子进程，fork会把主线程的内存拷贝一份给<code>bgrewriteaof</code>子进程，<br>
-这里面就包含来数据库的最新数据，然后，<code>bgrewriteaof</code>子进程就可以在不影响主线程的情况下，逐一把拷贝的数据写成操作，记入重写日志。</p>
+<h4 id="4-1-图例"><a href="#4-1-图例" class="headerlink" title="4.1. 图例"></a>4.1. 图例</h4><p>Redis通过创建一个新的AOF文件来替换现有的AOF，新旧两个AOF文件保存的数据相同，但新的文件没有冗余的命令</p>
+<p><img src="/redis-special-aof/2.png"></p>
+<h4 id="4-2-AOF重写会阻塞吗？"><a href="#4-2-AOF重写会阻塞吗？" class="headerlink" title="4.2. AOF重写会阻塞吗？"></a>4.2. AOF重写会阻塞吗？</h4><p>AOF重写过程是由后台进程<code>bgrewriteaof</code>来完成的。 主线程fork出后台的<code>bgrewriteaof</code>子进程，fork会把主线程的内存拷贝一份给<code>bgrewriteaof</code>子进程，<br>这里面就包含来数据库的最新数据，然后，<code>bgrewriteaof</code>子进程就可以在不影响主线程的情况下，逐一把拷贝的数据写成操作，记入重写日志。</p>
 <p><strong>所以aof在重写是，在fork进程时会阻塞主线程的。</strong></p>
-<h4 id="43-aof日志何时会重写"><a class="markdownIt-Anchor" href="#43-aof日志何时会重写"></a> 4.3. AOF日志何时会重写</h4>
-<p>有两个配置项控制AOF重写的触发：</p>
+<h4 id="4-3-AOF日志何时会重写"><a href="#4-3-AOF日志何时会重写" class="headerlink" title="4.3. AOF日志何时会重写"></a>4.3. AOF日志何时会重写</h4><p>有两个配置项控制AOF重写的触发：</p>
 <ul>
-<li>
-<p><code>auto-aof-rewrite-min-size</code>: 表示运行AOF重写时文件的最小大小，默认是<strong>64MB</strong></p>
+<li><p><code>auto-aof-rewrite-min-size</code>: 表示运行AOF重写时文件的最小大小，默认是<strong>64MB</strong></p>
 </li>
-<li>
-<p><code>auto-aof-rewrite-percentage</code>: 这个值的计算方式是，当前aof文件大小和上一次重写aof文件的大小差值，再除以上一次重写后的aof文件大小，也就是当前aof文件比上一次重写aof文件的增量大小，和上一次重写后aof后文件大小的比值</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简单公式：(current - before) / before</span><br></pre></td></tr></table></figure>
+<li><p><code>auto-aof-rewrite-percentage</code>: 这个值的计算方式是，当前aof文件大小和上一次重写aof文件的大小差值，再除以上一次重写后的aof文件大小，也就是当前aof文件比上一次重写aof文件的增量大小，和上一次重写后aof后文件大小的比值</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简单公式：(current - before) / before</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-4-重写日志时，有新的数据写入"><a href="#4-4-重写日志时，有新的数据写入" class="headerlink" title="4.4. 重写日志时，有新的数据写入"></a>4.4. 重写日志时，有新的数据写入</h4><p>重写过程总结为：”一个拷贝，两次日志”。在fork出子进程时的拷贝，以及在重写时，如果有新的数据写入。主线程就会将命令记录到两个aof日志内存缓冲区中，如果AOF写回策略配置的时<code>always</code>，则直接将命令写回旧的日志文件，并且保存一份命令至AOF重写缓冲区，这些操作对新的日志文件时不存在影响的。</p>
+<ul>
+<li><p>旧日志文件：主线程使用的日志文件</p>
+</li>
+<li><p>新日志文件：<code>bgrewriteaof</code>进程使用的日志文件</p>
 </li>
 </ul>
-<h4 id="44-重写日志时有新的数据写入"><a class="markdownIt-Anchor" href="#44-重写日志时有新的数据写入"></a> 4.4. 重写日志时，有新的数据写入</h4>
-<p>重写过程总结为：“一个拷贝，两次日志”。在fork出子进程时的拷贝，以及在重写时，如果有新的数据写入。主线程就会将命令记录到两个aof日志内存缓冲区中，如果AOF写回策略配置的时<code>always</code>，则直接将命令写回旧的日志文件，并且保存一份命令至AOF重写缓冲区，这些操作对新的日志文件时不存在影响的。</p>
-<ul>
-<li>
-<p>旧日志文件：主线程使用的日志文件</p>
-</li>
-<li>
-<p>新日志文件：<code>bgrewriteaof</code>进程使用的日志文件</p>
-</li>
-</ul>
-<p>而在<code>bgrewriteaof</code>子进程完成日志重写操作后，会提示主线程，主线程会将AOF重写缓冲区中的命令追加到新的日志文件后面，这时在高并发的情况下，AOF重写缓冲区积累可能会很大，这样就会造成阻塞，<br>
-Redis后来通过Linux管道技术让aof重写期间就能同时进行回放，这样aof重写结束后只需回放少量剩余的数据即可。</p>
+<p>而在<code>bgrewriteaof</code>子进程完成日志重写操作后，会提示主线程，主线程会将AOF重写缓冲区中的命令追加到新的日志文件后面，这时在高并发的情况下，AOF重写缓冲区积累可能会很大，这样就会造成阻塞，<br>Redis后来通过Linux管道技术让aof重写期间就能同时进行回放，这样aof重写结束后只需回放少量剩余的数据即可。</p>
 <p>最后通过修改文件名的方式，保证文件切换的原子性。</p>
 <p>在AOF重写日志期间发生宕机的话，因为日志文件还没有切换，所以恢复数据时，用的还是旧的日志文件。</p>
 <p><strong>总结操作：</strong></p>
 <ul>
-<li>
-<p>主线程fork出子进程重写aof日志</p>
+<li><p>主线程fork出子进程重写aof日志</p>
 </li>
-<li>
-<p>子进程重写日志完成后，主线程追加aof日志缓冲</p>
+<li><p>子进程重写日志完成后，主线程追加aof日志缓冲</p>
 </li>
-<li>
-<p>替换日志文件</p>
+<li><p>替换日志文件</p>
 </li>
 </ul>
 <blockquote>
 <p><strong>温馨提示：</strong></p>
 <p>这里的进程和线程的概念有点混乱。因为后台的bgreweiteaof进程就只有一个线程在操作，而主线程是Redis的操作进程，也是单独一个线程。这里想表达的是Redis主进程在fork出一个后台进程之后，后台进程的操作和主进程是没有任何关联的，也不会阻塞主线程</p>
 </blockquote>
-<p><img src="/redis-special-aof/3.png" alt></p>
-<h4 id="45-主线程fork出子进程的是如何复制内存数据的"><a class="markdownIt-Anchor" href="#45-主线程fork出子进程的是如何复制内存数据的"></a> 4.5. 主线程fork出子进程的是如何复制内存数据的？</h4>
-<p>fork采用操作系统提供的写时复制（copy on write）机制，就是为了避免一次性拷贝大量内存数据给子进程造成阻塞。fork子进程时，子进程时会拷贝父进程的页表，即虚实映射关系（虚拟内存和物理内存的映射索引表），而不会拷贝物理内存。这个拷贝会消耗大量cpu资源，并且拷贝完成前会阻塞主线程，阻塞时间取决于内存中的数据量，数据量越大，则内存页表越大。拷贝完成后，父子进程使用相同的内存地址空间。</p>
-<p>但主进程是可以有数据写入的，这时候就会拷贝物理内存中的数据。如下图（进程1看做是主进程，进程2看做是子进程）：<br>
-<img src="/redis-special-aof/4.png" alt></p>
+<p><img src="/redis-special-aof/3.png"></p>
+<h4 id="4-5-主线程fork出子进程的是如何复制内存数据的？"><a href="#4-5-主线程fork出子进程的是如何复制内存数据的？" class="headerlink" title="4.5. 主线程fork出子进程的是如何复制内存数据的？"></a>4.5. 主线程fork出子进程的是如何复制内存数据的？</h4><p>fork采用操作系统提供的写时复制（copy on write）机制，就是为了避免一次性拷贝大量内存数据给子进程造成阻塞。fork子进程时，子进程时会拷贝父进程的页表，即虚实映射关系（虚拟内存和物理内存的映射索引表），而不会拷贝物理内存。这个拷贝会消耗大量cpu资源，并且拷贝完成前会阻塞主线程，阻塞时间取决于内存中的数据量，数据量越大，则内存页表越大。拷贝完成后，父子进程使用相同的内存地址空间。</p>
+<p>但主进程是可以有数据写入的，这时候就会拷贝物理内存中的数据。如下图（进程1看做是主进程，进程2看做是子进程）：<br><img src="/redis-special-aof/4.png"></p>
 <p>在主进程有数据写入时，而这个数据刚好在页c中，操作系统会创建这个页面的副本（页c的副本），即拷贝当前页的物理数据，将其映射到主进程中，而子进程还是使用原来的的页c。</p>
-<h4 id="46-在重写日志整个过程时主线程有哪些地方会被阻塞"><a class="markdownIt-Anchor" href="#46-在重写日志整个过程时主线程有哪些地方会被阻塞"></a> 4.6. 在重写日志整个过程时，主线程有哪些地方会被阻塞？</h4>
-<ul>
-<li>
-<p>fork子进程时，需要拷贝虚拟页表，会对主线程阻塞。</p>
+<h4 id="4-6-在重写日志整个过程时，主线程有哪些地方会被阻塞？"><a href="#4-6-在重写日志整个过程时，主线程有哪些地方会被阻塞？" class="headerlink" title="4.6. 在重写日志整个过程时，主线程有哪些地方会被阻塞？"></a>4.6. 在重写日志整个过程时，主线程有哪些地方会被阻塞？</h4><ul>
+<li>fork子进程时，需要拷贝虚拟页表，会对主线程阻塞。</li>
+<li>主进程有<code>bigkey</code>写入时，操作系统会创建页面的副本，并拷贝原有的数据，会对主线程阻塞。</li>
+<li>子进程重写日志完成后，主进程追加aof重写缓冲区时可能会对主线程阻塞。</li>
+</ul>
+<h4 id="4-7-为什么AOF重写不复用原AOF日志？"><a href="#4-7-为什么AOF重写不复用原AOF日志？" class="headerlink" title="4.7. 为什么AOF重写不复用原AOF日志？"></a>4.7. 为什么AOF重写不复用原AOF日志？</h4><ul>
+<li><p>父子进程写同一个文件会产生竞争问题，影响父进程的性能。</p>
 </li>
-<li>
-<p>主进程有<code>bigkey</code>写入时，操作系统会创建页面的副本，并拷贝原有的数据，会对主线程阻塞。</p>
-</li>
-<li>
-<p>子进程重写日志完成后，主进程追加aof重写缓冲区时可能会对主线程阻塞。</p>
+<li><p>如果AOF重写过程中失败了，相当于污染了原本的AOF文件，无法做恢复数据使用。</p>
 </li>
 </ul>
-<h4 id="47-为什么aof重写不复用原aof日志"><a class="markdownIt-Anchor" href="#47-为什么aof重写不复用原aof日志"></a> 4.7. 为什么AOF重写不复用原AOF日志？</h4>
-<ul>
-<li>
-<p>父子进程写同一个文件会产生竞争问题，影响父进程的性能。</p>
-</li>
-<li>
-<p>如果AOF重写过程中失败了，相当于污染了原本的AOF文件，无法做恢复数据使用。</p>
-</li>
-</ul>
-<h3 id="5-rdb和aof混合方式40版本"><a class="markdownIt-Anchor" href="#5-rdb和aof混合方式40版本"></a> 5. RDB和AOF混合方式（4.0版本）</h3>
-<blockquote>
+<h3 id="5-RDB和AOF混合方式（4-0版本）"><a href="#5-RDB和AOF混合方式（4-0版本）" class="headerlink" title="5. RDB和AOF混合方式（4.0版本）"></a>5. RDB和AOF混合方式（4.0版本）</h3><blockquote>
 <p>Redis4.0帮本提出了一个混合使用AOF日志和内存快照的方法，简单来说，内存快照以一定的频率执行，在两次快照期间，使用AOF日志记录这期间的所有命令操作。</p>
 </blockquote>
 <p>这样依赖，快照不用很频繁的执行，这就避免了频繁fork对主线程的影响，而且AOF日志只用记录两次快照间的操作，不需要记录所有的操作，避免来文件过大的情况，也避免来重写开销。</p>
-<p>如下图所示，T1和T2时刻的修改，用AOF日志记录，等到第二次做全量快照时，就可以清空AOF日志，因为此时的修改已经记录到快照中，恢复时就不再用日志来。<br>
-<img src="/redis-special-aof/5.png" alt></p>
+<p>如下图所示，T1和T2时刻的修改，用AOF日志记录，等到第二次做全量快照时，就可以清空AOF日志，因为此时的修改已经记录到快照中，恢复时就不再用日志来。<br><img src="/redis-special-aof/5.png"></p>
 <p>这个方法既能享受到 RDB 文件快速恢复的好处，又能享受到 AOF 只记录操作命令的简单优势, 实际环境中用的很多。</p>
-<h3 id="6-从持久化中恢复数据"><a class="markdownIt-Anchor" href="#6-从持久化中恢复数据"></a> 6. 从持久化中恢复数据</h3>
-<blockquote>
+<h3 id="6-从持久化中恢复数据"><a href="#6-从持久化中恢复数据" class="headerlink" title="6. 从持久化中恢复数据"></a>6. 从持久化中恢复数据</h3><blockquote>
 <p>数据的备份、持久化做完来，我们如何从这些持久化文件中恢复数据呢？如果一台服务器上既有RDB文件，又有AOF文件，该加载谁呢？</p>
 </blockquote>
-<p>其实想要从这些文件中恢复数据，只需要重新启动Redis即可。通过以下图了解流程：<br>
-<img src="/redis-special-aof/6.png" alt></p>
+<p>其实想要从这些文件中恢复数据，只需要重新启动Redis即可。通过以下图了解流程：<br><img src="/redis-special-aof/6.png"></p>
 <ul>
-<li>
-<p>redis重启时判断是否开启aof，如果开启了aof，那么就优先加载aof文件；</p>
+<li><p>redis重启时判断是否开启aof，如果开启了aof，那么就优先加载aof文件；</p>
 </li>
-<li>
-<p>如果aof存在，那么就去加载aof文件，加载成功的话redis重启成功，如果aof文件加载失败，那么会打印日志表示启动失败，此时可以去修复aof文件后重新启动；</p>
+<li><p>如果aof存在，那么就去加载aof文件，加载成功的话redis重启成功，如果aof文件加载失败，那么会打印日志表示启动失败，此时可以去修复aof文件后重新启动；</p>
 </li>
-<li>
-<p>若aof文件不存在，那么redis就会转而去加载rdb文件，如果rdb文件不存在，redis直接启动成功；</p>
+<li><p>若aof文件不存在，那么redis就会转而去加载rdb文件，如果rdb文件不存在，redis直接启动成功；</p>
 </li>
-<li>
-<p>如果rdb文件存在就会去加载rdb文件恢复数据，如加载失败则打印日志提示启动失败，如加载成功，那么redis重启成功，且使用rdb文件恢复数据；</p>
+<li><p>如果rdb文件存在就会去加载rdb文件恢复数据，如加载失败则打印日志提示启动失败，如加载成功，那么redis重启成功，且使用rdb文件恢复数据；</p>
 </li>
 </ul>
 <p>那么为什么会优先加载AOF呢？因为AOF保存的数据更完整，通过上面的分析我们知道AOF基本上最多损失1s的数据。</p>
-<h3 id="7-性能与实践"><a class="markdownIt-Anchor" href="#7-性能与实践"></a> 7. 性能与实践</h3>
-<p>RDB的快照、AOF的重写都需要fork，这是一个重量级操作，会对Redis造成阻塞。因此为了不影响Redis主进程响应，我们需要尽可能降低阻塞。</p>
+<h3 id="7-性能与实践"><a href="#7-性能与实践" class="headerlink" title="7. 性能与实践"></a>7. 性能与实践</h3><p>RDB的快照、AOF的重写都需要fork，这是一个重量级操作，会对Redis造成阻塞。因此为了不影响Redis主进程响应，我们需要尽可能降低阻塞。</p>
 <ul>
-<li>
-<p>降低fork的频率，比如可以手动来触发RDB生成快照、与AOF重写；</p>
+<li><p>降低fork的频率，比如可以手动来触发RDB生成快照、与AOF重写；</p>
 </li>
-<li>
-<p>控制Redis最大使用内存，防止fork耗时过长；</p>
+<li><p>控制Redis最大使用内存，防止fork耗时过长；</p>
 </li>
-<li>
-<p>使用更牛逼的硬件；</p>
+<li><p>使用更牛逼的硬件；</p>
 </li>
-<li>
-<p>合理配置Linux的内存分配策略，避免因为物理内存不足导致fork失败。</p>
+<li><p>合理配置Linux的内存分配策略，避免因为物理内存不足导致fork失败。</p>
 </li>
 </ul>
 <p>在线上我们到底该怎么做？我提供一些自己的实践经验。</p>
 <ol>
-<li>
-<p>如果Redis中的数据并不是特别敏感或者可以通过其它方式重写生成数据，可以关闭持久化，如果丢失数据可以通过其它途径补回；</p>
-</li>
-<li>
-<p>自己制定策略定期检查Redis的情况，然后可以手动触发备份、重写数据；</p>
-</li>
-<li>
-<p>单机如果部署多个实例，要防止多个机器同时运行持久化、重写操作，防止出现内存、CPU、IO资源竞争，让持久化变为串行；</p>
-</li>
-<li>
-<p>可以加入主从机器，利用一台从机器进行备份处理，其它机器正常响应客户端的命令；</p>
-</li>
-<li>
-<p>RDB持久化与AOF持久化可以同时存在，配合使用</p>
-</li>
+<li>如果Redis中的数据并不是特别敏感或者可以通过其它方式重写生成数据，可以关闭持久化，如果丢失数据可以通过其它途径补回；</li>
+<li>自己制定策略定期检查Redis的情况，然后可以手动触发备份、重写数据；</li>
+<li>单机如果部署多个实例，要防止多个机器同时运行持久化、重写操作，防止出现内存、CPU、IO资源竞争，让持久化变为串行；</li>
+<li>可以加入主从机器，利用一台从机器进行备份处理，其它机器正常响应客户端的命令；</li>
+<li>RDB持久化与AOF持久化可以同时存在，配合使用</li>
 </ol>
 <p>感谢原博文<a target="_blank" rel="noopener" href="https://pdai.tech/md/db/nosql-redis/db-redis-x-rdb-aof.html#rdb%E5%92%8Caof%E6%B7%B7%E5%90%88%E6%96%B9%E5%BC%8F-4-0%E7%89%88%E6%9C%AC">Redis进阶</a> !!!</p>
 

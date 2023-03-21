@@ -18,12 +18,12 @@
   
   
   <title>Mybatis执行一条SQL命令的过程 | 小余哥</title>
-  <meta name="description" content="Mybatis中的sql命令，在枚举类SqlCommandType中定义的： 123public enum SqlCommandType &amp;#123;  UNKNOWN, INSERT, UPDATE, DELETE, SELECT, FLUSH;&amp;#125; 下面以Mapper接口中一个方法为例子，看下sql命令的执行完整流程: 1234public interface StudentMapp">
+  <meta name="description" content="Mybatis中的sql命令，在枚举类SqlCommandType中定义的： 123public enum SqlCommandType &amp;#123;  UNKNOWN, INSERT, UPDATE, DELETE, SELECT, FLUSH;&amp;#125; 下面以Mapper接口中一个方法为例子，看下sql命令的执行完整流程: 1234public interface StudentMap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mybatis执行一条SQL命令的过程">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/mybatis-sql-excute-process/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="Mybatis中的sql命令，在枚举类SqlCommandType中定义的： 123public enum SqlCommandType &amp;#123;  UNKNOWN, INSERT, UPDATE, DELETE, SELECT, FLUSH;&amp;#125; 下面以Mapper接口中一个方法为例子，看下sql命令的执行完整流程: 1234public interface StudentMapp">
+<meta property="og:description" content="Mybatis中的sql命令，在枚举类SqlCommandType中定义的： 123public enum SqlCommandType &amp;#123;  UNKNOWN, INSERT, UPDATE, DELETE, SELECT, FLUSH;&amp;#125; 下面以Mapper接口中一个方法为例子，看下sql命令的执行完整流程: 1234public interface StudentMap">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/mybatis-sql-excute-process/1.png">
 <meta property="article:published_time" content="2023-03-21T13:07:32.000Z">
@@ -229,6 +229,31 @@
           <li>
             
             <div class="item-thumb">
+              <a href="../mybatis-01/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
+              </p>
+              <p class="item-title">
+                <a href="../mybatis-01/" class="title">Mybatis 总体框架设计</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-21T14:11:59.000Z" itemprop="datePublished">2023-03-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
               <a href="" class="thumb">
     
     
@@ -326,31 +351,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../redis-special-application-problems/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/07-Redis/">07 Redis</a>
-              </p>
-              <p class="item-title">
-                <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -426,29 +426,24 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
+
 <p>Mybatis中的sql命令，在枚举类<code>SqlCommandType</code>中定义的：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">SqlCommandType</span> </span>&#123;</span><br><span class="line">  UNKNOWN, INSERT, UPDATE, DELETE, SELECT, FLUSH;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>下面以Mapper接口中一个方法为例子，看下sql命令的执行完整流程:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">StudentMapper</span> </span>&#123;</span><br><span class="line">    <span class="comment">//参数RowBounds和ResultSetHandler是可选参数，表示分页对象和自定义结果集处理器，一般不需要。</span></span><br><span class="line">    <span class="function">List&lt;Student&gt; <span class="title">findAllStudents</span><span class="params">(Map&lt;String, Object&gt; map, RowBounds rowBounds, ResultSetHandler rh)</span></span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一条完整的sql命令，其执行的完整流程如下图所示：<br>
-<img src="/mybatis-sql-excute-process/1.png" alt="sql执行流程"></p>
-<h4 id="mapperproxy的功能"><a class="markdownIt-Anchor" href="#mapperproxy的功能"></a> MapperProxy的功能</h4>
-<ol>
-<li>
-<p>因为Mapper接口不能直接实例化，MapperProxy的作用就是使用JDK动态代理功能，间接实例化Mapper的proxy对象</p>
+<p>一条完整的sql命令，其执行的完整流程如下图所示：<br><img src="/mybatis-sql-excute-process/1.png" alt="sql执行流程"></p>
+<h4 id="MapperProxy的功能"><a href="#MapperProxy的功能" class="headerlink" title="MapperProxy的功能"></a>MapperProxy的功能</h4><ol>
+<li><p>因为Mapper接口不能直接实例化，MapperProxy的作用就是使用JDK动态代理功能，间接实例化Mapper的proxy对象</p>
 </li>
-<li>
-<p>缓存MapperMethod对象</p>
+<li><p>缓存MapperMethod对象</p>
 </li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Map&lt;Method, MapperMethod&gt; methodCache;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Object.class.equals(method.getDeclaringClass())) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> method.invoke(<span class="keyword">this</span>, args);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable t) &#123;</span><br><span class="line">            <span class="keyword">throw</span> ExceptionUtil.unwrapThrowable(t);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 投鞭断流</span></span><br><span class="line">    <span class="keyword">final</span> MapperMethod mapperMethod = cachedMapperMethod(method);</span><br><span class="line">    <span class="keyword">return</span> mapperMethod.execute(sqlSession, args);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 缓存MapperMethod</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> MapperMethod <span class="title">cachedMapperMethod</span><span class="params">(Method method)</span> </span>&#123;</span><br><span class="line">    MapperMethod mapperMethod = methodCache.get(method);</span><br><span class="line">    <span class="keyword">if</span> (mapperMethod == <span class="keyword">null</span>) &#123;</span><br><span class="line">        mapperMethod = <span class="keyword">new</span> MapperMethod(mapperInterface, method, sqlSession.getConfiguration());</span><br><span class="line">        methodCache.put(method, mapperMethod);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mapperMethod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="mappermethod的功能"><a class="markdownIt-Anchor" href="#mappermethod的功能"></a> MapperMethod的功能</h4>
-<ol>
-<li>
-<p>解析Mapper接口的方法，并且封装成MapperMethod对象</p>
+
+<h4 id="MapperMethod的功能"><a href="#MapperMethod的功能" class="headerlink" title="MapperMethod的功能"></a>MapperMethod的功能</h4><ol>
+<li><p>解析Mapper接口的方法，并且封装成MapperMethod对象</p>
 </li>
-<li>
-<p>将sql命令正确路由到恰当的SqlSession的方法上</p>
+<li><p>将sql命令正确路由到恰当的SqlSession的方法上</p>
 </li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapperMethod</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 保存了Sql命令的类型和键id</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> SqlCommand command;</span><br><span class="line">  <span class="comment">// 保存了Mapper接口方法的解析信息</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> MethodSignature method;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">MapperMethod</span><span class="params">(Class&lt;?&gt; mapperInterface, Method method, Configuration config)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.command = <span class="keyword">new</span> SqlCommand(config, mapperInterface, method);</span><br><span class="line">    <span class="keyword">this</span>.method = <span class="keyword">new</span> MethodSignature(config, method);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 根据解析结果，路由到恰当的SqlSession方法上</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">execute</span><span class="params">(SqlSession sqlSession, Object[] args)</span> </span>&#123;</span><br><span class="line">    Object result;</span><br><span class="line">    <span class="keyword">if</span> (SqlCommandType.INSERT == command.getType()) &#123;</span><br><span class="line">      Object param = method.convertArgsToSqlCommandParam(args);</span><br><span class="line">      result = rowCountResult(sqlSession.insert(command.getName(), param));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (SqlCommandType.UPDATE == command.getType()) &#123;</span><br><span class="line">      Object param = method.convertArgsToSqlCommandParam(args);</span><br><span class="line">      result = rowCountResult(sqlSession.update(command.getName(), param));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (SqlCommandType.DELETE == command.getType()) &#123;</span><br><span class="line">      Object param = method.convertArgsToSqlCommandParam(args);</span><br><span class="line">      result = rowCountResult(sqlSession.delete(command.getName(), param));</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (SqlCommandType.SELECT == command.getType()) &#123;</span><br><span class="line">      <span class="keyword">if</span> (method.returnsVoid() &amp;&amp; method.hasResultHandler()) &#123;</span><br><span class="line">        executeWithResultHandler(sqlSession, args);</span><br><span class="line">        result = <span class="keyword">null</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.returnsMany()) &#123;</span><br><span class="line">        result = executeForMany(sqlSession, args);</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (method.returnsMap()) &#123;</span><br><span class="line">        result = executeForMap(sqlSession, args);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Object param = method.convertArgsToSqlCommandParam(args);</span><br><span class="line">        result = sqlSession.selectOne(command.getName(), param);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (SqlCommandType.FLUSH == command.getType()) &#123;</span><br><span class="line">        result = sqlSession.flushStatements();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> BindingException(<span class="string">&quot;Unknown execution method for: &quot;</span> + command.getName());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (result == <span class="keyword">null</span> &amp;&amp; method.getReturnType().isPrimitive() &amp;&amp; !method.returnsVoid()) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> BindingException(<span class="string">&quot;Mapper method &#x27;&quot;</span> + command.getName() </span><br><span class="line">          + <span class="string">&quot; attempted to return null from a method with a primitive return type (&quot;</span> + method.getReturnType() + <span class="string">&quot;).&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
@@ -499,6 +494,10 @@
   <div class="bar-inner">
   
   <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="../mybatis-01/" title="Mybatis 总体框架设计"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
     
     
     <li class="next">

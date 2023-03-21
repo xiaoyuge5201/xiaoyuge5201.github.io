@@ -18,12 +18,12 @@
   
   
   <title>docker安装 | 小余哥</title>
-  <meta name="description" content="新的服务器没有安装docker，使用docker命令时提示：docker: command not found错误信息  1. 更新yum包 1yum update  2.安装依赖软件包 1yum install -y yum-utils device-mapper-persistent-data lvm2  3.设置yum源 1yum-config-manager --add-repo http">
+  <meta name="description" content="新的服务器没有安装docker，使用docker命令时提示：docker: command not found错误信息 1. 更新yum包1yum update  2.安装依赖软件包1yum install -y yum-utils device-mapper-persistent-data lvm2  3.设置yum源1yum-config-manager --add-repo https:&#x2F;&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker安装">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/docker-01/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="新的服务器没有安装docker，使用docker命令时提示：docker: command not found错误信息  1. 更新yum包 1yum update  2.安装依赖软件包 1yum install -y yum-utils device-mapper-persistent-data lvm2  3.设置yum源 1yum-config-manager --add-repo http">
+<meta property="og:description" content="新的服务器没有安装docker，使用docker命令时提示：docker: command not found错误信息 1. 更新yum包1yum update  2.安装依赖软件包1yum install -y yum-utils device-mapper-persistent-data lvm2  3.设置yum源1yum-config-manager --add-repo https:&#x2F;&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/docker-01/1.png">
 <meta property="article:published_time" content="2021-12-09T13:20:57.000Z">
@@ -229,6 +229,31 @@
           <li>
             
             <div class="item-thumb">
+              <a href="../mybatis-01/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
+              </p>
+              <p class="item-title">
+                <a href="../mybatis-01/" class="title">Mybatis 总体框架设计</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-21T14:11:59.000Z" itemprop="datePublished">2023-03-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
               <a href="../mybatis-sql-excute-process/" class="thumb">
     
     
@@ -326,31 +351,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../redis-special-application-problems/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/07-Redis/">07 Redis</a>
-              </p>
-              <p class="item-title">
-                <a href="../redis-special-application-problems/" class="title">缓存穿透、击穿、雪崩、分布式锁</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-02-26T12:20:07.000Z" itemprop="datePublished">2023-02-26</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -426,24 +426,17 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <p>新的服务器没有安装docker，使用docker命令时提示：docker: command not found错误信息</p>
-<h5 id="1-更新yum包"><a class="markdownIt-Anchor" href="#1-更新yum包"></a> 1. 更新yum包</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br></pre></td></tr></table></figure>
-<h5 id="2安装依赖软件包"><a class="markdownIt-Anchor" href="#2安装依赖软件包"></a> 2.安装依赖软件包</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
-<h5 id="3设置yum源"><a class="markdownIt-Anchor" href="#3设置yum源"></a> 3.设置yum源</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
-<h5 id="4安装docker"><a class="markdownIt-Anchor" href="#4安装docker"></a> 4.安装docker</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">默认安装最新的docker稳定版本。</span></span><br><span class="line">yum install docker-ce</span><br></pre></td></tr></table></figure>
-<h5 id="5启动docker服务"><a class="markdownIt-Anchor" href="#5启动docker服务"></a> 5.启动docker服务</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-<h5 id="6设置开机自启动"><a class="markdownIt-Anchor" href="#6设置开机自启动"></a> 6.设置开机自启动</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br></pre></td></tr></table></figure>
-<h5 id="7-查看docker版本信息"><a class="markdownIt-Anchor" href="#7-查看docker版本信息"></a> 7. 查看docker版本信息</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
-<p><img src="/docker-01/1.png" alt="查看docker版本"><br>
-至此，解决。</p>
-<h5 id="8-停止所有容器"><a class="markdownIt-Anchor" href="#8-停止所有容器"></a> 8. 停止所有容器</h5>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop $(docker ps -a | awk &#x27;&#123; print $1&#125;&#x27; | tail -n +2)</span><br></pre></td></tr></table></figure>
+<h5 id="1-更新yum包"><a href="#1-更新yum包" class="headerlink" title="1. 更新yum包"></a>1. 更新yum包</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-安装依赖软件包"><a href="#2-安装依赖软件包" class="headerlink" title="2.安装依赖软件包"></a>2.安装依赖软件包</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-设置yum源"><a href="#3-设置yum源" class="headerlink" title="3.设置yum源"></a>3.设置yum源</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+<h5 id="4-安装docker"><a href="#4-安装docker" class="headerlink" title="4.安装docker"></a>4.安装docker</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">默认安装最新的docker稳定版本。</span></span><br><span class="line">yum install docker-ce</span><br></pre></td></tr></table></figure>
+<h5 id="5-启动docker服务"><a href="#5-启动docker服务" class="headerlink" title="5.启动docker服务"></a>5.启动docker服务</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<h5 id="6-设置开机自启动"><a href="#6-设置开机自启动" class="headerlink" title="6.设置开机自启动"></a>6.设置开机自启动</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br></pre></td></tr></table></figure>
+<h5 id="7-查看docker版本信息"><a href="#7-查看docker版本信息" class="headerlink" title="7. 查看docker版本信息"></a>7. 查看docker版本信息</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker version</span><br></pre></td></tr></table></figure>
+<p><img src="/docker-01/1.png" alt="查看docker版本"><br>至此，解决。</p>
+<h5 id="8-停止所有容器"><a href="#8-停止所有容器" class="headerlink" title="8. 停止所有容器"></a>8. 停止所有容器</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop $(docker ps -a | awk &#x27;&#123; print $1&#125;&#x27; | tail -n +2)</span><br></pre></td></tr></table></figure>
 
       
     </div>
