@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，分享一些技术教程以及日常踩坑记录。</description>
-    <pubDate>Tue, 21 Mar 2023 14:44:03 GMT</pubDate>
+    <pubDate>Wed, 22 Mar 2023 14:52:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>分布式理论及一致性算法</title>
+      <link>https://xiaoyuge5201.github.io/distributed-01/</link>
+      <guid>https://xiaoyuge5201.github.io/distributed-01/</guid>
+      <pubDate>Wed, 22 Mar 2023 13:51:24 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h2 id=&quot;什么是分布式系统&quot;&gt;&lt;a href=&quot;#什么是分布式系统&quot; class=&quot;headerlink&quot; title=&quot;什么是分布式系统&quot;&gt;&lt;</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
+      
+      
+    </item>
     
     <item>
       <title>Mybatis 总体框架设计</title>
