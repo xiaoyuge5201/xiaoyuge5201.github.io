@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>ContiPerf接口性能测试 | 小余哥</title>
+  <meta name="description" content="1. 简介ContiPerf是一个轻量级的测试工具，基于JUnit4开发，可用于接口级的性能测试，可以设置线程数和执行次数，通过限制最大时间和平均执行时间来进行效率测试。 2. 使用方法 添加依赖  123456&lt;dependency&gt;    &lt;groupId&gt;org.databene&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;conti">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ContiPerf接口性能测试">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/contiperf/index.html">
+<meta property="og:site_name" content="小余哥|猿无忧">
+<meta property="og:description" content="1. 简介ContiPerf是一个轻量级的测试工具，基于JUnit4开发，可用于接口级的性能测试，可以设置线程数和执行次数，通过限制最大时间和平均执行时间来进行效率测试。 2. 使用方法 添加依赖  123456&lt;dependency&gt;    &lt;groupId&gt;org.databene&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;conti">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/contiperf/1.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/contiperf/2.png">
+<meta property="article:published_time" content="2023-03-25T08:17:47.000Z">
+<meta property="article:modified_time" content="2023-03-25T13:28:51.211Z">
+<meta property="article:author" content="小余哥|猿无忧">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/contiperf/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/contiperf/index.html">
+  
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="../css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+</head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
+          <img class="img-circle img-rotate" src="../images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shanghai, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="../.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="../archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="../categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="../tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="../repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="../books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="../links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="../about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>路漫漫其修远兮，吾将上下而求索</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/01-Java/">01 Java</a>
+              </p>
+              <p class="item-title">
+                <a href="" class="title">ContiPerf接口性能测试</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-25T08:17:47.000Z" itemprop="datePublished">2023-03-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../distributed-01/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a>
+              </p>
+              <p class="item-title">
+                <a href="../distributed-01/" class="title">分布式理论及一致性算法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-22T13:51:24.000Z" itemprop="datePublished">2023-03-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../mybatis-01/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
+              </p>
+              <p class="item-title">
+                <a href="../mybatis-01/" class="title">Mybatis 总体框架设计</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-21T14:11:59.000Z" itemprop="datePublished">2023-03-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../mybatis-sql-excute-process/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
+              </p>
+              <p class="item-title">
+                <a href="../mybatis-sql-excute-process/" class="title">Mybatis执行一条SQL命令的过程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-21T13:07:32.000Z" itemprop="datePublished">2023-03-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../reflection/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/01-Java/">01 Java</a>
+              </p>
+              <p class="item-title">
+                <a href="../reflection/" class="title">Java 反射机制详解</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-18T14:10:52.000Z" itemprop="datePublished">2023-03-18</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.25px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">接口设计</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+    </div>
+  </div>
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1. 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">2. 使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-PerfTest%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-text">3. @PerfTest参数说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Required%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-text">4. @Required参数说明</span></a></li></ol>
+      
+      
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-contiperf" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ContiPerf接口性能测试
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="" class="article-date">
+	  <time datetime="2023-03-25T08:17:47.000Z" itemprop="datePublished">2023-03-25</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="../categories/01-Java/">01 Java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="../tags/java/" rel="tag">java</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="#comments" class="article-comment-link">评论</a></span>
+        
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="/css/content.css">
+
+<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><p>ContiPerf是一个轻量级的测试工具，基于JUnit4开发，可用于接口级的性能测试，可以设置线程数和执行次数，通过限制最大时间和平均执行时间来进行效率测试。</p>
+<h3 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2. 使用方法"></a>2. 使用方法</h3><ol>
+<li><p>添加依赖</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.databene<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>contiperf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>创建Domain</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;g_data_sources&quot;)</span></span><br><span class="line"><span class="meta">@org</span>.hibernate.annotations.Table(appliesTo = <span class="string">&quot;g_data_sources&quot;</span>, comment = <span class="string">&quot;数据源信息表&quot;</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSources</span> <span class="keyword">extends</span> <span class="title">BasePO</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column(name = &quot;name&quot;, columnDefinition = &quot;varchar(30) NOT NULL comment &#x27;数据库名&#x27;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column(name = &quot;url&quot;, columnDefinition = &quot;varchar(100) NOT NULL comment &#x27;数据库ip&#x27;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String url;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column(name = &quot;username&quot;, columnDefinition = &quot;varchar(30) NOT NULL comment &#x27;数据库连接用户名&#x27;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column(name = &quot;pwd&quot;, columnDefinition = &quot;varchar(30) default &#x27;&#x27; comment &#x27;数据库连接密码&#x27;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String pwd;</span><br><span class="line">    <span class="comment">//-----------------省略getter/setter方法 ---------------</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>创建查询代码</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository(&quot;dataSourcesDaoImpl&quot;)</span></span><br><span class="line"><span class="meta">@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSourcesDaoImpl</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PersistenceContext</span></span><br><span class="line">    <span class="keyword">private</span> EntityManager entityManager;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSources <span class="title">findById</span><span class="params">(Integer id)</span> </span>&#123;</span><br><span class="line">        List&lt;DataSources&gt; result = entityManager.createQuery(<span class="string">&quot;from DataSources e where e.id = &quot;</span> + id).getResultList();</span><br><span class="line">        <span class="keyword">if</span> (result != <span class="keyword">null</span> &amp;&amp; !result.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> result.get(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>创建测试类</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisGeneratorApplicationTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> DataSourcesDaoImpl dataSourcesDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Rule</span></span><br><span class="line">    <span class="keyword">public</span> ContiPerfRule rule = <span class="keyword">new</span> ContiPerfRule();    <span class="comment">//重点</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="comment">//10个线程 执行100次</span></span><br><span class="line">    <span class="meta">@PerfTest(invocations = 100, threads = 10)</span>           <span class="comment">//重点</span></span><br><span class="line">    <span class="comment">//指定每次执行的最长时间/平均时间/总时间</span></span><br><span class="line">    <span class="comment">// @Required(max = 1200, average = 250, totalTime = 60000)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> id = (<span class="keyword">int</span>) (Math.random() * <span class="number">60</span>);</span><br><span class="line">        dataSourcesDao.findById(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>JUnit执行完毕，会在<code>target/contiperf-report</code>中有相关的执行结果</p>
+<p><img src="/contiperf/1.png"></p>
+</li>
+</ol>
+<ol start="6">
+<li><p>可以使用浏览器打开查看结果</p>
+<p><img src="/contiperf/2.png"></p>
+<ul>
+<li><strong>Measured invocations</strong>:    请求次数</li>
+<li><strong>Thread Count</strong>:    线程数</li>
+<li><strong>Execution time</strong>：总执行时间</li>
+<li><strong>Throughput</strong>:   吞吐量，每秒效率 TPS</li>
+<li><strong>Min. latency</strong>:    最短响应时间</li>
+<li><strong>Average latency</strong>: 平均响应时间</li>
+<li><strong>Median</strong>:    TP50响应时间</li>
+<li><strong>90%</strong>: TP90响应时间，指在一个时间段内（如5分钟），统计该方法每次调用所消耗的时间，并将这些时间按从小到大的顺序进行排序，取第90%的那个值作为TP90 值；配置此监控指标对应的报警阀值后，需要保证在这个时间段内该方法所有调用的消耗时间至少有90%的值要小于此阀值，否则系统将会报警</li>
+<li><strong>Max latency</strong>:   最长响应时间</li>
+</ul>
+</li>
+</ol>
+<p>   报告图片显示不出来，是源码中使用了google图表，需要在线！！并且源码中写死了<code>cht=lxy</code>，可以参考<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/13494178/contiperf-html-report">ContiPerf html报告</a></p>
+<h3 id="3-PerfTest参数说明"><a href="#3-PerfTest参数说明" class="headerlink" title="3. @PerfTest参数说明"></a>3. @PerfTest参数说明</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Target(&#123; METHOD, TYPE &#125;)</span></span><br><span class="line"><span class="meta">@Retention(RUNTIME)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> PerfTest &#123;</span><br><span class="line"></span><br><span class="line">true<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 常用的就是这个参数 执行次数  与线程无关</span></span><br><span class="line"><span class="comment">	 * The total number of invocations to perform - use this alternatively to &#123;<span class="doctag">@link</span> #duration()&#125;.</span></span><br><span class="line"><span class="comment">	 * The default value is one. <span class="doctag">@see</span> #duration()</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">true<span class="function"><span class="keyword">int</span> <span class="title">invocations</span><span class="params">()</span> <span class="keyword">default</span>  1</span>;</span><br><span class="line"></span><br><span class="line">true<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 间隔时间  可以暂时不用  因为性能测试主要是测试并发</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@PerfTest</span>(invocations = 300, threads = 2, duration = 100)，如果执行方法300次的时候执行时间还没到100ms，则继续执行到满足执行时间等于100ms，如果执行到50次的时候已经100ms了，则会继续执行之100次。</span></span><br><span class="line"><span class="comment">	 * The number of milliseconds to run and repeat the test with the full number of configured threads -</span></span><br><span class="line"><span class="comment">	 * use this alternatively to &#123;<span class="doctag">@link</span> #invocations()&#125;. When using a &#123;<span class="doctag">@link</span> #rampUp()&#125;, the ramp-up times</span></span><br><span class="line"><span class="comment">	 * add to the duration.</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> #duration()</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">true<span class="function"><span class="keyword">int</span> <span class="title">duration</span><span class="params">()</span> <span class="keyword">default</span> -1</span>;</span><br><span class="line"></span><br><span class="line">true<span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 线程数 这个比较好理解</span></span><br><span class="line"><span class="comment">     * The number of threads which concurrently invoke the test. The default value is 1.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">true<span class="function"><span class="keyword">int</span> <span class="title">threads</span><span class="params">()</span> <span class="keyword">default</span>  1</span>;</span><br><span class="line"></span><br><span class="line">true<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * The number of milliseconds to wait before each thread is added to the currently active threads.</span></span><br><span class="line"><span class="comment">	 * On &#123;<span class="doctag">@link</span> #duration()&#125;-based tests, the total ramp-up time of rampUp * (threads - 1) is added to the</span></span><br><span class="line"><span class="comment">	 * configured duration.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">true<span class="function"><span class="keyword">int</span> <span class="title">rampUp</span><span class="params">()</span> <span class="keyword">default</span>  0</span>;</span><br><span class="line"></span><br><span class="line">true<span class="comment">/** The number of milliseconds to wait before the actual measurement and requirements monitoring is activated.</span></span><br><span class="line"><span class="comment">	 *  Use this to exclude ramp-up times from measurement or wait some minutes before dynamic optimizations are</span></span><br><span class="line"><span class="comment">	 *  applied (like code optimization or cache population). */</span></span><br><span class="line">true<span class="function"><span class="keyword">int</span> <span class="title">warmUp</span><span class="params">()</span> <span class="keyword">default</span>  0</span>;</span><br><span class="line"></span><br><span class="line">true<span class="comment">/** Set this to true, if execution should stop with a failure message as soon as a configured &#123;<span class="doctag">@link</span> Required#max()&#125;</span></span><br><span class="line"><span class="comment">	 * value is violated. Set it to false, if you are interested in performing a full measurement to get percentiles,</span></span><br><span class="line"><span class="comment">	 * throughput and more. The default value is false. */</span></span><br><span class="line">true<span class="function"><span class="keyword">boolean</span> <span class="title">cancelOnViolation</span><span class="params">()</span> <span class="keyword">default</span> <span class="keyword">false</span></span>;</span><br><span class="line"></span><br><span class="line">true<span class="comment">/** The class of a &#123;<span class="doctag">@link</span> WaitTimer&#125; implementation by which a wait time can be incurred between test invocations */</span></span><br><span class="line">trueClass&lt;? extends WaitTimer&gt; timer() <span class="keyword">default</span> None.class;</span><br><span class="line"></span><br><span class="line">true<span class="comment">/** The parameters to initialize the &#123;<span class="doctag">@link</span> WaitTimer&#125;.</span></span><br><span class="line"><span class="comment">	 * The meaning of the values is individual for the WaitTimer implementation. */</span></span><br><span class="line">true<span class="keyword">double</span>[] timerParams() <span class="keyword">default</span> &#123; &#125;;</span><br><span class="line"></span><br><span class="line">true<span class="comment">/** One ore more &#123;<span class="doctag">@link</span> Clock&#125; classes to use for time measurement.</span></span><br><span class="line"><span class="comment">	 * The first one specified is the one relevant for requirements verification. */</span></span><br><span class="line">trueClass&lt;? extends Clock&gt;[] clocks() <span class="keyword">default</span> &#123; &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-Required参数说明"><a href="#4-Required参数说明" class="headerlink" title="4. @Required参数说明"></a>4. @Required参数说明</h3><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">@Required(throughput = 20)</td>
+<td align="center">要求每秒至少执行20个测试</td>
+</tr>
+<tr>
+<td align="center">@Required(average = 50)</td>
+<td align="center">要求平均执行时间不超过50ms</td>
+</tr>
+<tr>
+<td align="center">@Required(median = 45)</td>
+<td align="center">要求所有执行的50%不超过45ms</td>
+</tr>
+<tr>
+<td align="center">@Required(max = 2000)</td>
+<td align="center">要求没有测试超过2s</td>
+</tr>
+<tr>
+<td align="center">@Required(totalTime = 5000)</td>
+<td align="center">要求总的执行时间不超过5s</td>
+</tr>
+<tr>
+<td align="center">@Required(percentile90 = 3000)</td>
+<td align="center">要求90%的测试不超过3s</td>
+</tr>
+<tr>
+<td align="center">@Required(percentile95 = 5000)</td>
+<td align="center">要求95%的测试不超过5s</td>
+</tr>
+<tr>
+<td align="center">@Required(percentile99 = 10000)</td>
+<td align="center">要求99%的测试不超过10s</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoyuge5201.github.io/contiperf/" title="ContiPerf接口性能测试" target="_blank" rel="external">https://xiaoyuge5201.github.io/contiperf/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！本博客如有侵权，请联系删除！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="../images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
+        <div>分享一些技术教程与实践，以及日常踩坑记录。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="../distributed-01/" title="分布式理论及一致性算法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="../images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2023 小余哥|猿无忧
+        
+<!--         <div class="publishby"> -->
+<!--         	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+<!--         </div> -->
+        <br>
+        <a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2021000267号-2</a>
+    </div>
+</footer>
+  <script src="/js/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="../js/plugin.min.js"></script>
+
+
+<script src="../js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:xiaoyuge5201.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<div id="go-top">
+    </div>
+        <style type="text/css">
+        #go-top {
+            width:32px;
+            height:32px;
+            position:relative;
+            border-radius:2px;
+            position:fixed;
+            right:10px;
+            bottom:100px;
+            cursor:pointer;
+            display:none;
+            z-index:10;
+        }
+        #go-top:after {
+            content:url("/images/ico-to-top.png");
+            position:absolute;
+            left:0;
+            width: 32px;
+            height: 32px;
+            background-size: contain;
+        }
+
+        </style>
+        <script>
+            $(function() {
+                var o = $("#go-top");
+                $(window).scroll(function() {
+                    //监听滚动事件
+                    300 < document.documentElement.scrollTop  ? o.show(300) : o.hide(200);
+                })
+                 //回到顶部
+                 $("#go-top").click(function() {
+                    return $("html,body").animate({ scrollTop: 0 })
+                 })
+            })
+        </script>
+
+
+   <!--  -->
+  <style>
+    .copy-btn {
+          display: inline-block;
+          padding: 6px 12px;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 20px;
+          color: #333;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          background-color: #eee;
+          background-image: linear-gradient(#fcfcfc, #eee);
+          border: 1px solid #d5d5d5;
+          border-radius: 3px;
+          user-select: none;
+          outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+          transition: opacity .3s ease-in-out;
+          opacity: 0;
+          padding: 2px 10px;
+          position: absolute;
+          right: 4px;
+          color: #4a4886;
+          top: 3px;
+          z-index: 10;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+        .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    addLoadEvent(()=>{
+      $('.highlight').each(function (i, e) {
+        var $wrap = $('<div>').addClass('highlight-wrap')
+        $(e).after($wrap)
+        $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+          var code = $(this).parent().find(".code")[0].innerText
+          
+              code += ""
+          
+          var ta = document.createElement('textarea')
+          document.body.appendChild(ta)
+          ta.style.position = 'absolute'
+          ta.style.top = '0px'
+          ta.style.left = '0px'
+          ta.value = code
+          ta.select()
+          ta.focus()
+          var result = document.execCommand('copy')
+          document.body.removeChild(ta)
+          
+            if(result)$(this).text('复制成功')
+            else $(this).text('复制失败')
+          
+          $(this).blur()
+        })).on('mouseleave', function (e) {
+          var $b = $(this).find('.copy-btn')
+          setTimeout(function () {
+            $b.text('Copy')
+          }, 300)
+        }).append(e)
+      })
+    })
+  </script>
+<!--  -->
+</body>
+</html>
