@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://xiaoyuge5201.github.io/get-resources-file/</loc>
+    <lastmod>2023-03-26</lastmod>
+  </url>
+  <url>
     <loc>https://xiaoyuge5201.github.io/selenium/</loc>
     <lastmod>2023-03-26</lastmod>
   </url>
@@ -9,24 +13,24 @@
     <lastmod>2023-03-26</lastmod>
   </url>
   <url>
-    <loc>https://xiaoyuge5201.github.io/linux-minio/</loc>
+    <loc>https://xiaoyuge5201.github.io/mybatis-sql-excute-process/</loc>
+    <lastmod>2023-03-26</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/mybatis-01/</loc>
     <lastmod>2023-03-26</lastmod>
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/distributed-01/</loc>
-    <lastmod>2023-03-25</lastmod>
+    <lastmod>2023-03-26</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/linux-minio/</loc>
+    <lastmod>2023-03-26</lastmod>
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/intern/</loc>
     <lastmod>2023-03-22</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/mybatis-01/</loc>
-    <lastmod>2023-03-22</lastmod>
-  </url>
-  <url>
-    <loc>https://xiaoyuge5201.github.io/mybatis-sql-excute-process/</loc>
-    <lastmod>2023-03-21</lastmod>
   </url>
   <url>
     <loc>https://xiaoyuge5201.github.io/distributed-message-middleware1/</loc>
