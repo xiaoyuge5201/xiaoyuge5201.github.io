@@ -17,24 +17,23 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>springCloud之FeignClient访问微服务接口缓慢 | 小余哥</title>
-  <meta name="description" content="问题描述 逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为： 程序启动第一次访问初始化1.2秒左右，还可以理解。 但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。 但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。  原因排查1 查看连接查实的接口  发现接口调用的是这个地址">
+  <title>Springboot集成Selenium | 小余哥</title>
+  <meta name="description" content="1. 介绍Selenium Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE（7, 8, 9, 10, 11），Mozilla Firefox，Safari，Google Chrome，Opera，Edge等。这个工具的主要功能包括：测试与浏览器的兼容性——测试应用程序看是否能够很好得工作在不同浏览器和操">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springCloud之FeignClient访问微服务接口缓慢">
-<meta property="og:url" content="https://xiaoyuge5201.github.io/bug-sprigCloud/index.html">
+<meta property="og:title" content="Springboot集成Selenium">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/selenium/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="问题描述 逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为： 程序启动第一次访问初始化1.2秒左右，还可以理解。 但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。 但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。  原因排查1 查看连接查实的接口  发现接口调用的是这个地址">
+<meta property="og:description" content="1. 介绍Selenium Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE（7, 8, 9, 10, 11），Mozilla Firefox，Safari，Google Chrome，Opera，Edge等。这个工具的主要功能包括：测试与浏览器的兼容性——测试应用程序看是否能够很好得工作在不同浏览器和操">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/02.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/01.png">
-<meta property="article:published_time" content="2021-07-03T09:08:10.000Z">
-<meta property="article:modified_time" content="2023-03-21T13:52:36.579Z">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/selenium/1.png">
+<meta property="article:published_time" content="2023-03-26T00:59:15.000Z">
+<meta property="article:modified_time" content="2023-03-26T02:40:59.644Z">
 <meta property="article:author" content="小余哥|猿无忧">
-<meta property="article:tag" content="SpringCloud">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/02.png">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/selenium/1.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://xiaoyuge5201.github.io/bug-sprigCloud/index.html">
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/selenium/index.html">
   
   
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -230,7 +229,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../selenium/" class="thumb">
+              <a href="" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -244,7 +243,7 @@
                 <a class="category-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a>
               </p>
               <p class="item-title">
-                <a href="../selenium/" class="title">Springboot集成Selenium</a>
+                <a href="" class="title">Springboot集成Selenium</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-03-26T00:59:15.000Z" itemprop="datePublished">2023-03-26</time>
@@ -374,14 +373,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-bug-sprigCloud" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-selenium" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      springCloud之FeignClient访问微服务接口缓慢
+      Springboot集成Selenium
     </h1>
   
 
@@ -390,19 +389,19 @@
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
 	<a href="" class="article-date">
-	  <time datetime="2021-07-03T09:08:10.000Z" itemprop="datePublished">2021-07-03</time>
+	  <time datetime="2023-03-26T00:59:15.000Z" itemprop="datePublished">2023-03-26</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="../categories/02-Spring/">02 Spring</a>
+    <a class="article-category-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="../tags/SpringCloud/" rel="tag">SpringCloud</a>
+	<a class="article-tag-link-link" href="../tags/java/" rel="tag">java</a>
   </span>
 
 
@@ -419,28 +418,35 @@
         
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h3>
-<p>逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：<br>
-程序启动第一次访问初始化1.2秒左右，还可以理解。<br>
-但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。<br>
-但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。</p>
-<h3 id="原因排查1"><a class="markdownIt-Anchor" href="#原因排查1"></a> 原因排查1</h3>
-<p>查看连接查实的接口<br>
-<img src="/bug-sprigCloud/02.png" alt="请求缓慢2"><br>
-发现接口调用的是这个地址，其实是别人启动项目的时候吧自己的ip注册到了eureka注册中心，导致接口有时候走的是getway，有时候又是走的别人的接口</p>
-<p>解决方法：eureka.client.register-with-eureka 为false  这样就不会注册到eureka注册中心了</p>
-<h3 id="原因排查2"><a class="markdownIt-Anchor" href="#原因排查2"></a> 原因排查2</h3>
+        <link rel="stylesheet" type="text/css" href="/css/content.css">
+<h3 id="1-介绍selenium"><a class="markdownIt-Anchor" href="#1-介绍selenium"></a> 1. 介绍Selenium</h3>
+<p>Selenium是一个用于Web应用程序测试的工具。Selenium测试直接运行在浏览器中，就像真正的用户在操作一样。支持的浏览器包括IE（7, 8, 9, 10, 11），Mozilla Firefox，Safari，Google Chrome，Opera，Edge等。这个工具的主要功能包括：测试与浏览器的兼容性——测试应用程序看是否能够很好得工作在不同浏览器和操作系统之上。测试系统功能——创建回归测试检验软件功能和用户需求。<a target="_blank" rel="noopener" href="http://xn--2qq52e0jbb710ad60a65e0lcoxis64cwc6aga.Net">支持自动录制动作和自动生成.Net</a>、Java、Perl等不同语言的测试脚本。</p>
+<h3 id="2-简单demo"><a class="markdownIt-Anchor" href="#2-简单demo"></a> 2. 简单Demo</h3>
 <ol>
-<li>查看日志<br>
-<img src="/bug-sprigCloud/01.png" alt="请求缓慢"><br>
-查看是否是hystrix 配置的时间小于了ribbon的时间</li>
+<li>
+<p>下载驱动<code>chromedriver</code></p>
+ <figure class="highlight http"><figcaption><span>request</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 根据自己chrome的版本并下载相对应的驱动</span><br><span class="line">http://chromedriver.storage.googleapis.com/index.html</span><br></pre></td></tr></table></figure>
+<p><img src="/selenium/1.png" alt></p>
+</li>
+<li>
+<p>配置<code>chromedriver</code></p>
+<p>下载好后解压放到你喜欢的位置，我这里放到D:\Program Files\ChromeDriver文件夹下，记好这个路径配置要用到。接着右键我的电脑==&gt;属性==&gt;高级系统设置==&gt;环境变量==&gt;选中系统变量中的Path，点击编辑，点击新建，把前面提到的文件路径添加进去，点击确定至窗口关闭。到此配置完成</p>
+</li>
+<li>
+<p>引入依赖</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.seleniumhq.selenium<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>selenium-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 用到了@WithMockUser注解 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.security<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-security-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">   </span><br><span class="line"><span class="comment">&lt;!-- 解决报错：com.google.common.util.concurrent.SimpleTimeLimiter.create(Ljava/util/concurrent/ExecutorService;)Lcom/google/common/util/concurrent/SimpleTimeLimiter; --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>31.1-jre<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>编写测试类</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="comment">//设置测试端口号</span></span><br><span class="line"><span class="meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT, properties = &#123;&quot;server.port=1000&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SeleniumTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> TestRestTemplate restRestTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ChromeDriver driver;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeClass</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">openBrowser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//初始化参数，chromeDriver驱动包的路径</span></span><br><span class="line">        System.setProperty(<span class="string">&quot;webdriver.chrome.driver&quot;</span>, <span class="string">&quot;/Users/xiaoyuge/Desktop/browser/chromedriver&quot;</span>);</span><br><span class="line">        driver = <span class="keyword">new</span> ChromeDriver();</span><br><span class="line">        <span class="comment">// 最大化浏览器</span></span><br><span class="line">        driver.manage().window().maximize();</span><br><span class="line">        <span class="comment">//加载URL</span></span><br><span class="line">        driver.get(<span class="string">&quot;http://localhost:8082/mpg/login/auth1&quot;</span>);</span><br><span class="line">        <span class="comment">//等待加载完成</span></span><br><span class="line">        driver.manage().timeouts().implicitlyWait(<span class="number">10</span>, TimeUnit.SECONDS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterClass</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">closeBrowser</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        driver.quit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loginTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//获取页面元素</span></span><br><span class="line">        WebElement username = driver.findElementById(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">        WebElement password = driver.findElementById(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">        WebElement submit = driver.findElementByClassName(<span class="string">&quot;btn&quot;</span>);</span><br><span class="line">        username.sendKeys(<span class="string">&quot;admin&quot;</span>);</span><br><span class="line">        password.sendKeys(<span class="string">&quot;admin1&quot;</span>);</span><br><span class="line">        <span class="comment">//提交表单</span></span><br><span class="line">        submit.click();</span><br><span class="line">        <span class="comment">//获取cookies</span></span><br><span class="line">        Set&lt;org.openqa.selenium.Cookie&gt; cookies = driver.manage().getCookies();</span><br><span class="line">        System.out.println(<span class="string">&quot;Size: &quot;</span> + cookies.size());</span><br><span class="line">        Iterator&lt;Cookie&gt; itr = cookies.iterator();</span><br><span class="line">        CookieStore cookieStore = <span class="keyword">new</span> BasicCookieStore();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (itr.hasNext()) &#123;</span><br><span class="line">            Cookie cookie = itr.next();</span><br><span class="line">            BasicClientCookie basicClientCo = <span class="keyword">new</span> BasicClientCookie(cookie.getName(), cookie.getValue());</span><br><span class="line">            basicClientCo.setDomain(cookie.getDomain());</span><br><span class="line">            basicClientCo.setPath(cookie.getPath());</span><br><span class="line">            cookieStore.addCookie(basicClientCo);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如此便能拿到登录后的cookie，后续需要访问该网站其他网页，只需将拿到的cookie放到请求中“骗过”服务器即可</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="meta">@WithMockUser(username = &quot;admin&quot;, password = &quot;admin1&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        DataSources dataSources = restRestTemplate.getForObject(<span class="string">&quot;&quot;</span>, DataSources.class);</span><br><span class="line">        Assert.assertEquals(<span class="string">&quot;22&quot;</span>, dataSources.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -451,7 +457,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://xiaoyuge5201.github.io/bug-sprigCloud/" title="springCloud之FeignClient访问微服务接口缓慢" target="_blank" rel="external">https://xiaoyuge5201.github.io/bug-sprigCloud/</a>
+      <a href="https://xiaoyuge5201.github.io/selenium/" title="Springboot集成Selenium" target="_blank" rel="external">https://xiaoyuge5201.github.io/selenium/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -482,10 +488,6 @@
   </article>
   
     
-  <section id="comments">
-  	
-  </section>
-
 
   
 </div>
@@ -495,13 +497,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="../hexo-encrypt/" title="Hexo博客加密"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="../ConcurrentHashMap/" title="ConcurrentHashMap线程安全"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="../contiperf/" title="ContiPerf接口性能测试"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
@@ -642,8 +640,6 @@ window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
 
 
 
-
-   
 
 
 

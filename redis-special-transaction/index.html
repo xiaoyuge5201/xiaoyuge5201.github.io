@@ -18,12 +18,12 @@
   
   
   <title>Redis事务操作（六） | 小余哥</title>
-  <meta name="description" content="1. Redis事务定义Redis事务是一个单独的隔离操作，事务中的所有命令都会序列化、按顺序的执行，事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。 Redis事务的主要作用就是串联多个命令防止别的命令插队。 2. Multi、Exec、discard从输入Multi命令开始，输入的命令都会依次进入命令队列中，但不会立即执行，直到输入Exec后，redis会将之前的命令依次执行。">
+  <meta name="description" content="1. Redis事务定义 Redis事务是一个单独的隔离操作，事务中的所有命令都会序列化、按顺序的执行，事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。 Redis事务的主要作用就是串联多个命令防止别的命令插队。  2. Multi、Exec、discard 从输入Multi命令开始，输入的命令都会依次进入命令队列中，但不会立即执行，直到输入Exec后，redis会将之前的命令依次">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis事务操作（六）">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/redis-special-transaction/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. Redis事务定义Redis事务是一个单独的隔离操作，事务中的所有命令都会序列化、按顺序的执行，事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。 Redis事务的主要作用就是串联多个命令防止别的命令插队。 2. Multi、Exec、discard从输入Multi命令开始，输入的命令都会依次进入命令队列中，但不会立即执行，直到输入Exec后，redis会将之前的命令依次执行。">
+<meta property="og:description" content="1. Redis事务定义 Redis事务是一个单独的隔离操作，事务中的所有命令都会序列化、按顺序的执行，事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。 Redis事务的主要作用就是串联多个命令防止别的命令插队。  2. Multi、Exec、discard 从输入Multi命令开始，输入的命令都会依次进入命令队列中，但不会立即执行，直到输入Exec后，redis会将之前的命令依次">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-transaction/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-transaction/2.png">
@@ -234,6 +234,31 @@
           <li>
             
             <div class="item-thumb">
+              <a href="../selenium/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a>
+              </p>
+              <p class="item-title">
+                <a href="../selenium/" class="title">Springboot集成Selenium</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-26T00:59:15.000Z" itemprop="datePublished">2023-03-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
               <a href="../contiperf/" class="thumb">
     
     
@@ -245,7 +270,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/01-Java/">01 Java</a>
+                <a class="category-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a>
               </p>
               <p class="item-title">
                 <a href="../contiperf/" class="title">ContiPerf接口性能测试</a>
@@ -331,31 +356,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../reflection/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/01-Java/">01 Java</a>
-              </p>
-              <p class="item-title">
-                <a href="../reflection/" class="title">Java 反射机制详解</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-03-18T14:10:52.000Z" itemprop="datePublished">2023-03-18</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -381,7 +381,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Redis%E4%BA%8B%E5%8A%A1%E5%AE%9A%E4%B9%89"><span class="toc-text">1. Redis事务定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Multi%E3%80%81Exec%E3%80%81discard"><span class="toc-text">2. Multi、Exec、discard</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">2.1 常用命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-text">3. 事务的错误处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BA%8B%E5%8A%A1%E5%86%B2%E7%AA%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">4. 事务冲突的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E6%82%B2%E8%A7%82%E9%94%81"><span class="toc-text">4.1 悲观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E4%B9%90%E8%A7%82%E9%94%81"><span class="toc-text">4.2 乐观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-watch%E7%9B%91%E8%A7%86"><span class="toc-text">4.3 watch监视</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-unwatch%EF%BC%9A%E5%8F%96%E6%B6%88%E7%9B%91%E8%A7%86"><span class="toc-text">4.4 unwatch：取消监视</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Redis%E4%BA%8B%E5%8A%A1%E7%9A%843%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-text">5. Redis事务的3大特性</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-redis%E4%BA%8B%E5%8A%A1%E5%AE%9A%E4%B9%89"><span class="toc-text"> 1. Redis事务定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-multi-exec-discard"><span class="toc-text"> 2. Multi、Exec、discard</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#21-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text"> 2.1 常用命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BA%8B%E5%8A%A1%E7%9A%84%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-text"> 3. 事务的错误处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%BA%8B%E5%8A%A1%E5%86%B2%E7%AA%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text"> 4. 事务冲突的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#41-%E6%82%B2%E8%A7%82%E9%94%81"><span class="toc-text"> 4.1 悲观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#42-%E4%B9%90%E8%A7%82%E9%94%81"><span class="toc-text"> 4.2 乐观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#43-watch%E7%9B%91%E8%A7%86"><span class="toc-text"> 4.3 watch监视</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#44-unwatch%E5%8F%96%E6%B6%88%E7%9B%91%E8%A7%86"><span class="toc-text"> 4.4 unwatch：取消监视</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-redis%E4%BA%8B%E5%8A%A1%E7%9A%843%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-text"> 5. Redis事务的3大特性</span></a></li></ol>
       
       
     </nav>
@@ -443,77 +443,103 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-
-<h3 id="1-Redis事务定义"><a href="#1-Redis事务定义" class="headerlink" title="1. Redis事务定义"></a>1. Redis事务定义</h3><p>Redis事务是一个单独的隔离操作，事务中的所有命令都会序列化、按顺序的执行，事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。</p>
+<h3 id="1-redis事务定义"><a class="markdownIt-Anchor" href="#1-redis事务定义"></a> 1. Redis事务定义</h3>
+<p>Redis事务是一个单独的隔离操作，事务中的所有命令都会序列化、按顺序的执行，事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。</p>
 <p><strong>Redis事务的主要作用就是串联多个命令防止别的命令插队</strong>。</p>
-<h3 id="2-Multi、Exec、discard"><a href="#2-Multi、Exec、discard" class="headerlink" title="2. Multi、Exec、discard"></a>2. Multi、Exec、discard</h3><p>从输入<code>Multi</code>命令开始，输入的命令都会依次进入命令队列中，但不会立即执行，直到输入<code>Exec</code>后，redis会将之前的命令依次执行。</p>
+<h3 id="2-multi-exec-discard"><a class="markdownIt-Anchor" href="#2-multi-exec-discard"></a> 2. Multi、Exec、discard</h3>
+<p>从输入<code>Multi</code>命令开始，输入的命令都会依次进入命令队列中，但不会立即执行，直到输入<code>Exec</code>后，redis会将之前的命令依次执行。</p>
 <p>组队的过程中可以通过<code>discard</code>放弃组队。</p>
 <p>Redis事务分2个阶段：</p>
 <ul>
-<li><p>组队阶段：只是将所有的命令加入队列</p>
+<li>
+<p>组队阶段：只是将所有的命令加入队列</p>
 </li>
-<li><p>执行阶段：依次执行队列中的命令，在执行这些命令的过程中，不会被其他客户端发送的请求命令插队或者打断。</p>
+<li>
+<p>执行阶段：依次执行队列中的命令，在执行这些命令的过程中，不会被其他客户端发送的请求命令插队或者打断。</p>
 </li>
 </ul>
-<p><img src="/redis-special-transaction/1.png"></p>
-<h4 id="2-1-常用命令"><a href="#2-1-常用命令" class="headerlink" title="2.1 常用命令"></a>2.1 常用命令</h4><ol>
-<li><strong>multi</strong>： 标记一个事务块的开始<blockquote>
+<p><img src="/redis-special-transaction/1.png" alt></p>
+<h4 id="21-常用命令"><a class="markdownIt-Anchor" href="#21-常用命令"></a> 2.1 常用命令</h4>
+<ol>
+<li>
+<p><strong>multi</strong>： 标记一个事务块的开始</p>
+<blockquote>
 <p>标记一个事务的开始，事务块内的多条命令会按照先后顺序被放进一个队列中，最后由exec命令原子性(atomic)的执行。</p>
 </blockquote>
- 示例： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi    #标记事务开始</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr userId     # 多条命令按顺序入队，返回值为QUEUED，表示这个命令加入队列了，还没有被执行。</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr userId</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr userId</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; ping</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec          #执行</span><br><span class="line">1) (integer) 1</span><br><span class="line">2) (integer) 2</span><br><span class="line">3) (integer) 3</span><br><span class="line">4) PONG                           #如果ping通了，返回pong</span><br></pre></td></tr></table></figure></li>
-<li><strong>exec</strong>：执行所有事务块内的命令<blockquote>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi    #标记事务开始</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr userId     # 多条命令按顺序入队，返回值为QUEUED，表示这个命令加入队列了，还没有被执行。</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr userId</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr userId</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; ping</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec          #执行</span><br><span class="line">1) (integer) 1</span><br><span class="line">2) (integer) 2</span><br><span class="line">3) (integer) 3</span><br><span class="line">4) PONG                           #如果ping通了，返回pong</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>exec</strong>：执行所有事务块内的命令</p>
+<blockquote>
 <p>执行事务块内的所有命令</p>
 <p>加入某个（某些）key正处于watch命令的监视之下，且事务块有和这个（这些）key相关的命令，那么exec命令只在这个(这些)key没有被其他命令所改动的情况下执行并生效，否则该事务被打断abort</p>
 <p>当操作被打断是，返回空值<code>nil</code></p>
 </blockquote>
- 示例1： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; watch lock lock_times     #watch监听多个key </span><br><span class="line">OK  </span><br><span class="line">127.0.0.1:6379&gt; multi                     #开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; set lock &quot;hangz&quot;      #设置值</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr lock_times</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec                  #执行</span><br><span class="line">1) OK</span><br><span class="line">2) (integer) 1</span><br></pre></td></tr></table></figure>
- 示例2： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; watch k1 k2</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; set k1 v1         #另外一个客户端执行了set k1 aaa，修改了k1的值</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr k2</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec              # 因为k1被修改，事务执行失败</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure></li>
-<li><strong>discard</strong>：取消事务<blockquote>
+<p>示例1：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; watch lock lock_times     #watch监听多个key </span><br><span class="line">OK  </span><br><span class="line">127.0.0.1:6379&gt; multi                     #开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; set lock &quot;hangz&quot;      #设置值</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr lock_times</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec                  #执行</span><br><span class="line">1) OK</span><br><span class="line">2) (integer) 1</span><br></pre></td></tr></table></figure>
+<p>示例2：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; watch k1 k2</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; set k1 v1         #另外一个客户端执行了set k1 aaa，修改了k1的值</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr k2</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec              # 因为k1被修改，事务执行失败</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><strong>discard</strong>：取消事务</p>
+<blockquote>
 <p>取消事务，放弃执行事务块内的所有命令。 总是返回 OK</p>
 </blockquote>
- 示例： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; ping</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; set name xiaoyuge</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; discard</span><br><span class="line">OK</span><br></pre></td></tr></table></figure></li>
+<p>示例：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; ping</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; set name xiaoyuge</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; discard</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="3-事务的错误处理"><a href="#3-事务的错误处理" class="headerlink" title="3. 事务的错误处理"></a>3. 事务的错误处理</h3><ol>
-<li><p>情况一：组队中命令有误，导致所有命令取消执行</p>
-<p> <img src="/redis-special-transaction/2.png"></p>
-<p> 示例代码：事务中执行了3个set命令，而第3个set命令有问题，加入队列失败，最后在执行exec时，所有命令被取消执行</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi                     #开启一个事务块</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; set name xiaoyuge     </span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; set age 18</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; set address           #命令有问题，导致加入队列失败</span><br><span class="line">(error) ERR wrong number of arguments for &#x27;set&#x27; command</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec                  #执行exec的时候，事务中所有命令都被取消</span><br><span class="line">(error) EXECABORT Transaction discarded because of previous errors.</span><br></pre></td></tr></table></figure></li>
-<li><p>情况二：组队没有问题，执行中部分成功部分失败</p>
-<p><img src="/redis-special-transaction/3.png"></p>
+<h3 id="3-事务的错误处理"><a class="markdownIt-Anchor" href="#3-事务的错误处理"></a> 3. 事务的错误处理</h3>
+<ol>
+<li>
+<p>情况一：组队中命令有误，导致所有命令取消执行</p>
+<p><img src="/redis-special-transaction/2.png" alt></p>
+<p>示例代码：事务中执行了3个set命令，而第3个set命令有问题，加入队列失败，最后在执行exec时，所有命令被取消执行</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi                     #开启一个事务块</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; set name xiaoyuge     </span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; set age 18</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; set address           #命令有问题，导致加入队列失败</span><br><span class="line">(error) ERR wrong number of arguments for &#x27;set&#x27; command</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec                  #执行exec的时候，事务中所有命令都被取消</span><br><span class="line">(error) EXECABORT Transaction discarded because of previous errors.</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>情况二：组队没有问题，执行中部分成功部分失败</p>
+<p><img src="/redis-special-transaction/3.png" alt></p>
 <p>示例代码如下，事务中有3个命令，3个命令都入队列成功了，执行exec命令的时候，1和3命令成功了，第2个失败了</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; set k1 v1</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr k1          #命令2：k1的值递增1，由于k1的值不是数字，执行的时候会失败的</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; set k2 v2</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec             #执行命令，1和3命令成功，第2个失败了</span><br><span class="line">1) OK</span><br><span class="line">2) (error) ERR value is not an integer or out of range</span><br><span class="line">3) OK</span><br><span class="line">127.0.0.1:6379&gt; mget k1 k2            #查看k1和k2的值</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br></pre></td></tr></table></figure></li>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; multi</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; set k1 v1</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incr k1          #命令2：k1的值递增1，由于k1的值不是数字，执行的时候会失败的</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; set k2 v2</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec             #执行命令，1和3命令成功，第2个失败了</span><br><span class="line">1) OK</span><br><span class="line">2) (error) ERR value is not an integer or out of range</span><br><span class="line">3) OK</span><br><span class="line">127.0.0.1:6379&gt; mget k1 k2            #查看k1和k2的值</span><br><span class="line">1) &quot;v1&quot;</span><br><span class="line">2) &quot;v2&quot;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="4-事务冲突的问题"><a href="#4-事务冲突的问题" class="headerlink" title="4. 事务冲突的问题"></a>4. 事务冲突的问题</h3><p>例子：</p>
+<h3 id="4-事务冲突的问题"><a class="markdownIt-Anchor" href="#4-事务冲突的问题"></a> 4. 事务冲突的问题</h3>
+<p>例子：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">你的账户中只有10000，有多个人使用你的账户，同时去参加双十一抢购</span><br><span class="line">一个请求想给金额减8000</span><br><span class="line">一个请求想给金额减5000</span><br><span class="line">一个请求想给金额减1000</span><br></pre></td></tr></table></figure>
 <p>3个请求同时看到的余额都是10000，大于操作金额，都去执行修改余额的操作，最后导致金额变成了-4000，这显然是有问题的。</p>
-<p><img src="/redis-special-transaction/4.png"></p>
-<h4 id="4-1-悲观锁"><a href="#4-1-悲观锁" class="headerlink" title="4.1 悲观锁"></a>4.1 悲观锁</h4><p><img src="/redis-special-transaction/5.png"></p>
+<p><img src="/redis-special-transaction/4.png" alt></p>
+<h4 id="41-悲观锁"><a class="markdownIt-Anchor" href="#41-悲观锁"></a> 4.1 悲观锁</h4>
+<p><img src="/redis-special-transaction/5.png" alt></p>
 <p><strong>悲观锁（Pessimistic Lock）</strong>：顾名思义，就是很悲观，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人拿到这个数据就会block直到它拿到锁。传统的关系型数据库里面就用到了很多这种锁机制，比如行锁、表锁、读锁、写锁等，都是在做操作之前先上锁。</p>
-<h4 id="4-2-乐观锁"><a href="#4-2-乐观锁" class="headerlink" title="4.2 乐观锁"></a>4.2 乐观锁</h4><p><img src="/redis-special-transaction/6.png"></p>
+<h4 id="42-乐观锁"><a class="markdownIt-Anchor" href="#42-乐观锁"></a> 4.2 乐观锁</h4>
+<p><img src="/redis-special-transaction/6.png" alt></p>
 <p><strong>乐观锁（Optimistic Lock）</strong>：顾名思义，就是很乐观，每次去那数据的时候都认为别人不会修改，所以不会上锁，但是在修改的时候会判断一下在此期间别人有没有去更新这个数据，可以使用版本号等机制。乐观锁适用于多读的应用类型，这样可以提高吞吐量。redis就是使用这种<strong>check-and-set</strong>机制实现事务的。</p>
-<h4 id="4-3-watch监视"><a href="#4-3-watch监视" class="headerlink" title="4.3 watch监视"></a>4.3 watch监视</h4><p>在执行multi之前，先执行<code>watch key1 [key2 …]</code>，可以监视一个或者多个key，若在事务的exec命令之前这些key对应的值被其他命令所改动了，那么事务中所有命令都将被打断，即事务所有操作将被取消执行。<br>窗口1示例：</p>
+<h4 id="43-watch监视"><a class="markdownIt-Anchor" href="#43-watch监视"></a> 4.3 watch监视</h4>
+<p>在执行multi之前，先执行<code>watch key1 [key2 …]</code>，可以监视一个或者多个key，若在事务的exec命令之前这些key对应的值被其他命令所改动了，那么事务中所有命令都将被打断，即事务所有操作将被取消执行。<br>
+窗口1示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; flushdb</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set balance 1000</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; watch balance           #监视balance，若balance在事务阶段被其他命令修改，事务执行将被取消</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; multi                   #开启事务</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379(TX)&gt; set name xiaoyuge   #设置name的值为xiaoyuge</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; incrby balance 10   #将balance的值+10， 然后新开一个窗口执行窗口2的命令</span><br><span class="line">QUEUED</span><br><span class="line">127.0.0.1:6379(TX)&gt; exec                #当窗口2的命令执行完了之后，在执行窗口1的事务</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get balance             #窗口1的事务执行失败，因为窗口2修改了值，结果为1050</span><br><span class="line">&quot;1050&quot;</span><br><span class="line">127.0.0.1:6379&gt; get name                #事务执行失败，name为空</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
-
 <p>窗口2示例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; incrby balance 50       #balance原子+50</span><br><span class="line">(integer) 1050</span><br><span class="line">127.0.0.1:6379&gt; get balance</span><br><span class="line">&quot;1050&quot;</span><br></pre></td></tr></table></figure>
 <p>窗口1中，对balance进行了监视，也就是说在执行watch balance命令之后，在exec命令之前，如果有其他请求对balance进行了修改，那么窗口1事务中所有的命令都会将会被取消执行。</p>
 <p>窗口1watch balance后，由于此时窗口2对balance进行了修改，导致窗口1中事务所有命令被取消执行。</p>
-<h4 id="4-4-unwatch：取消监视"><a href="#4-4-unwatch：取消监视" class="headerlink" title="4.4 unwatch：取消监视"></a>4.4 unwatch：取消监视</h4><p>取消<code>watch</code>命令对所有的key的监视，如果在执行<code>watch</code>命令之后，exec命令或discard命令先被执行的话，那么就不需要再执行<code>unwatch</code>了。<br>因为<code>EXEC</code>命令会执行事务，因此 <code>WATCH</code> 命令的效果已经产生了；而 <code>DISCARD</code> 命令在取消事务的同时也会取消所有对 key 的监视，因此这两个命令执行之后，就没有必要执行 <code>UNWATCH</code> 了。</p>
+<h4 id="44-unwatch取消监视"><a class="markdownIt-Anchor" href="#44-unwatch取消监视"></a> 4.4 unwatch：取消监视</h4>
+<p>取消<code>watch</code>命令对所有的key的监视，如果在执行<code>watch</code>命令之后，exec命令或discard命令先被执行的话，那么就不需要再执行<code>unwatch</code>了。<br>
+因为<code>EXEC</code>命令会执行事务，因此 <code>WATCH</code> 命令的效果已经产生了；而 <code>DISCARD</code> 命令在取消事务的同时也会取消所有对 key 的监视，因此这两个命令执行之后，就没有必要执行 <code>UNWATCH</code> 了。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; watch k1 k2</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; unwatch</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="5-Redis事务的3大特性"><a href="#5-Redis事务的3大特性" class="headerlink" title="5. Redis事务的3大特性"></a>5. Redis事务的3大特性</h3><ul>
-<li><p>单独的隔离操作</p>
+<h3 id="5-redis事务的3大特性"><a class="markdownIt-Anchor" href="#5-redis事务的3大特性"></a> 5. Redis事务的3大特性</h3>
+<ul>
+<li>
+<p>单独的隔离操作</p>
 <p>事务中的所有命令都会序列化、按顺序地执行，事务在执行过程中，不会被其他客户端发送来的命令请求所打断。</p>
 </li>
-</ul>
-<ul>
-<li><p>没有隔离级别的概念</p>
+<li>
+<p>没有隔离级别的概念</p>
 <p>队列中的命令没有提交（exec）之前，都不会实际被执行，因为事务提交前任何指令都不会被实际执行。</p>
 </li>
-</ul>
-<ul>
-<li><p>不能保证原子性</p>
+<li>
+<p>不能保证原子性</p>
 <p>事务中如果有一条命令执行失败，后续的命令仍然会被执行，没有回滚。 <strong>如果在组队阶段，有1个失败了，后面都不会成功；如果在组队阶段成功了，在执行阶段有那个命令失败就这条失败，其他的命令则正常执行，不保证都成功或都失败</strong>。</p>
 </li>
 </ul>
