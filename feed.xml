@@ -15,20 +15,43 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，分享一些技术教程以及日常踩坑记录。</description>
-    <pubDate>Sun, 26 Mar 2023 03:17:07 GMT</pubDate>
+    <pubDate>Sun, 26 Mar 2023 06:29:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>分布式理论及一致性算法</title>
-      <link>https://xiaoyuge5201.github.io/distributed-01/</link>
-      <guid>https://xiaoyuge5201.github.io/distributed-01/</guid>
-      <pubDate>Sun, 26 Mar 2023 13:51:24 GMT</pubDate>
+      <title>分布式系统 - 全局唯一ID实现方案</title>
+      <link>https://xiaoyuge5201.github.io/global-unique-id/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/global-unique-id/index.html</guid>
+      <pubDate>Sun, 26 Mar 2023 06:29:57 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;什么是分布式系统&quot;&gt;&lt;a href=&quot;#什么是分布式系统&quot; class=&quot;headerlink&quot; title=&quot;什么是分布式系统&quot;&gt;&lt;</description>
+&lt;blockquote&gt;
+&lt;p&gt;常见的分布式ID生成方式，大致分类的话可以分为两类：一种是类DB型的，根据设置不同起始值和步长来实现趋势递增，需要考虑服</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>分布式理论及一致性算法</title>
+      <link>https://xiaoyuge5201.github.io/distributed-01/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/distributed-01/index.html</guid>
+      <pubDate>Sun, 26 Mar 2023 03:51:24 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+&lt;h2 id=&quot;什么是分布式系统&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#什么是分布式系统&quot;&gt;&lt;/a&gt; 什么是分布式系</description>
         
       
       
@@ -44,16 +67,15 @@
     
     <item>
       <title>Mybatis执行一条SQL命令的过程</title>
-      <link>https://xiaoyuge5201.github.io/mybatis-sql-excute-process/</link>
-      <guid>https://xiaoyuge5201.github.io/mybatis-sql-excute-process/</guid>
+      <link>https://xiaoyuge5201.github.io/mybatis-sql-excute-process/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mybatis-sql-excute-process/index.html</guid>
       <pubDate>Sat, 25 Mar 2023 13:07:32 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
 &lt;p&gt;Mybatis中的sql命令，在枚举类&lt;code&gt;SqlCommandType&lt;/code&gt;中定义的：&lt;/p&gt;
-&lt;figure class=&quot;h</description>
+&lt;figure class=&quot;hi</description>
         
       
       
@@ -69,15 +91,14 @@
     
     <item>
       <title>Mybatis 总体框架设计</title>
-      <link>https://xiaoyuge5201.github.io/mybatis-01/</link>
-      <guid>https://xiaoyuge5201.github.io/mybatis-01/</guid>
+      <link>https://xiaoyuge5201.github.io/mybatis-01/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mybatis-01/index.html</guid>
       <pubDate>Fri, 24 Mar 2023 14:11:59 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;Mybatis-架构概览&quot;&gt;&lt;a href=&quot;#Mybatis-架构概览&quot; class=&quot;headerlink&quot; title=&quot;Myb</description>
+&lt;h3 id=&quot;mybatis-架构概览&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mybatis-架构概览&quot;&gt;&lt;/a&gt;</description>
         
       
       
@@ -93,16 +114,14 @@
     
     <item>
       <title>Springboot集成Selenium</title>
-      <link>https://xiaoyuge5201.github.io/selenium/</link>
-      <guid>https://xiaoyuge5201.github.io/selenium/</guid>
+      <link>https://xiaoyuge5201.github.io/selenium/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/selenium/index.html</guid>
       <pubDate>Thu, 23 Mar 2023 00:59:15 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-介绍Selenium&quot;&gt;&lt;a href=&quot;#1-介绍Selenium&quot; class=&quot;headerlink&quot; title=&quot;1.</description>
+&lt;h3 id=&quot;1-介绍selenium&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-介绍selenium&quot;&gt;&lt;/a&gt;</description>
         
       
       
@@ -118,15 +137,15 @@
     
     <item>
       <title>ContiPerf接口性能测试</title>
-      <link>https://xiaoyuge5201.github.io/contiperf/</link>
-      <guid>https://xiaoyuge5201.github.io/contiperf/</guid>
+      <link>https://xiaoyuge5201.github.io/contiperf/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/contiperf/index.html</guid>
       <pubDate>Wed, 22 Mar 2023 08:17:47 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1. 简介&quot;&gt;&lt;/a&gt;1. 简介&lt;/h</description>
+&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h3&gt;
+&lt;p&gt;C</description>
         
       
       
@@ -142,15 +161,15 @@
     
     <item>
       <title>Springboot单元测试获取Resources文件的8个姿势</title>
-      <link>https://xiaoyuge5201.github.io/get-resources-file/</link>
-      <guid>https://xiaoyuge5201.github.io/get-resources-file/</guid>
+      <link>https://xiaoyuge5201.github.io/get-resources-file/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/get-resources-file/index.html</guid>
       <pubDate>Wed, 22 Mar 2023 03:14:46 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h4 id=&quot;引入依赖&quot;&gt;&lt;a href=&quot;#引入依赖&quot; class=&quot;headerlink&quot; title=&quot;引入依赖&quot;&gt;&lt;/a&gt;引入依赖&lt;/h4&gt;</description>
+&lt;h4 id=&quot;引入依赖&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#引入依赖&quot;&gt;&lt;/a&gt; 引入依赖&lt;/h4&gt;
+&lt;figu</description>
         
       
       
@@ -166,16 +185,15 @@
     
     <item>
       <title>Java 反射机制详解</title>
-      <link>https://xiaoyuge5201.github.io/reflection/</link>
-      <guid>https://xiaoyuge5201.github.io/reflection/</guid>
+      <link>https://xiaoyuge5201.github.io/reflection/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/reflection/index.html</guid>
       <pubDate>Sat, 18 Mar 2023 14:10:52 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
 &lt;blockquote&gt;
-&lt;p&gt;Java反射机制是在运行状态中，对于任意一个类都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一</description>
+&lt;p&gt;Java反射机制是在运行状态中，对于任意一个类都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个</description>
         
       
       
@@ -191,15 +209,14 @@
     
     <item>
       <title>Java SPI机制详解</title>
-      <link>https://xiaoyuge5201.github.io/spi/</link>
-      <guid>https://xiaoyuge5201.github.io/spi/</guid>
+      <link>https://xiaoyuge5201.github.io/spi/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/spi/index.html</guid>
       <pubDate>Fri, 17 Mar 2023 11:21:07 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-什么是SPI机制&quot;&gt;&lt;a href=&quot;#1-什么是SPI机制&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是S</description>
+&lt;h2 id=&quot;1-什么是spi机制&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-什么是spi机制&quot;&gt;&lt;/a&gt; 1. </description>
         
       
       
@@ -215,16 +232,15 @@
     
     <item>
       <title>Redis持久化之AOF（八）</title>
-      <link>https://xiaoyuge5201.github.io/redis-special-aof/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-special-aof/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-special-aof/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-aof/index.html</guid>
       <pubDate>Tue, 07 Mar 2023 13:31:16 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/</description>
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
+&lt;p&gt;R</description>
         
       
       
@@ -240,15 +256,14 @@
     
     <item>
       <title>缓存穿透、击穿、雪崩、分布式锁</title>
-      <link>https://xiaoyuge5201.github.io/redis-special-application-problems/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-special-application-problems/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-special-application-problems/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-application-problems/index.html</guid>
       <pubDate>Sun, 26 Feb 2023 12:20:07 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-缓存穿透&quot;&gt;&lt;a href=&quot;#1-缓存穿透&quot; class=&quot;headerlink&quot; title=&quot;1. 缓存穿透&quot;&gt;&lt;/a&gt;1.</description>
+&lt;h3 id=&quot;1-缓存穿透&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-缓存穿透&quot;&gt;&lt;/a&gt; 1. 缓存穿透&lt;/h3</description>
         
       
       
@@ -264,15 +279,14 @@
     
     <item>
       <title>Redis持久化之RDB（七）</title>
-      <link>https://xiaoyuge5201.github.io/redis-special-rdb/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-special-rdb/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-special-rdb/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-rdb/index.html</guid>
       <pubDate>Sun, 26 Feb 2023 08:20:06 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-总体介绍&quot;&gt;&lt;a href=&quot;#1-总体介绍&quot; class=&quot;headerlink&quot; title=&quot;1. 总体介绍&quot;&gt;&lt;/a&gt;1.</description>
+&lt;h3 id=&quot;1-总体介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-总体介绍&quot;&gt;&lt;/a&gt; 1. 总体介绍&lt;/h3</description>
         
       
       
@@ -288,15 +302,14 @@
     
     <item>
       <title>Redis事务操作（六）</title>
-      <link>https://xiaoyuge5201.github.io/redis-special-transaction/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-special-transaction/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-special-transaction/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-transaction/index.html</guid>
       <pubDate>Sat, 25 Feb 2023 12:58:29 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-Redis事务定义&quot;&gt;&lt;a href=&quot;#1-Redis事务定义&quot; class=&quot;headerlink&quot; title=&quot;1. Re</description>
+&lt;h3 id=&quot;1-redis事务定义&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-redis事务定义&quot;&gt;&lt;/a&gt; 1</description>
         
       
       
@@ -312,15 +325,14 @@
     
     <item>
       <title>SpringBoot整合Redis（五）</title>
-      <link>https://xiaoyuge5201.github.io/redis-special-springboot/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-special-springboot/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-special-springboot/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-springboot/index.html</guid>
       <pubDate>Sat, 25 Feb 2023 11:39:59 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-引入Redis依赖&quot;&gt;&lt;a href=&quot;#1-引入Redis依赖&quot; class=&quot;headerlink&quot; title=&quot;1. 引入</description>
+&lt;h3 id=&quot;1-引入redis依赖&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-引入redis依赖&quot;&gt;&lt;/a&gt; 1</description>
         
       
       
@@ -336,15 +348,14 @@
     
     <item>
       <title>Jedis操作Redis6（四）</title>
-      <link>https://xiaoyuge5201.github.io/redis-special-jedis/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-special-jedis/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-special-jedis/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-jedis/index.html</guid>
       <pubDate>Sat, 25 Feb 2023 09:07:27 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-Jedis的用法&quot;&gt;&lt;a href=&quot;#1-Jedis的用法&quot; class=&quot;headerlink&quot; title=&quot;1. Jedi</description>
+&lt;h3 id=&quot;1-jedis的用法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-jedis的用法&quot;&gt;&lt;/a&gt; 1. </description>
         
       
       
@@ -360,15 +371,14 @@
     
     <item>
       <title>Redis新的3种数据类型（三）</title>
-      <link>https://xiaoyuge5201.github.io/redis-special-newDataType/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-special-newDataType/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-special-newDataType/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-newDataType/index.html</guid>
       <pubDate>Thu, 23 Feb 2023 13:49:20 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-Bitmaps-位操作字符串&quot;&gt;&lt;a href=&quot;#1-Bitmaps-位操作字符串&quot; class=&quot;headerlink&quot; ti</description>
+&lt;h3 id=&quot;1-bitmaps-位操作字符串&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-bitmaps-位操作字</description>
         
       
       
@@ -384,15 +394,14 @@
     
     <item>
       <title>Redis的发布和订阅（二）</title>
-      <link>https://xiaoyuge5201.github.io/redis-special-pub/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-special-pub/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-special-pub/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-pub/index.html</guid>
       <pubDate>Thu, 23 Feb 2023 13:12:50 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-发布和订阅介绍&quot;&gt;&lt;a href=&quot;#1-发布和订阅介绍&quot; class=&quot;headerlink&quot; title=&quot;1. 发布和订阅介</description>
+&lt;h3 id=&quot;1-发布和订阅介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-发布和订阅介绍&quot;&gt;&lt;/a&gt; 1. 发布</description>
         
       
       
@@ -408,15 +417,15 @@
     
     <item>
       <title>Redis 5大数据类型（一）</title>
-      <link>https://xiaoyuge5201.github.io/redis-special-1/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-special-1/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-special-1/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-special-1/index.html</guid>
       <pubDate>Sun, 19 Feb 2023 08:57:18 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;Reids</description>
+&lt;h3 id=&quot;前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#前言&quot;&gt;&lt;/a&gt; 前言&lt;/h3&gt;
+&lt;p&gt;Reids安装请</description>
         
       
       
@@ -432,15 +441,14 @@
     
     <item>
       <title>负载均衡Nginx Session 一致性</title>
-      <link>https://xiaoyuge5201.github.io/nginx-session-consistency/</link>
-      <guid>https://xiaoyuge5201.github.io/nginx-session-consistency/</guid>
+      <link>https://xiaoyuge5201.github.io/nginx-session-consistency/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/nginx-session-consistency/index.html</guid>
       <pubDate>Sun, 19 Feb 2023 06:40:23 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;HTTPS请求跳转&quot;&gt;&lt;a href=&quot;#HTTPS请求跳转&quot; class=&quot;headerlink&quot; title=&quot;HTTPS请求跳转</description>
+&lt;h3 id=&quot;https请求跳转&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#https请求跳转&quot;&gt;&lt;/a&gt; HTTPS</description>
         
       
       
@@ -456,15 +464,15 @@
     
     <item>
       <title>Spring中9种经典设计模式</title>
-      <link>https://xiaoyuge5201.github.io/spring-design-pattern/</link>
-      <guid>https://xiaoyuge5201.github.io/spring-design-pattern/</guid>
+      <link>https://xiaoyuge5201.github.io/spring-design-pattern/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/spring-design-pattern/index.html</guid>
       <pubDate>Sun, 12 Feb 2023 13:51:22 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h3&gt;&lt;p&gt;&lt;stro</description>
+&lt;h3 id=&quot;目录&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目录&quot;&gt;&lt;/a&gt; 目录&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;</description>
         
       
       
@@ -480,15 +488,15 @@
     
     <item>
       <title>如何停止一个正在运行的线程</title>
-      <link>https://xiaoyuge5201.github.io/thread-stop/</link>
-      <guid>https://xiaoyuge5201.github.io/thread-stop/</guid>
+      <link>https://xiaoyuge5201.github.io/thread-stop/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/thread-stop/index.html</guid>
       <pubDate>Tue, 07 Feb 2023 09:14:29 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
+&lt;p&gt;停</description>
         
       
       
@@ -504,15 +512,15 @@
     
     <item>
       <title>HashMap的底层原理</title>
-      <link>https://xiaoyuge5201.github.io/hashmap/</link>
-      <guid>https://xiaoyuge5201.github.io/hashmap/</guid>
+      <link>https://xiaoyuge5201.github.io/hashmap/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/hashmap/index.html</guid>
       <pubDate>Sun, 05 Feb 2023 13:13:51 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1. 简介&quot;&gt;&lt;/a&gt;1. 简介&lt;/h</description>
+&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h3&gt;
+&lt;p&gt;H</description>
         
       
       
@@ -528,15 +536,14 @@
     
     <item>
       <title>Plumelog一个简单易用的java分布式日志组件</title>
-      <link>https://xiaoyuge5201.github.io/plumelog/</link>
-      <guid>https://xiaoyuge5201.github.io/plumelog/</guid>
+      <link>https://xiaoyuge5201.github.io/plumelog/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/plumelog/index.html</guid>
       <pubDate>Sun, 05 Feb 2023 08:54:32 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-系统介绍&quot;&gt;&lt;a href=&quot;#1-系统介绍&quot; class=&quot;headerlink&quot; title=&quot;1. 系统介绍&quot;&gt;&lt;/a&gt;1.</description>
+&lt;h3 id=&quot;1-系统介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-系统介绍&quot;&gt;&lt;/a&gt; 1. 系统介绍&lt;/h3</description>
         
       
       
@@ -552,15 +559,15 @@
     
     <item>
       <title>screw 数据库表结构文档生成工具</title>
-      <link>https://xiaoyuge5201.github.io/screw/</link>
-      <guid>https://xiaoyuge5201.github.io/screw/</guid>
+      <link>https://xiaoyuge5201.github.io/screw/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/screw/index.html</guid>
       <pubDate>Thu, 02 Feb 2023 12:55:11 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1. 简介&quot;&gt;&lt;/a&gt;1. 简介&lt;/h</description>
+&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1. 简介&lt;/h3&gt;
+&lt;p&gt;在</description>
         
       
       
@@ -576,15 +583,15 @@
     
     <item>
       <title>Magic-api Java接口快速开发框架</title>
-      <link>https://xiaoyuge5201.github.io/magic-api/</link>
-      <guid>https://xiaoyuge5201.github.io/magic-api/</guid>
+      <link>https://xiaoyuge5201.github.io/magic-api/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/magic-api/index.html</guid>
       <pubDate>Mon, 30 Jan 2023 14:57:56 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1 简介&quot;&gt;&lt;/a&gt;1 简介&lt;/h3&gt;</description>
+&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1 简介&lt;/h3&gt;
+&lt;p&gt;ma</description>
         
       
       
@@ -600,15 +607,15 @@
     
     <item>
       <title>MyPerf4J一个高性能、无侵入的Java性能监控和统计工具</title>
-      <link>https://xiaoyuge5201.github.io/myperf4j/</link>
-      <guid>https://xiaoyuge5201.github.io/myperf4j/</guid>
+      <link>https://xiaoyuge5201.github.io/myperf4j/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/myperf4j/index.html</guid>
       <pubDate>Sat, 28 Jan 2023 14:12:23 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1 简介&quot;&gt;&lt;/a&gt;1 简介&lt;/h2&gt;</description>
+&lt;h2 id=&quot;1-简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-简介&quot;&gt;&lt;/a&gt; 1 简介&lt;/h2&gt;
+&lt;p&gt;随着</description>
         
       
       
@@ -624,16 +631,15 @@
     
     <item>
       <title>Nginx版本升级流程</title>
-      <link>https://xiaoyuge5201.github.io/nginx-upgrade/</link>
-      <guid>https://xiaoyuge5201.github.io/nginx-upgrade/</guid>
+      <link>https://xiaoyuge5201.github.io/nginx-upgrade/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/nginx-upgrade/index.html</guid>
       <pubDate>Wed, 18 Jan 2023 12:07:35 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
 &lt;blockquote&gt;
-&lt;p&gt;旨在说明版本升级流程步骤，测试环境为nginx1.11.1升级至1.22.0稳定版本，目的是解决Nginx&amp;lt;=1</description>
+&lt;p&gt;旨在说明版本升级流程步骤，测试环境为nginx1.11.1升级至1.22.0稳定版本，目的是解决Nginx&amp;lt;=1.</description>
         
       
       
@@ -649,15 +655,15 @@
     
     <item>
       <title>Spring注解装配方式</title>
-      <link>https://xiaoyuge5201.github.io/spring-injection/</link>
-      <guid>https://xiaoyuge5201.github.io/spring-injection/</guid>
+      <link>https://xiaoyuge5201.github.io/spring-injection/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/spring-injection/index.html</guid>
       <pubDate>Sun, 15 Jan 2023 06:03:13 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;p&gt;&lt;stro</description>
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目录&quot;&gt;&lt;/a&gt; 目录&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;</description>
         
       
       
@@ -673,15 +679,15 @@
     
     <item>
       <title>服务定位模式 Service Locator Pattern</title>
-      <link>https://xiaoyuge5201.github.io/service-locator-pattern/</link>
-      <guid>https://xiaoyuge5201.github.io/service-locator-pattern/</guid>
+      <link>https://xiaoyuge5201.github.io/service-locator-pattern/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/service-locator-pattern/index.html</guid>
       <pubDate>Sat, 14 Jan 2023 12:28:56 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
+&lt;p&gt;不</description>
         
       
       
@@ -697,15 +703,15 @@
     
     <item>
       <title>断网了，还能ping通127.0.0.1吗</title>
-      <link>https://xiaoyuge5201.github.io/interview-1/</link>
-      <guid>https://xiaoyuge5201.github.io/interview-1/</guid>
+      <link>https://xiaoyuge5201.github.io/interview-1/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/interview-1/index.html</guid>
       <pubDate>Tue, 10 Jan 2023 04:12:01 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
+&lt;p&gt;网</description>
         
       
       
@@ -721,15 +727,15 @@
     
     <item>
       <title>说说wait()和sleep的区别</title>
-      <link>https://xiaoyuge5201.github.io/interview-2/</link>
-      <guid>https://xiaoyuge5201.github.io/interview-2/</guid>
+      <link>https://xiaoyuge5201.github.io/interview-2/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/interview-2/index.html</guid>
       <pubDate>Sat, 07 Jan 2023 02:26:38 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-得分点&quot;&gt;&lt;a href=&quot;#1-得分点&quot; class=&quot;headerlink&quot; title=&quot;1. 得分点&quot;&gt;&lt;/a&gt;1. 得分</description>
+&lt;h3 id=&quot;1-得分点&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-得分点&quot;&gt;&lt;/a&gt; 1. 得分点&lt;/h3&gt;
+&lt;</description>
         
       
       
@@ -745,15 +751,14 @@
     
     <item>
       <title>SpringBoot+Disruptor</title>
-      <link>https://xiaoyuge5201.github.io/springboot-disruptor/</link>
-      <guid>https://xiaoyuge5201.github.io/springboot-disruptor/</guid>
+      <link>https://xiaoyuge5201.github.io/springboot-disruptor/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-disruptor/index.html</guid>
       <pubDate>Wed, 04 Jan 2023 04:01:43 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-Disruptor介绍&quot;&gt;&lt;a href=&quot;#1-Disruptor介绍&quot; class=&quot;headerlink&quot; title=&quot;1</description>
+&lt;h2 id=&quot;1-disruptor介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-disruptor介绍&quot;&gt;&lt;/</description>
         
       
       
@@ -769,15 +774,14 @@
     
     <item>
       <title>SpringBoot代码混淆</title>
-      <link>https://xiaoyuge5201.github.io/code-obfuscation/</link>
-      <guid>https://xiaoyuge5201.github.io/code-obfuscation/</guid>
+      <link>https://xiaoyuge5201.github.io/code-obfuscation/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/code-obfuscation/index.html</guid>
       <pubDate>Fri, 30 Dec 2022 02:35:43 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;p&gt;作为一个有经验的程序员，我们都知道 jar/war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样</description>
+&lt;p&gt;作为一个有经验的程序员，我们都知道 jar/war里面的.class文件都可以逆向还回来，可以通过 JD-GUI 或者IDEA，那么我们该怎么样预</description>
         
       
       
@@ -793,15 +797,14 @@
     
     <item>
       <title>SQL语句执行过程</title>
-      <link>https://xiaoyuge5201.github.io/sql-execution-process/</link>
-      <guid>https://xiaoyuge5201.github.io/sql-execution-process/</guid>
+      <link>https://xiaoyuge5201.github.io/sql-execution-process/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/sql-execution-process/index.html</guid>
       <pubDate>Mon, 26 Dec 2022 06:23:24 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-Mysql-逻辑架构&quot;&gt;&lt;a href=&quot;#1-Mysql-逻辑架构&quot; class=&quot;headerlink&quot; title=&quot;1. </description>
+&lt;h3 id=&quot;1-mysql-逻辑架构&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-mysql-逻辑架构&quot;&gt;&lt;/a&gt;</description>
         
       
       
@@ -817,15 +820,14 @@
     
     <item>
       <title>注解@ConditionalOnClass的源码实现</title>
-      <link>https://xiaoyuge5201.github.io/conditional-on-class/</link>
-      <guid>https://xiaoyuge5201.github.io/conditional-on-class/</guid>
+      <link>https://xiaoyuge5201.github.io/conditional-on-class/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/conditional-on-class/index.html</guid>
       <pubDate>Mon, 19 Dec 2022 13:34:57 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;p&gt;在Springboot中，支持了很多条件注解，@ConditionalOnClass注解就是其中之一。它主要是&lt;strong&gt;用来判断该注解所指</description>
+&lt;p&gt;在Springboot中，支持了很多条件注解，@ConditionalOnClass注解就是其中之一。它主要是&lt;strong&gt;用来判断该注解所指定</description>
         
       
       
@@ -841,15 +843,14 @@
     
     <item>
       <title>cglib 底层源码分析</title>
-      <link>https://xiaoyuge5201.github.io/cglib/</link>
-      <guid>https://xiaoyuge5201.github.io/cglib/</guid>
+      <link>https://xiaoyuge5201.github.io/cglib/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/cglib/index.html</guid>
       <pubDate>Wed, 14 Dec 2022 14:13:31 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-cglib-介绍&quot;&gt;&lt;a href=&quot;#1-cglib-介绍&quot; class=&quot;headerlink&quot; title=&quot;1. cgli</description>
+&lt;h2 id=&quot;1-cglib-介绍&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-cglib-介绍&quot;&gt;&lt;/a&gt; 1. </description>
         
       
       
@@ -865,16 +866,15 @@
     
     <item>
       <title>一文搞明白位运算、补码、反码、原码</title>
-      <link>https://xiaoyuge5201.github.io/bitwise-operation/</link>
-      <guid>https://xiaoyuge5201.github.io/bitwise-operation/</guid>
+      <link>https://xiaoyuge5201.github.io/bitwise-operation/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/bitwise-operation/index.html</guid>
       <pubDate>Mon, 12 Dec 2022 13:29:59 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
 &lt;p&gt;在平时看各种框架的源码过程中，经常会看到一些位移运算，所以作为一个有经验的Java开发者是一定要掌握位移运算的。&lt;/p&gt;
-&lt;h3 id=&quot;1-正</description>
+&lt;h3 id=&quot;1-正数</description>
         
       
       
@@ -890,15 +890,14 @@
     
     <item>
       <title>线程池底层源码分析</title>
-      <link>https://xiaoyuge5201.github.io/thread-pool-source/</link>
-      <guid>https://xiaoyuge5201.github.io/thread-pool-source/</guid>
+      <link>https://xiaoyuge5201.github.io/thread-pool-source/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/thread-pool-source/index.html</guid>
       <pubDate>Tue, 06 Dec 2022 13:56:29 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-线程池创建&quot;&gt;&lt;a href=&quot;#1-线程池创建&quot; class=&quot;headerlink&quot; title=&quot;1. 线程池创建&quot;&gt;&lt;/a</description>
+&lt;h3 id=&quot;1-线程池创建&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-线程池创建&quot;&gt;&lt;/a&gt; 1. 线程池创建&lt;</description>
         
       
       
@@ -914,15 +913,15 @@
     
     <item>
       <title>Mybatis批量插入的5种方式</title>
-      <link>https://xiaoyuge5201.github.io/mybatis-batch-insert/</link>
-      <guid>https://xiaoyuge5201.github.io/mybatis-batch-insert/</guid>
+      <link>https://xiaoyuge5201.github.io/mybatis-batch-insert/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mybatis-batch-insert/index.html</guid>
       <pubDate>Sun, 04 Dec 2022 12:52:30 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-目录&quot;&gt;&lt;a href=&quot;#1-目录&quot; class=&quot;headerlink&quot; title=&quot;1. 目录&quot;&gt;&lt;/a&gt;1. 目录&lt;/h</description>
+&lt;h2 id=&quot;1-目录&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-目录&quot;&gt;&lt;/a&gt; 1. 目录&lt;/h2&gt;
+&lt;p&gt;&lt;</description>
         
       
       
@@ -938,15 +937,14 @@
     
     <item>
       <title>String.intern()使用总结</title>
-      <link>https://xiaoyuge5201.github.io/intern/</link>
-      <guid>https://xiaoyuge5201.github.io/intern/</guid>
+      <link>https://xiaoyuge5201.github.io/intern/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/intern/index.html</guid>
       <pubDate>Fri, 02 Dec 2022 13:14:18 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-知识点一&quot;&gt;&lt;a href=&quot;#1-知识点一&quot; class=&quot;headerlink&quot; title=&quot;1. 知识点一&quot;&gt;&lt;/a&gt;1.</description>
+&lt;h3 id=&quot;1-知识点一&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-知识点一&quot;&gt;&lt;/a&gt; 1. 知识点一&lt;/h3</description>
         
       
       
@@ -962,8 +960,8 @@
     
     <item>
       <title>搞定 CompletableFuture</title>
-      <link>https://xiaoyuge5201.github.io/completableFuture/</link>
-      <guid>https://xiaoyuge5201.github.io/completableFuture/</guid>
+      <link>https://xiaoyuge5201.github.io/completableFuture/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/completableFuture/index.html</guid>
       <pubDate>Thu, 01 Dec 2022 14:37:57 GMT</pubDate>
       
       <description>博客被加密了, 请输入密码查看.</description>
@@ -981,15 +979,15 @@
     
     <item>
       <title>13种锁的实现方式</title>
-      <link>https://xiaoyuge5201.github.io/lock-granularity/</link>
-      <guid>https://xiaoyuge5201.github.io/lock-granularity/</guid>
+      <link>https://xiaoyuge5201.github.io/lock-granularity/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/lock-granularity/index.html</guid>
       <pubDate>Wed, 30 Nov 2022 14:56:19 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-悲观锁&quot;&gt;&lt;a href=&quot;#1-悲观锁&quot; class=&quot;headerlink&quot; title=&quot;1. 悲观锁&quot;&gt;&lt;/a&gt;1. 悲观</description>
+&lt;h3 id=&quot;1-悲观锁&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-悲观锁&quot;&gt;&lt;/a&gt; 1. 悲观锁&lt;/h3&gt;
+&lt;</description>
         
       
       
@@ -1005,15 +1003,15 @@
     
     <item>
       <title>接口设计看这一篇就够了</title>
-      <link>https://xiaoyuge5201.github.io/special-interface/</link>
-      <guid>https://xiaoyuge5201.github.io/special-interface/</guid>
+      <link>https://xiaoyuge5201.github.io/special-interface/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/special-interface/index.html</guid>
       <pubDate>Wed, 23 Nov 2022 12:58:03 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;p&gt;&lt;stro</description>
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#目录&quot;&gt;&lt;/a&gt; 目录&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;</description>
         
       
       
@@ -1029,15 +1027,14 @@
     
     <item>
       <title>破解LIMIT和OFFSET分页性能瓶颈</title>
-      <link>https://xiaoyuge5201.github.io/limit-offset/</link>
-      <guid>https://xiaoyuge5201.github.io/limit-offset/</guid>
+      <link>https://xiaoyuge5201.github.io/limit-offset/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/limit-offset/index.html</guid>
       <pubDate>Sun, 20 Nov 2022 04:56:15 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-分页方法分类&quot;&gt;&lt;a href=&quot;#1-分页方法分类&quot; class=&quot;headerlink&quot; title=&quot;1. 分页方法分类&quot;&gt;</description>
+&lt;h3 id=&quot;1-分页方法分类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-分页方法分类&quot;&gt;&lt;/a&gt; 1. 分页方法</description>
         
       
       
@@ -1053,15 +1050,15 @@
     
     <item>
       <title>select ... for update表锁还是行锁</title>
-      <link>https://xiaoyuge5201.github.io/select-for-update/</link>
-      <guid>https://xiaoyuge5201.github.io/select-for-update/</guid>
+      <link>https://xiaoyuge5201.github.io/select-for-update/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/select-for-update/index.html</guid>
       <pubDate>Thu, 03 Nov 2022 13:40:16 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-概要&quot;&gt;&lt;a href=&quot;#1-概要&quot; class=&quot;headerlink&quot; title=&quot;1. 概要&quot;&gt;&lt;/a&gt;1. 概要&lt;/h</description>
+&lt;h3 id=&quot;1-概要&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-概要&quot;&gt;&lt;/a&gt; 1. 概要&lt;/h3&gt;
+&lt;p&gt;S</description>
         
       
       
@@ -1077,15 +1074,14 @@
     
     <item>
       <title>过滤器Filter与拦截器区别</title>
-      <link>https://xiaoyuge5201.github.io/filter-interceptor/</link>
-      <guid>https://xiaoyuge5201.github.io/filter-interceptor/</guid>
+      <link>https://xiaoyuge5201.github.io/filter-interceptor/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/filter-interceptor/index.html</guid>
       <pubDate>Sat, 29 Oct 2022 14:25:32 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-过滤器（Filter）&quot;&gt;&lt;a href=&quot;#1-过滤器（Filter）&quot; class=&quot;headerlink&quot; title=&quot;1</description>
+&lt;h2 id=&quot;span-classtit-h21-过滤器filterspan&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;</description>
         
       
       
@@ -1101,15 +1097,15 @@
     
     <item>
       <title>Mysql重置密码</title>
-      <link>https://xiaoyuge5201.github.io/mysql-forget-pwd/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql-forget-pwd/</guid>
+      <link>https://xiaoyuge5201.github.io/mysql-forget-pwd/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mysql-forget-pwd/index.html</guid>
       <pubDate>Sat, 29 Oct 2022 13:43:23 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;p&gt;Mysql 安装的时候忘记保存默认密码，需要重置密码；&lt;br&gt;&lt;img src=&quot;/mysql-forget-pwd/1.png&quot; alt=&quot;忘</description>
+&lt;p&gt;Mysql 安装的时候忘记保存默认密码，需要重置密码；&lt;br&gt;
+&lt;img src=&quot;/mysql-forget-pwd/index/1.png&quot; </description>
         
       
       
@@ -1125,15 +1121,14 @@
     
     <item>
       <title>Tidb查询优化</title>
-      <link>https://xiaoyuge5201.github.io/tidb-optimization/</link>
-      <guid>https://xiaoyuge5201.github.io/tidb-optimization/</guid>
+      <link>https://xiaoyuge5201.github.io/tidb-optimization/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/tidb-optimization/index.html</guid>
       <pubDate>Sat, 15 Oct 2022 06:23:37 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-tidb查询优化&quot;&gt;&lt;a href=&quot;#1-tidb查询优化&quot; class=&quot;headerlink&quot; title=&quot;1. tidb</description>
+&lt;h3 id=&quot;1-tidb查询优化&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-tidb查询优化&quot;&gt;&lt;/a&gt; 1. </description>
         
       
       
@@ -1149,8 +1144,8 @@
     
     <item>
       <title>分布式消息中间件设计篇</title>
-      <link>https://xiaoyuge5201.github.io/distributed-message-middleware1/</link>
-      <guid>https://xiaoyuge5201.github.io/distributed-message-middleware1/</guid>
+      <link>https://xiaoyuge5201.github.io/distributed-message-middleware1/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/distributed-message-middleware1/index.html</guid>
       <pubDate>Sun, 18 Sep 2022 14:03:03 GMT</pubDate>
       
       <description>博客被加密了, 请输入密码查看.</description>
@@ -1168,8 +1163,8 @@
     
     <item>
       <title>Jenkins自动化部署入门教程</title>
-      <link>https://xiaoyuge5201.github.io/jenkins/</link>
-      <guid>https://xiaoyuge5201.github.io/jenkins/</guid>
+      <link>https://xiaoyuge5201.github.io/jenkins/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/jenkins/index.html</guid>
       <pubDate>Wed, 13 Jul 2022 02:41:39 GMT</pubDate>
       
       <description>博客被加密了, 请输入密码查看.</description>
@@ -1187,16 +1182,14 @@
     
     <item>
       <title>CentOS Kafka 3.2.0 单机集群安装（伪集群）</title>
-      <link>https://xiaoyuge5201.github.io/kafka-colony-install/</link>
-      <guid>https://xiaoyuge5201.github.io/kafka-colony-install/</guid>
+      <link>https://xiaoyuge5201.github.io/kafka-colony-install/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/kafka-colony-install/index.html</guid>
       <pubDate>Sun, 03 Jul 2022 13:45:23 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-准备工作&quot;&gt;&lt;a href=&quot;#1-准备工作&quot; class=&quot;headerlink&quot; title=&quot;1. 准备工作&quot;&gt;&lt;/a&gt;1</description>
+&lt;h3 id=&quot;1-准备工作&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-准备工作&quot;&gt;&lt;/a&gt; 1. 准备工作&lt;/h3</description>
         
       
       
@@ -1212,16 +1205,15 @@
     
     <item>
       <title>基于Canal和Kafka实现数据同步</title>
-      <link>https://xiaoyuge5201.github.io/canal-kafka-async/</link>
-      <guid>https://xiaoyuge5201.github.io/canal-kafka-async/</guid>
+      <link>https://xiaoyuge5201.github.io/canal-kafka-async/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/canal-kafka-async/index.html</guid>
       <pubDate>Sun, 03 Jul 2022 08:38:33 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/</description>
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
+&lt;p&gt;C</description>
         
       
       
@@ -1237,16 +1229,14 @@
     
     <item>
       <title>RocketMQ 二主二从异步集群部署</title>
-      <link>https://xiaoyuge5201.github.io/rocketmq-colony-install/</link>
-      <guid>https://xiaoyuge5201.github.io/rocketmq-colony-install/</guid>
+      <link>https://xiaoyuge5201.github.io/rocketmq-colony-install/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/rocketmq-colony-install/index.html</guid>
       <pubDate>Sun, 03 Jul 2022 03:37:05 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-节点规划&quot;&gt;&lt;a href=&quot;#1-节点规划&quot; class=&quot;headerlink&quot; title=&quot;1. 节点规划&quot;&gt;&lt;/a&gt;1</description>
+&lt;h3 id=&quot;1-节点规划&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-节点规划&quot;&gt;&lt;/a&gt; 1. 节点规划&lt;/h3</description>
         
       
       
@@ -1262,15 +1252,16 @@
     
     <item>
       <title>CentOS安装RocketMQ以及常用命令</title>
-      <link>https://xiaoyuge5201.github.io/rocketmq-install/</link>
-      <guid>https://xiaoyuge5201.github.io/rocketmq-install/</guid>
+      <link>https://xiaoyuge5201.github.io/rocketmq-install/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/rocketmq-install/index.html</guid>
       <pubDate>Sat, 02 Jul 2022 07:53:24 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1.前言&quot;&gt;&lt;/a&gt;1.前言&lt;/h3&gt;</description>
+&lt;h3 id=&quot;1前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1前言&quot;&gt;&lt;/a&gt; 1.前言&lt;/h3&gt;
+&lt;ol&gt;
+&lt;l</description>
         
       
       
@@ -1286,8 +1277,8 @@
     
     <item>
       <title>Redis6.2.6一主二从Sentinel监控配置</title>
-      <link>https://xiaoyuge5201.github.io/redis-sentinel/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-sentinel/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-sentinel/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-sentinel/index.html</guid>
       <pubDate>Fri, 01 Jul 2022 04:52:41 GMT</pubDate>
       
       <description>Here&#39;s something encrypted, password is required to continue reading.</description>
@@ -1305,16 +1296,15 @@
     
     <item>
       <title>Apache archiva Maven私有仓库搭建</title>
-      <link>https://xiaoyuge5201.github.io/Apache-archiva/</link>
-      <guid>https://xiaoyuge5201.github.io/Apache-archiva/</guid>
+      <link>https://xiaoyuge5201.github.io/Apache-archiva/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/Apache-archiva/index.html</guid>
       <pubDate>Tue, 28 Jun 2022 03:49:42 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-搭建&quot;&gt;&lt;a href=&quot;#1-搭建&quot; class=&quot;headerlink&quot; title=&quot;1. 搭建&quot;&gt;&lt;/a&gt;1. 搭建&lt;/</description>
+&lt;h3 id=&quot;1-搭建&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-搭建&quot;&gt;&lt;/a&gt; 1. 搭建&lt;/h3&gt;
+&lt;ol&gt;</description>
         
       
       
@@ -1330,15 +1320,14 @@
     
     <item>
       <title>深入Tomcat源码学习</title>
-      <link>https://xiaoyuge5201.github.io/tomcat/</link>
-      <guid>https://xiaoyuge5201.github.io/tomcat/</guid>
+      <link>https://xiaoyuge5201.github.io/tomcat/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/tomcat/index.html</guid>
       <pubDate>Sun, 26 Jun 2022 01:48:09 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-Tomcat简介&quot;&gt;&lt;a href=&quot;#1-Tomcat简介&quot; class=&quot;headerlink&quot; title=&quot;1. Tomc</description>
+&lt;h2 id=&quot;1-tomcat简介&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-tomcat简介&quot;&gt;&lt;/a&gt; 1. </description>
         
       
       
@@ -1354,16 +1343,14 @@
     
     <item>
       <title>Docker安装RabbitMQ集群</title>
-      <link>https://xiaoyuge5201.github.io/rabbitmq/</link>
-      <guid>https://xiaoyuge5201.github.io/rabbitmq/</guid>
+      <link>https://xiaoyuge5201.github.io/rabbitmq/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/rabbitmq/index.html</guid>
       <pubDate>Sat, 25 Jun 2022 08:53:22 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-安装-Docker&quot;&gt;&lt;a href=&quot;#1-安装-Docker&quot; class=&quot;headerlink&quot; title=&quot;1. 安</description>
+&lt;h3 id=&quot;1-安装-docker&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-安装-docker&quot;&gt;&lt;/a&gt; 1</description>
         
       
       
@@ -1379,8 +1366,8 @@
     
     <item>
       <title>CentOS7安装RabbitMQ单机版</title>
-      <link>https://xiaoyuge5201.github.io/rabbitmq-standalone/</link>
-      <guid>https://xiaoyuge5201.github.io/rabbitmq-standalone/</guid>
+      <link>https://xiaoyuge5201.github.io/rabbitmq-standalone/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/rabbitmq-standalone/index.html</guid>
       <pubDate>Sat, 25 Jun 2022 08:12:12 GMT</pubDate>
       
       <description>Here&#39;s something encrypted, password is required to continue reading.</description>
@@ -1398,15 +1385,14 @@
     
     <item>
       <title>分库分表之 ShardingSphere-JDBC</title>
-      <link>https://xiaoyuge5201.github.io/sharding-jdbc/</link>
-      <guid>https://xiaoyuge5201.github.io/sharding-jdbc/</guid>
+      <link>https://xiaoyuge5201.github.io/sharding-jdbc/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/sharding-jdbc/index.html</guid>
       <pubDate>Sat, 25 Jun 2022 06:52:23 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-动态数据源解决方案&quot;&gt;&lt;a href=&quot;#1-动态数据源解决方案&quot; class=&quot;headerlink&quot; title=&quot;1. 动态</description>
+&lt;h2 id=&quot;span-classtit-h21-动态数据源解决方案span&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;</description>
         
       
       
@@ -1422,15 +1408,14 @@
     
     <item>
       <title>CentOS安装Zookeeper 3.7.1单节点</title>
-      <link>https://xiaoyuge5201.github.io/zookeeper-install/</link>
-      <guid>https://xiaoyuge5201.github.io/zookeeper-install/</guid>
+      <link>https://xiaoyuge5201.github.io/zookeeper-install/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/zookeeper-install/index.html</guid>
       <pubDate>Fri, 24 Jun 2022 07:12:42 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h3 id=&quot;1-JDK依赖&quot;&gt;&lt;a href=&quot;#1-JDK依赖&quot; class=&quot;headerlink&quot; title=&quot;1. JDK依赖&quot;&gt;&lt;/a</description>
+&lt;h3 id=&quot;1-jdk依赖&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-jdk依赖&quot;&gt;&lt;/a&gt; 1. JDK依赖&lt;</description>
         
       
       
@@ -1446,16 +1431,14 @@
     
     <item>
       <title>kafka常用命令</title>
-      <link>https://xiaoyuge5201.github.io/kafka-command/</link>
-      <guid>https://xiaoyuge5201.github.io/kafka-command/</guid>
+      <link>https://xiaoyuge5201.github.io/kafka-command/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/kafka-command/index.html</guid>
       <pubDate>Thu, 23 Jun 2022 06:57:03 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-脚本概览&quot;&gt;&lt;a href=&quot;#1-脚本概览&quot; class=&quot;headerlink&quot; title=&quot;1. 脚本概览&quot;&gt;&lt;/a&gt;1</description>
+&lt;h3 id=&quot;1-脚本概览&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-脚本概览&quot;&gt;&lt;/a&gt; 1. 脚本概览&lt;/h3</description>
         
       
       
@@ -1471,16 +1454,14 @@
     
     <item>
       <title>CentOS安装kafka 3.2.0单机版</title>
-      <link>https://xiaoyuge5201.github.io/kafka-install/</link>
-      <guid>https://xiaoyuge5201.github.io/kafka-install/</guid>
+      <link>https://xiaoyuge5201.github.io/kafka-install/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/kafka-install/index.html</guid>
       <pubDate>Thu, 23 Jun 2022 06:19:35 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-JDK依赖&quot;&gt;&lt;a href=&quot;#1-JDK依赖&quot; class=&quot;headerlink&quot; title=&quot;1. JDK依赖&quot;&gt;&lt;/</description>
+&lt;h3 id=&quot;1-jdk依赖&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-jdk依赖&quot;&gt;&lt;/a&gt; 1. JDK依赖&lt;</description>
         
       
       
@@ -1496,15 +1477,14 @@
     
     <item>
       <title>VMWare创建虚拟机并设置静态IP</title>
-      <link>https://xiaoyuge5201.github.io/static-ip-setting/</link>
-      <guid>https://xiaoyuge5201.github.io/static-ip-setting/</guid>
+      <link>https://xiaoyuge5201.github.io/static-ip-setting/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/static-ip-setting/index.html</guid>
       <pubDate>Sun, 12 Jun 2022 01:06:54 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-VMware-Centos7-静态IP设置&quot;&gt;&lt;a href=&quot;#1-VMware-Centos7-静态IP设置&quot; class=&quot;</description>
+&lt;h2 id=&quot;1-vmwarecentos7-静态ip设置&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-vmware</description>
         
       
       
@@ -1520,15 +1500,14 @@
     
     <item>
       <title>Vue学习</title>
-      <link>https://xiaoyuge5201.github.io/vue-1/</link>
-      <guid>https://xiaoyuge5201.github.io/vue-1/</guid>
+      <link>https://xiaoyuge5201.github.io/vue-1/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/vue-1/index.html</guid>
       <pubDate>Sat, 11 Jun 2022 14:12:58 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-什么是vue&quot;&gt;&lt;a href=&quot;#1-什么是vue&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是vue&quot;&gt;</description>
+&lt;h2 id=&quot;1-什么是vue&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-什么是vue&quot;&gt;&lt;/a&gt; 1. 什么是v</description>
         
       
       
@@ -1544,15 +1523,15 @@
     
     <item>
       <title>SpringBoot参数校验</title>
-      <link>https://xiaoyuge5201.github.io/springboot-validate-params/</link>
-      <guid>https://xiaoyuge5201.github.io/springboot-validate-params/</guid>
+      <link>https://xiaoyuge5201.github.io/springboot-validate-params/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-validate-params/index.html</guid>
       <pubDate>Mon, 06 Jun 2022 03:02:20 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-&lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
+&lt;h2 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h2&gt;
+&lt;p&gt;在</description>
         
       
       
@@ -1568,16 +1547,15 @@
     
     <item>
       <title>CentOS安装Maven 3.8.6</title>
-      <link>https://xiaoyuge5201.github.io/maven-install/</link>
-      <guid>https://xiaoyuge5201.github.io/maven-install/</guid>
+      <link>https://xiaoyuge5201.github.io/maven-install/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/maven-install/index.html</guid>
       <pubDate>Sat, 04 Jun 2022 01:10:10 GMT</pubDate>
       
         
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
-
-
-&lt;h3 id=&quot;1-下载&quot;&gt;&lt;a href=&quot;#1-下载&quot; class=&quot;headerlink&quot; title=&quot;1. 下载&quot;&gt;&lt;/a&gt;1. 下载&lt;/</description>
+&lt;h3 id=&quot;1-下载&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-下载&quot;&gt;&lt;/a&gt; 1. 下载&lt;/h3&gt;
+&lt;ol&gt;</description>
         
       
       
@@ -1593,13 +1571,14 @@
     
     <item>
       <title>Linux安装gitlab</title>
-      <link>https://xiaoyuge5201.github.io/gitlab/</link>
-      <guid>https://xiaoyuge5201.github.io/gitlab/</guid>
+      <link>https://xiaoyuge5201.github.io/gitlab/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/gitlab/index.html</guid>
       <pubDate>Sat, 28 May 2022 01:56:42 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h3&gt;&lt;p&gt; 以前在自己服务器使用的是Gitblit,官网地址：&lt;a href=&quot;http://gitblit.github.io/</description>
+      <description>&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h3&gt;
+&lt;p&gt;以前在自己服务器使用的是Gitblit,官网地址：&lt;a href=&quot;http://gitblit.github.io/gitbli</description>
         
       
       
@@ -1611,19 +1590,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/gitlab/">gitlab</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/gitlab/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/gitlab/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Linux安装Apache Http Server</title>
-      <link>https://xiaoyuge5201.github.io/Apache-Http-Server/</link>
-      <guid>https://xiaoyuge5201.github.io/Apache-Http-Server/</guid>
+      <link>https://xiaoyuge5201.github.io/Apache-Http-Server/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/Apache-Http-Server/index.html</guid>
       <pubDate>Mon, 23 May 2022 04:14:00 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h2&gt;&lt;p&gt;Apache Http Server又可以简称为httpd或者Apache，它是Internet使用最广泛的web服务器</description>
+      <description>&lt;h2 id=&quot;1-前言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-前言&quot;&gt;&lt;/a&gt; 1. 前言&lt;/h2&gt;
+&lt;p&gt;Apache Http Server又可以简称为httpd或者Apache，它是Internet使用最广泛的web服务器之一&lt;/p</description>
         
       
       
@@ -1635,14 +1615,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Apache/">Apache</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/Apache-Http-Server/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/Apache-Http-Server/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>设计模式 - 七大软件设计原则</title>
-      <link>https://xiaoyuge5201.github.io/design-principle/</link>
-      <guid>https://xiaoyuge5201.github.io/design-principle/</guid>
+      <link>https://xiaoyuge5201.github.io/design-principle/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/design-principle/index.html</guid>
       <pubDate>Wed, 11 May 2022 06:39:16 GMT</pubDate>
       
       <description>Here&#39;s something encrypted, password is required to continue reading.</description>
@@ -1656,14 +1636,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/design-principle/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/design-principle/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>jstack命令</title>
-      <link>https://xiaoyuge5201.github.io/jstack/</link>
-      <guid>https://xiaoyuge5201.github.io/jstack/</guid>
+      <link>https://xiaoyuge5201.github.io/jstack/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/jstack/index.html</guid>
       <pubDate>Fri, 06 May 2022 13:09:27 GMT</pubDate>
       
       <description>Here&#39;s something encrypted, password is required to continue reading.</description>
@@ -1677,14 +1657,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/jstack/">jstack</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/jstack/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/jstack/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>认识UML之类图</title>
-      <link>https://xiaoyuge5201.github.io/uml/</link>
-      <guid>https://xiaoyuge5201.github.io/uml/</guid>
+      <link>https://xiaoyuge5201.github.io/uml/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/uml/index.html</guid>
       <pubDate>Mon, 25 Apr 2022 06:58:59 GMT</pubDate>
       
       <description>文章已被加密，需要输入密码查看，如需查看请联系博主！</description>
@@ -1698,14 +1678,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/UML/">UML</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/uml/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/uml/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Java知识系统整理1</title>
-      <link>https://xiaoyuge5201.github.io/java-basic/</link>
-      <guid>https://xiaoyuge5201.github.io/java-basic/</guid>
+      <link>https://xiaoyuge5201.github.io/java-basic/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/java-basic/index.html</guid>
       <pubDate>Sun, 24 Apr 2022 07:14:45 GMT</pubDate>
       
       <description>博客被加密了, 请输入密码查看.</description>
@@ -1723,13 +1703,14 @@
     
     <item>
       <title>常见的接口测试工具</title>
-      <link>https://xiaoyuge5201.github.io/swagger/</link>
-      <guid>https://xiaoyuge5201.github.io/swagger/</guid>
+      <link>https://xiaoyuge5201.github.io/swagger/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/swagger/index.html</guid>
       <pubDate>Sun, 17 Apr 2022 09:10:15 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-Swagger&quot;&gt;&lt;a href=&quot;#1-Swagger&quot; class=&quot;headerlink&quot; title=&quot;1. Swagger&quot;&gt;&lt;/a&gt;1. Swagger&lt;/h2&gt;&lt;p&gt;Swagger 是一个规范且完整的框架，用于生成、描述、调用和可视化 RESTf</description>
+      <description>&lt;h2 id=&quot;1-swagger&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-swagger&quot;&gt;&lt;/a&gt; 1. Swagger&lt;/h2&gt;
+&lt;p&gt;Swagger 是一个规范且完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web</description>
         
       
       
@@ -1741,20 +1722,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/swagger/">swagger</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/swagger/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/swagger/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>基于Springboot导出数据库表结构文档</title>
-      <link>https://xiaoyuge5201.github.io/export-database-file/</link>
-      <guid>https://xiaoyuge5201.github.io/export-database-file/</guid>
+      <link>https://xiaoyuge5201.github.io/export-database-file/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/export-database-file/index.html</guid>
       <pubDate>Fri, 15 Apr 2022 03:46:03 GMT</pubDate>
       
         
         
       <description>&lt;p&gt;在项目中经常会需要查询数据库所有的表以及表字段，然后可能还需要导出到Excel中，然后自己写了一个工具类，目前支持sqlserver、mysql、oracle、Postgre；如果有问题请留言！！！&lt;/p&gt;
-&lt;h3 id=&quot;1-引入依赖包&quot;&gt;&lt;a href=&quot;#1-引入依赖</description>
+&lt;h3 id=&quot;1-引入依赖包&quot;&gt;&lt;a class=&quot;markdo</description>
         
       
       
@@ -1766,20 +1747,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/export-database-file/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/export-database-file/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>java8的lambda表达式语法</title>
-      <link>https://xiaoyuge5201.github.io/lambda/</link>
-      <guid>https://xiaoyuge5201.github.io/lambda/</guid>
+      <link>https://xiaoyuge5201.github.io/lambda/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/lambda/index.html</guid>
       <pubDate>Wed, 13 Apr 2022 12:32:44 GMT</pubDate>
       
         
         
       <description>&lt;p&gt;记录一下用到的一些java8的lambda表达式语法&lt;/p&gt;
-&lt;h3 id=&quot;1-list集合根据某个字段分组后求多个字段的和&quot;&gt;&lt;a href=&quot;#1-list集合根据某个字段分组后求多个字段的和&quot; class=&quot;headerlink&quot; title=&quot;1 list集合根据</description>
+&lt;h3 id=&quot;1-list集合根据某个字段分组后求多个字段的和&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-list集合根据某个字段分组后求多个字段的和&quot;&gt;&lt;/a&gt; 1 lis</description>
         
       
       
@@ -1791,21 +1772,23 @@
       <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/lambda/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/lambda/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>分布式消息中间件设计</title>
-      <link>https://xiaoyuge5201.github.io/message-oriented-middleware/</link>
-      <guid>https://xiaoyuge5201.github.io/message-oriented-middleware/</guid>
+      <link>https://xiaoyuge5201.github.io/message-oriented-middleware/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/message-oriented-middleware/index.html</guid>
       <pubDate>Tue, 22 Mar 2022 08:56:31 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-消息中间件概述&quot;&gt;&lt;a href=&quot;#1-消息中间件概述&quot; class=&quot;headerlink&quot; title=&quot;1. 消息中间件概述&quot;&gt;&lt;/a&gt;1. 消息中间件概述&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;什么是分布式消息中间件&lt;/p&gt;
-&lt;p&gt; 利用高效可靠的消息传递</description>
+      <description>&lt;h2 id=&quot;1-消息中间件概述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-消息中间件概述&quot;&gt;&lt;/a&gt; 1. 消息中间件概述&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;什么是分布式消息中间件&lt;/p&gt;
+&lt;p&gt;利用高效可靠的消息传递机制进行平台无关的数</description>
         
       
       
@@ -1817,19 +1800,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">消息中间件</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/message-oriented-middleware/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/message-oriented-middleware/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>MinIO简介以及Linux安装MinIO</title>
-      <link>https://xiaoyuge5201.github.io/linux-minio/</link>
-      <guid>https://xiaoyuge5201.github.io/linux-minio/</guid>
+      <link>https://xiaoyuge5201.github.io/linux-minio/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/linux-minio/index.html</guid>
       <pubDate>Mon, 21 Mar 2022 05:39:15 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-什么是对象存储&quot;&gt;&lt;a href=&quot;#1-什么是对象存储&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是对象存储&quot;&gt;&lt;/a&gt;1. 什么是对象存储&lt;/h2&gt;&lt;p&gt;对象存储服务OSS（Object Storage Service）是一种海量、安</description>
+      <description>&lt;h2 id=&quot;1-什么是对象存储&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-什么是对象存储&quot;&gt;&lt;/a&gt; 1. 什么是对象存储&lt;/h2&gt;
+&lt;p&gt;对象存储服务OSS（Object Storage Service）是一种海量、安全、低成本、高可用的</description>
         
       
       
@@ -1841,19 +1825,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Linux/">Linux</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/linux-minio/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/linux-minio/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Linux系统下查找文件命令总结</title>
-      <link>https://xiaoyuge5201.github.io/linux-search-file/</link>
-      <guid>https://xiaoyuge5201.github.io/linux-search-file/</guid>
+      <link>https://xiaoyuge5201.github.io/linux-search-file/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/linux-search-file/index.html</guid>
       <pubDate>Sat, 19 Mar 2022 05:52:39 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-which查命令绝对路径&quot;&gt;&lt;a href=&quot;#1-which查命令绝对路径&quot; class=&quot;headerlink&quot; title=&quot;1. which查命令绝对路径&quot;&gt;&lt;/a&gt;1. which查命令绝对路径&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;which&lt;/stron</description>
+      <description>&lt;h3 id=&quot;1-which查命令绝对路径&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-which查命令绝对路径&quot;&gt;&lt;/a&gt; 1. which查命令绝对路径&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;which&lt;/strong&gt; 从环境变量PATH中定位</description>
         
       
       
@@ -1865,19 +1850,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Linux/">Linux</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/linux-search-file/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/linux-search-file/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>docker安装nginx</title>
-      <link>https://xiaoyuge5201.github.io/docker-nginx/</link>
-      <guid>https://xiaoyuge5201.github.io/docker-nginx/</guid>
+      <link>https://xiaoyuge5201.github.io/docker-nginx/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/docker-nginx/index.html</guid>
       <pubDate>Thu, 09 Dec 2021 13:47:19 GMT</pubDate>
       
         
         
-      <description>&lt;h5 id=&quot;1-查看所有的镜像&quot;&gt;&lt;a href=&quot;#1-查看所有的镜像&quot; class=&quot;headerlink&quot; title=&quot;1.查看所有的镜像&quot;&gt;&lt;/a&gt;1.查看所有的镜像&lt;/h5&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t</description>
+      <description>&lt;h5 id=&quot;1查看所有的镜像&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1查看所有的镜像&quot;&gt;&lt;/a&gt; 1.查看所有的镜像&lt;/h5&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu</description>
         
       
       
@@ -1889,19 +1875,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Docker/">Docker</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/docker-nginx/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/docker-nginx/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>docker安装mysql</title>
-      <link>https://xiaoyuge5201.github.io/docker-mysql/</link>
-      <guid>https://xiaoyuge5201.github.io/docker-mysql/</guid>
+      <link>https://xiaoyuge5201.github.io/docker-mysql/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/docker-mysql/index.html</guid>
       <pubDate>Thu, 09 Dec 2021 13:32:36 GMT</pubDate>
       
         
         
-      <description>&lt;h5 id=&quot;1-查看所有的镜像&quot;&gt;&lt;a href=&quot;#1-查看所有的镜像&quot; class=&quot;headerlink&quot; title=&quot;1.查看所有的镜像&quot;&gt;&lt;/a&gt;1.查看所有的镜像&lt;/h5&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t</description>
+      <description>&lt;h5 id=&quot;1查看所有的镜像&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1查看所有的镜像&quot;&gt;&lt;/a&gt; 1.查看所有的镜像&lt;/h5&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu</description>
         
       
       
@@ -1913,20 +1900,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Docker/">Docker</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/docker-mysql/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/docker-mysql/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>docker安装</title>
-      <link>https://xiaoyuge5201.github.io/docker-01/</link>
-      <guid>https://xiaoyuge5201.github.io/docker-01/</guid>
+      <link>https://xiaoyuge5201.github.io/docker-01/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/docker-01/index.html</guid>
       <pubDate>Thu, 09 Dec 2021 13:20:57 GMT</pubDate>
       
         
         
       <description>&lt;p&gt;新的服务器没有安装docker，使用docker命令时提示：docker: command not found错误信息&lt;/p&gt;
-&lt;h5 id=&quot;1-更新yum包&quot;&gt;&lt;a href=&quot;#1-更新yum包&quot; class=&quot;headerlink&quot; title=&quot;1. 更新yum包</description>
+&lt;h5 id=&quot;1-更新yum包&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-更新yum包&quot;&gt;&lt;/a&gt; 1. 更</description>
         
       
       
@@ -1938,20 +1925,23 @@
       <category domain="https://xiaoyuge5201.github.io/tags/docker/">docker</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/docker-01/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/docker-01/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Nginx基础篇（四）Nginx实现反向代理</title>
-      <link>https://xiaoyuge5201.github.io/nginx-04/</link>
-      <guid>https://xiaoyuge5201.github.io/nginx-04/</guid>
+      <link>https://xiaoyuge5201.github.io/nginx-04/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/nginx-04/index.html</guid>
       <pubDate>Sun, 05 Dec 2021 08:52:42 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-正向代理和反向代理&quot;&gt;&lt;a href=&quot;#1-正向代理和反向代理&quot; class=&quot;headerlink&quot; title=&quot;1. 正向代理和反向代理&quot;&gt;&lt;/a&gt;1. 正向代理和反向代理&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;正向代理：&lt;br&gt;正向代理类似一个跳板机，代理</description>
+      <description>&lt;h3 id=&quot;1-正向代理和反向代理&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-正向代理和反向代理&quot;&gt;&lt;/a&gt; 1. 正向代理和反向代理&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;正向代理：&lt;br&gt;
+正向代理类似一个跳板机，代理访问外部资源&lt;br&gt;</description>
         
       
       
@@ -1963,19 +1953,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/nginx-04/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/nginx-04/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Nginx基础篇（三）实现虚拟主机</title>
-      <link>https://xiaoyuge5201.github.io/nginx-03/</link>
-      <guid>https://xiaoyuge5201.github.io/nginx-03/</guid>
+      <link>https://xiaoyuge5201.github.io/nginx-03/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/nginx-03/index.html</guid>
       <pubDate>Sun, 05 Dec 2021 08:31:25 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-虚拟主机Virtual-Host&quot;&gt;&lt;a href=&quot;#1-虚拟主机Virtual-Host&quot; class=&quot;headerlink&quot; title=&quot;1. 虚拟主机Virtual Host&quot;&gt;&lt;/a&gt;1. 虚拟主机Virtual Host&lt;/h3&gt;&lt;p&gt;一种在单</description>
+      <description>&lt;h3 id=&quot;1-虚拟主机virtual-host&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-虚拟主机virtual-host&quot;&gt;&lt;/a&gt; 1. 虚拟主机Virtual Host&lt;/h3&gt;
+&lt;p&gt;一种在单一主机或主机群上，实现多网域服务的方法</description>
         
       
       
@@ -1987,20 +1978,22 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/nginx-03/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/nginx-03/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Nginx基础篇（二）安装</title>
-      <link>https://xiaoyuge5201.github.io/nginx-02/</link>
-      <guid>https://xiaoyuge5201.github.io/nginx-02/</guid>
+      <link>https://xiaoyuge5201.github.io/nginx-02/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/nginx-02/index.html</guid>
       <pubDate>Sun, 05 Dec 2021 08:10:44 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-Nginx安装&quot;&gt;&lt;a href=&quot;#1-Nginx安装&quot; class=&quot;headerlink&quot; title=&quot;1.Nginx安装&quot;&gt;&lt;/a&gt;1.Nginx安装&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;安装nginx前首先要确认系统中是否安装了gcc 、pcre-de</description>
+      <description>&lt;h2 id=&quot;1nginx安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1nginx安装&quot;&gt;&lt;/a&gt; 1.Nginx安装&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;安装nginx前首先要确认系统中是否安装了gcc 、pcre-devel、zlib-d</description>
         
       
       
@@ -2012,21 +2005,23 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/nginx-02/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/nginx-02/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Nginx基础篇（一）扫盲</title>
-      <link>https://xiaoyuge5201.github.io/nginx-md/</link>
-      <guid>https://xiaoyuge5201.github.io/nginx-md/</guid>
+      <link>https://xiaoyuge5201.github.io/nginx-md/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/nginx-md/index.html</guid>
       <pubDate>Sun, 05 Dec 2021 06:56:36 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-Nginx发展史&quot;&gt;&lt;a href=&quot;#1-Nginx发展史&quot; class=&quot;headerlink&quot; title=&quot;1.Nginx发展史&quot;&gt;&lt;/a&gt;1.Nginx发展史&lt;/h3&gt;&lt;p&gt;作者：logo Sysoev&lt;/p&gt;
+      <description>&lt;h3 id=&quot;1nginx发展史&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1nginx发展史&quot;&gt;&lt;/a&gt; 1.Nginx发展史&lt;/h3&gt;
+&lt;p&gt;作者：logo Sysoev&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;2000年地洞，c语</description>
+&lt;li&gt;2000年地洞，c语言编写&lt;/li&gt;
+&lt;li</description>
         
       
       
@@ -2038,19 +2033,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Nginx%E4%B8%93%E9%A2%98/">Nginx专题</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/nginx-md/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/nginx-md/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>二分法查找题</title>
-      <link>https://xiaoyuge5201.github.io/algorithm-dinary-search/</link>
-      <guid>https://xiaoyuge5201.github.io/algorithm-dinary-search/</guid>
+      <link>https://xiaoyuge5201.github.io/algorithm-dinary-search/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/algorithm-dinary-search/index.html</guid>
       <pubDate>Fri, 26 Nov 2021 13:57:32 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-第一个错误的版本&quot;&gt;&lt;a href=&quot;#1-第一个错误的版本&quot; class=&quot;headerlink&quot; title=&quot;1. 第一个错误的版本&quot;&gt;&lt;/a&gt;1. 第一个错误的版本&lt;/h3&gt;&lt;h3 id=&quot;1-1-题目描述&quot;&gt;&lt;a href=&quot;#1-1-题目描述&quot; c</description>
+      <description>&lt;h3 id=&quot;1-第一个错误的版本&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-第一个错误的版本&quot;&gt;&lt;/a&gt; 1. 第一个错误的版本&lt;/h3&gt;
+&lt;h3 id=&quot;11-题目描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href</description>
         
       
       
@@ -2062,19 +2058,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/algorithm/">algorithm</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/algorithm-dinary-search/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/algorithm-dinary-search/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Mysql添加/修改/删除字段</title>
-      <link>https://xiaoyuge5201.github.io/mysql-column/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql-column/</guid>
+      <link>https://xiaoyuge5201.github.io/mysql-column/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mysql-column/index.html</guid>
       <pubDate>Mon, 15 Nov 2021 13:13:42 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-添加字段&quot;&gt;&lt;a href=&quot;#1-添加字段&quot; class=&quot;headerlink&quot; title=&quot;1. 添加字段&quot;&gt;&lt;/a&gt;1. 添加字段&lt;/h3&gt;&lt;h4 id=&quot;1-1-在末尾添加字段&quot;&gt;&lt;a href=&quot;#1-1-在末尾添加字段&quot; class=&quot;head</description>
+      <description>&lt;h3 id=&quot;1-添加字段&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-添加字段&quot;&gt;&lt;/a&gt; 1. 添加字段&lt;/h3&gt;
+&lt;h4 id=&quot;11-在末尾添加字段&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#11-在末尾</description>
         
       
       
@@ -2086,19 +2083,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/mysql-column/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/mysql-column/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>TIDB设置sql_mode</title>
-      <link>https://xiaoyuge5201.github.io/sql-model/</link>
-      <guid>https://xiaoyuge5201.github.io/sql-model/</guid>
+      <link>https://xiaoyuge5201.github.io/sql-model/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/sql-model/index.html</guid>
       <pubDate>Mon, 15 Nov 2021 12:57:46 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-使用命令查询当前sql-mode&quot;&gt;&lt;a href=&quot;#1-使用命令查询当前sql-mode&quot; class=&quot;headerlink&quot; title=&quot;1. 使用命令查询当前sql_mode&quot;&gt;&lt;/a&gt;1. 使用命令查询当前sql_mode&lt;/h3&gt;&lt;figure</description>
+      <description>&lt;h3 id=&quot;1-使用命令查询当前sql_mode&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-使用命令查询当前sql_mode&quot;&gt;&lt;/a&gt; 1. 使用命令查询当前sql_mode&lt;/h3&gt;
+&lt;figure class=&quot;highlight s</description>
         
       
       
@@ -2110,19 +2108,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/tidb/">tidb</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/sql-model/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/sql-model/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Java中将List列表转换为字符串</title>
-      <link>https://xiaoyuge5201.github.io/list-to-string/</link>
-      <guid>https://xiaoyuge5201.github.io/list-to-string/</guid>
+      <link>https://xiaoyuge5201.github.io/list-to-string/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/list-to-string/index.html</guid>
       <pubDate>Sun, 10 Oct 2021 09:48:19 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-toString-方法&quot;&gt;&lt;a href=&quot;#1-toString-方法&quot; class=&quot;headerlink&quot; title=&quot;1. toString() 方法&quot;&gt;&lt;/a&gt;1. toString() 方法&lt;/h3&gt;&lt;p&gt;List.toString()是最简单的</description>
+      <description>&lt;h3 id=&quot;1-tostring-方法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-tostring-方法&quot;&gt;&lt;/a&gt; 1. toString() 方法&lt;/h3&gt;
+&lt;p&gt;List.toString()是最简单的，但它在开头和结尾添加方括号，每</description>
         
       
       
@@ -2134,19 +2133,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/%E9%9B%86%E5%90%88/">集合</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/list-to-string/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/list-to-string/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>linux关机命令</title>
-      <link>https://xiaoyuge5201.github.io/shutdown/</link>
-      <guid>https://xiaoyuge5201.github.io/shutdown/</guid>
+      <link>https://xiaoyuge5201.github.io/shutdown/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/shutdown/index.html</guid>
       <pubDate>Sat, 02 Oct 2021 03:39:17 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-shutdown命令&quot;&gt;&lt;a href=&quot;#1-shutdown命令&quot; class=&quot;headerlink&quot; title=&quot;1. shutdown命令&quot;&gt;&lt;/a&gt;1. shutdown命令&lt;/h3&gt;&lt;p&gt;shutdown会给系统计划一个时间关机。它可以被用于停</description>
+      <description>&lt;h3 id=&quot;1-shutdown命令&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-shutdown命令&quot;&gt;&lt;/a&gt; 1. shutdown命令&lt;/h3&gt;
+&lt;p&gt;shutdown会给系统计划一个时间关机。它可以被用于停止、关机、重启机器。&lt;br</description>
         
       
       
@@ -2158,20 +2158,23 @@
       <category domain="https://xiaoyuge5201.github.io/tags/shutdown/">shutdown</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/shutdown/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/shutdown/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>安装Centos系统以及配置IP</title>
-      <link>https://xiaoyuge5201.github.io/Installing-CentOS-system/</link>
-      <guid>https://xiaoyuge5201.github.io/Installing-CentOS-system/</guid>
+      <link>https://xiaoyuge5201.github.io/Installing-CentOS-system/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/Installing-CentOS-system/index.html</guid>
       <pubDate>Fri, 01 Oct 2021 08:47:11 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-系统安装&quot;&gt;&lt;a href=&quot;#1-系统安装&quot; class=&quot;headerlink&quot; title=&quot;1. 系统安装&quot;&gt;&lt;/a&gt;1. 系统安装&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;安装&lt;br&gt; &lt;img src=&quot;/Installing-CentOS-system/</description>
+      <description>&lt;h2 id=&quot;1-系统安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-系统安装&quot;&gt;&lt;/a&gt; 1. 系统安装&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;安装&lt;br&gt;
+&lt;img src=&quot;/Installing-CentOS-system/index/</description>
         
       
       
@@ -2183,19 +2186,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/linux/">linux</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/Installing-CentOS-system/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/Installing-CentOS-system/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>LockSupport线程工具类</title>
-      <link>https://xiaoyuge5201.github.io/locksupport/</link>
-      <guid>https://xiaoyuge5201.github.io/locksupport/</guid>
+      <link>https://xiaoyuge5201.github.io/locksupport/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/locksupport/index.html</guid>
       <pubDate>Sat, 25 Sep 2021 04:59:36 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-概要&quot;&gt;&lt;a href=&quot;#1-概要&quot; class=&quot;headerlink&quot; title=&quot;1. 概要&quot;&gt;&lt;/a&gt;1. 概要&lt;/h3&gt;&lt;p&gt;LockSupport位于java.util.concurrent（简称juc）包中，是一个编程工具类， 主要是为了阻塞</description>
+      <description>&lt;h3 id=&quot;1-概要&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-概要&quot;&gt;&lt;/a&gt; 1. 概要&lt;/h3&gt;
+&lt;p&gt;LockSupport位于java.util.concurrent（简称juc）包中，是一个编程工具类， 主要是为了阻塞和唤醒线程</description>
         
       
       
@@ -2207,20 +2211,22 @@
       <category domain="https://xiaoyuge5201.github.io/tags/thread/">thread</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/locksupport/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/locksupport/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>mysql行列转置</title>
-      <link>https://xiaoyuge5201.github.io/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/</guid>
+      <link>https://xiaoyuge5201.github.io/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/index.html</guid>
       <pubDate>Wed, 25 Aug 2021 02:36:37 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;数据表：&lt;br&gt;&lt;img src=&quot;/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/01.png&quot; alt=&quot;原始数据&quot;&gt;&lt;/p&gt;
-&lt;p&gt;行转列结果为：&lt;br&gt;&lt;img src=&quot;/mysql%E8%A1%8C%E5%88%97%E8%</description>
+      <description>&lt;p&gt;数据表：&lt;br&gt;
+&lt;img src=&quot;/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/index/01.png&quot; alt=&quot;原始数据&quot;&gt;&lt;/p&gt;
+&lt;p&gt;行转列结果为：&lt;br&gt;
+&lt;img src=&quot;/mysql%E8%A1%8C%E5%8</description>
         
       
       
@@ -2232,14 +2238,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/mysql%E8%A1%8C%E5%88%97%E8%BD%AC%E7%BD%AE/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>转换成小写字母</title>
-      <link>https://xiaoyuge5201.github.io/algoright-2/</link>
-      <guid>https://xiaoyuge5201.github.io/algoright-2/</guid>
+      <link>https://xiaoyuge5201.github.io/algoright-2/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/algoright-2/index.html</guid>
       <pubDate>Sun, 22 Aug 2021 05:15:12 GMT</pubDate>
       
         
@@ -2257,14 +2263,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/algorithm/">algorithm</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/algoright-2/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/algoright-2/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>mysqldumpslow分析慢查询日志</title>
-      <link>https://xiaoyuge5201.github.io/mysqldumpslow%E5%88%86%E6%9E%90%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/</link>
-      <guid>https://xiaoyuge5201.github.io/mysqldumpslow%E5%88%86%E6%9E%90%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/</guid>
+      <link>https://xiaoyuge5201.github.io/mysqldumpslow%E5%88%86%E6%9E%90%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mysqldumpslow%E5%88%86%E6%9E%90%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/index.html</guid>
       <pubDate>Sat, 21 Aug 2021 08:16:02 GMT</pubDate>
       
         
@@ -2282,21 +2288,22 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/mysqldumpslow%E5%88%86%E6%9E%90%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/mysqldumpslow%E5%88%86%E6%9E%90%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>mysql索引</title>
-      <link>https://xiaoyuge5201.github.io/mysql-index/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql-index/</guid>
+      <link>https://xiaoyuge5201.github.io/mysql-index/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mysql-index/index.html</guid>
       <pubDate>Fri, 20 Aug 2021 07:12:00 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;拿汉语字典的目录页（索引）打比方，我们可以按拼音、笔画、偏旁部首等排序的目录（索引）快速查找到需要的字。&lt;br&gt;索引分单列索引和组合索引。&lt;/p&gt;
+      <description>&lt;p&gt;拿汉语字典的目录页（索引）打比方，我们可以按拼音、笔画、偏旁部首等排序的目录（索引）快速查找到需要的字。&lt;br&gt;
+索引分单列索引和组合索引。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。 &lt;/li&gt;
+&lt;li&gt;单列索引，即一个索引只包含单个列，一个表可以有多个单列索引，但这不是组合索引。&lt;/li&gt;
 &lt;li&gt;组合索引</description>
         
       
@@ -2309,14 +2316,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/mysql-index/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/mysql-index/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>二分查找</title>
-      <link>https://xiaoyuge5201.github.io/algorithm/</link>
-      <guid>https://xiaoyuge5201.github.io/algorithm/</guid>
+      <link>https://xiaoyuge5201.github.io/algorithm/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/algorithm/index.html</guid>
       <pubDate>Thu, 19 Aug 2021 14:54:43 GMT</pubDate>
       
         
@@ -2325,7 +2332,8 @@
 &lt;ul&gt;
 &lt;li&gt;如果目标值 = 中间值，则找到目标值&lt;/li&gt;
 &lt;li&gt;如果目标值 &amp;lt; 中间值，则在左侧继续搜索&lt;/li&gt;
-&lt;li&gt;如果目标值 &amp;gt; 中间值，则在右侧继续搜索&lt;br&gt;&lt;img src=&quot;</description>
+&lt;li&gt;如果目标值 &amp;gt; 中间值，则在右侧继续搜索&lt;br&gt;
+&lt;img src=</description>
         
       
       
@@ -2337,20 +2345,21 @@
       <category domain="https://xiaoyuge5201.github.io/tags/algorithm/">algorithm</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/algorithm/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/algorithm/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>springboot读取yml配置的方式</title>
-      <link>https://xiaoyuge5201.github.io/springboot-yml/</link>
-      <guid>https://xiaoyuge5201.github.io/springboot-yml/</guid>
+      <link>https://xiaoyuge5201.github.io/springboot-yml/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-yml/index.html</guid>
       <pubDate>Wed, 18 Aug 2021 13:41:24 GMT</pubDate>
       
         
         
       <description>&lt;p&gt;springboot项目中默认的配置文件是application.properties；&lt;/p&gt;
-&lt;h3 id=&quot;1-yml文件规则&quot;&gt;&lt;a href=&quot;#1-yml文件规则&quot; class=&quot;headerlink&quot; title=&quot;1.yml文件规则&quot;&gt;&lt;/a&gt;1.yml文件</description>
+&lt;h3 id=&quot;1yml文件规则&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1yml文件规则&quot;&gt;&lt;/a&gt; 1.yml文件规则&lt;/h3&gt;
+&lt;ul&gt;</description>
         
       
       
@@ -2362,14 +2371,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/springboot/">springboot</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/springboot-yml/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/springboot-yml/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Hexo部署出现错误Error Spawn failed解决方式</title>
-      <link>https://xiaoyuge5201.github.io/hexo-spawn-failed/</link>
-      <guid>https://xiaoyuge5201.github.io/hexo-spawn-failed/</guid>
+      <link>https://xiaoyuge5201.github.io/hexo-spawn-failed/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/hexo-spawn-failed/index.html</guid>
       <pubDate>Sun, 15 Aug 2021 10:28:42 GMT</pubDate>
       
         
@@ -2387,14 +2396,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/hexo/">hexo</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/hexo-spawn-failed/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/hexo-spawn-failed/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Java守护线程和非守护线程</title>
-      <link>https://xiaoyuge5201.github.io/thread-01/</link>
-      <guid>https://xiaoyuge5201.github.io/thread-01/</guid>
+      <link>https://xiaoyuge5201.github.io/thread-01/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/thread-01/index.html</guid>
       <pubDate>Sun, 15 Aug 2021 06:14:56 GMT</pubDate>
       
         
@@ -2413,20 +2422,22 @@
       <category domain="https://xiaoyuge5201.github.io/tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/">守护线程</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/thread-01/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/thread-01/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>redis常见使用场景</title>
-      <link>https://xiaoyuge5201.github.io/redis-usage-scenario/</link>
-      <guid>https://xiaoyuge5201.github.io/redis-usage-scenario/</guid>
+      <link>https://xiaoyuge5201.github.io/redis-usage-scenario/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis-usage-scenario/index.html</guid>
       <pubDate>Sat, 14 Aug 2021 09:51:30 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-缓存&quot;&gt;&lt;a href=&quot;#1-缓存&quot; class=&quot;headerlink&quot; title=&quot;1. 缓存&quot;&gt;&lt;/a&gt;1. 缓存&lt;/h2&gt;&lt;p&gt;String类型&lt;br&gt;例如：热点数据缓存、对象缓存、全页缓存可以提升热点数据的访问效率&lt;/p&gt;
-&lt;h2 id=&quot;2-数</description>
+      <description>&lt;h2 id=&quot;1-缓存&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-缓存&quot;&gt;&lt;/a&gt; 1. 缓存&lt;/h2&gt;
+&lt;p&gt;String类型&lt;br&gt;
+例如：热点数据缓存、对象缓存、全页缓存可以提升热点数据的访问效率&lt;/p&gt;
+&lt;h2 id=&quot;2-数据共享分</description>
         
       
       
@@ -2438,19 +2449,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/redis%E4%B8%93%E9%A2%98/">redis专题</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/redis-usage-scenario/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/redis-usage-scenario/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>MVCC多版本并发控制</title>
-      <link>https://xiaoyuge5201.github.io/mvcc/</link>
-      <guid>https://xiaoyuge5201.github.io/mvcc/</guid>
+      <link>https://xiaoyuge5201.github.io/mvcc/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mvcc/index.html</guid>
       <pubDate>Sat, 14 Aug 2021 03:03:40 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-MVCC&quot;&gt;&lt;a href=&quot;#1-MVCC&quot; class=&quot;headerlink&quot; title=&quot;1. MVCC&quot;&gt;&lt;/a&gt;1. MVCC&lt;/h3&gt;&lt;p&gt;全称Multi-Version Concurrency Control即多版本并发控制。MVCC是一种并</description>
+      <description>&lt;h3 id=&quot;1-mvcc&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-mvcc&quot;&gt;&lt;/a&gt; 1. MVCC&lt;/h3&gt;
+&lt;p&gt;全称Multi-Version Concurrency Control即多版本并发控制。MVCC是一种并发控制的方法，</description>
         
       
       
@@ -2462,19 +2474,22 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/mvcc/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/mvcc/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>volatile关键字</title>
-      <link>https://xiaoyuge5201.github.io/volatile/</link>
-      <guid>https://xiaoyuge5201.github.io/volatile/</guid>
+      <link>https://xiaoyuge5201.github.io/volatile/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/volatile/index.html</guid>
       <pubDate>Mon, 02 Aug 2021 10:20:38 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-volatile作用&quot;&gt;&lt;a href=&quot;#1-volatile作用&quot; class=&quot;headerlink&quot; title=&quot;1.volatile作用&quot;&gt;&lt;/a&gt;1.volatile作用&lt;/h2&gt;&lt;p&gt;  volatile保证有序性，可见性，不能保证原子性&lt;/p</description>
+      <description>&lt;h2 id=&quot;1volatile作用&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1volatile作用&quot;&gt;&lt;/a&gt; 1.volatile作用&lt;/h2&gt;
+&lt;p&gt;volatile保证有序性，可见性，不能保证原子性&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;禁止指令重</description>
         
       
       
@@ -2486,19 +2501,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/thread/">thread</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/volatile/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/volatile/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Java内存泄漏排查</title>
-      <link>https://xiaoyuge5201.github.io/outOfMemoryError/</link>
-      <guid>https://xiaoyuge5201.github.io/outOfMemoryError/</guid>
+      <link>https://xiaoyuge5201.github.io/outOfMemoryError/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/outOfMemoryError/index.html</guid>
       <pubDate>Sun, 01 Aug 2021 11:25:57 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-内存溢出&quot;&gt;&lt;a href=&quot;#1-内存溢出&quot; class=&quot;headerlink&quot; title=&quot;1.内存溢出&quot;&gt;&lt;/a&gt;1.内存溢出&lt;/h2&gt;&lt;p&gt;java.lang.OutOfMemoryError：是指程序在申请内存是，没有足够的内存空间供其使用，出现</description>
+      <description>&lt;h2 id=&quot;1内存溢出&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1内存溢出&quot;&gt;&lt;/a&gt; 1.内存溢出&lt;/h2&gt;
+&lt;p&gt;java.lang.OutOfMemoryError：是指程序在申请内存是，没有足够的内存空间供其使用，出现OutOfMem</description>
         
       
       
@@ -2510,19 +2526,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/">内存溢出</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/outOfMemoryError/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/outOfMemoryError/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>JAVA类加载过程</title>
-      <link>https://xiaoyuge5201.github.io/classLoad/</link>
-      <guid>https://xiaoyuge5201.github.io/classLoad/</guid>
+      <link>https://xiaoyuge5201.github.io/classLoad/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/classLoad/index.html</guid>
       <pubDate>Sat, 31 Jul 2021 03:04:02 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-类加载机制&quot;&gt;&lt;a href=&quot;#1-类加载机制&quot; class=&quot;headerlink&quot; title=&quot;1.类加载机制&quot;&gt;&lt;/a&gt;1.类加载机制&lt;/h2&gt;&lt;p&gt;JVM将类描述数据从.class文件中加载到内存，并对数据进行解析、初始化，最终形成被JVM直接使用</description>
+      <description>&lt;h2 id=&quot;1类加载机制&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1类加载机制&quot;&gt;&lt;/a&gt; 1.类加载机制&lt;/h2&gt;
+&lt;p&gt;JVM将类描述数据从.class文件中加载到内存，并对数据进行解析、初始化，最终形成被JVM直接使用的Java类型；类</description>
         
       
       
@@ -2534,26 +2551,26 @@
       <category domain="https://xiaoyuge5201.github.io/tags/ClassLoader/">ClassLoader</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/classLoad/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/classLoad/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Hexo添加评论系统Valine</title>
-      <link>https://xiaoyuge5201.github.io/valine/</link>
-      <guid>https://xiaoyuge5201.github.io/valine/</guid>
+      <link>https://xiaoyuge5201.github.io/valine/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/valine/index.html</guid>
       <pubDate>Tue, 27 Jul 2021 13:49:57 GMT</pubDate>
       
         
         
       <description>&lt;p&gt;Hexo的评论系统有很多，常见的有以下几个&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;del&gt;多说&lt;/del&gt;&lt;/li&gt;
-&lt;li&gt;&lt;del&gt;网易云跟帖&lt;/del&gt;&lt;/li&gt;
+&lt;li&gt;&lt;s&gt;多说&lt;/s&gt;&lt;/li&gt;
+&lt;li&gt;&lt;s&gt;网易云跟帖&lt;/s&gt;&lt;/li&gt;
 &lt;li&gt;畅言&lt;/li&gt;
 &lt;li&gt;来必力（LiveRe）&lt;/li&gt;
 &lt;li&gt;Disqus&lt;/li&gt;
-&lt;li&gt;Hype</description>
+&lt;li&gt;Hypercomment</description>
         
       
       
@@ -2565,19 +2582,22 @@
       <category domain="https://xiaoyuge5201.github.io/tags/hexo/">hexo</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/valine/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/valine/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>mysql数据库锁</title>
-      <link>https://xiaoyuge5201.github.io/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/</guid>
+      <link>https://xiaoyuge5201.github.io/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/index.html</guid>
       <pubDate>Sat, 24 Jul 2021 08:57:10 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;当数据库有事务的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；&lt;br&gt;&lt;strong&gt;锁的作用&lt;/strong&gt;：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。&lt;br&gt;##1. 不同引擎的锁以及锁分类&lt;br&gt;&lt;strong&gt;M</description>
+      <description>&lt;p&gt;当数据库有事务的时候，可能会产生数据的不一致，这时就需要一些机制来保证访问的次序，这就是锁的机制；&lt;br&gt;
+&lt;strong&gt;锁的作用&lt;/strong&gt;：用于挂你对共享资源的并发访问，保证数据库的完整性和一致性。&lt;br&gt;
+##1. 不同引擎的锁以及锁分类&lt;br&gt;
+&lt;stron</description>
         
       
       
@@ -2589,19 +2609,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>mycat学习</title>
-      <link>https://xiaoyuge5201.github.io/mycat/</link>
-      <guid>https://xiaoyuge5201.github.io/mycat/</guid>
+      <link>https://xiaoyuge5201.github.io/mycat/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mycat/index.html</guid>
       <pubDate>Fri, 23 Jul 2021 08:16:49 GMT</pubDate>
       
         
         
-      <description>&lt;h1 id=&quot;Mycat-分库分表中间件&quot;&gt;&lt;a href=&quot;#Mycat-分库分表中间件&quot; class=&quot;headerlink&quot; title=&quot;Mycat(分库分表中间件)&quot;&gt;&lt;/a&gt;Mycat(分库分表中间件)&lt;/h1&gt;&lt;h2 id=&quot;1-数据库优化策略&quot;&gt;&lt;a href=</description>
+      <description>&lt;h1 id=&quot;mycat分库分表中间件&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mycat分库分表中间件&quot;&gt;&lt;/a&gt; Mycat(分库分表中间件)&lt;/h1&gt;
+&lt;h2 id=&quot;1-数据库优化策略&quot;&gt;&lt;a class=&quot;markdownIt-Anc</description>
         
       
       
@@ -2613,43 +2634,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mycat/">mycat</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/mycat/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>mysql事务</title>
-      <link>https://xiaoyuge5201.github.io/mysql-transcation/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql-transcation/</guid>
-      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;事务的定义&quot;&gt;&lt;a href=&quot;#事务的定义&quot; class=&quot;headerlink&quot; title=&quot;事务的定义&quot;&gt;&lt;/a&gt;事务的定义&lt;/h2&gt;&lt;p&gt;事务是数据管理系统DBMS执行过程中的一个&lt;strong&gt;逻辑单位&lt;/strong&gt;，有一个有限的数据库&lt;stron</description>
-        
-      
-      
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</category>
-      
-      
-      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
-      
-      
-      <comments>https://xiaoyuge5201.github.io/mysql-transcation/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/mycat/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>mysql知识总结</title>
-      <link>https://xiaoyuge5201.github.io/mysql/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql/</guid>
+      <link>https://xiaoyuge5201.github.io/mysql/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mysql/index.html</guid>
       <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
       
         
         
-      <description>&lt;h1 id=&quot;mysql-初识&quot;&gt;&lt;a href=&quot;#mysql-初识&quot; class=&quot;headerlink&quot; title=&quot;mysql 初识&quot;&gt;&lt;/a&gt;mysql 初识&lt;/h1&gt;&lt;h2 id=&quot;1-版本历史&quot;&gt;&lt;a href=&quot;#1-版本历史&quot; class=&quot;headerli</description>
+      <description>&lt;h1 id=&quot;mysql-初识&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#mysql-初识&quot;&gt;&lt;/a&gt; mysql 初识&lt;/h1&gt;
+&lt;h2 id=&quot;1-版本历史&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-版本历</description>
         
       
       
@@ -2661,22 +2659,49 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/mysql/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/mysql/index.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>mysql事务</title>
+      <link>https://xiaoyuge5201.github.io/mysql-transcation/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mysql-transcation/index.html</guid>
+      <pubDate>Fri, 23 Jul 2021 08:00:57 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;事务的定义&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#事务的定义&quot;&gt;&lt;/a&gt; 事务的定义&lt;/h2&gt;
+&lt;p&gt;事务是数据管理系统DBMS执行过程中的一个&lt;strong&gt;逻辑单位&lt;/strong&gt;，有一个有限的数据库&lt;strong&gt;操作序</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
+      
+      
+      <comments>https://xiaoyuge5201.github.io/mysql-transcation/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>锁优化</title>
-      <link>https://xiaoyuge5201.github.io/lock01/</link>
-      <guid>https://xiaoyuge5201.github.io/lock01/</guid>
+      <link>https://xiaoyuge5201.github.io/lock01/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/lock01/index.html</guid>
       <pubDate>Fri, 23 Jul 2021 06:04:02 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-优化思路以及方法&quot;&gt;&lt;a href=&quot;#1-优化思路以及方法&quot; class=&quot;headerlink&quot; title=&quot;1. 优化思路以及方法&quot;&gt;&lt;/a&gt;1. 优化思路以及方法&lt;/h2&gt;&lt;ul&gt;
+      <description>&lt;h2 id=&quot;1-优化思路以及方法&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-优化思路以及方法&quot;&gt;&lt;/a&gt; 1. 优化思路以及方法&lt;/h2&gt;
+&lt;ul&gt;
 &lt;li&gt;减少锁持有时间&lt;/li&gt;
 &lt;li&gt;减小锁粒度&lt;/li&gt;
-&lt;l</description>
+&lt;li&gt;锁分离&lt;/li&gt;
+</description>
         
       
       
@@ -2688,20 +2713,22 @@
       <category domain="https://xiaoyuge5201.github.io/tags/lock/">lock</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/lock01/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/lock01/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>ElasticSearch安装</title>
-      <link>https://xiaoyuge5201.github.io/ElasticSearch/</link>
-      <guid>https://xiaoyuge5201.github.io/ElasticSearch/</guid>
+      <link>https://xiaoyuge5201.github.io/ElasticSearch/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/ElasticSearch/index.html</guid>
       <pubDate>Fri, 23 Jul 2021 05:41:24 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-JDK14安装&quot;&gt;&lt;a href=&quot;#1-JDK14安装&quot; class=&quot;headerlink&quot; title=&quot;1. JDK14安装&quot;&gt;&lt;/a&gt;1. JDK14安装&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;下载jdk14：  &lt;a href=&quot;https://jdk.</description>
+      <description>&lt;h2 id=&quot;1-jdk14安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-jdk14安装&quot;&gt;&lt;/a&gt; 1. JDK14安装&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载jdk14：  &lt;a href=&quot;https://jdk.java.net/</description>
         
       
       
@@ -2713,20 +2740,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/ELK/">ELK</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/ElasticSearch/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/ElasticSearch/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>vue学习</title>
-      <link>https://xiaoyuge5201.github.io/vue/</link>
-      <guid>https://xiaoyuge5201.github.io/vue/</guid>
+      <link>https://xiaoyuge5201.github.io/vue/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/vue/index.html</guid>
       <pubDate>Fri, 23 Jul 2021 03:40:44 GMT</pubDate>
       
         
         
       <description>&lt;p&gt;Object.freeze()，这会阻止修改现有的 property，也意味着响应系统无法再追踪变化。&lt;/p&gt;
-&lt;h3 id=&quot;1-export&quot;&gt;&lt;a href=&quot;#1-export&quot; class=&quot;headerlink&quot; title=&quot;1. export&quot;&gt;&lt;/a&gt;1.</description>
+&lt;h3 id=&quot;1-export&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-export&quot;&gt;&lt;/a&gt; 1. export&lt;/h</description>
         
       
       
@@ -2738,14 +2765,14 @@
       <category domain="https://xiaoyuge5201.github.io/tags/vue/">vue</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/vue/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/vue/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Hexo博客加密</title>
-      <link>https://xiaoyuge5201.github.io/hexo-encrypt/</link>
-      <guid>https://xiaoyuge5201.github.io/hexo-encrypt/</guid>
+      <link>https://xiaoyuge5201.github.io/hexo-encrypt/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/hexo-encrypt/index.html</guid>
       <pubDate>Mon, 05 Jul 2021 01:28:20 GMT</pubDate>
       
       <description>博客被加密了, 请输入密码查看.</description>
@@ -2759,19 +2786,21 @@
       <category domain="https://xiaoyuge5201.github.io/tags/hexo/">hexo</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/hexo-encrypt/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/hexo-encrypt/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>springCloud之FeignClient访问微服务接口缓慢</title>
-      <link>https://xiaoyuge5201.github.io/bug-sprigCloud/</link>
-      <guid>https://xiaoyuge5201.github.io/bug-sprigCloud/</guid>
+      <link>https://xiaoyuge5201.github.io/bug-sprigCloud/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/bug-sprigCloud/index.html</guid>
       <pubDate>Sat, 03 Jul 2021 09:08:10 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：&lt;br&gt;程序启动第一次访问</description>
+      <description>&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#问题描述&quot;&gt;&lt;/a&gt; 问题描述&lt;/h3&gt;
+&lt;p&gt;逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：&lt;br&gt;
+程序启动第一次访问初始化</description>
         
       
       
@@ -2783,19 +2812,21 @@
       <category domain="https://xiaoyuge5201.github.io/tags/SpringCloud/">SpringCloud</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/bug-sprigCloud/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/bug-sprigCloud/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>ConcurrentHashMap线程安全</title>
-      <link>https://xiaoyuge5201.github.io/ConcurrentHashMap/</link>
-      <guid>https://xiaoyuge5201.github.io/ConcurrentHashMap/</guid>
+      <link>https://xiaoyuge5201.github.io/ConcurrentHashMap/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/ConcurrentHashMap/index.html</guid>
       <pubDate>Fri, 02 Jul 2021 08:17:29 GMT</pubDate>
       
         
         
-      <description>&lt;p&gt;##1. jdk1.7 ConcurrentHashMap&lt;br&gt;jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&lt;br&gt;&lt;img src=&quot;/ConcurrentHashMap/01.png&quot; alt=&quot;image</description>
+      <description>&lt;p&gt;##1. jdk1.7 ConcurrentHashMap&lt;br&gt;
+jdk1.7 ConcurrentHashMap是由一个Segment数组和多个HashEntry数组组成&lt;br&gt;
+&lt;img src=&quot;/ConcurrentHashMap/index/01.png&quot; al</description>
         
       
       
@@ -2807,22 +2838,24 @@
       <category domain="https://xiaoyuge5201.github.io/tags/Java/">Java</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/ConcurrentHashMap/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/ConcurrentHashMap/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>常见sql优化方式</title>
-      <link>https://xiaoyuge5201.github.io/sql-01/</link>
-      <guid>https://xiaoyuge5201.github.io/sql-01/</guid>
+      <link>https://xiaoyuge5201.github.io/sql-01/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/sql-01/index.html</guid>
       <pubDate>Thu, 01 Jul 2021 08:00:57 GMT</pubDate>
       
         
         
       <description>&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。&lt;/p&gt;
+&lt;li&gt;
+&lt;p&gt;对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：    </description>
+&lt;li&gt;
+&lt;p&gt;应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：&lt;/</description>
         
       
       
@@ -2834,20 +2867,21 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/sql-01/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/sql-01/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Linux安装mysql8</title>
-      <link>https://xiaoyuge5201.github.io/mysql-install/</link>
-      <guid>https://xiaoyuge5201.github.io/mysql-install/</guid>
+      <link>https://xiaoyuge5201.github.io/mysql-install/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/mysql-install/index.html</guid>
       <pubDate>Tue, 29 Jun 2021 06:40:08 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-下载&quot;&gt;&lt;a href=&quot;#1-下载&quot; class=&quot;headerlink&quot; title=&quot;1. 下载&quot;&gt;&lt;/a&gt;1. 下载&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;下载地址：&lt;a href=&quot;https://downloads.mysql.com/archives/com</description>
+      <description>&lt;h3 id=&quot;1-下载&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-下载&quot;&gt;&lt;/a&gt; 1. 下载&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;下载地址：&lt;a href=&quot;https://downloads.mysql.com/archives/communit</description>
         
       
       
@@ -2859,20 +2893,22 @@
       <category domain="https://xiaoyuge5201.github.io/tags/mysql/">mysql</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/mysql-install/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/mysql-install/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Linux安装JDK以及配置</title>
-      <link>https://xiaoyuge5201.github.io/jdk-install/</link>
-      <guid>https://xiaoyuge5201.github.io/jdk-install/</guid>
+      <link>https://xiaoyuge5201.github.io/jdk-install/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/jdk-install/index.html</guid>
       <pubDate>Tue, 29 Jun 2021 01:02:34 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-安装包安装&quot;&gt;&lt;a href=&quot;#1-安装包安装&quot; class=&quot;headerlink&quot; title=&quot;1. 安装包安装&quot;&gt;&lt;/a&gt;1. 安装包安装&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;下载jdk安装包（&lt;a href=&quot;https://www.oracle.co</description>
+      <description>&lt;h3 id=&quot;1-安装包安装&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-安装包安装&quot;&gt;&lt;/a&gt; 1. 安装包安装&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载jdk安装包（&lt;a href=&quot;https://www.oracle.com/cn/ja</description>
         
       
       
@@ -2884,19 +2920,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/jdk/">jdk</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/jdk-install/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/jdk-install/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>面试常见的趣味题</title>
-      <link>https://xiaoyuge5201.github.io/interest/</link>
-      <guid>https://xiaoyuge5201.github.io/interest/</guid>
+      <link>https://xiaoyuge5201.github.io/interest/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/interest/index.html</guid>
       <pubDate>Mon, 14 Jun 2021 02:09:15 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;8升、5升、3升水桶各一个-如何分成两个4升&quot;&gt;&lt;a href=&quot;#8升、5升、3升水桶各一个-如何分成两个4升&quot; class=&quot;headerlink&quot; title=&quot;8升、5升、3升水桶各一个,如何分成两个4升&quot;&gt;&lt;/a&gt;8升、5升、3升水桶各一个,如何分成两个</description>
+      <description>&lt;h3 id=&quot;8升-5升-3升水桶各一个如何分成两个4升&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#8升-5升-3升水桶各一个如何分成两个4升&quot;&gt;&lt;/a&gt; 8升、5升、3升水桶各一个,如何分成两个4升&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/int</description>
         
       
       
@@ -2908,19 +2945,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/algorithm/">algorithm</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/interest/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/interest/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Java内部类初始化</title>
-      <link>https://xiaoyuge5201.github.io/java-inner-class-01/</link>
-      <guid>https://xiaoyuge5201.github.io/java-inner-class-01/</guid>
+      <link>https://xiaoyuge5201.github.io/java-inner-class-01/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/java-inner-class-01/index.html</guid>
       <pubDate>Mon, 31 May 2021 16:00:00 GMT</pubDate>
       
         
         
-      <description>&lt;h3 id=&quot;1-在同个java文件中，但不是内部类&quot;&gt;&lt;a href=&quot;#1-在同个java文件中，但不是内部类&quot; class=&quot;headerlink&quot; title=&quot;1. 在同个java文件中，但不是内部类&quot;&gt;&lt;/a&gt;1. 在同个java文件中，但不是内部类&lt;/h3&gt;&lt;fi</description>
+      <description>&lt;h3 id=&quot;1-在同个java文件中但不是内部类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-在同个java文件中但不是内部类&quot;&gt;&lt;/a&gt; 1. 在同个java文件中，但不是内部类&lt;/h3&gt;
+&lt;figure class=&quot;highlight </description>
         
       
       
@@ -2932,19 +2970,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/%E5%86%85%E9%83%A8%E7%B1%BB/">内部类</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/java-inner-class-01/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/java-inner-class-01/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Linux环境下安装Redis</title>
-      <link>https://xiaoyuge5201.github.io/redis_install/</link>
-      <guid>https://xiaoyuge5201.github.io/redis_install/</guid>
+      <link>https://xiaoyuge5201.github.io/redis_install/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/redis_install/index.html</guid>
       <pubDate>Thu, 13 May 2021 05:40:44 GMT</pubDate>
       
         
         
-      <description>&lt;h4 id=&quot;1-安装gcc&quot;&gt;&lt;a href=&quot;#1-安装gcc&quot; class=&quot;headerlink&quot; title=&quot;1. 安装gcc&quot;&gt;&lt;/a&gt;1. 安装gcc&lt;/h4&gt;   &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c</description>
+      <description>&lt;h4 id=&quot;1-安装gcc&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-安装gcc&quot;&gt;&lt;/a&gt; 1. 安装gcc&lt;/h4&gt;
+   &lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu</description>
         
       
       
@@ -2956,20 +2995,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/redis%E4%B8%93%E9%A2%98/">redis专题</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/redis_install/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/redis_install/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>在线修改静态文件</title>
-      <link>https://xiaoyuge5201.github.io/%E5%9C%A8%E7%BA%BF%E4%BF%AE%E6%94%B9%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/</link>
-      <guid>https://xiaoyuge5201.github.io/%E5%9C%A8%E7%BA%BF%E4%BF%AE%E6%94%B9%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/</guid>
+      <link>https://xiaoyuge5201.github.io/%E5%9C%A8%E7%BA%BF%E4%BF%AE%E6%94%B9%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/%E5%9C%A8%E7%BA%BF%E4%BF%AE%E6%94%B9%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/index.html</guid>
       <pubDate>Thu, 13 May 2021 05:40:44 GMT</pubDate>
       
         
         
       <description>&lt;p&gt;项目运行时，如果需要修改某个css、js、html等文件的时候，需要自己连接到服务器然后修改，更有甚者需要连接vpn、堡垒机等等，特别烦！！！！于是弄了一个在线修改静态文件的工具，在此记录一下。&lt;/p&gt;
-&lt;h4 id=&quot;1-引入pom&quot;&gt;&lt;a href=&quot;#1-引入pom&quot;</description>
+&lt;h4 id=&quot;1-引入pom&quot;&gt;&lt;a class=&quot;markdown</description>
         
       
       
@@ -2981,19 +3020,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/%E5%9C%A8%E7%BA%BF%E4%BF%AE%E6%94%B9%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/%E5%9C%A8%E7%BA%BF%E4%BF%AE%E6%94%B9%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Java线程的生命周期状态</title>
-      <link>https://xiaoyuge5201.github.io/thread-status/</link>
-      <guid>https://xiaoyuge5201.github.io/thread-status/</guid>
+      <link>https://xiaoyuge5201.github.io/thread-status/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/thread-status/index.html</guid>
       <pubDate>Tue, 02 Jun 2020 08:04:02 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-Java线程分类&quot;&gt;&lt;a href=&quot;#1-Java线程分类&quot; class=&quot;headerlink&quot; title=&quot;1. Java线程分类&quot;&gt;&lt;/a&gt;1. Java线程分类&lt;/h2&gt;&lt;p&gt;在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 T</description>
+      <description>&lt;h2 id=&quot;1-java线程分类&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-java线程分类&quot;&gt;&lt;/a&gt; 1. Java线程分类&lt;/h2&gt;
+&lt;p&gt;在Java中线程分别对应不同的状态，从创建线程的 NEW 到销毁时的 TERMINATED状态</description>
         
       
       
@@ -3005,19 +3045,20 @@
       <category domain="https://xiaoyuge5201.github.io/tags/thread/">thread</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/thread-status/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/thread-status/index.html#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Java 8学习</title>
-      <link>https://xiaoyuge5201.github.io/java8%E7%89%B9%E6%80%A7/</link>
-      <guid>https://xiaoyuge5201.github.io/java8%E7%89%B9%E6%80%A7/</guid>
+      <link>https://xiaoyuge5201.github.io/java8%E7%89%B9%E6%80%A7/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/java8%E7%89%B9%E6%80%A7/index.html</guid>
       <pubDate>Thu, 23 Apr 2020 06:04:02 GMT</pubDate>
       
         
         
-      <description>&lt;h2 id=&quot;1-Optional&quot;&gt;&lt;a href=&quot;#1-Optional&quot; class=&quot;headerlink&quot; title=&quot;1. Optional&quot;&gt;&lt;/a&gt;1. Optional&lt;/h2&gt;&lt;p&gt;Optional 类主要解决的问题是臭名昭著的空指针异常（NullPoi</description>
+      <description>&lt;h2 id=&quot;1-optional&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#1-optional&quot;&gt;&lt;/a&gt; 1. Optional&lt;/h2&gt;
+&lt;p&gt;Optional 类主要解决的问题是臭名昭著的空指针异常（NullPointerExcepti</description>
         
       
       
@@ -3029,7 +3070,7 @@
       <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
       
       
-      <comments>https://xiaoyuge5201.github.io/java8%E7%89%B9%E6%80%A7/#disqus_thread</comments>
+      <comments>https://xiaoyuge5201.github.io/java8%E7%89%B9%E6%80%A7/index.html#disqus_thread</comments>
       
     </item>
     

@@ -18,20 +18,20 @@
   
   
   <title>SQL语句执行过程 | 小余哥</title>
-  <meta name="description" content="1. Mysql 逻辑架构作为一个有经验的程序员，每天都在和mysql打交道，那么你知道执行一条简单的select语句，需要经历哪些过程？这个就是今天要讲的内容。 在讲sql语句执行过程之前需要了解mysql的架构是怎样的以及它包含哪些组件？ 分为Server层和存储引擎两部分  Server 层包括：连接器、查询缓存、分析器、优化器、执行器等，涵盖Mysql的大多数核心服务功能，以及所有的内">
+  <meta name="description" content="1. Mysql 逻辑架构 作为一个有经验的程序员，每天都在和mysql打交道，那么你知道执行一条简单的select语句，需要经历哪些过程？这个就是今天要讲的内容。 在讲sql语句执行过程之前需要了解mysql的架构是怎样的以及它包含哪些组件？  分为Server层和存储引擎两部分   Server 层包括：连接器、查询缓存、分析器、优化器、执行器等，涵盖Mysql的大多数核心服务功能，以及所">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL语句执行过程">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/sql-execution-process/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. Mysql 逻辑架构作为一个有经验的程序员，每天都在和mysql打交道，那么你知道执行一条简单的select语句，需要经历哪些过程？这个就是今天要讲的内容。 在讲sql语句执行过程之前需要了解mysql的架构是怎样的以及它包含哪些组件？ 分为Server层和存储引擎两部分  Server 层包括：连接器、查询缓存、分析器、优化器、执行器等，涵盖Mysql的大多数核心服务功能，以及所有的内">
+<meta property="og:description" content="1. Mysql 逻辑架构 作为一个有经验的程序员，每天都在和mysql打交道，那么你知道执行一条简单的select语句，需要经历哪些过程？这个就是今天要讲的内容。 在讲sql语句执行过程之前需要了解mysql的架构是怎样的以及它包含哪些组件？  分为Server层和存储引擎两部分   Server 层包括：连接器、查询缓存、分析器、优化器、执行器等，涵盖Mysql的大多数核心服务功能，以及所">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/sql-execution-process/1.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/sql-execution-process/index/1.png">
 <meta property="article:published_time" content="2022-12-26T06:23:24.000Z">
-<meta property="article:modified_time" content="2023-03-21T13:50:08.836Z">
+<meta property="article:modified_time" content="2022-12-26T06:23:24.000Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xiaoyuge5201.github.io/sql-execution-process/1.png">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/sql-execution-process/index/1.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://xiaoyuge5201.github.io/sql-execution-process/index.html">
   
@@ -229,7 +229,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../distributed-01/" class="thumb">
+              <a href="../global-unique-id/index.html" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -243,10 +243,10 @@
                 <a class="category-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a>
               </p>
               <p class="item-title">
-                <a href="../distributed-01/" class="title">分布式理论及一致性算法</a>
+                <a href="../global-unique-id/index.html" class="title">分布式系统 - 全局唯一ID实现方案</a>
               </p>
               <p class="item-date">
-                <time datetime="2023-03-26T13:51:24.000Z" itemprop="datePublished">2023-03-26</time>
+                <time datetime="2023-03-26T06:29:57.000Z" itemprop="datePublished">2023-03-26</time>
               </p>
             </div>
           </li>
@@ -254,7 +254,32 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../mybatis-sql-excute-process/" class="thumb">
+              <a href="../distributed-01/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a>
+              </p>
+              <p class="item-title">
+                <a href="../distributed-01/index.html" class="title">分布式理论及一致性算法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-26T03:51:24.000Z" itemprop="datePublished">2023-03-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../mybatis-sql-excute-process/index.html" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -268,7 +293,7 @@
                 <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
               </p>
               <p class="item-title">
-                <a href="../mybatis-sql-excute-process/" class="title">Mybatis执行一条SQL命令的过程</a>
+                <a href="../mybatis-sql-excute-process/index.html" class="title">Mybatis执行一条SQL命令的过程</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-03-25T13:07:32.000Z" itemprop="datePublished">2023-03-25</time>
@@ -279,7 +304,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../mybatis-01/" class="thumb">
+              <a href="../mybatis-01/index.html" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -293,7 +318,7 @@
                 <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
               </p>
               <p class="item-title">
-                <a href="../mybatis-01/" class="title">Mybatis 总体框架设计</a>
+                <a href="../mybatis-01/index.html" class="title">Mybatis 总体框架设计</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-03-24T14:11:59.000Z" itemprop="datePublished">2023-03-24</time>
@@ -304,7 +329,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../selenium/" class="thumb">
+              <a href="../selenium/index.html" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -318,35 +343,10 @@
                 <a class="category-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a>
               </p>
               <p class="item-title">
-                <a href="../selenium/" class="title">Springboot集成Selenium</a>
+                <a href="../selenium/index.html" class="title">Springboot集成Selenium</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-03-23T00:59:15.000Z" itemprop="datePublished">2023-03-23</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../contiperf/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a>
-              </p>
-              <p class="item-title">
-                <a href="../contiperf/" class="title">ContiPerf接口性能测试</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-03-22T08:17:47.000Z" itemprop="datePublished">2023-03-22</time>
               </p>
             </div>
           </li>
@@ -361,7 +361,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.25px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">接口设计</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.38px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">接口设计</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -376,7 +376,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Mysql-%E9%80%BB%E8%BE%91%E6%9E%B6%E6%9E%84"><span class="toc-text">1. Mysql 逻辑架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-SQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">2. SQL语句执行过程</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-mysql-%E9%80%BB%E8%BE%91%E6%9E%B6%E6%9E%84"><span class="toc-text"> 1. Mysql 逻辑架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-sql%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text"> 2. SQL语句执行过程</span></a></li></ol>
       
       
     </nav>
@@ -438,52 +438,65 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-
-<h3 id="1-Mysql-逻辑架构"><a href="#1-Mysql-逻辑架构" class="headerlink" title="1. Mysql 逻辑架构"></a>1. Mysql 逻辑架构</h3><p>作为一个有经验的程序员，每天都在和mysql打交道，那么你知道执行一条简单的select语句，需要经历哪些过程？这个就是今天要讲的内容。</p>
-<p>在讲sql语句执行过程之前需要了解mysql的架构是怎样的以及它包含哪些组件？<br><img src="/sql-execution-process/1.png" alt="mysql逻辑架构图"></p>
+<h3 id="1-mysql-逻辑架构"><a class="markdownIt-Anchor" href="#1-mysql-逻辑架构"></a> 1. Mysql 逻辑架构</h3>
+<p>作为一个有经验的程序员，每天都在和mysql打交道，那么你知道执行一条简单的select语句，需要经历哪些过程？这个就是今天要讲的内容。</p>
+<p>在讲sql语句执行过程之前需要了解mysql的架构是怎样的以及它包含哪些组件？<br>
+<img src="/sql-execution-process/index/1.png" alt="mysql逻辑架构图"></p>
 <p>分为Server层和存储引擎两部分</p>
 <ul>
-<li>Server 层包括：连接器、查询缓存、分析器、优化器、执行器等，涵盖Mysql的大多数核心服务功能，以及所有的内置函数（如日期、时间、数据以及加密函数等）,所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。</li>
+<li>
+<p>Server 层包括：连接器、查询缓存、分析器、优化器、执行器等，涵盖Mysql的大多数核心服务功能，以及所有的内置函数（如日期、时间、数据以及加密函数等）,所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。</p>
+</li>
+<li>
+<p>存储引擎层：负责数据的存储和提取，其架构模式是插件式的，支持Innodb、MyISAM、Memory等多个存储引擎，Mysql5.5.5后默认存储引擎为Innodb</p>
+</li>
 </ul>
-<ul>
-<li>存储引擎层：负责数据的存储和提取，其架构模式是插件式的，支持Innodb、MyISAM、Memory等多个存储引擎，Mysql5.5.5后默认存储引擎为Innodb</li>
-</ul>
-<h3 id="2-SQL语句执行过程"><a href="#2-SQL语句执行过程" class="headerlink" title="2. SQL语句执行过程"></a>2. SQL语句执行过程</h3><ol>
-<li><p>连接器</p>
+<h3 id="2-sql语句执行过程"><a class="markdownIt-Anchor" href="#2-sql语句执行过程"></a> 2. SQL语句执行过程</h3>
+<ol>
+<li>
+<p>连接器</p>
 <blockquote>
 <p>负责将mysql客户端和服务端建立连接，连接成功后，获取的当前连接用户的权限，这里获取到的权限对整个连接都有效，一旦连接成功后，如果中途管理员更改了权限，那么只有等到该用户下次重连才会更新权限</p>
 </blockquote>
 </li>
-<li><p>查询缓存</p>
+<li>
+<p>查询缓存</p>
 <blockquote>
 <p>连接成功后，即开始要正式执行select 语句了，但是在执行查询之前，mysql会看下有没有该条语句的缓存内容，如果有缓存直接读取缓存并返回结果，不在执行后面的步骤。</p>
 <p>如果没有缓存则继续往后执行，并将执行结果和语句保存到缓存中</p>
 </blockquote>
-<p> 注意：</p>
+<p>注意：</p>
 <ul>
-<li>mysql8 后已经没有查询缓存这个功能了，因为缓存非常容易被清空掉，命中率低，只要对表有一个更新呢，这个表上的所有缓存都会被清空</li>
-<li>如果缓存查到结果，在返回结果前需要做权限校验，判断该用户是否有权限查询</li>
+<li>
+<p>mysql8 后已经没有查询缓存这个功能了，因为缓存非常容易被清空掉，命中率低，只要对表有一个更新呢，这个表上的所有缓存都会被清空</p>
+</li>
+<li>
+<p>如果缓存查到结果，在返回结果前需要做权限校验，判断该用户是否有权限查询</p>
+</li>
 </ul>
 </li>
-<li><p>分析器</p>
+<li>
+<p>分析器</p>
 <blockquote>
 <p>既然没有查到缓存，就要执行sql语句了，在执行之前肯定需要先对sql语句进行解析，分析器主要对sql语句进行语法和语义分析，检查单词是否拼写错误，还有检查这个表或者字段是否存在。</p>
 </blockquote>
-<p> 假如分析器检测出错误，会出现以下错误信息：</p>
+<p>假如分析器检测出错误，会出现以下错误信息：</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘xxxxxx’ at line 1</span><br><span class="line">一般语法错误会提示第一个出现错误的位置，所以你要关注的是紧接“use near”的内容。</span><br></pre></td></tr></table></figure>
-<p> 并且停止查询操作。</p>
+<p>并且停止查询操作。</p>
 </li>
-<li><p>优化器</p>
+<li>
+<p>优化器</p>
 <blockquote>
 <p>在经过分析器后，mysql就理解了你所要执行的操作了，基本上对于同一个sql语句，mysql内部或许有好几种执行方案，例如存在多个索引的情况下，应该选择哪个索引？多张表有关联查询时，如何确认各表的连接顺序。</p>
 <p>这些方案的执行结果都一样，但是执行效率不一样，所以在mysql执行之前都要尝试找出一个最优的方案来，这就是优化器主要工作。</p>
 </blockquote>
 </li>
-<li><p>执行器</p>
+<li>
+<p>执行器</p>
 <blockquote>
 <p>经过优化器选定一个方案后，执行器就按照这个方案执行sql语句，在执行语句之前会先判断是否有权限，如果没有权限就会return，并提示没有权限</p>
 </blockquote>
-<p> 权限校验完毕，继续打开表，然后调用存储引擎所提供的接口去查询，最后返回结果数据。</p>
+<p>权限校验完毕，继续打开表，然后调用存储引擎所提供的接口去查询，最后返回结果数据。</p>
 </li>
 </ol>
 <p>到这，一条sql语句就执行完了，这里知识讲了大致的流程，具体在mysql底层实现是非常复杂的。</p>
@@ -496,7 +509,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://xiaoyuge5201.github.io/sql-execution-process/" title="SQL语句执行过程" target="_blank" rel="external">https://xiaoyuge5201.github.io/sql-execution-process/</a>
+      <a href="https://xiaoyuge5201.github.io/sql-execution-process/index.html" title="SQL语句执行过程" target="_blank" rel="external">https://xiaoyuge5201.github.io/sql-execution-process/index.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -537,12 +550,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="../code-obfuscation/" title="SpringBoot代码混淆"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="../code-obfuscation/index.html" title="SpringBoot代码混淆"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="../conditional-on-class/" title="注解@ConditionalOnClass的源码实现"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="../conditional-on-class/index.html" title="注解@ConditionalOnClass的源码实现"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

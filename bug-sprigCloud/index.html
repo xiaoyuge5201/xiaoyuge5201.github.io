@@ -18,21 +18,21 @@
   
   
   <title>springCloud之FeignClient访问微服务接口缓慢 | 小余哥</title>
-  <meta name="description" content="问题描述逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：程序启动第一次访问初始化1.2秒左右，还可以理解。但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。 原因排查1查看连接查实的接口发现接口调用的是这个地址，其实是别人启动项">
+  <meta name="description" content="问题描述 逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为： 程序启动第一次访问初始化1.2秒左右，还可以理解。 但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。 但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。  原因排查1 查看连接查实的接口  发现接口调用的是这个地址">
 <meta property="og:type" content="article">
 <meta property="og:title" content="springCloud之FeignClient访问微服务接口缓慢">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/bug-sprigCloud/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="问题描述逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：程序启动第一次访问初始化1.2秒左右，还可以理解。但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。 原因排查1查看连接查实的接口发现接口调用的是这个地址，其实是别人启动项">
+<meta property="og:description" content="问题描述 逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为： 程序启动第一次访问初始化1.2秒左右，还可以理解。 但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。 但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。  原因排查1 查看连接查实的接口  发现接口调用的是这个地址">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/02.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/01.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/index/02.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/index/01.png">
 <meta property="article:published_time" content="2021-07-03T09:08:10.000Z">
-<meta property="article:modified_time" content="2023-03-21T13:52:36.579Z">
+<meta property="article:modified_time" content="2021-07-03T09:08:10.000Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/02.png">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/bug-sprigCloud/index/02.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://xiaoyuge5201.github.io/bug-sprigCloud/index.html">
   
@@ -230,7 +230,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../distributed-01/" class="thumb">
+              <a href="../global-unique-id/index.html" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -244,10 +244,10 @@
                 <a class="category-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a>
               </p>
               <p class="item-title">
-                <a href="../distributed-01/" class="title">分布式理论及一致性算法</a>
+                <a href="../global-unique-id/index.html" class="title">分布式系统 - 全局唯一ID实现方案</a>
               </p>
               <p class="item-date">
-                <time datetime="2023-03-26T13:51:24.000Z" itemprop="datePublished">2023-03-26</time>
+                <time datetime="2023-03-26T06:29:57.000Z" itemprop="datePublished">2023-03-26</time>
               </p>
             </div>
           </li>
@@ -255,7 +255,32 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../mybatis-sql-excute-process/" class="thumb">
+              <a href="../distributed-01/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a>
+              </p>
+              <p class="item-title">
+                <a href="../distributed-01/index.html" class="title">分布式理论及一致性算法</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-26T03:51:24.000Z" itemprop="datePublished">2023-03-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../mybatis-sql-excute-process/index.html" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -269,7 +294,7 @@
                 <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
               </p>
               <p class="item-title">
-                <a href="../mybatis-sql-excute-process/" class="title">Mybatis执行一条SQL命令的过程</a>
+                <a href="../mybatis-sql-excute-process/index.html" class="title">Mybatis执行一条SQL命令的过程</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-03-25T13:07:32.000Z" itemprop="datePublished">2023-03-25</time>
@@ -280,7 +305,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../mybatis-01/" class="thumb">
+              <a href="../mybatis-01/index.html" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -294,7 +319,7 @@
                 <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
               </p>
               <p class="item-title">
-                <a href="../mybatis-01/" class="title">Mybatis 总体框架设计</a>
+                <a href="../mybatis-01/index.html" class="title">Mybatis 总体框架设计</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-03-24T14:11:59.000Z" itemprop="datePublished">2023-03-24</time>
@@ -305,7 +330,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../selenium/" class="thumb">
+              <a href="../selenium/index.html" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -319,35 +344,10 @@
                 <a class="category-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a>
               </p>
               <p class="item-title">
-                <a href="../selenium/" class="title">Springboot集成Selenium</a>
+                <a href="../selenium/index.html" class="title">Springboot集成Selenium</a>
               </p>
               <p class="item-date">
                 <time datetime="2023-03-23T00:59:15.000Z" itemprop="datePublished">2023-03-23</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../contiperf/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a>
-              </p>
-              <p class="item-title">
-                <a href="../contiperf/" class="title">ContiPerf接口性能测试</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-03-22T08:17:47.000Z" itemprop="datePublished">2023-03-22</time>
               </p>
             </div>
           </li>
@@ -362,7 +362,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.25px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">接口设计</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.38px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">接口设计</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
     </div>
   </div>
 
@@ -426,11 +426,21 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：<br>程序启动第一次访问初始化1.2秒左右，还可以理解。<br>但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。<br>但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。</p>
-<h3 id="原因排查1"><a href="#原因排查1" class="headerlink" title="原因排查1"></a>原因排查1</h3><p>查看连接查实的接口<br><img src="/bug-sprigCloud/02.png" alt="请求缓慢2"><br>发现接口调用的是这个地址，其实是别人启动项目的时候吧自己的ip注册到了eureka注册中心，导致接口有时候走的是getway，有时候又是走的别人的接口</p>
+        <h3 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h3>
+<p>逻辑是A服务调用B服务(AB在同一个局域网内)。 经过反复测试，有一个访问缓慢的现象，具体表现为：<br>
+程序启动第一次访问初始化1.2秒左右，还可以理解。<br>
+但后面访问还是要1.1秒左右（格式化到SSS毫秒打印日志监控的）。<br>
+但如果连续访问几次，后面几次又是几十毫秒。过一会再访问，或者换浏览器换post工具请求，又会1.2秒左右。</p>
+<h3 id="原因排查1"><a class="markdownIt-Anchor" href="#原因排查1"></a> 原因排查1</h3>
+<p>查看连接查实的接口<br>
+<img src="/bug-sprigCloud/index/02.png" alt="请求缓慢2"><br>
+发现接口调用的是这个地址，其实是别人启动项目的时候吧自己的ip注册到了eureka注册中心，导致接口有时候走的是getway，有时候又是走的别人的接口</p>
 <p>解决方法：eureka.client.register-with-eureka 为false  这样就不会注册到eureka注册中心了</p>
-<h3 id="原因排查2"><a href="#原因排查2" class="headerlink" title="原因排查2"></a>原因排查2</h3><ol>
-<li>查看日志<br> <img src="/bug-sprigCloud/01.png" alt="请求缓慢"><br>查看是否是hystrix 配置的时间小于了ribbon的时间</li>
+<h3 id="原因排查2"><a class="markdownIt-Anchor" href="#原因排查2"></a> 原因排查2</h3>
+<ol>
+<li>查看日志<br>
+<img src="/bug-sprigCloud/index/01.png" alt="请求缓慢"><br>
+查看是否是hystrix 配置的时间小于了ribbon的时间</li>
 </ol>
 
       
@@ -441,7 +451,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://xiaoyuge5201.github.io/bug-sprigCloud/" title="springCloud之FeignClient访问微服务接口缓慢" target="_blank" rel="external">https://xiaoyuge5201.github.io/bug-sprigCloud/</a>
+      <a href="https://xiaoyuge5201.github.io/bug-sprigCloud/index.html" title="springCloud之FeignClient访问微服务接口缓慢" target="_blank" rel="external">https://xiaoyuge5201.github.io/bug-sprigCloud/index.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -486,12 +496,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="../hexo-encrypt/" title="Hexo博客加密"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="../hexo-encrypt/index.html" title="Hexo博客加密"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="../ConcurrentHashMap/" title="ConcurrentHashMap线程安全"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="../ConcurrentHashMap/index.html" title="ConcurrentHashMap线程安全"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
