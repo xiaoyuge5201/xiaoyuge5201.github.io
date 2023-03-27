@@ -434,6 +434,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">thread.setDaemon(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
 <p>这个时候就不会退出while(true)循环了，会一直执行下去，结果如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">主线程main 结束</span><br><span class="line">Counter:1</span><br><span class="line">Counter:2</span><br><span class="line">Counter:3</span><br><span class="line">Counter:4</span><br><span class="line">Counter:5</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
 <p><strong>总结：守护线程是为用户线程服务的，当用户线程全部结束，守护线程会自动结束。</strong></p>
 <p><strong>注意事项：</strong></p>
 <ol>
@@ -538,7 +539,7 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="alipay">
               <div class="donate-payimg">
-                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../themes/pure/source/images/avatar.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>

@@ -18,12 +18,12 @@
   
   
   <title>负载均衡Nginx Session 一致性 | 小余哥</title>
-  <meta name="description" content="HTTPS请求跳转 如下面的配置： 123location &#x2F;test &amp;#123;   proxy_pass http:&#x2F;&#x2F;www.baidu.com&#x2F;;&amp;#125; 在访问URI为&#x2F;test时会跳转到百度，但是此时浏览器的URL也发生了变化，这是因为向http:&#x2F;&#x2F;www.baidu.com&#x2F;发送请求后，Nginx返回的是一个跳转的响应。 此后，客户端会重新向http:&#x2F;&#x2F;www.baid">
+  <meta name="description" content="HTTPS请求跳转如下面的配置： 123location &#x2F;test &amp;#123;   proxy_pass http:&#x2F;&#x2F;www.baidu.com&#x2F;;&amp;#125; 在访问URI为&#x2F;test时会跳转到百度，但是此时浏览器的URL也发生了变化，这是因为向http:&#x2F;&#x2F;www.baidu.com&#x2F;发送请求后，Nginx返回的是一个跳转的响应。 此后，客户端会重新向http:&#x2F;&#x2F;www.baidu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="负载均衡Nginx Session 一致性">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/nginx-session-consistency/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="HTTPS请求跳转 如下面的配置： 123location &#x2F;test &amp;#123;   proxy_pass http:&#x2F;&#x2F;www.baidu.com&#x2F;;&amp;#125; 在访问URI为&#x2F;test时会跳转到百度，但是此时浏览器的URL也发生了变化，这是因为向http:&#x2F;&#x2F;www.baidu.com&#x2F;发送请求后，Nginx返回的是一个跳转的响应。 此后，客户端会重新向http:&#x2F;&#x2F;www.baid">
+<meta property="og:description" content="HTTPS请求跳转如下面的配置： 123location &#x2F;test &amp;#123;   proxy_pass http:&#x2F;&#x2F;www.baidu.com&#x2F;;&amp;#125; 在访问URI为&#x2F;test时会跳转到百度，但是此时浏览器的URL也发生了变化，这是因为向http:&#x2F;&#x2F;www.baidu.com&#x2F;发送请求后，Nginx返回的是一个跳转的响应。 此后，客户端会重新向http:&#x2F;&#x2F;www.baidu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/nginx-session-consistency/index/img.png">
 <meta property="article:published_time" content="2023-02-19T06:40:23.000Z">
@@ -376,7 +376,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#https%E8%AF%B7%E6%B1%82%E8%B7%B3%E8%BD%AC"><span class="toc-text"> HTTPS请求跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-text"> Session一致性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text"> 解决方案</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPS%E8%AF%B7%E6%B1%82%E8%B7%B3%E8%BD%AC"><span class="toc-text">HTTPS请求跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-text">Session一致性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol></li></ol>
       
       
     </nav>
@@ -438,76 +438,69 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-<h3 id="https请求跳转"><a class="markdownIt-Anchor" href="#https请求跳转"></a> HTTPS请求跳转</h3>
-<p>如下面的配置：</p>
+
+<h3 id="HTTPS请求跳转"><a href="#HTTPS请求跳转" class="headerlink" title="HTTPS请求跳转"></a>HTTPS请求跳转</h3><p>如下面的配置：</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">location</span> <span class="string">/test &#123;</span></span><br><span class="line">   <span class="attr">proxy_pass</span> <span class="string">http://www.baidu.com/;</span></span><br><span class="line"><span class="attr">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>在访问URI为/test时会跳转到百度，但是此时浏览器的URL也发生了变化，这是因为向<code>http://www.baidu.com/</code>发送请求后，Nginx返回的是一个跳转的响应。</p>
 <p>此后，客户端会重新向<code>http://www.baidu.com/</code>发送请求（此过程不再经过nginx），所以浏览器发生了跳转，而非 Nginx的负载均衡。</p>
 <p><strong>解决方式： 将配置中的http改成https即可</strong></p>
-<h3 id="session一致性"><a class="markdownIt-Anchor" href="#session一致性"></a> Session一致性</h3>
-<p>在使用nginx做反向代理时，如果后端服务器时Tomcat等动态服务器，可能会出现Session一致性的问题。即无法确保同一个Session一定对应同一个Server</p>
+<h3 id="Session一致性"><a href="#Session一致性" class="headerlink" title="Session一致性"></a>Session一致性</h3><p>在使用nginx做反向代理时，如果后端服务器时Tomcat等动态服务器，可能会出现Session一致性的问题。即无法确保同一个Session一定对应同一个Server</p>
 <ol>
-<li>
-<p>配置IP地址</p>
+<li><p>配置IP地址</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">Server</th>
-<th style="text-align:center">IP</th>
+<th align="center">Server</th>
+<th align="center">IP</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">Nginx</td>
-<td style="text-align:center">172.20.1.10</td>
+<tbody><tr>
+<td align="center">Nginx</td>
+<td align="center">172.20.1.10</td>
 </tr>
 <tr>
-<td style="text-align:center">Server1</td>
-<td style="text-align:center">172.20.1.101</td>
+<td align="center">Server1</td>
+<td align="center">172.20.1.101</td>
 </tr>
 <tr>
-<td style="text-align:center">Server2</td>
-<td style="text-align:center">172.20.1.102</td>
+<td align="center">Server2</td>
+<td align="center">172.20.1.102</td>
 </tr>
-</tbody>
-</table>
-<p>并且在Server1 和 Server2上启动 Tomcat</p>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">并且在Server1 和 Server2上启动 Tomcat</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 </li>
-<li>
-<p>配置Server</p>
-<p>在Server段创建jsp页面：</p>
+<li><p>配置Server</p>
+<p> 在Server段创建jsp页面：</p>
 <ul>
-<li>
-<p>Server1</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@c5477d71795c ROOT]# pwd</span><br><span class="line">/var/lib/tomcat/webapps/ROOT</span><br><span class="line">[root@c5477d71795c ROOT]# cat index.jsp </span><br><span class="line">from 172.20.1.101</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">session=&lt;%=session.getId()%&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>Server2</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@c5477d71795c ROOT]# pwd</span><br><span class="line">/var/lib/tomcat/webapps/ROOT</span><br><span class="line">[root@c5477d71795c ROOT]# cat index.jsp </span><br><span class="line">from 172.20.1.102</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">session=&lt;%=session.getId()%&gt;</span><br></pre></td></tr></table></figure>
-</li>
+<li><p>Server1</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@c5477d71795c ROOT]# pwd</span><br><span class="line">/var/lib/tomcat/webapps/ROOT</span><br><span class="line">[root@c5477d71795c ROOT]# cat index.jsp </span><br><span class="line">from 172.20.1.101</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">session=&lt;%=session.getId()%&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>Server2</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@c5477d71795c ROOT]# pwd</span><br><span class="line">/var/lib/tomcat/webapps/ROOT</span><br><span class="line">[root@c5477d71795c ROOT]# cat index.jsp </span><br><span class="line">from 172.20.1.102</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">session=&lt;%=session.getId()%&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>然后访问 <code>http://172.20.1.101:8080/</code> 和 <code>http://172.20.1.102:8080/</code>。</p>
-<p>可分别显示来自哪个<code>Server</code>和对应的 <code>SessionId</code>，并且刷新页面时 <code>SessionId</code> 不会变化（即使是使用 Ctrl+F5 刷新）</p>
+<p> 然后访问 <code>http://172.20.1.101:8080/</code> 和 <code>http://172.20.1.102:8080/</code>。</p>
+<p> 可分别显示来自哪个<code>Server</code>和对应的 <code>SessionId</code>，并且刷新页面时 <code>SessionId</code> 不会变化（即使是使用 Ctrl+F5 刷新）</p>
 </li>
-<li>
-<p>配置Nginx</p>
-<p>修改Nginx配置文件，加入upstream配置和server配置</p>
+<li><p>配置Nginx</p>
+<p> 修改Nginx配置文件，加入upstream配置和server配置</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">upstream tomcat &#123;</span><br><span class="line">    server 172.20.1.101:8080;</span><br><span class="line">    server 172.20.1.102:8080;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    ......</span><br><span class="line">    location /cat &#123;</span><br><span class="line">        proxy_pass http://tomcat/;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>重启Nginx</p>
+<p> 重启Nginx</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@ce12b3b4ce00 sbin]# ./nginx -s reload</span><br></pre></td></tr></table></figure>
-<p>访问 <code>http://172.20.1.10/cat</code> 并刷新，发现 <code>from 172.20.1.10x</code> 一直在变化，并且<code>session=xxx</code> 也变化。</p>
-<p><strong>说明：此时 Nginx 的配置无法保证 Session 一致性!</strong></p>
+<p> 访问 <code>http://172.20.1.10/cat</code> 并刷新，发现 <code>from 172.20.1.10x</code> 一直在变化，并且<code>session=xxx</code> 也变化。</p>
+<p> <strong>说明：此时 Nginx 的配置无法保证 Session 一致性!</strong></p>
 </li>
 </ol>
-<h4 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h4>
-<p>在 Tomcat 后面部署 Redis，MemCached 等内存数据库来保存 Session 相关信息。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>在 Tomcat 后面部署 Redis，MemCached 等内存数据库来保存 Session 相关信息。</p>
 <p>本例中在 Nginx 服务器上安装 memcached 来解决 Session 一致性问题。</p>
 <ol>
-<li>
-<p>启动memcached</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 安装memcached</span></span><br><span class="line">yum install -y memcached</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 启动memcached</span></span><br><span class="line">memcached -d -m 128m -p 11211 -l 172.20.1.10 -u root -P /tmp/</span><br></pre></td></tr></table></figure>
-<p>参数说明</p>
-<ul>
+<li>启动memcached <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 安装memcached</span></span><br><span class="line">yum install -y memcached</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 启动memcached</span></span><br><span class="line">memcached -d -m 128m -p 11211 -l 172.20.1.10 -u root -P /tmp/</span><br></pre></td></tr></table></figure>
+ 参数说明<ul>
 <li>-d: 后台启动</li>
 <li>-m: 缓存大小</li>
 <li>-p: 端口</li>
@@ -516,22 +509,17 @@
 <li>-u: 服务器以哪个用户作为管理用户</li>
 </ul>
 </li>
-<li>
-<p>修改tomcat配置</p>
-<p>在两台Server中修改tomcat配置</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@3a53f7504511 ROOT]# vi /etc/tomcat/context.xml </span><br></pre></td></tr></table></figure>
+<li>修改tomcat配置 在两台Server中修改tomcat配置 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@3a53f7504511 ROOT]# vi /etc/tomcat/context.xml </span><br></pre></td></tr></table></figure>
+
  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- context标签中加入下面的内容 --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">Manager</span> </span></span><br><span class="line"><span class="tag"><span class="attr">className</span>=<span class="string">&quot;de.javakaffee.web.msm.MemcachedBackupSessionManager&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">memcachedNodes</span>=<span class="string">&quot;n1:172.20.1.10:11211&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">sticky</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">sessionBackupAsync</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">lockingMode</span>=<span class="string">&quot;auto&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">requestUriIgnorePattern</span>=<span class="string">&quot;.*\.(ico|png|gif|jpg|css|js)$&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">sessionBackupTimeout</span>=<span class="string">&quot;1000&quot;</span>          </span></span><br><span class="line"><span class="tag">        <span class="attr">transcoderFactoryClass</span>=<span class="string">&quot;de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p>导入 <code>jar</code> 包使用 yum 安装的 Tomcat 可将 jar 包放在 <code>/usr/share/java/tomcat/</code> 目录下。</p>
-<p>需要以下jar包：<br>
-<img src="/nginx-session-consistency/index/img.png" alt></p>
-</li>
-<li>
-<p>添加Maven依赖(Maven项目配置，测试可不加)</p>
- <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>asm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>asm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.couchbase.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>couchbase-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.11<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.googlecode<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kryo<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.04<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>de.javakaffee<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kryo-serializers<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.11<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>de.javakaffee.msm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>memcached-session-manager<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>de.javakaffee.msm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>memcached-session-manager-tc7<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.googlecode<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>minlog<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>de.javakaffee.msm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>msm-kryo-serializer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.esotericsoftware<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>reflectasm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.01<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.spy<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spymemcached<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.11.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>注: 如果依赖和 Tomcat 版本不对应可能会什么也不显示，此时响应码为 500。</p>
-</li>
-<li>
-<p>验证</p>
+导入 <code>jar</code> 包使用 yum 安装的 Tomcat 可将 jar 包放在 <code>/usr/share/java/tomcat/</code> 目录下。 需要以下jar包：<br> <img src="/nginx-session-consistency/index/img.png"></li>
+</ol>
+<ol start="3">
+<li>添加Maven依赖(Maven项目配置，测试可不加) <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>asm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>asm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.couchbase.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>couchbase-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.11<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.googlecode<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kryo<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.04<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>de.javakaffee<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kryo-serializers<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.11<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>de.javakaffee.msm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>memcached-session-manager<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>de.javakaffee.msm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>memcached-session-manager-tc7<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.googlecode<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>minlog<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>de.javakaffee.msm<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>msm-kryo-serializer<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.8.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.esotericsoftware<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>reflectasm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.01<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.spy<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spymemcached<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.11.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+注: 如果依赖和 Tomcat 版本不对应可能会什么也不显示，此时响应码为 500。</li>
+</ol>
+<ol start="4">
+<li><p>验证</p>
 <p>上述步骤都正确配置之后, 再次访问 <code>http://172.20.1.10/cat</code> 并刷新会发现 SessionId 不再变化。</p>
 </li>
 </ol>
@@ -634,7 +622,7 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="alipay">
               <div class="donate-payimg">
-                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+                <img src="../themes/pure/source/images/avatar.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
