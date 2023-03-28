@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，分享一些技术教程以及日常踩坑记录。</description>
-    <pubDate>Sun, 26 Mar 2023 06:29:57 GMT</pubDate>
+    <pubDate>Tue, 28 Mar 2023 13:58:15 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>实现异步的8种方式</title>
+      <link>https://xiaoyuge5201.github.io/async/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/async/index.html</guid>
+      <pubDate>Tue, 28 Mar 2023 13:58:15 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/01-Java/">01 Java</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
     
     <item>
       <title>分布式系统 - 全局唯一ID实现方案</title>

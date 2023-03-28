@@ -25,19 +25,19 @@
 <meta property="og:site_name" content="小余哥|猿无忧">
 <meta property="og:description" content="1. 总体介绍Redis是一个基于内存的数据库，它的数据时存放在内存中，内存有个问题就是关闭服务或者断电会丢失。 Redis的数据也支持写到硬盘中，这个过程就要持久化。Redis提供了4种不同的持久化方式：  RDB（Redis Database）  AOF（Append Of File）  虚拟内存（VM）  –reids2.4已经弃用  DISKSTORE   2. RDB（Redis D">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/1.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/2.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/7.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/3.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/4.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/5.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/8.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/1.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/2.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/7.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/3.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/4.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/5.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/8.png">
 <meta property="article:published_time" content="2023-02-26T08:20:06.000Z">
 <meta property="article:modified_time" content="2023-02-26T08:20:06.000Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="redis专题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/1.png">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/redis-special-rdb/index/1.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://xiaoyuge5201.github.io/redis-special-rdb/index.html">
   
@@ -235,6 +235,31 @@
           <li>
             
             <div class="item-thumb">
+              <a href="../async/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/01-Java/">01 Java</a>
+              </p>
+              <p class="item-title">
+                <a href="../async/index.html" class="title">实现异步的8种方式</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-03-28T13:58:15.000Z" itemprop="datePublished">2023-03-28</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
               <a href="../global-unique-id/index.html" class="thumb">
     
     
@@ -328,31 +353,6 @@
               </p>
               <p class="item-date">
                 <time datetime="2023-03-24T14:11:59.000Z" itemprop="datePublished">2023-03-24</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../selenium/index.html" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a>
-              </p>
-              <p class="item-title">
-                <a href="../selenium/index.html" class="title">Springboot集成Selenium</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-03-23T00:59:15.000Z" itemprop="datePublished">2023-03-23</time>
               </p>
             </div>
           </li>
@@ -468,7 +468,7 @@
 <li><p>一般情况弗进程和子进程会共用一段物理内存，只有进程空间的各段的内容要发生变化是，才会将父进程的内容复制一份给子进程。</p>
 </li>
 </ul>
-<h4 id="2-4-RDB持久化流程"><a href="#2-4-RDB持久化流程" class="headerlink" title="2.4. RDB持久化流程"></a>2.4. RDB持久化流程</h4><p><img src="/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/1.png"></p>
+<h4 id="2-4-RDB持久化流程"><a href="#2-4-RDB持久化流程" class="headerlink" title="2.4. RDB持久化流程"></a>2.4. RDB持久化流程</h4><p><img src="/redis-special-rdb/index/1.png"></p>
 <h4 id="2-5-指定备份文件的名称"><a href="#2-5-指定备份文件的名称" class="headerlink" title="2.5. 指定备份文件的名称"></a>2.5. 指定备份文件的名称</h4><p>在redis.conf中，可以修改rdb备份文件的名称(<code>dbfilename</code>)以及保存路径(<code>dir</code>)，默认为<code>dump.rdb</code>，如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># sanitize-dump-payload no</span><br><span class="line"></span><br><span class="line"># The filename where to dump the DB</span><br><span class="line">dbfilename dump.rdb</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># The working directory.</span><br><span class="line">#</span><br><span class="line"># The DB will be written inside this directory, with the filename specified</span><br><span class="line"># above using the &#x27;dbfilename&#x27; configuration directive.</span><br><span class="line">#</span><br><span class="line"># The Append Only File will also be created inside this directory.</span><br><span class="line">#</span><br><span class="line"># Note that you must specify a directory here, not a file name.</span><br><span class="line"># ./表示执行redis-server命令启动redis时所在的目录</span><br><span class="line">dir ./            </span><br></pre></td></tr></table></figure>
 
@@ -478,7 +478,7 @@
 <p>以下4中情况会自动触发：</p>
 <ul>
 <li><p>redis.conf中配置save m n，即在m秒内有n次修改时，自动触发bgsave生成rdb文件；</p>
-<p> <img src="/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/2.png"></p>
+<p> <img src="/redis-special-rdb/index/2.png"></p>
 <p> save用来配置备份规则， 格式为：<code>save 秒 写操作次数</code> ，<strong>默认是1分钟内修改了1万次，或5分钟内需修改了10次，或30分钟内修改了1次。</strong></p>
 <p> 示例：设置20秒内有最少3次key发生备份，则进行备份</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save 20 3</span><br></pre></td></tr></table></figure></li>
@@ -496,7 +496,7 @@
 <li><p><strong>save</strong>：阻塞当前Redis服务器，直到RDB过程完成为止，手动保存，不建议使用</p>
 </li>
 <li><p><strong>bgsave</strong>：redis会在后台一步进行快照操作，快照同时还可以响应客户端情况，可以通过<code>lastsave</code>命令获取最后一次生成快照的时间</p>
-<p><img src="/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/7.png"></p>
+<p><img src="/redis-special-rdb/index/7.png"></p>
 <p>具体流程如下：</p>
 <ul>
 <li>redis客户端执行bgsave命令或者自动触发bgsave命令；</li>
@@ -516,19 +516,19 @@
 </ol>
 <h4 id="redis-conf其他的一些配置"><a href="#redis-conf其他的一些配置" class="headerlink" title="redis.conf其他的一些配置"></a>redis.conf其他的一些配置</h4><ol>
 <li><p><code>stop-writes-on-bgsave-error</code>：当磁盘满时，是否关闭redis的写操作,默认<code>yes</code>。</p>
-<p> <img src="/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/3.png"></p>
+<p> <img src="/redis-special-rdb/index/3.png"></p>
 </li>
 <li><p><code>rdbcompression</code>：rdb备份是否开启压缩</p>
 <blockquote>
 <p>对于存储到磁盘中的rdb快照文件，可以设置是否进行压缩，如果是的话，redis采用LZF算法进行压缩，默认<code>yes</code></p>
 </blockquote>
-<p><img src="/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/4.png"></p>
+<p><img src="/redis-special-rdb/index/4.png"></p>
 </li>
 <li><p><code>rdbchecksum</code>：是否检查rdb备份文件的完整性</p>
 <blockquote>
 <p>存储快照后，还可以让redis使用CRC64算法来进行数据校验，但是这样会加大性能消耗，如果希望获取最大的性能，可以关闭，默认 <code>yes</code></p>
 </blockquote>
-<p><img src="/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/5.png"></p>
+<p><img src="/redis-special-rdb/index/5.png"></p>
 </li>
 </ol>
 <h4 id="2-7-rdb的备份和恢复"><a href="#2-7-rdb的备份和恢复" class="headerlink" title="2.7. rdb的备份和恢复"></a>2.7. rdb的备份和恢复</h4><ol>
@@ -566,7 +566,7 @@
 </ul>
 <h4 id="2-9-停止RDB"><a href="#2-9-停止RDB" class="headerlink" title="2.9. 停止RDB"></a>2.9. 停止RDB</h4><p>动态停止RDB：<code>redis-cli config set save &quot;&quot;</code> #save后给空值，表示禁用保存策略。</p>
 <h3 id="3-RDB深入理解"><a href="#3-RDB深入理解" class="headerlink" title="3. RDB深入理解"></a>3. RDB深入理解</h3><p>RDB中的核心思路是<code>Copy-on-Write</code>，来保证快照操作的时间，需要压缩写入磁盘上的数据在内存中不会发生便哈，在正常的快照操作中，一方面Redis主进程会fork一个新的快照进程专门处理这个事情，这样保证了Redis服务不会停止对<br>客户端包括写请求在哪的任何响应。另一方面这段时间发生的数据变化会以副本的方式存放在另一个新的内存区域，等到快照操作结束后才会同步到原来的内存区域。</p>
-<p>举个例子：如果主线程对这些数据也都是读操作（例如图中的键值对 A），那么，主线程和 bgsave 子进程相互不影响。但是，如果主线程要修改一块数据（例如图中的键值对 C），那么，这块数据就会被复制一份，生成该数据的副本。然后，bgsave 子进程会把这个副本数据写入 RDB 文件，而在这个过程中，主线程仍然可以直接修改原来的数据。<br><img src="/redis-special-rdb/index/_posts/2023/02/redis-special-rdb/8.png"></p>
+<p>举个例子：如果主线程对这些数据也都是读操作（例如图中的键值对 A），那么，主线程和 bgsave 子进程相互不影响。但是，如果主线程要修改一块数据（例如图中的键值对 C），那么，这块数据就会被复制一份，生成该数据的副本。然后，bgsave 子进程会把这个副本数据写入 RDB 文件，而在这个过程中，主线程仍然可以直接修改原来的数据。<br><img src="/redis-special-rdb/index/8.png"></p>
 <h4 id="3-1-快照间隔时间"><a href="#3-1-快照间隔时间" class="headerlink" title="3.1. 快照间隔时间"></a>3.1. 快照间隔时间</h4><p>对于快照来说，所谓“连拍”就是指连续地做快照。这样一来，快照的间隔时间变得很短，即使某一时刻发生宕机了，因为上一时刻快照刚执行，丢失的数据也不会太多。但是，这其中的快照间隔时间就很关键了</p>
 <p><strong>如果频繁地执行全量快照，也会带来两方面的开销</strong>：</p>
 <ul>
@@ -684,7 +684,7 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in" id="alipay">
               <div class="donate-payimg">
-                <img src="../themes/pure/source/images/avatar.png" alt="扫码支持" title="扫一扫" />
+                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
               </div>
               <p class="text-muted mv">扫码打赏，你说多少就多少</p>
               <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
