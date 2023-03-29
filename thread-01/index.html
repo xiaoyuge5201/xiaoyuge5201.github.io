@@ -434,7 +434,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">thread.setDaemon(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
 <p>这个时候就不会退出while(true)循环了，会一直执行下去，结果如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">主线程main 结束</span><br><span class="line">Counter:1</span><br><span class="line">Counter:2</span><br><span class="line">Counter:3</span><br><span class="line">Counter:4</span><br><span class="line">Counter:5</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
-
 <p><strong>总结：守护线程是为用户线程服务的，当用户线程全部结束，守护线程会自动结束。</strong></p>
 <p><strong>注意事项：</strong></p>
 <ol>
