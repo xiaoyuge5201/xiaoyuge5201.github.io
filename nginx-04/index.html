@@ -18,12 +18,12 @@
   
   
   <title>Nginx基础篇（四）Nginx实现反向代理 | 小余哥</title>
-  <meta name="description" content="1. 正向代理和反向代理   正向代理： 正向代理类似一个跳板机，代理访问外部资源 比如我们国内访问谷歌，直接访问访问不到，我们可以通过一个正向代理服务器，请求发到代理服，代理服务器能够访问谷歌，这样由代理去谷歌取到返回数据，再返回给我们，这样我们就能访问谷歌了  正向代理的用途： （1）访问原来无法访问的资源，如google （2） 可以做缓存，加速访问资源 （3）对客户端访问授权，上网进行认">
+  <meta name="description" content="1. 正向代理和反向代理 正向代理：正向代理类似一个跳板机，代理访问外部资源比如我们国内访问谷歌，直接访问访问不到，我们可以通过一个正向代理服务器，请求发到代理服，代理服务器能够访问谷歌，这样由代理去谷歌取到返回数据，再返回给我们，这样我们就能访问谷歌了  正向代理的用途：  （1）访问原来无法访问的资源，如google  （2） 可以做缓存，加速访问资源  （3）对客户端访问授权，上网进行认证">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx基础篇（四）Nginx实现反向代理">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/nginx-04/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 正向代理和反向代理   正向代理： 正向代理类似一个跳板机，代理访问外部资源 比如我们国内访问谷歌，直接访问访问不到，我们可以通过一个正向代理服务器，请求发到代理服，代理服务器能够访问谷歌，这样由代理去谷歌取到返回数据，再返回给我们，这样我们就能访问谷歌了  正向代理的用途： （1）访问原来无法访问的资源，如google （2） 可以做缓存，加速访问资源 （3）对客户端访问授权，上网进行认">
+<meta property="og:description" content="1. 正向代理和反向代理 正向代理：正向代理类似一个跳板机，代理访问外部资源比如我们国内访问谷歌，直接访问访问不到，我们可以通过一个正向代理服务器，请求发到代理服，代理服务器能够访问谷歌，这样由代理去谷歌取到返回数据，再返回给我们，这样我们就能访问谷歌了  正向代理的用途：  （1）访问原来无法访问的资源，如google  （2） 可以做缓存，加速访问资源  （3）对客户端访问授权，上网进行认证">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/nginx-04/index/1.png">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/nginx-04/index/3.png">
@@ -216,7 +216,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/03-SpringBoot/">03 SpringBoot</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
     </div>
   </div>
 
@@ -228,6 +228,31 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled ">
         
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../springboot-h2/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-SpringBoot/">03 SpringBoot</a>
+              </p>
+              <p class="item-title">
+                <a href="../springboot-h2/index.html" class="title">Springboot集成轻量级内存数据库H2</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-04-01T03:42:17.000Z" itemprop="datePublished">2023-04-01</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-thumb">
@@ -328,31 +353,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../mybatis-01/index.html" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
-              </p>
-              <p class="item-title">
-                <a href="../mybatis-01/index.html" class="title">Mybatis 总体框架设计</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-03-24T14:11:59.000Z" itemprop="datePublished">2023-03-24</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -427,37 +427,26 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="1-正向代理和反向代理"><a class="markdownIt-Anchor" href="#1-正向代理和反向代理"></a> 1. 正向代理和反向代理</h3>
-<ol>
-<li>
-<p>正向代理：<br>
-正向代理类似一个跳板机，代理访问外部资源<br>
-比如我们国内访问谷歌，直接访问访问不到，我们可以通过一个正向代理服务器，请求发到代理服，代理服务器能够访问谷歌，这样由代理去谷歌取到返回数据，再返回给我们，这样我们就能访问谷歌了<br>
-<img src="/nginx-04/index/1.png" alt="正向代理"></p>
-<p><strong>正向代理的用途</strong>：</p>
-<p>（1）访问原来无法访问的资源，如google</p>
-<p>（2） 可以做缓存，加速访问资源</p>
-<p>（3）对客户端访问授权，上网进行认证</p>
-<p>（4）代理可以记录用户访问记录（上网行为管理），对外隐藏用户信息</p>
-<p><strong>正向代理即是客户端代理, 代理客户端, 服务端不知道实际发起请求的客户端</strong><br>
-<img src="/nginx-04/index/3.png" alt="正反向代理"></p>
+        <h3 id="1-正向代理和反向代理"><a href="#1-正向代理和反向代理" class="headerlink" title="1. 正向代理和反向代理"></a>1. 正向代理和反向代理</h3><ol>
+<li><p>正向代理：<br>正向代理类似一个跳板机，代理访问外部资源<br>比如我们国内访问谷歌，直接访问访问不到，我们可以通过一个正向代理服务器，请求发到代理服，代理服务器能够访问谷歌，这样由代理去谷歌取到返回数据，再返回给我们，这样我们就能访问谷歌了<br><img src="/nginx-04/index/1.png" alt="正向代理"></p>
+<p> <strong>正向代理的用途</strong>：</p>
+<p> （1）访问原来无法访问的资源，如google</p>
+<p> （2） 可以做缓存，加速访问资源</p>
+<p> （3）对客户端访问授权，上网进行认证</p>
+<p> （4）代理可以记录用户访问记录（上网行为管理），对外隐藏用户信息</p>
+<p> <strong>正向代理即是客户端代理, 代理客户端, 服务端不知道实际发起请求的客户端</strong><br><img src="/nginx-04/index/3.png" alt="正反向代理"></p>
 </li>
-<li>
-<p>反向代理：<br>
-反向代理（Reverse Proxy）实际运行方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器<br>
-<img src="/nginx-04/index/2.png" alt="反向代理"></p>
+<li><p>反向代理：<br>反向代理（Reverse Proxy）实际运行方式是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器<br><img src="/nginx-04/index/2.png" alt="反向代理"></p>
 <p><strong>反向代理的作用</strong>：</p>
 <p>（1）保证内网的安全，阻止web攻击，大型网站，通常将反向代理作为公网访问地址，Web服务器是内网</p>
 <p>（2）负载均衡，通过反向代理服务器来优化网站的负载</p>
 <p><strong>反向代理即是服务端代理, 代理服务端, 客户端不知道实际提供服务的服务端</strong></p>
 </li>
 </ol>
-<h3 id="2-nginx配置反向代理"><a class="markdownIt-Anchor" href="#2-nginx配置反向代理"></a> 2. Nginx配置反向代理</h3>
-<p>在http-&gt; server块中配置server_name</p>
+<h3 id="2-Nginx配置反向代理"><a href="#2-Nginx配置反向代理" class="headerlink" title="2. Nginx配置反向代理"></a>2. Nginx配置反向代理</h3><p>在http-&gt; server块中配置server_name</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    #监听端口为 80</span><br><span class="line">    listen       80;</span><br><span class="line">    #设置主机域名</span><br><span class="line">    server_name  http://192.168.44.99;</span><br><span class="line">    #设置虚拟主机的基本信息</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass http://192.168.44.1:9096;      ###最重要的配置，转发到目标地址， 也可以配置服务器组，然后upstream一个服务器组</span><br><span class="line">        proxy_method POST;   #设置转发请求的格式</span><br><span class="line">        #Nginx在header里面增加一个自定义字段 Host， 用于存放当前客户端IP地址</span><br><span class="line">        proxy_set_header  Host $host;</span><br><span class="line">        #获取客户端的真实IP地址设置到header中的字段名为X-Real-IP里面</span><br><span class="line">        proxy_set_header X-Real-IP  $remote_addr;</span><br><span class="line">        #获取所有转发请求的IP信息列表</span><br><span class="line">        proxy_set_header  X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>那么访问http://192.168.44.99 ， nginx会将请求转发给目标服务器http://192.168.44.1:9096</p>
-<h4 id="21-location-匹配规则"><a class="markdownIt-Anchor" href="#21-location-匹配规则"></a> 2.1 location 匹配规则</h4>
-<p>匹配规则从上到下，匹配规则越宽松；</p>
+<p>那么访问<a target="_blank" rel="noopener" href="http://192.168.44.99/">http://192.168.44.99</a> ， nginx会将请求转发给目标服务器<a target="_blank" rel="noopener" href="http://192.168.44.1:9096/">http://192.168.44.1:9096</a></p>
+<h4 id="2-1-location-匹配规则"><a href="#2-1-location-匹配规则" class="headerlink" title="2.1 location 匹配规则"></a>2.1 location 匹配规则</h4><p>匹配规则从上到下，匹配规则越宽松；</p>
 <table>
 <thead>
 <tr>
@@ -465,8 +454,7 @@
 <th>含义</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>location=/uri</td>
 <td>= 表示精确匹配，只有完全匹配才能生效</td>
 </tr>
@@ -490,8 +478,7 @@
 <td>location /</td>
 <td>通用匹配，任何未匹配到其他location的请求都会匹配到，相当于switch中的default</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
       
     </div>

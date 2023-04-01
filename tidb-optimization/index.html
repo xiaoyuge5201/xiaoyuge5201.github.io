@@ -18,12 +18,12 @@
   
   
   <title>Tidb查询优化 | 小余哥</title>
-  <meta name="description" content="1. tidb查询优化 tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；   查看表的健康度 12345   show stats_healthy where table_name&#x3D;&amp;#x27;xxxx&amp;#x27;;   &#96;&#96;&#96;                        2. 查看自动统计状态                &#96;&#96;&#96;sql">
+  <meta name="description" content="1. tidb查询优化 tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；  查看表的健康度12345   show stats_healthy where table_name&#x3D;&amp;#x27;xxxx&amp;#x27;;   &#96;&#96;&#96;                        2. 查看自动统计状态                &#96;&#96;&#96;sql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tidb查询优化">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/tidb-optimization/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. tidb查询优化 tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；   查看表的健康度 12345   show stats_healthy where table_name&#x3D;&amp;#x27;xxxx&amp;#x27;;   &#96;&#96;&#96;                        2. 查看自动统计状态                &#96;&#96;&#96;sql">
+<meta property="og:description" content="1. tidb查询优化 tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；  查看表的健康度12345   show stats_healthy where table_name&#x3D;&amp;#x27;xxxx&amp;#x27;;   &#96;&#96;&#96;                        2. 查看自动统计状态                &#96;&#96;&#96;sql">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-15T06:23:37.000Z">
 <meta property="article:modified_time" content="2022-10-15T06:23:37.000Z">
@@ -212,7 +212,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/03-SpringBoot/">03 SpringBoot</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
     </div>
   </div>
 
@@ -224,6 +224,31 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled ">
         
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../springboot-h2/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-SpringBoot/">03 SpringBoot</a>
+              </p>
+              <p class="item-title">
+                <a href="../springboot-h2/index.html" class="title">Springboot集成轻量级内存数据库H2</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-04-01T03:42:17.000Z" itemprop="datePublished">2023-04-01</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-thumb">
@@ -324,31 +349,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../mybatis-01/index.html" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
-              </p>
-              <p class="item-title">
-                <a href="../mybatis-01/index.html" class="title">Mybatis 总体框架设计</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-03-24T14:11:59.000Z" itemprop="datePublished">2023-03-24</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -374,7 +374,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-tidb%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="toc-text"> 1. tidb查询优化</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-tidb%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="toc-text">1. tidb查询优化</span></a></li></ol>
       
       
     </nav>
@@ -436,37 +436,21 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-<h3 id="1-tidb查询优化"><a class="markdownIt-Anchor" href="#1-tidb查询优化"></a> 1. tidb查询优化</h3>
-<p>tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；</p>
+
+<h3 id="1-tidb查询优化"><a href="#1-tidb查询优化" class="headerlink" title="1. tidb查询优化"></a>1. tidb查询优化</h3><p> tidb数据库查询3亿条数据需要花费20s以上，然后按照下面的优化方式执行过后，查询只需要1.5s；</p>
 <ol>
-<li>
-<p>查看表的健康度</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">show</span> stats_healthy <span class="keyword">where</span> table_name<span class="operator">=</span><span class="string">&#x27;xxxx&#x27;</span>;</span><br><span class="line">   ```                        </span><br><span class="line"><span class="number">2.</span> 查看自动统计状态            </span><br><span class="line">    ```<span class="keyword">sql</span></span><br><span class="line">    <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%auto_analyze%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<li>查看表的健康度<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">show</span> stats_healthy <span class="keyword">where</span> table_name<span class="operator">=</span><span class="string">&#x27;xxxx&#x27;</span>;</span><br><span class="line">   ```                        </span><br><span class="line"><span class="number">2.</span> 查看自动统计状态            </span><br><span class="line">    ```<span class="keyword">sql</span></span><br><span class="line">    <span class="keyword">show</span> variables <span class="keyword">like</span> <span class="string">&#x27;%auto_analyze%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>tidb_auto_analyze_start_time和tidb_auto_analyze_end_time控制了自动收集统计信息的窗口；</li>
 <li>tidb_auto_analyze_ratio 控制了可以进行自动收集统计信息的阈值，默认为0.5，如果后续表的数据量增加，可以酌情调整这个参数到0.3或者0.2，意味着这张表的数据修改超过总表行数的30%或者20%就会自动收集，会更敏感一些</li>
 </ul>
-<p>官方文档：<a target="_blank" rel="noopener" href="https://docs.pingcap.com/zh/tidb/dev/statistics#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0">https://docs.pingcap.com/zh/tidb/dev/statistics#自动更新</a></p>
-</li>
-<li>
-<p>调整自动收集统计信息的阈值</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_auto_analyze_ratio <span class="operator">=</span> <span class="number">0.2</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>查看健康度低于阈值的表信息</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> stats_healthy <span class="keyword">where</span> healthy<span class="operator">&lt;</span><span class="number">80</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>低于80的重新收集统计信息</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">analyze <span class="keyword">table</span> xxx</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>加快索引添加速度</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;tidb_ddl_reorg_%&#x27;</span>;</span><br><span class="line">   </span><br><span class="line"># 记录原来的数值， 添加完索引后记得改回去</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_ddl_reorg_batch_size <span class="operator">=</span> <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_ddl_reorg_worker_cnt <span class="operator">=</span> <span class="number">16</span>;</span><br></pre></td></tr></table></figure>
-</li>
+ 官方文档：<a target="_blank" rel="noopener" href="https://docs.pingcap.com/zh/tidb/dev/statistics#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0">https://docs.pingcap.com/zh/tidb/dev/statistics#%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0</a></li>
+<li>调整自动收集统计信息的阈值<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_auto_analyze_ratio <span class="operator">=</span> <span class="number">0.2</span>;</span><br></pre></td></tr></table></figure></li>
+<li>查看健康度低于阈值的表信息<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> stats_healthy <span class="keyword">where</span> healthy<span class="operator">&lt;</span><span class="number">80</span>;</span><br></pre></td></tr></table></figure></li>
+<li>低于80的重新收集统计信息 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">analyze <span class="keyword">table</span> xxx</span><br></pre></td></tr></table></figure></li>
+<li>加快索引添加速度 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;tidb_ddl_reorg_%&#x27;</span>;</span><br><span class="line">   </span><br><span class="line"># 记录原来的数值， 添加完索引后记得改回去</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_ddl_reorg_batch_size <span class="operator">=</span> <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> tidb_ddl_reorg_worker_cnt <span class="operator">=</span> <span class="number">16</span>;</span><br></pre></td></tr></table></figure>
+如果某张表因为业务需求导入了大量的数据，而这些数据在达到tidb_auto_analyze_start_time之前就需要使用SQL进行查询，此时建议对导入的表进行手动的收集；<br>我们也可以分析业务的行为，如果某张表有定时任务会自动插入大量数据，自动任务完成后需要产生报表的需求，也建议在自动任务结束后手动对相关的表进行手动收集；</li>
 </ol>
-<p>如果某张表因为业务需求导入了大量的数据，而这些数据在达到tidb_auto_analyze_start_time之前就需要使用SQL进行查询，此时建议对导入的表进行手动的收集；<br>
-我们也可以分析业务的行为，如果某张表有定时任务会自动插入大量数据，自动任务完成后需要产生报表的需求，也建议在自动任务结束后手动对相关的表进行手动收集；</p>
 
       
     </div>

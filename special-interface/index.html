@@ -18,12 +18,12 @@
   
   
   <title>接口设计看这一篇就够了 | 小余哥</title>
-  <meta name="description" content="目录 1. 接口幂等性 2. SpringBoot 防重Token令牌方案 3. 接口数据安全方案 4. 接口性能优化方案 5. 接口设计的锦囊  1. 接口幂等性  1.1 幂等性描述  幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  在数学中，幂等用函数表达式就是：f(x) &#x3D; f(f(x))  1.2 接口幂等性  在HTTP&#x2F;1.1中，对幂等性">
+  <meta name="description" content="目录1. 接口幂等性2. SpringBoot 防重Token令牌方案3. 接口数据安全方案4. 接口性能优化方案5. 接口设计的锦囊 1. 接口幂等性1.1 幂等性描述 幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  在数学中，幂等用函数表达式就是：f(x) &#x3D; f(f(x)) 1.2 接口幂等性 在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次">
 <meta property="og:type" content="article">
 <meta property="og:title" content="接口设计看这一篇就够了">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/special-interface/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="目录 1. 接口幂等性 2. SpringBoot 防重Token令牌方案 3. 接口数据安全方案 4. 接口性能优化方案 5. 接口设计的锦囊  1. 接口幂等性  1.1 幂等性描述  幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  在数学中，幂等用函数表达式就是：f(x) &#x3D; f(f(x))  1.2 接口幂等性  在HTTP&#x2F;1.1中，对幂等性">
+<meta property="og:description" content="目录1. 接口幂等性2. SpringBoot 防重Token令牌方案3. 接口数据安全方案4. 接口性能优化方案5. 接口设计的锦囊 1. 接口幂等性1.1 幂等性描述 幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同  在数学中，幂等用函数表达式就是：f(x) &#x3D; f(f(x)) 1.2 接口幂等性 在HTTP&#x2F;1.1中，对幂等性进行类定义，它描述一次">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/index/5.gif">
 <meta property="og:image" content="https://xiaoyuge5201.github.io/special-interface/index/6.png">
@@ -247,7 +247,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/03-SpringBoot/">03 SpringBoot</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
     </div>
   </div>
 
@@ -259,6 +259,31 @@
     <div class="widget-body">
       <ul class="recent-post-list list-unstyled ">
         
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../springboot-h2/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-SpringBoot/">03 SpringBoot</a>
+              </p>
+              <p class="item-title">
+                <a href="../springboot-h2/index.html" class="title">Springboot集成轻量级内存数据库H2</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-04-01T03:42:17.000Z" itemprop="datePublished">2023-04-01</time>
+              </p>
+            </div>
+          </li>
+          
           <li>
             
             <div class="item-thumb">
@@ -359,31 +384,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../mybatis-01/index.html" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/04-Mybatis/">04 Mybatis</a>
-              </p>
-              <p class="item-title">
-                <a href="../mybatis-01/index.html" class="title">Mybatis 总体框架设计</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-03-24T14:11:59.000Z" itemprop="datePublished">2023-03-24</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -409,7 +409,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text"> 目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#span-classtit-h2-idcontent11-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7span"><span class="toc-text"> 1. 接口幂等性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E5%B9%82%E7%AD%89%E6%80%A7%E6%8F%8F%E8%BF%B0"><span class="toc-text"> 1.1 幂等性描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-text"> 1.2 接口幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-text"> 1.3 为什么需要实现幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-%E5%B9%82%E7%AD%89%E6%80%A7%E5%AF%B9%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text"> 1.4 幂等性对系统的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-restful-api-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-text"> 1.5 Restful API 接口的幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%B9%82%E7%AD%89"><span class="toc-text"> 1.6 如何设计幂等</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80id"><span class="toc-text"> 全局唯一ID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%82%E7%AD%89%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-text"> 幂等设计的基本流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E7%9A%84%E6%96%B9%E6%A1%88"><span class="toc-text"> 1.7 实现幂等的方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%881%E6%95%B0%E6%8D%AE%E5%BA%93%E5%94%AF%E4%B8%80%E4%B8%BB%E9%94%AE"><span class="toc-text">   方案1：数据库唯一主键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%882%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%90%E8%A7%82%E9%94%81"><span class="toc-text">   方案2：数据库乐观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%883%E9%98%B2%E9%87%8Dtoken%E4%BB%A4%E7%89%8C"><span class="toc-text">   方案3：防重Token令牌</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%884%E4%B8%8B%E6%B8%B8%E4%BC%A0%E9%80%92%E5%94%AF%E4%B8%80%E5%BA%8F%E5%88%97%E5%8F%B7"><span class="toc-text">   方案4：下游传递唯一序列号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%885%E7%8A%B6%E6%80%81%E6%9C%BA%E5%B9%82%E7%AD%89"><span class="toc-text">   方案5：状态机幂等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%886%E6%82%B2%E8%A7%82%E9%94%81"><span class="toc-text">   方案6：悲观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%A1%887%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text">   方案7：分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text"> 总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#span-classtit-h2-idtoken2-springboot-%E9%98%B2%E9%87%8Dtoken%E4%BB%A4%E7%89%8C%E6%96%B9%E6%A1%88span"><span class="toc-text"> 2. SpringBoot 防重Token令牌方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21-%E5%BC%95%E5%85%A5%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="toc-text"> 2.1 引入相关依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text"> 2.2 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-token%E8%8E%B7%E5%8F%96%E9%AA%8C%E8%AF%81%E6%8E%A5%E5%8F%A3"><span class="toc-text"> 2.3 Token获取&#x2F;验证接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-%E5%88%9B%E5%BB%BAcontroller"><span class="toc-text"> 2.4 创建Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-%E5%88%9B%E5%BB%BAspringboot%E5%90%AF%E5%8A%A8%E7%B1%BB"><span class="toc-text"> 2.5 创建Springboot启动类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26-%E5%88%9B%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%B1%BB"><span class="toc-text"> 2.6 创建测试类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#span-classtit-h2-idinterfacesafe3-%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%96%B9%E6%A1%88span"><span class="toc-text"> 3. 接口数据安全方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#31-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E9%98%B2%E6%AD%A2%E6%8A%A5%E6%96%87%E6%98%8E%E6%96%87%E4%BC%A0%E8%BE%93"><span class="toc-text"> 3.1 数据加密，防止报文明文传输</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#311-%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F"><span class="toc-text"> 3.1.1 加密方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#312-https%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE"><span class="toc-text"> 3.1.2 HTTPS安全协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32-%E6%95%B0%E6%8D%AE%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-text"> 3.2 数据加签验签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#321-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-text"> 3.2.1 什么是加签验签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#322-%E6%9C%89%E4%BA%86https%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E8%A6%81%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-text"> 3.2.2 有了Https，为什么还要加签验签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33-token-%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="toc-text"> 3.3 token 授权认证机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#331-token%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88"><span class="toc-text"> 3.3.1 token授权认证方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#332-%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81token%E7%9A%84%E5%AE%89%E5%85%A8token%E8%A2%AB%E5%8A%AB%E6%8C%81%E5%91%A2"><span class="toc-text"> 3.3.2 如何保证token的安全？token被劫持呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34-%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E8%B6%85%E6%97%B6%E6%9C%BA%E5%88%B6"><span class="toc-text"> 3.4 时间戳timestamp超时机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#35-timestampnonce%E6%96%B9%E6%A1%88%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE%E6%94%BB%E5%87%BB"><span class="toc-text"> 3.5 timestamp+nonce方案防止重放攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#36-%E9%99%90%E6%B5%81%E6%9C%BA%E5%88%B6"><span class="toc-text"> 3.6 限流机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#37-%E9%BB%91%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-text"> 3.7 黑名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#38-%E7%99%BD%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-text"> 3.8 白名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#39-%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F%E6%8E%A9%E7%A0%81"><span class="toc-text"> 3.9 数据脱敏掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#310-%E6%95%B0%E6%8D%AE%E5%8F%82%E6%95%B0%E5%90%88%E6%B3%95%E6%80%A7%E6%A0%A1%E9%AA%8C"><span class="toc-text"> 3.10 数据参数合法性校验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#span-classtit-h2-idinterfaceperformance4-%E6%8E%A5%E5%8F%A3%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88span"><span class="toc-text"> 4. 接口性能优化方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#41-%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98"><span class="toc-text"> 4.1 本地缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text"> 适用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98"><span class="toc-text"> 注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98"><span class="toc-text"> 4.2 分布式缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98-2"><span class="toc-text"> 注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#43-%E5%B9%B6%E8%A1%8C%E5%8C%96"><span class="toc-text"> 4.3 并行化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#44-%E5%BC%82%E6%AD%A5%E5%8C%96"><span class="toc-text"> 4.4 异步化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#45-%E6%B1%A0%E5%8C%96"><span class="toc-text"> 4.5 池化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#46-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="toc-text"> 4.6 分库分表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#47-sql-%E4%BC%98%E5%8C%96"><span class="toc-text"> 4.7 SQL 优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#48-%E9%A2%84%E5%85%88%E8%AE%A1%E7%AE%97"><span class="toc-text"> 4.8 预先计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#49-%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3"><span class="toc-text"> 4.9 事务相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#410-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-text"> 4.10 海量数据处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#411-%E6%89%B9%E9%87%8F%E8%AF%BB%E5%86%99"><span class="toc-text"> 4.11 批量读写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#412-%E9%94%81%E7%9A%84%E7%B2%92%E5%BA%A6"><span class="toc-text"> 4.12 锁的粒度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4121-synchronized"><span class="toc-text"> 4.12.1 synchronized</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4122-redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text"> 4.12.2 Redis分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4123-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text"> 4.12.3 数据库分布式锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#413-%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BC%A0%E9%80%92"><span class="toc-text"> 4.13 上下文传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#414-%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F"><span class="toc-text"> 4.14 空间大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#415-%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="toc-text"> 4.15 查询优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#span-classtit-h2-idinterfacedefine5-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E7%9A%84%E9%94%A6%E5%9B%8Aspan"><span class="toc-text"> 5. 接口设计的锦囊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#51-%E6%89%B9%E9%87%8F%E6%80%9D%E6%83%B3%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text"> 5.1 批量思想：批量操作数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52-%E5%BC%82%E6%AD%A5%E6%80%9D%E6%83%B3%E8%80%97%E6%97%B6%E6%93%8D%E4%BD%9C%E8%80%83%E8%99%91%E6%94%BE%E5%88%B0%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C"><span class="toc-text"> 5.2 异步思想：耗时操作，考虑放到异步执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#53-%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4%E6%80%9D%E6%83%B3%E6%81%B0%E5%BD%93%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98"><span class="toc-text"> 5.3 空间换时间思想：恰当使用缓存。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#54-%E9%A2%84%E5%8F%96%E6%80%9D%E6%83%B3%E6%8F%90%E5%89%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%B0%E7%BC%93%E5%AD%98"><span class="toc-text"> 5.4 预取思想：提前初始化到缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#55-%E6%B1%A0%E5%8C%96%E6%80%9D%E6%83%B3%E9%A2%84%E5%88%86%E9%85%8D%E4%B8%8E%E5%BE%AA%E7%8E%AF%E4%BD%BF%E7%94%A8"><span class="toc-text"> 5.5 池化思想：预分配与循环使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#56-%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E6%80%9D%E6%83%B3%E6%8B%92%E7%BB%9D%E9%98%BB%E5%A1%9E%E7%AD%89%E5%BE%85"><span class="toc-text"> 5.6 事件回调思想：拒绝阻塞等待</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#57-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%E7%94%B1%E4%B8%B2%E8%A1%8C%E6%94%B9%E4%B8%BA%E5%B9%B6%E8%A1%8C"><span class="toc-text"> 5.7 远程调用由串行改为并行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#58-%E9%94%81%E7%B2%92%E5%BA%A6%E9%81%BF%E5%85%8D%E8%BF%87%E7%B2%97"><span class="toc-text"> 5.8 锁粒度避免过粗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#59-%E5%88%87%E6%8D%A2%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%E6%96%87%E4%BB%B6%E4%B8%AD%E8%BD%AC%E6%9A%82%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="toc-text"> 5.9 切换存储方式：文件中转暂存数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#510-%E7%B4%A2%E5%BC%95"><span class="toc-text"> 5.10 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5101-%E6%B2%A1%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-text"> 5.10.1 没加索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5102-%E7%B4%A2%E5%BC%95%E4%B8%8D%E7%94%9F%E6%95%88"><span class="toc-text"> 5.10.2 索引不生效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5103-%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E4%B8%8D%E5%90%88%E7%90%86"><span class="toc-text"> 5.10.3 索引设计不合理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#511-%E4%BC%98%E5%8C%96sql"><span class="toc-text"> 5.11 优化SQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#512-%E9%81%BF%E5%85%8D%E5%A4%A7%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-text"> 5.12 避免大事务问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#513-%E6%B7%B1%E5%88%86%E9%A1%B5%E9%97%AE%E9%A2%98"><span class="toc-text"> 5.13 深分页问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#514-%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-text"> 5.14 优化程序结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#515-%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%93%E5%86%85%E5%AE%B9"><span class="toc-text"> 5.15 压缩传输内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#516-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E8%80%83%E8%99%91nosql"><span class="toc-text"> 5.16 海量数据处理，考虑NoSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#517-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AE%BE%E8%AE%A1%E8%A6%81%E5%90%88%E7%90%86"><span class="toc-text"> 5.17 线程池设计要合理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#518-%E6%9C%BA%E5%99%A8%E9%97%AE%E9%A2%98-fullgc-%E7%BA%BF%E7%A8%8B%E6%89%93%E6%BB%A1-%E5%A4%AA%E5%A4%9Aio%E8%B5%84%E6%BA%90%E6%B2%A1%E5%85%B3%E9%97%AD%E7%AD%89%E7%AD%89"><span class="toc-text"> 5.18 机器问题 （fullGC、线程打满、太多IO资源没关闭等等）</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-text">1. 接口幂等性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B9%82%E7%AD%89%E6%80%A7%E6%8F%8F%E8%BF%B0"><span class="toc-text">1.1 幂等性描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%8E%A5%E5%8F%A3%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-text">1.2 接口幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-text">1.3 为什么需要实现幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%B9%82%E7%AD%89%E6%80%A7%E5%AF%B9%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-text">1.4 幂等性对系统的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Restful-API-%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-text">1.5 Restful API 接口的幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E5%B9%82%E7%AD%89"><span class="toc-text">1.6 如何设计幂等</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80ID"><span class="toc-text">全局唯一ID</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%82%E7%AD%89%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-text">幂等设计的基本流程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E7%9A%84%E6%96%B9%E6%A1%88"><span class="toc-text">1.7 实现幂等的方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%881%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%94%AF%E4%B8%80%E4%B8%BB%E9%94%AE"><span class="toc-text">  方案1：数据库唯一主键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%882%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B9%90%E8%A7%82%E9%94%81"><span class="toc-text">  方案2：数据库乐观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%883%EF%BC%9A%E9%98%B2%E9%87%8DToken%E4%BB%A4%E7%89%8C"><span class="toc-text">  方案3：防重Token令牌</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%884%EF%BC%9A%E4%B8%8B%E6%B8%B8%E4%BC%A0%E9%80%92%E5%94%AF%E4%B8%80%E5%BA%8F%E5%88%97%E5%8F%B7"><span class="toc-text">  方案4：下游传递唯一序列号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%885%EF%BC%9A%E7%8A%B6%E6%80%81%E6%9C%BA%E5%B9%82%E7%AD%89"><span class="toc-text">  方案5：状态机幂等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%886%EF%BC%9A%E6%82%B2%E8%A7%82%E9%94%81"><span class="toc-text">  方案6：悲观锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nbsp-nbsp-%E6%96%B9%E6%A1%887%EF%BC%9A%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text">  方案7：分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SpringBoot-%E9%98%B2%E9%87%8DToken%E4%BB%A4%E7%89%8C%E6%96%B9%E6%A1%88"><span class="toc-text">2. SpringBoot 防重Token令牌方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%BC%95%E5%85%A5%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="toc-text">2.1 引入相关依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">2.2 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Token%E8%8E%B7%E5%8F%96-%E9%AA%8C%E8%AF%81%E6%8E%A5%E5%8F%A3"><span class="toc-text">2.3 Token获取&#x2F;验证接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%88%9B%E5%BB%BAController"><span class="toc-text">2.4 创建Controller</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%88%9B%E5%BB%BASpringboot%E5%90%AF%E5%8A%A8%E7%B1%BB"><span class="toc-text">2.5 创建Springboot启动类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%88%9B%E5%BB%BA%E6%B5%8B%E8%AF%95%E7%B1%BB"><span class="toc-text">2.6 创建测试类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8E%A5%E5%8F%A3%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E6%96%B9%E6%A1%88"><span class="toc-text">3. 接口数据安全方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%EF%BC%8C%E9%98%B2%E6%AD%A2%E6%8A%A5%E6%96%87%E6%98%8E%E6%96%87%E4%BC%A0%E8%BE%93"><span class="toc-text">3.1 数据加密，防止报文明文传输</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1-%E5%8A%A0%E5%AF%86%E6%96%B9%E5%BC%8F"><span class="toc-text">3.1.1 加密方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2-HTTPS%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE"><span class="toc-text">3.1.2 HTTPS安全协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%95%B0%E6%8D%AE%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-text">3.2 数据加签验签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-text">3.2.1 什么是加签验签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E6%9C%89%E4%BA%86Https%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E8%A6%81%E5%8A%A0%E7%AD%BE%E9%AA%8C%E7%AD%BE"><span class="toc-text">3.2.2 有了Https，为什么还要加签验签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-token-%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6"><span class="toc-text">3.3 token 授权认证机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-token%E6%8E%88%E6%9D%83%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88"><span class="toc-text">3.3.1 token授权认证方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81token%E7%9A%84%E5%AE%89%E5%85%A8%EF%BC%9Ftoken%E8%A2%AB%E5%8A%AB%E6%8C%81%E5%91%A2%EF%BC%9F"><span class="toc-text">3.3.2 如何保证token的安全？token被劫持呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%97%B6%E9%97%B4%E6%88%B3timestamp%E8%B6%85%E6%97%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">3.4 时间戳timestamp超时机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-timestamp-nonce%E6%96%B9%E6%A1%88%E9%98%B2%E6%AD%A2%E9%87%8D%E6%94%BE%E6%94%BB%E5%87%BB"><span class="toc-text">3.5 timestamp+nonce方案防止重放攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E9%99%90%E6%B5%81%E6%9C%BA%E5%88%B6"><span class="toc-text">3.6 限流机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-%E9%BB%91%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-text">3.7 黑名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E7%99%BD%E5%90%8D%E5%8D%95%E6%9C%BA%E5%88%B6"><span class="toc-text">3.8 白名单机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F%E6%8E%A9%E7%A0%81"><span class="toc-text">3.9 数据脱敏掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10-%E6%95%B0%E6%8D%AE%E5%8F%82%E6%95%B0%E5%90%88%E6%B3%95%E6%80%A7%E6%A0%A1%E9%AA%8C"><span class="toc-text">3.10 数据参数合法性校验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%8E%A5%E5%8F%A3%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88"><span class="toc-text">4. 接口性能优化方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98"><span class="toc-text">4.1 本地缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98"><span class="toc-text">注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98"><span class="toc-text">4.2 分布式缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E9%97%AE%E9%A2%98-1"><span class="toc-text">注意问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%B9%B6%E8%A1%8C%E5%8C%96"><span class="toc-text">4.3 并行化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%BC%82%E6%AD%A5%E5%8C%96"><span class="toc-text">4.4 异步化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E6%B1%A0%E5%8C%96"><span class="toc-text">4.5 池化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="toc-text">4.6 分库分表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7-SQL-%E4%BC%98%E5%8C%96"><span class="toc-text">4.7 SQL 优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8-%E9%A2%84%E5%85%88%E8%AE%A1%E7%AE%97"><span class="toc-text">4.8 预先计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-9-%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3"><span class="toc-text">4.9 事务相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-10-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86"><span class="toc-text">4.10 海量数据处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-11-%E6%89%B9%E9%87%8F%E8%AF%BB%E5%86%99"><span class="toc-text">4.11 批量读写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-12-%E9%94%81%E7%9A%84%E7%B2%92%E5%BA%A6"><span class="toc-text">4.12 锁的粒度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-1-synchronized"><span class="toc-text">4.12.1 synchronized</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-2-Redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text">4.12.2 Redis分布式锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-12-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="toc-text">4.12.3 数据库分布式锁</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-13-%E4%B8%8A%E4%B8%8B%E6%96%87%E4%BC%A0%E9%80%92"><span class="toc-text">4.13 上下文传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-14-%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F"><span class="toc-text">4.14 空间大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-15-%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="toc-text">4.15 查询优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E7%9A%84%E9%94%A6%E5%9B%8A"><span class="toc-text">5. 接口设计的锦囊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%89%B9%E9%87%8F%E6%80%9D%E6%83%B3%EF%BC%9A%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">5.1 批量思想：批量操作数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%BC%82%E6%AD%A5%E6%80%9D%E6%83%B3%EF%BC%9A%E8%80%97%E6%97%B6%E6%93%8D%E4%BD%9C%EF%BC%8C%E8%80%83%E8%99%91%E6%94%BE%E5%88%B0%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C"><span class="toc-text">5.2 异步思想：耗时操作，考虑放到异步执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4%E6%80%9D%E6%83%B3%EF%BC%9A%E6%81%B0%E5%BD%93%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E3%80%82"><span class="toc-text">5.3 空间换时间思想：恰当使用缓存。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E9%A2%84%E5%8F%96%E6%80%9D%E6%83%B3%EF%BC%9A%E6%8F%90%E5%89%8D%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%B0%E7%BC%93%E5%AD%98"><span class="toc-text">5.4 预取思想：提前初始化到缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E6%B1%A0%E5%8C%96%E6%80%9D%E6%83%B3%EF%BC%9A%E9%A2%84%E5%88%86%E9%85%8D%E4%B8%8E%E5%BE%AA%E7%8E%AF%E4%BD%BF%E7%94%A8"><span class="toc-text">5.5 池化思想：预分配与循环使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E6%80%9D%E6%83%B3%EF%BC%9A%E6%8B%92%E7%BB%9D%E9%98%BB%E5%A1%9E%E7%AD%89%E5%BE%85"><span class="toc-text">5.6 事件回调思想：拒绝阻塞等待</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E8%BF%9C%E7%A8%8B%E8%B0%83%E7%94%A8%E7%94%B1%E4%B8%B2%E8%A1%8C%E6%94%B9%E4%B8%BA%E5%B9%B6%E8%A1%8C"><span class="toc-text">5.7 远程调用由串行改为并行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-8-%E9%94%81%E7%B2%92%E5%BA%A6%E9%81%BF%E5%85%8D%E8%BF%87%E7%B2%97"><span class="toc-text">5.8 锁粒度避免过粗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-9-%E5%88%87%E6%8D%A2%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%EF%BC%9A%E6%96%87%E4%BB%B6%E4%B8%AD%E8%BD%AC%E6%9A%82%E5%AD%98%E6%95%B0%E6%8D%AE"><span class="toc-text">5.9 切换存储方式：文件中转暂存数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-10-%E7%B4%A2%E5%BC%95"><span class="toc-text">5.10 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-1-%E6%B2%A1%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-text">5.10.1 没加索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-2-%E7%B4%A2%E5%BC%95%E4%B8%8D%E7%94%9F%E6%95%88"><span class="toc-text">5.10.2 索引不生效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-10-3-%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E4%B8%8D%E5%90%88%E7%90%86"><span class="toc-text">5.10.3 索引设计不合理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-11-%E4%BC%98%E5%8C%96SQL"><span class="toc-text">5.11 优化SQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-12-%E9%81%BF%E5%85%8D%E5%A4%A7%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98"><span class="toc-text">5.12 避免大事务问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-13-%E6%B7%B1%E5%88%86%E9%A1%B5%E9%97%AE%E9%A2%98"><span class="toc-text">5.13 深分页问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-14-%E4%BC%98%E5%8C%96%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-text">5.14 优化程序结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-15-%E5%8E%8B%E7%BC%A9%E4%BC%A0%E8%BE%93%E5%86%85%E5%AE%B9"><span class="toc-text">5.15 压缩传输内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-16-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%EF%BC%8C%E8%80%83%E8%99%91NoSQL"><span class="toc-text">5.16 海量数据处理，考虑NoSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-17-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E8%AE%BE%E8%AE%A1%E8%A6%81%E5%90%88%E7%90%86"><span class="toc-text">5.17 线程池设计要合理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-18-%E6%9C%BA%E5%99%A8%E9%97%AE%E9%A2%98-%EF%BC%88fullGC%E3%80%81%E7%BA%BF%E7%A8%8B%E6%89%93%E6%BB%A1%E3%80%81%E5%A4%AA%E5%A4%9AIO%E8%B5%84%E6%BA%90%E6%B2%A1%E5%85%B3%E9%97%AD%E7%AD%89%E7%AD%89%EF%BC%89"><span class="toc-text">5.18 机器问题 （fullGC、线程打满、太多IO资源没关闭等等）</span></a></li></ol></li></ol>
       
       
     </nav>
@@ -471,55 +471,38 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
-<h2 id="目录"><a class="markdownIt-Anchor" href="#目录"></a> 目录</h2>
-<p><strong>1. <a href="#content1">接口幂等性</a><br>
-2. <a href="#token">SpringBoot 防重Token令牌方案</a><br>
-3. <a href="#interfaceSafe">接口数据安全方案</a><br>
-4. <a href="#interfacePerformance">接口性能优化方案</a><br>
-5. <a href="#interfaceDefine">接口设计的锦囊</a></strong></p>
-<h2 id="span-classtit-h2-idcontent11-接口幂等性span"><a class="markdownIt-Anchor" href="#span-classtit-h2-idcontent11-接口幂等性span"></a> <span class="tit-h2" id="content1">1. 接口幂等性</span></h2>
-<h3 id="11-幂等性描述"><a class="markdownIt-Anchor" href="#11-幂等性描述"></a> 1.1 幂等性描述</h3>
-<blockquote>
+
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><strong>1. <a href="#content1">接口幂等性</a><br>2. <a href="#token">SpringBoot 防重Token令牌方案</a><br>3. <a href="#interfaceSafe">接口数据安全方案</a><br>4. <a href="#interfacePerformance">接口性能优化方案</a><br>5. <a href="#interfaceDefine">接口设计的锦囊</a></strong></p>
+<h2 id="1-接口幂等性"><a href="#1-接口幂等性" class="headerlink" title="1. 接口幂等性"></a><span class="tit-h2" id="content1">1. 接口幂等性</span></h2><h3 id="1-1-幂等性描述"><a href="#1-1-幂等性描述" class="headerlink" title="1.1 幂等性描述"></a>1.1 幂等性描述</h3><blockquote>
 <p>幂等是一个数据和计算机学概念，在数学中某一元运算为幂等时，作用多次和作用一次的结果相同</p>
 </blockquote>
 <p>在数学中，幂等用函数表达式就是：<strong>f(x) = f(f(x))</strong></p>
-<h3 id="12-接口幂等性"><a class="markdownIt-Anchor" href="#12-接口幂等性"></a> 1.2 接口幂等性</h3>
-<blockquote>
-<p>在HTTP/1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外），<br>
-即多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。</p>
+<h3 id="1-2-接口幂等性"><a href="#1-2-接口幂等性" class="headerlink" title="1.2 接口幂等性"></a>1.2 接口幂等性</h3><blockquote>
+<p>在HTTP/1.1中，对幂等性进行类定义，它描述一次和多次请求某个资源对资源本身应该具有同样的结果（网络超时等问题除外），<br>即多次调用方法或者接口不会改变业务状态，可以保证重复调用的结果和单次调用的结果一致。</p>
 </blockquote>
 <p><strong>幂等性指的是作用于结果而非资源本身。例如，HTTP GET方法可能会每次得到不同的返回内容，但并不影响资源。</strong></p>
-<h3 id="13-为什么需要实现幂等性"><a class="markdownIt-Anchor" href="#13-为什么需要实现幂等性"></a> 1.3 为什么需要实现幂等性</h3>
-<p>在接口调用时一般情况下都能正常返回信息不会出现重复提交，不过出现以下几种情况会有问题，如：</p>
+<h3 id="1-3-为什么需要实现幂等性"><a href="#1-3-为什么需要实现幂等性" class="headerlink" title="1.3 为什么需要实现幂等性"></a>1.3 为什么需要实现幂等性</h3><p>在接口调用时一般情况下都能正常返回信息不会出现重复提交，不过出现以下几种情况会有问题，如：</p>
 <ul>
-<li>
-<p>前端重复提交表单：比如用户注册时，因网络波动没有及时对用户做出提交成功响应，致使用户认为没有提交成功，然后多次进行提交操作，这时就会发生重复提交请求</p>
+<li><p>前端重复提交表单：比如用户注册时，因网络波动没有及时对用户做出提交成功响应，致使用户认为没有提交成功，然后多次进行提交操作，这时就会发生重复提交请求</p>
 </li>
-<li>
-<p>用户恶意刷单：比如用户投票，如果用户针对一个内容重复提交投票，接口接收到用户重复提交的投票信息，影响实际的计算结果</p>
+<li><p>用户恶意刷单：比如用户投票，如果用户针对一个内容重复提交投票，接口接收到用户重复提交的投票信息，影响实际的计算结果</p>
 </li>
-<li>
-<p>接口超时重复提交：如果存在超时重试机制，尤其是第三方调用接口时，为了防止网络波动超时等造成的请求失败，都会添加重试机制，导致一个请求多次提交</p>
+<li><p>接口超时重复提交：如果存在超时重试机制，尤其是第三方调用接口时，为了防止网络波动超时等造成的请求失败，都会添加重试机制，导致一个请求多次提交</p>
 </li>
-<li>
-<p>消息进行重复消费：当使用MQ消息中间件时，如果发生消息中间件出现错误为即使提交消费消息，导致发生重复消费；</p>
+<li><p>消息进行重复消费：当使用MQ消息中间件时，如果发生消息中间件出现错误为即使提交消费消息，导致发生重复消费；</p>
 </li>
 </ul>
 <p>使用幂等性最大的优势在于使接口保证任何幂等性操作，避免因重试等造成系统未知问题。</p>
-<p><img src="/special-interface/index/5.gif" alt></p>
-<h3 id="14-幂等性对系统的影响"><a class="markdownIt-Anchor" href="#14-幂等性对系统的影响"></a> 1.4 幂等性对系统的影响</h3>
-<p>幂等性是为了简化客户端逻辑处理，能防止重复提交等操作，但也额外增加了服务端业务逻辑复杂性，主要是</p>
+<p><img src="/special-interface/index/5.gif"></p>
+<h3 id="1-4-幂等性对系统的影响"><a href="#1-4-幂等性对系统的影响" class="headerlink" title="1.4 幂等性对系统的影响"></a>1.4 幂等性对系统的影响</h3><p>幂等性是为了简化客户端逻辑处理，能防止重复提交等操作，但也额外增加了服务端业务逻辑复杂性，主要是</p>
 <ul>
-<li>
-<p>把并行执行的功能改成了串行，降低了执行效率</p>
+<li><p>把并行执行的功能改成了串行，降低了执行效率</p>
 </li>
-<li>
-<p>增加了额外控制幂等的业务代码，使原本的业务功能复杂化</p>
+<li><p>增加了额外控制幂等的业务代码，使原本的业务功能复杂化</p>
 </li>
 </ul>
 <p>所以我们需要根据实际的业务场景来考虑是否引入幂等性</p>
-<h3 id="15-restful-api-接口的幂等性"><a class="markdownIt-Anchor" href="#15-restful-api-接口的幂等性"></a> 1.5 Restful API 接口的幂等性</h3>
-<p>现在流行的Restful 推荐的几种HTTP方法中幂等性如下：</p>
+<h3 id="1-5-Restful-API-接口的幂等性"><a href="#1-5-Restful-API-接口的幂等性" class="headerlink" title="1.5 Restful API 接口的幂等性"></a>1.5 Restful API 接口的幂等性</h3><p>现在流行的Restful 推荐的几种HTTP方法中幂等性如下：</p>
 <table>
 <thead>
 <tr>
@@ -528,8 +511,7 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>HEAD</td>
 <td>是</td>
 <td>Head不含有呈现数据，仅时HTTP头信息，head方法常用来做探活使用</td>
@@ -564,17 +546,13 @@
 <td>是</td>
 <td>主要用于获取当前URL所支持的方法，也是有点像查询</td>
 </tr>
-</tbody>
-</table>
-<h3 id="16-如何设计幂等"><a class="markdownIt-Anchor" href="#16-如何设计幂等"></a> 1.6 如何设计幂等</h3>
-<p>幂等意味着一条请求的唯一性，无论上面哪个方，都需要一个<strong>全局ID</strong>去标记这个请求是独一无二的。</p>
+</tbody></table>
+<h3 id="1-6-如何设计幂等"><a href="#1-6-如何设计幂等" class="headerlink" title="1.6 如何设计幂等"></a>1.6 如何设计幂等</h3><p>幂等意味着一条请求的唯一性，无论上面哪个方，都需要一个<strong>全局ID</strong>去标记这个请求是独一无二的。</p>
 <ol>
 <li>数据库唯一索引控制幂等，那唯一索引是唯一的</li>
 <li>数据库主键控制幂等， 那么主键是唯一的</li>
 </ol>
-<h4 id="全局唯一id"><a class="markdownIt-Anchor" href="#全局唯一id"></a> 全局唯一ID</h4>
-<p>下面Demo<a href="#token"><strong>防重Token令牌方案</strong></a>使用的是<strong>UUID</strong>，但是UUID的缺点比较明显，字符串占用的空间比较大，生成的ID过于随机，可读性差，而且没有递增。<br>
-我们还可以使用<code>Snowflake雪花算法</code> 生成唯一ID</p>
+<h4 id="全局唯一ID"><a href="#全局唯一ID" class="headerlink" title="全局唯一ID"></a>全局唯一ID</h4><p>下面Demo<a href="#token"><strong>防重Token令牌方案</strong></a>使用的是<strong>UUID</strong>，但是UUID的缺点比较明显，字符串占用的空间比较大，生成的ID过于随机，可读性差，而且没有递增。<br>我们还可以使用<code>Snowflake雪花算法</code> 生成唯一ID</p>
 <blockquote>
 <p>雪花算法是一种生成分布式全局ID的算法，生成的ID称为<code>Snowflakes IDs</code></p>
 </blockquote>
@@ -585,72 +563,50 @@
 <li>第43-52位：计算机ID，防止冲突</li>
 <li>第53-64位：每台及其上生成ID的序列号，这允许在同一毫秒内创建多个Snowflake ID</li>
 </ul>
-<p><img src="/special-interface/index/6.png" alt="雪花算法"><br>
-全局唯一ID还可以使用百度的<code>Uidgenerator</code>、美团的<code>leaf</code></p>
-<h4 id="幂等设计的基本流程"><a class="markdownIt-Anchor" href="#幂等设计的基本流程"></a> 幂等设计的基本流程</h4>
-<p>幂等处理的过程，其实就是过滤以下已经收到的请求，然后判断请求是否之前收到过，把请求存储起来，收到请求时，先查下存储记录，记录存在就返回上次的结果，不存在就处理请求。<br>
-<img src="/special-interface/index/7.png" alt="幂等设计的基本流程"></p>
-<h3 id="17-实现幂等的方案"><a class="markdownIt-Anchor" href="#17-实现幂等的方案"></a> 1.7 实现幂等的方案</h3>
-<h4 id="方案1数据库唯一主键"><a class="markdownIt-Anchor" href="#方案1数据库唯一主键"></a>   方案1：数据库唯一主键</h4>
-<ul>
-<li>
-<p>描述</p>
-<blockquote>
+<p><img src="/special-interface/index/6.png" alt="雪花算法"><br>全局唯一ID还可以使用百度的<code>Uidgenerator</code>、美团的<code>leaf</code></p>
+<h4 id="幂等设计的基本流程"><a href="#幂等设计的基本流程" class="headerlink" title="幂等设计的基本流程"></a>幂等设计的基本流程</h4><p>幂等处理的过程，其实就是过滤以下已经收到的请求，然后判断请求是否之前收到过，把请求存储起来，收到请求时，先查下存储记录，记录存在就返回上次的结果，不存在就处理请求。<br><img src="/special-interface/index/7.png" alt="幂等设计的基本流程"></p>
+<h3 id="1-7-实现幂等的方案"><a href="#1-7-实现幂等的方案" class="headerlink" title="1.7 实现幂等的方案"></a>1.7 实现幂等的方案</h3><h4 id="nbsp-nbsp-方案1：数据库唯一主键"><a href="#nbsp-nbsp-方案1：数据库唯一主键" class="headerlink" title="&nbsp;&nbsp;方案1：数据库唯一主键"></a>&nbsp;&nbsp;方案1：数据库唯一主键</h4><ul>
+<li>描述<blockquote>
 <p>利用数据库主键唯一约束的特性，依赖来说唯一主键比较适用于插入时的幂等性，其能保证一张表只能存在一条带该唯一主键的记录</p>
 <p>使用数据库唯一主键完成幂等性时需要注意的是，该主键一般来说并不是使用数据库自增主键，而是使用分布式ID作为主键，这样才能保证在分布式环境下ID的全局一致性</p>
 </blockquote>
 </li>
-<li>
-<p>使用操作</p>
-<ul>
+<li>使用操作<ul>
 <li>插入</li>
 <li>删除</li>
 </ul>
 </li>
-<li>
-<p>使用限制</p>
-<ol>
+<li>使用限制<ol>
 <li>需要生成全局唯一主键ID</li>
 </ol>
 </li>
-<li>
-<p>主要流程</p>
-<p><img src="/special-interface/index/1.png" alt><br>
-分布式ID服务可以使用<strong>Snowflake算法</strong>、<strong>数据库号段模式</strong>、<strong>Redis自增</strong>等方式生成；</p>
-</li>
+<li>主要流程   <img src="/special-interface/index/1.png"><br>   分布式ID服务可以使用<strong>Snowflake算法</strong>、<strong>数据库号段模式</strong>、<strong>Redis自增</strong>等方式生成；</li>
 </ul>
-<h4 id="方案2数据库乐观锁"><a class="markdownIt-Anchor" href="#方案2数据库乐观锁"></a>   方案2：数据库乐观锁</h4>
-<blockquote>
+<h4 id="nbsp-nbsp-方案2：数据库乐观锁"><a href="#nbsp-nbsp-方案2：数据库乐观锁" class="headerlink" title="&nbsp;&nbsp;方案2：数据库乐观锁"></a>&nbsp;&nbsp;方案2：数据库乐观锁</h4><blockquote>
 <p>乐观锁：在操作数据时，非常乐观，认为别人不再同时在修改数据，因此乐观锁不会上锁，只是在执行更新的时候判断以下，在此期间是否别人修改了数据</p>
 </blockquote>
 <ul>
-<li>
-<p>描述</p>
+<li><p>描述</p>
 <blockquote>
-<p>一般只适用于更新操作的过程，在表中增加version版本字段，每次对该表的这条数据更新时，都会带上上次更新后的version值</p>
+<p> 一般只适用于更新操作的过程，在表中增加version版本字段，每次对该表的这条数据更新时，都会带上上次更新后的version值</p>
 </blockquote>
 </li>
-<li>
-<p>使用操作</p>
+<li><p>使用操作</p>
 <ul>
 <li>更新</li>
 </ul>
 </li>
-<li>
-<p>使用限制</p>
+<li><p>使用限制</p>
 <ol>
 <li>需要在业务表中添加额外字段</li>
 </ol>
 </li>
-<li>
-<p>主要流程</p>
-<p><img src="/special-interface/index/2.png" alt></p>
+<li><p>主要流程</p>
+<p><img src="/special-interface/index/2.png"></p>
 <ul>
-<li>
-<p>更新数据前，先查下数据，查出版本号为<code>version = 5</code></p>
+<li><p>更新数据前，先查下数据，查出版本号为<code>version = 5</code></p>
 </li>
-<li>
-<p>然后使用<code>version=5</code> 和 <code>order_id=1010101</code>一起作为条件去更新</p>
+<li><p>然后使用<code>version=5</code> 和 <code>order_id=1010101</code>一起作为条件去更新</p>
 </li>
 </ul>
 <p><strong>为什么版本号建议自增呢？</strong></p>
@@ -658,41 +614,32 @@
 <p>因为乐观锁存在ABA的问题，如果version版本一直是自增就不会出现ABA的情况了。</p>
 </blockquote>
 <blockquote>
-<p>ABA问题：一个线程先读取共享内存数据值A，随后因某种原因，线程暂时挂起，同时另一个线程临时将共享内存数据值先改为B，随后又改回为A。随后挂起线程恢复，并通过CAS比较，最终比较结果将会无变化。这样会通过检查，这就是ABA问题。 在CAS比较前会读取原始数据，随后进行原子CAS操作。这个间隙之间由于并发操作，最终可能会带来问题<br>
-相当于是只关心共享变量的起始值和结束值，而不关心过程中共享变量是否被其他线程动过。</p>
+<p>  ABA问题：一个线程先读取共享内存数据值A，随后因某种原因，线程暂时挂起，同时另一个线程临时将共享内存数据值先改为B，随后又改回为A。随后挂起线程恢复，并通过CAS比较，最终比较结果将会无变化。这样会通过检查，这就是ABA问题。 在CAS比较前会读取原始数据，随后进行原子CAS操作。这个间隙之间由于并发操作，最终可能会带来问题<br>相当于是只关心共享变量的起始值和结束值，而不关心过程中共享变量是否被其他线程动过。</p>
 </blockquote>
 </li>
 </ul>
-<h4 id="方案3防重token令牌"><a class="markdownIt-Anchor" href="#方案3防重token令牌"></a>   方案3：防重Token令牌</h4>
-<ul>
-<li>
-<p>描述</p>
+<h4 id="nbsp-nbsp-方案3：防重Token令牌"><a href="#nbsp-nbsp-方案3：防重Token令牌" class="headerlink" title="&nbsp;&nbsp;方案3：防重Token令牌"></a>&nbsp;&nbsp;方案3：防重Token令牌</h4><ul>
+<li><p>描述</p>
 <blockquote>
 <p>针对客户端连续点击或者调用方的超时重试等情况，例如提交订单，此种操作就可以用 Token 的机制实现防止重复提交。简单的说就是调用方在调用接口的时候先向后端请求一个全局 ID（Token），请求的时候携带这个全局 ID 一起请求（Token 最好将其放到 Headers 中），后端需要对这个 Token 作为 Key，用户信息作为 Value 到 Redis 中进行键值内容校验，如果 Key 存在且 Value 匹配就执行删除命令，然后正常执行后面的业务逻辑。如果不存在对应的 Key 或 Value 不匹配就返回重复执行的错误信息，这样来保证幂等操作</p>
 </blockquote>
 </li>
-<li>
-<p>使用操作</p>
+<li><p>使用操作</p>
 <ul>
 <li>更新</li>
 <li>插入</li>
 </ul>
 </li>
-<li>
-<p>使用限制</p>
+<li><p>使用限制</p>
 <ol>
-<li>
-<p>需要生成全局唯一 Token串</p>
+<li><p>需要生成全局唯一 Token串</p>
 </li>
-<li>
-<p>需要使用Redis进行数据校验</p>
+<li><p>需要使用Redis进行数据校验</p>
 </li>
 </ol>
 </li>
-<li>
-<p>主要流程</p>
-<p><img src="/special-interface/index/3.png" alt><br>
-Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
+<li><p>主要流程</p>
+<p><img src="/special-interface/index/3.png"><br>Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
 <ul>
 <li>验证成功：说明存在该token，是第一次调用接口，可以执行后面的业务代码，同时在redis中删除该token</li>
 <li>验证失败：说明存在该token，是重复调用接口，不可以执行后面的业务代码；</li>
@@ -702,96 +649,64 @@ Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
 </blockquote>
 </li>
 </ul>
-<h4 id="方案4下游传递唯一序列号"><a class="markdownIt-Anchor" href="#方案4下游传递唯一序列号"></a>   方案4：下游传递唯一序列号</h4>
-<ul>
-<li>
-<p>描述</p>
-<p>所谓请求序列号，其实就是每次向服务端请求时候附带一个短时间内唯一不重复的序列号，该序列号可以是一个有序 ID，也可以是一个订单号，一般由下游生成，在调用上游服务端接口时附加该序列号和用于认证的 ID。 当上游服务器收到请求信息后拿取该 序列号 和下游 认证ID 进行组合，形成用于操作 Redis 的 Key，然后到 Redis 中查询是否存在对应的 Key 的键值对，根据其结果：</p>
+<h4 id="nbsp-nbsp-方案4：下游传递唯一序列号"><a href="#nbsp-nbsp-方案4：下游传递唯一序列号" class="headerlink" title="&nbsp;&nbsp;方案4：下游传递唯一序列号"></a>&nbsp;&nbsp;方案4：下游传递唯一序列号</h4><ul>
+<li><p>描述</p>
+<p>  所谓请求序列号，其实就是每次向服务端请求时候附带一个短时间内唯一不重复的序列号，该序列号可以是一个有序 ID，也可以是一个订单号，一般由下游生成，在调用上游服务端接口时附加该序列号和用于认证的 ID。 当上游服务器收到请求信息后拿取该 序列号 和下游 认证ID 进行组合，形成用于操作 Redis 的 Key，然后到 Redis 中查询是否存在对应的 Key 的键值对，根据其结果：  </p>
 <ul>
 <li>如果存在，就说明已经对该下游的该序列号的请求进行了业务处理，这时可以直接响应重复请求的错误信息。</li>
 <li>如果不存在，就以该 Key 作为 Redis 的键，以下游关键信息作为存储的值（例如下游商传递的一些业务逻辑信息），将该键值对存储到 Redis 中 ，然后再正常执行对应的业务逻辑即可。</li>
 </ul>
 </li>
-<li>
-<p>使用操作</p>
+<li><p>使用操作</p>
 <ul>
 <li>更新</li>
 <li>插入</li>
 <li>删除</li>
 </ul>
 </li>
-<li>
-<p>使用限制</p>
+<li><p>使用限制</p>
 <ol>
 <li>需要第三方传递唯一序列号</li>
 <li>需要使用Redis进行数据校验</li>
 </ol>
 </li>
-<li>
-<p>主要流程</p>
-<p><img src="/special-interface/index/4.png" alt></p>
-<p>① 下游服务生成分布式 ID 作为序列号，然后执行请求调用上游接口，并附带“唯一序列号”与请求的“认证凭据ID”。<br>
-② 上游服务进行安全效验，检测下游传递的参数中是否存在“序列号”和“凭据ID”。<br>
-③ 上游服务到 Redis 中检测是否存在对应的“序列号”与“认证ID”组成的 Key，如果存在就抛出重复执行的异常信息，然后响应下游对应的错误信息。如果不存在就以该“序列号”和“认证ID”组合作为 Key，以下游关键信息作为 Value，进而存储到 Redis 中，然后正常执行接来来的业务逻辑。</p>
-<blockquote>
+</ul>
+<ul>
+<li>主要流程 <img src="/special-interface/index/4.png">① 下游服务生成分布式 ID 作为序列号，然后执行请求调用上游接口，并附带“唯一序列号”与请求的“认证凭据ID”。<br>② 上游服务进行安全效验，检测下游传递的参数中是否存在“序列号”和“凭据ID”。<br>③ 上游服务到 Redis 中检测是否存在对应的“序列号”与“认证ID”组成的 Key，如果存在就抛出重复执行的异常信息，然后响应下游对应的错误信息。如果不存在就以该“序列号”和“认证ID”组合作为 Key，以下游关键信息作为 Value，进而存储到 Redis 中，然后正常执行接来来的业务逻辑。<blockquote>
 <p>上面步骤中插入数据到 Redis 一定要设置过期时间。这样能保证在这个时间范围内，如果重复调用接口，则能够进行判断识别。如果不设置过期时间，很可能导致数据无限量的存入 Redis，致使 Redis 不能正常工作。</p>
 </blockquote>
 </li>
 </ul>
-<h4 id="方案5状态机幂等"><a class="markdownIt-Anchor" href="#方案5状态机幂等"></a>   方案5：状态机幂等</h4>
-<ul>
-<li>
-<p>描述<br>
-很多业务表都是有状态的，比如转账流水表就会有<code>0-待处理，1-处理中，2-成功，3失败</code>，转账流水更新时，都会涉及流水状态更新，即涉及状态机。<br>
-比如转账成功后，把处理中的流水更新为<strong>成功</strong>状态</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update trans_flow <span class="keyword">set</span> status <span class="operator">=</span> <span class="number">2</span> <span class="keyword">where</span> biz_seq<span class="operator">=</span><span class="string">&#x27;123&#x27;</span> <span class="keyword">and</span> status <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>主要流程<br>
-<img src="/special-interface/index/8.png" alt></p>
-<ul>
+<h4 id="nbsp-nbsp-方案5：状态机幂等"><a href="#nbsp-nbsp-方案5：状态机幂等" class="headerlink" title="&nbsp;&nbsp;方案5：状态机幂等"></a>&nbsp;&nbsp;方案5：状态机幂等</h4><ul>
+<li>描述<br>很多业务表都是有状态的，比如转账流水表就会有<code>0-待处理，1-处理中，2-成功，3失败</code>，转账流水更新时，都会涉及流水状态更新，即涉及状态机。<br>比如转账成功后，把处理中的流水更新为<strong>成功</strong>状态<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update trans_flow <span class="keyword">set</span> status <span class="operator">=</span> <span class="number">2</span> <span class="keyword">where</span> biz_seq<span class="operator">=</span><span class="string">&#x27;123&#x27;</span> <span class="keyword">and</span> status <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure></li>
+<li>主要流程<br><img src="/special-interface/index/8.png"><ul>
 <li>第1次请求来时，bizSeq流水号是 666，该流水的状态是处理中，值是 1，要更新为2-成功的状态，所以该update语句可以正常更新数据，sql执行结果的影响行数是1，流水状态最后变成了2。</li>
 <li>第2请求也过来了，如果它的流水号还是 666，因为该流水状态已经2-成功的状态了，所以更新结果是0，不会再处理业务逻辑，接口直接返回。</li>
 </ul>
 </li>
-<li>
-<p>伪代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Rsp idempotentTransfer（Request req）&#123;</span><br><span class="line">    String bizSeq = req.getBizSeq();</span><br><span class="line">    <span class="keyword">int</span> rows= <span class="string">&quot;update transfr_flow set status=2 where biz_seq=#&#123;bizSeq&#125; and status=1;&quot;</span></span><br><span class="line">    <span class="keyword">if</span>(rows==<span class="number">1</span>)&#123;</span><br><span class="line">        log.info(“更新成功,可以处理该请求”);</span><br><span class="line">        <span class="comment">//其他业务逻辑处理</span></span><br><span class="line">        <span class="keyword">return</span> rsp;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(rows==<span class="number">0</span>)&#123;</span><br><span class="line">        log.info(“更新不成功，不处理该请求”);</span><br><span class="line">        <span class="comment">//不处理，直接返回</span></span><br><span class="line">        <span class="keyword">return</span> rsp;</span><br><span class="line">    &#125;</span><br><span class="line">    log.warn(<span class="string">&quot;数据异常&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> rsp：</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>伪代码<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Rsp idempotentTransfer（Request req）&#123;</span><br><span class="line">    String bizSeq = req.getBizSeq();</span><br><span class="line">    <span class="keyword">int</span> rows= <span class="string">&quot;update transfr_flow set status=2 where biz_seq=#&#123;bizSeq&#125; and status=1;&quot;</span></span><br><span class="line">    <span class="keyword">if</span>(rows==<span class="number">1</span>)&#123;</span><br><span class="line">        log.info(“更新成功,可以处理该请求”);</span><br><span class="line">        <span class="comment">//其他业务逻辑处理</span></span><br><span class="line">        <span class="keyword">return</span> rsp;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(rows==<span class="number">0</span>)&#123;</span><br><span class="line">        log.info(“更新不成功，不处理该请求”);</span><br><span class="line">        <span class="comment">//不处理，直接返回</span></span><br><span class="line">        <span class="keyword">return</span> rsp;</span><br><span class="line">    &#125;</span><br><span class="line">    log.warn(<span class="string">&quot;数据异常&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> rsp：</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="方案6悲观锁"><a class="markdownIt-Anchor" href="#方案6悲观锁"></a>   方案6：悲观锁</h4>
-<blockquote>
+<h4 id="nbsp-nbsp-方案6：悲观锁"><a href="#nbsp-nbsp-方案6：悲观锁" class="headerlink" title="&nbsp;&nbsp;方案6：悲观锁"></a>&nbsp;&nbsp;方案6：悲观锁</h4><blockquote>
 <p>悲观锁：通俗的讲，就是每次去操作数据时，都会觉得别人中途会修改，所以每次拿到数据的时候都会上锁；官方点讲就是：共享资源每次只给一个线程使用，其他线程阻塞，用完后再把资源转为其他线程。</p>
 </blockquote>
 <ul>
-<li>
-<p>业务场景</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">假设先查处订单，如果查到的时处理中状态，就处理完业务，然后更新订单状态为完成，如果查到订单状态不是处理中状态，则直接返回</span><br></pre></td></tr></table></figure>
-</li>
-<li>
-<p>伪代码</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">begin</span>;  # <span class="number">1.</span>开始事务</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> order_id<span class="operator">=</span><span class="string">&#x27;666&#x27;</span> <span class="comment">--  查询订单，判断状态</span></span><br><span class="line"><span class="comment">-- 0-待处理，1-处理中，2-成功，3失败</span></span><br><span class="line">if（status <span class="operator">!=</span> 处理中）&#123;</span><br><span class="line">   <span class="operator">/</span><span class="operator">/</span>非处理中状态，直接返回；</span><br><span class="line">   <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line">## 处理业务逻辑</span><br><span class="line">update <span class="keyword">order</span> <span class="keyword">set</span> status<span class="operator">=</span><span class="string">&#x27;完成&#x27;</span> <span class="keyword">where</span> order_id<span class="operator">=</span><span class="string">&#x27;666&#x27;</span> # 更新完成</span><br><span class="line"><span class="keyword">commit</span>; <span class="comment">--  5.提交事务</span></span><br></pre></td></tr></table></figure>
-<p>这种场景时非原子操作的，在高并发环境下，可能会造成一个业务被执行两次的问题</p>
-<blockquote>
+<li>业务场景<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">假设先查处订单，如果查到的时处理中状态，就处理完业务，然后更新订单状态为完成，如果查到订单状态不是处理中状态，则直接返回</span><br></pre></td></tr></table></figure></li>
+<li>伪代码 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">begin</span>;  # <span class="number">1.</span>开始事务</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> order_id<span class="operator">=</span><span class="string">&#x27;666&#x27;</span> <span class="comment">--  查询订单，判断状态</span></span><br><span class="line"><span class="comment">-- 0-待处理，1-处理中，2-成功，3失败</span></span><br><span class="line">if（status <span class="operator">!=</span> 处理中）&#123;</span><br><span class="line">   <span class="operator">/</span><span class="operator">/</span>非处理中状态，直接返回；</span><br><span class="line">   <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line">## 处理业务逻辑</span><br><span class="line">update <span class="keyword">order</span> <span class="keyword">set</span> status<span class="operator">=</span><span class="string">&#x27;完成&#x27;</span> <span class="keyword">where</span> order_id<span class="operator">=</span><span class="string">&#x27;666&#x27;</span> # 更新完成</span><br><span class="line"><span class="keyword">commit</span>; <span class="comment">--  5.提交事务</span></span><br></pre></td></tr></table></figure>
+这种场景时非原子操作的，在高并发环境下，可能会造成一个业务被执行两次的问题<blockquote>
 <p>当一个请求A在执行时，而另一个请求B也开始状态判断的操作，因为请求A还未来得及更改状态，所以请求B也能执行成功，这就导致一个业务被执行了两次。</p>
 </blockquote>
-<p>可以使用数据库悲观锁（select … for update）来解决这个问题</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">begin</span>;  <span class="comment">--  1.开始事务</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> order_id<span class="operator">=</span><span class="string">&#x27;666&#x27;</span> <span class="keyword">for</span> update <span class="comment">-- 查询订单，判断状态,锁住这条记录</span></span><br><span class="line"><span class="comment">-- 0-待处理，1-处理中，2-成功，3失败</span></span><br><span class="line">if（status <span class="operator">!=</span> 处理中）&#123;</span><br><span class="line">    <span class="comment">-- 非处理中状态，直接返回；</span></span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line">## 处理业务逻辑</span><br><span class="line">update <span class="keyword">order</span> <span class="keyword">set</span> status<span class="operator">=</span><span class="string">&#x27;完成&#x27;</span> <span class="keyword">where</span> order_id<span class="operator">=</span><span class="string">&#x27;666&#x27;</span> <span class="comment">-- 更新完成</span></span><br><span class="line"><span class="keyword">commit</span>; <span class="comment">--  5.提交事务</span></span><br></pre></td></tr></table></figure>
+ 可以使用数据库悲观锁（select … for update）来解决这个问题 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">begin</span>;  <span class="comment">--  1.开始事务</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> order_id<span class="operator">=</span><span class="string">&#x27;666&#x27;</span> <span class="keyword">for</span> update <span class="comment">-- 查询订单，判断状态,锁住这条记录</span></span><br><span class="line"><span class="comment">-- 0-待处理，1-处理中，2-成功，3失败</span></span><br><span class="line">if（status <span class="operator">!=</span> 处理中）&#123;</span><br><span class="line">    <span class="comment">-- 非处理中状态，直接返回；</span></span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line">## 处理业务逻辑</span><br><span class="line">update <span class="keyword">order</span> <span class="keyword">set</span> status<span class="operator">=</span><span class="string">&#x27;完成&#x27;</span> <span class="keyword">where</span> order_id<span class="operator">=</span><span class="string">&#x27;666&#x27;</span> <span class="comment">-- 更新完成</span></span><br><span class="line"><span class="keyword">commit</span>; <span class="comment">--  5.提交事务</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>这里面<code>order_id</code>需要时索引或主键，如果不是索引或主键，会锁表；相关内容可以查看博客《 <a target="_blank" rel="noopener" href="https://xiaoyuge.work/select-for-update/">select … for update表锁还是行锁</a> 》</li>
 <li>悲观锁在统一事务操作过程中，锁住了一行数据，别的请求只能等待，<strong>如果当前事务耗时比较长，就很影响接口性能，所以一般不建议使用悲观锁来做幂等</strong></li>
 </ul>
 </li>
 </ul>
-<h4 id="方案7分布式锁"><a class="markdownIt-Anchor" href="#方案7分布式锁"></a>   方案7：分布式锁</h4>
-<ul>
-<li>
-<p>描述</p>
-<p>分布式锁实现幂等性的逻辑就是：请求过来时，先去尝试获取分布式锁，如果获得成功就执行业务逻辑，反之获取失败的话，就舍弃请求直接返回成功</p>
+<h4 id="nbsp-nbsp-方案7：分布式锁"><a href="#nbsp-nbsp-方案7：分布式锁" class="headerlink" title="&nbsp;&nbsp;方案7：分布式锁"></a>&nbsp;&nbsp;方案7：分布式锁</h4><ul>
+<li><p>描述 </p>
+<p> 分布式锁实现幂等性的逻辑就是：请求过来时，先去尝试获取分布式锁，如果获得成功就执行业务逻辑，反之获取失败的话，就舍弃请求直接返回成功</p>
 </li>
-<li>
-<p>主要流程<br>
-<img src="/special-interface/index/9.png" alt></p>
+<li><p>主要流程<br><img src="/special-interface/index/9.png"></p>
 <ul>
 <li>分布式锁可以使用redis、zookeeper; redis可能会好一点，轻量级</li>
 <li>redis分布式锁，可以使用命令<code>set ex px nx + 唯一流水号</code>实现，分布式锁的key 必须为业务的唯一标识</li>
@@ -799,98 +714,79 @@ Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
 </ul>
 </li>
 </ul>
-<h4 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h4>
-<ol>
-<li>对于下单等存在唯一主键的可以使用&quot;唯一主键方案&quot;的方式实现</li>
-<li>对于更新订单状态等相关的更新场景操作，可以使用&quot;乐观锁方案&quot;</li>
-<li>对于上下游这种，下游请求上游，上游服务可以使用&quot;下游传递唯一序列号方案&quot;更为合理</li>
-<li>类似于前端重复提交、重复下单、没有唯一ID号的场景，可以通过token与Redis配置的&quot;防重Token方案&quot;更为快捷</li>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol>
+<li>对于下单等存在唯一主键的可以使用”唯一主键方案”的方式实现</li>
+<li>对于更新订单状态等相关的更新场景操作，可以使用”乐观锁方案”</li>
+<li>对于上下游这种，下游请求上游，上游服务可以使用”下游传递唯一序列号方案”更为合理</li>
+<li>类似于前端重复提交、重复下单、没有唯一ID号的场景，可以通过token与Redis配置的”防重Token方案”更为快捷</li>
 </ol>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">方案</th>
-<th style="text-align:center">适用方法</th>
-<th style="text-align:right">复杂度</th>
-<th style="text-align:center">缺点</th>
+<th align="center">方案</th>
+<th align="center">适用方法</th>
+<th align="right">复杂度</th>
+<th align="center">缺点</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">数据库唯一主键</td>
-<td style="text-align:center">插入、删除</td>
-<td style="text-align:right">简单</td>
-<td style="text-align:center">只能用于存在唯一主键的场景</td>
+<tbody><tr>
+<td align="center">数据库唯一主键</td>
+<td align="center">插入、删除</td>
+<td align="right">简单</td>
+<td align="center">只能用于存在唯一主键的场景</td>
 </tr>
 <tr>
-<td style="text-align:center">数据库乐观锁</td>
-<td style="text-align:center">更新</td>
-<td style="text-align:right">简单</td>
-<td style="text-align:center">只能用于更新操作，表中需要添加额外字段</td>
+<td align="center">数据库乐观锁</td>
+<td align="center">更新</td>
+<td align="right">简单</td>
+<td align="center">只能用于更新操作，表中需要添加额外字段</td>
 </tr>
 <tr>
-<td style="text-align:center">请求序列号</td>
-<td style="text-align:center">插入、删除、更新</td>
-<td style="text-align:right">简单</td>
-<td style="text-align:center">1. 需要保证下游生成唯一序列号；<br> 2. 需要Redis存储序列号</td>
+<td align="center">请求序列号</td>
+<td align="center">插入、删除、更新</td>
+<td align="right">简单</td>
+<td align="center">1. 需要保证下游生成唯一序列号；<br> 2. 需要Redis存储序列号</td>
 </tr>
 <tr>
-<td style="text-align:center">防重Token令牌</td>
-<td style="text-align:center">插入、更新、删除</td>
-<td style="text-align:right">适中</td>
-<td style="text-align:center">需要Redis存储序列号</td>
+<td align="center">防重Token令牌</td>
+<td align="center">插入、更新、删除</td>
+<td align="right">适中</td>
+<td align="center">需要Redis存储序列号</td>
 </tr>
 <tr>
-<td style="text-align:center">悲观锁</td>
-<td style="text-align:center">更新、删除</td>
-<td style="text-align:right">适中</td>
-<td style="text-align:center">如果当前事务耗时比较长，就很影响接口性能</td>
+<td align="center">悲观锁</td>
+<td align="center">更新、删除</td>
+<td align="right">适中</td>
+<td align="center">如果当前事务耗时比较长，就很影响接口性能</td>
 </tr>
-</tbody>
-</table>
-<h2 id="span-classtit-h2-idtoken2-springboot-防重token令牌方案span"><a class="markdownIt-Anchor" href="#span-classtit-h2-idtoken2-springboot-防重token令牌方案span"></a> <span class="tit-h2" id="token">2. SpringBoot 防重Token令牌方案</span></h2>
-<p>该方案能保证在不同请求动作下的幂等性，实现逻辑可以看上面写的”防重Token令牌”方案;</p>
-<h3 id="21-引入相关依赖"><a class="markdownIt-Anchor" href="#21-引入相关依赖"></a> 2.1 引入相关依赖</h3>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>idempotent-token<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>idempotent-token<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://www.example.com<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-pool2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pluginManagement</span>&gt;</span><span class="comment">&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="22-配置文件"><a class="markdownIt-Anchor" href="#22-配置文件"></a> 2.2 配置文件</h3>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置redis连接参数</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">ssl:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line">    <span class="attr">database:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">timeout:</span> <span class="number">1000</span></span><br><span class="line">    <span class="attr">password:</span></span><br><span class="line">    <span class="attr">lettuce:</span></span><br><span class="line">      <span class="attr">pool:</span></span><br><span class="line">        <span class="attr">max-active:</span> <span class="number">100</span></span><br><span class="line">        <span class="attr">max-wait:</span> <span class="number">-1</span></span><br><span class="line">        <span class="attr">min-idle:</span> <span class="number">0</span></span><br><span class="line">        <span class="attr">max-idle:</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
-<h3 id="23-token获取验证接口"><a class="markdownIt-Anchor" href="#23-token获取验证接口"></a> 2.3 Token获取/验证接口</h3>
-<p>创建用于操作Token相关的Service类，包含创建token以及验证方法，其中：</p>
+</tbody></table>
+<h2 id="2-SpringBoot-防重Token令牌方案"><a href="#2-SpringBoot-防重Token令牌方案" class="headerlink" title="2. SpringBoot 防重Token令牌方案"></a><span class="tit-h2" id="token">2. SpringBoot 防重Token令牌方案</span></h2><p>该方案能保证在不同请求动作下的幂等性，实现逻辑可以看上面写的”防重Token令牌”方案;</p>
+<h3 id="2-1-引入相关依赖"><a href="#2-1-引入相关依赖" class="headerlink" title="2.1 引入相关依赖"></a>2.1 引入相关依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>idempotent-token<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>idempotent-token<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://www.example.com<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>1.7<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-pool2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pluginManagement</span>&gt;</span><span class="comment">&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-配置文件"><a href="#2-2-配置文件" class="headerlink" title="2.2 配置文件"></a>2.2 配置文件</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置redis连接参数</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">redis:</span></span><br><span class="line">    <span class="attr">ssl:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">host:</span> <span class="string">localhost</span></span><br><span class="line">    <span class="attr">port:</span> <span class="number">6379</span></span><br><span class="line">    <span class="attr">database:</span> <span class="number">0</span></span><br><span class="line">    <span class="attr">timeout:</span> <span class="number">1000</span></span><br><span class="line">    <span class="attr">password:</span></span><br><span class="line">    <span class="attr">lettuce:</span></span><br><span class="line">      <span class="attr">pool:</span></span><br><span class="line">        <span class="attr">max-active:</span> <span class="number">100</span></span><br><span class="line">        <span class="attr">max-wait:</span> <span class="number">-1</span></span><br><span class="line">        <span class="attr">min-idle:</span> <span class="number">0</span></span><br><span class="line">        <span class="attr">max-idle:</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-Token获取-验证接口"><a href="#2-3-Token获取-验证接口" class="headerlink" title="2.3 Token获取/验证接口"></a>2.3 Token获取/验证接口</h3><p>创建用于操作Token相关的Service类，包含创建token以及验证方法，其中：</p>
 <ul>
-<li>
-<p>Token创建： 使用UUID工具创建token串，设置<code>IDEMPOTENT_TOKEN_PREFIX:+token</code>串作为key,以用户信息作为value，存入Redis;</p>
+<li><p>Token创建： 使用UUID工具创建token串，设置<code>IDEMPOTENT_TOKEN_PREFIX:+token</code>串作为key,以用户信息作为value，存入Redis;</p>
 </li>
-<li>
-<p>Token验证：接口Token串参数，加上前缀生成key，再传入用户信息value,使用Lua表达式（Lua表达式能保证命令执行的原子性）进行查找对应的key和value，执行完成后验证命令的返回结果，如果不为空且非0则验证成功，反之则失败;</p>
+<li><p>Token验证：接口Token串参数，加上前缀生成key，再传入用户信息value,使用Lua表达式（Lua表达式能保证命令执行的原子性）进行查找对应的key和value，执行完成后验证命令的返回结果，如果不为空且非0则验证成功，反之则失败;</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xiaoyuge</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenUtilService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> StringRedisTemplate redisTemplate;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * redis 的token键前缀</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String IDEMPOTENT_TOKEN_PREFIX = <span class="string">&quot;IDEMPOTENT_TOKEN:&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建token存入redis， 并返回token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value 用于辅助验证的value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> token串</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">generateToken</span><span class="params">(String value)</span> </span>&#123;</span><br><span class="line">        String token = UUID.randomUUID().toString();</span><br><span class="line">        <span class="comment">//拼接redis key</span></span><br><span class="line">        String key = IDEMPOTENT_TOKEN_PREFIX + token;</span><br><span class="line">        <span class="comment">//存储到redis 中，设置过期时间为5分钟</span></span><br><span class="line">        redisTemplate.opsForValue().set(key, value, <span class="number">5</span>, TimeUnit.MINUTES);</span><br><span class="line">        <span class="keyword">return</span> token;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 验证token的正确性</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> token token字符串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value 辅助验证信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 验证结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">validateToken</span><span class="params">(String token, String value)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//设置Lua脚本，其中KEY[1] 是key, KEYS[2] 是value； 如果根据key获取到的值是value,那么删除key否则返回0</span></span><br><span class="line">        String script = <span class="string">&quot;if redis.call(&#x27;get&#x27;, KEYS[1]) == KEYS[2] then return redis.call(&#x27;del&#x27;, KEYS[1]) else return 0 end&quot;</span>;</span><br><span class="line">        RedisScript&lt;Long&gt; redisScript = <span class="keyword">new</span> DefaultRedisScript&lt;&gt;(script, Long.class);</span><br><span class="line">        <span class="comment">//拼接key</span></span><br><span class="line">        String key = IDEMPOTENT_TOKEN_PREFIX + token;</span><br><span class="line">        <span class="comment">//执行lua脚本，传递数组参数[key, value]</span></span><br><span class="line">        Long result = redisTemplate.execute(redisScript, Arrays.asList(key, value));</span><br><span class="line">        <span class="keyword">if</span> (result == <span class="keyword">null</span> &amp;&amp; result != <span class="number">0L</span>) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;验证token= &#123;&#125;,key=&#123;&#125;, value=&#123;&#125;成功&quot;</span>, token, key, value);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="24-创建controller"><a class="markdownIt-Anchor" href="#24-创建controller"></a> 2.4 创建Controller</h3>
-<p>创建用于测试的 Controller 类，里面有获取 Token 与测试接口幂等性的接口，内容如下：</p>
+<h3 id="2-4-创建Controller"><a href="#2-4-创建Controller" class="headerlink" title="2.4 创建Controller"></a>2.4 创建Controller</h3><p>创建用于测试的 Controller 类，里面有获取 Token 与测试接口幂等性的接口，内容如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xiaoyuge</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> TokenUtilService tokenUtilService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取token</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> token串</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/token&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getToken</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取用户信息</span></span><br><span class="line">        String username = <span class="string">&quot;xiaoyuge&quot;</span>;</span><br><span class="line">        <span class="comment">//使用用户信息作为辅助验证</span></span><br><span class="line">        <span class="comment">//获取token并返回</span></span><br><span class="line">        <span class="keyword">return</span> tokenUtilService.generateToken(username);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 接口幂等性测试接口</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> token token串</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 执行结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/test&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">testIdempotence</span><span class="params">(<span class="meta">@RequestHeader(value = &quot;token&quot;)</span> String token)</span></span>&#123;</span><br><span class="line">        <span class="comment">//获取用户信息，和上面保持一样的业务逻辑</span></span><br><span class="line">        String username = <span class="string">&quot;xiaoyuge&quot;</span>;</span><br><span class="line">        <span class="comment">//根据token和用户相关信息到redis验证是否存在对应的信息</span></span><br><span class="line">        <span class="keyword">boolean</span> result = tokenUtilService.validateToken(token, username);</span><br><span class="line">        <span class="keyword">return</span> result ? <span class="string">&quot;正常调用&quot;</span>:<span class="string">&quot;重复调用&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="25-创建springboot启动类"><a class="markdownIt-Anchor" href="#25-创建springboot启动类"></a> 2.5 创建Springboot启动类</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdempotentApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(IdempotentApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="26-创建测试类"><a class="markdownIt-Anchor" href="#26-创建测试类"></a> 2.6 创建测试类</h3>
-<p>测试多次访问同一个接口，是否只有第一次执行成功</p>
+<h3 id="2-5-创建Springboot启动类"><a href="#2-5-创建Springboot启动类" class="headerlink" title="2.5 创建Springboot启动类"></a>2.5 创建Springboot启动类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdempotentApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(IdempotentApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-6-创建测试类"><a href="#2-6-创建测试类" class="headerlink" title="2.6 创建测试类"></a>2.6 创建测试类</h3><p>测试多次访问同一个接口，是否只有第一次执行成功</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IdempotentTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> WebApplicationContext webApplicationContext;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">interfaceIdempotenceTest</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//初始化MockMvc</span></span><br><span class="line">        MockMvc mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();</span><br><span class="line">        <span class="comment">//调用获取 token 接口</span></span><br><span class="line">        String token = mockMvc.perform(MockMvcRequestBuilders.get(<span class="string">&quot;/token&quot;</span>)</span><br><span class="line">                .accept(MediaType.TEXT_HTML))</span><br><span class="line">                .andReturn()</span><br><span class="line">                .getResponse().getContentAsString();</span><br><span class="line">        log.info(<span class="string">&quot;获取的token串：&#123;&#125;&quot;</span>, token);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;第&#123;&#125;次调用接口&quot;</span>, i+<span class="number">1</span>);</span><br><span class="line">            String result = mockMvc.perform(MockMvcRequestBuilders.post(<span class="string">&quot;/test&quot;</span>)</span><br><span class="line">                    .header(<span class="string">&quot;token&quot;</span>, token)</span><br><span class="line">                    .accept(MediaType.TEXT_HTML))</span><br><span class="line">                    .andReturn().getResponse().getContentAsString();</span><br><span class="line">            log.info(<span class="string">&quot;调用结果:&#123;&#125;&quot;</span>, result);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>调用结果返回如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[main] org.example.IdempotentTest : 获取的token串：ed965e9e-42ce-4865-a1fd-25d13ad5544b</span><br><span class="line">[main] org.example.IdempotentTest : 第1次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:正常调用</span><br><span class="line">[main] org.example.IdempotentTest : 第2次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:重复调用</span><br><span class="line">[main] org.example.IdempotentTest : 第3次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:重复调用</span><br><span class="line">[main] org.example.IdempotentTest : 第4次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:重复调用</span><br><span class="line">[main] org.example.IdempotentTest : 第5次调用接口</span><br><span class="line">[main] org.example.IdempotentTest : 调用结果:重复调用</span><br></pre></td></tr></table></figure>
-<h2 id="span-classtit-h2-idinterfacesafe3-接口数据安全方案span"><a class="markdownIt-Anchor" href="#span-classtit-h2-idinterfacesafe3-接口数据安全方案span"></a> <span class="tit-h2" id="interfaceSafe">3. 接口数据安全方案</span></h2>
-<h3 id="31-数据加密防止报文明文传输"><a class="markdownIt-Anchor" href="#31-数据加密防止报文明文传输"></a> 3.1 数据加密，防止报文明文传输</h3>
-<p>数据在网络传输过程中，很容易被抓包，如果使用的时http协议，因为他是明文传输的，用户的数据很容易被别人获取，所以需要对数据加密。</p>
-<h4 id="311-加密方式"><a class="markdownIt-Anchor" href="#311-加密方式"></a> 3.1.1 加密方式</h4>
-<p>常见搭的实现方式，就是对<strong>关键字段</strong>加密，比如<strong>登陆接口对密码加密</strong>。一般采用的是：对称加密算法（AES<br>
-来加解密，或者哈希算法（MD5）</p>
+
+<h2 id="3-接口数据安全方案"><a href="#3-接口数据安全方案" class="headerlink" title="3. 接口数据安全方案"></a><span class="tit-h2" id="interfaceSafe">3. 接口数据安全方案</span></h2><h3 id="3-1-数据加密，防止报文明文传输"><a href="#3-1-数据加密，防止报文明文传输" class="headerlink" title="3.1 数据加密，防止报文明文传输"></a>3.1 数据加密，防止报文明文传输</h3><p>数据在网络传输过程中，很容易被抓包，如果使用的时http协议，因为他是明文传输的，用户的数据很容易被别人获取，所以需要对数据加密。</p>
+<h4 id="3-1-1-加密方式"><a href="#3-1-1-加密方式" class="headerlink" title="3.1.1 加密方式"></a>3.1.1 加密方式</h4><p>常见搭的实现方式，就是对<strong>关键字段</strong>加密，比如<strong>登陆接口对密码加密</strong>。一般采用的是：对称加密算法（AES<br>来加解密，或者哈希算法（MD5）</p>
 <blockquote>
-<p>对称加密：加密和揭秘使用相同的密钥的加密算法<br>
-<img src="/special-interface/index/10.png" alt="对称加密"><br>
-非对称加密：非对称加密算法需要两个密钥（公开密钥和私有密钥）。公钥与私钥是成对存在的，如果用公钥对数据进行加密，只有对应的私钥才能解密。<br>
-<img src="/special-interface/index/11.png" alt="非对称加密"><br>
-更安全的做法，就是用非对称加密算法（RSA、SM2），公钥加密、私钥解密。</p>
+<p>对称加密：加密和揭秘使用相同的密钥的加密算法<br><img src="/special-interface/index/10.png" alt="对称加密"><br>非对称加密：非对称加密算法需要两个密钥（公开密钥和私有密钥）。公钥与私钥是成对存在的，如果用公钥对数据进行加密，只有对应的私钥才能解密。<br><img src="/special-interface/index/11.png" alt="非对称加密"><br>更安全的做法，就是用非对称加密算法（RSA、SM2），公钥加密、私钥解密。</p>
 </blockquote>
-<h4 id="312-https安全协议"><a class="markdownIt-Anchor" href="#312-https安全协议"></a> 3.1.2 HTTPS安全协议</h4>
-<p>如果想对所有字段都加密的话，一般都推荐使用<strong>HTTPS协议</strong>，<code>https</code>就是在<code>http</code>和<code>tcp</code>之间添加一层加密层SSL。<br>
-<img src="/special-interface/index/12.png" alt="HTTPS请求流程"></p>
+<h4 id="3-1-2-HTTPS安全协议"><a href="#3-1-2-HTTPS安全协议" class="headerlink" title="3.1.2 HTTPS安全协议"></a>3.1.2 HTTPS安全协议</h4><p>如果想对所有字段都加密的话，一般都推荐使用<strong>HTTPS协议</strong>，<code>https</code>就是在<code>http</code>和<code>tcp</code>之间添加一层加密层SSL。<br><img src="/special-interface/index/12.png" alt="HTTPS请求流程"></p>
 <ol>
 <li>客户端发起Https请求，连接到服务器的443端口。</li>
 <li>服务器必须要有一套数字证书（证书内容有公钥、证书颁发机构、失效日期等）。</li>
@@ -902,29 +798,22 @@ Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
 <li>客户端收到后，用自己的密钥对其进行对称解密，得到服务器返回的数据。</li>
 </ol>
 <p>基本的日常业务，数据传输加密这块的话，用https就可以，如果安全性要求较高的，比如登陆注册这些，需要传输密码的，密码就可以使用RSA等非对称加密算法，对密码加密。如果你的业务，安全性要求很高，你可以模拟https这个流程，对报文，再做一次加解密。</p>
-<h3 id="32-数据加签验签"><a class="markdownIt-Anchor" href="#32-数据加签验签"></a> 3.2 数据加签验签</h3>
-<p>数据报文加签验签，就是<strong>保证数据传输安全的常用手段</strong>，它可以<strong>保证数据在传输过程中不给篡改</strong>。</p>
-<h4 id="321-什么是加签验签"><a class="markdownIt-Anchor" href="#321-什么是加签验签"></a> 3.2.1 什么是加签验签</h4>
-<ul>
-<li>数据加签：用Hash算法（md5、SHA-256）把原始请求参数生成报文摘要，然后用私钥对这个摘要加密，就得到这个报文对应的数字签名sign（这个过程就是加签）。通常来说，请求方会把数字签名和报文原文一并发送给接收方<br>
-<img src="/special-interface/index/13.png" alt="数据加签"></li>
-<li>验签：接收防拿到原始报文和数字签名sign后，用同一个hash算法（比如都用MD5）从报文中生成摘要A，然后用对方提供的公钥对数字签名进行解密，得到摘要B，对比A和B是否相同，就可以知道报文是否被篡改过。<br>
-<img src="/special-interface/index/14.png" alt="验签"></li>
+<h3 id="3-2-数据加签验签"><a href="#3-2-数据加签验签" class="headerlink" title="3.2 数据加签验签"></a>3.2 数据加签验签</h3><p>数据报文加签验签，就是<strong>保证数据传输安全的常用手段</strong>，它可以<strong>保证数据在传输过程中不给篡改</strong>。</p>
+<h4 id="3-2-1-什么是加签验签"><a href="#3-2-1-什么是加签验签" class="headerlink" title="3.2.1 什么是加签验签"></a>3.2.1 什么是加签验签</h4><ul>
+<li>数据加签：用Hash算法（md5、SHA-256）把原始请求参数生成报文摘要，然后用私钥对这个摘要加密，就得到这个报文对应的数字签名sign（这个过程就是加签）。通常来说，请求方会把数字签名和报文原文一并发送给接收方<br><img src="/special-interface/index/13.png" alt="数据加签"></li>
+<li>验签：接收防拿到原始报文和数字签名sign后，用同一个hash算法（比如都用MD5）从报文中生成摘要A，然后用对方提供的公钥对数字签名进行解密，得到摘要B，对比A和B是否相同，就可以知道报文是否被篡改过。<br><img src="/special-interface/index/14.png" alt="验签"></li>
 </ul>
 <p><em>通俗一点讲：就是把请求参数，按照一定规则，利用hash算法+加密算法生成一个唯一标签sign。验签的话，就是把请求参数按照相同的规则处理，再用相同的hash算法，和对应的密钥解密处理，以对比这个签名是否一致。</em></p>
-<h4 id="322-有了https为什么还要加签验签"><a class="markdownIt-Anchor" href="#322-有了https为什么还要加签验签"></a> 3.2.2 有了Https，为什么还要加签验签</h4>
-<p>加签验签主要是防止数据在传输过程中被篡改，那如果都用了Https协议加密数据了，为啥还需要加签验签？</p>
+<h4 id="3-2-2-有了Https，为什么还要加签验签"><a href="#3-2-2-有了Https，为什么还要加签验签" class="headerlink" title="3.2.2 有了Https，为什么还要加签验签"></a>3.2.2 有了Https，为什么还要加签验签</h4><p>加签验签主要是防止数据在传输过程中被篡改，那如果都用了Https协议加密数据了，为啥还需要加签验签？</p>
 <blockquote>
 <p>数据在传输过程中被加密了，理论上，即使被抓包，数据也不会被篡改，但是HTTPS不是绝对的安全，另外Https加密的部分只是在外网，然后很对服务是内网相互跳转的，捡钱也可以保证在这里不被中间人篡改；</p>
 </blockquote>
-<h3 id="33-token-授权认证机制"><a class="markdownIt-Anchor" href="#33-token-授权认证机制"></a> 3.3 token 授权认证机制</h3>
-<p>日常开发中，我们的网站或者App都是需要用户登录的，那么如果是非登录接口，如何确保安全，如何确认用户身份？可以使用<strong>token授权机制</strong></p>
+<h3 id="3-3-token-授权认证机制"><a href="#3-3-token-授权认证机制" class="headerlink" title="3.3 token 授权认证机制"></a>3.3 token 授权认证机制</h3><p>日常开发中，我们的网站或者App都是需要用户登录的，那么如果是非登录接口，如何确保安全，如何确认用户身份？可以使用<strong>token授权机制</strong></p>
 <blockquote>
 <p>用户在客户端输入用户名和密码，点击登录后，服务器会校验密码，然后返回客户端一个token，并将token 以键值对的形式存放在缓存中（一般为Redis）后续用户访问需要授权的模块的操作时，都携带这个token，服务器接收到请求后，先对token验证，如果token存在，才表名时合法请求</p>
 </blockquote>
 <p>这个其实用过jwt的同学应该都会清楚这个流程。</p>
-<h4 id="331-token授权认证方案"><a class="markdownIt-Anchor" href="#331-token授权认证方案"></a> 3.3.1 token授权认证方案</h4>
-<p><img src="/special-interface/index/15.png" alt="token 授权认证机制"></p>
+<h4 id="3-3-1-token授权认证方案"><a href="#3-3-1-token授权认证方案" class="headerlink" title="3.3.1 token授权认证方案"></a>3.3.1 token授权认证方案</h4><p><img src="/special-interface/index/15.png" alt="token 授权认证机制"></p>
 <ol>
 <li>用户输入用户名和密码，发起登录请求</li>
 <li>服务端校验密码，如果校验通过，生成全局唯一token</li>
@@ -933,58 +822,43 @@ Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
 <li>用户发起其他业务请求时，需要携带这个token</li>
 <li>后台服务统一拦截接口请求，进行token有效性验证，并从中获取用户信息，供后续业务逻辑使用，如果token不存在，请求无效。</li>
 </ol>
-<h4 id="332-如何保证token的安全token被劫持呢"><a class="markdownIt-Anchor" href="#332-如何保证token的安全token被劫持呢"></a> 3.3.2 如何保证token的安全？token被劫持呢？</h4>
-<p>比如说，如果我拿到了token，是不是就可以调用服务端的任何接口？可以从下面几方面考虑</p>
+<h4 id="3-3-2-如何保证token的安全？token被劫持呢？"><a href="#3-3-2-如何保证token的安全？token被劫持呢？" class="headerlink" title="3.3.2 如何保证token的安全？token被劫持呢？"></a>3.3.2 如何保证token的安全？token被劫持呢？</h4><p>比如说，如果我拿到了token，是不是就可以调用服务端的任何接口？可以从下面几方面考虑</p>
 <ul>
 <li>token设置合理的有效期</li>
 <li>使用https协议</li>
 <li>token可以再次加密</li>
 <li>如果访问的时敏感信息，单纯的加token是不够的，通常还会设置白名单</li>
 </ul>
-<h3 id="34-时间戳timestamp超时机制"><a class="markdownIt-Anchor" href="#34-时间戳timestamp超时机制"></a> 3.4 时间戳timestamp超时机制</h3>
-<p>数据是很容易抓包，假设我们使用了<code>https</code>和加签，即使中间人抓到了数据报文，他也看不到真实数据，但是也要避免那种使用抓取的数据包进行恶意请求（如DOS攻击），以搞垮系统</p>
+<h3 id="3-4-时间戳timestamp超时机制"><a href="#3-4-时间戳timestamp超时机制" class="headerlink" title="3.4 时间戳timestamp超时机制"></a>3.4 时间戳timestamp超时机制</h3><p>数据是很容易抓包，假设我们使用了<code>https</code>和加签，即使中间人抓到了数据报文，他也看不到真实数据，但是也要避免那种使用抓取的数据包进行恶意请求（如DOS攻击），以搞垮系统</p>
 <p>这里我们可以引入<strong>时间戳超时机制</strong>，来保证接口安全。用户每次请求都带上当前时间的时间戳<code>timestamp</code>，服务器收到<code>timestamp</code>后，解密，验签通过后，与服务器当前时间进行比对，如果时间大于一定的时间（比如5分钟），则任务该请求无效。</p>
-<h3 id="35-timestampnonce方案防止重放攻击"><a class="markdownIt-Anchor" href="#35-timestampnonce方案防止重放攻击"></a> 3.5 timestamp+nonce方案防止重放攻击</h3>
-<p>时间戳超时机制也是有漏洞的，如果是在时间差内，黑客进行重放攻击，那么就可以使用<code>timestamp + nonce</code>方案了</p>
-<p><code>nonce</code>指唯一的随机字符串，用来标识每个被清明的请求，我们可以将每次请求的<code>nonce</code>参数存储到一个<code>set</code>集合中，或者使用json格式存储到数据库或缓存中，每次处理http请求是，首先判断请求的<code>nonce</code>参数是否在该集合中，如果存在则认为非法请求。<br>
-然而对于服务器而言， 永久保存<code>nonce</code>的代价非常大，可以通过timestamp来优化，因为timestamp参数对于超过5min的请求，都认为非法请求，所以我们只需要存储5min内的<code>nonce</code>参数集合即可。</p>
-<h3 id="36-限流机制"><a class="markdownIt-Anchor" href="#36-限流机制"></a> 3.6 限流机制</h3>
-<p>如果用户本来就是真实用户，他恶意频繁调用接口，那么这个时候就需要接入<strong>限流</strong>了。</p>
+<h3 id="3-5-timestamp-nonce方案防止重放攻击"><a href="#3-5-timestamp-nonce方案防止重放攻击" class="headerlink" title="3.5 timestamp+nonce方案防止重放攻击"></a>3.5 timestamp+nonce方案防止重放攻击</h3><p>时间戳超时机制也是有漏洞的，如果是在时间差内，黑客进行重放攻击，那么就可以使用<code>timestamp + nonce</code>方案了</p>
+<p><code>nonce</code>指唯一的随机字符串，用来标识每个被清明的请求，我们可以将每次请求的<code>nonce</code>参数存储到一个<code>set</code>集合中，或者使用json格式存储到数据库或缓存中，每次处理http请求是，首先判断请求的<code>nonce</code>参数是否在该集合中，如果存在则认为非法请求。<br>然而对于服务器而言， 永久保存<code>nonce</code>的代价非常大，可以通过timestamp来优化，因为timestamp参数对于超过5min的请求，都认为非法请求，所以我们只需要存储5min内的<code>nonce</code>参数集合即可。</p>
+<h3 id="3-6-限流机制"><a href="#3-6-限流机制" class="headerlink" title="3.6 限流机制"></a>3.6 限流机制</h3><p>如果用户本来就是真实用户，他恶意频繁调用接口，那么这个时候就需要接入<strong>限流</strong>了。</p>
 <p>常用的限流算法有： <strong>令牌桶</strong>和<strong>漏桶算法</strong></p>
 <p>可以使用Guava的<code>RateLimiter</code>单机版限流，也可以使用Redis分布式限流，还可以使用阿里开源组件<code>sentinel</code>限流。比如：一分钟可以接受多少次请求</p>
-<h3 id="37-黑名单机制"><a class="markdownIt-Anchor" href="#37-黑名单机制"></a> 3.7 黑名单机制</h3>
-<p>如果发现了真实用户恶意请求,你可以搞个黑名单机制，把该用户拉黑。一般情况，会有些竞争对手，或者不坏好意的用户，想搞你的系统的。所以，为了保证安全，一般我们的业务系统，需要有个黑名单机制。对于黑名单发起的请求，直接返回错误码好了</p>
-<h3 id="38-白名单机制"><a class="markdownIt-Anchor" href="#38-白名单机制"></a> 3.8 白名单机制</h3>
-<p>有了黑名单机制，也可以搞个白名单机制啦。第三方需要接入我们的系统时，是需要提前申请网络白名单的。申请个IP网络白名单，只有白名单里面的请求，才可以访问我们的系统。</p>
-<h3 id="39-数据脱敏掩码"><a class="markdownIt-Anchor" href="#39-数据脱敏掩码"></a> 3.9 数据脱敏掩码</h3>
-<p>对于密码，或者手机号、身份证这些敏感信息，一般都需要脱敏掩码再展示的，如果是密码，还需要加密再保存到数据库。</p>
+<h3 id="3-7-黑名单机制"><a href="#3-7-黑名单机制" class="headerlink" title="3.7 黑名单机制"></a>3.7 黑名单机制</h3><p>如果发现了真实用户恶意请求,你可以搞个黑名单机制，把该用户拉黑。一般情况，会有些竞争对手，或者不坏好意的用户，想搞你的系统的。所以，为了保证安全，一般我们的业务系统，需要有个黑名单机制。对于黑名单发起的请求，直接返回错误码好了</p>
+<h3 id="3-8-白名单机制"><a href="#3-8-白名单机制" class="headerlink" title="3.8 白名单机制"></a>3.8 白名单机制</h3><p>有了黑名单机制，也可以搞个白名单机制啦。第三方需要接入我们的系统时，是需要提前申请网络白名单的。申请个IP网络白名单，只有白名单里面的请求，才可以访问我们的系统。</p>
+<h3 id="3-9-数据脱敏掩码"><a href="#3-9-数据脱敏掩码" class="headerlink" title="3.9 数据脱敏掩码"></a>3.9 数据脱敏掩码</h3><p>对于密码，或者手机号、身份证这些敏感信息，一般都需要脱敏掩码再展示的，如果是密码，还需要加密再保存到数据库。</p>
 <p>对于手机号、身份证信息这些，日常开发中，在日志排查时，看到的都应该是掩码的。目的就是尽量不泄漏这些用户信息，虽然能看日志的只是开发和运维，但是还是需要防一下，做掩码处理。</p>
 <p>对于密码保存到数据库，我们肯定不能直接明文保存。最简单的也需要MD5处理一下再保存，Spring Security中的 <code>BCryptPasswordEncoder</code>也可以，它的底层是采用<code>SHA-256 +随机盐+密钥对密码</code>进行加密，而SHA和MD系列是一样的，都是hash摘要类的算法。</p>
-<h3 id="310-数据参数合法性校验"><a class="markdownIt-Anchor" href="#310-数据参数合法性校验"></a> 3.10 数据参数合法性校验</h3>
-<p>接口数据的安全性保证，还需要我们的系统，有个数据合法性校验，简单来说就是参数校验，比如身份证长度，手机号长度，是否是数字等等。</p>
-<h2 id="span-classtit-h2-idinterfaceperformance4-接口性能优化方案span"><a class="markdownIt-Anchor" href="#span-classtit-h2-idinterfaceperformance4-接口性能优化方案span"></a> <span class="tit-h2" id="interfacePerformance">4. 接口性能优化方案</span></h2>
-<h3 id="41-本地缓存"><a class="markdownIt-Anchor" href="#41-本地缓存"></a> 4.1 本地缓存</h3>
-<blockquote>
-<p>本地缓存，最大的优点是应用和cache是在同一个进程内部，请求缓存非常快，没有过多的网络开销等，在单应用不要集群支持或者集群情况下各节点无需互相通知的场景使用本地缓存比较合适。</p>
+<h3 id="3-10-数据参数合法性校验"><a href="#3-10-数据参数合法性校验" class="headerlink" title="3.10 数据参数合法性校验"></a>3.10 数据参数合法性校验</h3><p>接口数据的安全性保证，还需要我们的系统，有个数据合法性校验，简单来说就是参数校验，比如身份证长度，手机号长度，是否是数字等等。 </p>
+<h2 id="4-接口性能优化方案"><a href="#4-接口性能优化方案" class="headerlink" title="4. 接口性能优化方案"></a><span class="tit-h2" id="interfacePerformance">4. 接口性能优化方案</span></h2><h3 id="4-1-本地缓存"><a href="#4-1-本地缓存" class="headerlink" title="4.1 本地缓存"></a>4.1 本地缓存</h3><blockquote>
+<p>本地缓存，最大的优点是应用和cache是在同一个进程内部，请求缓存非常快，没有过多的网络开销等，在单应用不要集群支持或者集群情况下各节点无需互相通知的场景使用本地缓存比较合适。 </p>
 <p>缺点；缓存和应用程序耦合，多个应用程序无法直接共享缓存，各应用或集群的各个节点都需要维护自己的缓存，对内存是一种浪费。</p>
 </blockquote>
 <p>常用的本地缓存框架有<code>Guava</code>、<code>Caffeine</code>等，引入jar包即可直接使用</p>
-<h4 id="适用场景"><a class="markdownIt-Anchor" href="#适用场景"></a> 适用场景</h4>
-<ol>
+<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><ol>
 <li>对缓存内容实效性要求不高，能够接收一定的延迟，可以设置较短过期时间，被动失效更新保持数据的新鲜度</li>
 <li>缓存的内容不会改变，比如：订单号与Uid的映射关系，一旦创建就不会发生改变</li>
 </ol>
-<h4 id="注意问题"><a class="markdownIt-Anchor" href="#注意问题"></a> 注意问题</h4>
-<ul>
+<h4 id="注意问题"><a href="#注意问题" class="headerlink" title="注意问题"></a>注意问题</h4><ul>
 <li>内存cache数据条目上限，避免内存占用过多导致应用瘫痪</li>
 <li>内存中的数据一处策略</li>
 <li>实际开发中最好采用成熟的开源框架，避免踩坑</li>
 </ul>
-<h3 id="42-分布式缓存"><a class="markdownIt-Anchor" href="#42-分布式缓存"></a> 4.2 分布式缓存</h3>
-<p>分布式缓存借助分布式概念，集群化部署、独立运维、荣康无上限。虽然会有网络传输损耗，但1~2ms的延迟相较其他的可以忽略。</p>
+<h3 id="4-2-分布式缓存"><a href="#4-2-分布式缓存" class="headerlink" title="4.2 分布式缓存"></a>4.2 分布式缓存</h3><p>分布式缓存借助分布式概念，集群化部署、独立运维、荣康无上限。虽然会有网络传输损耗，但1~2ms的延迟相较其他的可以忽略。</p>
 <p>优秀的分布式缓存系统有大家所熟知的 <code>Memcached</code> 、<code>Redis</code>。对比关系型数据库和缓存存储，其在读和写性能上的差距可谓天壤之别，<code>Redis</code>单节点已经可以做到 8W+ QPS。设计方案时尽量把读写压力从数据库转移到缓存上，有效保护脆弱的关系型数据库。</p>
-<h4 id="注意问题-2"><a class="markdownIt-Anchor" href="#注意问题-2"></a> 注意问题</h4>
-<ul>
+<h4 id="注意问题-1"><a href="#注意问题-1" class="headerlink" title="注意问题"></a>注意问题</h4><ul>
 <li>缓存的命中率，如果太低无法起到抗压的作用，压力还是压到了下游的存储层</li>
 <li>缓存的空间大小，这个要根据具体业务场景来评估，防止空间不足，导致一些热点数据被置换出去</li>
 <li>缓存数据的一致性</li>
@@ -994,70 +868,46 @@ Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
 <li>网络出口流量</li>
 <li>客户端连接数</li>
 </ul>
-<h3 id="43-并行化"><a class="markdownIt-Anchor" href="#43-并行化"></a> 4.3 并行化</h3>
-<p>梳理业务流程，画出时序图，分清楚哪些是串行？哪些是并行？充分利用多核 CPU 的并行化处理能力</p>
-<p>如下图所示，存在上下文依赖的采用串行处理，否则采用并行处理<br>
-<img src="/special-interface/index/16.png" alt="并行化"></p>
+<h3 id="4-3-并行化"><a href="#4-3-并行化" class="headerlink" title="4.3 并行化"></a>4.3 并行化</h3><p>梳理业务流程，画出时序图，分清楚哪些是串行？哪些是并行？充分利用多核 CPU 的并行化处理能力</p>
+<p>如下图所示，存在上下文依赖的采用串行处理，否则采用并行处理<br><img src="/special-interface/index/16.png" alt="并行化"></p>
 <p>JDK 的 <code>CompletableFuture</code>  提供了非常丰富的API，大约有50种 处理串行、并行、组合以及处理错误的方法，可以满足我们的场景需求。</p>
-<h3 id="44-异步化"><a class="markdownIt-Anchor" href="#44-异步化"></a> 4.4 异步化</h3>
-<p>一个接口的 RT 响应时间是由内部业务逻辑的复杂度决定的，执行的流程约简单，那接口的耗费时间就越少。<br>
-所以，普遍做法就是将接口内部的非核心逻辑剥离出来，异步化来执行。</p>
-<p>下图是一个电商的创建订单接口，创建订单记录并插入数据库是我们的核心诉求，至于后续的用户通知，如：给用户发个短信等，如果失败，并不影响主流程的完成。<br>
-我们会将这些操作从主流程中剥离出来。<br>
-<img src="/special-interface/index/17.png" alt="异步化"></p>
-<h3 id="45-池化"><a class="markdownIt-Anchor" href="#45-池化"></a> 4.5 池化</h3>
-<p>TCP 三次握手非常耗费性能，所以我们引入了 Keep-Alive 长连接，避免频繁的创建、销毁连接。</p>
+<h3 id="4-4-异步化"><a href="#4-4-异步化" class="headerlink" title="4.4 异步化"></a>4.4 异步化</h3><p>一个接口的 RT 响应时间是由内部业务逻辑的复杂度决定的，执行的流程约简单，那接口的耗费时间就越少。<br>所以，普遍做法就是将接口内部的非核心逻辑剥离出来，异步化来执行。</p>
+<p>下图是一个电商的创建订单接口，创建订单记录并插入数据库是我们的核心诉求，至于后续的用户通知，如：给用户发个短信等，如果失败，并不影响主流程的完成。<br>我们会将这些操作从主流程中剥离出来。<br><img src="/special-interface/index/17.png" alt="异步化"></p>
+<h3 id="4-5-池化"><a href="#4-5-池化" class="headerlink" title="4.5 池化"></a>4.5 池化</h3><p>TCP 三次握手非常耗费性能，所以我们引入了 Keep-Alive 长连接，避免频繁的创建、销毁连接。</p>
 <p>池化技术也是类似道理，将很多能重复使用的对象缓存起来，放到一个池子里，用的时候去申请一个实例对象 ，用完后再放回池子里。</p>
 <p>池化技术的核心是资源的“预分配”和“循环使用”，常见的池化技术的使用有：线程池、内存池、数据库连接池、HttpClient 连接池等</p>
 <blockquote>
-<p>连接池的几个重要参数：最小连接数、空闲连接数、最大连接数<br>
-比如创建一个线程池：</p>
+<p>连接池的几个重要参数：最小连接数、空闲连接数、最大连接数<br>比如创建一个线程池：</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> ThreadPoolExecutor(<span class="number">3</span>, <span class="number">15</span>, <span class="number">5</span>, TimeUnit.MINUTES,</span><br><span class="line">    <span class="keyword">new</span> ArrayBlockingQueue&lt;&gt;(<span class="number">10</span>),</span><br><span class="line">    <span class="keyword">new</span> ThreadFactoryBuilder().setNameFormat(<span class="string">&quot;data-thread-%d&quot;</span>).build(),</span><br><span class="line">    (r, executor) -&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (r <span class="keyword">instanceof</span> BaseRunnable) &#123;</span><br><span class="line">            ((BaseRunnable) r).rejectedExecute();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="46-分库分表"><a class="markdownIt-Anchor" href="#46-分库分表"></a> 4.6 分库分表</h3>
-<p>MySQL的底层 innodb 存储引擎采用 B+ 树结构，三层结构支持千万级的数据存储。</p>
-<p>当然，现在互联网的用户基数非常大，这么大的用户量，单表通常很难支撑业务需求，将一个大表水平拆分成多张结构一样的物理表，可以极大缓解存储、访问压力。<br>
-<img src="/special-interface/index/18.png" alt="分库分表"><br>
-分库分表主要有两个方向：<strong>垂直</strong>和<strong>水平</strong>。</p>
+
+<h3 id="4-6-分库分表"><a href="#4-6-分库分表" class="headerlink" title="4.6 分库分表"></a>4.6 分库分表</h3><p>MySQL的底层 innodb 存储引擎采用 B+ 树结构，三层结构支持千万级的数据存储。</p>
+<p>当然，现在互联网的用户基数非常大，这么大的用户量，单表通常很难支撑业务需求，将一个大表水平拆分成多张结构一样的物理表，可以极大缓解存储、访问压力。<br><img src="/special-interface/index/18.png" alt="分库分表"><br>分库分表主要有两个方向：<strong>垂直</strong>和<strong>水平</strong>。</p>
 <p>说实话垂直方向（即业务方向）更简单。</p>
 <p>在水平方向（即数据方向）上，分库和分表的作用，其实是有区别的，不能混为一谈。</p>
 <ul>
 <li>分库：是为了解决数据库连接资源不足问题，和磁盘IO的性能瓶颈问题。</li>
 <li>分表：是为了解决单表数据量太大，sql语句查询数据时，即使走了索引也非常耗时问题。此外还可以解决消耗cpu资源问题。</li>
-<li>分库分表：可以解决 数据库连接资源不足、磁盘IO的性能瓶颈、检索数据耗时 和 消耗cpu资源等问题。<br>
-如果在有些业务场景中，用户并发量很大，但是需要保存的数据量很少，这时可以只分库，不分表。</li>
+<li>分库分表：可以解决 数据库连接资源不足、磁盘IO的性能瓶颈、检索数据耗时 和 消耗cpu资源等问题。<br>如果在有些业务场景中，用户并发量很大，但是需要保存的数据量很少，这时可以只分库，不分表。</li>
 </ul>
 <p>如果在有些业务场景中，用户并发量不大，但是需要保存的数量很多，这时可以只分表，不分库。</p>
 <p>如果在有些业务场景中，用户并发量大，并且需要保存的数量也很多时，可以分库分表。</p>
-<h3 id="47-sql-优化"><a class="markdownIt-Anchor" href="#47-sql-优化"></a> 4.7 SQL 优化</h3>
-<p>虽然有了分库分表，从存储维度可以减少很大压力，但「富不过三代」，我们还是要学会精打细算，就比如所有的数据库操作都是通过 SQL 来执行。<br>
-一个不好的SQL会对接口性能产生很大影响。</p>
+<h3 id="4-7-SQL-优化"><a href="#4-7-SQL-优化" class="headerlink" title="4.7 SQL 优化"></a>4.7 SQL 优化</h3><p>虽然有了分库分表，从存储维度可以减少很大压力，但「富不过三代」，我们还是要学会精打细算，就比如所有的数据库操作都是通过 SQL 来执行。<br>一个不好的SQL会对接口性能产生很大影响。</p>
 <p>比如：</p>
 <ul>
 <li>搞了个深度翻页，每次数据库引擎都要预查非常多的数据</li>
 <li>索引缺失，走了全表扫描</li>
-<li>一条 SQL 一次查询 几万条数据<br>
-<img src="/special-interface/index/20.png" alt></li>
+<li>一条 SQL 一次查询 几万条数据<br><img src="/special-interface/index/20.png"></li>
 </ul>
-<h3 id="48-预先计算"><a class="markdownIt-Anchor" href="#48-预先计算"></a> 4.8 预先计算</h3>
-<p>有很多业务的计算逻辑比较复杂，比如页面要展示一个网站的 PV、微信的拼手气红包等</p>
-<p>如果在用户访问接口的瞬间触发计算逻辑，而这些逻辑计算的耗时通常比较长，很难满足用户的实时性要求。<br>
-一般我们都是提前计算，然后将算好的数据预热到缓存中，接口访问时，只需要读缓存即可</p>
-<h3 id="49-事务相关"><a class="markdownIt-Anchor" href="#49-事务相关"></a> 4.9 事务相关</h3>
-<ol>
-<li>
-<p>很多业务逻辑有事务要求，针对多个表的写操作要保证事务特性。<br>
-但事务本身又特别耗费性能，为了能尽快结束，不长时间占用数据库连接资源，我们一般要减少事务的范围。<br>
-将很多查询逻辑放到事务外部处理。</p>
+<h3 id="4-8-预先计算"><a href="#4-8-预先计算" class="headerlink" title="4.8 预先计算"></a>4.8 预先计算</h3><p>有很多业务的计算逻辑比较复杂，比如页面要展示一个网站的 PV、微信的拼手气红包等</p>
+<p>如果在用户访问接口的瞬间触发计算逻辑，而这些逻辑计算的耗时通常比较长，很难满足用户的实时性要求。<br>一般我们都是提前计算，然后将算好的数据预热到缓存中，接口访问时，只需要读缓存即可</p>
+<h3 id="4-9-事务相关"><a href="#4-9-事务相关" class="headerlink" title="4.9 事务相关"></a>4.9 事务相关</h3><ol>
+<li><p>很多业务逻辑有事务要求，针对多个表的写操作要保证事务特性。<br>但事务本身又特别耗费性能，为了能尽快结束，不长时间占用数据库连接资源，我们一般要减少事务的范围。<br>将很多查询逻辑放到事务外部处理。</p>
 </li>
-<li>
-<p>另外在事务内部，一般不要进行远程的 RPC 接口访问，一般占用的时间比较长</p>
+<li><p>另外在事务内部，一般不要进行远程的 RPC 接口访问，一般占用的时间比较长</p>
 </li>
-<li>
-<p>@Transactional注解这种声明式事务的方式提供事务功能，容易造成大事务，引发其他的问题<br>
-<img src="/special-interface/index/22.png" alt><br>
-从图中能够看出，大事务问题可能会造成接口超时，对接口的性能有直接的影响。</p>
-<p><strong>优化大事务:</strong></p>
+<li><p>@Transactional注解这种声明式事务的方式提供事务功能，容易造成大事务，引发其他的问题<br> <img src="/special-interface/index/22.png"><br>从图中能够看出，大事务问题可能会造成接口超时，对接口的性能有直接的影响。</p>
+<p> <strong>优化大事务:</strong></p>
 <ul>
 <li>少用@Transactional注解</li>
 <li>将查询(select)方法放到事务外</li>
@@ -1068,124 +918,76 @@ Token可以是一个序列号，也可以是分布式ID或者UUID串</p>
 </ul>
 </li>
 </ol>
-<h3 id="410-海量数据处理"><a class="markdownIt-Anchor" href="#410-海量数据处理"></a> 4.10 海量数据处理</h3>
-<p>如果数据量过大，除了采用关系型数据库的分库分表外，我们还可以采用 NoSQL；如：MongoDB、Hbase、Elasticsearch、TiDB<br>
-NoSQL 采用分区架构，对数据海量存储能较好的支持，但是事务方面可能没那么友好。</p>
+<h3 id="4-10-海量数据处理"><a href="#4-10-海量数据处理" class="headerlink" title="4.10 海量数据处理"></a>4.10 海量数据处理</h3><p>如果数据量过大，除了采用关系型数据库的分库分表外，我们还可以采用 NoSQL；如：MongoDB、Hbase、Elasticsearch、TiDB<br>NoSQL 采用分区架构，对数据海量存储能较好的支持，但是事务方面可能没那么友好。</p>
 <p>每一个 NoSQL 框架都有自己的特色，有支持 搜索的、有列式存储、有文档存储，大家可以根据自己的业务场景选择合适的框架。</p>
-<h3 id="411-批量读写"><a class="markdownIt-Anchor" href="#411-批量读写"></a> 4.11 批量读写</h3>
-<p>当下的计算机CPU处理速度还是很多的，而 IO 一般是个瓶颈，如：磁盘IO、网络IO。<br>
-有这么一个场景，查询 100 个人的账户余额？<br>
-有两个设计方案：</p>
+<h3 id="4-11-批量读写"><a href="#4-11-批量读写" class="headerlink" title="4.11 批量读写"></a>4.11 批量读写</h3><p>当下的计算机CPU处理速度还是很多的，而 IO 一般是个瓶颈，如：磁盘IO、网络IO。<br>有这么一个场景，查询 100 个人的账户余额？<br>有两个设计方案：</p>
 <ol>
 <li>方案一：开单次查询接口，调用方内部循环调用 100 次</li>
 <li>方案二：服务提供方开一个批量查询接口，调用方只需查询 1 次 (更优)</li>
 </ol>
 <p>数据库的写操作也是一样道理，为了提高性能，我们一般都是采用批量更新。</p>
-<h3 id="412-锁的粒度"><a class="markdownIt-Anchor" href="#412-锁的粒度"></a> 4.12 锁的粒度</h3>
-<p>并发业务，为了防止数据的并发更新对数据的正确性产生干扰，我们通常是采用 加锁 ，涉及独享资源每次只能是一个线程来处理。<br>
-问题点在于，锁是成对出现的，有加锁就是释放锁<br>
-对于非竞争资源，我们没有必要圈在锁内部，会严重影响系统的并发能力。<br>
-控制锁的范围是我们要考虑的重点。</p>
-<h4 id="4121-synchronized"><a class="markdownIt-Anchor" href="#4121-synchronized"></a> 4.12.1 synchronized</h4>
-<p>在java中提供了<code>synchronized</code>关键字给我们的代码加锁。 通常有两种写法：<code>在方法上加锁</code> 和<code>在代码块上加锁</code>。</p>
+<h3 id="4-12-锁的粒度"><a href="#4-12-锁的粒度" class="headerlink" title="4.12 锁的粒度"></a>4.12 锁的粒度</h3><p>并发业务，为了防止数据的并发更新对数据的正确性产生干扰，我们通常是采用 加锁 ，涉及独享资源每次只能是一个线程来处理。<br>问题点在于，锁是成对出现的，有加锁就是释放锁<br>对于非竞争资源，我们没有必要圈在锁内部，会严重影响系统的并发能力。<br>控制锁的范围是我们要考虑的重点。</p>
+<h4 id="4-12-1-synchronized"><a href="#4-12-1-synchronized" class="headerlink" title="4.12.1 synchronized"></a>4.12.1 synchronized</h4><p>在java中提供了<code>synchronized</code>关键字给我们的代码加锁。 通常有两种写法：<code>在方法上加锁</code> 和<code>在代码块上加锁</code>。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//上传文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="title">doSave</span><span class="params">(String fileUrl)</span> </span>&#123;</span><br><span class="line">    mkdir();    <span class="comment">//创建文件夹</span></span><br><span class="line">    uploadFile(fileUrl);    <span class="comment">//上传</span></span><br><span class="line">    sendMessage(fileUrl);   <span class="comment">//发送信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里加锁的目的是为了防止并发的情况下，创建了相同的目录，第二次会创建失败，影响业务功能。</p>
 <p>但这种直接在方法上加锁，锁的粒度有点粗。因为<code>doSave</code>方法中的上传文件和发消息方法，是不需要加锁的。只有创建目录方法，才需要加锁。</p>
 <p>我们都知道文件上传操作是非常耗时的，如果将整个方法加锁，那么需要等到整个方法执行完之后才能释放锁。显然，这会导致该方法的性能很差，变得得不偿失。</p>
 <p>我们可以改成在代码块上加锁了，具体代码如下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSave</span><span class="params">(String path,String fileUrl)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span>(!exists(path)) &#123;</span><br><span class="line">          mkdir(path);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    uploadFile(fileUrl);</span><br><span class="line">    sendMessage(fileUrl);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>样改造之后，锁的粒度一下子变小了，只有并发创建目录功能才加了锁。而创建目录是一个非常快的操作，即使加锁对接口的性能影响也不大。<br>
-最重要的是，其他的上传文件和发送消息功能，任然可以并发执行。</p>
-<p>当然，这种做在单机版的服务中，是没有问题的。但现在部署的生产环境，为了保证服务的稳定性，一般情况下，同一个服务会被部署在多个节点中。如果哪天挂了一个节点，其他的节点服务任然可用。<br>
-多节点部署避免了因为某个节点挂了，导致服务不可用的情况。同时也能分摊整个系统的流量，避免系统压力过大。</p>
+<p>样改造之后，锁的粒度一下子变小了，只有并发创建目录功能才加了锁。而创建目录是一个非常快的操作，即使加锁对接口的性能影响也不大。<br>最重要的是，其他的上传文件和发送消息功能，任然可以并发执行。</p>
+<p>当然，这种做在单机版的服务中，是没有问题的。但现在部署的生产环境，为了保证服务的稳定性，一般情况下，同一个服务会被部署在多个节点中。如果哪天挂了一个节点，其他的节点服务任然可用。<br>多节点部署避免了因为某个节点挂了，导致服务不可用的情况。同时也能分摊整个系统的流量，避免系统压力过大。</p>
 <p>同时它也带来了新的问题：<code>synchronized</code>只能保证一个节点加锁是有效的，但如果有多个节点如何加锁呢?</p>
 <p>这就需要使用：分布式锁了。目前主流的分布式锁包括：<strong>redis分布式锁</strong>、<strong>zookeeper分布式锁</strong> 和 <strong>数据库分布式锁</strong></p>
-<h4 id="4122-redis分布式锁"><a class="markdownIt-Anchor" href="#4122-redis分布式锁"></a> 4.12.2 Redis分布式锁</h4>
-<p>在分布式系统中，由于redis分布式锁相对于更简单和高效，成为了分布式锁的首先，被我们用到了很多实际业务场景当中。</p>
+<h4 id="4-12-2-Redis分布式锁"><a href="#4-12-2-Redis分布式锁" class="headerlink" title="4.12.2 Redis分布式锁"></a>4.12.2 Redis分布式锁</h4><p>在分布式系统中，由于redis分布式锁相对于更简单和高效，成为了分布式锁的首先，被我们用到了很多实际业务场景当中。</p>
 <p>使用redis分布式锁的伪代码如下:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSave</span><span class="params">(String path,String fileUrl)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    String result = jedis.set(lockKey, requestId, <span class="string">&quot;NX&quot;</span>, <span class="string">&quot;PX&quot;</span>, expireTime);</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">&quot;OK&quot;</span>.equals(result)) &#123;</span><br><span class="line">      <span class="keyword">if</span>(!exists(path)) &#123;</span><br><span class="line">         mkdir(path);</span><br><span class="line">         uploadFile(fileUrl);</span><br><span class="line">         sendMessage(fileUrl);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">finally</span>&#123;</span><br><span class="line">      unlock(lockKey,requestId);</span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>跟之前使用synchronized关键字加锁时一样，这里锁的范围也太大了，换句话说就是锁的粒度太粗，这样会导致整个方法的执行效率很低。<br>
-其实只有创建目录的时候，才需要加分布式锁，其余代码根本不用加锁。</p>
+<p>跟之前使用synchronized关键字加锁时一样，这里锁的范围也太大了，换句话说就是锁的粒度太粗，这样会导致整个方法的执行效率很低。<br>其实只有创建目录的时候，才需要加分布式锁，其余代码根本不用加锁。</p>
 <p>于是，我们需要优化一下代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSave</span><span class="params">(String path,String fileUrl)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="keyword">this</span>.tryLock()) &#123;</span><br><span class="line">      mkdir(path);</span><br><span class="line">   &#125;</span><br><span class="line">   uploadFile(fileUrl);</span><br><span class="line">   sendMessage(fileUrl);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">tryLock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">    String result = jedis.set(lockKey, requestId, <span class="string">&quot;NX&quot;</span>, <span class="string">&quot;PX&quot;</span>, expireTime);</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">&quot;OK&quot;</span>.equals(result)) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">finally</span>&#123;</span><br><span class="line">      unlock(lockKey,requestId);</span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面代码将加锁的范围缩小了，只有创建目录时才加了锁。这样看似简单的优化之后，接口性能能提升很多。说不定，会有意外的惊喜喔。哈哈哈。</p>
 <p>redis分布式锁虽说好用，但它在使用时，有很多注意的细节，隐藏了很多坑。以后遇到了再记录下来。</p>
-<h4 id="4123-数据库分布式锁"><a class="markdownIt-Anchor" href="#4123-数据库分布式锁"></a> 4.12.3 数据库分布式锁</h4>
-<p>mysql数据库中主要有三种锁：</p>
+<h4 id="4-12-3-数据库分布式锁"><a href="#4-12-3-数据库分布式锁" class="headerlink" title="4.12.3 数据库分布式锁"></a>4.12.3 数据库分布式锁</h4><p>mysql数据库中主要有三种锁：</p>
 <ul>
 <li>表锁：加锁快，不会出现死锁。但锁定粒度大，发生锁冲突的概率最高，并发度最低。</li>
 <li>行锁：加锁慢，会出现死锁。但锁定粒度最小，发生锁冲突的概率最低，并发度也最高。</li>
-<li>间隙锁：开销和加锁时间界于表锁和行锁之间。它会出现死锁，锁定粒度界于表锁和行锁之间，并发度一般。<br>
-并发度越高，意味着接口性能越好。</li>
+<li>间隙锁：开销和加锁时间界于表锁和行锁之间。它会出现死锁，锁定粒度界于表锁和行锁之间，并发度一般。<br>并发度越高，意味着接口性能越好。</li>
 </ul>
 <p>所以数据库锁的优化方向是：</p>
 <p><strong>优先使用行锁，其次使用间隙锁，再其次使用表锁。</strong></p>
-<h3 id="413-上下文传递"><a class="markdownIt-Anchor" href="#413-上下文传递"></a> 4.13 上下文传递</h3>
-<p>当需要一个数据时，如果没有调 RPC 接口去查，比如想用户信息这种通用型接口<br>
-因为前面要用，肯定已经查过。但是我们知道方法的调用都是以栈帧的形式来传递，随着一个方法执行完毕而出栈，方法内部的局部变量也就被回收了。<br>
-后面如果又要用到这个信息，只能重新去查。<br>
-如果能定义一个Context 上下文对象，将一些中间信息存储并传递下来，会大大减轻后面流程的再次查询压力。</p>
-<h3 id="414-空间大小"><a class="markdownIt-Anchor" href="#414-空间大小"></a> 4.14 空间大小</h3>
-<p>创建集合<code>List&lt;String&gt; lists = Lists.newArrayList();</code>如果说，要往里面插入 1000000  个元素，有没有更好的方式？</p>
+<h3 id="4-13-上下文传递"><a href="#4-13-上下文传递" class="headerlink" title="4.13 上下文传递"></a>4.13 上下文传递</h3><p>当需要一个数据时，如果没有调 RPC 接口去查，比如想用户信息这种通用型接口<br>因为前面要用，肯定已经查过。但是我们知道方法的调用都是以栈帧的形式来传递，随着一个方法执行完毕而出栈，方法内部的局部变量也就被回收了。<br>后面如果又要用到这个信息，只能重新去查。<br>如果能定义一个Context 上下文对象，将一些中间信息存储并传递下来，会大大减轻后面流程的再次查询压力。</p>
+<h3 id="4-14-空间大小"><a href="#4-14-空间大小" class="headerlink" title="4.14 空间大小"></a>4.14 空间大小</h3><p>创建集合<code>List&lt;String&gt; lists = Lists.newArrayList();</code>如果说，要往里面插入 1000000  个元素，有没有更好的方式？</p>
 <ol>
-<li>
-<p>方式一<br>
-<img src="/special-interface/index/19.png" alt><br>
-结果：1000000 次插入 List，花费时间：154</p>
-</li>
-<li>
-<p>方式二<br>
-<img src="/special-interface/index/20.png" alt><br>
-结果：1000000 次插入 List，花费时间：134</p>
-</li>
+<li>方式一<br> <img src="/special-interface/index/19.png"><br>结果：1000000 次插入 List，花费时间：154</li>
+<li>方式二<br><img src="/special-interface/index/20.png"><br>结果：1000000 次插入 List，花费时间：134</li>
 </ol>
-<p>如果我们预先知道集合要存储多少元素，初始化集合时尽量指定大小，尤其是容量较大的集合。<br>
-ArrayList 初始大小是 10，超过阈值会按 1.5 倍大小扩容，涉及老集合到新集合的数据拷贝，浪费性能。</p>
-<h3 id="415-查询优化"><a class="markdownIt-Anchor" href="#415-查询优化"></a> 4.15 查询优化</h3>
-<p>避免一次从 DB 中查询大量的数据到内存中，可能会导致内存不足，建议采用分批、分页查询</p>
-<h2 id="span-classtit-h2-idinterfacedefine5-接口设计的锦囊span"><a class="markdownIt-Anchor" href="#span-classtit-h2-idinterfacedefine5-接口设计的锦囊span"></a> <span class="tit-h2" id="interfaceDefine">5. 接口设计的锦囊</span></h2>
-<p>别说话，先看图：<br>
-<img src="/special-interface/index/28.png" alt></p>
-<h3 id="51-批量思想批量操作数据库"><a class="markdownIt-Anchor" href="#51-批量思想批量操作数据库"></a> 5.1 批量思想：批量操作数据库</h3>
-<p>打个比喻:假如你需要搬一万块砖到楼顶,你有一个电梯,电梯一次可以放适量的砖（最多放500）,<br>
-你可以选择一次运送一块砖,也可以一次运送500,你觉得哪种方式更方便，时间消耗更少?</p>
+<p>如果我们预先知道集合要存储多少元素，初始化集合时尽量指定大小，尤其是容量较大的集合。<br>ArrayList 初始大小是 10，超过阈值会按 1.5 倍大小扩容，涉及老集合到新集合的数据拷贝，浪费性能。</p>
+<h3 id="4-15-查询优化"><a href="#4-15-查询优化" class="headerlink" title="4.15 查询优化"></a>4.15 查询优化</h3><p>避免一次从 DB 中查询大量的数据到内存中，可能会导致内存不足，建议采用分批、分页查询</p>
+<h2 id="5-接口设计的锦囊"><a href="#5-接口设计的锦囊" class="headerlink" title="5. 接口设计的锦囊"></a><span class="tit-h2" id="interfaceDefine">5. 接口设计的锦囊</span></h2><p>别说话，先看图：<br><img src="/special-interface/index/28.png"></p>
+<h3 id="5-1-批量思想：批量操作数据库"><a href="#5-1-批量思想：批量操作数据库" class="headerlink" title="5.1 批量思想：批量操作数据库"></a>5.1 批量思想：批量操作数据库</h3><p>打个比喻:假如你需要搬一万块砖到楼顶,你有一个电梯,电梯一次可以放适量的砖（最多放500）,<br>你可以选择一次运送一块砖,也可以一次运送500,你觉得哪种方式更方便，时间消耗更少?</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//优化前</span></span><br><span class="line"><span class="comment">//for循环单笔入库</span></span><br><span class="line"><span class="keyword">for</span>(TransDetail detail:transDetailList)&#123;</span><br><span class="line">   insert(detail);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//优化后</span></span><br><span class="line">batchInsert(transDetailList);</span><br></pre></td></tr></table></figure>
-<h3 id="52-异步思想耗时操作考虑放到异步执行"><a class="markdownIt-Anchor" href="#52-异步思想耗时操作考虑放到异步执行"></a> 5.2 异步思想：耗时操作，考虑放到异步执行</h3>
-<p>耗时操作，考虑用异步处理，这样可以降低接口耗时。 假设一个转账接口，匹配联行号，是同步执行的，但是它的操作耗时有点长，优化前的流程：<br>
-<img src="/special-interface/index/29.png" alt></p>
-<p>为了降低接口耗时，更快返回，你可以把<strong>匹配联行号移到异步处理</strong>，优化后：<br>
-<img src="/special-interface/index/30.png" alt></p>
+<h3 id="5-2-异步思想：耗时操作，考虑放到异步执行"><a href="#5-2-异步思想：耗时操作，考虑放到异步执行" class="headerlink" title="5.2 异步思想：耗时操作，考虑放到异步执行"></a>5.2 异步思想：耗时操作，考虑放到异步执行</h3><p>耗时操作，考虑用异步处理，这样可以降低接口耗时。 假设一个转账接口，匹配联行号，是同步执行的，但是它的操作耗时有点长，优化前的流程：<br><img src="/special-interface/index/29.png"></p>
+<p>为了降低接口耗时，更快返回，你可以把<strong>匹配联行号移到异步处理</strong>，优化后：<br><img src="/special-interface/index/30.png"></p>
 <ul>
 <li>除了转账这个例子，日常工作中还有很多这种例子。比如：用户注册成功后，短信邮件通知，也是可以异步处理的~</li>
 <li>至于异步的实现方式，你可以用线程池，也可以用消息队列实现。</li>
 </ul>
-<h3 id="53-空间换时间思想恰当使用缓存"><a class="markdownIt-Anchor" href="#53-空间换时间思想恰当使用缓存"></a> 5.3 空间换时间思想：恰当使用缓存。</h3>
-<p>在适当的业务场景，恰当地使用缓存，是可以大大提高接口性能的。缓存其实就是一种空间换时间的思想，就是你把要查的数据，提前放好到缓存里面，需要时，直接查缓存，而避免去查数据库或者计算的过程。</p>
+<h3 id="5-3-空间换时间思想：恰当使用缓存。"><a href="#5-3-空间换时间思想：恰当使用缓存。" class="headerlink" title="5.3 空间换时间思想：恰当使用缓存。"></a>5.3 空间换时间思想：恰当使用缓存。</h3><p>在适当的业务场景，恰当地使用缓存，是可以大大提高接口性能的。缓存其实就是一种空间换时间的思想，就是你把要查的数据，提前放好到缓存里面，需要时，直接查缓存，而避免去查数据库或者计算的过程。</p>
 <p>这里的缓存包括：<code>Redis缓存</code>，<code>JVM本地缓存</code>，<code>memcached</code>，或者<code>Map</code>等等。我举个我工作中，一次使用缓存优化的设计吧，比较简单，但是思路很有借鉴的意义。</p>
 <blockquote>
-<p>那是一次转账接口的优化，老代码，每次转账，都会根据客户账号，查询数据库，计算匹配联行号。<br>
-<img src="/special-interface/index/31.png" alt></p>
+<p>那是一次转账接口的优化，老代码，每次转账，都会根据客户账号，查询数据库，计算匹配联行号。<br><img src="/special-interface/index/31.png"></p>
 </blockquote>
 <p>优化前：每次都查数据库，都计算匹配，比较耗时，所以使用缓存进行优化</p>
-<h3 id="54-预取思想提前初始化到缓存"><a class="markdownIt-Anchor" href="#54-预取思想提前初始化到缓存"></a> 5.4 预取思想：提前初始化到缓存</h3>
-<p>预取思想很容易理解，就是<strong>提前把要计算查询的数据，初始化到缓存</strong>。如果你在未来某个时间需要用到某个经过复杂计算的数据，才实时去计算的话，可能耗时比较大。这时候，我们可以采取预取思想，<strong>提前把将来可能需要的数据计算好，放到缓存中，等需要的时候，去缓存取就行</strong>。这将大幅度提高接口性能。</p>
-<h3 id="55-池化思想预分配与循环使用"><a class="markdownIt-Anchor" href="#55-池化思想预分配与循环使用"></a> 5.5 池化思想：预分配与循环使用</h3>
-<blockquote>
+<h3 id="5-4-预取思想：提前初始化到缓存"><a href="#5-4-预取思想：提前初始化到缓存" class="headerlink" title="5.4 预取思想：提前初始化到缓存"></a>5.4 预取思想：提前初始化到缓存</h3><p>预取思想很容易理解，就是<strong>提前把要计算查询的数据，初始化到缓存</strong>。如果你在未来某个时间需要用到某个经过复杂计算的数据，才实时去计算的话，可能耗时比较大。这时候，我们可以采取预取思想，<strong>提前把将来可能需要的数据计算好，放到缓存中，等需要的时候，去缓存取就行</strong>。这将大幅度提高接口性能。</p>
+<h3 id="5-5-池化思想：预分配与循环使用"><a href="#5-5-池化思想：预分配与循环使用" class="headerlink" title="5.5 池化思想：预分配与循环使用"></a>5.5 池化思想：预分配与循环使用</h3><blockquote>
 <p>线程池可以帮我们管理线程，避免增加创建线程和销毁线程的资源损耗。</p>
 </blockquote>
 <p>如果你每次需要用到线程，都去创建，就会有增加一定的耗时，而线程池可以重复利用线程，避免不必要的耗时。池化技术不仅仅指线程池，很多场景都有池化思想的体现，它的本质就是预分配与循环使用。</p>
 <p>比如TCP三次握手，大家都很熟悉吧，它为了减少性能损耗，引入了Keep-Alive长连接，避免频繁的创建和销毁连接。当然，类似的例子还有很多，如数据库连接池、HttpClient连接池。</p>
 <p>我们写代码的过程中，学会池化思想，最直接相关的就是使用线程池而不是去new一个线程。</p>
-<h3 id="56-事件回调思想拒绝阻塞等待"><a class="markdownIt-Anchor" href="#56-事件回调思想拒绝阻塞等待"></a> 5.6 事件回调思想：拒绝阻塞等待</h3>
-<p>如果你调用一个系统B的接口，但是它处理业务逻辑，耗时需要10s甚至更多。然后你是一直阻塞等待，直到系统B的下游接口返回，再继续你的下一步操作吗？这样显然不合理。</p>
+<h3 id="5-6-事件回调思想：拒绝阻塞等待"><a href="#5-6-事件回调思想：拒绝阻塞等待" class="headerlink" title="5.6 事件回调思想：拒绝阻塞等待"></a>5.6 事件回调思想：拒绝阻塞等待</h3><p>如果你调用一个系统B的接口，但是它处理业务逻辑，耗时需要10s甚至更多。然后你是一直阻塞等待，直到系统B的下游接口返回，再继续你的下一步操作吗？这样显然不合理。</p>
 <p>我们参考IO多路复用模型。即我们不用阻塞等待系统B的接口，而是先去做别的操作。等系统B的接口处理完，通过事件回调通知，我们接口收到通知再进行对应的业务操作即可。</p>
-<h3 id="57-远程调用由串行改为并行"><a class="markdownIt-Anchor" href="#57-远程调用由串行改为并行"></a> 5.7 远程调用由串行改为并行</h3>
-<p>假设我们设计一个APP首页的接口，它需要查用户信息、需要查banner信息、需要查弹窗信息等等。如果是串行一个一个查，比如查用户信息200ms，查banner信息100ms、查弹窗信息50ms，那一共就耗时350ms了，如果还查其他信息，那耗时就更大了。<br>
-<img src="/special-interface/index/32.png" alt><br>
-其实我们可以改为并行调用，即查用户信息、查banner信息、查弹窗信息，可以同时并行发起。<br>
-<img src="/special-interface/index/33.png" alt></p>
-<h3 id="58-锁粒度避免过粗"><a class="markdownIt-Anchor" href="#58-锁粒度避免过粗"></a> 5.8 锁粒度避免过粗</h3>
-<p>在高并发场景，为了防止超卖等情况，我们经常需要加锁来保护共享资源。但是，如果加锁的粒度过粗，是很影响接口性能的。</p>
+<h3 id="5-7-远程调用由串行改为并行"><a href="#5-7-远程调用由串行改为并行" class="headerlink" title="5.7 远程调用由串行改为并行"></a>5.7 远程调用由串行改为并行</h3><p>假设我们设计一个APP首页的接口，它需要查用户信息、需要查banner信息、需要查弹窗信息等等。如果是串行一个一个查，比如查用户信息200ms，查banner信息100ms、查弹窗信息50ms，那一共就耗时350ms了，如果还查其他信息，那耗时就更大了。<br><img src="/special-interface/index/32.png"><br>其实我们可以改为并行调用，即查用户信息、查banner信息、查弹窗信息，可以同时并行发起。<br><img src="/special-interface/index/33.png"></p>
+<h3 id="5-8-锁粒度避免过粗"><a href="#5-8-锁粒度避免过粗" class="headerlink" title="5.8 锁粒度避免过粗"></a>5.8 锁粒度避免过粗</h3><p>在高并发场景，为了防止超卖等情况，我们经常需要加锁来保护共享资源。但是，如果加锁的粒度过粗，是很影响接口性能的。</p>
 <p>什么是加锁粒度呢？</p>
 <blockquote>
 <p>其实就是就是你要锁住的范围是多大。比如你在家上卫生间，你只要锁住卫生间就可以了吧，不需要将整个家都锁起来不让家人进门吧，卫生间就是你的加锁粒度。</p>
@@ -1195,38 +997,29 @@ ArrayList 初始大小是 10，超过阈值会按 1.5 倍大小扩容，涉及�
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//不涉及共享资源的慢方法</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">slowNotShare</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        TimeUnit.MILLISECONDS.sleep(<span class="number">100</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//错误的加锁方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">wrong</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> beginTime = System.currentTimeMillis();</span><br><span class="line">    IntStream.rangeClosed(<span class="number">1</span>, <span class="number">10000</span>).parallel().forEach(i -&gt; &#123;</span><br><span class="line">        <span class="comment">//加锁粒度太粗了，slowNotShare其实不涉及共享资源</span></span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">            slowNotShare();</span><br><span class="line">            data.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    log.info(<span class="string">&quot;cosume time:&#123;&#125;&quot;</span>, System.currentTimeMillis() - beginTime);</span><br><span class="line">    <span class="keyword">return</span> data.size();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>正例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">right</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> beginTime = System.currentTimeMillis();</span><br><span class="line">    IntStream.rangeClosed(<span class="number">1</span>, <span class="number">10000</span>).parallel().forEach(i -&gt; &#123;</span><br><span class="line">        slowNotShare();<span class="comment">//可以不加锁</span></span><br><span class="line">        <span class="comment">//只对List这部分加锁</span></span><br><span class="line">        <span class="keyword">synchronized</span> (data) &#123;</span><br><span class="line">            data.add(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    log.info(<span class="string">&quot;cosume time:&#123;&#125;&quot;</span>, System.currentTimeMillis() - beginTime);</span><br><span class="line">    <span class="keyword">return</span> data.size();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="59-切换存储方式文件中转暂存数据"><a class="markdownIt-Anchor" href="#59-切换存储方式文件中转暂存数据"></a> 5.9 切换存储方式：文件中转暂存数据</h3>
-<p>如果数据太大，落地数据库实在是慢的话，<strong>就可以考虑先用文件的方式暂存</strong>。<strong>先保存文件，再异步下载文件，慢慢保存到数据库</strong>。</p>
+
+<h3 id="5-9-切换存储方式：文件中转暂存数据"><a href="#5-9-切换存储方式：文件中转暂存数据" class="headerlink" title="5.9 切换存储方式：文件中转暂存数据"></a>5.9 切换存储方式：文件中转暂存数据</h3><p>如果数据太大，落地数据库实在是慢的话，<strong>就可以考虑先用文件的方式暂存</strong>。<strong>先保存文件，再异步下载文件，慢慢保存到数据库</strong>。</p>
 <blockquote>
 <p>之前开发了一个转账接口。如果是并发开启，10个并发度，每个批次1000笔转账明细数据，数据库插入会特别耗时，大概6秒左右；这个跟我们公司的数据库同步机制有关，并发情况下，因为优先保证同步，所以并行的插入变成串行啦，就很耗时。</p>
 </blockquote>
-<p>优化前，1000笔明细转账数据，先落地DB数据库，返回处理中给用户，再异步转账。如图：<br>
-<img src="/special-interface/index/34.png" alt><br>
-记得当时压测的时候，高并发情况，这1000笔明细入库，耗时都比较大。所以我转换了一下思路，把批量的明细转账记录保存的文件服务器，然后记录一笔转账总记录到数据库即可。接着异步再把明细下载下来，进行转账和明细入库。最后优化后，性能提升了十几倍。</p>
-<p>优化后，流程图如下：<br>
-<img src="/special-interface/index/35.png" alt><br>
-如果你的接口耗时瓶颈就在<strong>数据库插入操作这里</strong>，用来批量操作等，还是效果还不理想，就可以考虑用文件或者MQ等暂存。有时候批量数据放到文件，会比插入数据库效率更高。</p>
-<h3 id="510-索引"><a class="markdownIt-Anchor" href="#510-索引"></a> 5.10 索引</h3>
-<p>提到接口优化，很多小伙伴都会想到添加索引。没错，添加索引是成本最小的优化，而且一般优化效果都很不错。</p>
+<p>优化前，1000笔明细转账数据，先落地DB数据库，返回处理中给用户，再异步转账。如图：<br><img src="/special-interface/index/34.png"><br>记得当时压测的时候，高并发情况，这1000笔明细入库，耗时都比较大。所以我转换了一下思路，把批量的明细转账记录保存的文件服务器，然后记录一笔转账总记录到数据库即可。接着异步再把明细下载下来，进行转账和明细入库。最后优化后，性能提升了十几倍。</p>
+<p>优化后，流程图如下：<br><img src="/special-interface/index/35.png"><br>如果你的接口耗时瓶颈就在<strong>数据库插入操作这里</strong>，用来批量操作等，还是效果还不理想，就可以考虑用文件或者MQ等暂存。有时候批量数据放到文件，会比插入数据库效率更高。</p>
+<h3 id="5-10-索引"><a href="#5-10-索引" class="headerlink" title="5.10 索引"></a>5.10 索引</h3><p>提到接口优化，很多小伙伴都会想到添加索引。没错，添加索引是成本最小的优化，而且一般优化效果都很不错。</p>
 <p>索引优化这块的话，一般从这几个维度去思考：</p>
 <ul>
 <li>你的SQL加索引了没？</li>
 <li>你的索引是否真的生效？</li>
 <li>你的索引建立是否合理？</li>
 </ul>
-<h4 id="5101-没加索引"><a class="markdownIt-Anchor" href="#5101-没加索引"></a> 5.10.1 没加索引</h4>
-<p><code>explain</code>先看执行计划</p>
+<h4 id="5-10-1-没加索引"><a href="#5-10-1-没加索引" class="headerlink" title="5.10.1 没加索引"></a>5.10.1 没加索引</h4><p><code>explain</code>先看执行计划</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain <span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> user_info <span class="keyword">where</span> userId <span class="keyword">like</span> <span class="string">&#x27;%123&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p>你也可以通过命令<code>show create table</code>，整张表的索引情况。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> user_info;</span><br></pre></td></tr></table></figure>
 <p>如果某个表忘记添加某个索引，可以通过<code>alter table add index</code>命令添加索引</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> user_info <span class="keyword">add</span> index idx_name (name);</span><br></pre></td></tr></table></figure>
 <p>一般就是：SQL的where条件的字段，或者是order by 、group by后面的字段需需要添加索引。</p>
-<h4 id="5102-索引不生效"><a class="markdownIt-Anchor" href="#5102-索引不生效"></a> 5.10.2 索引不生效</h4>
-<p>有时候，即使你添加了索引，但是索引会失效的<br>
-<img src="/special-interface/index/36.png" alt></p>
-<h4 id="5103-索引设计不合理"><a class="markdownIt-Anchor" href="#5103-索引设计不合理"></a> 5.10.3 索引设计不合理</h4>
-<p>我们的索引不是越多越好，需要合理设计。比如：</p>
+<h4 id="5-10-2-索引不生效"><a href="#5-10-2-索引不生效" class="headerlink" title="5.10.2 索引不生效"></a>5.10.2 索引不生效</h4><p>有时候，即使你添加了索引，但是索引会失效的<br><img src="/special-interface/index/36.png"></p>
+<h4 id="5-10-3-索引设计不合理"><a href="#5-10-3-索引设计不合理" class="headerlink" title="5.10.3 索引设计不合理"></a>5.10.3 索引设计不合理</h4><p>我们的索引不是越多越好，需要合理设计。比如：</p>
 <ul>
 <li>删除冗余和重复索引。</li>
 <li>索引一般不能超过5个</li>
@@ -1234,11 +1027,8 @@ ArrayList 初始大小是 10，超过阈值会按 1.5 倍大小扩容，涉及�
 <li>适当使用覆盖索引</li>
 <li>如果需要使用force index强制走某个索引，那就需要思考你的索引设计是否真的合理了</li>
 </ul>
-<h3 id="511-优化sql"><a class="markdownIt-Anchor" href="#511-优化sql"></a> 5.11 优化SQL</h3>
-<p>除了索引优化，其实SQL还有很多其他有优化的空间。比如这些：<br>
-<img src="/special-interface/index/37.png" alt></p>
-<h3 id="512-避免大事务问题"><a class="markdownIt-Anchor" href="#512-避免大事务问题"></a> 5.12 避免大事务问题</h3>
-<p>为了保证数据库数据的一致性，在涉及到多个数据库修改操作时，我们经常需要用到事务。而使用spring声明式事务，又非常简单，只需要用一个注解就行@Transactional，如下面的例子：</p>
+<h3 id="5-11-优化SQL"><a href="#5-11-优化SQL" class="headerlink" title="5.11 优化SQL"></a>5.11 优化SQL</h3><p>除了索引优化，其实SQL还有很多其他有优化的空间。比如这些：<br><img src="/special-interface/index/37.png"></p>
+<h3 id="5-12-避免大事务问题"><a href="#5-12-避免大事务问题" class="headerlink" title="5.12 避免大事务问题"></a>5.12 避免大事务问题</h3><p>为了保证数据库数据的一致性，在涉及到多个数据库修改操作时，我们经常需要用到事务。而使用spring声明式事务，又非常简单，只需要用一个注解就行@Transactional，如下面的例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">createUser</span><span class="params">(User user)</span></span>&#123;</span><br><span class="line">    <span class="comment">//保存用户信息</span></span><br><span class="line">    userDao.save(user);</span><br><span class="line">    passCertDao.updateFlag(user.getPassId());</span><br><span class="line">    <span class="keyword">return</span> user.getUserId();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这块代码主要逻辑就是创建个用户，然后更新一个通行证<code>pass</code>的标记。如果现在新增一个需求，创建完用户，调用远程接口发送一个<code>email</code>消息通知，很多小伙伴会这么写：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">createUser</span><span class="params">(User user)</span></span>&#123;</span><br><span class="line">    <span class="comment">//保存用户信息</span></span><br><span class="line">    userDao.save(user);</span><br><span class="line">    passCertDao.updateFlag(user.getPassId());</span><br><span class="line">    sendEmailRpc(user.getEmail());</span><br><span class="line">    <span class="keyword">return</span> user.getUserId();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1252,47 +1042,38 @@ ArrayList 初始大小是 10，超过阈值会按 1.5 倍大小扩容，涉及�
 <li>一些查询相关的操作，尽量放到事务之外</li>
 <li>事务中避免处理太多数据</li>
 </ul>
-<h3 id="513-深分页问题"><a class="markdownIt-Anchor" href="#513-深分页问题"></a> 5.13 深分页问题</h3>
-<p>深分页问题，为什么会慢？我们看下这个SQL</p>
+<h3 id="5-13-深分页问题"><a href="#5-13-深分页问题" class="headerlink" title="5.13 深分页问题"></a>5.13 深分页问题</h3><p>深分页问题，为什么会慢？我们看下这个SQL</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> id,name,balance <span class="keyword">from</span> account <span class="keyword">where</span> create_time<span class="operator">&gt;</span> <span class="string">&#x27;2020-09-19&#x27;</span> limit <span class="number">100000</span>,<span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-<p>limit 100000,10意味着会扫描100010行，丢弃掉前100000行，最后返回10行。即使create_time，也会回表很多次。<br>
-我们可以通过标签记录法和延迟关联法来优化深分页问题， 其他优化方案可以查看博客 <a target="_blank" rel="noopener" href="http://xiaoyuge.work/limit-offset/">破解LIMIT和OFFSET分页性能瓶颈</a>。</p>
-<h3 id="514-优化程序结构"><a class="markdownIt-Anchor" href="#514-优化程序结构"></a> 5.14 优化程序结构</h3>
-<p>优化程序逻辑、程序代码，是可以节省耗时的。比如，你的程序创建多不必要的对象、或者程序逻辑混乱，多次重复查数据库、又或者你的实现逻辑算法不是最高效的，等等。</p>
+<p>limit 100000,10意味着会扫描100010行，丢弃掉前100000行，最后返回10行。即使create_time，也会回表很多次。<br>我们可以通过标签记录法和延迟关联法来优化深分页问题， 其他优化方案可以查看博客 <a target="_blank" rel="noopener" href="http://xiaoyuge.work/limit-offset/">破解LIMIT和OFFSET分页性能瓶颈</a>。</p>
+<h3 id="5-14-优化程序结构"><a href="#5-14-优化程序结构" class="headerlink" title="5.14 优化程序结构"></a>5.14 优化程序结构</h3><p>优化程序逻辑、程序代码，是可以节省耗时的。比如，你的程序创建多不必要的对象、或者程序逻辑混乱，多次重复查数据库、又或者你的实现逻辑算法不是最高效的，等等。</p>
 <p>我举个简单的例子：复杂的逻辑条件，有时候调整一下顺序，就能让你的程序更加高效。</p>
 <blockquote>
 <p>假设业务需求是这样：如果用户是会员，第一次登陆时，需要发一条感谢短信。如果没有经过思考，代码直接这样写了</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(isUserVip &amp;&amp; isFirstLogin)&#123;</span><br><span class="line">    sendSmsMsg();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>假设有5个请求过来，isUserVip判断通过的有3个请求，isFirstLogin通过的只有1个请求。那么以上代码，isUserVip执行的次数为5次，isFirstLogin执行的次数也是3次，如下：<br>
-<img src="/special-interface/index/38.png" alt><br>
-如果调整一下isUserVip和isFirstLogin的顺序：</p>
+<p>假设有5个请求过来，isUserVip判断通过的有3个请求，isFirstLogin通过的只有1个请求。那么以上代码，isUserVip执行的次数为5次，isFirstLogin执行的次数也是3次，如下：<br><img src="/special-interface/index/38.png"><br>如果调整一下isUserVip和isFirstLogin的顺序：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(isFirstLogin &amp;&amp; isUserVip )&#123;</span><br><span class="line">    sendMsg();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/special-interface/index/39.png" alt></p>
-<h3 id="515-压缩传输内容"><a class="markdownIt-Anchor" href="#515-压缩传输内容"></a> 5.15 压缩传输内容</h3>
-<p>压缩传输内容，传输报文变得更小，因此传输会更快啦。10M带宽，传输10k的报文，一般比传输1M的会快呀。</p>
+<p><img src="/special-interface/index/39.png"></p>
+<h3 id="5-15-压缩传输内容"><a href="#5-15-压缩传输内容" class="headerlink" title="5.15 压缩传输内容"></a>5.15 压缩传输内容</h3><p>压缩传输内容，传输报文变得更小，因此传输会更快啦。10M带宽，传输10k的报文，一般比传输1M的会快呀。</p>
 <blockquote>
 <p>比如视频网站：如果不对视频做任何压缩编码，因为带宽又是有限的。巨大的数据量在网络传输的耗时会比编码压缩后，慢好多倍。</p>
 </blockquote>
-<h3 id="516-海量数据处理考虑nosql"><a class="markdownIt-Anchor" href="#516-海量数据处理考虑nosql"></a> 5.16 海量数据处理，考虑NoSQL</h3>
-<p>之前看过几个慢SQL，都是跟深分页问题有关的。发现用来标签记录法和延迟关联法，效果不是很明显，原因是要统计和模糊搜索，并且统计的数据是真的大。最后跟组长对齐方案，就把数据同步到Elasticsearch，然后这些模糊搜索需求，都走Elasticsearch去查询了。</p>
+<h3 id="5-16-海量数据处理，考虑NoSQL"><a href="#5-16-海量数据处理，考虑NoSQL" class="headerlink" title="5.16 海量数据处理，考虑NoSQL"></a>5.16 海量数据处理，考虑NoSQL</h3><p>之前看过几个慢SQL，都是跟深分页问题有关的。发现用来标签记录法和延迟关联法，效果不是很明显，原因是要统计和模糊搜索，并且统计的数据是真的大。最后跟组长对齐方案，就把数据同步到Elasticsearch，然后这些模糊搜索需求，都走Elasticsearch去查询了。</p>
 <p>我想表达的就是，如果数据量过大，一定要用关系型数据库存储的话，就可以分库分表。但是有时候，我们也可以使用NoSQL，如Elasticsearch、Hbase等。</p>
-<h3 id="517-线程池设计要合理"><a class="markdownIt-Anchor" href="#517-线程池设计要合理"></a> 5.17 线程池设计要合理</h3>
-<p>我们使用线程池，就是让任务并行处理，更高效地完成任务。但是有时候，如果线程池设计不合理，接口执行效率则不太理想。</p>
+<h3 id="5-17-线程池设计要合理"><a href="#5-17-线程池设计要合理" class="headerlink" title="5.17 线程池设计要合理"></a>5.17 线程池设计要合理</h3><p>我们使用线程池，就是让任务并行处理，更高效地完成任务。但是有时候，如果线程池设计不合理，接口执行效率则不太理想。</p>
 <p>一般我们需要关注线程池的这几个参数：核心线程、最大线程数量、阻塞队列。</p>
 <ul>
 <li>如果核心线程过小，则达不到很好的并行效果。</li>
 <li>如果阻塞队列不合理，不仅仅是阻塞的问题，甚至可能会OOM</li>
 <li>如果线程池不区分业务隔离，有可能核心业务被边缘业务拖垮</li>
 </ul>
-<h3 id="518-机器问题-fullgc-线程打满-太多io资源没关闭等等"><a class="markdownIt-Anchor" href="#518-机器问题-fullgc-线程打满-太多io资源没关闭等等"></a> 5.18 机器问题 （fullGC、线程打满、太多IO资源没关闭等等）</h3>
-<p>有时候，我们的接口慢，就是机器处理问题。主要有fullGC、线程打满、太多IO资源没关闭等等。</p>
+<h3 id="5-18-机器问题-（fullGC、线程打满、太多IO资源没关闭等等）"><a href="#5-18-机器问题-（fullGC、线程打满、太多IO资源没关闭等等）" class="headerlink" title="5.18 机器问题 （fullGC、线程打满、太多IO资源没关闭等等）"></a>5.18 机器问题 （fullGC、线程打满、太多IO资源没关闭等等）</h3><p>有时候，我们的接口慢，就是机器处理问题。主要有fullGC、线程打满、太多IO资源没关闭等等。</p>
 <ul>
 <li>之前排查过一个fullGC问题：运营小姐姐导出60多万的excel的时候，说卡死了，接着我们就收到监控告警。后面排查得出，我们老代码是Apache POI生成的excel，导出excel数据量很大时，当时JVM内存吃紧会直接Full GC了。</li>
 <li>如果线程打满了，也会导致接口都在等待了。所以。如果是高并发场景，我们需要接入限流，把多余的请求拒绝掉。</li>
 <li>如果IO资源没关闭，也会导致耗时增加。这个大家可以看下，平时你的电脑一直打开很多很多文件，是不是会觉得很卡。</li>
 </ul>
-<p>记录这篇博客花了好几天的时间，主要是筛选一些同类型的博客，然后整理一下，在这过程中也自己也是受益良多，也更加系统性的了解、熟悉接口方面的知识。这篇博客主要是借鉴于<strong>捡田螺的小男孩</strong> <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2NzYyNjQzNg==&amp;mid=2247495355&amp;idx=1&amp;sn=20a4b5594a5d307b36fd374002d7e29b&amp;chksm=ceba1210f9cd9b06329a4f6c1c5f6595956643696bf8d89110b6d4b6efc0dde1e5049ee8948c&amp;scene=126&amp;&amp;sessionid=1669128030#rd">设计好接口的36个锦囊</a> 以及 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/cd-EuL1Psn_nDQp2djJFBA">18种接口优化总结</a>；</p>
+<p>记录这篇博客花了好几天的时间，主要是筛选一些同类型的博客，然后整理一下，在这过程中也自己也是受益良多，也更加系统性的了解、熟悉接口方面的知识。这篇博客主要是借鉴于<strong>捡田螺的小男孩</strong> <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2NzYyNjQzNg==&mid=2247495355&idx=1&sn=20a4b5594a5d307b36fd374002d7e29b&chksm=ceba1210f9cd9b06329a4f6c1c5f6595956643696bf8d89110b6d4b6efc0dde1e5049ee8948c&scene=126&&sessionid=1669128030#rd">设计好接口的36个锦囊</a> 以及 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/cd-EuL1Psn_nDQp2djJFBA">18种接口优化总结</a>；</p>
 
       
     </div>
