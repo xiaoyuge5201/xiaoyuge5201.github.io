@@ -15,8 +15,27 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，分享一些技术教程以及日常踩坑记录。</description>
-    <pubDate>Sat, 01 Apr 2023 03:42:17 GMT</pubDate>
+    <pubDate>Wed, 05 Apr 2023 12:34:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Springboot调用外部接口的三种方式</title>
+      <link>https://xiaoyuge5201.github.io/springboot-chapter1/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-chapter1/index.html</guid>
+      <pubDate>Wed, 05 Apr 2023 12:34:28 GMT</pubDate>
+      
+      <description>博客被加密了, 请输入密码查看.</description>
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/03-SpringBoot/">03 SpringBoot</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
     
     <item>
       <title>Springboot集成轻量级内存数据库H2</title>
