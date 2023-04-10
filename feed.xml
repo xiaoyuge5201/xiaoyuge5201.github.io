@@ -15,14 +15,14 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，分享一些技术教程以及日常踩坑记录。</description>
-    <pubDate>Wed, 05 Apr 2023 12:34:28 GMT</pubDate>
+    <pubDate>Sat, 08 Apr 2023 12:34:28 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>Springboot调用外部接口的三种方式</title>
-      <link>https://xiaoyuge5201.github.io/springboot-chapter1/index.html</link>
-      <guid>https://xiaoyuge5201.github.io/springboot-chapter1/index.html</guid>
-      <pubDate>Wed, 05 Apr 2023 12:34:28 GMT</pubDate>
+      <link>https://xiaoyuge5201.github.io/springboot-chapter2/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-chapter2/index.html</guid>
+      <pubDate>Sat, 08 Apr 2023 12:34:28 GMT</pubDate>
       
         
         
@@ -34,7 +34,7 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/03-SpringBoot/">03 SpringBoot</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/03-Springboot/">03 Springboot</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
@@ -44,9 +44,9 @@
     
     <item>
       <title>Springboot集成轻量级内存数据库H2</title>
-      <link>https://xiaoyuge5201.github.io/springboot-h2/index.html</link>
-      <guid>https://xiaoyuge5201.github.io/springboot-h2/index.html</guid>
-      <pubDate>Sat, 01 Apr 2023 03:42:17 GMT</pubDate>
+      <link>https://xiaoyuge5201.github.io/springboot-chapter3-h2/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-chapter3-h2/index.html</guid>
+      <pubDate>Wed, 05 Apr 2023 03:42:17 GMT</pubDate>
       
         
         
@@ -58,7 +58,32 @@
       
       
       
-      <category domain="https://xiaoyuge5201.github.io/categories/03-SpringBoot/">03 SpringBoot</category>
+      <category domain="https://xiaoyuge5201.github.io/categories/03-Springboot/">03 Springboot</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>Springboot 自动装配</title>
+      <link>https://xiaoyuge5201.github.io/springboot-chapter1/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-chapter1/index.html</guid>
+      <pubDate>Sat, 01 Apr 2023 13:01:21 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;注意：本 Spring Boot 系列文章基于 Spring Boot 版本 v2.2.12.RELEASE进行学习分</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/03-Springboot/">03 Springboot</category>
       
       
       <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>

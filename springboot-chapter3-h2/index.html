@@ -21,23 +21,23 @@
   <meta name="description" content="1. 什么是H2内存数据库 H2是一个用Java开发的嵌入式数据库，它本身是一个类库，可以直接嵌入到项目中  官网地址：H2数据库 1.1. H2用途 H2最大的用途在于可以同应用程序打包在一起发布，这样可以非常方便地少量结构化数据  用于单元测试，启动速度块，而且可以关闭持久化功能，每一个用例执行完随机还原到初始状态  作为缓存，作为NoSQL的一个补充。当某些场景下数据模型必须为关系型，可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Springboot集成轻量级内存数据库H2">
-<meta property="og:url" content="https://xiaoyuge5201.github.io/springboot-h2/index.html">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/springboot-chapter3-h2/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
 <meta property="og:description" content="1. 什么是H2内存数据库 H2是一个用Java开发的嵌入式数据库，它本身是一个类库，可以直接嵌入到项目中  官网地址：H2数据库 1.1. H2用途 H2最大的用途在于可以同应用程序打包在一起发布，这样可以非常方便地少量结构化数据  用于单元测试，启动速度块，而且可以关闭持久化功能，每一个用例执行完随机还原到初始状态  作为缓存，作为NoSQL的一个补充。当某些场景下数据模型必须为关系型，可">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-h2/index/1.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-h2/index/2.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-h2/index/3.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-h2/index/4.png">
-<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-h2/index/5.png">
-<meta property="article:published_time" content="2023-04-01T03:42:17.000Z">
-<meta property="article:modified_time" content="2023-04-01T03:42:17.000Z">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/1.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/2.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/3.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/4.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/5.png">
+<meta property="article:published_time" content="2023-04-05T03:42:17.000Z">
+<meta property="article:modified_time" content="2023-04-05T03:42:17.000Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xiaoyuge5201.github.io/springboot-h2/index/1.png">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/1.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://xiaoyuge5201.github.io/springboot-h2/index.html">
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/springboot-chapter3-h2/index.html">
   
   
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -218,7 +218,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/03-SpringBoot/">03 SpringBoot</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/03-Springboot/">03 Springboot</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
     </div>
   </div>
 
@@ -233,7 +233,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="../springboot-chapter1/index.html" class="thumb">
+              <a href="../springboot-chapter2/index.html" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -244,13 +244,13 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/03-SpringBoot/">03 SpringBoot</a>
+                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
               </p>
               <p class="item-title">
-                <a href="../springboot-chapter1/index.html" class="title">Springboot调用外部接口的三种方式</a>
+                <a href="../springboot-chapter2/index.html" class="title">Springboot调用外部接口的三种方式</a>
               </p>
               <p class="item-date">
-                <time datetime="2023-04-05T12:34:28.000Z" itemprop="datePublished">2023-04-05</time>
+                <time datetime="2023-04-08T12:34:28.000Z" itemprop="datePublished">2023-04-08</time>
               </p>
             </div>
           </li>
@@ -269,13 +269,38 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="../categories/03-SpringBoot/">03 SpringBoot</a>
+                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
               </p>
               <p class="item-title">
                 <a href="" class="title">Springboot集成轻量级内存数据库H2</a>
               </p>
               <p class="item-date">
-                <time datetime="2023-04-01T03:42:17.000Z" itemprop="datePublished">2023-04-01</time>
+                <time datetime="2023-04-05T03:42:17.000Z" itemprop="datePublished">2023-04-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../springboot-chapter1/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
+              </p>
+              <p class="item-title">
+                <a href="../springboot-chapter1/index.html" class="title">Springboot 自动装配</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-04-01T13:01:21.000Z" itemprop="datePublished">2023-04-01</time>
               </p>
             </div>
           </li>
@@ -330,31 +355,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../distributed-01/index.html" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a>
-              </p>
-              <p class="item-title">
-                <a href="../distributed-01/index.html" class="title">分布式理论及一致性算法</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-03-26T03:51:24.000Z" itemprop="datePublished">2023-03-26</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -389,7 +389,7 @@
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-springboot-h2" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-springboot-chapter3-h2" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
@@ -405,13 +405,13 @@
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
 	<a href="" class="article-date">
-	  <time datetime="2023-04-01T03:42:17.000Z" itemprop="datePublished">2023-04-01</time>
+	  <time datetime="2023-04-05T03:42:17.000Z" itemprop="datePublished">2023-04-05</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="../categories/03-SpringBoot/">03 SpringBoot</a>
+    <a class="article-category-link" href="../categories/03-Springboot/">03 Springboot</a>
   </span>
 
         
@@ -481,18 +481,18 @@
 <h4 id="2-4-创建Dao继承JpaRepository"><a href="#2-4-创建Dao继承JpaRepository" class="headerlink" title="2.4. 创建Dao继承JpaRepository"></a>2.4. 创建Dao继承JpaRepository</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="2-5-访问H2控制台"><a href="#2-5-访问H2控制台" class="headerlink" title="2.5. 访问H2控制台"></a>2.5. 访问H2控制台</h4><p>启动应用程序，通过访问H2控制台连接<code>localhost:8080/h2</code>，进入H2控制台页面<br><img src="/springboot-h2/index/1.png"></p>
-<p>进入控制台后，可以查看到初始化的数据表<code>SYS_USER</code>以及数据<br><img src="/springboot-h2/index/2.png"></p>
+<h4 id="2-5-访问H2控制台"><a href="#2-5-访问H2控制台" class="headerlink" title="2.5. 访问H2控制台"></a>2.5. 访问H2控制台</h4><p>启动应用程序，通过访问H2控制台连接<code>localhost:8080/h2</code>，进入H2控制台页面<br><img src="/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/1.png"></p>
+<p>进入控制台后，可以查看到初始化的数据表<code>SYS_USER</code>以及数据<br><img src="/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/2.png"></p>
 <h4 id="2-6-创建测试类"><a href="#2-6-创建测试类" class="headerlink" title="2.6. 创建测试类"></a>2.6. 创建测试类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">()</span></span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setUserName(<span class="string">&quot;王五&quot;</span>);</span><br><span class="line">        userRepository.save(user);</span><br><span class="line">        <span class="comment">//Hibernate: insert into sys_user (user_name, user_id) values (?, ?)</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getOne</span><span class="params">()</span></span>&#123;</span><br><span class="line">        User user = userRepository.getOne(<span class="number">1</span>);</span><br><span class="line">        System.out.println(user.toString());</span><br><span class="line">        <span class="comment">//Hibernate: select user0_.user_id as user_id1_0_0_, user0_.user_name as user_nam2_0_0_ from sys_user user0_ where user0_.user_id=?</span></span><br><span class="line">        <span class="comment">//User&#123;userId=1, userName=&#x27;小余哥&#x27;&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">list</span><span class="params">()</span></span>&#123;</span><br><span class="line">        List&lt;User&gt; list = userRepository.findAll();</span><br><span class="line">        <span class="keyword">for</span> (User user : list) &#123;</span><br><span class="line">            System.out.println(user.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//User&#123;userId=1, userName=&#x27;小余哥&#x27;&#125;</span></span><br><span class="line">        <span class="comment">//User&#123;userId=2, userName=&#x27;张三&#x27;&#125;</span></span><br><span class="line">        <span class="comment">//User&#123;userId=3, userName=&#x27;李四&#x27;&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="3-H2数据库应用场景"><a href="#3-H2数据库应用场景" class="headerlink" title="3. H2数据库应用场景"></a>3. H2数据库应用场景</h3><h4 id="3-1-嵌入式模式-上文例子"><a href="#3-1-嵌入式模式-上文例子" class="headerlink" title="3.1. 嵌入式模式(上文例子)"></a>3.1. 嵌入式模式(上文例子)</h4><p>在嵌入式模式下，应用程序使用JDBC从同一JVM中打开数据库。这是最快也是最容易的连接方式。缺点是数据库可能只在任何时候在一个虚拟机（和类加载器）中打开。与所有模式一样，支持持久性和内存数据库。对并发打开数据库的数量或打开连接的数量没有限制<br><img src="/springboot-h2/index/3.png"></p>
+<h3 id="3-H2数据库应用场景"><a href="#3-H2数据库应用场景" class="headerlink" title="3. H2数据库应用场景"></a>3. H2数据库应用场景</h3><h4 id="3-1-嵌入式模式-上文例子"><a href="#3-1-嵌入式模式-上文例子" class="headerlink" title="3.1. 嵌入式模式(上文例子)"></a>3.1. 嵌入式模式(上文例子)</h4><p>在嵌入式模式下，应用程序使用JDBC从同一JVM中打开数据库。这是最快也是最容易的连接方式。缺点是数据库可能只在任何时候在一个虚拟机（和类加载器）中打开。与所有模式一样，支持持久性和内存数据库。对并发打开数据库的数量或打开连接的数量没有限制<br><img src="/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/3.png"></p>
 <h4 id="3-2-服务器模式"><a href="#3-2-服务器模式" class="headerlink" title="3.2. 服务器模式"></a>3.2. 服务器模式</h4><p>当使用服务器模式（有时称为远程模式或客户机/服务器模式）时，应用程序使用 JDBC 或 ODBC API 远程打开数据库。服务器需要在同一台或另一台虚拟机上启动，或者在另一台计算机上启动。许多应用程序可以通过连接到这个服务器同时连接到同一个数据库。在内部，服务器进程在嵌入式模式下打开数据库。</p>
-<p>服务器模式比嵌入式模式慢，因为所有数据都通过TCP/IP传输。与所有模式一样，支持持久性和内存数据库。对每个服务器并发打开的数据库数量或打开连接的数量没有限制。<br><img src="/springboot-h2/index/4.png"></p>
+<p>服务器模式比嵌入式模式慢，因为所有数据都通过TCP/IP传输。与所有模式一样，支持持久性和内存数据库。对每个服务器并发打开的数据库数量或打开连接的数量没有限制。<br><img src="/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/4.png"></p>
 <h4 id="3-3-混合模式"><a href="#3-3-混合模式" class="headerlink" title="3.3. 混合模式"></a>3.3. 混合模式</h4><p>混合模式是嵌入式和服务器模式的结合。连接到数据库的第一个应用程序在嵌入式模式下运行，但也启动服务器，以便其他应用程序（在不同进程或虚拟机中运行）可以同时访问相同的数据。本地连接的速度与数据库在嵌入式模式中的使用速度一样快，而远程连接速度稍慢。</p>
 <p>服务器可以从应用程序内（使用服务器API）启动或停止，或自动（自动混合模式）。当使用自动混合模式时，所有想要连接到数据库的客户端（无论是本地连接还是远程连接）都可以使用完全相同的数据库URL来实现。</p>
-<p><img src="/springboot-h2/index/5.png"></p>
+<p><img src="/springboot-chapter3-h2/index/_posts/2023/04/springboot-chapter3-h2/5.png"></p>
 <h3 id="4-H2数据库连接格式"><a href="#4-H2数据库连接格式" class="headerlink" title="4. H2数据库连接格式"></a>4. H2数据库连接格式</h3><table>
 <thead>
 <tr>
@@ -590,7 +590,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://xiaoyuge5201.github.io/springboot-h2/index.html" title="Springboot集成轻量级内存数据库H2" target="_blank" rel="external">https://xiaoyuge5201.github.io/springboot-h2/index.html</a>
+      <a href="https://xiaoyuge5201.github.io/springboot-chapter3-h2/index.html" title="Springboot集成轻量级内存数据库H2" target="_blank" rel="external">https://xiaoyuge5201.github.io/springboot-chapter3-h2/index.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -631,12 +631,12 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="../springboot-chapter1/index.html" title="Springboot调用外部接口的三种方式"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="../springboot-chapter2/index.html" title="Springboot调用外部接口的三种方式"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     
     <li class="next">
-      <a href="../async/index.html" title="实现异步的8种方式"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="../springboot-chapter1/index.html" title="Springboot 自动装配"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

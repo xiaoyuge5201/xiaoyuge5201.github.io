@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://xiaoyuge5201.github.io/springboot-chapter1/index.html</loc>
+    <loc>https://xiaoyuge5201.github.io/springboot-chapter2/index.html</loc>
+    <lastmod>2023-04-08</lastmod>
+  </url>
+  <url>
+    <loc>https://xiaoyuge5201.github.io/springboot-chapter3-h2/index.html</loc>
     <lastmod>2023-04-05</lastmod>
   </url>
   <url>
-    <loc>https://xiaoyuge5201.github.io/springboot-h2/index.html</loc>
+    <loc>https://xiaoyuge5201.github.io/springboot-chapter1/index.html</loc>
     <lastmod>2023-04-01</lastmod>
   </url>
   <url>
