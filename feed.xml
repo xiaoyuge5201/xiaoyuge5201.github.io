@@ -15,13 +15,37 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，分享一些技术教程以及日常踩坑记录。</description>
-    <pubDate>Sat, 08 Apr 2023 12:34:28 GMT</pubDate>
+    <pubDate>Sun, 23 Apr 2023 03:42:31 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>Springboot文件下载</title>
+      <link>https://xiaoyuge5201.github.io/springboot-chapter5/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-chapter5/index.html</guid>
+      <pubDate>Sun, 23 Apr 2023 03:42:31 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1. 前言&quot;&gt;&lt;/a&gt;1. 前言&lt;/h</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/03-Springboot/">03 Springboot</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
+    
+    <item>
       <title>Springboot调用外部接口的三种方式</title>
-      <link>https://xiaoyuge5201.github.io/springboot-chapter2/index.html</link>
-      <guid>https://xiaoyuge5201.github.io/springboot-chapter2/index.html</guid>
+      <link>https://xiaoyuge5201.github.io/springboot-chapter4/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-chapter4/index.html</guid>
       <pubDate>Sat, 08 Apr 2023 12:34:28 GMT</pubDate>
       
         
@@ -44,8 +68,8 @@
     
     <item>
       <title>Springboot集成轻量级内存数据库H2</title>
-      <link>https://xiaoyuge5201.github.io/springboot-chapter3-h2/index.html</link>
-      <guid>https://xiaoyuge5201.github.io/springboot-chapter3-h2/index.html</guid>
+      <link>https://xiaoyuge5201.github.io/springboot-chapter3/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-chapter3/index.html</guid>
       <pubDate>Wed, 05 Apr 2023 03:42:17 GMT</pubDate>
       
         
@@ -53,6 +77,30 @@
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
 
 &lt;h3 id=&quot;1-什么是H2内存数据库&quot;&gt;&lt;a href=&quot;#1-什么是H2内存数据库&quot; class=&quot;headerlink&quot; title=&quot;1. </description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/03-Springboot/">03 Springboot</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
+    
+    <item>
+      <title>Springboot添加Logback日志</title>
+      <link>https://xiaoyuge5201.github.io/springboot-chapter2/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-chapter2/index.html</guid>
+      <pubDate>Mon, 03 Apr 2023 06:32:46 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h2 id=&quot;1-日志框架&quot;&gt;&lt;a href=&quot;#1-日志框架&quot; class=&quot;headerlink&quot; title=&quot;1. 日志框架&quot;&gt;&lt;/a&gt;1.</description>
         
       
       
