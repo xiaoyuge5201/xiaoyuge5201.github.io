@@ -15,8 +15,32 @@
     <atom:link href="https://xiaoyuge5201.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     
     <description>小余哥个人博客，分享一些技术教程以及日常踩坑记录。</description>
-    <pubDate>Sun, 23 Apr 2023 03:42:31 GMT</pubDate>
+    <pubDate>Fri, 12 May 2023 08:41:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Springboot统一接口封装</title>
+      <link>https://xiaoyuge5201.github.io/springboot-chapter6/index.html</link>
+      <guid>https://xiaoyuge5201.github.io/springboot-chapter6/index.html</guid>
+      <pubDate>Fri, 12 May 2023 08:41:57 GMT</pubDate>
+      
+        
+        
+      <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
+
+&lt;h3 id=&quot;1-Restful-API-接口&quot;&gt;&lt;a href=&quot;#1-Restful-API-接口&quot; class=&quot;headerlink&quot; ti</description>
+        
+      
+      
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/categories/03-Springboot/">03 Springboot</category>
+      
+      
+      <category domain="https://xiaoyuge5201.github.io/tags/java/">java</category>
+      
+      
+    </item>
     
     <item>
       <title>Springboot文件下载</title>
@@ -100,7 +124,7 @@
         
       <description>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/css/content.css&quot;&gt;
 
-&lt;h2 id=&quot;1-日志框架&quot;&gt;&lt;a href=&quot;#1-日志框架&quot; class=&quot;headerlink&quot; title=&quot;1. 日志框架&quot;&gt;&lt;/a&gt;1.</description>
+&lt;h2 id=&quot;日志类库&quot;&gt;&lt;a href=&quot;#日志类库&quot; class=&quot;headerlink&quot; title=&quot;日志类库&quot;&gt;&lt;/a&gt;日志类库&lt;/h2&gt;</description>
         
       
       

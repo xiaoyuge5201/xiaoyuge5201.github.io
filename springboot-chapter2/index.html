@@ -18,18 +18,23 @@
   
   
   <title>Springboot添加Logback日志 | 小余哥</title>
-  <meta name="description" content="1. 日志框架 Java日志库是最能体现Java库在进化中的渊源关系的，在理解时重点理解日志框架本身和日志门面，以及比较好的实践等。要关注其历史渊源和设计（比如桥接），而具体在使用时查询接口即可，否则会陷入JUL（JavaUtil Log），JCL（Commons Logging）,Log4j,SLF4J, Logback,Log4j2傻傻分不清楚的境地。  1.1 日志系统1.1.1 JUL">
+  <meta name="description" content="日志类库 Java日志库是最能体现Java库在进化中的渊源关系的，在理解时重点理解日志框架本身和日志门面，以及比较好的实践等。要关注其历史渊源和设计（比如桥接），而具体在使用时查询接口即可，否则会陷入JUL（JavaUtil Log），JCL（Commons Logging）,Log4j,SLF4J, Logback,Log4j2傻傻分不清楚的境地。  1.1 日志系统1.1.1 JUL(ja">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Springboot添加Logback日志">
 <meta property="og:url" content="https://xiaoyuge5201.github.io/springboot-chapter2/index.html">
 <meta property="og:site_name" content="小余哥|猿无忧">
-<meta property="og:description" content="1. 日志框架 Java日志库是最能体现Java库在进化中的渊源关系的，在理解时重点理解日志框架本身和日志门面，以及比较好的实践等。要关注其历史渊源和设计（比如桥接），而具体在使用时查询接口即可，否则会陷入JUL（JavaUtil Log），JCL（Commons Logging）,Log4j,SLF4J, Logback,Log4j2傻傻分不清楚的境地。  1.1 日志系统1.1.1 JUL">
+<meta property="og:description" content="日志类库 Java日志库是最能体现Java库在进化中的渊源关系的，在理解时重点理解日志框架本身和日志门面，以及比较好的实践等。要关注其历史渊源和设计（比如桥接），而具体在使用时查询接口即可，否则会陷入JUL（JavaUtil Log），JCL（Commons Logging）,Log4j,SLF4J, Logback,Log4j2傻傻分不清楚的境地。  1.1 日志系统1.1.1 JUL(ja">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter2/index/2.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter2/index/3.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter2/index/4.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter2/index/5.png">
 <meta property="article:published_time" content="2023-04-03T06:32:46.000Z">
 <meta property="article:modified_time" content="2023-04-03T06:32:46.000Z">
 <meta property="article:author" content="小余哥|猿无忧">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/springboot-chapter2/index/2.png">
   <!-- Canonical links -->
   <link rel="canonical" href="https://xiaoyuge5201.github.io/springboot-chapter2/index.html">
   
@@ -227,6 +232,31 @@
           <li>
             
             <div class="item-thumb">
+              <a href="../springboot-chapter6/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
+              </p>
+              <p class="item-title">
+                <a href="../springboot-chapter6/index.html" class="title">Springboot统一接口封装</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-05-12T08:41:57.000Z" itemprop="datePublished">2023-05-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
               <a href="../springboot-chapter5/index.html" class="thumb">
     
     
@@ -324,31 +354,6 @@
             </div>
           </li>
           
-          <li>
-            
-            <div class="item-thumb">
-              <a href="../springboot-chapter1/index.html" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
-              </p>
-              <p class="item-title">
-                <a href="../springboot-chapter1/index.html" class="title">Springboot 自动装配</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2023-04-01T13:01:21.000Z" itemprop="datePublished">2023-04-01</time>
-              </p>
-            </div>
-          </li>
-          
       </ul>
     </div>
   </div>
@@ -374,7 +379,7 @@
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6"><span class="toc-text">1. 日志框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F"><span class="toc-text">1.1 日志系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-JUL-java-util-logging"><span class="toc-text">1.1.1 JUL(java.util.logging)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-Log4j"><span class="toc-text">1.1.2 Log4j</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-Logback"><span class="toc-text">1.1.3 Logback</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-Log4j2"><span class="toc-text">1.1.4 Log4j2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-5-Log4j-vs-Logback-vs-Log4j2%E4%B8%89%E7%A7%8D%E5%AF%B9%E6%AF%94"><span class="toc-text">1.1.5 Log4j vs Logback vs Log4j2三种对比</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%B1%BB%E5%BA%93"><span class="toc-text">日志类库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%97%A5%E5%BF%97%E7%B3%BB%E7%BB%9F"><span class="toc-text">1.1 日志系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-JUL-java-util-logging"><span class="toc-text">1.1.1 JUL(java.util.logging)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-Log4j"><span class="toc-text">1.1.2 Log4j</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-Logback"><span class="toc-text">1.1.3 Logback</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-Log4j2"><span class="toc-text">1.1.4 Log4j2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-5-Log4j-vs-Logback-vs-Log4j2"><span class="toc-text">1.1.5 Log4j vs Logback vs Log4j2</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94"><span class="toc-text">性能对比</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%97%A5%E5%BF%97%E9%97%A8%E9%9D%A2"><span class="toc-text">1.2 日志门面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-common-logging"><span class="toc-text">1.2.1 common-logging</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-Sl4j"><span class="toc-text">1.2.2 Sl4j</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-common-logging-VS-slf4j"><span class="toc-text">1.2.3 common-logging VS slf4j</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0Logback%E6%97%A5%E5%BF%97"><span class="toc-text">添加Logback日志</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%85%8D%E7%BD%AE%E6%97%B6%E8%80%83%E8%99%91%E7%82%B9"><span class="toc-text">2.1 配置时考虑点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%8C%83%E4%BE%8B"><span class="toc-text">2.2 范例</span></a></li></ol></li></ol>
       
       
     </nav>
@@ -428,7 +433,7 @@
         
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 12(分)</span>
 	
 
       </div>
@@ -437,7 +442,7 @@
       
         <link rel="stylesheet" type="text/css" href="/css/content.css">
 
-<h2 id="1-日志框架"><a href="#1-日志框架" class="headerlink" title="1. 日志框架"></a>1. 日志框架</h2><blockquote>
+<h2 id="日志类库"><a href="#日志类库" class="headerlink" title="日志类库"></a>日志类库</h2><blockquote>
 <p>Java日志库是最能体现Java库在进化中的渊源关系的，在理解时重点理解日志框架本身和日志门面，以及比较好的实践等。<br>要关注其历史渊源和设计（比如桥接），而具体在使用时查询接口即可，否则会陷入JUL（JavaUtil Log），JCL（Commons Logging）,Log4j,SLF4J, Logback,Log4j2傻傻分不清楚的境地。</p>
 </blockquote>
 <h3 id="1-1-日志系统"><a href="#1-1-日志系统" class="headerlink" title="1.1 日志系统"></a>1.1 日志系统</h3><h4 id="1-1-1-JUL-java-util-logging"><a href="#1-1-1-JUL-java-util-logging" class="headerlink" title="1.1.1 JUL(java.util.logging)"></a>1.1.1 JUL(java.util.logging)</h4><p>JDK1.4开始，通过<code>java.util.logging</code>提供的日志功能。虽然是官方自带的log lib,JUL的使用不广泛主要原因是：</p>
@@ -452,11 +457,11 @@
 <h4 id="1-1-2-Log4j"><a href="#1-1-2-Log4j" class="headerlink" title="1.1.2 Log4j"></a>1.1.2 Log4j</h4><p>Log4j 是 <code>apache</code> 的一个开源项目，创始人 Ceki Gulcu，<code>Log4j</code>是高度可配置的，并可通过在运行时的外部文件配置。它根据记录的优先级别，并提供机制，以指示记录信息到许多的目的地，诸如：数据库，文件，控制台，UNIX 系统日志等。</p>
 <p>Log4j中主要有三个主要组成部分：</p>
 <ul>
-<li><p>loggers：负责捕获记录信息</p>
+<li><p><code>loggers</code>：负责捕获记录信息</p>
 </li>
-<li><p>appenders：负责发布日志信息</p>
+<li><p><code>appenders</code>：负责发布日志信息</p>
 </li>
-<li><p>layouts：负责格式化不同风格的日志信息</p>
+<li><p><code>layouts</code>：负责格式化不同风格的日志信息</p>
 </li>
 </ul>
 <p>官网地址：<a target="_blank" rel="noopener" href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a></p>
@@ -476,7 +481,7 @@
 <p>Log4j2和Log4j1.x并不兼容，设计上很大程度上模仿了SLF4J/Logback，性能上也获得很大的提升</p>
 <p>Log4j2也做了 Facade/Implementation分离的设计，分成了log4j-api 和 log4j-core.</p>
 <p>官网地址：<a target="_blank" rel="noopener" href="http://logging.apache.org/log4j/2.x/">http://logging.apache.org/log4j/2.x/</a></p>
-<h5 id="1-1-5-Log4j-vs-Logback-vs-Log4j2三种对比"><a href="#1-1-5-Log4j-vs-Logback-vs-Log4j2三种对比" class="headerlink" title="1.1.5 Log4j vs Logback vs Log4j2三种对比"></a>1.1.5 Log4j vs Logback vs Log4j2三种对比</h5><blockquote>
+<h4 id="1-1-5-Log4j-vs-Logback-vs-Log4j2"><a href="#1-1-5-Log4j-vs-Logback-vs-Log4j2" class="headerlink" title="1.1.5 Log4j vs Logback vs Log4j2"></a>1.1.5 Log4j vs Logback vs Log4j2</h4><blockquote>
 <p>性能上Log4J2要强，但从生态上Logback+SLF4J优先</p>
 </blockquote>
 <p>logback和log4j2都宣称自己是log4j的后代，一个是出于同一个作者，另一个则是在名字上根正苗红。</p>
@@ -499,6 +504,52 @@
 <li><p>log4j2和logback各有长处，总体来说，如果对性能要求比较高的话，log4j2相对还是较优的选择。</p>
 </li>
 </ul>
+<h5 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h5><blockquote>
+<p>log4j2与logback性能对比的benchmark,这份benchmark是Apache Logging出的，仅供参考。</p>
+</blockquote>
+<ol>
+<li><p>同步写文件日志的benchmark：</p>
+<p> <img src="/springboot-chapter2/index/2.png"></p>
+</li>
+<li><p>异步写日志的benchmark</p>
+<p><img src="/springboot-chapter2/index/3.png"></p>
+</li>
+</ol>
+<p>当然，这些benchmark都是在日志Pattern中不包含Location信息（如日志代码行号 ，调用者信息，Class名/源码文件名等）时测定的<br><img src="/springboot-chapter2/index/4.png"></p>
+<h3 id="1-2-日志门面"><a href="#1-2-日志门面" class="headerlink" title="1.2 日志门面"></a>1.2 日志门面</h3><h4 id="1-2-1-common-logging"><a href="#1-2-1-common-logging" class="headerlink" title="1.2.1 common-logging"></a>1.2.1 common-logging</h4><blockquote>
+<p>common-logging 是apache的一个开源项目。也称Jakarta Commons Logging（JCL）</p>
+</blockquote>
+<p>common-logging的功能是提供日志功能的API接口，本身并不提供日志的具体实现（除了内部有一个Simple logger的简单实现），而是在运行时动态的绑定日志组件来实现（如log4j、java.util.logging)。</p>
+<p>官网地址：<a target="_blank" rel="noopener" href="https://commons.apache.org/proper/commons-logging/">https://commons.apache.org/proper/commons-logging/</a></p>
+<h4 id="1-2-2-Sl4j"><a href="#1-2-2-Sl4j" class="headerlink" title="1.2.2 Sl4j"></a>1.2.2 Sl4j</h4><blockquote>
+<p>全称为 Simple Logging Facade for java 即Java简单日志门面</p>
+</blockquote>
+<p>类似于Common-Logging, Slf4j是对不同日志框架提供的一个API封装，可以在部署的时候不修改任何撇脂即可介入一种日志实现方案。但是<br>Slf4j在编译时静态绑定真正的Log库，使用Slf4j时，如果需要使用某一种日志实现，那么你必须要选择正确的Slf4j的jar包的集合</p>
+<p>官网地址： <a target="_blank" rel="noopener" href="http://www.slf4j.org/">http://www.slf4j.org/</a></p>
+<p><img src="/springboot-chapter2/index/5.png"></p>
+<h4 id="1-2-3-common-logging-VS-slf4j"><a href="#1-2-3-common-logging-VS-slf4j" class="headerlink" title="1.2.3 common-logging VS slf4j"></a>1.2.3 common-logging VS slf4j</h4><blockquote>
+<p>slf4j类似与Apache Common-Logging，但是，它在编译时静态绑定真正的日志哭</p>
+</blockquote>
+<p>slf4j一大亮点是：提供了更方便的日志记录方式：<br>不需要使用Logger.isDebugEnabled()来解决日志因为字符拼接产生的性能问题，Slf4j的方式是使用{}作为字符串替换符，形式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logger.debug(<span class="string">&quot;id:&#123;&#125;, name:&#123;&#125;&quot;</span>, id, name);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="添加Logback日志"><a href="#添加Logback日志" class="headerlink" title="添加Logback日志"></a>添加Logback日志</h2><h3 id="2-1-配置时考虑点"><a href="#2-1-配置时考虑点" class="headerlink" title="2.1 配置时考虑点"></a>2.1 配置时考虑点</h3><ol>
+<li>支持日志路径，日志level等配置</li>
+<li>日志控制配置通过application.yml下发</li>
+<li>按天生成日志，当天的日志&gt; 50M 回滚</li>
+<li>最多保存10天日志</li>
+<li>生成的日志中Pattern自定义</li>
+<li>Pattern中添加用户自定义的MDC字段，比如用户信息、request信息。这种方式可以通过AOP切面控制，在MDC中添加requestID,在spring-logback.xml中配置Pattern</li>
+<li>根据不同的运行环境设置Profile -dev,test,product</li>
+<li>对控制台，Err和全量日志分别配置</li>
+</ol>
+<h3 id="2-2-范例"><a href="#2-2-范例" class="headerlink" title="2.2 范例"></a>2.2 范例</h3><ol>
+<li><p>application.yml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">level:</span></span><br><span class="line">    <span class="attr">root:</span> <span class="string">debug</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">C:/data/logs/springboot-logback-demo</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">springboot-logback-demo</span></span><br><span class="line"><span class="attr">debug:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></li>
+<li><p>spring-logback.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 日志根目录--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">springProperty</span> <span class="attr">scope</span>=<span class="string">&quot;context&quot;</span> <span class="attr">name</span>=<span class="string">&quot;LOG_HOME&quot;</span> <span class="attr">source</span>=<span class="string">&quot;logging.path&quot;</span> <span class="attr">defaultValue</span>=<span class="string">&quot;/data/logs/springboot-logback-demo&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 日志级别 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">springProperty</span> <span class="attr">scope</span>=<span class="string">&quot;context&quot;</span> <span class="attr">name</span>=<span class="string">&quot;LOG_ROOT_LEVEL&quot;</span> <span class="attr">source</span>=<span class="string">&quot;logging.level.root&quot;</span> <span class="attr">defaultValue</span>=<span class="string">&quot;DEBUG&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--  标识这个&quot;STDOUT&quot; 将会添加到这个logger --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">springProperty</span> <span class="attr">scope</span>=<span class="string">&quot;context&quot;</span> <span class="attr">name</span>=<span class="string">&quot;STDOUT&quot;</span> <span class="attr">source</span>=<span class="string">&quot;log.stdout&quot;</span> <span class="attr">defaultValue</span>=<span class="string">&quot;STDOUT&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 日志文件名称--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;LOG_PREFIX&quot;</span> <span class="attr">value</span>=<span class="string">&quot;spring-boot-logback&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 日志文件编码--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;LOG_CHARSET&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 日志文件路径+日期--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;LOG_DIR&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;LOG_HOME&#125;/%d&#123;yyyyMMdd&#125;&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--对日志进行格式化--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;LOG_MSG&quot;</span> <span class="attr">value</span>=<span class="string">&quot;- | [%X&#123;requestUUID&#125;] | [%d&#123;yyyyMMdd HH:mm:ss.SSS&#125;] | [%level] | [$&#123;HOSTNAME&#125;] | [%thread] | [%logger&#123;36&#125;] | --&gt; %msg|%n &quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--文件大小，默认10MB--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;MAX_FILE_SIZE&quot;</span> <span class="attr">value</span>=<span class="string">&quot;50MB&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置日志的滚动时间 ，表示只保留最近 10 天的日志--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;MAX_HISTORY&quot;</span> <span class="attr">value</span>=<span class="string">&quot;10&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--输出到控制台--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">&quot;STDOUT&quot;</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.ConsoleAppender&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 输出的日志内容格式化--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.classic.PatternLayout&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>$&#123;LOG_MSG&#125;<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--输出到文件--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">&quot;0&quot;</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 定义 ALL 日志的输出方式:--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">&quot;FILE_ALL&quot;</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--日志文件路径，日志文件名称--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">File</span>&gt;</span>$&#123;LOG_HOME&#125;/all_$&#123;LOG_PREFIX&#125;.log<span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 设置滚动策略，当天的日志大小超过 $&#123;MAX_FILE_SIZE&#125; 文件大小时候，新的内容写入新的文件， 默认10MB --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rollingPolicy</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!--日志文件路径，新的 ALL 日志文件名称，“ i ” 是个变量 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">FileNamePattern</span>&gt;</span>$&#123;LOG_DIR&#125;/all_$&#123;LOG_PREFIX&#125;%i.log<span class="tag">&lt;/<span class="name">FileNamePattern</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!-- 配置日志的滚动时间 ，表示只保留最近 10 天的日志--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">MaxHistory</span>&gt;</span>$&#123;MAX_HISTORY&#125;<span class="tag">&lt;/<span class="name">MaxHistory</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!--当天的日志大小超过 $&#123;MAX_FILE_SIZE&#125; 文件大小时候，新的内容写入新的文件， 默认10MB--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">timeBasedFileNamingAndTriggeringPolicy</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">maxFileSize</span>&gt;</span>$&#123;MAX_FILE_SIZE&#125;<span class="tag">&lt;/<span class="name">maxFileSize</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">timeBasedFileNamingAndTriggeringPolicy</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">rollingPolicy</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 输出的日志内容格式化--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.classic.PatternLayout&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>$&#123;LOG_MSG&#125;<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 定义 ERROR 日志的输出方式:--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">&quot;FILE_ERROR&quot;</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 下面为配置只输出error级别的日志 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.classic.filter.LevelFilter&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">level</span>&gt;</span>ERROR<span class="tag">&lt;/<span class="name">level</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">OnMismatch</span>&gt;</span>DENY<span class="tag">&lt;/<span class="name">OnMismatch</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">OnMatch</span>&gt;</span>ACCEPT<span class="tag">&lt;/<span class="name">OnMatch</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--日志文件路径，日志文件名称--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">File</span>&gt;</span>$&#123;LOG_HOME&#125;/err_$&#123;LOG_PREFIX&#125;.log<span class="tag">&lt;/<span class="name">File</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 设置滚动策略，当天的日志大小超过 $&#123;MAX_FILE_SIZE&#125; 文件大小时候，新的内容写入新的文件， 默认10MB --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rollingPolicy</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!--日志文件路径，新的 ERR 日志文件名称，“ i ” 是个变量 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">FileNamePattern</span>&gt;</span>$&#123;LOG_DIR&#125;/err_$&#123;LOG_PREFIX&#125;%i.log<span class="tag">&lt;/<span class="name">FileNamePattern</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!-- 配置日志的滚动时间 ，表示只保留最近 10 天的日志--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">MaxHistory</span>&gt;</span>$&#123;MAX_HISTORY&#125;<span class="tag">&lt;/<span class="name">MaxHistory</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!--当天的日志大小超过 $&#123;MAX_FILE_SIZE&#125; 文件大小时候，新的内容写入新的文件， 默认10MB--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">timeBasedFileNamingAndTriggeringPolicy</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">maxFileSize</span>&gt;</span>$&#123;MAX_FILE_SIZE&#125;<span class="tag">&lt;/<span class="name">maxFileSize</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">timeBasedFileNamingAndTriggeringPolicy</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">rollingPolicy</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 输出的日志内容格式化--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.classic.PatternLayout&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Pattern</span>&gt;</span>$&#123;LOG_MSG&#125;<span class="tag">&lt;/<span class="name">Pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- additivity 设为false,则logger内容不附加至root ，配置以配置包下的所有类的日志的打印，级别是 ERROR--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">&quot;org.springframework&quot;</span>     <span class="attr">level</span>=<span class="string">&quot;ERROR&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">&quot;org.apache.commons&quot;</span>      <span class="attr">level</span>=<span class="string">&quot;ERROR&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">&quot;org.apache.zookeeper&quot;</span>    <span class="attr">level</span>=<span class="string">&quot;ERROR&quot;</span>  /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">&quot;com.alibaba.dubbo.monitor&quot;</span> <span class="attr">level</span>=<span class="string">&quot;ERROR&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">logger</span> <span class="attr">name</span>=<span class="string">&quot;com.alibaba.dubbo.remoting&quot;</span> <span class="attr">level</span>=<span class="string">&quot;ERROR&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- $&#123;LOG_ROOT_LEVEL&#125; 日志级别 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">&quot;$&#123;LOG_ROOT_LEVEL&#125;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 标识这个&quot;$&#123;STDOUT&#125;&quot;将会添加到这个logger --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">&quot;$&#123;STDOUT&#125;&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- FILE_ALL 日志输出添加到 logger --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">&quot;FILE_ALL&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- FILE_ERROR 日志输出添加到 logger --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">&quot;FILE_ERROR&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
     </div>
