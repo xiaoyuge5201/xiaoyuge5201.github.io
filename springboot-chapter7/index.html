@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Springboot 对参数进行校验 | 小余哥</title>
+  <meta name="description" content="在以Springboot开发RESTful接口时，对于接口的查询参数后台也是要进行校验的，同时还要给出校验的返回信息放到上文中统一封装的结构中  1. 不优雅的参数校验后段对前端传过来的参数也是需要进行校验的，如果在controller中直接校验需要用大量的if else做判断。 以添加用户的接口为例，需要对前端传过来的参数进行校验，如下的校验就是不优雅的： 1234567891011121">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Springboot 对参数进行校验">
+<meta property="og:url" content="https://xiaoyuge5201.github.io/springboot-chapter7/index.html">
+<meta property="og:site_name" content="小余哥|猿无忧">
+<meta property="og:description" content="在以Springboot开发RESTful接口时，对于接口的查询参数后台也是要进行校验的，同时还要给出校验的返回信息放到上文中统一封装的结构中  1. 不优雅的参数校验后段对前端传过来的参数也是需要进行校验的，如果在controller中直接校验需要用大量的if else做判断。 以添加用户的接口为例，需要对前端传过来的参数进行校验，如下的校验就是不优雅的： 1234567891011121">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter7/index/1.png">
+<meta property="og:image" content="https://xiaoyuge5201.github.io/springboot-chapter7/index/2.png">
+<meta property="article:published_time" content="2023-05-12T09:41:08.000Z">
+<meta property="article:modified_time" content="2023-05-12T09:41:08.000Z">
+<meta property="article:author" content="小余哥|猿无忧">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xiaoyuge5201.github.io/springboot-chapter7/index/1.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://xiaoyuge5201.github.io/springboot-chapter7/index.html">
+  
+  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="../css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="feed.xml" title="小余哥|猿无忧" type="application/rss+xml">
+</head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/xiaoyuge5201" target="_blank">
+          <img class="img-circle img-rotate" src="../images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">小余哥</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">xiaoyouge</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shanghai, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="../.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="../archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="../categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="../tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="../repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="../books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="../links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="../about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>路漫漫其修远兮，吾将上下而求索</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../categories/01-Java/">01 Java</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/02-Spring/">02 Spring</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/03-Springboot/">03 Springboot</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/04-Mybatis/">04 Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/05-%E5%88%86%E5%B8%83%E5%BC%8F/">05 分布式</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/06-%E6%95%B0%E6%8D%AE%E5%BA%93/">06 数据库</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/07-Redis/">07 Redis</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/08-Linux/">08 Linux</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/09-Nginx/">09 Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/10-%E7%AE%97%E6%B3%95/">10 算法</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/11-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/">11 其他工具</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/12-%E5%89%8D%E7%AB%AF/">12 前端</a></li><li class="category-list-item"><a class="category-list-link" href="../categories/13-%E5%BC%80%E6%BA%90%E7%BB%84%E4%BB%B6/">13 开源组件</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../springboot-chapter9/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
+              </p>
+              <p class="item-title">
+                <a href="../springboot-chapter9/index.html" class="title">Springboot 提供多个版本接口</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-05-14T12:08:54.000Z" itemprop="datePublished">2023-05-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../springboot-chapter8/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
+              </p>
+              <p class="item-title">
+                <a href="../springboot-chapter8/index.html" class="title">Springboot 接口统一异常处理</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-05-13T03:05:33.000Z" itemprop="datePublished">2023-05-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
+              </p>
+              <p class="item-title">
+                <a href="" class="title">Springboot 对参数进行校验</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-05-12T09:41:08.000Z" itemprop="datePublished">2023-05-12</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../springboot-chapter6/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
+              </p>
+              <p class="item-title">
+                <a href="../springboot-chapter6/index.html" class="title">Springboot 统一接口封装</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-05-07T08:41:57.000Z" itemprop="datePublished">2023-05-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="../springboot-chapter5/index.html" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="../categories/03-Springboot/">03 Springboot</a>
+              </p>
+              <p class="item-title">
+                <a href="../springboot-chapter5/index.html" class="title">Springboot 文件下载</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-04-23T03:42:31.000Z" itemprop="datePublished">2023-04-23</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="../tags/Apache/" style="font-size: 13.13px;">Apache</a> <a href="../tags/Canal/" style="font-size: 13px;">Canal</a> <a href="../tags/ClassLoader/" style="font-size: 13px;">ClassLoader</a> <a href="../tags/Docker/" style="font-size: 13.13px;">Docker</a> <a href="../tags/ELK/" style="font-size: 13px;">ELK</a> <a href="../tags/Java/" style="font-size: 13px;">Java</a> <a href="../tags/Java%E6%9C%BA%E5%88%B6/" style="font-size: 13.13px;">Java机制</a> <a href="../tags/Linux/" style="font-size: 13.13px;">Linux</a> <a href="../tags/Nginx%E4%B8%93%E9%A2%98/" style="font-size: 13.63px;">Nginx专题</a> <a href="../tags/SpringCloud/" style="font-size: 13px;">SpringCloud</a> <a href="../tags/UML/" style="font-size: 13px;">UML</a> <a href="../tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="../tags/algorithm/" style="font-size: 13.38px;">algorithm</a> <a href="../tags/docker/" style="font-size: 13px;">docker</a> <a href="../tags/gitlab/" style="font-size: 13px;">gitlab</a> <a href="../tags/hexo/" style="font-size: 13.25px;">hexo</a> <a href="../tags/interview/" style="font-size: 13px;">interview</a> <a href="../tags/ip/" style="font-size: 13px;">ip</a> <a href="../tags/java/" style="font-size: 14px;">java</a> <a href="../tags/jdk/" style="font-size: 13px;">jdk</a> <a href="../tags/jenkins/" style="font-size: 13px;">jenkins</a> <a href="../tags/jstack/" style="font-size: 13px;">jstack</a> <a href="../tags/kafka/" style="font-size: 13.25px;">kafka</a> <a href="../tags/linux/" style="font-size: 13.13px;">linux</a> <a href="../tags/lock/" style="font-size: 13px;">lock</a> <a href="../tags/maven/" style="font-size: 13px;">maven</a> <a href="../tags/mycat/" style="font-size: 13px;">mycat</a> <a href="../tags/mysql/" style="font-size: 13.88px;">mysql</a> <a href="../tags/rabbitMQ/" style="font-size: 13.13px;">rabbitMQ</a> <a href="../tags/redis%E4%B8%93%E9%A2%98/" style="font-size: 13.75px;">redis专题</a> <a href="../tags/rocketmq/" style="font-size: 13.13px;">rocketmq</a> <a href="../tags/shutdown/" style="font-size: 13px;">shutdown</a> <a href="../tags/spring/" style="font-size: 13px;">spring</a> <a href="../tags/springboot/" style="font-size: 13.25px;">springboot</a> <a href="../tags/sql/" style="font-size: 13px;">sql</a> <a href="../tags/swagger/" style="font-size: 13px;">swagger</a> <a href="../tags/thread/" style="font-size: 13.5px;">thread</a> <a href="../tags/tidb/" style="font-size: 13.13px;">tidb</a> <a href="../tags/vue/" style="font-size: 13.13px;">vue</a> <a href="../tags/%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA/" style="font-size: 13px;">内存溢出</a> <a href="../tags/%E5%86%85%E9%83%A8%E7%B1%BB/" style="font-size: 13px;">内部类</a> <a href="../tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 13.38px;">分布式</a> <a href="../tags/%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/" style="font-size: 13px;">守护线程</a> <a href="../tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">工具</a> <a href="../tags/%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1/" style="font-size: 13px;">接口设计</a> <a href="../tags/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">消息中间件</a> <a href="../tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 13.13px;">设计模式</a> <a href="../tags/%E9%9B%86%E5%90%88/" style="font-size: 13px;">集合</a>
+    </div>
+  </div>
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8D%E4%BC%98%E9%9B%85%E7%9A%84%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C"><span class="toc-text">1. 不优雅的参数校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0%E6%A1%88%E4%BE%8B"><span class="toc-text">2. 实现案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-POM"><span class="toc-text">2.1 POM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0%E5%B0%81%E8%A3%85"><span class="toc-text">2.2 请求参数封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-Controller%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0%E7%BB%91%E5%AE%9A%E7%BB%93%E6%9E%9C"><span class="toc-text">2.3 Controller中获取参数绑定结果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%90%86%E8%A7%A3"><span class="toc-text">3. 进一步理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-Validation%E5%88%86%E7%BB%84%E6%A0%A1%E9%AA%8C"><span class="toc-text">3.1 Validation分组校验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-Validated%E5%92%8C-Valid%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">3.2 @Validated和@Valid的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%B8%B8%E7%94%A8%E7%9A%84%E6%A0%A1%E9%AA%8C"><span class="toc-text">4. 常用的校验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-JSR303-JSP-349"><span class="toc-text">4.1 JSR303&#x2F;JSP-349</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-hibernate-validation"><span class="toc-text">4.2 hibernate validation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-spring-validation"><span class="toc-text">4.3 spring validation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%87%AA%E5%AE%9A%E4%B9%89validation"><span class="toc-text">5. 自定义validation</span></a></li></ol>
+      
+      
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-springboot-chapter7" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Springboot 对参数进行校验
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="" class="article-date">
+	  <time datetime="2023-05-12T09:41:08.000Z" itemprop="datePublished">2023-05-12</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="../categories/03-Springboot/">03 Springboot</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="../tags/java/" rel="tag">java</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="#comments" class="article-comment-link">评论</a></span>
+        
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <link rel="stylesheet" type="text/css" href="/css/content.css">
+
+<blockquote>
+<p>在以Springboot开发RESTful接口时，对于接口的查询参数后台也是要进行校验的，同时还要给出校验的返回信息放到上文中统一封装的结构中</p>
+</blockquote>
+<h3 id="1-不优雅的参数校验"><a href="#1-不优雅的参数校验" class="headerlink" title="1. 不优雅的参数校验"></a>1. 不优雅的参数校验</h3><p>后段对前端传过来的参数也是需要进行校验的，如果在controller中直接校验需要用大量的if else做判断。</p>
+<p>以添加用户的接口为例，需要对前端传过来的参数进行校验，如下的校验就是不优雅的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(&quot;add&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="title">add</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(user.getName()==<span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ResponseResult.fail(<span class="string">&quot;user name should not be empty&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(user.getName().length()&lt;<span class="number">5</span> || user.getName().length()&gt;<span class="number">50</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> ResponseResult.fail(<span class="string">&quot;user name length should between 5-50&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(user.getAge()&lt; <span class="number">1</span> || user.getAge()&gt; <span class="number">150</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ResponseResult.fail(<span class="string">&quot;invalid age&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.ok(<span class="string">&quot;success&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>针对这个普遍的问题</p>
+<ul>
+<li><p>Java开发者在Java API规范 (JSR303) 定义了Bean校验的标准validation-api，但没有提供实现。</p>
+</li>
+<li><p><strong>hibernate validation是对这个规范的实现</strong>，并增加了校验注解如@Email、@Length等。</p>
+</li>
+<li><p><strong>Spring Validation是对hibernate validation的二次封装，用于支持spring mvc参数自动校验</strong>。</p>
+</li>
+</ul>
+<p>接下来，我们以springboot项目为例，介绍Spring Validation的使用。</p>
+<h3 id="2-实现案例"><a href="#2-实现案例" class="headerlink" title="2. 实现案例"></a>2. 实现案例</h3><blockquote>
+<p>本例子采用Spring validation对参数绑定进行校验，主要给你提供参数校验的思路，针对接口统一的错误信息(比如绑定参数检查的错误)封装</p>
+</blockquote>
+<h4 id="2-1-POM"><a href="#2-1-POM" class="headerlink" title="2.1 POM"></a>2.1 POM</h4><p>添加pom依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-validation<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-请求参数封装"><a href="#2-2-请求参数封装" class="headerlink" title="2.2 请求参数封装"></a>2.2 请求参数封装</h4><p>单一职责，所以将查询用户的参数封装到UserParam中，而不是User（数据库实体）本身</p>
+<p>对每个参数字段添加validation注解约束和message</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserParam</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;could not be empty&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String userId;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;could not be empty&quot;)</span></span><br><span class="line">    <span class="meta">@Email(message = &quot;invalid email&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;could not be empty&quot;)</span></span><br><span class="line">    <span class="meta">@Pattern(regexp = &quot;^(\\d&#123;6&#125;)(\\d&#123;4&#125;)(\\d&#123;2&#125;)(\\d&#123;2&#125;)(\\d&#123;3&#125;)([0-9]|X)$&quot;, message = &quot;invalid ID&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String cardNo;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;could not be empty&quot;)</span></span><br><span class="line">    <span class="meta">@Length(min = 1, max = 10, message = &quot;nick name should be 1-10&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String nickName;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull(message = &quot;could not be empty&quot;)</span></span><br><span class="line">    <span class="meta">@Range(min = 0, max = 1, message = &quot;sex should be 0-1&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer sex;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Max(value = 100, message = &quot;Please input valid age&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//必须要无参构造，不然报错： Cannot construct instance of `org.example.UserParam` (no Creators, like default construct, exist)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserParam</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserParam</span><span class="params">(String userId, String email, String cardNo, String nickName, Integer sex, Integer age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.userId = userId;</span><br><span class="line">        <span class="keyword">this</span>.email = email;</span><br><span class="line">        <span class="keyword">this</span>.cardNo = cardNo;</span><br><span class="line">        <span class="keyword">this</span>.nickName = nickName;</span><br><span class="line">        <span class="keyword">this</span>.sex = sex;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-3-Controller中获取参数绑定结果"><a href="#2-3-Controller中获取参数绑定结果" class="headerlink" title="2.3 Controller中获取参数绑定结果"></a>2.3 Controller中获取参数绑定结果</h4><p>使用<code>@Valid</code>或者<code>@Validated</code>注解，参数校验的值放在<code>BindingResult</code>中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(&quot;add&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResponseEntity&lt;String&gt; <span class="title">add</span><span class="params">(<span class="meta">@Valid</span> <span class="meta">@RequestBody</span> UserParam userParam, BindingResult bindingResult)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</span><br><span class="line">            List&lt;ObjectError&gt; errors = bindingResult.getAllErrors();</span><br><span class="line">            errors.forEach(p -&gt; &#123;</span><br><span class="line">                FieldError fieldError = (FieldError) p;</span><br><span class="line">                log.error(<span class="string">&quot;Invalid Parameter : object - &#123;&#125;,field - &#123;&#125;,errorMessage - &#123;&#125;&quot;</span>, fieldError.getObjectName(), fieldError.getField(), fieldError.getDefaultMessage());</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">return</span> ResponseEntity.badRequest().body(<span class="string">&quot;invalid parameter&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.ok(<span class="string">&quot;success&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试：</p>
+<ol>
+<li>参数校验失败<br> <img src="/springboot-chapter7/index/1.png"></li>
+<li>参数校验成功<br> <img src="/springboot-chapter7/index/2.png"></li>
+</ol>
+<p>这里面用到了IDEA的<code>restfultool</code>插件</p>
+<h3 id="3-进一步理解"><a href="#3-进一步理解" class="headerlink" title="3. 进一步理解"></a>3. 进一步理解</h3><h4 id="3-1-Validation分组校验"><a href="#3-1-Validation分组校验" class="headerlink" title="3.1 Validation分组校验"></a>3.1 Validation分组校验</h4><blockquote>
+<p>上面的例子中，其实存在一个问题，UserParam既可以作为addUser的参数（id为为空）又可以作为updateUser的参数，这时候怎么办？</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserParam</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;could not be empty&quot;)</span> <span class="comment">// 这里定为空，对于addUser时是不合适的</span></span><br><span class="line">    <span class="keyword">private</span> String userId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个时候可以使用Validation分组</p>
+<ul>
+<li>先定义分组（无需实现接口）  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AddValidationGroup</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">EditValidationGroup</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在UserParam的userId字段添加分组  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserParam</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;&#123;user.msg.userId.notEmpty&#125;&quot;, groups = &#123;AddValidationGroup.class, EditValidationGroup.class&#125;)</span> <span class="comment">// 这里</span></span><br><span class="line">    <span class="keyword">private</span> String userId;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Controller中接口校验时使用分组（需要使用@Validated注解）  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * http://localhost:8080/user/add .</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userParam user param</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> user</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;add&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResponseEntity&lt;UserParam&gt; <span class="title">add</span><span class="params">(<span class="meta">@Validated(AddValidationGroup.class)</span> <span class="meta">@RequestBody</span> UserParam userParam)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.ok(userParam);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * http://localhost:8080/user/add .</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userParam user param</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> user</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;edit&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResponseEntity&lt;UserParam&gt; <span class="title">edit</span><span class="params">(<span class="meta">@Validated(EditValidationGroup.class)</span> <span class="meta">@RequestBody</span> UserParam userParam)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ResponseEntity.ok(userParam);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-2-Validated和-Valid的区别"><a href="#3-2-Validated和-Valid的区别" class="headerlink" title="3.2 @Validated和@Valid的区别"></a>3.2 @Validated和@Valid的区别</h4><p>在检验Controller的入参是否符合规范时，使用@Validated或者@Valid在基本验证功能上没有太多区别。但是在分组、注解地方、嵌套验证等功能上两个有所不同：</p>
+<ul>
+<li><p>分组</p>
+<p>@Validated：提供了一个分组功能，可以在入参验证时，根据不同的分组采用不同的验证机制。@Valid：作为标准JSR-303规范，还没有吸收分组的功能。</p>
+</li>
+</ul>
+<ul>
+<li><p>注解地方</p>
+<p>  @Validated：可以用在类型、方法和方法参数上。但是不能用在成员属性（字段）上</p>
+<p>  @Valid：可以用在方法、构造函数、方法参数和成员属性（字段）上</p>
+</li>
+</ul>
+<ul>
+<li><p>嵌套类型</p>
+<p>  比如在User对象中增加一个AddressParam对象属性，只能用@Valid</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserParam</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Valid</span> <span class="comment">// 这里只能用@Valid</span></span><br><span class="line">    <span class="keyword">private</span> AddressParam address;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-常用的校验"><a href="#4-常用的校验" class="headerlink" title="4. 常用的校验"></a>4. 常用的校验</h3><h4 id="4-1-JSR303-JSP-349"><a href="#4-1-JSR303-JSP-349" class="headerlink" title="4.1 JSR303/JSP-349"></a>4.1 JSR303/JSP-349</h4><p>JSR303是一项标准,只提供规范不提供实现，规定一些校验规范即校验注解，如@Null，@NotNull，@Pattern，位于javax.validation.constraints包下。<strong>JSR-349是其的升级版本，添加了一些新特性</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@AssertFalse</span>            被注释的元素只能为<span class="keyword">false</span></span><br><span class="line"><span class="meta">@AssertTrue</span>             被注释的元素只能为<span class="keyword">true</span></span><br><span class="line"><span class="meta">@DecimalMax</span>             被注释的元素必须小于或等于&#123;value&#125;</span><br><span class="line"><span class="meta">@DecimalMin</span>             被注释的元素必须大于或等于&#123;value&#125;</span><br><span class="line"><span class="meta">@Digits</span>                 被注释的元素数字的值超出了允许范围(只允许在&#123;integer&#125;位整数和&#123;fraction&#125;位小数范围内)</span><br><span class="line"><span class="meta">@Email</span>                  被注释的元素不是一个合法的电子邮件地址</span><br><span class="line"><span class="meta">@Future</span>                 被注释的元素需要是一个将来的时间</span><br><span class="line"><span class="meta">@FutureOrPresent</span>        被注释的元素需要是一个将来或现在的时间</span><br><span class="line"><span class="meta">@Max</span>                    被注释的元素最大不能超过&#123;value&#125;</span><br><span class="line"><span class="meta">@Min</span>                    被注释的元素最小不能小于&#123;value&#125;</span><br><span class="line"><span class="meta">@Negative</span>               被注释的元素必须是负数</span><br><span class="line"><span class="meta">@NegativeOrZero</span>         被注释的元素必须是负数或零</span><br><span class="line"><span class="meta">@NotBlank</span>               被注释的元素不能为空</span><br><span class="line"><span class="meta">@NotEmpty</span>               被注释的元素不能为空</span><br><span class="line"><span class="meta">@NotNull</span>                被注释的元素不能为<span class="keyword">null</span></span><br><span class="line"><span class="meta">@Null</span>                   被注释的元素必须为<span class="keyword">null</span></span><br><span class="line"><span class="meta">@Past</span>                   被注释的元素需要是一个过去的时间</span><br><span class="line"><span class="meta">@PastOrPresent</span>          被注释的元素需要是一个过去或现在的时间</span><br><span class="line"><span class="meta">@Pattern</span>                被注释的元素需要匹配正则表达式<span class="string">&quot;&#123;regexp&#125;&quot;</span></span><br><span class="line"><span class="meta">@Positive</span>               被注释的元素必须是正数</span><br><span class="line"><span class="meta">@PositiveOrZero</span>         被注释的元素必须是正数或零</span><br><span class="line"><span class="meta">@Size</span>                   被注释的元素个数必须在&#123;min&#125;和&#123;max&#125;之间</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="4-2-hibernate-validation"><a href="#4-2-hibernate-validation" class="headerlink" title="4.2 hibernate validation"></a>4.2 hibernate validation</h4><p>hibernate validation是对JSR303这个规范的实现，并增加了一些其他校验注解，如@Email，@Length，@Range等等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CreditCardNumber</span>       被注释的元素不合法的信用卡号码</span><br><span class="line"><span class="meta">@Currency</span>               被注释的元素不合法的货币 (必须是&#123;value&#125;其中之一)</span><br><span class="line"><span class="meta">@EAN</span>                    被注释的元素不合法的&#123;type&#125;条形码</span><br><span class="line"><span class="meta">@Email</span>                  被注释的元素不是一个合法的电子邮件地址  (已过期)</span><br><span class="line"><span class="meta">@Length</span>                 被注释的元素长度需要在&#123;min&#125;和&#123;max&#125;之间</span><br><span class="line"><span class="meta">@CodePointLength</span>        被注释的元素长度需要在&#123;min&#125;和&#123;max&#125;之间</span><br><span class="line"><span class="meta">@LuhnCheck</span>              被注释的元素$&#123;validatedValue&#125;的校验码不合法, Luhn模<span class="number">10</span>校验和不匹配</span><br><span class="line"><span class="meta">@Mod10Check</span>             被注释的元素$&#123;validatedValue&#125;的校验码不合法, 模<span class="number">10</span>校验和不匹配</span><br><span class="line"><span class="meta">@Mod11Check</span>             被注释的元素$&#123;validatedValue&#125;的校验码不合法, 模<span class="number">11</span>校验和不匹配</span><br><span class="line"><span class="meta">@ModCheck</span>               被注释的元素$&#123;validatedValue&#125;的校验码不合法, $&#123;modType&#125;校验和不匹配  (已过期)</span><br><span class="line"><span class="meta">@NotBlank</span>               被注释的元素不能为空  (已过期)</span><br><span class="line"><span class="meta">@NotEmpty</span>               被注释的元素不能为空  (已过期)</span><br><span class="line"><span class="meta">@ParametersScriptAssert</span> 被注释的元素执行脚本表达式<span class="string">&quot;&#123;script&#125;&quot;</span>没有返回期望结果</span><br><span class="line"><span class="meta">@Range</span>                  被注释的元素需要在&#123;min&#125;和&#123;max&#125;之间</span><br><span class="line"><span class="meta">@SafeHtml</span>               被注释的元素可能有不安全的HTML内容</span><br><span class="line"><span class="meta">@ScriptAssert</span>           被注释的元素执行脚本表达式<span class="string">&quot;&#123;script&#125;&quot;</span>没有返回期望结果</span><br><span class="line"><span class="meta">@URL</span>                    被注释的元素需要是一个合法的URL</span><br><span class="line"><span class="meta">@DurationMax</span>            被注释的元素必须小于$&#123;inclusive == <span class="keyword">true</span> ? <span class="string">&#x27;或等于&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;$&#123;days == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : days += <span class="string">&#x27;天&#x27;</span>&#125;$&#123;hours == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : hours += <span class="string">&#x27;小时&#x27;</span>&#125;$&#123;minutes == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : minutes += <span class="string">&#x27;分钟&#x27;</span>&#125;$&#123;seconds == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : seconds += <span class="string">&#x27;秒&#x27;</span>&#125;$&#123;millis == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : millis += <span class="string">&#x27;毫秒&#x27;</span>&#125;$&#123;nanos == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : nanos += <span class="string">&#x27;纳秒&#x27;</span>&#125;</span><br><span class="line"><span class="meta">@DurationMin</span>            被注释的元素必须大于$&#123;inclusive == <span class="keyword">true</span> ? <span class="string">&#x27;或等于&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;$&#123;days == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : days += <span class="string">&#x27;天&#x27;</span>&#125;$&#123;hours == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : hours += <span class="string">&#x27;小时&#x27;</span>&#125;$&#123;minutes == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : minutes += <span class="string">&#x27;分钟&#x27;</span>&#125;$&#123;seconds == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : seconds += <span class="string">&#x27;秒&#x27;</span>&#125;$&#123;millis == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : millis += <span class="string">&#x27;毫秒&#x27;</span>&#125;$&#123;nanos == <span class="number">0</span> ? <span class="string">&#x27;&#x27;</span> : nanos += <span class="string">&#x27;纳秒&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="4-3-spring-validation"><a href="#4-3-spring-validation" class="headerlink" title="4.3 spring validation"></a>4.3 spring validation</h4><p>spring validation对hibernate validation进行了二次封装，在springmvc模块中添加了自动校验，并将校验信息封装进了特定的类中</p>
+<h3 id="5-自定义validation"><a href="#5-自定义validation" class="headerlink" title="5. 自定义validation"></a>5. 自定义validation</h3><blockquote>
+<p>如果上面的注解不能满足我们检验参数的要求，那我们该如何自定义检验规则？</p>
+</blockquote>
+<ol>
+<li>定义注解 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xiaoyuge</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.CONSTRUCTOR, ElementType.PARAMETER, ElementType.TYPE_USE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Constraint(validatedBy = &#123;</span></span><br><span class="line"><span class="meta">        TelephoneNumberValidator.class  // 指定校验器</span></span><br><span class="line"><span class="meta">&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> TelephoneNumber &#123;</span><br><span class="line">    <span class="function">String <span class="title">message</span><span class="params">()</span> <span class="keyword">default</span> &quot;Invalid telephone number&quot;</span>;</span><br><span class="line"></span><br><span class="line">    Class&lt;?&gt;[] groups() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    Class&lt;? extends Payload&gt;[] payload() <span class="keyword">default</span> &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>定义校验器 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> xiaoyuge</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TelephoneNumberValidator</span> <span class="keyword">implements</span> <span class="title">ConstraintValidator</span>&lt;<span class="title">TelephoneNumber</span>, <span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String REGEX_TEL = <span class="string">&quot;0\\d&#123;2,3&#125;[-]?\\d&#123;7,8&#125;|0\\d&#123;2,3&#125;\\s?\\d&#123;7,8&#125;|13[0-9]\\d&#123;8&#125;|15[1089]\\d&#123;8&#125;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s, ConstraintValidatorContext constraintValidatorContext)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> Pattern.matches(REGEX_TEL, s);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>使用 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserParam</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotEmpty(message = &quot;&#123;user.msg.userId.notEmpty&#125;&quot;, groups = &#123;EditValidationGroup.class&#125;)</span></span><br><span class="line">    <span class="keyword">private</span> String userId;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TelephoneNumber(message = &quot;invalid telephone number&quot;)</span> <span class="comment">// 这里</span></span><br><span class="line">    <span class="keyword">private</span> String telephone;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>摘录自：<a target="_blank" rel="noopener" href="https://pdai.tech/md/spring/springboot/springboot-x-interface-param.html">https://pdai.tech/md/spring/springboot/springboot-x-interface-param.html</a></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://xiaoyuge5201.github.io/springboot-chapter7/index.html" title="Springboot 对参数进行校验" target="_blank" rel="external">https://xiaoyuge5201.github.io/springboot-chapter7/index.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！本博客如有侵权，请联系删除！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoyuge5201" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="../images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoyuge5201" target="_blank"><span class="text-dark">小余哥</span><small class="ml-1x">xiaoyouge</small></a></h3>
+        <div>分享一些技术教程与实践，以及日常踩坑记录。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="../springboot-chapter8/index.html" title="Springboot 接口统一异常处理"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="../springboot-chapter6/index.html" title="Springboot 统一接口封装"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="../images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="../images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="../https:/github.com/xiaoyuge5201" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="../https:/weibo.com/u/6391798158" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2023 小余哥|猿无忧
+        
+<!--         <div class="publishby"> -->
+<!--         	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+<!--         </div> -->
+        <br>
+        <a href="https://beian.miit.gov.cn/" target="_blank">赣ICP备2021000267号-2</a>
+    </div>
+</footer>
+  <script src="/js/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')
+</script>
+
+<script src="../js/plugin.min.js"></script>
+
+
+<script src="../js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="../js/insight.js"></script>
+
+
+
+    <script>
+(function ($) {
+    $('.search-form').on('submit', function (e) {
+        var keyword = $('.search-form-input[name="wd"]').val();
+        window.location = 'https://www.baidu.com/s?wd=site:xiaoyuge5201.github.io ' + keyword;
+        return false;
+    });
+})(jQuery);
+</script>
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<div id="go-top">
+    </div>
+        <style type="text/css">
+        #go-top {
+            width:32px;
+            height:32px;
+            position:relative;
+            border-radius:2px;
+            position:fixed;
+            right:10px;
+            bottom:100px;
+            cursor:pointer;
+            display:none;
+            z-index:10;
+        }
+        #go-top:after {
+            content:url("/images/ico-to-top.png");
+            position:absolute;
+            left:0;
+            width: 32px;
+            height: 32px;
+            background-size: contain;
+        }
+
+        </style>
+        <script>
+            $(function() {
+                var o = $("#go-top");
+                $(window).scroll(function() {
+                    //监听滚动事件
+                    300 < document.documentElement.scrollTop  ? o.show(300) : o.hide(200);
+                })
+                 //回到顶部
+                 $("#go-top").click(function() {
+                    return $("html,body").animate({ scrollTop: 0 })
+                 })
+            })
+        </script>
+
+
+   <!--  -->
+  <style>
+    .copy-btn {
+          display: inline-block;
+          padding: 6px 12px;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 20px;
+          color: #333;
+          white-space: nowrap;
+          vertical-align: middle;
+          cursor: pointer;
+          background-color: #eee;
+          background-image: linear-gradient(#fcfcfc, #eee);
+          border: 1px solid #d5d5d5;
+          border-radius: 3px;
+          user-select: none;
+          outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+          transition: opacity .3s ease-in-out;
+          opacity: 0;
+          padding: 2px 10px;
+          position: absolute;
+          right: 4px;
+          color: #4a4886;
+          top: 3px;
+          z-index: 10;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+        .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+
+  <script>
+    addLoadEvent(()=>{
+      $('.highlight').each(function (i, e) {
+        var $wrap = $('<div>').addClass('highlight-wrap')
+        $(e).after($wrap)
+        $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
+          var code = $(this).parent().find(".code")[0].innerText
+          
+              code += ""
+          
+          var ta = document.createElement('textarea')
+          document.body.appendChild(ta)
+          ta.style.position = 'absolute'
+          ta.style.top = '0px'
+          ta.style.left = '0px'
+          ta.value = code
+          ta.select()
+          ta.focus()
+          var result = document.execCommand('copy')
+          document.body.removeChild(ta)
+          
+            if(result)$(this).text('复制成功')
+            else $(this).text('复制失败')
+          
+          $(this).blur()
+        })).on('mouseleave', function (e) {
+          var $b = $(this).find('.copy-btn')
+          setTimeout(function () {
+            $b.text('Copy')
+          }, 300)
+        }).append(e)
+      })
+    })
+  </script>
+<!--  -->
+</body>
+</html>
